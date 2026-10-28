@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locomotion and Movement - NEET UG Study Module</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --primary: #1a365d;
+    --secondary: #2b6cb0;
+    --accent: #3182ce;
+    --bg-light: #f7fafc;
+    --bg-card: #ffffff;
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --border-color: #cbd5e0;
+    --success-bg: #f0fff4;
+    --success-border: #38a169;
+    --warning-bg: #fffaf0;
+    --warning-border: #dd6b20;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: var(--bg-card);
+  }
+
+  header.module-header {
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+
+  .exam-badge {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    color: var(--primary);
+    margin: 8px 0;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 1.55rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 6px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0 0 14px 0;
+  }
+
+  ul, ol {
+    margin: 0 0 16px 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--secondary);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+
+  .callout-important {
+    background-color: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    border-left: 5px solid var(--warning-border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+
+  .callout-summary {
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-border);
+    border-left: 5px solid var(--success-border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 18px 0;
+  }
+
+  .svg-container {
+    width: 100%;
+    margin: 22px 0;
+    padding: 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .svg-caption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.95rem;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background-color: var(--primary);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) td {
+    background-color: var(--bg-light);
+  }
+
+  .question-block {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .question-header {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+  }
+
+  .options-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 10px 0;
+  }
+
+  .options-list li {
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    background-color: var(--bg-light);
+    border-radius: 4px;
+  }
+
+  .solution-box {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+    font-size: 0.95rem;
+  }
+
+  .answer-tag {
+    display: inline-block;
+    background-color: var(--success-border);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+    font-size: 0.85rem;
+  }
+
+  .formula-box {
+    background-color: #edf2f7;
+    border: 1px solid #cbd5e0;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin: 14px 0;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  @media print {
+    body {
+      background-color: #ffffff;
+      font-size: 10.5pt;
+    }
+    .container {
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    h2, h3 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    .question-block, .svg-container, .card, .callout-important, .callout-summary, table {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 1. TITLE AND EXAM CONTEXT -->
+  <header class="module-header">
+    <div class="exam-badge">NEET UG Biology Preparation Module</div>
+    <h1>Locomotion and Movement</h1>
+    <p><strong>Syllabus Scope:</strong> Types of movement (amoeboid, ciliary, flagellar, muscular); Skeletal, visceral, and cardiac muscles; Ultrastructure of striated muscle, sarcomere, and contractile proteins; Sliding filament theory of muscle contraction; Red and white muscle fibres; Human skeletal system (axial and appendicular); Joints; Muscular and skeletal disorders.</p>
+  </header>
+
+  <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+  <section id="objectives">
+    <h2>1. Learning Objectives &amp; Chapter Overview</h2>
+    <div class="card">
+      <p>After mastering this tutorial, you will be able to:</p>
+      <ul>
+        <li>Distinguish between general movement and locomotion, and explain why all locomotions are movements whereas not all movements are locomotions.</li>
+        <li>Classify cellular movements in the human body into amoeboid, ciliary, flagellar, and muscular categories with specific physiological examples.</li>
+        <li>Compare skeletal, visceral (smooth), and cardiac muscles based on location, microscopic appearance, and neural regulation.</li>
+        <li>Analyze the hierarchical organization of a skeletal muscle down to the sarcomere and the molecular structure of actin, tropomyosin, troponin, and myosin (meromyosin).</li>
+        <li>Trace the sequential physiological events of the sliding filament theory from central nervous system stimulation to cross-bridge cycling and relaxation.</li>
+        <li>Account for all 206 bones of the adult human skeleton across the axial (80 bones) and appendicular (126 bones) divisions.</li>
+        <li>Identify structural and functional classes of joints and diagnose key muscular and skeletal disorders frequently tested in NEET UG.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. CORE CONCEPTS AND EXPLANATIONS -->
+  <section id="introduction-and-types">
+    <h2>2. Introduction to Movement and Locomotion</h2>
+    <p>Movement is one of the defining features of living organisms. Both plants and animals display a wide spectrum of movements:</p>
+    <ul>
+      <li><strong>Protoplasmic streaming:</strong> A simple form of movement observed in unicellular organisms such as <em>Amoeba</em>.</li>
+      <li><strong>Appendage movements:</strong> Many organisms move cilia, flagella, or tentacles.</li>
+      <li><strong>Organ/part movements:</strong> Human beings can move limbs, jaws, eyelids, tongue, etc., without necessarily changing their spatial location.</li>
+    </ul>
+
+    <div class="callout-important">
+      <strong>Fundamental Principle:</strong> When voluntary movements result in a change of place or location (such as walking, running, climbing, flying, or swimming), they are termed <strong>locomotion</strong>. Locomotory structures do not have to be distinct from structures performing other physiological movements:
+      <ul>
+        <li>In <em>Paramoecium</em>, <strong>cilia</strong> move food through the cytopharynx and also propel the organism during locomotion.</li>
+        <li>In <em>Hydra</em>, <strong>tentacles</strong> capture prey and are also used for locomotion.</li>
+        <li>In <strong>humans</strong>, limbs are used both to adjust body posture and to perform locomotion.</li>
+      </ul>
+      Therefore, movements and locomotion cannot be studied in isolation: <strong>all locomotions are movements, but all movements are not locomotions.</strong>
+    </div>
+
+    <p>Animals perform locomotion according to their habitat and situational demands—primarily to search for food, shelter, mates, suitable breeding grounds, favourable climatic conditions, or to escape from enemies and predators.</p>
+
+    <h3>2.1 Types of Movement in Human Cells</h3>
+    <p>Cells of the human body exhibit three primary types of movement, alongside specialized flagellar movement:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Type of Movement</th>
+          <th>Mechanism / Structures Involved</th>
+          <th>Biological Examples &amp; Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Amoeboid Movement</strong></td>
+          <td>Effected by <strong>pseudopodia</strong> formed by streaming of protoplasm (as in <em>Amoeba</em>). Cytoskeletal elements such as <strong>microfilaments</strong> are also directly involved.</td>
+          <td>Specialized blood cells in humans such as <strong>macrophages</strong> and <strong>leucocytes</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Ciliary Movement</strong></td>
+          <td>Coordinated beating of <strong>cilia</strong> (hair-like outgrowths of the cell membrane) lining internal tubular organs with ciliated epithelium.</td>
+          <td>
+            1. <strong>Trachea:</strong> Removes dust particles and foreign substances inhaled with atmospheric air.<br>
+            2. <strong>Female reproductive tract (Fallopian tubes):</strong> Facilitates passage of ova.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Flagellar Movement</strong></td>
+          <td>Propulsion driven by <strong>flagella</strong> (longer outgrowths of the cell membrane).</td>
+          <td>
+            1. Swimming of human <strong>spermatozoa</strong>.<br>
+            2. Maintenance of water current in the canal system of <strong>sponges</strong>.<br>
+            3. Locomotion of Protists such as <em>Euglena</em>.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Muscular Movement</strong></td>
+          <td>Relies on the <strong>contractile property of muscles</strong> coordinated with the skeletal and neural systems.</td>
+          <td>Movement of human limbs, jaws, tongue, eyelids, body posture changes, and whole-body locomotion.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 4. MUSCLE TISSUE AND ULTRASTRUCTURE -->
+  <section id="muscle-system">
+    <h2>3. Muscle: Classification and Ultrastructure</h2>
+    <p>Muscle is a specialized tissue of <strong>mesodermal origin</strong>. In an adult human, muscles contribute approximately <strong>40–50% of total body weight</strong>. Muscle tissue possesses four cardinal physiological properties:</p>
+    <ol>
+      <li><strong>Excitability:</strong> Ability to respond to a stimulus by generating an electrical action potential.</li>
+      <li><strong>Contractility:</strong> Ability to shorten forcefully when adequately stimulated.</li>
+      <li><strong>Extensibility:</strong> Ability to be stretched without sustaining damage.</li>
+      <li><strong>Elasticity:</strong> Ability to recoil and return to its original resting length after being stretched or contracted.</li>
+    </ol>
+
+    <h3>3.1 Classification of Muscles</h3>
+    <p>Muscles are classified according to three criteria: <strong>location</strong>, <strong>appearance</strong> under a microscope, and <strong>nature of regulation</strong> of their activities.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Skeletal Muscle</th>
+          <th>Visceral Muscle</th>
+          <th>Cardiac Muscle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Location</strong></td>
+          <td>Closely associated with skeletal components (bones).</td>
+          <td>Inner walls of hollow visceral organs (alimentary canal, reproductive tract, etc.).</td>
+          <td>Exclusively in the wall of the heart (myocardium).</td>
+        </tr>
+        <tr>
+          <td><strong>Microscopic Appearance</strong></td>
+          <td><strong>Striated</strong> (striped appearance). Fibres are unbranched and multinucleated (syncytium).</td>
+          <td><strong>Non-striated / Smooth</strong> (lacks striations).</td>
+          <td><strong>Striated</strong>; many cardiac muscle cells assemble in a <strong>branching pattern</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>Nature of Regulation</strong></td>
+          <td><strong>Voluntary</strong> (under direct conscious control of the nervous system).</td>
+          <td><strong>Involuntary</strong> (not under voluntary control of the nervous system).</td>
+          <td><strong>Involuntary</strong> (nervous system does not control their activities directly).</td>
+        </tr>
+        <tr>
+          <td><strong>Major Functions</strong></td>
+          <td>Locomotory actions and changes of body posture.</td>
+          <td>Transport of food through the digestive tract (peristalsis) and gametes through the genital tract.</td>
+          <td>Rhythmic contraction and relaxation to pump blood throughout the body.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3.2 Anatomical Organization of a Skeletal Muscle</h3>
+    <p>Each organized skeletal muscle in the human body is composed of numerous <strong>muscle bundles</strong>, also called <strong>fascicles</strong>, held together by a common collagenous connective tissue layer known as <strong>fascia</strong>.</p>
+    <ul>
+      <li>Each fascicle (muscle bundle) contains numerous elongated cylindrical cells called <strong>muscle fibres</strong> (the anatomical unit of muscle).</li>
+      <li><strong>Sarcolemma:</strong> The plasma membrane lining each muscle fibre.</li>
+      <li><strong>Sarcoplasm:</strong> The cytoplasm enclosed by the sarcolemma. Because a skeletal muscle fibre contains many nuclei within a continuous sarcoplasm, it is a <strong>syncytium</strong>.</li>
+      <li><strong>Sarcoplasmic Reticulum:</strong> The specialized endoplasmic reticulum of muscle fibres; it serves as the intracellular <strong>storehouse of calcium ions (\(\mathrm{Ca^{2+}}\))</strong>.</li>
+      <li><strong>Myofibrils (Myofilaments):</strong> A large number of parallelly arranged rod-like filaments running longitudinally through the sarcoplasm.</li>
+    </ul>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 650 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect x="0" y="0" width="650" height="280" fill="#ffffff"/>
+        
+        <!-- Outer Fascia / Whole Muscle Cross Section -->
+        <ellipse cx="220" cy="140" rx="130" ry="110" fill="#fed7d7" stroke="#9b2c2c" stroke-width="4"/>
+        
+        <!-- Fascicle 1 (Top Left) -->
+        <ellipse cx="180" cy="95" rx="45" ry="38" fill="#feb2b2" stroke="#c53030" stroke-width="2.5"/>
+        <circle cx="165" cy="82" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="188" cy="80" r="10" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="160" cy="104" r="10" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="185" cy="105" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="205" cy="94" r="8" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+
+        <!-- Fascicle 2 (Top Right) -->
+        <ellipse cx="268" cy="100" rx="42" ry="36" fill="#feb2b2" stroke="#c53030" stroke-width="2.5"/>
+        <circle cx="255" cy="88" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="278" cy="88" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="252" cy="112" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="276" cy="112" r="10" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="295" cy="100" r="8" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+
+        <!-- Fascicle 3 (Bottom Right) -->
+        <ellipse cx="260" cy="182" rx="46" ry="38" fill="#feb2b2" stroke="#c53030" stroke-width="2.5"/>
+        <circle cx="242" cy="170" r="10" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="268" cy="168" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="246" cy="195" r="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="272" cy="193" r="10" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+        <circle cx="290" cy="180" r="8" fill="#e53e3e" stroke="#742a2a" stroke-width="1"/>
+
+        <!-- Fascicle 4 (Bottom Left - Pulled Out / Extruded Fibres) -->
+        <ellipse cx="172" cy="180" rx="44" ry="38" fill="#feb2b2" stroke="#c53030" stroke-width="2.5"/>
+        <!-- Extruded cylindrical muscle fibres -->
+        <rect x="85" y="158" width="85" height="14" rx="4" fill="#fc8181" stroke="#742a2a" stroke-width="1.5"/>
+        <ellipse cx="85" cy="165" rx="4" ry="7" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+        
+        <rect x="75" y="176" width="95" height="14" rx="4" fill="#fc8181" stroke="#742a2a" stroke-width="1.5"/>
+        <ellipse cx="75" cy="183" rx="4" ry="7" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+
+        <rect x="90" y="194" width="80" height="14" rx="4" fill="#fc8181" stroke="#742a2a" stroke-width="1.5"/>
+        <ellipse cx="90" cy="201" rx="4" ry="7" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+
+        <!-- Blood Capillaries -->
+        <path d="M 110 155 Q 130 180 115 212" fill="none" stroke="#2b6cb0" stroke-width="2.5"/>
+        <path d="M 125 155 Q 140 180 130 212" fill="none" stroke="#c53030" stroke-width="2.5"/>
+
+        <!-- Labels and Leader Lines -->
+        <line x1="315" y1="68" x2="415" y2="50" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="420" y="54" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Fascia (collagenous connective tissue)</text>
+
+        <line x1="310" y1="100" x2="415" y2="100" stroke="#1a202c" stroke-width="1.5"/>
+        <line x1="306" y1="182" x2="415" y2="100" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="420" y="104" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Fascicle (muscle bundle)</text>
+
+        <line x1="188" y1="80" x2="415" y2="150" stroke="#1a202c" stroke-width="1.5"/>
+        <line x1="105" y1="165" x2="415" y2="150" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="420" y="154" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Muscle fibre (muscle cell / syncytium)</text>
+
+        <line x1="85" y1="190" x2="415" y2="198" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="420" y="202" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Sarcolemma (plasma membrane)</text>
+
+        <line x1="118" y1="205" x2="415" y2="240" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="420" y="244" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Blood capillary</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 1: Cross-sectional view of a skeletal muscle showing fascia, fascicles (muscle bundles), muscle fibres, sarcolemma, and blood capillaries.</div>
+    </div>
+
+    <h3>3.3 Structure of the Myofibril and Sarcomere</h3>
+    <p>Each myofibril displays alternating dark and light bands along its length due to the specific spatial arrangement of two contractile proteins—<strong>Actin</strong> and <strong>Myosin</strong>—arranged as rod-like structures parallel to each other and to the longitudinal axis of the myofibril:</p>
+    <ul>
+      <li><strong>I-band (Isotropic band / Light band):</strong> Contains only <strong>actin (thin) filaments</strong>. An elastic fibre called the <strong>'Z' line</strong> bisects the centre of each I-band. The thin filaments are firmly anchored to the Z-line.</li>
+      <li><strong>A-band (Anisotropic band / Dark band):</strong> Contains <strong>myosin (thick) filaments</strong> (and overlapping ends of thin filaments in the resting state). The thick filaments in the middle of the A-band are held together by a thin fibrous membrane called the <strong>'M' line</strong>.</li>
+      <li><strong>Sarcomere:</strong> The portion of the myofibril between <strong>two successive 'Z' lines</strong>. It represents the <strong>functional unit of contraction</strong>. Each sarcomere consists of one central A-band flanked by two half I-bands (one half I-band on each side).</li>
+      <li><strong>'H' zone (Hensen's zone):</strong> In the resting state, the free ends of the thick filaments are partially overlapped by the edges of thin filaments on either side, leaving a central portion of the thick filaments not overlapped by thin filaments. This central un-overlapped region of the A-band is the <strong>'H' zone</strong>.</li>
+    </ul>
+
+    <div class="formula-box">
+      1 Sarcomere = \(\frac{1}{2}\) I-band + 1 A-band + \(\frac{1}{2}\) I-band (between two successive Z-lines)
+    </div>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 700 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="700" height="260" fill="#ffffff"/>
+
+        <!-- Top Banding Brackets -->
+        <!-- I band left -->
+        <path d="M 60 45 L 60 35 L 220 35 L 220 45" fill="none" stroke="#2d3748" stroke-width="1.5"/>
+        <text x="140" y="28" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#2d3748">I band</text>
+
+        <!-- A band center -->
+        <path d="M 220 45 L 220 35 L 480 35 L 480 45" fill="none" stroke="#2d3748" stroke-width="1.5"/>
+        <text x="350" y="28" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#2d3748">A band</text>
+
+        <!-- I band right -->
+        <path d="M 480 45 L 480 35 L 640 35 L 640 45" fill="none" stroke="#2d3748" stroke-width="1.5"/>
+        <text x="560" y="28" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#2d3748">I band</text>
+
+        <!-- Z lines (Left: x=140, Right: x=560) -->
+        <rect x="136" y="60" width="8" height="130" fill="#1a202c"/>
+        <rect x="556" y="60" width="8" height="130" fill="#1a202c"/>
+        <text x="140" y="55" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a202c">Z line</text>
+        <text x="560" y="55" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a202c">Z line</text>
+
+        <!-- M line (Center: x=350) -->
+        <line x1="350" y1="65" x2="350" y2="185" stroke="#718096" stroke-width="2.5" stroke-dasharray="4,3"/>
+        <text x="350" y="57" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#4a5568">M line</text>
+
+        <!-- Thin Filaments (Actin) attached to Left Z line (x=140 to x=300) and (x=60 to x=140) -->
+        <g stroke="#dd6b20" stroke-width="3.5" stroke-linecap="round">
+          <line x1="60" y1="72" x2="300" y2="72"/>
+          <line x1="60" y1="104" x2="300" y2="104"/>
+          <line x1="60" y1="136" x2="300" y2="136"/>
+          <line x1="60" y1="168" x2="300" y2="168"/>
+          <!-- Right side thin filaments (x=400 to x=640) -->
+          <line x1="400" y1="72" x2="640" y2="72"/>
+          <line x1="400" y1="104" x2="640" y2="104"/>
+          <line x1="400" y1="136" x2="640" y2="136"/>
+          <line x1="400" y1="168" x2="640" y2="168"/>
+        </g>
+
+        <!-- Thick Filaments (Myosin) in A band (x=220 to x=480) -->
+        <g fill="#c53030" stroke="#742a2a" stroke-width="1">
+          <rect x="220" y="84" width="260" height="8" rx="3"/>
+          <rect x="220" y="116" width="260" height="8" rx="3"/>
+          <rect x="220" y="148" width="260" height="8" rx="3"/>
+        </g>
+
+        <!-- Cross-bridge projections on thick filaments -->
+        <g stroke="#c53030" stroke-width="1.5">
+          <!-- Row 1 -->
+          <line x1="235" y1="84" x2="235" y2="78"/><line x1="255" y1="84" x2="255" y2="78"/><line x1="275" y1="84" x2="275" y2="78"/><line x1="295" y1="84" x2="295" y2="78"/>
+          <line x1="405" y1="84" x2="405" y2="78"/><line x1="425" y1="84" x2="425" y2="78"/><line x1="445" y1="84" x2="445" y2="78"/><line x1="465" y1="84" x2="465" y2="78"/>
+          <line x1="235" y1="92" x2="235" y2="98"/><line x1="255" y1="92" x2="255" y2="98"/><line x1="275" y1="92" x2="275" y2="98"/><line x1="295" y1="92" x2="295" y2="98"/>
+          <line x1="405" y1="92" x2="405" y2="98"/><line x1="425" y1="92" x2="425" y2="98"/><line x1="445" y1="92" x2="445" y2="98"/><line x1="465" y1="92" x2="465" y2="98"/>
+          <!-- Row 2 -->
+          <line x1="235" y1="116" x2="235" y2="110"/><line x1="255" y1="116" x2="255" y2="110"/><line x1="275" y1="116" x2="275" y2="110"/><line x1="295" y1="116" x2="295" y2="110"/>
+          <line x1="405" y1="116" x2="405" y2="110"/><line x1="425" y1="116" x2="425" y2="110"/><line x1="445" y1="116" x2="445" y2="110"/><line x1="465" y1="116" x2="465" y2="110"/>
+          <line x1="235" y1="124" x2="235" y2="130"/><line x1="255" y1="124" x2="255" y2="130"/><line x1="275" y1="124" x2="275" y2="130"/><line x1="295" y1="124" x2="295" y2="130"/>
+          <line x1="405" y1="124" x2="405" y2="130"/><line x1="425" y1="124" x2="425" y2="130"/><line x1="445" y1="124" x2="445" y2="130"/><line x1="465" y1="124" x2="465" y2="130"/>
+          <!-- Row 3 -->
+          <line x1="235" y1="148" x2="235" y2="142"/><line x1="255" y1="148" x2="255" y2="142"/><line x1="275" y1="148" x2="275" y2="142"/><line x1="295" y1="148" x2="295" y2="142"/>
+          <line x1="405" y1="148" x2="405" y2="142"/><line x1="425" y1="148" x2="425" y2="142"/><line x1="445" y1="148" x2="445" y2="142"/><line x1="465" y1="148" x2="465" y2="142"/>
+          <line x1="235" y1="156" x2="235" y2="162"/><line x1="255" y1="156" x2="255" y2="162"/><line x1="275" y1="156" x2="275" y2="162"/><line x1="295" y1="156" x2="295" y2="162"/>
+          <line x1="405" y1="156" x2="405" y2="162"/><line x1="425" y1="156" x2="425" y2="162"/><line x1="445" y1="156" x2="445" y2="162"/><line x1="465" y1="156" x2="465" y2="162"/>
+        </g>
+
+        <!-- H zone Bracket -->
+        <path d="M 300 185 L 300 198 L 400 198 L 400 185" fill="none" stroke="#2b6cb0" stroke-width="1.8"/>
+        <text x="350" y="214" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#2b6cb0">H zone</text>
+
+        <!-- Sarcomere Bracket -->
+        <path d="M 140 198 L 140 232 L 560 232 L 560 198" fill="none" stroke="#1a202c" stroke-width="2"/>
+        <text x="350" y="250" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a202c">Sarcomere (Functional Unit of Contraction)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 2: Schematic organization of a resting sarcomere showing Z-lines, M-line, I-bands, A-band, H-zone, thin (actin) filaments, and thick (myosin) filaments.</div>
+    </div>
+
+    <h3>3.4 Structure of Contractile Proteins</h3>
+    <h4>A. Actin (Thin) Filament</h4>
+    <p>Each thin filament is a complex of three distinct proteins (one main contractile protein and two regulatory proteins):</p>
+    <ol>
+      <li><strong>Actin:</strong> Composed of two <strong>'F' (filamentous) actins</strong> helically wound around each other. Each 'F' actin is a polymer of monomeric <strong>'G' (Globular) actins</strong>.</li>
+      <li><strong>Tropomyosin:</strong> Two filaments of this fibrous protein run closely along the grooves of the 'F' actins throughout their entire length.</li>
+      <li><strong>Troponin:</strong> A complex three-subunit globular protein distributed at regular intervals along the tropomyosin. In the resting state, a subunit of troponin <strong>masks the active binding sites for myosin</strong> on the actin filaments.</li>
+    </ol>
+
+    <h4>B. Myosin (Thick) Filament</h4>
+    <p>Each thick filament is a polymerized protein formed by many monomeric units called <strong>Meromyosins</strong>. Each meromyosin consists of two key regions:</p>
+    <ol>
+      <li><strong>Heavy Meromyosin (HMM):</strong> Consists of a <strong>globular head</strong> and a <strong>short arm</strong>. The HMM component projects outwards at a regular distance and angle from the surface of a polymerized myosin filament and is known as the <strong>cross arm</strong>. The globular head functions as an <strong>active ATPase enzyme</strong> and possesses both <strong>ATP binding sites</strong> and <strong>active binding sites for actin</strong>.</li>
+      <li><strong>Light Meromyosin (LMM):</strong> Forms the elongated helical <strong>tail</strong> that aggregates with other tails to form the central shaft of the thick filament.</li>
+    </ol>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 680 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="680" height="260" fill="#ffffff"/>
+
+        <!-- Part (a): Actin Filament -->
+        <text x="20" y="28" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a365d">(a) Actin (Thin) Filament</text>
+
+        <!-- Double Helix of G-actin monomers -->
+        <g fill="#68d391" stroke="#22543d" stroke-width="1.5">
+          <!-- Strand 1 -->
+          <circle cx="60" cy="70" r="12"/><circle cx="82" cy="64" r="12"/><circle cx="105" cy="68" r="12"/><circle cx="127" cy="78" r="12"/>
+          <circle cx="150" cy="84" r="12"/><circle cx="172" cy="80" r="12"/><circle cx="195" cy="70" r="12"/><circle cx="217" cy="64" r="12"/>
+          <circle cx="240" cy="68" r="12"/><circle cx="262" cy="78" r="12"/><circle cx="285" cy="84" r="12"/><circle cx="307" cy="80" r="12"/>
+          <circle cx="330" cy="70" r="12"/><circle cx="352" cy="64" r="12"/><circle cx="375" cy="68" r="12"/><circle cx="397" cy="78" r="12"/>
+          <!-- Strand 2 -->
+          <circle cx="60" cy="86" r="12"/><circle cx="82" cy="82" r="12"/><circle cx="105" cy="74" r="12"/><circle cx="127" cy="64" r="12"/>
+          <circle cx="150" cy="66" r="12"/><circle cx="172" cy="74" r="12"/><circle cx="195" cy="84" r="12"/><circle cx="217" cy="82" r="12"/>
+          <circle cx="240" cy="74" r="12"/><circle cx="262" cy="64" r="12"/><circle cx="285" cy="66" r="12"/><circle cx="307" cy="74" r="12"/>
+          <circle cx="330" cy="84" r="12"/><circle cx="352" cy="82" r="12"/><circle cx="375" cy="74" r="12"/><circle cx="397" cy="64" r="12"/>
+        </g>
+
+        <!-- Tropomyosin strands -->
+        <path d="M 48 80 Q 115 48 182 80 T 316 80 T 410 72" fill="none" stroke="#b7791f" stroke-width="5"/>
+        <path d="M 48 68 Q 115 100 182 68 T 316 68 T 410 78" fill="none" stroke="#d69e2e" stroke-width="4"/>
+
+        <!-- Troponin complexes (3-subunit clusters) -->
+        <g fill="#f56565" stroke="#742a2a" stroke-width="1.2">
+          <circle cx="115" cy="57" r="5"/><circle cx="123" cy="59" r="5"/><circle cx="119" cy="51" r="5"/>
+          <circle cx="250" cy="57" r="5"/><circle cx="258" cy="59" r="5"/><circle cx="254" cy="51" r="5"/>
+          <circle cx="375" cy="57" r="5"/><circle cx="383" cy="59" r="5"/><circle cx="379" cy="51" r="5"/>
+        </g>
+
+        <!-- Labels for Actin Filament -->
+        <line x1="383" y1="53" x2="470" y2="42" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="475" y="46" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Troponin (complex protein)</text>
+
+        <line x1="408" y1="73" x2="470" y2="73" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="475" y="77" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Tropomyosin</text>
+
+        <line x1="397" y1="88" x2="470" y2="102" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="475" y="106" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">F-actin (polymer of G-actins)</text>
+
+        <!-- Divider -->
+        <line x1="20" y1="125" x2="660" y2="125" stroke="#cbd5e0" stroke-width="1"/>
+
+        <!-- Part (b): Myosin Monomer (Meromyosin) -->
+        <text x="20" y="150" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a365d">(b) Myosin Monomer (Meromyosin)</text>
+
+        <!-- LMM Coiled Tail -->
+        <path d="M 100 225 Q 130 210 160 225 T 220 225 T 280 225 Q 315 225 335 195" fill="none" stroke="#2f855a" stroke-width="8" stroke-linecap="round"/>
+        <path d="M 100 218 Q 130 233 160 218 T 220 218 T 280 218 Q 320 218 345 195" fill="none" stroke="#48bb78" stroke-width="7" stroke-linecap="round"/>
+
+        <!-- Short Arm & Globular Heads (HMM) -->
+        <ellipse cx="352" cy="175" rx="18" ry="26" transform="rotate(-20 352 175)" fill="#9ae6b4" stroke="#22543d" stroke-width="2"/>
+        <ellipse cx="376" cy="182" rx="18" ry="26" transform="rotate(-15 376 182)" fill="#9ae6b4" stroke="#22543d" stroke-width="2"/>
+
+        <!-- Binding sites on Globular Heads -->
+        <ellipse cx="345" cy="154" rx="7" ry="4" transform="rotate(-20 345 154)" fill="#22543d"/>
+        <ellipse cx="370" cy="161" rx="7" ry="4" transform="rotate(-15 370 161)" fill="#22543d"/>
+        <ellipse cx="362" cy="172" rx="5" ry="7" fill="#276749"/>
+        <ellipse cx="386" cy="179" rx="5" ry="7" fill="#276749"/>
+
+        <!-- Labels for Meromyosin -->
+        <line x1="345" y1="154" x2="245" y2="154" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="240" y="158" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end" fill="#1a202c">Actin binding sites</text>
+
+        <line x1="362" y1="175" x2="245" y2="180" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="240" y="184" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end" fill="#1a202c">ATP binding sites</text>
+
+        <line x1="382" y1="168" x2="450" y2="160" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="455" y="164" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Globular Head (ATPase enzyme)</text>
+
+        <!-- Cross Arm Bracket -->
+        <path d="M 410 150 L 422 150 L 422 222 L 410 222" fill="none" stroke="#1a202c" stroke-width="1.8"/>
+        <text x="432" y="192" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a202c">Cross arm (HMM: Head + Short arm)</text>
+
+        <text x="200" y="248" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#22543d">Tail (Light Meromyosin / LMM)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 3: Molecular architecture of (a) an actin (thin) filament showing F-actin, tropomyosin, and troponin, and (b) a myosin monomer (meromyosin) showing LMM tail and HMM cross arm.</div>
+    </div>
+  </section>
+
+  <!-- 5. MECHANISM OF MUSCLE CONTRACTION -->
+  <section id="contraction-mechanism">
+    <h2>4. Mechanism of Muscle Contraction (Sliding Filament Theory)</h2>
+    <p>The mechanism of muscle contraction is explained by the <strong>Sliding Filament Theory</strong>, which states that <strong>contraction of a muscle fibre takes place by the sliding of the thin (actin) filaments over the thick (myosin) filaments</strong>.</p>
+
+    <h3>4.1 Step-by-Step Physiological Sequence</h3>
+    <ol>
+      <li><strong>Neural Initiation &amp; Motor Unit:</strong> Muscle contraction is initiated by a signal transmitted from the <strong>Central Nervous System (CNS)</strong> via a <strong>motor neuron</strong>. A motor neuron together with the muscle fibres connected to it constitutes a <strong>motor unit</strong>.</li>
+      <li><strong>Neuromuscular Junction (Motor-End Plate):</strong> The anatomical junction between a motor neuron and the sarcolemma of the muscle fibre is called the <strong>neuromuscular junction</strong> or <strong>motor-end plate</strong>.</li>
+      <li><strong>Neurotransmitter Release &amp; Action Potential:</strong> Arrival of a neural signal at the neuromuscular junction triggers the release of the neurotransmitter <strong>Acetylcholine</strong>, which generates an <strong>action potential in the sarcolemma</strong>.</li>
+      <li><strong>Calcium Ion (\(\mathrm{Ca^{2+}}\)) Release:</strong> The action potential spreads throughout the muscle fibre and stimulates the <strong>sarcoplasmic reticulum</strong> to release stored \(\mathrm{Ca^{2+}}\) ions into the sarcoplasm.</li>
+      <li><strong>Unmasking of Active Sites:</strong> Elevated sarcoplasmic \(\mathrm{Ca^{2+}}\) levels cause \(\mathrm{Ca^{2+}}\) to bind to a specific subunit of <strong>troponin</strong> on the actin filaments, inducing a conformational shift that <strong>removes the masking of active sites for myosin</strong>.</li>
+      <li><strong>ATP Hydrolysis &amp; Cross-Bridge Formation:</strong> Utilizing energy released from <strong>ATP hydrolysis</strong> (\(\mathrm{ATP \rightarrow ADP + P_i}\)) catalyzed by the myosin head ATPase, the energized myosin head binds to the exposed active sites on actin to form a <strong>cross-bridge</strong>.</li>
+      <li><strong>Power Stroke (Sliding/Rotation):</strong> The attached myosin head rotates/tilts towards the centre of the 'A' band, pulling the attached actin filaments inwards. Consequently, the <strong>'Z' lines attached to these actins are pulled inwards</strong>, causing a <strong>shortening of the sarcomere (contraction)</strong>. During this step, \(\mathrm{ADP}\) and \(\mathrm{P_i}\) are released from the myosin head.</li>
+      <li><strong>Cross-Bridge Detachment:</strong> A <strong>new \(\mathrm{ATP}\) molecule binds</strong> to the myosin head, causing the <strong>cross-bridge to break</strong>. The myosin head then hydrolyzes the newly bound \(\mathrm{ATP}\) and repeats the cycle of cross-bridge formation and breakage, producing further sliding.</li>
+      <li><strong>Muscle Relaxation:</strong> Cycling continues until \(\mathrm{Ca^{2+}}\) ions are actively <strong>pumped back into the sarcoplasmic cisternae</strong>. Removal of \(\mathrm{Ca^{2+}}\) allows troponin-tropomyosin to <strong>re-mask the active sites on actin filaments</strong>, returning the 'Z' lines to their original resting position (<strong>relaxation</strong>).</li>
+    </ol>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 680 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="680" height="340" fill="#ffffff"/>
+
+        <!-- Stage 1: Top (ATP Hydrolysis / Energized Myosin Head) -->
+        <g transform="translate(220, 15)">
+          <rect x="0" y="0" width="240" height="75" rx="6" fill="#f7fafc" stroke="#cbd5e0"/>
+          <text x="120" y="18" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a365d">1. ATP Hydrolysed (Energised Head)</text>
+          <!-- Actin -->
+          <line x1="25" y1="32" x2="215" y2="32" stroke="#dd6b20" stroke-width="6" stroke-linecap="round"/>
+          <!-- Myosin -->
+          <rect x="25" y="54" width="190" height="10" fill="#c53030"/>
+          <path d="M 110 54 Q 125 46 135 40" fill="none" stroke="#c53030" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="140" cy="39" rx="10" ry="6" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+          <text x="175" y="45" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2d3748">ADP + Pi</text>
+        </g>
+
+        <!-- Stage 2: Right (Cross Bridge Formation) -->
+        <g transform="translate(425, 130)">
+          <rect x="0" y="0" width="240" height="80" rx="6" fill="#f7fafc" stroke="#cbd5e0"/>
+          <text x="120" y="18" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a365d">2. Formation of Cross Bridge</text>
+          <!-- Actin -->
+          <line x1="25" y1="34" x2="215" y2="34" stroke="#dd6b20" stroke-width="6" stroke-linecap="round"/>
+          <!-- Myosin -->
+          <rect x="25" y="58" width="190" height="10" fill="#c53030"/>
+          <path d="M 115 58 L 125 40" fill="none" stroke="#c53030" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="125" cy="36" rx="8" ry="9" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+          <text x="175" y="48" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2d3748">Cross bridge</text>
+        </g>
+
+        <!-- Stage 3: Bottom (Sliding / Rotation) -->
+        <g transform="translate(220, 245)">
+          <rect x="0" y="0" width="240" height="80" rx="6" fill="#f7fafc" stroke="#cbd5e0"/>
+          <text x="120" y="18" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a365d">3. Sliding / Rotation (Power Stroke)</text>
+          <!-- Actin pulled left -->
+          <line x1="15" y1="34" x2="205" y2="34" stroke="#dd6b20" stroke-width="6" stroke-linecap="round"/>
+          <!-- Myosin -->
+          <rect x="25" y="58" width="190" height="10" fill="#c53030"/>
+          <path d="M 125 58 L 105 40" fill="none" stroke="#c53030" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="102" cy="37" rx="10" ry="6" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+          <text x="52" y="50" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2d3748">ADP + Pi released</text>
+        </g>
+
+        <!-- Stage 4: Left (Breaking of Cross Bridge) -->
+        <g transform="translate(15, 130)">
+          <rect x="0" y="0" width="240" height="80" rx="6" fill="#f7fafc" stroke="#cbd5e0"/>
+          <text x="120" y="18" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a365d">4. Breaking of Cross Bridge</text>
+          <!-- Actin -->
+          <line x1="25" y1="32" x2="215" y2="32" stroke="#dd6b20" stroke-width="6" stroke-linecap="round"/>
+          <!-- Myosin -->
+          <rect x="25" y="58" width="190" height="10" fill="#c53030"/>
+          <path d="M 115 58 L 105 46" fill="none" stroke="#c53030" stroke-width="6" stroke-linecap="round"/>
+          <ellipse cx="105" cy="44" rx="10" ry="6" fill="#e53e3e" stroke="#742a2a" stroke-width="1.5"/>
+          <text x="148" y="48" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2b6cb0">New ATP binds</text>
+        </g>
+
+        <!-- Connecting Cycle Arrows -->
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#2b6cb0"/>
+          </marker>
+        </defs>
+        <path d="M 465 55 Q 530 65 545 122" fill="none" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 545 215 Q 530 270 468 282" fill="none" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 215 282 Q 150 270 135 215" fill="none" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 135 122 Q 150 65 212 55" fill="none" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arrow)"/>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 4: The cyclic events of cross-bridge formation, power stroke (sliding/rotation), detachment upon new ATP binding, and re-energization via ATP hydrolysis.</div>
+    </div>
+
+    <h3>4.2 Dimensional Changes in Sarcomere Bands During Contraction</h3>
+    <div class="callout-important">
+      <strong>High-Yield NEET Concept — Changes in Sarcomere Regions During Contraction:</strong>
+      <ul>
+        <li><strong>Length of 'A' band:</strong> <strong>REMAINS CONSTANT (retains its original length)</strong> because thick filaments neither shorten nor contract.</li>
+        <li><strong>Length of 'I' band:</strong> <strong>DECREASES (gets reduced)</strong> as thin filaments slide deeper into the A-band.</li>
+        <li><strong>Length of 'H' zone:</strong> <strong>DECREASES</strong> progressively and disappears in a maximally contracted sarcomere when opposing thin filaments meet/overlap at the centre.</li>
+        <li><strong>Length of Sarcomere (distance between two successive Z-lines):</strong> <strong>DECREASES (shortens)</strong> as Z-lines are pulled inwards.</li>
+        <li><strong>Length of individual myofilaments (actin and myosin):</strong> <strong>REMAINS UNCHANGED</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 680 270" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="680" height="270" fill="#ffffff"/>
+
+        <!-- STATE 1: RELAXED -->
+        <text x="15" y="45" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a365d">1. Relaxed</text>
+        <rect x="130" y="20" width="6" height="55" fill="#1a202c"/>
+        <rect x="610" y="20" width="6" height="55" fill="#1a202c"/>
+        <!-- Thin filaments -->
+        <line x1="136" y1="30" x2="310" y2="30" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="136" y1="62" x2="310" y2="62" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="430" y1="30" x2="610" y2="30" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="430" y1="62" x2="610" y2="62" stroke="#dd6b20" stroke-width="3"/>
+        <!-- Thick filaments (x=240 to x=500, length=260) -->
+        <rect x="240" y="43" width="260" height="6" fill="#c53030"/>
+        <text x="370" y="16" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#2b6cb0">Wide H-zone &amp; Wide I-band</text>
+
+        <!-- STATE 2: CONTRACTING -->
+        <text x="15" y="135" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a365d">2. Contracting</text>
+        <rect x="175" y="110" width="6" height="55" fill="#1a202c"/>
+        <rect x="565" y="110" width="6" height="55" fill="#1a202c"/>
+        <!-- Thin filaments -->
+        <line x1="181" y1="120" x2="355" y2="120" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="181" y1="152" x2="355" y2="152" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="385" y1="120" x2="565" y2="120" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="385" y1="152" x2="565" y2="152" stroke="#dd6b20" stroke-width="3"/>
+        <!-- Thick filaments (same x=240 to x=500, length=260) -->
+        <rect x="240" y="133" width="260" height="6" fill="#c53030"/>
+        <text x="370" y="106" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#2b6cb0">Reduced H-zone &amp; Reduced I-band (A-band unchanged)</text>
+
+        <!-- STATE 3: MAXIMALLY CONTRACTED -->
+        <text x="15" y="220" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a365d">3. Maximally</text>
+        <text x="15" y="236" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a365d">Contracted</text>
+        <rect x="234" y="195" width="6" height="55" fill="#1a202c"/>
+        <rect x="500" y="195" width="6" height="55" fill="#1a202c"/>
+        <!-- Thin filaments meeting/overlapping in center -->
+        <line x1="240" y1="205" x2="385" y2="205" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="240" y1="237" x2="385" y2="237" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="355" y1="210" x2="500" y2="210" stroke="#dd6b20" stroke-width="3"/>
+        <line x1="355" y1="242" x2="500" y2="242" stroke="#dd6b20" stroke-width="3"/>
+        <!-- Thick filaments (same x=240 to x=500, length=260) -->
+        <rect x="240" y="221" width="260" height="6" fill="#c53030"/>
+        <text x="370" y="191" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#c53030">Z-lines pulled maximally inward; A-band retains constant length</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 5: Comparison of a sarcomere in relaxed, contracting, and maximally contracted states. Notice that the thick filament (A-band) length stays constant while the I-band, H-zone, and total sarcomere length decrease.</div>
+    </div>
+
+    <h3>4.3 Muscle Fatigue, Red Muscle Fibres, and White Muscle Fibres</h3>
+    <p>The reaction time of fibres varies among different muscles. <strong>Repeated activation of muscles leads to the accumulation of lactic acid due to anaerobic breakdown of glycogen in them, causing muscle fatigue.</strong></p>
+    <p>Muscle tissue contains a red-coloured oxygen-storing pigment called <strong>myoglobin</strong>. Based on myoglobin content and metabolic specialization, skeletal muscle fibres are categorized into <strong>Red fibres</strong> and <strong>White fibres</strong>:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Characteristic</th>
+          <th>Red Muscle Fibres (Aerobic Muscles)</th>
+          <th>White Muscle Fibres (Anaerobic Muscles)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Myoglobin Content</strong></td>
+          <td><strong>High</strong> (gives a reddish appearance).</td>
+          <td><strong>Very low / less</strong> (appears pale or whitish).</td>
+        </tr>
+        <tr>
+          <td><strong>Mitochondria Number</strong></td>
+          <td><strong>Plenty (numerous)</strong>; utilize stored oxygen for sustained aerobic ATP production.</td>
+          <td><strong>Few</strong> in number.</td>
+        </tr>
+        <tr>
+          <td><strong>Sarcoplasmic Reticulum</strong></td>
+          <td>Moderate/lower amount.</td>
+          <td><strong>High amount</strong> (enables rapid \(\mathrm{Ca^{2+}}\) release for fast contractions).</td>
+        </tr>
+        <tr>
+          <td><strong>Primary Energy Pathway</strong></td>
+          <td><strong>Aerobic respiration</strong> (hence called aerobic muscles).</td>
+          <td><strong>Anaerobic glycolysis</strong> (rapidly accumulates lactic acid and fatigues faster).</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 6. SKELETAL SYSTEM -->
+  <section id="skeletal-system">
+    <h2>5. Human Skeletal System</h2>
+    <p>The skeletal system consists of a framework of <strong>bones</strong> and a few <strong>cartilages</strong>. Both bone and cartilage are specialized connective tissues:</p>
+    <ul>
+      <li><strong>Bone:</strong> Has a <strong>very hard matrix</strong> due to <strong>calcium salts</strong> in it.</li>
+      <li><strong>Cartilage:</strong> Has a <strong>slightly pliable matrix</strong> due to <strong>chondroitin salts</strong>.</li>
+    </ul>
+    <p>In an adult human being, the skeletal system comprises <strong>206 bones</strong> (plus a few cartilages) grouped into two principal divisions:</p>
+    <ol>
+      <li><strong>Axial Skeleton:</strong> <strong>80 bones</strong> distributed along the main longitudinal axis of the body (Skull, Vertebral column, Sternum, and Ribs).</li>
+      <li><strong>Appendicular Skeleton:</strong> <strong>126 bones</strong> comprising the bones of the limbs (120 bones) along with their girdles (6 bones).</li>
+    </ol>
+
+    <h3>5.1 Axial Skeleton (80 Bones)</h3>
+    <h4>A. The Skull Region (29 Bones Total: 22 Skull Bones + 1 Hyoid + 6 Ear Ossicles)</h4>
+    <ul>
+      <li><strong>Skull Bones (22 bones):</strong> Composed of two sets—<strong>Cranial</strong> and <strong>Facial</strong>:
+        <ul>
+          <li><strong>Cranial bones (8):</strong> Form the hard protective outer covering, the <strong>cranium</strong>, for the brain. These include: Frontal (1), Parietal (2), Temporal (2), Occipital (1), Sphenoid (1), and Ethmoid (1).</li>
+          <li><strong>Facial bones (14):</strong> Form the front part of the skull (including Nasal, Lacrimal, Zygomatic, Maxilla, Mandible, etc.).</li>
+        </ul>
+      </li>
+      <li><strong>Hyoid Bone (1):</strong> A single <strong>U-shaped bone</strong> located at the base of the buccal cavity.</li>
+      <li><strong>Ear Ossicles (6 bones = 3 in each middle ear):</strong> Each middle ear contains three tiny bones—<strong>Malleus</strong>, <strong>Incus</strong>, and <strong>Stapes</strong>.</li>
+      <li><strong>Dicondylic Skull:</strong> The human skull articulates with the superior region of the vertebral column (the first cervical vertebra, atlas) with the help of <strong>two occipital condyles</strong>; hence humans possess a <strong>dicondylic skull</strong>.</li>
+    </ul>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 650 310" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="650" height="310" fill="#ffffff"/>
+
+        <!-- Cranial vault outline -->
+        <path d="M 190 190 C 155 150, 160 65, 250 45 C 325 30, 395 55, 405 115 L 405 135 L 425 165 L 410 175 L 415 210 L 350 210 L 320 185 L 250 205 Z" fill="#fbd38d" stroke="#744210" stroke-width="2.5"/>
+
+        <!-- Internal Suture Lines -->
+        <!-- Coronal suture (between Frontal and Parietal) -->
+        <path d="M 325 40 Q 330 85 335 120" fill="none" stroke="#744210" stroke-width="1.8" stroke-dasharray="3,2"/>
+        <!-- Squamous suture (Temporal) -->
+        <path d="M 245 185 Q 255 125 335 120 Q 355 140 345 185" fill="#f6ad55" stroke="#744210" stroke-width="1.8"/>
+        <!-- Lambdoid suture (Occipital) -->
+        <path d="M 190 190 Q 215 145 245 155" fill="none" stroke="#744210" stroke-width="1.8" stroke-dasharray="3,2"/>
+        <!-- Sphenoid region -->
+        <polygon points="335,120 365,115 368,145 342,148" fill="#fefcbf" stroke="#744210" stroke-width="1.5"/>
+
+        <!-- Orbit (Eye Socket) with Ethmoid and Lacrimal -->
+        <ellipse cx="388" cy="135" rx="16" ry="18" fill="#744210"/>
+        <ellipse cx="384" cy="136" rx="8" ry="11" fill="#edf2f7"/>
+        <!-- Zygomatic -->
+        <path d="M 350 155 L 395 155 L 390 175 L 345 168 Z" fill="#fbd38d" stroke="#744210" stroke-width="1.5"/>
+
+        <!-- Mandible (Lower Jaw) -->
+        <path d="M 328 175 L 345 175 L 355 215 L 415 218 L 412 242 L 335 235 L 322 195 Z" fill="#feebc8" stroke="#744210" stroke-width="2"/>
+
+        <!-- Occipital Condyle -->
+        <ellipse cx="268" cy="205" rx="14" ry="7" fill="#dd6b20" stroke="#744210" stroke-width="1.5"/>
+
+        <!-- Hyoid Bone -->
+        <path d="M 325 268 C 305 268, 305 282, 325 282 L 355 285 L 355 275 Z" fill="#fc8181" stroke="#742a2a" stroke-width="1.8"/>
+
+        <!-- Labels Left Side -->
+        <line x1="255" y1="75" x2="135" y2="65" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="130" y="69" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end" fill="#1a202c">Parietal bone</text>
+
+        <line x1="295" y1="150" x2="135" y2="140" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="130" y="144" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end" fill="#1a202c">Temporal bone</text>
+
+        <line x1="205" y1="175" x2="135" y2="195" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="130" y="199" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end" fill="#1a202c">Occipital bone</text>
+
+        <line x1="268" y1="205" x2="135" y2="245" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="130" y="249" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end" fill="#1a202c">Occipital condyle</text>
+
+        <!-- Labels Right Side -->
+        <line x1="365" y1="70" x2="475" y2="40" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="44" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Frontal bone</text>
+
+        <line x1="355" y1="130" x2="475" y2="75" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="79" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Sphenoid bone</text>
+
+        <line x1="382" y1="132" x2="475" y2="108" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="112" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Ethmoid &amp; Lacrimal bones</text>
+
+        <line x1="418" y1="155" x2="475" y2="142" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="146" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Nasal bone</text>
+
+        <line x1="378" y1="165" x2="475" y2="176" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="180" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Zygomatic bone</text>
+
+        <line x1="410" y1="195" x2="475" y2="208" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="212" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Maxilla (upper jaw)</text>
+
+        <line x1="395" y1="235" x2="475" y2="245" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="249" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Mandible (lower jaw)</text>
+
+        <line x1="345" y1="280" x2="475" y2="282" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="480" y="286" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Hyoid bone (U-shaped)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 6: Lateral view of the human skull illustrating cranial bones, facial bones, occipital condyle, and the U-shaped hyoid bone.</div>
+    </div>
+
+    <h4>B. Vertebral Column (26 Bones in Adult)</h4>
+    <ul>
+      <li>Formed by <strong>26 serially arranged units called vertebrae</strong> and is placed <strong>dorsally</strong>, extending from the base of the skull to constitute the main framework of the trunk.</li>
+      <li><strong>Neural Canal:</strong> Each vertebra has a central hollow portion called the <strong>neural canal</strong> through which the spinal cord passes.</li>
+      <li><strong>Atlas &amp; Axis:</strong> The first cervical vertebra is the <strong>atlas</strong>, which articulates with the two occipital condyles of the skull. The second cervical vertebra is the <strong>axis</strong>.</li>
+      <li><strong>Regional Differentiation (from skull downwards):</strong>
+        <ol>
+          <li><strong>Cervical:</strong> <strong>7 vertebrae</strong> (the number of cervical vertebrae is <strong>7 in almost all mammals</strong>, including human beings).</li>
+          <li><strong>Thoracic:</strong> <strong>12 vertebrae</strong>.</li>
+          <li><strong>Lumbar:</strong> <strong>5 vertebrae</strong>.</li>
+          <li><strong>Sacral (Sacrum):</strong> <strong>1-fused</strong> (formed by fusion of 5 sacral vertebrae in adults).</li>
+          <li><strong>Coccygeal (Coccyx):</strong> <strong>1-fused</strong> (formed by fusion of 4 coccygeal vertebrae in adults).</li>
+        </ol>
+      </li>
+      <li><strong>Functions:</strong> Protects the spinal cord, supports the head, and serves as the point of attachment for the ribs and musculature of the back.</li>
+    </ul>
+
+    <div class="formula-box">
+      Adult Human Vertebral Formula: \(\mathrm{C_7\,T_{12}\,L_5\,S_{(1\text{-fused})}\,Co_{(1\text{-fused})} = 26\text{ Vertebrae}}\)
+    </div>
+
+    <h4>C. Sternum (1 Bone) &amp; Ribs (12 Pairs = 24 Bones)</h4>
+    <ul>
+      <li><strong>Sternum:</strong> A flat bone located on the <strong>ventral midline of the thorax</strong>.</li>
+      <li><strong>Ribs (12 pairs):</strong> Each rib is a thin flat bone connected <strong>dorsally to the vertebral column (thoracic vertebrae)</strong> and <strong>ventrally to the sternum</strong>. Each rib has <strong>two articulation surfaces on its dorsal end</strong> and is therefore called <strong>bicephalic</strong>.</li>
+      <li><strong>Classification of the 12 Pairs of Ribs:</strong>
+        <ul>
+          <li><strong>True Ribs (Vertebrosternal ribs — Pairs 1 to 7):</strong> First 7 pairs. Attached dorsally to the thoracic vertebrae and connected ventrally directly to the sternum with the help of <strong>hyaline cartilage</strong>.</li>
+          <li><strong>False Ribs (Vertebrochondral ribs — Pairs 8, 9, and 10):</strong> Do not articulate directly with the sternum; instead, they join the <strong>7th rib</strong> with the help of <strong>hyaline cartilage</strong>.</li>
+          <li><strong>Floating Ribs (Vertebral ribs — Pairs 11 and 12):</strong> Last 2 pairs. Attached dorsally to thoracic vertebrae but are <strong>not connected ventrally</strong>, hence called floating ribs.</li>
+        </ul>
+      </li>
+      <li><strong>Rib Cage:</strong> Formed collectively by the <strong>Thoracic vertebrae + Ribs + Sternum</strong>.</li>
+    </ul>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 680 310" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="680" height="310" fill="#ffffff"/>
+
+        <!-- Left Panel: Vertebral Column -->
+        <text x="160" y="25" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a365d">(a) Vertebral Column (26 Units)</text>
+        
+        <!-- Cervical (7) -->
+        <path d="M 135 45 Q 145 65 135 90" fill="none" stroke="#d69e2e" stroke-width="16" stroke-linecap="round"/>
+        <line x1="145" y1="68" x2="205" y2="68" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="210" y="72" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Cervical (7)</text>
+
+        <!-- Thoracic (12) -->
+        <path d="M 135 94 Q 115 135 132 178" fill="none" stroke="#dd6b20" stroke-width="18" stroke-linecap="round"/>
+        <line x1="130" y1="136" x2="205" y2="136" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="210" y="140" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Thoracic (12)</text>
+
+        <!-- Lumbar (5) -->
+        <path d="M 132 182 Q 150 212 135 242" fill="none" stroke="#c05621" stroke-width="22" stroke-linecap="round"/>
+        <line x1="148" y1="212" x2="205" y2="212" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="210" y="216" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Lumbar (5)</text>
+
+        <!-- Sacrum (1-fused) -->
+        <path d="M 135 246 Q 112 262 122 276" fill="none" stroke="#9c4221" stroke-width="18" stroke-linecap="round"/>
+        <line x1="126" y1="262" x2="205" y2="262" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="210" y="266" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Sacrum (1-fused)</text>
+
+        <!-- Coccyx (1-fused) -->
+        <path d="M 122 280 L 132 292" fill="none" stroke="#7b341e" stroke-width="10" stroke-linecap="round"/>
+        <line x1="132" y1="290" x2="205" y2="290" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="210" y="294" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Coccyx (1-fused)</text>
+
+        <!-- Divider -->
+        <line x1="330" y1="15" x2="330" y2="295" stroke="#cbd5e0" stroke-width="1.5"/>
+
+        <!-- Right Panel: Rib Cage -->
+        <text x="505" y="25" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a365d">(b) Rib Cage (Sternum &amp; 12 Pairs of Ribs)</text>
+
+        <!-- Dorsal Vertebral Column behind Sternum -->
+        <rect x="495" y="45" width="20" height="235" fill="#d69e2e" stroke="#744210" stroke-width="1.5"/>
+
+        <!-- Ribs (Left and Right arches) -->
+        <g fill="none" stroke="#dd6b20" stroke-width="5">
+          <!-- True ribs (1-7) -->
+          <path d="M 495 62 C 430 55, 425 78, 492 78"/>
+          <path d="M 515 62 C 580 55, 585 78, 518 78"/>
+          <path d="M 495 80 C 410 75, 410 100, 492 100"/>
+          <path d="M 515 80 C 600 75, 600 100, 518 100"/>
+          <path d="M 495 100 C 395 98, 395 122, 492 122"/>
+          <path d="M 515 100 C 615 98, 615 122, 518 122"/>
+          <path d="M 495 122 C 385 122, 385 145, 492 145"/>
+          <path d="M 515 122 C 625 122, 625 145, 518 145"/>
+          <path d="M 495 144 C 382 148, 385 168, 492 168"/>
+          <path d="M 515 144 C 628 148, 625 168, 518 168"/>
+        </g>
+
+        <!-- False ribs (8-10) joining 7th rib costal cartilage -->
+        <g fill="none" stroke="#3182ce" stroke-width="4">
+          <path d="M 495 170 C 385 178, 405 202, 470 168"/>
+          <path d="M 515 170 C 625 178, 605 202, 540 168"/>
+          <path d="M 495 190 C 390 202, 415 222, 470 168"/>
+          <path d="M 515 190 C 620 202, 595 222, 540 168"/>
+        </g>
+
+        <!-- Floating ribs (11-12) not connected ventrally -->
+        <g fill="none" stroke="#742a2a" stroke-width="4" stroke-linecap="round">
+          <path d="M 495 218 Q 435 225 445 245"/>
+          <path d="M 515 218 Q 575 225 565 245"/>
+          <path d="M 495 238 Q 450 245 458 262"/>
+          <path d="M 515 238 Q 560 245 552 262"/>
+        </g>
+
+        <!-- Sternum (Ventral Midline) -->
+        <polygon points="488,58 522,58 515,82 516,168 505,188 494,168 495,82" fill="#ecc94b" stroke="#744210" stroke-width="2"/>
+
+        <!-- Labels for Rib Cage -->
+        <text x="342" y="110" font-family="sans-serif" font-size="12" font-weight="bold" fill="#744210">True ribs</text>
+        <text x="342" y="125" font-family="sans-serif" font-size="11" fill="#744210">(Pairs 1–7)</text>
+
+        <text x="342" y="195" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2b6cb0">False ribs</text>
+        <text x="342" y="210" font-family="sans-serif" font-size="11" fill="#2b6cb0">(Pairs 8–10)</text>
+
+        <text x="342" y="255" font-family="sans-serif" font-size="12" font-weight="bold" fill="#742a2a">Floating ribs</text>
+        <text x="342" y="270" font-family="sans-serif" font-size="11" fill="#742a2a">(Pairs 11–12)</text>
+
+        <line x1="516" y1="115" x2="605" y2="115" stroke="#1a202c" stroke-width="1.5"/>
+        <text x="610" y="119" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Sternum</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 7: (a) Regions of the adult human vertebral column (26 bones); (b) Organization of the rib cage showing sternum, true ribs (1–7), false/vertebrochondral ribs (8–10), and floating ribs (11–12).</div>
+    </div>
+
+    <h3>5.2 Appendicular Skeleton (126 Bones)</h3>
+    <p>The bones of the limbs (4 × 30 = 120 bones) along with their girdles (Pectoral girdle = 4 bones; Pelvic girdle = 2 bones) constitute the <strong>appendicular skeleton (126 bones)</strong>.</p>
+
+    <h4>A. Bones of the Forelimb (Upper Limb — 30 Bones per Limb)</h4>
+    <ul>
+      <li><strong>Humerus (1):</strong> Bone of the upper arm.</li>
+      <li><strong>Radius (1) &amp; Ulna (1):</strong> Bones of the forearm.</li>
+      <li><strong>Carpals (8):</strong> Wrist bones.</li>
+      <li><strong>Metacarpals (5):</strong> Palm bones.</li>
+      <li><strong>Phalanges (14):</strong> Digits (finger bones; digital formula \(2, 3, 3, 3, 3\)).</li>
+    </ul>
+
+    <h4>B. Bones of the Hindlimb (Lower Limb — 30 Bones per Limb)</h4>
+    <ul>
+      <li><strong>Femur (1):</strong> Thigh bone—the <strong>longest bone</strong> in the human body.</li>
+      <li><strong>Patella (1):</strong> A cup-shaped bone covering the knee ventrally (<strong>knee cap</strong>). (Note: Because the patella is a 15th bone before the tarsals, the ankle has 7 tarsals compared to 8 carpals in the wrist, keeping the total per limb at exactly 30 bones).</li>
+      <li><strong>Tibia (1) &amp; Fibula (1):</strong> Bones of the shank (lower leg).</li>
+      <li><strong>Tarsals (7):</strong> Ankle bones.</li>
+      <li><strong>Metatarsals (5):</strong> Sole/foot bones.</li>
+      <li><strong>Phalanges (14):</strong> Digits (toe bones).</li>
+    </ul>
+
+    <h4>C. Pectoral and Pelvic Girdles (6 Bones Total)</h4>
+    <p>Pectoral and pelvic girdle bones articulate the upper and lower limbs, respectively, with the axial skeleton. Each girdle is formed of two halves.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Pectoral Girdle (Shoulder Girdle)</th>
+          <th>Pelvic Girdle (Hip Girdle)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Component Bones</strong></td>
+          <td><strong>4 bones total</strong> (2 halves; each half consists of <strong>1 Clavicle</strong> and <strong>1 Scapula</strong>).</td>
+          <td><strong>2 Coxal bones total</strong> (each half is 1 coxal bone formed by the <strong>fusion of 3 bones: ilium, ischium, and pubis</strong>).</td>
+        </tr>
+        <tr>
+          <td><strong>Anatomical Details</strong></td>
+          <td>
+            • <strong>Scapula:</strong> Large triangular flat bone situated in the dorsal part of the thorax between the <strong>2nd and 7th ribs</strong>. Its dorsal body has an elevated ridge called the <strong>spine</strong> projecting as a flat expanded process called the <strong>acromion</strong> (with which the clavicle articulates).<br>
+            • <strong>Clavicle (Collar bone):</strong> Long slender bone with <strong>two curvatures</strong>.
+          </td>
+          <td>
+            • Each coxal bone results from fusion of ilium, ischium, and pubis.<br>
+            • The two halves of the pelvic girdle meet ventrally to form the <strong>pubic symphysis</strong> containing <strong>fibrous cartilage</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Articulation Cavity</strong></td>
+          <td><strong>Glenoid cavity</strong> (located below the acromion of the scapula); articulates with the <strong>head of the humerus</strong> to form the shoulder joint.</td>
+          <td><strong>Acetabulum</strong> (cavity at the point of fusion of ilium, ischium, and pubis); articulates with the <strong>thigh bone (femur)</strong> to form the hip joint.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="svg-container">
+      <svg viewBox="0 0 680 330" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="680" height="330" fill="#ffffff"/>
+
+        <!-- Left Side: Pectoral Girdle and Forelimb -->
+        <text x="165" y="24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a365d">(a) Pectoral Girdle &amp; Forelimb (32 Bones)</text>
+
+        <!-- Clavicle -->
+        <path d="M 105 48 Q 140 38 175 50" fill="none" stroke="#ecc94b" stroke-width="7" stroke-linecap="round"/>
+        <!-- Scapula -->
+        <polygon points="105,54 165,58 145,125" fill="#fbd38d" stroke="#744210" stroke-width="2"/>
+        <!-- Humerus -->
+        <line x1="102" y1="62" x2="102" y2="155" stroke="#feebc8" stroke-width="11" stroke-linecap="round"/>
+        <line x1="102" y1="62" x2="102" y2="155" stroke="#744210" stroke-width="2"/>
+        <!-- Radius & Ulna -->
+        <line x1="96" y1="162" x2="92" y2="242" stroke="#744210" stroke-width="5" stroke-linecap="round"/>
+        <line x1="108" y1="162" x2="108" y2="242" stroke="#744210" stroke-width="5" stroke-linecap="round"/>
+        <!-- Carpals (8) -->
+        <rect x="88" y="246" width="24" height="12" rx="3" fill="#ecc94b" stroke="#744210" stroke-width="1.5"/>
+        <!-- Metacarpals (5) & Phalanges (14) -->
+        <line x1="88" y1="260" x2="78" y2="282" stroke="#744210" stroke-width="3"/>
+        <line x1="93" y1="260" x2="88" y2="295" stroke="#744210" stroke-width="3"/>
+        <line x1="99" y1="260" x2="98" y2="300" stroke="#744210" stroke-width="3"/>
+        <line x1="105" y1="260" x2="108" y2="296" stroke="#744210" stroke-width="3"/>
+        <line x1="110" y1="260" x2="117" y2="288" stroke="#744210" stroke-width="3"/>
+
+        <!-- Labels Forelimb -->
+        <line x1="145" y1="45" x2="195" y2="45" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="49" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Clavicle (Collar bone)</text>
+
+        <line x1="152" y1="88" x2="195" y2="88" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="92" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Scapula (2nd–7th ribs)</text>
+
+        <line x1="102" y1="115" x2="195" y2="122" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="126" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Humerus (1)</text>
+
+        <line x1="94" y1="195" x2="195" y2="185" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="189" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Radius (1)</text>
+
+        <line x1="108" y1="215" x2="195" y2="215" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="219" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Ulna (1)</text>
+
+        <line x1="112" y1="252" x2="195" y2="252" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="256" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Carpals (8)</text>
+
+        <line x1="114" y1="274" x2="195" y2="278" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="282" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Metacarpals (5)</text>
+
+        <line x1="110" y1="296" x2="195" y2="304" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="200" y="308" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Phalanges (14)</text>
+
+        <!-- Divider -->
+        <line x1="340" y1="15" x2="340" y2="315" stroke="#cbd5e0" stroke-width="1.5"/>
+
+        <!-- Right Side: Pelvic Girdle and Hindlimb -->
+        <text x="510" y="24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a365d">(b) Pelvic Girdle &amp; Hindlimb (31 Bones)</text>
+
+        <!-- Coxal Bone (Ilium, Ischium, Pubis) -->
+        <path d="M 415 45 C 400 45, 395 75, 415 88 L 445 92 L 435 65 Z" fill="#fbd38d" stroke="#744210" stroke-width="2"/>
+        <!-- Femur -->
+        <line x1="412" y1="88" x2="422" y2="178" stroke="#744210" stroke-width="8" stroke-linecap="round"/>
+        <!-- Patella -->
+        <circle cx="422" cy="184" r="6" fill="#ecc94b" stroke="#744210" stroke-width="1.8"/>
+        <!-- Tibia & Fibula -->
+        <line x1="424" y1="192" x2="424" y2="262" stroke="#744210" stroke-width="6" stroke-linecap="round"/>
+        <line x1="414" y1="192" x2="414" y2="262" stroke="#744210" stroke-width="3.5" stroke-linecap="round"/>
+        <!-- Tarsals (7) -->
+        <rect x="410" y="266" width="22" height="12" rx="3" fill="#ecc94b" stroke="#744210" stroke-width="1.5"/>
+        <!-- Metatarsals (5) & Phalanges (14) -->
+        <line x1="412" y1="280" x2="402" y2="304" stroke="#744210" stroke-width="3"/>
+        <line x1="416" y1="280" x2="410" y2="306" stroke="#744210" stroke-width="3"/>
+        <line x1="421" y1="280" x2="418" y2="306" stroke="#744210" stroke-width="3"/>
+        <line x1="426" y1="280" x2="426" y2="305" stroke="#744210" stroke-width="3"/>
+        <line x1="430" y1="280" x2="434" y2="302" stroke="#744210" stroke-width="3"/>
+
+        <!-- Labels Hindlimb -->
+        <line x1="435" y1="68" x2="485" y2="62" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="66" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Coxal bone (Ilium, Ischium, Pubis)</text>
+
+        <line x1="418" y1="135" x2="485" y2="135" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="139" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Femur (1 - Longest bone)</text>
+
+        <line x1="428" y1="184" x2="485" y2="184" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="188" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Patella (1 - Cup-shaped knee cap)</text>
+
+        <line x1="424" y1="215" x2="485" y2="212" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="216" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Tibia (1) &amp; Fibula (1)</text>
+
+        <line x1="432" y1="272" x2="485" y2="262" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="266" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Tarsals (7)</text>
+
+        <line x1="430" y1="288" x2="485" y2="286" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="290" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Metatarsals (5)</text>
+
+        <line x1="434" y1="304" x2="485" y2="308" stroke="#1a202c" stroke-width="1.2"/>
+        <text x="490" y="312" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a202c">Phalanges (14)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 8: Appendicular skeleton components: (a) Right pectoral girdle and forelimb bones; (b) Right pelvic girdle (coxal bone) and hindlimb bones.</div>
+    </div>
+
+    <h3>5.3 Complete Bone Accounting Table (206 Bones in Adult Human)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Division</th>
+          <th>Sub-region / Component</th>
+          <th>Breakdown of Bones</th>
+          <th>Total Bones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><strong>Axial Skeleton (80 Bones)</strong></td>
+          <td><strong>Skull Region (29)</strong></td>
+          <td>Cranium (8) + Facial (14) + Hyoid (1) + Ear Ossicles (2 × 3 = 6)</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td><strong>Vertebral Column (26)</strong></td>
+          <td>Cervical (7) + Thoracic (12) + Lumbar (5) + Sacral (1-fused) + Coccygeal (1-fused)</td>
+          <td>26</td>
+        </tr>
+        <tr>
+          <td><strong>Sternum (1)</strong></td>
+          <td>Single flat ventral midline bone</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td><strong>Ribs (24)</strong></td>
+          <td>12 pairs (7 pairs true + 3 pairs false + 2 pairs floating)</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>Appendicular Skeleton (126 Bones)</strong></td>
+          <td><strong>Forelimbs (2 × 30 = 60)</strong></td>
+          <td>Per limb: Humerus (1) + Radius (1) + Ulna (1) + Carpals (8) + Metacarpals (5) + Phalanges (14)</td>
+          <td>60</td>
+        </tr>
+        <tr>
+          <td><strong>Hindlimbs (2 × 30 = 60)</strong></td>
+          <td>Per limb: Femur (1) + Patella (1) + Tibia (1) + Fibula (1) + Tarsals (7) + Metatarsals (5) + Phalanges (14)</td>
+          <td>60</td>
+        </tr>
+        <tr>
+          <td><strong>Pectoral Girdle (4)</strong></td>
+          <td>2 halves × (1 Clavicle + 1 Scapula)</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><strong>Pelvic Girdle (2)</strong></td>
+          <td>2 Coxal bones (each formed by fusion of ilium, ischium, and pubis)</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong>GRAND TOTAL IN ADULT HUMAN SKELETON</strong></td>
+          <td><strong>206 Bones</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 7. JOINTS AND DISORDERS -->
+  <section id="joints-and-disorders">
+    <h2>6. Joints and Musculoskeletal Disorders</h2>
+    <p><strong>Joints</strong> are points of contact between <strong>bones</strong>, or between <strong>bones and cartilages</strong>. Force generated by muscles is used to carry out movement through joints, where the <strong>joint acts as a fulcrum</strong>. Based on structural characteristics and degree of movability, joints are classified into three major forms:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Structural Class of Joint</th>
+          <th>Movability &amp; Structural Feature</th>
+          <th>Anatomical Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Fibrous Joints</strong></td>
+          <td><strong>Do not allow any movement (Immovable).</strong> Bones fuse end-to-end via dense fibrous connective tissue.</td>
+          <td><strong>Sutures</strong> between flat skull bones forming the cranium.</td>
+        </tr>
+        <tr>
+          <td><strong>2. Cartilaginous Joints</strong></td>
+          <td><strong>Permit limited movements (Slightly movable).</strong> Bones involved are joined together with the help of cartilages.</td>
+          <td>
+            • Joint between <strong>adjacent vertebrae</strong> in the vertebral column.<br>
+            • <strong>Pubic symphysis</strong> between the two pubic bones in the pelvic girdle (contains fibrous cartilage).
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3. Synovial Joints</strong></td>
+          <td><strong>Allow considerable movement (Freely movable).</strong> Characterized by a <strong>fluid-filled synovial cavity</strong> between the articulating surfaces of the two bones.</td>
+          <td>
+            1. <strong>Ball and Socket joint:</strong> Between humerus and pectoral girdle (glenoid cavity); also between femur and acetabulum of pelvic girdle.<br>
+            2. <strong>Hinge joint:</strong> Knee joint, elbow joint, and joints between phalanges.<br>
+            3. <strong>Pivot joint:</strong> Between <strong>atlas and axis</strong> (1st and 2nd cervical vertebrae).<br>
+            4. <strong>Gliding joint:</strong> Between the <strong>carpals</strong>.<br>
+            5. <strong>Saddle joint:</strong> Between <strong>carpal and metacarpal of thumb</strong>.
+          </td>
+        </tbody>
+    </table>
+
+    <h3>6.1 Disorders of the Muscular and Skeletal System</h3>
+    <p>NEET UG frequently tests the exact etiology and clinical features of these six disorders:</p>
+    <ul>
+      <li><strong>Myasthenia gravis:</strong> An <strong>autoimmune disorder</strong> affecting the <strong>neuromuscular junction</strong>, leading to fatigue, weakening, and paralysis of skeletal muscle.</li>
+      <li><strong>Muscular dystrophy:</strong> Progressive degeneration of skeletal muscle mostly due to a <strong>genetic disorder</strong>.</li>
+      <li><strong>Tetany:</strong> Rapid spasms (wild contractions) in muscle due to <strong>low \(\mathrm{Ca^{2+}}\) levels in body fluid</strong> (hypocalcemic tetany).</li>
+      <li><strong>Arthritis:</strong> Inflammation of joints.</li>
+      <li><strong>Osteoporosis:</strong> An <strong>age-related disorder</strong> characterized by <strong>decreased bone mass</strong> and increased chances of fractures. <strong>Decreased levels of estrogen</strong> is a common cause (especially in post-menopausal women).</li>
+      <li><strong>Gout:</strong> Inflammation of joints due to the <strong>accumulation of uric acid crystals</strong>.</li>
+    </ul>
+  </section>
+
+  <!-- 8. WORKED EXAMPLES & TEXTBOOK EXERCISE SOLUTIONS -->
+  <section id="worked-examples">
+    <h2>7. Worked Conceptual Examples &amp; Complete Chapter Exercise Solutions</h2>
+
+    <div class="card">
+      <h4>Worked Example 1: True/False Verification &amp; Scientific Correction</h4>
+      <p><strong>Problem:</strong> Evaluate whether each of the following statements is True or False. If false, rewrite the statement accurately:</p>
+      <ol type="a">
+        <li>Actin is present in thin filament.</li>
+        <li>H-zone of striated muscle fibre represents both thick and thin filaments.</li>
+        <li>Human skeleton has 206 bones.</li>
+        <li>There are 11 pairs of ribs in man.</li>
+        <li>Sternum is present on the ventral side of the body.</li>
+      </ol>
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li><strong>(a) True.</strong> Thin filaments are composed of actin along with tropomyosin and troponin.</li>
+        <li><strong>(b) False.</strong> <em>Correction:</em> The H-zone of a striated muscle fibre is the central portion of the thick filament (A-band) that is not overlapped by thin filaments; thus, it represents <strong>only thick (myosin) filaments</strong>.</li>
+        <li><strong>(c) True.</strong> The adult human skeleton consists of 206 bones (80 axial + 126 appendicular).</li>
+        <li><strong>(d) False.</strong> <em>Correction:</em> There are <strong>12 pairs of ribs</strong> (24 ribs total) in humans.</li>
+        <li><strong>(e) True.</strong> The sternum is a flat bone situated on the ventral midline of the thorax.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Worked Example 2: Anatomical Joint Identification</h4>
+      <p><strong>Problem:</strong> Identify the specific type of joint present at each of the following anatomical locations:</p>
+      <ol type="a">
+        <li>Between atlas and axis</li>
+        <li>Between carpal and metacarpal of thumb</li>
+        <li>Between phalanges</li>
+        <li>Between femur and acetabulum</li>
+        <li>Between cranial bones</li>
+        <li>Between pubic bones in the pelvic girdle</li>
+      </ol>
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li><strong>(a) Atlas and axis:</strong> Pivot joint (a type of synovial joint).</li>
+        <li><strong>(b) Carpal and metacarpal of thumb:</strong> Saddle joint (a type of synovial joint).</li>
+        <li><strong>(c) Between phalanges:</strong> Hinge joint (a type of synovial joint).</li>
+        <li><strong>(d) Femur and acetabulum:</strong> Ball and socket joint (a type of synovial joint).</li>
+        <li><strong>(e) Between cranial bones:</strong> Fibrous joint (sutures; immovable).</li>
+        <li><strong>(f) Between pubic bones in the pelvic girdle:</strong> Cartilaginous joint (pubic symphysis containing fibrous cartilage).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Worked Example 3: Rapid-Recall Fill-in-the-Blank Review</h4>
+      <p><strong>Problem &amp; Verified Answers:</strong></p>
+      <ol type="a">
+        <li>All mammals (except a few) have <strong><u>seven (7)</u></strong> cervical vertebrae.</li>
+        <li>The number of phalanges in each limb of a human is <strong><u>14</u></strong>.</li>
+        <li>Thin filament of a myofibril contains 2 'F' actins and two other proteins, namely <strong><u>tropomyosin</u></strong> and <strong><u>troponin</u></strong>.</li>
+        <li>In a muscle fibre, \(\mathrm{Ca^{2+}}\) is stored in the <strong><u>sarcoplasmic reticulum</u></strong>.</li>
+        <li><strong><u>11th</u></strong> and <strong><u>12th</u></strong> pairs of ribs are called floating ribs.</li>
+        <li>The human cranium is made of <strong><u>eight (8)</u></strong> bones.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 9. NEET UG PRACTICE QUESTIONS -->
+  <section id="practice-questions">
+    <h2>8. NEET UG Practice Questions with Worked Solutions</h2>
+    <p><em>Note: The following original practice questions are strictly aligned with the NEET UG examination pattern and syllabus standard.</em></p>
+
+    <!-- Question 1 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 1 (Single-Choice MCQ)</div>
+      <p>Which of the following statements accurately describes the relationship between movement and locomotion across organisms?</p>
+      <ul class="options-list">
+        <li>(A) Locomotory structures in organisms are always anatomically separate from structures performing other physiological movements.</li>
+        <li>(B) All movements are considered locomotions, whereas only voluntary movements are non-locomotory.</li>
+        <li>(C) In <em>Paramoecium</em>, cilia propel food through the cytopharynx and also carry out locomotion, illustrating that all locomotions are movements but not all movements are locomotions.</li>
+        <li>(D) Macrophages and leucocytes in human blood exhibit ciliary movement mediated by microfilaments.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (C)</span>
+        <strong>Worked Solution:</strong> Locomotory structures need not be different from those affecting other types of movements. In <em>Paramoecium</em>, cilia move food through the cytopharynx and perform locomotion; in <em>Hydra</em>, tentacles capture prey and aid locomotion. All locomotions are movements (those resulting in a change of place or location), but all movements are not locomotions. Macrophages and leucocytes exhibit amoeboid movement (not ciliary movement) using pseudopodia and microfilaments.
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 2 (Multiple-Statement Evaluation)</div>
+      <p>Consider the following four statements regarding human muscle tissue:</p>
+      <ol type="I">
+        <li>Skeletal muscle fibres are syncytial because their sarcoplasm contains multiple nuclei enclosed by a single sarcolemma.</li>
+        <li>Visceral muscles located in the inner walls of the reproductive tract are non-striated and under voluntary neural control.</li>
+        <li>Cardiac muscle cells assemble in a branching pattern, appear striated under the microscope, and are involuntary in nature.</li>
+        <li>Each muscle bundle (fascicle) is held together with other fascicles in an organized skeletal muscle by a common collagenous connective tissue layer called fascia.</li>
+      </ol>
+      <p>Which of the above statements are <strong>correct</strong>?</p>
+      <ul class="options-list">
+        <li>(A) I, II, and III only</li>
+        <li>(B) I, III, and IV only</li>
+        <li>(C) II and IV only</li>
+        <li>(D) I, II, III, and IV</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <strong>Worked Solution:</strong> Statements I, III, and IV are completely accurate. Statement II is incorrect because visceral (smooth) muscles are <strong>involuntary</strong>—their activities are not under the voluntary control of the nervous system.
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 3 (Single-Choice MCQ)</div>
+      <p>During the resting state of a skeletal muscle fibre, what is the specific molecular role of troponin and tropomyosin on the thin filament?</p>
+      <ul class="options-list">
+        <li>(A) Tropomyosin hydrolyzes ATP to ADP and \(\mathrm{P_i}\) while troponin anchors the thin filament to the M-line.</li>
+        <li>(B) A subunit of troponin distributed at regular intervals on tropomyosin masks the active binding sites for myosin on the actin filaments.</li>
+        <li>(C) Troponin polymerizes monomeric G-actins into helical F-actins when \(\mathrm{Ca^{2+}}\) concentration is low.</li>
+        <li>(D) Tropomyosin forms the cross-arm that projects outwards from the surface of the thick filament.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <strong>Worked Solution:</strong> Each thin filament contains two F-actins, two filaments of tropomyosin running close to the F-actins throughout their length, and a complex protein troponin distributed at regular intervals on tropomyosin. In the resting state, a subunit of troponin masks the active binding sites for myosin on the actin filaments.
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 4 (Single-Choice MCQ)</div>
+      <p>Which component of the contractile apparatus possesses active ATPase enzymatic activity, ATP binding sites, and active binding sites for actin?</p>
+      <ul class="options-list">
+        <li>(A) Light Meromyosin (LMM) tail</li>
+        <li>(B) Globular head of Heavy Meromyosin (HMM)</li>
+        <li>(C) Monomeric Globular (G) actin</li>
+        <li>(D) Calcium-binding subunit of Troponin</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <strong>Worked Solution:</strong> Each meromyosin has two parts: a globular head with a short arm (Heavy Meromyosin, HMM) and a tail (Light Meromyosin, LMM). The globular head of HMM is an active ATPase enzyme and contains the binding sites for ATP as well as active sites for actin.
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 5 (Sequential Ordering MCQ)</div>
+      <p>Arrange the following physiological events of skeletal muscle contraction in the correct chronological sequence starting from neural stimulation:</p>
+      <ol type="1">
+        <li>Binding of \(\mathrm{Ca^{2+}}\) with a subunit of troponin to unmask active sites on actin</li>
+        <li>Release of Acetylcholine at the neuromuscular junction (motor-end plate)</li>
+        <li>Formation of cross-bridge between myosin head and actin filament utilizing energy from ATP hydrolysis</li>
+        <li>Generation of action potential in the sarcolemma and release of \(\mathrm{Ca^{2+}}\) from the sarcoplasmic reticulum</li>
+        <li>Pulling of attached actin filaments towards the centre of the 'A' band and inward movement of 'Z' lines</li>
+      </ol>
+      <ul class="options-list">
+        <li>(A) \(2 \rightarrow 4 \rightarrow 1 \rightarrow 3 \rightarrow 5\)</li>
+        <li>(B) \(2 \rightarrow 1 \rightarrow 4 \rightarrow 3 \rightarrow 5\)</li>
+        <li>(C) \(4 \rightarrow 2 \rightarrow 1 \rightarrow 5 \rightarrow 3\)</li>
+        <li>(D) \(2 \rightarrow 4 \rightarrow 3 \rightarrow 1 \rightarrow 5\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <strong>Worked Solution:</strong> Arrival of a neural signal at the neuromuscular junction releases Acetylcholine (2) \(\rightarrow\) generates an action potential in the sarcolemma, releasing \(\mathrm{Ca^{2+}}\) into the sarcoplasm (4) \(\rightarrow\) \(\mathrm{Ca^{2+}}\) binds to troponin and removes masking of active sites on actin (1) \(\rightarrow\) energized myosin head binds to actin to form a cross-bridge (3) \(\rightarrow\) actin filaments and Z-lines are pulled inwards towards the centre of the A-band (5).
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 6 (Assertion–Reason)</div>
+      <p><strong>Assertion (A):</strong> During the contraction of a striated muscle fibre, the length of the 'I' band and 'H' zone decreases, whereas the length of the 'A' band remains unchanged.</p>
+      <p><strong>Reason (R):</strong> Muscle contraction occurs by the sliding of thin (actin) filaments over thick (myosin) filaments towards the centre of the 'A' band without any shortening of the individual thick or thin filaments.</p>
+      <ul class="options-list">
+        <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+        <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+        <li>(C) (A) is true, but (R) is false.</li>
+        <li>(D) (A) is false, but (R) is true.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <strong>Worked Solution:</strong> According to the sliding filament theory, thin filaments slide over thick filaments toward the M-line. Because the A-band width is defined by the exact length of the thick (myosin) filaments—which do not shorten—the A-band retains its constant length, while the un-overlapped regions (I-band and H-zone) shorten as overlap increases. Thus, both (A) and (R) are true and (R) directly explains (A).
+      </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 7 (Single-Choice MCQ)</div>
+      <p>How do white muscle fibres differ physiologically and structurally from red muscle fibres?</p>
+      <ul class="options-list">
+        <li>(A) White fibres possess high myoglobin content, numerous mitochondria, and low sarcoplasmic reticulum.</li>
+        <li>(B) White fibres possess very less myoglobin, few mitochondria, a high amount of sarcoplasmic reticulum, and depend on anaerobic processes for energy.</li>
+        <li>(C) White fibres are called aerobic muscles because they store large amounts of oxygen in myoglobin.</li>
+        <li>(D) White fibres never accumulate lactic acid upon repeated activation.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <strong>Worked Solution:</strong> White muscle fibres contain very little myoglobin (appearing pale/whitish), have few mitochondria, contain a high amount of sarcoplasmic reticulum, and depend primarily on anaerobic glycolysis for energy production.
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 8 (Quantitative Bone Accounting MCQ)</div>
+      <p>What is the exact number of bones present in (i) the axial skeleton, (ii) the facial region of the skull, (iii) the wrist (carpals) of one hand, and (iv) the ankle (tarsals) of one foot in an adult human?</p>
+      <ul class="options-list">
+        <li>(A) (i) 80, (ii) 14, (iii) 8, (iv) 7</li>
+        <li>(B) (i) 80, (ii) 22, (iii) 7, (iv) 8</li>
+        <li>(C) (i) 126, (ii) 14, (iii) 8, (iv) 8</li>
+        <li>(D) (i) 80, (ii) 8, (iii) 8, (iv) 7</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <strong>Worked Solution:</strong> The axial skeleton comprises <strong>80 bones</strong>; the facial region is made up of <strong>14 skeletal elements</strong> (while cranial bones are 8, totaling 22 in the skull proper); one wrist contains <strong>8 carpals</strong>; and one ankle contains <strong>7 tarsals</strong>.
+      </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 9 (Single-Choice MCQ)</div>
+      <p>Why are the 8th, 9th, and 10th pairs of ribs in humans classified as vertebrochondral (false) ribs?</p>
+      <ul class="options-list">
+        <li>(A) They are not connected ventrally at all and float freely in the abdominal wall.</li>
+        <li>(B) They lack dorsal articulation with the thoracic vertebrae.</li>
+        <li>(C) They do not articulate directly with the sternum, but instead join the 7th rib with the help of hyaline cartilage.</li>
+        <li>(D) They articulate dorsally with lumbar vertebrae and ventrally with the clavicle.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (C)</span>
+        <strong>Worked Solution:</strong> The 8th, 9th, and 10th pairs of ribs are attached dorsally to the thoracic vertebrae ("vertebro-") but do not articulate directly with the sternum; instead, they join the 7th rib with the help of hyaline cartilage ("-chondral"). Hence they are called vertebrochondral or false ribs.
+      </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 10 (Single-Choice MCQ)</div>
+      <p>Which of the following anatomical descriptions regarding the human pectoral and pelvic girdles is <strong>incorrect</strong>?</p>
+      <ul class="options-list">
+        <li>(A) The scapula is a large triangular flat bone situated in the dorsal part of the thorax between the second and the seventh ribs.</li>
+        <li>(B) The spine of the scapula projects as a flat expanded process called the acromion, with which the clavicle articulates.</li>
+        <li>(C) Each coxal bone of the pelvic girdle is formed by the fusion of three bones—ilium, ischium, and pubis—and bears a cavity called the glenoid cavity for articulation with the femur.</li>
+        <li>(D) The two halves of the pelvic girdle meet ventrally to form the pubic symphysis containing fibrous cartilage.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (C)</span>
+        <strong>Worked Solution:</strong> Statement (C) is incorrect because the cavity formed at the point of fusion of the ilium, ischium, and pubis in the coxal bone is the <strong>acetabulum</strong> (which articulates with the femur). The <strong>glenoid cavity</strong> is located below the acromion in the scapula (pectoral girdle) and articulates with the head of the humerus.
+      </div>
+    </div>
+
+    <!-- Question 11 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 11 (Matching Type MCQ)</div>
+      <p>Match the joints in <strong>Column I</strong> with their correct anatomical location or classification in <strong>Column II</strong>:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Column I</th>
+            <th>Column II</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>(a) Pivot joint</td>
+            <td>(i) Between carpal and metacarpal of thumb</td>
+          </tr>
+          <tr>
+            <td>(b) Saddle joint</td>
+            <td>(ii) Flat skull bones fused via sutures</td>
+          </tr>
+          <tr>
+            <td>(c) Gliding joint</td>
+            <td>(iii) Between atlas and axis</td>
+          </tr>
+          <tr>
+            <td>(d) Fibrous joint</td>
+            <td>(iv) Between the carpals</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="options-list">
+        <li>(A) (a)-(iii), (b)-(i), (c)-(iv), (d)-(ii)</li>
+        <li>(B) (a)-(i), (b)-(iii), (c)-(iv), (d)-(ii)</li>
+        <li>(C) (a)-(iii), (b)-(iv), (c)-(i), (d)-(ii)</li>
+        <li>(D) (a)-(ii), (b)-(i), (c)-(iv), (d)-(iii)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <strong>Worked Solution:</strong>
+        <ul>
+          <li>(a) Pivot joint \(\rightarrow\) (iii) Between atlas and axis.</li>
+          <li>(b) Saddle joint \(\rightarrow\) (i) Between carpal and metacarpal of thumb.</li>
+          <li>(c) Gliding joint \(\rightarrow\) (iv) Between the carpals.</li>
+          <li>(d) Fibrous joint \(\rightarrow\) (ii) Flat skull bones fused end-to-end via dense fibrous sutures.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Question 12 -->
+    <div class="question-block">
+      <div class="question-header">Practice Question 12 (Clinical Diagnosis MCQ)</div>
+      <p>Match the musculoskeletal disorders in <strong>Column I</strong> with their defining cause/feature in <strong>Column II</strong>:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Column I (Disorder)</th>
+            <th>Column II (Etiology / Pathophysiology)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>(a) Myasthenia gravis</td>
+            <td>(i) Inflammation of joints due to accumulation of uric acid crystals</td>
+          </tr>
+          <tr>
+            <td>(b) Tetany</td>
+            <td>(ii) Decreased bone mass and higher fracture risk; commonly caused by decreased estrogen levels</td>
+          </tr>
+          <tr>
+            <td>(c) Osteoporosis</td>
+            <td>(iii) Autoimmune disorder affecting neuromuscular junction causing weakening and paralysis of skeletal muscle</td>
+          </tr>
+          <tr>
+            <td>(d) Gout</td>
+            <td>(iv) Rapid spasms (wild contractions) in muscle due to low \(\mathrm{Ca^{2+}}\) in body fluid</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="options-list">
+        <li>(A) (a)-(iii), (b)-(iv), (c)-(ii), (d)-(i)</li>
+        <li>(B) (a)-(iv), (b)-(iii), (c)-(ii), (d)-(i)</li>
+        <li>(C) (a)-(iii), (b)-(iv), (c)-(i), (d)-(ii)</li>
+        <li>(D) (a)-(ii), (b)-(iv), (c)-(iii), (d)-(i)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <strong>Worked Solution:</strong> Myasthenia gravis is an autoimmune disorder affecting the neuromuscular junction (iii); Tetany involves rapid muscle spasms due to low \(\mathrm{Ca^{2+}}\) in body fluids (iv); Osteoporosis is an age-related reduction in bone mass commonly linked to decreased estrogen (ii); and Gout is joint inflammation caused by uric acid crystal accumulation (i). Note that progressive degeneration of skeletal muscle due to a genetic disorder is <em>Muscular dystrophy</em>.
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. COMMON PITFALLS AND REVISION CHECKLIST -->
+  <section id="pitfalls-and-checklist">
+    <h2>9. Common NEET Pitfalls &amp; Rapid Revision Checklist</h2>
+    <div class="callout-important">
+      <h4>Common Exam Traps to Avoid:</h4>
+      <ul>
+        <li><strong>Trap 1 (A-band vs. I-band during contraction):</strong> Never select an option stating that the A-band shortens during contraction. The <strong>A-band remains constant</strong>; only the <strong>I-band, H-zone, and sarcomere shorten</strong>.</li>
+        <li><strong>Trap 2 (Role of ATP binding vs. ATP hydrolysis):</strong> <strong>ATP hydrolysis</strong> (\(\mathrm{ATP \rightarrow ADP + P_i}\)) energizes the myosin head to form a cross-bridge, whereas the <strong>binding of a fresh ATP molecule breaks (detaches) the cross-bridge</strong>.</li>
+        <li><strong>Trap 3 (Carpals vs. Tarsals count):</strong> Forelimbs and hindlimbs both have exactly <strong>30 bones each</strong>, even though the hindlimb has a <strong>patella (1)</strong> and the forelimb has no equivalent elbow cap. This is balanced because the wrist has <strong>8 carpals</strong> while the ankle has <strong>7 tarsals</strong>.</li>
+        <li><strong>Trap 4 (Myasthenia gravis vs. Muscular dystrophy):</strong> Remember that <strong>Myasthenia gravis is an autoimmune disorder</strong> affecting the neuromuscular junction, whereas <strong>Muscular dystrophy is a genetic disorder</strong> causing progressive degeneration of skeletal muscle.</li>
+        <li><strong>Trap 5 (Matrix salts):</strong> Bone matrix is hard due to <strong>calcium salts</strong>; cartilage matrix is slightly pliable due to <strong>chondroitin salts</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="callout-summary">
+      <h4>Final Concise Recap Checklist:</h4>
+      <ul>
+        <li><strong>Cellular Movements:</strong> Amoeboid (macrophages, leucocytes via pseudopodia &amp; microfilaments); Ciliary (trachea dust removal, ovum passage in female reproductive tract); Flagellar (spermatozoa swimming, water current in sponges, <em>Euglena</em> locomotion); Muscular (limbs, jaws, tongue).</li>
+        <li><strong>Muscle Properties &amp; Origin:</strong> Mesodermal origin; 40–50% of adult human body weight; exhibits excitability, contractility, extensibility, and elasticity.</li>
+        <li><strong>Sarcomere &amp; Proteins:</strong> Functional unit between two Z-lines. Thin filament = 2 F-actins (polymers of G-actin) + 2 tropomyosins + troponin (masks active sites at rest; binds \(\mathrm{Ca^{2+}}\)). Thick filament = polymerized meromyosins (HMM = head + short arm/cross arm with ATPase; LMM = tail).</li>
+        <li><strong>Skeleton Numbers:</strong> Total = 206. Axial = 80 [Skull 22 (8 cranial + 14 facial) + Hyoid 1 + Ear ossicles 6 + Vertebrae 26 (\(\mathrm{C_7, T_{12}, L_5, S_{1\text{-fused}}, Co_{1\text{-fused}}}\)) + Sternum 1 + Ribs 24 (Pairs 1–7 true, 8–10 false/vertebrochondral, 11–12 floating)]. Appendicular = 126 [Limbs 4 × 30 = 120 + Pectoral girdle 4 + Pelvic girdle 2].</li>
+        <li><strong>Joints:</strong> Fibrous (immovable cranial sutures); Cartilaginous (limited movement: adjacent vertebrae, pubic symphysis); Synovial (fluid-filled cavity, considerable movement: ball &amp; socket, hinge, pivot, gliding, saddle).</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structure of Atom — NEET UG Comprehensive Tutorial</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    color: #111827;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+  }
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 20px 48px 20px;
+  }
+  header.tutorial-header {
+    border-bottom: 3px solid #1e3a8a;
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+  .exam-badge {
+    display: inline-block;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 2.1rem;
+    color: #111827;
+    margin: 8px 0 8px 0;
+    line-height: 1.25;
+  }
+  .subtitle {
+    font-size: 1.05rem;
+    color: #374151;
+    margin: 0;
+    font-style: italic;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: #1e3a8a;
+    border-bottom: 2px solid #cbd5e1;
+    padding-bottom: 6px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-size: 1.2rem;
+    color: #1f2937;
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-size: 1.05rem;
+    color: #111827;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  p {
+    margin: 0 0 14px 0;
+  }
+  ul, ol {
+    margin: 0 0 16px 0;
+    padding-left: 24px;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  .card {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #1e3a8a;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .card-warning {
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    border-left: 5px solid #b45309;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .card-formula {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 5px solid #15803d;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .example-box {
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    background-color: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .example-title {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 4px;
+  }
+  .solution-block {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 4px;
+  }
+  .question-card {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 22px 0;
+    background-color: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .q-header {
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+  }
+  .q-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background-color: #e0e7ff;
+    color: #1e3a8a;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .options-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 10px 0 14px 0;
+  }
+  .options-list li {
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+  }
+  .answer-box {
+    background-color: #f1f5f9;
+    border-left: 4px solid #0f766e;
+    padding: 12px 16px;
+    margin-top: 12px;
+    border-radius: 0 4px 4px 0;
+  }
+  .answer-key {
+    font-weight: 700;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin: 0 auto;
+  }
+  th, td {
+    border: 1px solid #94a3b8;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #e2e8f0;
+    color: #0f172a;
+    font-weight: 700;
+  }
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+  .svg-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 20px auto;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .svg-caption {
+    font-size: 0.88rem;
+    color: #374151;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+  svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .orbital-boxes {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    vertical-align: middle;
+    margin: 2px 6px;
+  }
+  .orb-box {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid #1f2937;
+    text-align: center;
+    line-height: 25px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+  }
+  @page {
+    size: A4;
+    margin: 15mm 14mm 15mm 14mm;
+  }
+  @media print {
+    body {
+      font-size: 11pt;
+      color: #000000;
+    }
+    main {
+      max-width: 100%;
+      padding: 0;
+    }
+    h2, h3 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    .question-card, .example-box, .svg-container, .card, .card-warning, .card-formula, table {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+
+<header class="tutorial-header">
+  <div class="exam-badge">NEET UG Standard — Chemistry Syllabus</div>
+  <h1>Structure of Atom</h1>
+  <p class="subtitle">The rich diversity of chemical behaviour of different elements can be traced to the differences in the internal structure of atoms of these elements.</p>
+</header>
+
+<!-- SECTION 1: LEARNING OBJECTIVES & OVERVIEW -->
+<section id="objectives">
+  <h2>1. Learning Objectives &amp; Chapter Overview</h2>
+  <div class="card">
+    <p><strong>After studying this tutorial, you will be able to:</strong></p>
+    <ul>
+      <li>Understand the experimental discovery of the electron, proton, and neutron, and compare their fundamental characteristics.</li>
+      <li>Describe the Thomson, Rutherford, and Bohr atomic models along with their merits and limitations.</li>
+      <li>Understand the wave and particle nature of electromagnetic radiation and apply Planck's quantum theory.</li>
+      <li>Explain the photoelectric effect and analyze the features of atomic emission and absorption line spectra (specifically the hydrogen spectrum).</li>
+      <li>State and apply the de Broglie relation for wave-particle duality and Heisenberg's uncertainty principle.</li>
+      <li>Understand the important features of the quantum mechanical model of the atom and define an atomic orbital in terms of quantum numbers (\(n, l, m_l, m_s\)).</li>
+      <li>Interpret the shapes, probability density plots, and radial/angular nodes of \(s, p,\) and \(d\) orbitals.</li>
+      <li>Apply the Aufbau principle, Pauli exclusion principle, and Hund's rule of maximum multiplicity to write ground-state electronic configurations of atoms and ions.</li>
+    </ul>
+  </div>
+
+  <h3>Historical Context &amp; Dalton's Atomic Theory</h3>
+  <p>Early Indian and Greek philosophers (around 400 B.C.) proposed that matter is composed of fundamental building blocks called atoms (derived from the Greek word <em>a-tomio</em>, meaning "uncut-able" or "non-divisible"). These early ideas were speculative and lacked experimental proof.</p>
+  <p>In 1808, British school teacher <strong>John Dalton</strong> proposed the <strong>Dalton's Atomic Theory</strong> on a firm scientific basis, regarding the atom as the ultimate indivisible particle of matter. While Dalton's theory successfully explained the <em>law of conservation of mass</em>, <em>law of constant composition</em>, and <em>law of multiple proportions</em>, it failed to explain why substances like glass or ebonite become electrically charged when rubbed with silk or fur. Experiments in the late nineteenth and early twentieth centuries established that atoms are divisible and consist of sub-atomic particles: <strong>electrons, protons, and neutrons</strong>.</p>
+</section>
+
+<!-- SECTION 2: DISCOVERY OF SUB-ATOMIC PARTICLES -->
+<section id="subatomic-particles">
+  <h2>2. Discovery of Sub-Atomic Particles</h2>
+  <p>A fundamental rule governs the behaviour of charged particles: <strong>"Like charges repel each other and unlike charges attract each other."</strong></p>
+
+  <h3>2.1 Discovery of the Electron (Cathode Rays)</h3>
+  <p>In 1830, Michael Faraday demonstrated that passing electricity through an electrolyte solution causes chemical reactions at the electrodes, liberating or depositing matter. This suggested the particulate nature of electricity.</p>
+  <p>In the mid-1850s, scientists studied electrical discharge in partially evacuated glass tubes containing two thin metal electrodes, known as <strong>cathode ray discharge tubes</strong>. Electrical discharge through gases is observed only at <strong>very low pressures</strong> and <strong>very high voltages</strong>. When sufficiently high voltage is applied across the electrodes, a stream of particles flows from the negative electrode (<strong>cathode</strong>) to the positive electrode (<strong>anode</strong>). These were called <strong>cathode rays</strong>. By making a perforation (hole) in the anode and coating the glass tube behind it with a phosphorescent material like <strong>zinc sulphide (\(\mathrm{ZnS}\))</strong>, a bright spot develops when the rays strike the coating.</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 700 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#dc2626"/>
+        </marker>
+        <marker id="arrow-blk" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 10 5 L 0 9 z" fill="#111827"/>
+        </marker>
+      </defs>
+      <!-- Glass Tube -->
+      <rect x="100" y="60" width="480" height="80" rx="40" ry="40" fill="#f8fafc" stroke="#1e293b" stroke-width="2.5"/>
+      <!-- Vacuum pump outlet -->
+      <line x1="320" y1="60" x2="320" y2="25" stroke="#1e293b" stroke-width="2.5"/>
+      <line x1="350" y1="60" x2="350" y2="25" stroke="#1e293b" stroke-width="2.5"/>
+      <rect x="321" y="55" width="28" height="10" fill="#f8fafc"/>
+      <line x1="335" y1="55" x2="335" y2="18" stroke="#111827" stroke-width="1.8" marker-end="url(#arrow-blk)"/>
+      <text x="335" y="12" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#111827">To vacuum pump</text>
+      <!-- ZnS Coating on right inner wall -->
+      <path d="M 555 64 A 38 38 0 0 1 555 136" fill="none" stroke="#eab308" stroke-width="6"/>
+      <text x="588" y="50" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#854d0e" font-weight="bold">Fluorescent coating (ZnS)</text>
+      <line x1="575" y1="55" x2="565" y2="75" stroke="#854d0e" stroke-width="1.5" marker-end="url(#arrow-blk)"/>
+      <!-- Cathode -->
+      <line x1="160" y1="75" x2="160" y2="125" stroke="#1d4ed8" stroke-width="5"/>
+      <text x="150" y="50" text-anchor="end" font-size="13" font-family="sans-serif" font-weight="bold" fill="#1d4ed8">Cathode (−)</text>
+      <!-- Perforated Anode -->
+      <line x1="480" y1="70" x2="480" y2="92" stroke="#b91c1c" stroke-width="5"/>
+      <line x1="480" y1="108" x2="480" y2="130" stroke="#b91c1c" stroke-width="5"/>
+      <text x="480" y="160" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#b91c1c">Perforated Anode (+)</text>
+      <!-- Cathode Ray Beam -->
+      <line x1="165" y1="100" x2="565" y2="100" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+      <text x="320" y="92" text-anchor="middle" font-size="12" font-family="sans-serif" fill="#dc2626" font-weight="bold">Cathode rays (electrons)</text>
+      <!-- External circuit & High Voltage -->
+      <polyline points="160,100 60,100 60,195 310,195" fill="none" stroke="#111827" stroke-width="2"/>
+      <polyline points="480,125 510,125 510,195 360,195" fill="none" stroke="#111827" stroke-width="2"/>
+      <!-- Battery symbol -->
+      <line x1="310" y1="185" x2="310" y2="205" stroke="#111827" stroke-width="3"/>
+      <line x1="320" y1="178" x2="320" y2="212" stroke="#111827" stroke-width="1.5"/>
+      <line x1="330" y1="185" x2="330" y2="205" stroke="#111827" stroke-width="3"/>
+      <line x1="340" y1="178" x2="340" y2="212" stroke="#111827" stroke-width="1.5"/>
+      <line x1="350" y1="185" x2="350" y2="205" stroke="#111827" stroke-width="3"/>
+      <line x1="360" y1="178" x2="360" y2="212" stroke="#111827" stroke-width="1.5"/>
+      <text x="335" y="230" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#111827">High Voltage Generator</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 1: A cathode ray discharge tube with a perforated anode and zinc sulphide fluorescent screen.</div>
+  </div>
+
+  <h4>Key Characteristics of Cathode Rays:</h4>
+  <ol>
+    <li>Cathode rays start from the cathode and move towards the anode.</li>
+    <li>These rays themselves are not visible, but their behaviour can be observed with fluorescent or phosphorescent materials (such as \(\mathrm{ZnS}\)) which glow when hit by them. (Television picture tubes are cathode ray tubes).</li>
+    <li>In the absence of an electrical or magnetic field, these rays travel in straight lines.</li>
+    <li>In the presence of an electrical or magnetic field, their deflection is similar to that expected from negatively charged particles, proving that cathode rays consist of negatively charged particles called <strong>electrons</strong>.</li>
+    <li><strong>Universal Nature:</strong> The characteristics of cathode rays (electrons) <em>do not depend</em> upon the material of the electrodes or the nature of the gas present in the cathode ray tube. Thus, electrons are basic constituents of all atoms.</li>
+  </ol>
+
+  <h3>2.2 Charge to Mass Ratio of Electron (\(e/m_e\))</h3>
+  <p>In 1897, British physicist <strong>J.J. Thomson</strong> measured the ratio of electrical charge (\(e\)) to the mass of the electron (\(m_e\)) using a cathode ray tube by applying electrical and magnetic fields perpendicular to each other as well as to the path of the electrons.</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 700 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Tube body -->
+      <path d="M 60 110 L 220 110 L 580 40 C 620 40, 620 240, 580 240 L 220 170 L 60 170 C 35 170, 35 110, 60 110 Z" fill="#f8fafc" stroke="#1e293b" stroke-width="2"/>
+      <!-- Screen on right -->
+      <ellipse cx="585" cy="140" rx="25" ry="98" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+      <!-- Cathode and Anode -->
+      <ellipse cx="85" cy="140" rx="8" ry="22" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
+      <text x="85" y="100" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold">Cathode</text>
+      <ellipse cx="170" cy="140" rx="10" ry="30" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
+      <circle cx="170" cy="140" r="4" fill="#ffffff"/>
+      <text x="170" y="98" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold">Anode (slit)</text>
+      <!-- Electric plates -->
+      <rect x="280" y="92" width="90" height="10" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="325" y="84" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#1d4ed8">+ Plate (Electric field)</text>
+      <rect x="280" y="178" width="90" height="10" fill="#fb923c" stroke="#c2410c" stroke-width="1.5"/>
+      <text x="325" y="205" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#c2410c">− Plate</text>
+      <!-- Magnet poles representation -->
+      <rect x="300" y="112" width="50" height="56" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="325" y="128" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" fill="#334155">N / S</text>
+      <text x="325" y="230" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" fill="#334155">Perpendicular Magnetic Field</text>
+      <!-- Electron trajectories -->
+      <line x1="93" y1="140" x2="325" y2="140" stroke="#dc2626" stroke-width="3"/>
+      <!-- Path to A (Electric field only) -->
+      <path d="M 325 140 Q 430 115 580 80" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+      <circle cx="580" cy="80" r="4" fill="#dc2626"/>
+      <text x="595" y="84" font-size="14" font-family="sans-serif" font-weight="bold" fill="#111827">A (Electric only)</text>
+      <!-- Path to B (Balanced or no field) -->
+      <line x1="325" y1="140" x2="585" y2="140" stroke="#dc2626" stroke-width="2.5"/>
+      <circle cx="585" cy="140" r="4" fill="#dc2626"/>
+      <text x="598" y="144" font-size="14" font-family="sans-serif" font-weight="bold" fill="#111827">B (Balanced)</text>
+      <!-- Path to C (Magnetic field only) -->
+      <path d="M 325 140 Q 430 165 580 200" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+      <circle cx="580" cy="200" r="4" fill="#dc2626"/>
+      <text x="595" y="204" font-size="14" font-family="sans-serif" font-weight="bold" fill="#111827">C (Magnetic only)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 2: J.J. Thomson's apparatus to determine the charge-to-mass ratio of the electron.</div>
+  </div>
+
+  <p>Thomson argued that the amount of deviation of the particles from their path in the presence of an electrical or magnetic field depends upon three factors:</p>
+  <ol>
+    <li><strong>Magnitude of the negative charge on the particle:</strong> Greater the magnitude of the charge, greater is the interaction with the electric or magnetic field, and thus greater is the deflection.</li>
+    <li><strong>Mass of the particle:</strong> Lighter the particle, greater is the deflection.</li>
+    <li><strong>Strength of the electrical or magnetic field:</strong> The deflection of electrons increases with an increase in the voltage across the electrodes or the strength of the magnetic field.</li>
+  </ol>
+  <p>When only the electric field is applied, electrons deviate to point A. When only the magnetic field is applied, electrons strike at point C. By carefully balancing the electrical and magnetic field strengths, the electron beam is brought back to its original straight-line path (striking at point B). From accurate measurements, Thomson determined the specific charge (\(e/m_e\)) as:</p>
+  <div class="card-formula">
+    \[ \frac{e}{m_e} = 1.758820 \times 10^{11}\,\mathrm{C\,kg^{-1}} \]
+  </div>
+  <p>where \(m_e\) is the mass of the electron in \(\mathrm{kg}\) and \(e\) is the magnitude of the charge on the electron in coulomb (\(\mathrm{C}\)). Since electrons are negatively charged, the charge on an electron is \(-e\).</p>
+
+  <h3>2.3 Millikan's Oil Drop Experiment &amp; Mass of the Electron</h3>
+  <p><strong>R.A. Millikan</strong> (1906–14) devised the <strong>oil drop experiment</strong> to measure the charge on the electron. In this method, oil droplets in the form of mist produced by an atomiser entered through a tiny hole in the upper plate of an electrical condenser. Their downward motion was viewed through a telescope equipped with a micrometer eyepiece to measure the mass of the droplets from their rate of fall. Passing a beam of X-rays ionized the air inside the chamber, and oil droplets acquired electrical charge by colliding with gaseous ions.</p>
+  <p>Inside the chamber, three forces act on a moving charged oil drop: <strong>gravitational force</strong>, <strong>electrostatic force</strong> (due to the electrical field), and a <strong>viscous drag force</strong>. By adjusting the polarity and strength of the voltage applied to the plates, the fall of charged droplets could be retarded, accelerated, or made stationary. Millikan concluded that the magnitude of electrical charge \(q\) on the droplets is always an integral multiple of the fundamental electrical charge \(e\):</p>
+  <div class="card-formula">
+    \[ q = n e \quad (\text{where } n = 1, 2, 3, \dots) \]
+  </div>
+  <p>Millikan found the charge on the electron to be \(-1.6 \times 10^{-19}\,\mathrm{C}\) (present accepted value is \(-1.602176 \times 10^{-19}\,\mathrm{C}\)). Combining this with Thomson's \(e/m_e\) ratio gave the mass of the electron (\(m_e\)):</p>
+  <div class="card-formula">
+    \[ m_e = \frac{e}{e/m_e} = \frac{1.602176 \times 10^{-19}\,\mathrm{C}}{1.758820 \times 10^{11}\,\mathrm{C\,kg^{-1}}} = 9.1094 \times 10^{-31}\,\mathrm{kg} \]
+  </div>
+
+  <h3>2.4 Discovery of Protons (Canal Rays) and Neutrons</h3>
+  <p>Electrical discharge carried out in a modified cathode ray tube led to the discovery of <strong>canal rays</strong> carrying positively charged particles. Their characteristics contrast sharply with cathode rays:</p>
+  <ul>
+    <li>Unlike cathode rays, the mass of positively charged particles (canal rays) <strong>depends upon the nature of the gas</strong> present in the cathode ray tube. They are simply positively charged gaseous ions.</li>
+    <li>The charge-to-mass ratio (\(q/m\)) of these particles depends on the gas from which they originate.</li>
+    <li>Some of the positively charged particles carry a multiple of the fundamental unit of electrical charge.</li>
+    <li>Their behaviour in magnetic or electrical fields is opposite to that observed for electrons (cathode rays).</li>
+  </ul>
+  <p>The smallest and lightest positive ion was obtained from hydrogen and was called the <strong>proton</strong> (characterised in 1919). In 1932, <strong>James Chadwick</strong> discovered the electrically neutral constituent of the atom by bombarding a thin sheet of <strong>beryllium (\(\mathrm{Be}\))</strong> with \(\alpha\)-particles, emitting electrically neutral particles having a mass slightly greater than that of protons. He named these particles <strong>neutrons</strong>.</p>
+
+  <div class="table-wrap">
+    <table>
+      <caption><strong>Summary Table 1: Properties of Fundamental Sub-Atomic Particles</strong></caption>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Absolute Charge / C</th>
+          <th>Relative Charge</th>
+          <th>Mass / kg</th>
+          <th>Mass / u</th>
+          <th>Approx. Mass / u</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Electron</td>
+          <td>\(\mathrm{e}\)</td>
+          <td>\(-1.602176 \times 10^{-19}\)</td>
+          <td>\(-1\)</td>
+          <td>\(9.109382 \times 10^{-31}\)</td>
+          <td>\(0.00054\)</td>
+          <td>\(0\)</td>
+        </tr>
+        <tr>
+          <td>Proton</td>
+          <td>\(\mathrm{p}\)</td>
+          <td>\(+1.602176 \times 10^{-19}\)</td>
+          <td>\(+1\)</td>
+          <td>\(1.6726216 \times 10^{-27}\)</td>
+          <td>\(1.00727\)</td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>Neutron</td>
+          <td>\(\mathrm{n}\)</td>
+          <td>\(0\)</td>
+          <td>\(0\)</td>
+          <td>\(1.674927 \times 10^{-27}\)</td>
+          <td>\(1.00867\)</td>
+          <td>\(1\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 3: CLASSICAL ATOMIC MODELS -->
+<section id="atomic-models">
+  <h2>3. Classical Atomic Models, X-Rays &amp; Radioactivity</h2>
+
+  <h3>3.1 Thomson Model of Atom (1898)</h3>
+  <p>J.J. Thomson proposed that an atom possesses a spherical shape (radius approximately \(10^{-10}\,\mathrm{m}\)) in which the positive charge is uniformly distributed, and electrons are embedded into it to give the most stable electrostatic arrangement. Known as the <strong>plum pudding</strong>, <strong>raisin pudding</strong>, or <strong>watermelon model</strong>, an important feature is that the <strong>mass of the atom is assumed to be uniformly distributed</strong> over the atom. While it explained the overall electrical neutrality of the atom, it failed to explain the results of later scattering experiments.</p>
+
+  <h3>3.2 X-Rays and Radioactivity</h3>
+  <ul>
+    <li><strong>X-Rays (Wilhelm Röentgen, 1895):</strong> Produced effectively when electrons in a cathode ray tube strike a dense metal anode (target). X-rays cause fluorescence in materials placed outside the tube, are <em>not deflected</em> by electric and magnetic fields, have very short wavelengths (\(\sim 0.1\,\mathrm{nm}\)), possess electromagnetic character, and have very high penetrating power through matter.</li>
+    <li><strong>Radioactivity (Henri Becquerel, Marie Curie, Pierre Curie, Rutherford, Frederick Soddy):</strong> Certain elements spontaneously emit radiation on their own. Three kinds of rays are emitted:
+      <ul>
+        <li><strong>\(\alpha\)-rays:</strong> High-energy particles carrying \(+2\) units of charge and \(4\,\mathrm{u}\) of atomic mass (identical to helium nuclei, \(\mathrm{He^{2+}}\); combining with two electrons yields helium gas).</li>
+        <li><strong>\(\beta\)-rays:</strong> Negatively charged particles similar to electrons.</li>
+        <li><strong>\(\gamma\)-rays:</strong> High-energy neutral electromagnetic radiations like X-rays; they do not consist of particles.</li>
+        <li><strong>Penetrating Power Order:</strong> \(\alpha\text{-particles (least)} < \beta\text{-rays (100 times }\alpha\text{)} < \gamma\text{-rays (1000 times }\alpha\text{)}\).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>3.3 Rutherford's Nuclear Model of Atom</h3>
+  <p>Ernest Rutherford and his students (<strong>Hans Geiger</strong> and <strong>Ernest Marsden</strong>) bombarded a very thin gold foil (thickness \(\sim 100\,\mathrm{nm}\)) with a stream of high-energy \(\alpha\)-particles from a radioactive source, surrounded by a circular fluorescent zinc sulphide (\(\mathrm{ZnS}\)) screen.</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 700 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gold Atoms Grid -->
+      <g fill="#fef08a" stroke="#ca8a04" stroke-width="1.5">
+        <circle cx="340" cy="50" r="22"/><circle cx="400" cy="75" r="22"/>
+        <circle cx="340" cy="100" r="22"/><circle cx="400" cy="125" r="22"/>
+        <circle cx="340" cy="150" r="22"/><circle cx="400" cy="175" r="22"/>
+        <circle cx="340" cy="200" r="22"/>
+      </g>
+      <!-- Tiny dense nuclei -->
+      <g fill="#b91c1c">
+        <circle cx="340" cy="50" r="3.5"/><circle cx="400" cy="75" r="3.5"/>
+        <circle cx="340" cy="100" r="3.5"/><circle cx="400" cy="125" r="3.5"/>
+        <circle cx="340" cy="150" r="3.5"/><circle cx="400" cy="175" r="3.5"/>
+        <circle cx="340" cy="200" r="3.5"/>
+      </g>
+      <!-- Alpha rays -->
+      <g stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrow)">
+        <line x1="60" y1="35" x2="600" y2="35"/>
+        <line x1="60" y1="65" x2="600" y2="65"/>
+        <line x1="60" y1="88" x2="600" y2="88"/>
+        <!-- Small angle deflection -->
+        <polyline points="60,104 338,104 590,60"/>
+        <line x1="60" y1="120" x2="600" y2="120"/>
+        <!-- Large angle / 180 bounce back -->
+        <polyline points="60,150 334,150 80,175"/>
+        <line x1="60" y1="168" x2="600" y2="168"/>
+        <!-- Small angle deflection -->
+        <polyline points="60,179 398,179 580,225"/>
+        <line x1="60" y1="215" x2="600" y2="215"/>
+      </g>
+      <text x="150" y="25" font-size="13" font-family="sans-serif" font-weight="bold" fill="#dc2626">Beam of α-particles</text>
+      <text x="370" y="20" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" fill="#854d0e">Thin gold foil atoms</text>
+      <text x="540" y="145" font-size="12" font-family="sans-serif" font-weight="bold" fill="#111827">Most pass undeflected</text>
+      <text x="160" y="195" font-size="12" font-family="sans-serif" font-weight="bold" fill="#b91c1c">~1 in 20,000 rebounds (≈180°)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 3: Molecular view of Rutherford's α-particle scattering experiment through a thin gold foil.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption><strong>Summary Table 2: Observations &amp; Conclusions of Rutherford's Experiment</strong></caption>
+      <thead>
+        <tr>
+          <th>Experimental Observation</th>
+          <th>Conclusion Drawn by Rutherford</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Most of the \(\alpha\)-particles passed through the gold foil undeflected.</td>
+          <td>Most of the space in the atom is empty.</td>
+        </tr>
+        <tr>
+          <td>A small fraction of the \(\alpha\)-particles was deflected by small angles.</td>
+          <td>The positive charge of the atom is not spread throughout the atom (contrary to Thomson), but concentrated in a very small volume that repels positively charged \(\alpha\)-particles.</td>
+        </tr>
+        <tr>
+          <td>A very few \(\alpha\)-particles (\(\sim 1\) in \(20,000\)) bounced back (deflected by nearly \(180^\circ\)).</td>
+          <td>The volume occupied by the positively charged <strong>nucleus</strong> is negligibly small compared to the total volume of the atom. Radius of atom \(\approx 10^{-10}\,\mathrm{m}\), whereas radius of nucleus \(\approx 10^{-15}\,\mathrm{m}\) (if the nucleus is a cricket ball, the atomic radius is about \(5\,\mathrm{km}\)).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p><strong>Exam Note — Effect of Foil Material:</strong> In Rutherford's experiment, thin foils of heavy atoms like gold or platinum are used because their nuclei have a large positive charge and large mass, producing strong repulsive forces. If a thin foil of light atoms like <strong>aluminium (\(\mathrm{Al}\))</strong> is used, the nuclear charge (\(Z = 13\)) and mass are much smaller; consequently, the repulsive force is weaker and the number of \(\alpha\)-particles deflected at large angles (or rebounding) will be negligibly small compared to gold (\(Z = 79\)).</p>
+  </div>
+
+  <h4>Drawbacks of Rutherford's Model:</h4>
+  <ol>
+    <li><strong>Inability to Explain Atomic Stability:</strong> While the Coulomb electrostatic force \(\left(\frac{k q_1 q_2}{r^2}\right)\) is mathematically similar to the gravitational force \(\left(\frac{G m_1 m_2}{r^2}\right)\) in the solar system, an electron moving in a circular orbit undergoes centripetal acceleration due to changing direction. According to <strong>Maxwell's electromagnetic theory</strong>, accelerated charged particles must emit electromagnetic radiation continuously. Thus, the revolving electron should lose energy, its orbit should shrink, and it should spiral into the nucleus in about \(10^{-8}\,\mathrm{s}\). Furthermore, electrons cannot be considered stationary because electrostatic attraction would pull them directly into the nucleus.</li>
+    <li><strong>Silent on Electronic Structure:</strong> It says nothing about the distribution of electrons around the nucleus and the relative energies of these electrons.</li>
+  </ol>
+
+  <h3>3.4 Atomic Number (\(Z\)), Mass Number (\(A\)), Isotopes &amp; Isobars</h3>
+  <p>An atom is represented by the symbol \(^{A}_{Z}\mathrm{X}\), where the left subscript \(Z\) is the atomic number and the left superscript \(A\) is the mass number. (Note: Symbols like \(^{79}_{35}\mathrm{Br}\) or \(^{79}\mathrm{Br}\) are acceptable because the chemical symbol \(\mathrm{Br}\) inherently fixes \(Z = 35\), whereas \(^{35}_{79}\mathrm{Br}\) or \(^{35}\mathrm{Br}\) are not acceptable because mass number must be the superscript).</p>
+  <div class="card-formula">
+    \[ \text{Atomic Number }(Z) = \text{Number of protons in the nucleus} = \text{Number of electrons in a neutral atom} \]
+    \[ \text{Mass Number }(A) = \text{Total number of nucleons} = \text{Number of protons }(Z) + \text{Number of neutrons }(n) \]
+  </div>
+  <ul>
+    <li><strong>Isotopes:</strong> Atoms with identical atomic number (\(Z\)) but different mass number (\(A\)) — i.e., different numbers of neutrons. Examples:
+      <ul>
+        <li>Hydrogen isotopes: <strong>Protium</strong> (\(^{1}_{1}\mathrm{H}\), \(99.985\%\), \(1\mathrm{p}, 0\mathrm{n}\)), <strong>Deuterium</strong> (\(^{2}_{1}\mathrm{D}\), \(0.015\%\), \(1\mathrm{p}, 1\mathrm{n}\)), and <strong>Tritium</strong> (\(^{3}_{1}\mathrm{T}\), trace amounts, \(1\mathrm{p}, 2\mathrm{n}\)).</li>
+        <li>Carbon isotopes: \(^{12}_{6}\mathrm{C}, ^{13}_{6}\mathrm{C}, ^{14}_{6}\mathrm{C}\) (containing \(6, 7,\) and \(8\) neutrons respectively).</li>
+        <li>Chlorine isotopes: \(^{35}_{17}\mathrm{Cl}, ^{37}_{17}\mathrm{Cl}\) (containing \(18\) and \(20\) neutrons respectively).</li>
+      </ul>
+      <em>Chemical Behaviour of Isotopes:</em> Chemical properties are controlled by the number of electrons (determined by protons). Neutrons have very little effect on chemical properties, so all isotopes of a given element show the same chemical behaviour.
+    </li>
+    <li><strong>Isobars:</strong> Atoms with the same mass number (\(A\)) but different atomic numbers (\(Z\)). Example: \(^{14}_{6}\mathrm{C}\) and \(^{14}_{7}\mathrm{N}\).</li>
+    <li><strong>Isoelectronic Species:</strong> Atoms, molecules, or ions having the exact same number of electrons (e.g., \(\mathrm{Na^+}, \mathrm{Mg^{2+}}, \mathrm{F^-}, \mathrm{O^{2-}}\) all have \(10\) electrons; \(\mathrm{K^+}, \mathrm{Ca^{2+}}, \mathrm{S^{2-}}, \mathrm{Ar}\) all have \(18\) electrons).</li>
+  </ul>
+</section>
+
+<!-- SECTION 4: ELECTROMAGNETIC RADIATION & QUANTUM THEORY -->
+<section id="em-radiation">
+  <h2>4. Electromagnetic Radiation, Planck's Quantum Theory &amp; Photoelectric Effect</h2>
+
+  <h3>4.1 Wave Nature of Electromagnetic Radiation</h3>
+  <p>In 1870, <strong>James Clerk Maxwell</strong> proposed that when an electrically charged particle moves under acceleration, alternating electrical and magnetic fields are produced and transmitted in the form of waves called <strong>electromagnetic waves</strong> or <strong>electromagnetic radiation</strong> (experimentally confirmed by Heinrich Hertz).</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 700 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="60" y1="110" x2="650" y2="110" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="80" y1="195" x2="80" y2="20" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="120" y1="70" x2="40" y2="160" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <text x="665" y="115" font-size="14" font-family="sans-serif" font-weight="bold">x (Propagation)</text>
+      <text x="80" y="15" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold">z</text>
+      <text x="28" y="172" font-size="14" font-family="sans-serif" font-weight="bold">y</text>
+      <!-- Electric field (Vertical Z-X plane) -->
+      <path d="M 80 110 Q 140 10, 200 110 T 320 110 T 440 110 T 560 110" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+      <line x1="140" y1="60" x2="140" y2="110" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/>
+      <line x1="260" y1="160" x2="260" y2="110" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/>
+      <line x1="380" y1="60" x2="380" y2="110" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/>
+      <!-- Magnetic field (Slanted Y-X plane) -->
+      <path d="M 80 110 Q 125 155, 200 110 Q 275 65, 320 110 Q 365 155, 440 110 Q 515 65, 560 110" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+      <line x1="132" y1="132" x2="140" y2="110" stroke="#2563eb" stroke-width="1" stroke-dasharray="3,2"/>
+      <line x1="268" y1="88" x2="260" y2="110" stroke="#2563eb" stroke-width="1" stroke-dasharray="3,2"/>
+      <!-- Wavelength indicator -->
+      <line x1="140" y1="35" x2="380" y2="35" stroke="#111827" stroke-width="1.5" marker-start="url(#arrow-blk)" marker-end="url(#arrow-blk)"/>
+      <text x="260" y="28" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold">Wavelength (λ)</text>
+      <!-- Labels -->
+      <text x="460" y="45" font-size="13" font-family="sans-serif" font-weight="bold" fill="#dc2626">Electric field component (z-plane)</text>
+      <text x="430" y="185" font-size="13" font-family="sans-serif" font-weight="bold" fill="#2563eb">Magnetic field component (y-plane)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 4: Mutually perpendicular electric and magnetic field components of an electromagnetic wave.</div>
+  </div>
+
+  <h4>Key Properties of Electromagnetic Waves:</h4>
+  <ul>
+    <li>The oscillating electric and magnetic fields are <strong>perpendicular to each other</strong> and both are <strong>perpendicular to the direction of propagation</strong> of the wave. They have the same wavelength, frequency, speed, and amplitude.</li>
+    <li>Unlike sound waves or water waves, electromagnetic waves <strong>do not require a medium</strong> and can move in a vacuum.</li>
+    <li>In a vacuum, all types of electromagnetic radiations, regardless of wavelength, travel at the same constant speed called the <strong>speed of light (\(c\))</strong>: \(c = 2.997925 \times 10^8\,\mathrm{m\,s^{-1}} \approx 3.0 \times 10^8\,\mathrm{m\,s^{-1}}\).</li>
+    <li><strong>Electromagnetic Spectrum Order (Increasing Frequency \(\nu\) / Decreasing Wavelength \(\lambda\)):</strong><br>
+      \(\text{Long Radio waves} < \text{AM/FM Radio waves } (\sim 10^6\text{–}10^8\,\mathrm{Hz}) < \text{Microwaves } (\sim 10^{10}\,\mathrm{Hz}, \text{ radar}) < \text{Infrared } (\sim 10^{13}\,\mathrm{Hz}, \text{ heating}) < \text{Visible light } (\sim 10^{15}\,\mathrm{Hz}, 400\,\mathrm{nm}\text{ violet to }750\,\mathrm{nm}\text{ red}) < \text{Ultraviolet } (\sim 10^{16}\,\mathrm{Hz}) < \text{X-rays } (\sim 10^{18}\,\mathrm{Hz}) < \gamma\text{-rays } (\sim 10^{20}\text{–}10^{24}\,\mathrm{Hz}) < \text{Cosmic rays}\).</li>
+  </ul>
+
+  <div class="card-formula">
+    <p><strong>Fundamental Wave Equations:</strong></p>
+    \[ c = \nu \lambda \qquad \text{and} \qquad \bar{\nu} = \frac{1}{\lambda} = \frac{\nu}{c} \qquad \text{and} \qquad T = \frac{1}{\nu} \]
+    <ul>
+      <li><strong>Frequency (\(\nu\)):</strong> Number of waves that pass a given point in one second. SI unit: hertz (\(\mathrm{Hz}\) or \(\mathrm{s^{-1}}\)).</li>
+      <li><strong>Wavelength (\(\lambda\)):</strong> Distance between two consecutive crests or troughs. SI unit: metre (\(\mathrm{m}\)). Common conversions: \(1\,\mathrm{nm} = 10^{-9}\,\mathrm{m}\); \(1\,\mathrm{pm} = 10^{-12}\,\mathrm{m}\); \(1\,\mathrm{Å} = 10^{-10}\,\mathrm{m} = 10^{-8}\,\mathrm{cm}\); \(1\,\mathrm{µm} = 10^{-6}\,\mathrm{m}\).</li>
+      <li><strong>Wavenumber (\(\bar{\nu}\)):</strong> Number of wavelengths per unit length. SI unit: \(\mathrm{m^{-1}}\); commonly used spectroscopy unit: \(\mathrm{cm^{-1}}\).</li>
+      <li><strong>Time Period (\(T\)):</strong> Time taken for one complete wave to pass a point (\(\mathrm{s}\)).</li>
+    </ul>
+  </div>
+
+  <h3>4.2 Particle Nature of Electromagnetic Radiation: Planck's Quantum Theory</h3>
+  <p>While wave nature explains <strong>diffraction</strong> (bending of a wave around an obstacle) and <strong>interference</strong> (combination of waves), classical electromagnetic theory failed to explain four major observations:</p>
+  <ol>
+    <li>The nature of emission of radiation from hot bodies (<strong>black-body radiation</strong>).</li>
+    <li>Ejection of electrons from a metal surface when radiation strikes it (<strong>photoelectric effect</strong>).</li>
+    <li>Variation of heat capacity of solids as a function of temperature.</li>
+    <li>Line spectra of atoms with special reference to hydrogen.</li>
+  </ol>
+
+  <h4>Black-Body Radiation &amp; Planck's Hypothesis (1900):</h4>
+  <p>An ideal body that emits and absorbs radiations of all frequencies uniformly is called a <strong>black body</strong>, and the radiation emitted by it is called <strong>black-body radiation</strong> (approximated by carbon black or a cavity with a tiny hole). At a given temperature, the intensity of radiation emitted increases with wavelength, reaches a maximum at a particular wavelength, and then decreases at longer wavelengths. As temperature increases (\(T_2 > T_1\)), the maximum of the curve shifts towards <strong>shorter wavelengths</strong> (e.g., a heated iron rod turns dull red \(\rightarrow\) bright red \(\rightarrow\) white \(\rightarrow\) blue).</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 650 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="70" y1="200" x2="580" y2="200" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="70" y1="200" x2="70" y2="20" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <text x="325" y="232" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold">Wavelength λ (nm)</text>
+      <text x="25" y="110" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" transform="rotate(-90, 25, 110)">Intensity</text>
+      <!-- Ticks -->
+      <line x1="190" y1="200" x2="190" y2="206" stroke="#111827" stroke-width="2"/>
+      <text x="190" y="218" text-anchor="middle" font-size="11" font-family="sans-serif">1000</text>
+      <line x1="340" y1="200" x2="340" y2="206" stroke="#111827" stroke-width="2"/>
+      <text x="340" y="218" text-anchor="middle" font-size="11" font-family="sans-serif">2000</text>
+      <line x1="490" y1="200" x2="490" y2="206" stroke="#111827" stroke-width="2"/>
+      <text x="490" y="218" text-anchor="middle" font-size="11" font-family="sans-serif">3000</text>
+      <!-- Curve T2 (Higher Temp) -->
+      <path d="M 70 200 C 110 140, 145 40, 185 45 C 240 52, 340 145, 530 185" fill="none" stroke="#b91c1c" stroke-width="2.8"/>
+      <line x1="180" y1="45" x2="180" y2="200" stroke="#b91c1c" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <text x="205" y="45" font-size="13" font-family="sans-serif" font-weight="bold" fill="#b91c1c">T₂ (Higher Temperature)</text>
+      <!-- Curve T1 (Lower Temp) -->
+      <path d="M 70 200 C 140 190, 210 115, 275 118 C 340 120, 420 170, 530 195" fill="none" stroke="#1d4ed8" stroke-width="2.5"/>
+      <line x1="275" y1="118" x2="275" y2="200" stroke="#1d4ed8" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <text x="315" y="118" font-size="13" font-family="sans-serif" font-weight="bold" fill="#1d4ed8">T₁ (Lower Temperature)</text>
+      <text x="460" y="55" font-size="13" font-family="sans-serif" font-weight="bold" fill="#111827">T₂ &gt; T₁ (Peak shifts to shorter λ)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 5: Wavelength-intensity relationship for black-body radiation at two temperatures.</div>
+  </div>
+
+  <p><strong>Max Planck</strong> proposed that atoms and molecules emit or absorb energy only in discrete quantities (like standing on steps of a staircase) and not in a continuous manner. The smallest quantity of energy that can be emitted or absorbed in the form of electromagnetic radiation is called a <strong>quantum</strong>:</p>
+  <div class="card-formula">
+    \[ E = h\nu = \frac{hc}{\lambda} \qquad (\text{For } n \text{ quanta: } E = n h\nu, \text{ where } n = 1, 2, 3, \dots) \]
+    <p>where Planck's constant \(h = 6.626 \times 10^{-34}\,\mathrm{J\,s}\).</p>
+  </div>
+
+  <h3>4.3 Photoelectric Effect (Hertz 1887; Explained by Einstein 1905)</h3>
+  <p>When certain metals (such as potassium, rubidium, caesium) are exposed to a beam of light of suitable frequency, electrons are ejected from the metal surface. Key experimental observations:</p>
+  <ol>
+    <li><strong>No Time Lag:</strong> Electrons are ejected instantaneously as soon as the light beam strikes the metal surface.</li>
+    <li><strong>Effect of Intensity (Brightness):</strong> The <em>number of electrons ejected</em> is directly proportional to the intensity or brightness of light (number of incident photons), provided \(\nu > \nu_0\).</li>
+    <li><strong>Threshold Frequency (\(\nu_0\)) &amp; Kinetic Energy:</strong> For each metal, there is a characteristic minimum frequency \(\nu_0\) (threshold frequency) below which no photoelectric effect is observed, regardless of how bright the light is or how long it shines. At \(\nu > \nu_0\), the kinetic energy of ejected photoelectrons increases linearly with the <em>frequency</em> of light used and does <em>not</em> depend on the intensity of light.</li>
+  </ol>
+  <p><em>Example:</em> For potassium metal, \(\nu_0 = 5.0 \times 10^{14}\,\mathrm{Hz}\). Red light (\(\nu = 4.3 \text{ to } 4.6 \times 10^{14}\,\mathrm{Hz}\)) of any brightness ejects no electrons, whereas even very weak yellow light (\(\nu = 5.1 \text{ to } 5.2 \times 10^{14}\,\mathrm{Hz}\)) causes photoelectric emission.</p>
+
+  <p><strong>Einstein's Explanation:</strong> Treating the light beam as a stream of energy particles called <strong>photons</strong> (each of energy \(h\nu\)), a collision between a photon and an electron in the metal transfers energy instantaneously. The minimum energy required to eject the electron is the <strong>work function (\(W_0 = h\nu_0 = hc/\lambda_0\))</strong>, and the excess energy becomes the kinetic energy of the photoelectron:</p>
+  <div class="card-formula">
+    \[ h\nu = h\nu_0 + \frac{1}{2}m_e v^2 \quad \Longrightarrow \quad \mathrm{K.E.} = \frac{1}{2}m_e v^2 = h(\nu - \nu_0) = hc\left(\frac{1}{\lambda} - \frac{1}{\lambda_0}\right) = eV_{\text{stop}} \]
+    <p>(where \(V_{\text{stop}}\) is the stopping potential voltage required to stop the fastest photoelectron, and \(1\,\mathrm{eV} = 1.602 \times 10^{-19}\,\mathrm{J}\)).</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption><strong>Summary Table 3: Values of Work Function (\(W_0\)) for Selected Metals</strong></caption>
+      <thead>
+        <tr>
+          <th>Metal</th>
+          <th>\(\mathrm{Li}\)</th>
+          <th>\(\mathrm{Na}\)</th>
+          <th>\(\mathrm{K}\)</th>
+          <th>\(\mathrm{Mg}\)</th>
+          <th>\(\mathrm{Cu}\)</th>
+          <th>\(\mathrm{Ag}\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>\(W_0\) / eV</strong></td>
+          <td>\(2.42\)</td>
+          <td>\(2.3\)</td>
+          <td>\(2.25\)</td>
+          <td>\(3.7\)</td>
+          <td>\(4.8\)</td>
+          <td>\(4.3\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Dual Behaviour of Electromagnetic Radiation:</strong> Light possesses both wave-like and particle-like properties. It exhibits wave properties (interference and diffraction) when it <em>propagates</em>, and particle-like properties (photons) when it <em>interacts with matter</em> (absorption/emission).</p>
+</section>
+
+<!-- SECTION 5: ATOMIC SPECTRA & BOHR MODEL -->
+<section id="bohr-model">
+  <h2>5. Atomic Spectra &amp; Bohr's Model for Hydrogen Atom</h2>
+
+  <h3>5.1 Continuous vs. Line Spectra (Emission &amp; Absorption)</h3>
+  <p>When white light passes through a prism, waves with shorter wavelengths (violet, \(400\,\mathrm{nm}\), \(7.50 \times 10^{14}\,\mathrm{Hz}\)) bend more than waves with longer wavelengths (red, \(750\,\mathrm{nm}\), \(4.00 \times 10^{14}\,\mathrm{Hz}\)), forming a <strong>continuous spectrum</strong> where colours merge smoothly into one another.</p>
+  <ul>
+    <li><strong>Emission Line Spectrum:</strong> When atoms in the gas phase absorb energy (by heating or electric discharge), they become excited and subsequently emit light only at specific discrete wavelengths with dark spaces between them, appearing as bright lines.</li>
+    <li><strong>Absorption Line Spectrum:</strong> Like the photographic negative of an emission spectrum; when continuous white light passes through an unexcited sample, specific wavelengths are absorbed, leaving dark lines at the exact same wavelengths that the excited sample emits.</li>
+    <li><strong>Chemical Fingerprinting:</strong> Each element has a unique line emission spectrum. <strong>Robert Bunsen</strong> pioneered using line spectra to identify elements. Elements such as rubidium (\(\mathrm{Rb}\)), caesium (\(\mathrm{Cs}\)), thallium (\(\mathrm{Tl}\)), indium (\(\mathrm{In}\)), gallium (\(\mathrm{Ga}\)), and scandium (\(\mathrm{Sc}\)) were discovered spectroscopically in minerals, and helium (\(\mathrm{He}\)) was discovered in the sun by spectroscopic method.</li>
+  </ul>
+
+  <h3>5.2 Line Spectrum of Hydrogen &amp; Rydberg Formula</h3>
+  <p>When an electric discharge passes through gaseous \(\mathrm{H_2}\), the molecules dissociate and excited hydrogen atoms emit radiation in several series of lines. <strong>Johannes Rydberg</strong> showed that all series of lines in the hydrogen spectrum are described by:</p>
+  <div class="card-formula">
+    \[ \bar{\nu} = \frac{1}{\lambda} = 109,677\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)\,\mathrm{cm^{-1}} \qquad (\text{For H-like ions: } \bar{\nu} = R_H Z^2\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)) \]
+    <p>where \(R = 109,677\,\mathrm{cm^{-1}} = 1.09677 \times 10^7\,\mathrm{m^{-1}}\) is the Rydberg constant for hydrogen, \(n_1 = 1, 2, 3, \dots\) and \(n_2 = n_1 + 1, n_1 + 2, \dots\)</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <caption><strong>Summary Table 4: Spectral Series of Atomic Hydrogen</strong></caption>
+      <thead>
+        <tr>
+          <th>Series Name</th>
+          <th>Lower State (\(n_1\))</th>
+          <th>Upper State (\(n_2\))</th>
+          <th>Spectral Region</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lyman</strong></td>
+          <td>\(1\)</td>
+          <td>\(2, 3, 4, \dots\)</td>
+          <td>Ultraviolet (UV)</td>
+        </tr>
+        <tr>
+          <td><strong>Balmer</strong></td>
+          <td>\(2\)</td>
+          <td>\(3, 4, 5, \dots\)</td>
+          <td>Visible (only visible series in H)</td>
+        </tr>
+        <tr>
+          <td><strong>Paschen</strong></td>
+          <td>\(3\)</td>
+          <td>\(4, 5, 6, \dots\)</td>
+          <td>Infrared (IR)</td>
+        </tr>
+        <tr>
+          <td><strong>Brackett</strong></td>
+          <td>\(4\)</td>
+          <td>\(5, 6, 7, \dots\)</td>
+          <td>Infrared (IR)</td>
+        </tr>
+        <tr>
+          <td><strong>Pfund</strong></td>
+          <td>\(5\)</td>
+          <td>\(6, 7, 8, \dots\)</td>
+          <td>Infrared (IR)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 680 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Energy Axis -->
+      <line x1="50" y1="255" x2="50" y2="15" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <text x="22" y="135" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold" transform="rotate(-90, 22, 135)">Energy (E)</text>
+      <!-- Energy Levels -->
+      <line x1="70" y1="25" x2="580" y2="25" stroke="#111827" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="590" y="29" font-size="12" font-family="sans-serif" font-weight="bold">n = ∞ (E = 0)</text>
+      <line x1="70" y1="42" x2="580" y2="42" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="590" y="45" font-size="12" font-family="sans-serif">n = 5</text>
+      <line x1="70" y1="62" x2="580" y2="62" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="590" y="66" font-size="12" font-family="sans-serif">n = 4</text>
+      <line x1="70" y1="92" x2="580" y2="92" stroke="#1e293b" stroke-width="1.8"/>
+      <text x="590" y="96" font-size="12" font-family="sans-serif" font-weight="bold">n = 3</text>
+      <line x1="70" y1="150" x2="580" y2="150" stroke="#1e293b" stroke-width="2"/>
+      <text x="590" y="154" font-size="12" font-family="sans-serif" font-weight="bold">n = 2</text>
+      <line x1="70" y1="245" x2="580" y2="245" stroke="#1e293b" stroke-width="2.5"/>
+      <text x="590" y="249" font-size="12" font-family="sans-serif" font-weight="bold">n = 1 (Ground)</text>
+      <!-- Lyman Series -->
+      <g stroke="#6d28d9" stroke-width="1.8" marker-end="url(#arrow-blk)">
+        <line x1="110" y1="150" x2="110" y2="245"/>
+        <line x1="135" y1="92" x2="135" y2="245"/>
+        <line x1="160" y1="62" x2="160" y2="245"/>
+        <line x1="185" y1="42" x2="185" y2="245"/>
+      </g>
+      <text x="150" y="215" font-size="12" font-family="sans-serif" font-weight="bold" fill="#6d28d9">Lyman (UV)</text>
+      <!-- Balmer Series -->
+      <line x1="270" y1="92" x2="270" y2="150" stroke="#dc2626" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="295" y1="62" x2="295" y2="150" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="320" y1="42" x2="320" y2="150" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <text x="310" y="172" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" fill="#15803d">Balmer (Visible)</text>
+      <!-- Paschen Series -->
+      <g stroke="#b91c1c" stroke-width="1.8" marker-end="url(#arrow-blk)">
+        <line x1="440" y1="62" x2="440" y2="92"/>
+        <line x1="465" y1="42" x2="465" y2="92"/>
+        <line x1="490" y1="25" x2="490" y2="92"/>
+      </g>
+      <text x="465" y="112" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" fill="#b91c1c">Paschen (IR)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 6: Electronic transitions in the hydrogen atom showing Lyman, Balmer, and Paschen series.</div>
+  </div>
+
+  <h3>5.3 Postulates &amp; Equations of Bohr's Model (1913)</h3>
+  <ol>
+    <li><strong>Stationary States (Orbits):</strong> The electron in the hydrogen atom moves around the nucleus in circular paths of fixed radius and energy called <em>orbits</em>, <em>stationary states</em>, or <em>allowed energy states</em> (numbered by the Principal Quantum Number \(n = 1, 2, 3, \dots\)).</li>
+    <li><strong>Quantized Energy Transitions:</strong> The energy of an electron in an orbit does not change with time. Energy is absorbed or emitted only when the electron jumps between stationary states.</li>
+    <li><strong>Bohr's Frequency Rule:</strong> The frequency of radiation absorbed or emitted during a transition between states of energy \(E_1\) and \(E_2\) is:
+      \[ \nu = \frac{\Delta E}{h} = \frac{E_2 - E_1}{h} \]
+    </li>
+    <li><strong>Quantisation of Angular Momentum:</strong> An electron can move only in those orbits for which its angular momentum (\(L = I\omega = m_e v r\)) is an integral multiple of \(\frac{h}{2\pi}\):
+      \[ m_e v r = n\frac{h}{2\pi} \qquad (n = 1, 2, 3, \dots) \]
+    </li>
+  </ol>
+
+  <div class="card-formula">
+    <p><strong>Key Quantitative Results of Bohr's Model (for H and One-Electron Ions like \(\mathrm{He^+, Li^{2+}, Be^{3+}}\)):</strong></p>
+    <ul>
+      <li><strong>Radius of \(n^{\text{th}}\) Orbit:</strong>
+        \[ r_n = \frac{n^2 a_0}{Z} = \frac{52.9\,n^2}{Z}\,\mathrm{pm} = \frac{0.0529\,n^2}{Z}\,\mathrm{nm} = \frac{0.529\,n^2}{Z}\,\mathrm{Å} \]
+        (where first Bohr orbit radius for hydrogen is \(a_0 = 52.9\,\mathrm{pm}\)).
+      </li>
+      <li><strong>Energy of Electron in \(n^{\text{th}}\) Stationary State:</strong>
+        \[ E_n = -R_H\left(\frac{Z^2}{n^2}\right) = -2.18 \times 10^{-18}\left(\frac{Z^2}{n^2}\right)\,\mathrm{J\,atom^{-1}} = -13.6\left(\frac{Z^2}{n^2}\right)\,\mathrm{eV\,atom^{-1}} \]
+      </li>
+      <li><strong>Meaning of Negative Sign in \(E_n\):</strong> A free electron infinitely far from the nucleus (\(n = \infty\), ionized atom) is assigned zero energy (\(E_\infty = 0\)). When attracted by the nucleus into orbit \(n\), energy is emitted and its energy becomes lower than zero (negative). The most negative energy is at \(n = 1\) (ground state, most stable).</li>
+      <li><strong>Velocity of Electron:</strong> Increases with increase in nuclear charge (\(Z\)) and decreases with increase in principal quantum number (\(n\)): \(v_n \propto \frac{Z}{n}\) (where \(v_1 = 2.19 \times 10^6\,\mathrm{m\,s^{-1}}\) for H).</li>
+      <li><strong>Energy, Frequency &amp; Wavenumber of Transition (\(n_i \rightarrow n_f\)):</strong>
+        \[ \Delta E = E_f - E_i = 2.18 \times 10^{-18} Z^2\left(\frac{1}{n_i^2} - \frac{1}{n_f^2}\right)\,\mathrm{J}, \qquad \nu = 3.29 \times 10^{15} Z^2\left(\frac{1}{n_i^2} - \frac{1}{n_f^2}\right)\,\mathrm{Hz} \]
+      </li>
+      <li><strong>Maximum Number of Emission Lines from Excited State \(n\) to Ground State (\(n=1\)):</strong>
+        \[ \text{Total Spectral Lines} = \frac{n(n-1)}{2} \qquad \left(\text{Between } n_2 \text{ and } n_1: \frac{(n_2 - n_1)(n_2 - n_1 + 1)}{2}\right) \]
+      </li>
+    </ul>
+  </div>
+
+  <h4>Limitations of Bohr's Model:</h4>
+  <ul>
+    <li>Fails to account for finer details (<strong>doublets</strong>, closely spaced lines) of the hydrogen spectrum.</li>
+    <li>Unable to explain the spectrum of multi-electron atoms (even helium, which has only \(2\) electrons).</li>
+    <li>Unable to explain the splitting of spectral lines in a magnetic field (<strong>Zeeman effect</strong>) or in an electric field (<strong>Stark effect</strong>).</li>
+    <li>Cannot explain the ability of atoms to form molecules by chemical bonds.</li>
+    <li>Ignores the wave character of the electron and contradicts Heisenberg's uncertainty principle by defining exact circular trajectories.</li>
+  </ul>
+</section>
+
+<!-- SECTION 6: DUAL BEHAVIOUR OF MATTER & UNCERTAINTY PRINCIPLE -->
+<section id="duality-uncertainty">
+  <h2>6. Dual Behaviour of Matter &amp; Heisenberg's Uncertainty Principle</h2>
+
+  <h3>6.1 de Broglie Relation (1924)</h3>
+  <p>French physicist <strong>Louis de Broglie</strong> proposed that matter, like radiation, exhibits dual behaviour (both particle and wave-like properties). The wavelength (\(\lambda\)) associated with a material particle of mass \(m\) and velocity \(v\) (momentum \(p = mv\)) is:</p>
+  <div class="card-formula">
+    \[ \lambda = \frac{h}{mv} = \frac{h}{p} = \frac{h}{\sqrt{2m(\mathrm{K.E.})}} = \frac{h}{\sqrt{2mqV}} \]
+  </div>
+  <ul>
+    <li><strong>Experimental Confirmation:</strong> Confirmed when an electron beam was found to undergo diffraction. This principle is used in the <strong>electron microscope</strong> (capable of \(\sim 15\) million times magnification).</li>
+    <li><strong>Macroscopic vs. Microscopic Objects:</strong> Every object in motion has a wave character, but for ordinary macroscopic objects (large mass \(m\)), \(\lambda\) is so extremely short that wave properties cannot be detected. Sub-atomic particles have very small mass, so their wavelengths are experimentally measurable.</li>
+    <li><strong>Connection to Bohr's Quantisation:</strong> For a standing electron wave to fit around a circular Bohr orbit of radius \(r\) without destructive interference, the circumference of the Bohr orbit must be an integral multiple of the de Broglie wavelength:
+      \[ 2\pi r = n\lambda = n\left(\frac{h}{m_e v}\right) \quad \Longrightarrow \quad m_e v r = \frac{nh}{2\pi} \]
+    </li>
+  </ul>
+
+  <h3>6.2 Heisenberg's Uncertainty Principle (1927)</h3>
+  <p><strong>Werner Heisenberg</strong> stated that <strong>it is impossible to determine simultaneously, the exact position and exact momentum (or velocity) of an electron</strong> (or any microscopic particle).</p>
+  <div class="card-formula">
+    \[ \Delta x \times \Delta p_x \ge \frac{h}{4\pi} \quad \text{or} \quad \Delta x \times \Delta(m v_x) \ge \frac{h}{4\pi} \quad \text{or} \quad \Delta x \times \Delta v_x \ge \frac{h}{4\pi m} \]
+    <p>where \(\Delta x\) is the uncertainty in position and \(\Delta p_x\) (or \(\Delta v_x\)) is the uncertainty in momentum (or velocity).</p>
+  </div>
+  <ul>
+    <li><strong>Physical Reason:</strong> To locate a dimensionless point-like electron accurately, we must illuminate it with electromagnetic radiation of very short wavelength \(\lambda\). Photons of such light have very high momentum (\(p = h/\lambda\)); when they collide with the electron, they drastically alter its velocity/momentum.</li>
+    <li><strong>Significance:</strong> It <strong>rules out the existence of definite paths or trajectories (orbits)</strong> of electrons. Precise statements of position and momentum must be replaced by statements of <em>probability</em>. For macroscopic objects (e.g., \(1\,\mathrm{mg} = 10^{-6}\,\mathrm{kg}\)), \(\Delta v \cdot \Delta x \approx 10^{-28}\,\mathrm{m^2\,s^{-1}}\), which is negligible; for an electron (\(m_e = 9.11 \times 10^{-31}\,\mathrm{kg}\)), \(\Delta v \cdot \Delta x \approx 10^{-4}\,\mathrm{m^2\,s^{-1}}\), which is very large.</li>
+  </ul>
+</section>
+
+<!-- SECTION 7: QUANTUM MECHANICAL MODEL & ATOMIC ORBITALS -->
+<section id="quantum-model">
+  <h2>7. Quantum Mechanical Model of Atom &amp; Quantum Numbers</h2>
+  <p>Developed independently in 1926 by Werner Heisenberg and <strong>Erwin Schrödinger</strong>, quantum mechanics describes microscopic objects exhibiting wave-particle duality. For a system whose energy does not change with time, the fundamental Schrödinger equation is:</p>
+  <div class="card-formula">
+    \[ \hat{H}\psi = E\psi \]
+  </div>
+  <p>where \(\hat{H}\) is the mathematical <strong>Hamiltonian operator</strong> (constructed from total kinetic and attractive/repulsive potential energies of electrons and nuclei), \(E\) is the quantized total energy, and \(\psi\) is the <strong>wave function</strong> (atomic orbital for one-electron systems).</p>
+  <ul>
+    <li><strong>Wave Function (\(\psi\)):</strong> A mathematical function of the electron's coordinates containing all information about the electron; \(\psi\) by itself has <em>no physical meaning</em> (and can be positive, negative, or zero).</li>
+    <li><strong>Probability Density (\(|\psi|^2\)):</strong> According to Max Born, the square of the wave function \(|\psi|^2\) at a point is always positive (or zero at nodes) and gives the <strong>probability density</strong> (probability per unit volume) of finding the electron at that point. Boundary surface diagrams enclose a region where the probability of finding the electron is very high (\(\sim 90\%\); a \(100\%\) boundary surface cannot be drawn because \(|\psi|^2\) is never strictly zero at any finite distance, except at nodes).</li>
+  </ul>
+
+  <h3>7.1 Orbitals and the Four Quantum Numbers</h3>
+  <div class="table-wrap">
+    <table>
+      <caption><strong>Summary Table 5: Complete Guide to the Four Quantum Numbers</strong></caption>
+      <thead>
+        <tr>
+          <th>Quantum Number</th>
+          <th>Symbol</th>
+          <th>Permissible Values</th>
+          <th>Physical Information Provided</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Principal Quantum Number</strong></td>
+          <td>\(n\)</td>
+          <td>\(1, 2, 3, 4, \dots\)<br>(Shells: \(\mathrm{K, L, M, N, \dots}\))</td>
+          <td>Identifies the <strong>shell</strong>, determines the <strong>size</strong> of the orbital, and to a large extent its <strong>energy</strong> (solely determines energy in one-electron species).<br>Subshells in \(n^{\text{th}}\) shell \(= n\).<br>Total orbitals in \(n^{\text{th}}\) shell \(= n^2\).<br>Max electrons in \(n^{\text{th}}\) shell \(= 2n^2\).</td>
+        </tr>
+        <tr>
+          <td><strong>Azimuthal (Orbital Angular Momentum or Subsidiary) Quantum Number</strong></td>
+          <td>\(l\)</td>
+          <td>For a given \(n\):<br>\(l = 0, 1, 2, \dots, (n-1)\)<br>Subshell notations:<br>\(l = 0 \rightarrow s\)<br>\(l = 1 \rightarrow p\)<br>\(l = 2 \rightarrow d\)<br>\(l = 3 \rightarrow f\)<br>\(l = 4 \rightarrow g\)<br>\(l = 5 \rightarrow h\)</td>
+          <td>Identifies the <strong>subshell</strong> and defines the three-dimensional <strong>shape</strong> of the orbital. Also affects orbital energy in multi-electron atoms.<br>Orbitals in a subshell \(= 2l + 1\).<br>Max electrons in a subshell \(= 2(2l+1)\).<br>Orbital angular momentum \(= \sqrt{l(l+1)}\frac{h}{2\pi}\).</td>
+        </tr>
+        <tr>
+          <td><strong>Magnetic Orbital Quantum Number</strong></td>
+          <td>\(m_l\)</td>
+          <td>For a given \(l\):<br>\(2l + 1\) integer values from \(-l\) through \(0\) to \(+l\):<br>\(-l, -(l-1), \dots, 0, \dots, +l\)</td>
+          <td>Gives the <strong>spatial orientation</strong> of the orbital with respect to a standard set of coordinate axes.<br>\(s\,(l=0): 1\text{ orbital } (m_l=0)\)<br>\(p\,(l=1): 3\text{ orbitals } (m_l=-1,0,+1)\)<br>\(d\,(l=2): 5\text{ orbitals } (m_l=-2,-1,0,+1,+2)\)<br>\(f\,(l=3): 7\text{ orbitals } (m_l=-3\text{ to }+3)\)</td>
+        </tr>
+        <tr>
+          <td><strong>Electron Spin Quantum Number</strong><br><em>(Uhlenbeck &amp; Goudsmit, 1925)</em></td>
+          <td>\(m_s\)</td>
+          <td>\(+\frac{1}{2}\) (spin up, \(\uparrow\)) or<br>\(-\frac{1}{2}\) (spin down, \(\downarrow\))</td>
+          <td>Refers to the two orientations of the intrinsic <strong>spin angular momentum</strong> of the electron relative to a chosen axis. (Not derived from Schrödinger's wave equation).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.2 Shapes of Atomic Orbitals, Wave Function Plots &amp; Nodes</h3>
+  <p>A <strong>node</strong> (nodal surface or nodal plane) is a region where the probability density function \(\psi^2\) reduces to zero (excluding \(r = 0\) and \(r = \infty\)).</p>
+  <div class="card-formula">
+    \[ \text{Angular Nodes (Nodal Planes)} = l \]
+    \[ \text{Radial Nodes (Spherical Nodes)} = n - l - 1 \]
+    \[ \text{Total Nodes} = \text{Angular Nodes} + \text{Radial Nodes} = l + (n - l - 1) = n - 1 \]
+  </div>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Plot 1: 1s psi^2 -->
+      <line x1="50" y1="180" x2="290" y2="180" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="50" y1="180" x2="50" y2="25" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <path d="M 52 35 C 62 150, 95 178, 260 179" fill="none" stroke="#1d4ed8" stroke-width="2.8"/>
+      <text x="170" y="205" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold">Distance from nucleus r (1s orbital: 0 nodes)</text>
+      <text x="32" y="105" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" transform="rotate(-90, 32, 105)">ψ²(r)</text>
+      <text x="140" y="65" font-size="13" font-family="sans-serif" font-weight="bold" fill="#1d4ed8">1s: Max ψ² at nucleus</text>
+
+      <!-- Plot 2: 2s psi^2 -->
+      <line x1="380" y1="180" x2="640" y2="180" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <line x1="380" y1="180" x2="380" y2="25" stroke="#111827" stroke-width="2" marker-end="url(#arrow-blk)"/>
+      <path d="M 382 35 C 392 140, 412 180, 425 180 C 438 180, 452 125, 470 125 C 495 125, 535 178, 620 179" fill="none" stroke="#b91c1c" stroke-width="2.8"/>
+      <circle cx="425" cy="180" r="4.5" fill="#111827"/>
+      <line x1="425" y1="140" x2="425" y2="172" stroke="#111827" stroke-width="1.5" marker-end="url(#arrow-blk)"/>
+      <text x="445" y="132" font-size="12" font-family="sans-serif" font-weight="bold" fill="#111827">Radial Node (ψ² = 0)</text>
+      <text x="510" y="205" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold">Distance from nucleus r (2s orbital: 1 node)</text>
+      <text x="362" y="105" text-anchor="middle" font-size="12" font-family="sans-serif" font-weight="bold" transform="rotate(-90, 362, 105)">ψ²(r)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 7: Variation of probability density ψ²(r) with distance r for 1s and 2s orbitals.</div>
+  </div>
+
+  <ul>
+    <li><strong>\(s\)-Orbitals (\(l = 0\)):</strong> Spherically symmetric around the nucleus (probability of finding the electron at a given distance is equal in all directions). For \(1s\), \(\psi^2\) is maximum at the nucleus and decreases sharply. For \(2s\), \(\psi(r)\) crosses zero once (changing sign from positive to negative), so \(\psi^2(r)\) drops to zero at one spherical <strong>radial node</strong>, reaches a smaller secondary maximum, and then approaches zero. Size and energy increase as \(4s > 3s > 2s > 1s\). An \(ns\) orbital has \((n - 1)\) radial nodes and \(0\) angular nodes.</li>
+    <li><strong>\(p\)-Orbitals (\(l = 1\)):</strong> Each \(p\) orbital consists of two lobes on either side of a nodal plane passing through the nucleus (\(\psi^2 = 0\) at the nucleus and on the nodal plane). The three degenerate orbitals (\(p_x, p_y, p_z\)) are identical in size, shape, and energy, oriented along mutually perpendicular axes. Each \(np\) orbital has \(1\) angular node (e.g., \(xy\)-plane for \(p_z\), \(yz\)-plane for \(p_x\), \(xz\)-plane for \(p_y\)) and \((n - 2)\) radial nodes.</li>
+    <li><strong>\(d\)-Orbitals (\(l = 2\), minimum \(n = 3\)):</strong> Five degenerate orbitals:
+      <ul>
+        <li><strong>\(d_{xy}, d_{yz}, d_{xz}\):</strong> Four cloverleaf lobes lying <em>between</em> the coordinate axes in the respective planes.</li>
+        <li><strong>\(d_{x^2-y^2}\):</strong> Four lobes lying <em>along</em> the \(x\) and \(y\) axes.</li>
+        <li><strong>\(d_{z^2}\):</strong> Two lobes along the \(z\)-axis and a doughnut-shaped ring (torus) in the \(xy\)-plane.</li>
+      </ul>
+      Each \(nd\) orbital has \(2\) angular nodes and \((n - 3)\) radial nodes.
+    </li>
+  </ul>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 700 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- s orbital -->
+      <line x1="40" y1="105" x2="150" y2="105" stroke="#475569" stroke-width="1.5"/>
+      <line x1="95" y1="50" x2="95" y2="160" stroke="#475569" stroke-width="1.5"/>
+      <circle cx="95" cy="105" r="38" fill="#93c5fd" fill-opacity="0.65" stroke="#1d4ed8" stroke-width="2"/>
+      <text x="95" y="188" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold">s orbital (Spherical)</text>
+
+      <!-- pz orbital -->
+      <line x1="205" y1="105" x2="315" y2="105" stroke="#475569" stroke-width="1.5"/>
+      <line x1="260" y1="35" x2="260" y2="170" stroke="#475569" stroke-width="1.5"/>
+      <ellipse cx="260" cy="75" rx="18" ry="29" fill="#fca5a5" fill-opacity="0.7" stroke="#b91c1c" stroke-width="2"/>
+      <ellipse cx="260" cy="135" rx="18" ry="29" fill="#fca5a5" fill-opacity="0.7" stroke="#b91c1c" stroke-width="2"/>
+      <text x="270" y="42" font-size="11" font-family="sans-serif" font-weight="bold">z</text>
+      <text x="260" y="188" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold">2pz (Along axis)</text>
+
+      <!-- dxy orbital -->
+      <line x1="370" y1="105" x2="490" y2="105" stroke="#475569" stroke-width="1.5"/>
+      <line x1="430" y1="45" x2="430" y2="165" stroke="#475569" stroke-width="1.5"/>
+      <g transform="translate(430,105)">
+        <ellipse cx="20" cy="-20" rx="22" ry="11" transform="rotate(-45, 20, -20)" fill="#86efac" fill-opacity="0.7" stroke="#15803d" stroke-width="1.8"/>
+        <ellipse cx="-20" cy="-20" rx="22" ry="11" transform="rotate(45, -20, -20)" fill="#86efac" fill-opacity="0.7" stroke="#15803d" stroke-width="1.8"/>
+        <ellipse cx="20" cy="20" rx="22" ry="11" transform="rotate(45, 20, 20)" fill="#86efac" fill-opacity="0.7" stroke="#15803d" stroke-width="1.8"/>
+        <ellipse cx="-20" cy="20" rx="22" ry="11" transform="rotate(-45, -20, 20)" fill="#86efac" fill-opacity="0.7" stroke="#15803d" stroke-width="1.8"/>
+      </g>
+      <text x="495" y="109" font-size="11" font-family="sans-serif" font-weight="bold">x</text>
+      <text x="438" y="52" font-size="11" font-family="sans-serif" font-weight="bold">y</text>
+      <text x="430" y="188" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold">3dxy (Between axes)</text>
+
+      <!-- dz2 orbital -->
+      <line x1="545" y1="105" x2="665" y2="105" stroke="#475569" stroke-width="1.5"/>
+      <line x1="605" y1="35" x2="605" y2="170" stroke="#475569" stroke-width="1.5"/>
+      <ellipse cx="605" cy="72" rx="16" ry="30" fill="#d8b4fe" fill-opacity="0.7" stroke="#6d28d9" stroke-width="2"/>
+      <ellipse cx="605" cy="138" rx="16" ry="30" fill="#d8b4fe" fill-opacity="0.7" stroke="#6d28d9" stroke-width="2"/>
+      <ellipse cx="605" cy="105" rx="28" ry="9" fill="#c084fc" fill-opacity="0.85" stroke="#581c87" stroke-width="1.8"/>
+      <text x="615" y="42" font-size="11" font-family="sans-serif" font-weight="bold">z</text>
+      <text x="605" y="188" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="bold">3dz² (Lobes + ring)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 8: Boundary surface diagrams illustrating representative s, p, and d atomic orbitals.</div>
+  </div>
+</section>
+
+<!-- SECTION 8: ENERGIES OF ORBITALS & ELECTRONIC CONFIGURATION -->
+<section id="electronic-config">
+  <h2>8. Orbital Energies, Shielding &amp; Electronic Configuration Rules</h2>
+
+  <h3>8.1 Energies of Orbitals: Hydrogen vs. Multi-Electron Atoms</h3>
+  <ul>
+    <li><strong>Hydrogen &amp; One-Electron Species (\(\mathrm{H, He^+, Li^{2+}}\)):</strong> Only electrical attraction between the nucleus and the single electron exists. Orbital energy depends <strong>solely on \(n\)</strong>:
+      \[ 1s < 2s = 2p < 3s = 3p = 3d < 4s = 4p = 4d = 4f < \dots \]
+      Orbitals having the same energy are called <strong>degenerate orbitals</strong>.
+    </li>
+    <li><strong>Multi-Electron Atoms:</strong> In addition to nuclear attraction, electron-electron repulsions exist. Inner shell electrons partially screen the outer electrons from the full nuclear charge (\(Ze\)). This is called <strong>shielding (or screening)</strong>, and the net positive charge experienced by outer electrons is the <strong>effective nuclear charge (\(Z_{\text{eff}}e\))</strong>.
+      <ul>
+        <li>Within the same shell, spherical \(s\) electrons spend more time close to the nucleus than \(p\) electrons, which penetrate closer than \(d\) electrons, etc.</li>
+        <li>Therefore, <strong>\(Z_{\text{eff}}\) experienced by an electron decreases with increasing \(l\):</strong> \(Z_{\text{eff}}(s) > Z_{\text{eff}}(p) > Z_{\text{eff}}(d) > Z_{\text{eff}}(f)\).</li>
+        <li>Consequently, within a shell, orbital energy increases as: \(s < p < d < f\).</li>
+        <li>Also, for the same subshell across different elements, orbital energy decreases (becomes more negative) as atomic number \(Z\) increases: \(E_{2s}(\mathrm{H}) > E_{2s}(\mathrm{Li}) > E_{2s}(\mathrm{Na}) > E_{2s}(\mathrm{K})\).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="card-formula">
+    <p><strong>Bohr-Bury \((n + l)\) Rule for Multi-Electron Atoms:</strong></p>
+    <ol>
+      <li>The lower the value of \((n + l)\) for an orbital, the lower is its energy.</li>
+      <li>If two orbitals have the <strong>same value of \((n + l)\)</strong>, the orbital with the <strong>lower value of \(n\)</strong> has the lower energy.</li>
+    </ol>
+    <p><strong>Resulting Aufbau Filling Order:</strong><br>
+    \(1s < 2s < 2p < 3s < 3p < 4s < 3d < 4p < 5s < 4d < 5p < 6s < 4f < 5d < 6p < 7s < 5f < 6d < 7p\)</p>
+  </div>
+
+  <h3>8.2 Three Fundamental Rules for Filling Orbitals</h3>
+  <ol>
+    <li><strong>Aufbau Principle:</strong> In the ground state of atoms, orbitals are filled in the order of their increasing energies.</li>
+    <li><strong>Pauli Exclusion Principle (Wolfgang Pauli, 1926):</strong> <em>"No two electrons in an atom can have the same set of four quantum numbers."</em> Equivalently: <em>"Only two electrons may exist in the same orbital and these electrons must have opposite spin."</em></li>
+    <li><strong>Hund's Rule of Maximum Multiplicity:</strong> <em>"Pairing of electrons in the orbitals belonging to the same subshell (\(p, d,\) or \(f\) — degenerate orbitals) does not take place until each orbital belonging to that subshell has got one electron each, i.e., is singly occupied"</em> (with parallel spins). Thus, pairing starts with the \(4^{\text{th}}\) electron in \(p\), the \(6^{\text{th}}\) electron in \(d\), and the \(8^{\text{th}}\) electron in \(f\) subshells.</li>
+  </ol>
+
+  <h4>Orbital Diagrams for Second-Period Elements (\(\mathrm{Li}\) to \(\mathrm{Ne}\)):</h4>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Element (\(Z\))</th>
+          <th>\(s^a p^b\) Notation</th>
+          <th>\(1s\)</th>
+          <th>\(2s\)</th>
+          <th>\(2p\) (\(2p_x, 2p_y, 2p_z\))</th>
+          <th>Unpaired \(\mathrm{e^-}\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\mathrm{Li}\,(3)\)</td>
+          <td>\(1s^2 2s^1\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">&nbsp;</span><span class="orb-box">&nbsp;</span><span class="orb-box">&nbsp;</span></span></td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{Be}\,(4)\)</td>
+          <td>\(1s^2 2s^2\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">&nbsp;</span><span class="orb-box">&nbsp;</span><span class="orb-box">&nbsp;</span></span></td>
+          <td>\(0\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{B}\,(5)\)</td>
+          <td>\(1s^2 2s^2 2p^1\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑</span><span class="orb-box">&nbsp;</span><span class="orb-box">&nbsp;</span></span></td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{C}\,(6)\)</td>
+          <td>\(1s^2 2s^2 2p^2\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑</span><span class="orb-box">↑</span><span class="orb-box">&nbsp;</span></span></td>
+          <td>\(2\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{N}\,(7)\)</td>
+          <td>\(1s^2 2s^2 2p^3\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑</span><span class="orb-box">↑</span><span class="orb-box">↑</span></span></td>
+          <td>\(3\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{O}\,(8)\)</td>
+          <td>\(1s^2 2s^2 2p^4\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span><span class="orb-box">↑</span><span class="orb-box">↑</span></span></td>
+          <td>\(2\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{F}\,(9)\)</td>
+          <td>\(1s^2 2s^2 2p^5\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span><span class="orb-box">↑↓</span><span class="orb-box">↑</span></span></td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{Ne}\,(10)\)</td>
+          <td>\(1s^2 2s^2 2p^6\)</td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span></span></td>
+          <td><span class="orbital-boxes"><span class="orb-box">↑↓</span><span class="orb-box">↑↓</span><span class="orb-box">↑↓</span></span></td>
+          <td>\(0\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.3 Extra Stability of Half-Filled &amp; Completely Filled Subshells</h3>
+  <p>In elements where outer subshells (such as \(4s\) and \(3d\)) differ only slightly in energy, an electron shifts from the lower-energy subshell (\(4s\)) to the higher-energy subshell (\(3d\)) if doing so results in a <strong>half-filled (\(d^5\))</strong> or <strong>completely filled (\(d^{10}\))</strong> configuration:</p>
+  <ul>
+    <li><strong>Chromium (\(\mathrm{Cr}, Z = 24\)):</strong> \([\mathrm{Ar}]\,3d^5 4s^1\) (instead of \(3d^4 4s^2\)) — \(6\) unpaired electrons in ground state.</li>
+    <li><strong>Copper (\(\mathrm{Cu}, Z = 29\)):</strong> \([\mathrm{Ar}]\,3d^{10} 4s^1\) (instead of \(3d^9 4s^2\)) — \(1\) unpaired electron in ground state.</li>
+    <li><strong>Other Notable Exceptional Configurations:</strong> \(\mathrm{Nb}\,(41): [\mathrm{Kr}]\,4d^4 5s^1\); \(\mathrm{Mo}\,(42): [\mathrm{Kr}]\,4d^5 5s^1\); \(\mathrm{Ru}\,(44): [\mathrm{Kr}]\,4d^7 5s^1\); \(\mathrm{Rh}\,(45): [\mathrm{Kr}]\,4d^8 5s^1\); \(\mathrm{Pd}\,(46): [\mathrm{Kr}]\,4d^{10} 5s^0\); \(\mathrm{Ag}\,(47): [\mathrm{Kr}]\,4d^{10} 5s^1\); \(\mathrm{La}\,(57): [\mathrm{Xe}]\,5d^1 6s^2\); \(\mathrm{Gd}\,(64): [\mathrm{Xe}]\,4f^7 5d^1 6s^2\); \(\mathrm{Pt}\,(78): [\mathrm{Xe}]\,4f^{14} 5d^9 6s^1\); \(\mathrm{Au}\,(79): [\mathrm{Xe}]\,4f^{14} 5d^{10} 6s^1\).</li>
+  </ul>
+  <p><strong>Causes of Extra Stability:</strong></p>
+  <ol>
+    <li><strong>Symmetrical Distribution of Electrons:</strong> Half-filled and fully filled subshells have symmetrical spatial distribution, resulting in relatively small shielding of one another and stronger attraction by the nucleus, along with smaller coulombic repulsion energy.</li>
+    <li><strong>Exchange Energy:</strong> Two or more electrons with the <em>same spin</em> in degenerate orbitals of a subshell tend to exchange their positions, releasing <strong>exchange energy</strong>. The number of possible exchanges is maximum when the subshell is half-filled or completely filled (for a \(d^5\) configuration with \(5\) parallel spins, total exchanges \(= 4 + 3 + 2 + 1 = 10\) exchanges).</li>
+  </ol>
+</section>
+
+<!-- SECTION 9: WORKED EXAMPLES -->
+<section id="worked-examples">
+  <h2>9. Comprehensive Worked Examples</h2>
+
+  <div class="example-box">
+    <div class="example-title">Worked Example 1: Sub-Atomic Particles in Neutral Atoms and Ions</div>
+    <p><strong>Problem:</strong> (a) Calculate the number of protons, neutrons, and electrons in \(^{80}_{35}\mathrm{Br}\). (b) An ion has \(18\) electrons, \(16\) protons, and \(16\) neutrons. Assign its proper symbol. (c) An ion with mass number \(56\) contains \(3\) units of positive charge and \(30.4\%\) more neutrons than electrons. Assign the symbol to this ion.</p>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p><strong>(a)</strong> For neutral \(^{80}_{35}\mathrm{Br}\), \(Z = 35\) and \(A = 80\).<br>
+      Number of protons \(= \text{Number of electrons} = Z = 35\).<br>
+      Number of neutrons \(= A - Z = 80 - 35 = 45\).</p>
+      <p><strong>(b)</strong> Atomic number \(Z = \text{number of protons} = 16\), which corresponds to sulphur (\(\mathrm{S}\)).<br>
+      Mass number \(A = 16 + 16 = 32\). Since there are \(18 - 16 = 2\) excess electrons, it is an anion with a \(2-\) charge: \(^{32}_{16}\mathrm{S}^{2-}\).</p>
+      <p><strong>(c)</strong> Let the number of electrons in the \(+3\) cation be \(x\).<br>
+      Then the number of protons \(Z = x + 3\), and the number of neutrons \(n = x + 0.304x = 1.304x\).<br>
+      Since mass number \(A = Z + n = 56\):<br>
+      \[ (x + 3) + 1.304x = 56 \implies 2.304x = 53 \implies x = \frac{53}{2.304} = 23\text{ electrons} \]
+      Therefore, number of protons \(Z = 23 + 3 = 26\) (Iron, \(\mathrm{Fe}\)). The symbol of the ion is \(^{56}_{26}\mathrm{Fe}^{3+}\).</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Worked Example 2: Mass and Number of Neutrons/Protons in Macroscopic Samples</div>
+    <p><strong>Problem:</strong> (a) Find the total number and total mass of neutrons in \(7\,\mathrm{mg}\) of \(^{14}\mathrm{C}\) (mass of a neutron \(= 1.675 \times 10^{-27}\,\mathrm{kg}\)). (b) Find the total number and total mass of protons in \(34\,\mathrm{mg}\) of \(\mathrm{NH_3}\) at STP. Will the answer change if temperature and pressure are changed?</p>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p><strong>(a)</strong> \(1\,\mathrm{mol}\) of \(^{14}_{6}\mathrm{C}\) (\(14\,\mathrm{g} = 14 \times 10^3\,\mathrm{mg}\)) contains \(6.022 \times 10^{23}\) atoms, and each \(^{14}_{6}\mathrm{C}\) atom has \(14 - 6 = 8\) neutrons.<br>
+      Number of neutrons in \(7\,\mathrm{mg}\):
+      \[ N_n = \frac{7\,\mathrm{mg}}{14,000\,\mathrm{mg\,mol^{-1}}} \times 6.022 \times 10^{23} \times 8 = 2.4088 \times 10^{21}\text{ neutrons} \]
+      Total mass of neutrons \(= (2.4088 \times 10^{21}) \times (1.675 \times 10^{-27}\,\mathrm{kg}) = 4.035 \times 10^{-6}\,\mathrm{kg}\).</p>
+      <p><strong>(b)</strong> Molar mass of \(\mathrm{NH_3} = 17\,\mathrm{g\,mol^{-1}} = 17,000\,\mathrm{mg\,mol^{-1}}\). Each \(\mathrm{NH_3}\) molecule contains \(7 + 3(1) = 10\) protons.<br>
+      Moles of \(\mathrm{NH_3} = \frac{34\,\mathrm{mg}}{17,000\,\mathrm{mg\,mol^{-1}}} = 2 \times 10^{-3}\,\mathrm{mol}\).<br>
+      Total number of protons \(= (2 \times 10^{-3}\,\mathrm{mol}) \times (6.022 \times 10^{23}\,\mathrm{mol^{-1}}) \times 10 = 1.2044 \times 10^{22}\text{ protons}\).<br>
+      Total mass of protons \(= (1.2044 \times 10^{22}) \times (1.6726 \times 10^{-27}\,\mathrm{kg}) = 2.0145 \times 10^{-5}\,\mathrm{kg}\).<br>
+      <em>Effect of \(T\) and \(P\):</em> <strong>No</strong>, the answer will not change because mass (\(34\,\mathrm{mg}\)) and the number of protons are independent of temperature and pressure.</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Worked Example 3: Photoelectric Effect &amp; Photon Energy</div>
+    <p><strong>Problem:</strong> When electromagnetic radiation of wavelength \(300\,\mathrm{nm}\) falls on the surface of sodium, electrons are emitted with a kinetic energy of \(1.68 \times 10^5\,\mathrm{J\,mol^{-1}}\). What is the minimum energy needed to remove an electron from sodium, and what is the maximum wavelength that will cause a photoelectron to be emitted?</p>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p>Energy of one \(300\,\mathrm{nm}\) photon:
+      \[ E = \frac{hc}{\lambda} = \frac{(6.626 \times 10^{-34}\,\mathrm{J\,s})(3.0 \times 10^8\,\mathrm{m\,s^{-1}})}{300 \times 10^{-9}\,\mathrm{m}} = 6.626 \times 10^{-19}\,\mathrm{J} \]
+      Energy of one mole of photons \(= (6.626 \times 10^{-19}\,\mathrm{J})(6.022 \times 10^{23}\,\mathrm{mol^{-1}}) = 3.99 \times 10^5\,\mathrm{J\,mol^{-1}}\).<br>
+      Minimum energy needed to remove one mole of electrons \(= (3.99 - 1.68) \times 10^5 = 2.31 \times 10^5\,\mathrm{J\,mol^{-1}}\).<br>
+      Minimum energy per electron (Work function \(W_0\)):
+      \[ W_0 = \frac{2.31 \times 10^5\,\mathrm{J\,mol^{-1}}}{6.022 \times 10^{23}\,\mathrm{mol^{-1}}} = 3.84 \times 10^{-19}\,\mathrm{J} \]
+      Maximum (threshold) wavelength \(\lambda_0\):
+      \[ \lambda_0 = \frac{hc}{W_0} = \frac{(6.626 \times 10^{-34}\,\mathrm{J\,s})(3.0 \times 10^8\,\mathrm{m\,s^{-1}})}{3.84 \times 10^{-19}\,\mathrm{J}} = 5.17 \times 10^{-7}\,\mathrm{m} = 517\,\mathrm{nm}\text{ (green light)} \]</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Worked Example 4: Bohr Orbit Radii &amp; Hydrogen Spectral Transitions</div>
+    <p><strong>Problem:</strong> Calculate the wavelength for the emission transition in the hydrogen atom if it starts from the orbit having radius \(1.3225\,\mathrm{nm}\) and ends at \(211.6\,\mathrm{pm}\). Name the series to which this transition belongs and the region of the spectrum.</p>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p>For the hydrogen atom (\(Z = 1\)), the radius of the \(n^{\text{th}}\) orbit is \(r_n = 52.9\,n^2\,\mathrm{pm}\).<br>
+      Initial radius \(r_i = 1.3225\,\mathrm{nm} = 1322.5\,\mathrm{pm} \implies n_i^2 = \frac{1322.5}{52.9} = 25 \implies n_i = 5\).<br>
+      Final radius \(r_f = 211.6\,\mathrm{pm} \implies n_f^2 = \frac{211.6}{52.9} = 4 \implies n_f = 2\).<br>
+      Since the emission ends at \(n_f = 2\), it belongs to the <strong>Balmer series</strong> in the <strong>visible region</strong>.<br>
+      Wavenumber \(\bar{\nu}\):
+      \[ \bar{\nu} = \frac{1}{\lambda} = 1.09677 \times 10^7\left(\frac{1}{2^2} - \frac{1}{5^2}\right)\,\mathrm{m^{-1}} = 1.09677 \times 10^7 \times \frac{21}{100}\,\mathrm{m^{-1}} = 2.303 \times 10^6\,\mathrm{m^{-1}} \]
+      \[ \lambda = \frac{1}{2.303 \times 10^6\,\mathrm{m^{-1}}} = 4.34 \times 10^{-7}\,\mathrm{m} = 434\,\mathrm{nm} \]</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Worked Example 5: de Broglie Wavelength &amp; Heisenberg Uncertainty</div>
+    <p><strong>Problem:</strong> (a) The mass of an electron is \(9.1 \times 10^{-31}\,\mathrm{kg}\). If its kinetic energy is \(3.0 \times 10^{-25}\,\mathrm{J}\), calculate its wavelength. (b) A microscope using suitable photons is employed to locate an electron in an atom within a distance of \(0.1\,\mathrm{Å}\). What is the uncertainty involved in the measurement of its velocity?</p>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p><strong>(a)</strong> From \(\mathrm{K.E.} = \frac{1}{2}mv^2\):
+      \[ v = \sqrt{\frac{2 \times 3.0 \times 10^{-25}\,\mathrm{J}}{9.1 \times 10^{-31}\,\mathrm{kg}}} = 812\,\mathrm{m\,s^{-1}} \]
+      \[ \lambda = \frac{h}{mv} = \frac{6.626 \times 10^{-34}\,\mathrm{J\,s}}{(9.1 \times 10^{-31}\,\mathrm{kg})(812\,\mathrm{m\,s^{-1}})} = 8.967 \times 10^{-7}\,\mathrm{m} = 896.7\,\mathrm{nm} \]</p>
+      <p><strong>(b)</strong> Given \(\Delta x = 0.1\,\mathrm{Å} = 0.1 \times 10^{-10}\,\mathrm{m} = 10^{-11}\,\mathrm{m}\). Using Heisenberg's relation:
+      \[ \Delta v = \frac{h}{4\pi m \Delta x} = \frac{6.626 \times 10^{-34}\,\mathrm{J\,s}}{4 \times 3.14 \times (9.11 \times 10^{-31}\,\mathrm{kg}) \times (0.1 \times 10^{-10}\,\mathrm{m})} = 5.79 \times 10^6\,\mathrm{m\,s^{-1}} \]</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: NEET UG PRACTICE QUESTIONS -->
+<section id="practice-questions">
+  <h2>10. NEET UG Exam-Aligned Practice Questions with Worked Solutions</h2>
+  <p><em>The following original practice questions are strictly aligned with the NEET UG Chemistry standard, covering single-choice conceptual, numerical, statement-based, assertion-reason, and matching formats.</em></p>
+
+  <!-- Q1 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 1 <span class="q-tag">Statement-Based MCQ</span></div>
+    <p>Consider the following statements regarding cathode rays and canal rays (positively charged particles) in discharge tube experiments:</p>
+    <ol>
+      <li>The charge-to-mass ratio (\(e/m_e\)) of cathode ray particles is independent of the nature of the gas in the tube and the material of the electrodes.</li>
+      <li>The charge-to-mass ratio of canal ray particles depends on the nature of the residual gas present in the discharge tube.</li>
+      <li>In the absence of electrical or magnetic fields, cathode rays travel in curved paths due to mutual electrostatic repulsion.</li>
+    </ol>
+    <p>Which of the above statements are <strong>correct</strong>?</p>
+    <ul class="options-list">
+      <li>(1) 1 and 2 only</li>
+      <li>(2) 2 and 3 only</li>
+      <li>(3) 1 and 3 only</li>
+      <li>(4) 1, 2 and 3</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) 1 and 2 only</div>
+      <p><strong>Worked Solution:</strong> Cathode rays consist of electrons, which are universal fundamental constituents of all atoms; hence their \(e/m_e\) ratio (\(1.758820 \times 10^{11}\,\mathrm{C\,kg^{-1}}\)) does not depend on the electrode material or gas (Statement 1 is correct). Canal rays are positively charged gaseous ions formed by ionization of the gas in the tube, so their mass and \(q/m\) ratio depend on the gas (Statement 2 is correct). In the absence of electric or magnetic fields, cathode rays travel in <strong>straight lines</strong> (Statement 3 is incorrect).</p>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 2 <span class="q-tag">Numerical MCQ</span></div>
+    <p>An element has mass number \(81\) and contains \(31.7\%\) more neutrons as compared to protons. What is the correct atomic symbol of this element?</p>
+    <ul class="options-list">
+      <li>(1) \(^{81}_{34}\mathrm{Se}\)</li>
+      <li>(2) \(^{81}_{35}\mathrm{Br}\)</li>
+      <li>(3) \(^{81}_{36}\mathrm{Kr}\)</li>
+      <li>(4) \(^{81}_{37}\mathrm{Rb}\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (2) \(^{81}_{35}\mathrm{Br}\)</div>
+      <p><strong>Worked Solution:</strong> Let the number of protons (\(Z\)) be \(x\). Then the number of neutrons is \(n = x + 0.317x = 1.317x\).<br>
+      Given mass number \(A = Z + n = 81\):
+      \[ x + 1.317x = 81 \implies 2.317x = 81 \implies x = \frac{81}{2.317} \approx 35 \]
+      An atomic number of \(Z = 35\) corresponds to bromine (\(\mathrm{Br}\)), so the symbol is \(^{81}_{35}\mathrm{Br}\).</p>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 3 <span class="q-tag">Numerical MCQ</span></div>
+    <p>A \(25\,\mathrm{watt}\) bulb emits monochromatic yellow light of wavelength \(0.57\,\mathrm{µm}\). What is the rate of emission of quanta (photons) per second? (Take \(h = 6.626 \times 10^{-34}\,\mathrm{J\,s}\), \(c = 3.0 \times 10^8\,\mathrm{m\,s^{-1}}\))</p>
+    <ul class="options-list">
+      <li>(1) \(7.17 \times 10^{19}\,\mathrm{s^{-1}}\)</li>
+      <li>(2) \(3.49 \times 10^{19}\,\mathrm{s^{-1}}\)</li>
+      <li>(3) \(1.43 \times 10^{20}\,\mathrm{s^{-1}}\)</li>
+      <li>(4) \(4.97 \times 10^{18}\,\mathrm{s^{-1}}\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) \(7.17 \times 10^{19}\,\mathrm{s^{-1}}\)</div>
+      <p><strong>Worked Solution:</strong> Given power \(P = 25\,\mathrm{W} = 25\,\mathrm{J\,s^{-1}}\) and wavelength \(\lambda = 0.57\,\mathrm{µm} = 0.57 \times 10^{-6}\,\mathrm{m}\).<br>
+      Energy of one photon (quantum):
+      \[ E = \frac{hc}{\lambda} = \frac{(6.626 \times 10^{-34}\,\mathrm{J\,s})(3.0 \times 10^8\,\mathrm{m\,s^{-1}})}{0.57 \times 10^{-6}\,\mathrm{m}} = 3.487 \times 10^{-19}\,\mathrm{J} \]
+      Rate of emission of quanta per second:
+      \[ \frac{P}{E} = \frac{25\,\mathrm{J\,s^{-1}}}{3.487 \times 10^{-19}\,\mathrm{J}} = 7.17 \times 10^{19}\,\mathrm{s^{-1}} \]</p>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 4 <span class="q-tag">Numerical MCQ</span></div>
+    <p>Electromagnetic radiation of wavelength \(242\,\mathrm{nm}\) is just sufficient to ionise a sodium atom. What is the ionisation energy of sodium in \(\mathrm{kJ\,mol^{-1}}\)?</p>
+    <ul class="options-list">
+      <li>(1) \(247\,\mathrm{kJ\,mol^{-1}}\)</li>
+      <li>(2) \(494\,\mathrm{kJ\,mol^{-1}}\)</li>
+      <li>(3) \(821\,\mathrm{kJ\,mol^{-1}}\)</li>
+      <li>(4) \(399\,\mathrm{kJ\,mol^{-1}}\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (2) \(494\,\mathrm{kJ\,mol^{-1}}\)</div>
+      <p><strong>Worked Solution:</strong> The energy of one photon of \(\lambda = 242\,\mathrm{nm} = 242 \times 10^{-9}\,\mathrm{m}\) equals the ionisation energy per atom:
+      \[ E_{\text{atom}} = \frac{hc}{\lambda} = \frac{(6.626 \times 10^{-34}\,\mathrm{J\,s})(3.0 \times 10^8\,\mathrm{m\,s^{-1}})}{242 \times 10^{-9}\,\mathrm{m}} = 8.214 \times 10^{-19}\,\mathrm{J} \]
+      For one mole of sodium atoms (\(N_A = 6.022 \times 10^{23}\,\mathrm{mol^{-1}}\)):
+      \[ E_{\text{mol}} = (8.214 \times 10^{-19}\,\mathrm{J})(6.022 \times 10^{23}\,\mathrm{mol^{-1}}) = 4.946 \times 10^5\,\mathrm{J\,mol^{-1}} \approx 494\,\mathrm{kJ\,mol^{-1}} \]</p>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 5 <span class="q-tag">Photoelectric Effect</span></div>
+    <p>A photon of wavelength \(4.0 \times 10^{-7}\,\mathrm{m}\) strikes a metal surface whose work function is \(2.13\,\mathrm{eV}\). What are the energy of the incident photon and the kinetic energy of the emitted photoelectron respectively? (Given \(1\,\mathrm{eV} = 1.6020 \times 10^{-19}\,\mathrm{J}\))</p>
+    <ul class="options-list">
+      <li>(1) \(3.10\,\mathrm{eV}\) and \(0.97\,\mathrm{eV}\)</li>
+      <li>(2) \(2.13\,\mathrm{eV}\) and \(0.97\,\mathrm{eV}\)</li>
+      <li>(3) \(3.10\,\mathrm{eV}\) and \(5.23\,\mathrm{eV}\)</li>
+      <li>(4) \(4.20\,\mathrm{eV}\) and \(2.07\,\mathrm{eV}\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) \(3.10\,\mathrm{eV}\) and \(0.97\,\mathrm{eV}\)</div>
+      <p><strong>Worked Solution:</strong> Energy of the photon in Joules:
+      \[ E = \frac{hc}{\lambda} = \frac{(6.626 \times 10^{-34}\,\mathrm{J\,s})(3.0 \times 10^8\,\mathrm{m\,s^{-1}})}{4.0 \times 10^{-7}\,\mathrm{m}} = 4.97 \times 10^{-19}\,\mathrm{J} \]
+      Converting to electron-volts (\(\mathrm{eV}\)):
+      \[ E = \frac{4.97 \times 10^{-19}\,\mathrm{J}}{1.6020 \times 10^{-19}\,\mathrm{J\,eV^{-1}}} = 3.10\,\mathrm{eV} \]
+      By Einstein's photoelectric equation, \(\mathrm{K.E.} = E - W_0 = 3.10\,\mathrm{eV} - 2.13\,\mathrm{eV} = 0.97\,\mathrm{eV}\).</p>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 6 <span class="q-tag">Bohr Model &amp; Spectra</span></div>
+    <p>Which transition in the hydrogen spectrum will have the exact same wavelength as the Balmer transition \(n = 4\) to \(n = 2\) of the \(\mathrm{He^+}\) spectrum?</p>
+    <ul class="options-list">
+      <li>(1) \(n = 4\) to \(n = 2\)</li>
+      <li>(2) \(n = 3\) to \(n = 1\)</li>
+      <li>(3) \(n = 2\) to \(n = 1\)</li>
+      <li>(4) \(n = 4\) to \(n = 1\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (3) \(n = 2\) to \(n = 1\)</div>
+      <p><strong>Worked Solution:</strong> For a one-electron species, wavenumber is given by \(\bar{\nu} = \frac{1}{\lambda} = R_H Z^2\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)\).<br>
+      For \(\mathrm{He^+}\) (\(Z = 2\)) undergoing \(n_2 = 4 \rightarrow n_1 = 2\):
+      \[ \bar{\nu}_{\mathrm{He^+}} = R_H (2)^2\left(\frac{1}{2^2} - \frac{1}{4^2}\right) = R_H\left(\frac{4}{4} - \frac{4}{16}\right) = R_H\left(\frac{1}{1^2} - \frac{1}{2^2}\right) \]
+      Comparing this with the hydrogen atom (\(Z = 1\)), \(\bar{\nu}_{\mathrm{H}} = R_H(1)^2\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)\), we see that \(n_1 = 1\) and \(n_2 = 2\) (the first Lyman line, \(n = 2 \rightarrow n = 1\)).</p>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 7 <span class="q-tag">Bohr Model Numerical</span></div>
+    <p>The ionization energy for the hydrogen atom in the ground state is \(2.18 \times 10^{-18}\,\mathrm{J\,atom^{-1}}\). What are (i) the energy required for the process \(\mathrm{He^+(g) \rightarrow He^{2+}(g) + e^-}\) (from ground state), and (ii) the maximum number of emission spectral lines when an excited electron in a sample of \(\mathrm{H}\) atoms in \(n = 6\) drops to the ground state?</p>
+    <ul class="options-list">
+      <li>(1) \(4.36 \times 10^{-18}\,\mathrm{J\,atom^{-1}}\) and \(15\) lines</li>
+      <li>(2) \(8.72 \times 10^{-18}\,\mathrm{J\,atom^{-1}}\) and \(15\) lines</li>
+      <li>(3) \(8.72 \times 10^{-18}\,\mathrm{J\,atom^{-1}}\) and \(10\) lines</li>
+      <li>(4) \(5.45 \times 10^{-19}\,\mathrm{J\,atom^{-1}}\) and \(15\) lines</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (2) \(8.72 \times 10^{-18}\,\mathrm{J\,atom^{-1}}\) and \(15\) lines</div>
+      <p><strong>Worked Solution:</strong><br>
+      (i) \(\mathrm{He^+}\) is a one-electron ion with \(Z = 2\). Its ground-state (\(n = 1\)) energy is:
+      \[ E_1(\mathrm{He^+}) = -2.18 \times 10^{-18} \times \frac{2^2}{1^2} = -8.72 \times 10^{-18}\,\mathrm{J\,atom^{-1}} \]
+      Thus, the ionization energy required to remove the electron to \(n = \infty\) (\(E_\infty = 0\)) is \(\Delta E = 0 - (-8.72 \times 10^{-18}\,\mathrm{J}) = 8.72 \times 10^{-18}\,\mathrm{J\,atom^{-1}}\).<br>
+      (ii) Maximum number of emission lines from \(n = 6\) to \(n = 1\) is \(\frac{n(n-1)}{2} = \frac{6(6-1)}{2} = 15\text{ lines}\).</p>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 8 <span class="q-tag">Balmer Series Wavenumber</span></div>
+    <p>What is the wavenumber (\(\bar{\nu}\)) for the <strong>longest wavelength</strong> transition in the Balmer series of atomic hydrogen? (Given Rydberg constant \(R_H = 1.09677 \times 10^7\,\mathrm{m^{-1}}\))</p>
+    <ul class="options-list">
+      <li>(1) \(1.523 \times 10^6\,\mathrm{m^{-1}}\)</li>
+      <li>(2) \(2.742 \times 10^6\,\mathrm{m^{-1}}\)</li>
+      <li>(3) \(8.226 \times 10^6\,\mathrm{m^{-1}}\)</li>
+      <li>(4) \(2.056 \times 10^6\,\mathrm{m^{-1}}\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) \(1.523 \times 10^6\,\mathrm{m^{-1}}\)</div>
+      <p><strong>Worked Solution:</strong> Longest wavelength (\(\lambda_{\max}\)) corresponds to the minimum energy difference (\(\Delta E_{\min}\)) and minimum wavenumber. For the Balmer series (\(n_1 = 2\)), the minimum energy transition is from the immediately adjacent upper level, \(n_2 = 3\):
+      \[ \bar{\nu} = 1.09677 \times 10^7\left(\frac{1}{2^2} - \frac{1}{3^2}\right)\,\mathrm{m^{-1}} = 1.09677 \times 10^7 \times \left(\frac{5}{36}\right)\,\mathrm{m^{-1}} = 1.523 \times 10^6\,\mathrm{m^{-1}} \]</p>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 9 <span class="q-tag">Heisenberg Uncertainty Principle</span></div>
+    <p>If the position of an electron is measured within an accuracy of \(\pm 0.002\,\mathrm{nm}\), what is the minimum uncertainty in the momentum (\(\Delta p\)) of the electron? Furthermore, if the actual momentum of the electron is defined as \(\frac{h}{4\pi \times 0.05\,\mathrm{nm}}\), is there any problem in defining this value?</p>
+    <ul class="options-list">
+      <li>(1) \(\Delta p = 2.64 \times 10^{-23}\,\mathrm{kg\,m\,s^{-1}}\); Yes, it cannot be defined because the uncertainty \(\Delta p\) is \(25\) times larger than the actual momentum value.</li>
+      <li>(2) \(\Delta p = 1.05 \times 10^{-24}\,\mathrm{kg\,m\,s^{-1}}\); No problem, because \(\Delta p\) is much smaller than the actual momentum.</li>
+      <li>(3) \(\Delta p = 2.64 \times 10^{-23}\,\mathrm{kg\,m\,s^{-1}}\); No problem, because both position and momentum can be measured simultaneously.</li>
+      <li>(4) \(\Delta p = 5.27 \times 10^{-25}\,\mathrm{kg\,m\,s^{-1}}\); Yes, because momentum of an electron is always zero.</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) \(\Delta p = 2.64 \times 10^{-23}\,\mathrm{kg\,m\,s^{-1}}\); Yes, it cannot be defined because the uncertainty \(\Delta p\) is \(25\) times larger than the actual momentum value.</div>
+      <p><strong>Worked Solution:</strong> Given \(\Delta x = 0.002\,\mathrm{nm} = 2 \times 10^{-12}\,\mathrm{m}\).<br>
+      From Heisenberg's uncertainty principle:
+      \[ \Delta p = \frac{h}{4\pi \Delta x} = \frac{6.626 \times 10^{-34}\,\mathrm{J\,s}}{4 \times 3.14 \times (2 \times 10^{-12}\,\mathrm{m})} = 2.638 \times 10^{-23}\,\mathrm{kg\,m\,s^{-1}} \]
+      The proposed actual momentum is:
+      \[ p = \frac{h}{4\pi \times (0.05 \times 10^{-9}\,\mathrm{m})} = 1.055 \times 10^{-24}\,\mathrm{kg\,m\,s^{-1}} \]
+      Since the uncertainty in momentum (\(\Delta p = 2.64 \times 10^{-23}\,\mathrm{kg\,m\,s^{-1}}\)) is \(25\) times larger than the actual value of momentum (\(1.055 \times 10^{-24}\,\mathrm{kg\,m\,s^{-1}}\)), such a momentum value cannot be defined physically.</p>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 10 <span class="q-tag">Quantum Numbers Validity</span></div>
+    <p>Which of the following sets of quantum numbers \((n, l, m_l, m_s)\) is <strong>permissible</strong> for an electron in an atom, and what is the lowest value of \(n\) that allows \(g\) orbitals to exist?</p>
+    <ul class="options-list">
+      <li>(1) \(n = 3, l = 3, m_l = -3, m_s = +\frac{1}{2}\); and lowest \(n\) for \(g\) orbital is \(4\)</li>
+      <li>(2) \(n = 2, l = 1, m_l = 0, m_s = -\frac{1}{2}\); and lowest \(n\) for \(g\) orbital is \(5\)</li>
+      <li>(3) \(n = 1, l = 1, m_l = 0, m_s = +\frac{1}{2}\); and lowest \(n\) for \(g\) orbital is \(5\)</li>
+      <li>(4) \(n = 0, l = 0, m_l = 0, m_s = +\frac{1}{2}\); and lowest \(n\) for \(g\) orbital is \(6\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (2) \(n = 2, l = 1, m_l = 0, m_s = -\frac{1}{2}\); and lowest \(n\) for \(g\) orbital is \(5\)</div>
+      <p><strong>Worked Solution:</strong><br>
+      • In (1), \(n = 3, l = 3\) is impossible because \(l\) can only range from \(0\) to \(n-1\).<br>
+      • In (3), \(n = 1, l = 1\) is impossible for the same reason (\(l = 0\) only when \(n = 1\)).<br>
+      • In (4), \(n = 0\) is impossible because \(n\) must be a positive integer (\(1, 2, 3, \dots\)).<br>
+      • In (2), \(n = 2, l = 1\) (\(2p\) subshell), \(m_l = 0\) (within \(-1, 0, +1\)), and \(m_s = -\frac{1}{2}\) is completely valid.<br>
+      • For a \(g\) subshell, \(l = 4\) (\(s=0, p=1, d=2, f=3, g=4\)). Since the maximum value of \(l\) is \(n-1\), the minimum value of \(n\) is \(l + 1 = 4 + 1 = 5\).</p>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 11 <span class="q-tag">Matching Type MCQ</span></div>
+    <p>Match each atomic orbital in <strong>List I</strong> with its correct nodal description in <strong>List II</strong>:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>List I (Atomic Orbital)</th>
+            <th>List II (Nodal Characteristics)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A. \(3s\) orbital</td>
+            <td>I. \(1\) radial node and \(1\) angular node</td>
+          </tr>
+          <tr>
+            <td>B. \(3p\) orbital</td>
+            <td>II. \(0\) radial nodes and \(2\) angular nodes</td>
+          </tr>
+          <tr>
+            <td>C. \(3d\) orbital</td>
+            <td>III. \(2\) radial nodes and \(0\) angular nodes</td>
+          </tr>
+          <tr>
+            <td>D. \(4d\) orbital</td>
+            <td>IV. \(1\) radial node and \(2\) angular nodes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Choose the correct answer from the options given below:</p>
+    <ul class="options-list">
+      <li>(1) A–III, B–I, C–II, D–IV</li>
+      <li>(2) A–III, B–II, C–I, D–IV</li>
+      <li>(3) A–I, B–III, C–II, D–IV</li>
+      <li>(4) A–III, B–I, C–IV, D–II</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) A–III, B–I, C–II, D–IV</div>
+      <p><strong>Worked Solution:</strong> Using \(\text{Angular nodes} = l\) and \(\text{Radial nodes} = n - l - 1\):<br>
+      • <strong>A. \(3s\) (\(n=3, l=0\)):</strong> Radial nodes \(= 3 - 0 - 1 = 2\); Angular nodes \(= 0\) \(\rightarrow\) <strong>III</strong>.<br>
+      • <strong>B. \(3p\) (\(n=3, l=1\)):</strong> Radial nodes \(= 3 - 1 - 1 = 1\); Angular nodes \(= 1\) \(\rightarrow\) <strong>I</strong>.<br>
+      • <strong>C. \(3d\) (\(n=3, l=2\)):</strong> Radial nodes \(= 3 - 2 - 1 = 0\); Angular nodes \(= 2\) \(\rightarrow\) <strong>II</strong>.<br>
+      • <strong>D. \(4d\) (\(n=4, l=2\)):</strong> Radial nodes \(= 4 - 2 - 1 = 1\); Angular nodes \(= 2\) \(\rightarrow\) <strong>IV</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 12 <span class="q-tag">\((n+l)\) Rule &amp; Degeneracy</span></div>
+    <p>The quantum numbers of six electrons in a multi-electron atom are given below:</p>
+    <ol>
+      <li>\(n = 4, l = 2, m_l = -2, m_s = -1/2\)</li>
+      <li>\(n = 3, l = 2, m_l = 1, m_s = +1/2\)</li>
+      <li>\(n = 4, l = 1, m_l = 0, m_s = +1/2\)</li>
+      <li>\(n = 3, l = 2, m_l = -2, m_s = -1/2\)</li>
+      <li>\(n = 3, l = 1, m_l = -1, m_s = +1/2\)</li>
+      <li>\(n = 4, l = 1, m_l = 0, m_s = +1/2\)</li>
+    </ol>
+    <p>What is the correct order of their <strong>increasing energies</strong>?</p>
+    <ul class="options-list">
+      <li>(1) \(5 < 2 = 4 < 3 = 6 < 1\)</li>
+      <li>(2) \(5 < 3 = 6 < 2 = 4 < 1\)</li>
+      <li>(3) \(1 < 3 = 6 < 2 = 4 < 5\)</li>
+      <li>(4) \(5 < 2 < 4 < 3 < 6 < 1\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) \(5 < 2 = 4 < 3 = 6 < 1\)</div>
+      <p><strong>Worked Solution:</strong> Let us identify each orbital and its \((n+l)\) value:<br>
+      • (1) \(n=4, l=2 \rightarrow 4d\) orbital, \((n+l) = 6\).<br>
+      • (2) \(n=3, l=2 \rightarrow 3d\) orbital, \((n+l) = 5\).<br>
+      • (3) \(n=4, l=1 \rightarrow 4p\) orbital, \((n+l) = 5\).<br>
+      • (4) \(n=3, l=2 \rightarrow 3d\) orbital, \((n+l) = 5\).<br>
+      • (5) \(n=3, l=1 \rightarrow 3p\) orbital, \((n+l) = 4\).<br>
+      • (6) \(n=4, l=1 \rightarrow 4p\) orbital, \((n+l) = 5\).<br>
+      For \(3d\) vs. \(4p\), both have \((n+l) = 5\), so \(3d\) (lower \(n=3\)) has lower energy than \(4p\) (\(n=4\)). Orbitals within the same subshell are degenerate (\(2 = 4\) in \(3d\), and \(3 = 6\) in \(4p\)). Thus: \(3p\,(5) < 3d\,(2 = 4) < 4p\,(3 = 6) < 4d\,(1)\).</p>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 13 <span class="q-tag">Effective Nuclear Charge (\(Z_{\text{eff}}\))</span></div>
+    <p>Answer the following regarding effective nuclear charge (\(Z_{\text{eff}}\)):<br>
+    (i) A bromine atom (\(Z=35\)) contains \(6\) electrons in \(2p\), \(6\) electrons in \(3p\), and \(5\) electrons in \(4p\) orbitals. Which of these electrons experiences the <em>lowest</em> \(Z_{\text{eff}}\)?<br>
+    (ii) Among the pairs (\(4d, 4f\)) and (\(\mathrm{Al}\,3p, \mathrm{Si}\,3p\)), which experiences the <em>larger</em> \(Z_{\text{eff}}\) in each pair?</p>
+    <ul class="options-list">
+      <li>(1) (i) \(4p\); (ii) \(4d\) and \(\mathrm{Si}\,3p\)</li>
+      <li>(2) (i) \(2p\); (ii) \(4f\) and \(\mathrm{Al}\,3p\)</li>
+      <li>(3) (i) \(4p\); (ii) \(4f\) and \(\mathrm{Si}\,3p\)</li>
+      <li>(4) (i) \(3p\); (ii) \(4d\) and \(\mathrm{Al}\,3p\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) (i) \(4p\); (ii) \(4d\) and \(\mathrm{Si}\,3p\)</div>
+      <p><strong>Worked Solution:</strong><br>
+      • (i) In bromine, \(4p\) electrons are in the outermost shell (\(n = 4\)), farthest from the nucleus and shielded most strongly by inner electrons, so \(4p\) experiences the lowest \(Z_{\text{eff}}\).<br>
+      • (ii) For the same shell (\(n=4\)), \(Z_{\text{eff}}\) decreases as \(l\) increases (\(s > p > d > f\)), so \(4d\) (\(l=2\)) experiences a larger \(Z_{\text{eff}}\) than \(4f\) (\(l=3\)). Between \(\mathrm{Al}\) (\(Z=13\)) and \(\mathrm{Si}\) (\(Z=14\)), both unpaired electrons are in the \(3p\) subshell, but \(\mathrm{Si}\) has a higher nuclear charge (\(+14\) vs. \(+13\)), so the \(3p\) electron in \(\mathrm{Si}\) experiences a larger \(Z_{\text{eff}}\).</p>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 14 <span class="q-tag">Assertion-Reason</span></div>
+    <p><strong>Assertion (A):</strong> The ground state electronic configuration of Chromium (\(Z = 24\)) is \([\mathrm{Ar}]\,3d^5 4s^1\) instead of \([\mathrm{Ar}]\,3d^4 4s^2\), and the number of unpaired electrons in Cr is \(6\).</p>
+    <p><strong>Reason (R):</strong> Half-filled and completely filled degenerate subshells possess extra stability due to symmetrical distribution of electrons, smaller coulombic repulsion, and maximum exchange energy.</p>
+    <p>In the light of the above statements, choose the correct option:</p>
+    <ul class="options-list">
+      <li>(1) Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+      <li>(2) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</li>
+      <li>(3) (A) is true but (R) is false.</li>
+      <li>(4) (A) is false but (R) is true.</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) Both (A) and (R) are true and (R) is the correct explanation of (A).</div>
+      <p><strong>Worked Solution:</strong> In \(\mathrm{Cr}\) (\(Z = 24\)), shifting one electron from \(4s\) to \(3d\) produces \([\mathrm{Ar}]\,3d^5 4s^1\), which has \(5\) unpaired electrons in \(3d\) and \(1\) unpaired electron in \(4s\) (total \(= 6\) unpaired electrons). The \(3d^5\) half-filled subshell has extra stability due to symmetrical distribution of electrons and maximum exchange energy (\(10\) exchanges among the \(5\) parallel-spin electrons). Hence both (A) and (R) are true and (R) correctly explains (A).</p>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card">
+    <div class="q-header">Practice Question 15 <span class="q-tag">Quantum Counting &amp; Unpaired Electrons</span></div>
+    <p>Determine: (a) how many electrons in an atom can have the quantum numbers \(n = 4, m_s = -\frac{1}{2}\), and (b) the number of unpaired electrons in ground-state \(\mathrm{P}\,(Z=15)\), \(\mathrm{Fe}\,(Z=26)\), and \(\mathrm{Kr}\,(Z=36)\) respectively.</p>
+    <ul class="options-list">
+      <li>(1) (a) \(16\); (b) \(3, 4, 0\)</li>
+      <li>(2) (a) \(32\); (b) \(3, 4, 0\)</li>
+      <li>(3) (a) \(16\); (b) \(5, 6, 0\)</li>
+      <li>(4) (a) \(8\); (b) \(3, 2, 2\)</li>
+    </ul>
+    <div class="answer-box">
+      <div class="answer-key">Correct Answer: (1) (a) \(16\); (b) \(3, 4, 0\)</div>
+      <p><strong>Worked Solution:</strong><br>
+      (a) For principal quantum number \(n = 4\), the total number of orbitals is \(n^2 = 4^2 = 16\) orbitals, and the maximum number of electrons is \(2n^2 = 32\). Since each orbital can hold only one electron with spin \(m_s = -\frac{1}{2}\), at most \(16\) electrons can have \(n = 4, m_s = -\frac{1}{2}\).<br>
+      (b) Ground-state configurations:<br>
+      • \(\mathrm{P}\,(Z=15): [\mathrm{Ne}]\,3s^2 3p^3 \rightarrow 3\text{ unpaired electrons}\) in \(3p\).<br>
+      • \(\mathrm{Fe}\,(Z=26): [\mathrm{Ar}]\,3d^6 4s^2 \rightarrow\) in five \(3d\) orbitals, \(6\) electrons arrange as \(\uparrow\downarrow, \uparrow, \uparrow, \uparrow, \uparrow \rightarrow 4\text{ unpaired electrons}\).<br>
+      • \(\mathrm{Kr}\,(Z=36): [\mathrm{Ar}]\,3d^{10} 4s^2 4p^6 \rightarrow\) all subshells completely filled \(\rightarrow 0\text{ unpaired electrons}\).</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: COMMON PITFALLS & REVISION CHECKLIST -->
+<section id="pitfalls-recap">
+  <h2>11. Common Pitfalls &amp; Final Revision Checklist</h2>
+  <div class="card-warning">
+    <h4>Common Exam Pitfalls to Avoid in NEET UG:</h4>
+    <ul>
+      <li><strong>Confusing Canal Rays with Cathode Rays:</strong> Remember that \(e/m_e\) of cathode rays is <em>independent</em> of the gas, whereas \(q/m\) of canal rays (positive ions) <em>depends</em> on the gas inside the discharge tube.</li>
+      <li><strong>Photoelectric Intensity vs. Frequency Trap:</strong> Increasing the <em>intensity (brightness)</em> of light increases the <em>number of photoelectrons</em> emitted (photocurrent), <strong>not</strong> their kinetic energy. Kinetic energy depends strictly on the <em>frequency</em> (\(\nu\)) of incident light.</li>
+      <li><strong>Counting Transition Lines vs. Series Lines:</strong> "First line" or "longest wavelength line" of a series means \(n_2 = n_1 + 1\) (minimum \(\Delta E\)). "Series limit" or "shortest wavelength line" means \(n_2 = \infty\) (maximum \(\Delta E\)).</li>
+      <li><strong>One-Electron vs. Multi-Electron Orbital Energies:</strong> In the \(\mathrm{H}\) atom (or \(\mathrm{He^+, Li^{2+}}\)), \(E(2s) = E(2p)\) and \(E(3s) = E(3p) = E(3d)\) because energy depends <em>only on \(n\)</em>. The \((n+l)\) rule applies <strong>only</strong> to multi-electron atoms!</li>
+      <li><strong>Radial vs. Angular Nodes:</strong> Never mix up the formulas: Angular nodes \(= l\) (depends only on subshell), Radial nodes \(= n - l - 1\), and Total nodes \(= n - 1\).</li>
+      <li><strong>Cation Electronic Configurations:</strong> When forming cations of transition metals (e.g., \(\mathrm{Fe^{2+}, Cu^{2+}, Cr^{3+}}\)), always remove electrons from the outermost shell (highest \(n\), i.e., \(4s\)) <em>first</em> before removing from \(3d\).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Concise Final Formula &amp; Concept Recap:</h4>
+    <ul>
+      <li><strong>Sub-Atomic Constants:</strong> \(e = 1.602 \times 10^{-19}\,\mathrm{C}\); \(m_e = 9.109 \times 10^{-31}\,\mathrm{kg}\); \(e/m_e = 1.7588 \times 10^{11}\,\mathrm{C\,kg^{-1}}\); \(m_p = 1.6726 \times 10^{-27}\,\mathrm{kg}\); \(m_n = 1.6749 \times 10^{-27}\,\mathrm{kg}\).</li>
+      <li><strong>Radiation &amp; Photons:</strong> \(c = \nu\lambda = 3.0 \times 10^8\,\mathrm{m\,s^{-1}}\); \(\bar{\nu} = 1/\lambda\); \(E = nh\nu = \frac{nhc}{\lambda}\) (\(h = 6.626 \times 10^{-34}\,\mathrm{J\,s}\)).</li>
+      <li><strong>Photoelectric Equation:</strong> \(h\nu = W_0 + \mathrm{K.E._{\max}} = h\nu_0 + \frac{1}{2}m_e v^2\).</li>
+      <li><strong>Bohr Model (H-like species):</strong> \(m_e v r = \frac{nh}{2\pi}\); \(r_n = \frac{52.9\,n^2}{Z}\,\mathrm{pm}\); \(E_n = -2.18 \times 10^{-18}\left(\frac{Z^2}{n^2}\right)\,\mathrm{J}\); \(\bar{\nu} = 109,677\,Z^2\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)\,\mathrm{cm^{-1}}\).</li>
+      <li><strong>Matter Waves &amp; Uncertainty:</strong> \(\lambda = \frac{h}{mv} = \frac{h}{p}\); \(\Delta x \cdot \Delta p_x \ge \frac{h}{4\pi}\) or \(\Delta x \cdot \Delta v_x \ge \frac{h}{4\pi m}\).</li>
+      <li><strong>Quantum Capacity Rules:</strong> Subshells in shell \(n = n\); Orbitals in subshell \(l = 2l + 1\); Orbitals in shell \(n = n^2\); Max electrons in shell \(n = 2n^2\).</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

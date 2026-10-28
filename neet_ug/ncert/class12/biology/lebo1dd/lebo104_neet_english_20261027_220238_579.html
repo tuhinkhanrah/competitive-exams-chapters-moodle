@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principles of Inheritance and Variation — NEET UG Tutorial</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    color: #1f2937;
+    background-color: #ffffff;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    font-size: 16px;
+  }
+
+  header.tutorial-header {
+    border-bottom: 3px solid #1e3a8a;
+    padding-bottom: 16px;
+    margin-bottom: 28px;
+  }
+
+  .exam-badge {
+    display: inline-block;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #111827;
+    margin: 8px 0;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: #4b5563;
+    margin: 4px 0 0 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #1e3a8a;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 6px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.22rem;
+    color: #1f2937;
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    color: #374151;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0 0 14px 0;
+    overflow-wrap: break-word;
+  }
+
+  ul, ol {
+    margin: 0 0 16px 0;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #1e3a8a;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+
+  .card.highlight {
+    background-color: #eff6ff;
+    border-left-color: #2563eb;
+  }
+
+  .card.warning {
+    background-color: #fffbeb;
+    border-color: #fde68a;
+    border-left-color: #d97706;
+  }
+
+  .card.clinical {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    border-left-color: #dc2626;
+  }
+
+  .formula-box {
+    background-color: #f1f5f9;
+    border: 1px solid #94a3b8;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 16px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: break-word;
+  }
+
+  th {
+    background-color: #1e3a8a;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+
+  .punnett-table {
+    width: auto;
+    min-width: 60%;
+    margin: 16px auto;
+  }
+
+  .punnett-table th, .punnett-table td {
+    text-align: center;
+    padding: 10px 14px;
+  }
+
+  .svg-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 22px 0;
+    padding: 14px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .svg-caption {
+    font-size: 0.9rem;
+    color: #4b5563;
+    margin-top: 10px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .example-block, .question-block {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 20px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .example-header, .question-header {
+    font-weight: 700;
+    color: #1e3a8a;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 6px;
+  }
+
+  .options-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 12px 0;
+  }
+
+  .options-list li {
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+  }
+
+  .solution-box {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-left: 4px solid #16a34a;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 12px;
+  }
+
+  .answer-tag {
+    font-weight: 700;
+    color: #15803d;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 14mm 15mm 14mm;
+  }
+
+  @media print {
+    body {
+      max-width: 100%;
+      padding: 0;
+      font-size: 11pt;
+      color: #000000;
+    }
+
+    h2, h3, h4 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    .card, .svg-container, .example-block, .question-block, table {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    th {
+      background-color: #e2e8f0 !important;
+      color: #000000 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="tutorial-header">
+  <div class="exam-badge">NEET UG Standard • Biology (Genetics &amp; Evolution)</div>
+  <h1>Principles of Inheritance and Variation</h1>
+  <p class="subtitle">Comprehensive Self-Contained Study Module, Visual Diagrams, Worked Examples, and NEET UG Practice Assessment</p>
+</header>
+
+<section id="overview">
+  <h2>1. Learning Objectives &amp; Historical Context</h2>
+  <p><strong>Genetics</strong> is the branch of biology that deals scientifically with both the inheritance and the variation of characters from parents to offspring:</p>
+  <ul>
+    <li><strong>Inheritance:</strong> The process by which characters are passed on from parent to progeny; it forms the fundamental basis of heredity.</li>
+    <li><strong>Variation:</strong> The degree by which progeny differ from their parents.</li>
+  </ul>
+  <p>As early as 8000–1000 B.C., humans recognised that one of the primary causes of variation was hidden in sexual reproduction. They exploited natural variations present in wild populations of plants and animals to selectively breed and domesticate organisms with desirable traits. A classic Indian example is the artificial selection and domestication of ancestral wild cows to produce well-known breeds such as <strong>Sahiwal cows in Punjab</strong>. However, early breeders lacked a scientific explanation for the underlying mechanisms of inheritance.</p>
+
+  <div class="card highlight">
+    <h4>Historical Pioneers of Genetics &amp; Molecular Biology</h4>
+    <p>While Gregor Mendel's work revealed patterns of inheritance via discrete "factors", the physical and chemical nature of genetic material became the focus of biology over the subsequent century, giving rise to molecular biology through contributions from Watson, Crick, Nirenberg, Khorana, Kornbergs (father and son), Benzer, Monod, and Brenner:</p>
+    <ul>
+      <li><strong>James Dewey Watson (born 6 April 1928, Chicago):</strong> Received his B.Sc. in Zoology (1947) and his Ph.D. (1950) from Indiana University, Bloomington, studying the effect of hard X-rays on bacteriophage multiplication.</li>
+      <li><strong>Francis Harry Compton Crick (born 8 June 1916, Northampton, England):</strong> Studied physics at University College, London (B.Sc., 1937) and completed his Ph.D. in 1954 on the thesis <em>"X-ray Diffraction: Polypeptides and Proteins"</em>. He was elected Fellow of the Royal Society (F.R.S.) in 1959.</li>
+      <li><strong>The 1953 Discovery &amp; Joint Honours:</strong> Meeting when Watson was 23, their second serious collaborative effort—built on experimental evidence and nucleic acid literature—led in early March 1953 to the proposal of the complementary double-helical configuration of DNA and its replication scheme. Together they received the John Collins Warren Prize (1959), the Lasker Award (1960), the Research Corporation Prize (1962), and the Nobel Prize (1962).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="mendel-laws">
+  <h2>2. Mendel's Hybridisation Experiments on Garden Pea</h2>
+  <p>During the mid-nineteenth century, <strong>Gregor Mendel</strong> conducted hybridisation experiments on garden peas (<em>Pisum sativum</em>) for seven years (<strong>1856–1863</strong>) and proposed the laws of inheritance in living organisms.</p>
+  
+  <h3>Why Mendel's Approach Succeeded</h3>
+  <ol>
+    <li><strong>Mathematical &amp; Statistical Rigour:</strong> For the first time in biology, statistical analysis and mathematical logic were applied to inheritance problems.</li>
+    <li><strong>Large Sampling Size:</strong> His large sample counts gave high credibility to the data collected.</li>
+    <li><strong>Successive Generations &amp; True-Breeding Lines:</strong> He confirmed his inferences across successive generations (\(F_1, F_2, F_3, F_4\)), proving his findings were general rules rather than unsubstantiated ideas.</li>
+    <li><strong>Opposing Contrasting Traits:</strong> Mendel selected <strong>14 true-breeding pea plant varieties</strong> arranged into <strong>7 pairs</strong>, where varieties in a pair were identical except for one character showing contrasting traits. A <strong>true-breeding line</strong> is one that, having undergone continuous self-pollination, shows stable trait inheritance and expression for several generations.</li>
+  </ol>
+
+  <table>
+    <caption>Tutorial Table 1: Seven Pairs of Contrasting Traits in Pea Plant Studied by Mendel</caption>
+    <thead>
+      <tr>
+        <th>S.No.</th>
+        <th>Character</th>
+        <th>Dominant Trait (Expressed in \(F_1\))</th>
+        <th>Recessive Trait (Masked in \(F_1\))</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1.</td>
+        <td>Stem height</td>
+        <td>Tall</td>
+        <td>Dwarf</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td>Flower colour</td>
+        <td>Violet</td>
+        <td>White</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td>Flower position</td>
+        <td>Axial</td>
+        <td>Terminal</td>
+      </tr>
+      <tr>
+        <td>4.</td>
+        <td>Pod shape</td>
+        <td>Inflated (Full)</td>
+        <td>Constricted</td>
+      </tr>
+      <tr>
+        <td>5.</td>
+        <td>Pod colour</td>
+        <td>Green</td>
+        <td>Yellow</td>
+      </tr>
+      <tr>
+        <td>6.</td>
+        <td>Seed shape</td>
+        <td>Round (Smooth)</td>
+        <td>Wrinkled</td>
+      </tr>
+      <tr>
+        <td>7.</td>
+        <td>Seed colour</td>
+        <td>Yellow</td>
+        <td>Green</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Experimental Procedure for Artificial Cross-Pollination</h3>
+  <p>Because pea flowers are naturally self-pollinating, Mendel performed controlled artificial cross-pollination in three steps:</p>
+  <ol>
+    <li><strong>Emasculation:</strong> Removal of anthers from the flower bud of the female parent before pollen maturity using forceps/scissors to prevent self-pollination.</li>
+    <li><strong>Pollination (Transfer of Pollen):</strong> Dusting mature pollen grains collected from the male parent flower onto the stigma of the emasculated female flower.</li>
+    <li><strong>Seed Collection &amp; Germination:</strong> Collecting the resulting seeds from the matured pod and growing them to produce the First Filial (\(F_1\)) hybrid generation.</li>
+  </ol>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="20" width="210" height="175" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+      <text x="115" y="45" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Step 1: Emasculation</text>
+      <path d="M85,140 C65,110 65,75 115,65 C165,75 165,110 145,140 Z" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2"/>
+      <line x1="115" y1="145" x2="115" y2="95" stroke="#15803d" stroke-width="4"/>
+      <circle cx="115" cy="92" r="5" fill="#15803d"/>
+      <line x1="95" y1="135" x2="135" y2="85" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="4,3"/>
+      <text x="115" y="165" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">Removal of anthers from</text>
+      <text x="115" y="182" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">female parent (♀) bud</text>
+
+      <line x1="225" y1="107" x2="265" y2="107" stroke="#1e3a8a" stroke-width="2.5"/>
+      <polygon points="265,102 275,107 265,112" fill="#1e3a8a"/>
+
+      <rect x="280" y="20" width="210" height="175" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+      <text x="385" y="45" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Step 2: Pollination</text>
+      <path d="M320,140 C305,115 305,85 340,75 C375,85 375,115 360,140 Z" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2"/>
+      <path d="M415,140 C400,115 400,85 435,75 C470,85 470,115 455,140 Z" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+      <path d="M425,95 Q385,65 345,95" fill="none" stroke="#d97706" stroke-width="2.5"/>
+      <polygon points="350,90 340,97 352,99" fill="#d97706"/>
+      <text x="385" y="165" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">Transfer of pollen from</text>
+      <text x="385" y="182" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">male (♂) to stigma of female (♀)</text>
+
+      <line x1="495" y1="107" x2="535" y2="107" stroke="#1e3a8a" stroke-width="2.5"/>
+      <polygon points="535,102 545,107 535,112" fill="#1e3a8a"/>
+
+      <rect x="550" y="20" width="200" height="175" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+      <text x="650" y="45" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Step 3: F₁ Generation</text>
+      <path d="M580,100 Q650,75 720,100 Q650,125 580,100 Z" fill="#bbf7d0" stroke="#15803d" stroke-width="2"/>
+      <circle cx="610" cy="100" r="8" fill="#22c55e" stroke="#166534" stroke-width="1.5"/>
+      <circle cx="635" cy="100" r="8" fill="#22c55e" stroke="#166534" stroke-width="1.5"/>
+      <circle cx="660" cy="100" r="8" fill="#22c55e" stroke="#166534" stroke-width="1.5"/>
+      <circle cx="685" cy="100" r="8" fill="#22c55e" stroke="#166534" stroke-width="1.5"/>
+      <text x="650" y="165" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">Seeds sown to raise</text>
+      <text x="650" y="182" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">First Filial (F₁) progeny</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 1: Steps in making an artificial cross in garden pea (Emasculation, Pollination, and Seed Formation).</div>
+  </div>
+</section>
+
+<section id="one-gene">
+  <h2>3. Inheritance of One Gene (Monohybrid Cross)</h2>
+  <p>To study the inheritance of a single gene, Mendel crossed true-breeding <strong>tall (\(\mathrm{TT}\))</strong> and true-breeding <strong>dwarf (\(\mathrm{tt}\))</strong> pea plants:</p>
+  <ul>
+    <li><strong>First Filial Generation (\(F_1\)):</strong> All \(F_1\) progeny plants were <strong>tall (\(\mathrm{Tt}\))</strong>, resembling only one parent. None were dwarf. Across all seven characters studied, the \(F_1\) always resembled one parent completely, while the other parental trait was not seen.</li>
+    <li><strong>Second Filial Generation (\(F_2\)):</strong> When Mendel self-pollinated the tall \(F_1\) plants, the unexpressed dwarf trait reappeared in the \(F_2\) generation without any blending (no intermediate-height plants were formed). Exactly \(\frac{3}{4}\) of the \(F_2\) plants were tall and \(\frac{1}{4}\) were dwarf, giving a <strong>\(3:1\) phenotypic ratio</strong>.</li>
+    <li><strong>\(F_3\) and \(F_4\) Generations:</strong> Self-pollinating dwarf \(F_2\) plants yielded exclusively dwarf progeny in \(F_3\) and \(F_4\), proving their genotype was homozygous recessive (\(\mathrm{tt}\)). Self-pollinating tall \(F_2\) plants showed that \(\frac{1}{3}\) of the tall plants (\(\frac{1}{4}\) of total \(F_2\)) bred true for tallness (\(\mathrm{TT}\)), whereas \(\frac{2}{3}\) of the tall plants (\(\frac{1}{2}\) of total \(F_2\)) segregated into tall and dwarf in a \(3:1\) ratio (\(\mathrm{Tt}\)).</li>
+  </ul>
+
+  <h3>Core Genetic Terminology</h3>
+  <ul>
+    <li><strong>Factors / Genes:</strong> Discrete units of inheritance passed unchanged from parent to offspring through gametes, containing information required to express a trait.</li>
+    <li><strong>Alleles:</strong> Genes that code for a pair of contrasting traits (slightly different molecular forms of the same gene occupying the same locus on homologous chromosomes).</li>
+    <li><strong>Alphabetical Convention:</strong> Capital letter denotes the trait expressed in \(F_1\) (e.g., \(\mathrm{T}\) for tall), and the corresponding lowercase letter denotes the recessive trait (e.g., \(\mathrm{t}\) for dwarf). Using different letters like \(\mathrm{T}\) and \(\mathrm{d}\) is avoided so that alleles of the same gene are clearly recognised.</li>
+    <li><strong>Genotype vs. Phenotype:</strong> The genetic constitution (e.g., \(\mathrm{TT}, \mathrm{Tt}, \mathrm{tt}\)) is the <strong>genotype</strong>, while the observable physical description (tall or dwarf) is the <strong>phenotype</strong>.</li>
+    <li><strong>Homozygous vs. Heterozygous:</strong> Identical allelic pairs (\(\mathrm{TT}\) or \(\mathrm{tt}\)) are <strong>homozygous</strong>; dissimilar allelic pairs (\(\mathrm{Tt}\)) are <strong>heterozygous</strong> (a <strong>monohybrid</strong> for one character).</li>
+  </ul>
+
+  <h3>Punnett Square &amp; Binomial Expansion</h3>
+  <p>Developed by British geneticist <strong>Reginald C. Punnett</strong>, the Punnett Square is a graphical representation used to calculate the probability of all possible genotypes of offspring in a genetic cross. During meiosis, the heterozygous \(F_1\) (\(\mathrm{Tt}\)) parent segregates alleles randomly so each gamete has a \(50\%\) (\(\frac{1}{2}\)) probability of receiving \(\mathrm{T}\) and \(50\%\) (\(\frac{1}{2}\)) probability of receiving \(\mathrm{t}\).</p>
+
+  <table class="punnett-table">
+    <caption>Tutorial Table 2: Punnett Square for Mendel's Monohybrid Cross (\(\mathrm{Tt} \times \mathrm{Tt}\))</caption>
+    <thead>
+      <tr>
+        <th>\(F_1\) Gametes</th>
+        <th>\(\mathrm{T}\) (\(\frac{1}{2}\)) ♂</th>
+        <th>\(\mathrm{t}\) (\(\frac{1}{2}\)) ♂</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>\(\mathrm{T}\) (\(\frac{1}{2}\)) ♀</th>
+        <td>\(\mathrm{TT}\) (\(\frac{1}{4}\))<br><em>Homozygous Tall</em></td>
+        <td>\(\mathrm{Tt}\) (\(\frac{1}{4}\))<br><em>Heterozygous Tall</em></td>
+      </tr>
+      <tr>
+        <th>\(\mathrm{t}\) (\(\frac{1}{2}\)) ♀</th>
+        <td>\(\mathrm{Tt}\) (\(\frac{1}{4}\))<br><em>Heterozygous Tall</em></td>
+        <td>\(\mathrm{tt}\) (\(\frac{1}{4}\))<br><em>Homozygous Dwarf</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The genotypic proportions \(\frac{1}{4}\,\mathrm{TT} : \frac{1}{2}\,\mathrm{Tt} : \frac{1}{4}\,\mathrm{tt}\) condense mathematically into the binomial expansion \((ax + by)^2\):</p>
+  <div class="formula-box">
+    \[\left(\frac{1}{2}\mathrm{T} + \frac{1}{2}\mathrm{t}\right)^2 = \left(\frac{1}{2}\mathrm{T} + \frac{1}{2}\mathrm{t}\right) \times \left(\frac{1}{2}\mathrm{T} + \frac{1}{2}\mathrm{t}\right) = \frac{1}{4}\mathrm{TT} + \frac{1}{2}\mathrm{Tt} + \frac{1}{4}\mathrm{tt}\]
+    <p style="margin:6px 0 0 0; font-weight:600;">Phenotypic Ratio = \(3\text{ Tall} : 1\text{ Dwarf}\) &nbsp;|&nbsp; Genotypic Ratio = \(1\,\mathrm{TT} : 2\,\mathrm{Tt} : 1\,\mathrm{tt}\)</p>
+  </div>
+
+  <h3>Test Cross</h3>
+  <p>Because \(\mathrm{TT}\) and \(\mathrm{Tt}\) have the exact same dominant phenotype, external inspection cannot determine the genotype of a dominant plant. To find the unknown genotype of a dominant organism, Mendel performed a <strong>test cross</strong>: crossing the organism showing the dominant phenotype with the <strong>homozygous recessive parent</strong> instead of self-crossing.</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 760 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Case 1: Homozygous Dominant -->
+      <rect x="15" y="15" width="350" height="220" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="190" y="38" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Case A: Unknown Violet is Homozygous (WW)</text>
+      <text x="190" y="60" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#334155">Cross: Violet (WW) × Recessive White (ww)</text>
+      
+      <rect x="110" y="75" width="80" height="45" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.5"/>
+      <text x="150" y="102" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#4c1d95">Ww (Violet)</text>
+      <rect x="190" y="75" width="80" height="45" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.5"/>
+      <text x="230" y="102" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#4c1d95">Ww (Violet)</text>
+      <rect x="110" y="120" width="80" height="45" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.5"/>
+      <text x="150" y="147" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#4c1d95">Ww (Violet)</text>
+      <rect x="190" y="120" width="80" height="45" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.5"/>
+      <text x="230" y="147" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#4c1d95">Ww (Violet)</text>
+
+      <text x="95" y="102" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end" fill="#1e293b">W</text>
+      <text x="95" y="147" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end" fill="#1e293b">W</text>
+      <text x="150" y="68" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e293b">w</text>
+      <text x="230" y="68" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e293b">w</text>
+
+      <text x="190" y="190" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#15803d">Result: 100% Violet Flowers</text>
+      <text x="190" y="212" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">Interpretation: Unknown parent is Homozygous (WW)</text>
+
+      <!-- Case 2: Heterozygous -->
+      <rect x="395" y="15" width="350" height="220" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="570" y="38" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Case B: Unknown Violet is Heterozygous (Ww)</text>
+      <text x="570" y="60" font-family="sans-serif" font-size="13" text-anchor="middle" fill="#334155">Cross: Violet (Ww) × Recessive White (ww)</text>
+
+      <rect x="490" y="75" width="80" height="45" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.5"/>
+      <text x="530" y="102" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#4c1d95">Ww (Violet)</text>
+      <rect x="570" y="75" width="80" height="45" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.5"/>
+      <text x="610" y="102" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#4c1d95">Ww (Violet)</text>
+      <rect x="490" y="120" width="80" height="45" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+      <text x="530" y="147" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#334155">ww (White)</text>
+      <rect x="570" y="120" width="80" height="45" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+      <text x="610" y="147" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#334155">ww (White)</text>
+
+      <text x="475" y="102" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end" fill="#1e293b">W</text>
+      <text x="475" y="147" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="end" fill="#1e293b">w</text>
+      <text x="530" y="68" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e293b">w</text>
+      <text x="610" y="68" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e293b">w</text>
+
+      <text x="570" y="190" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#b45309">Result: 50% Violet : 50% White (1 : 1 Ratio)</text>
+      <text x="570" y="212" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#334155">Interpretation: Unknown parent is Heterozygous (Ww)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 2: Diagrammatic representation of a Monohybrid Test Cross for flower colour in pea.</div>
+  </div>
+
+  <div class="card highlight">
+    <h4>Mendel's Two Principles from Monohybrid Crosses</h4>
+    <p><strong>1. First Law — Law of Dominance:</strong></p>
+    <ul>
+      <li>(i) Characters are controlled by discrete units called factors.</li>
+      <li>(ii) Factors occur in pairs.</li>
+      <li>(iii) In a dissimilar pair of factors, one member of the pair dominates (dominant) the other (recessive).</li>
+    </ul>
+    <p><em>Significance:</em> Explains why only one parental character is expressed in the \(F_1\) generation and why both are expressed in a \(3:1\) proportion in the \(F_2\) generation.</p>
+    <p><strong>2. Second Law — Law of Segregation:</strong></p>
+    <p>Alleles do not show any blending, and both characters are recovered as such in the \(F_2\) generation even though one is not seen in \(F_1\). During gamete formation, the alleles of a pair segregate (separate) from each other such that a gamete receives only one of the two factors. Homozygous parents produce one type of gamete; heterozygous parents produce two kinds of gametes in equal proportion (\(1:1\)).</p>
+  </div>
+</section>
+
+<section id="deviations-mendel">
+  <h2>4. Deviations from Mendelian Dominance &amp; Gene Action</h2>
+
+  <h3>4.1 Incomplete Dominance</h3>
+  <p>In some organisms, the \(F_1\) hybrid phenotype does not resemble either of the two parents and is intermediate between them. A classic example is flower colour in the <strong>dog flower (snapdragon or <em>Antirrhinum</em> sp.)</strong>:</p>
+  <ul>
+    <li><strong>Parental Cross:</strong> True-breeding red-flowered (\(\mathrm{RR}\)) \(\times\) true-breeding white-flowered (\(\mathrm{rr}\)).</li>
+    <li><strong>\(F_1\) Progeny:</strong> All plants are <strong>pink-flowered (\(\mathrm{Rr}\))</strong> because allele \(\mathrm{R}\) is not completely dominant over allele \(\mathrm{r}\).</li>
+    <li><strong>\(F_2\) Progeny (on selfing \(F_1\)):</strong> Both the <strong>phenotypic ratio and genotypic ratio are identical at \(1:2:1\)</strong>, i.e., \(1\text{ Red }(\mathrm{RR}) : 2\text{ Pink }(\mathrm{Rr}) : 1\text{ White }(\mathrm{rr})\).</li>
+  </ul>
+
+  <h3>4.2 Molecular Explanation of Dominance</h3>
+  <p>Why are some alleles dominant and others recessive? A diploid organism has two copies (alleles) of each gene. In a heterozygote, one allele may have undergone a modification that alters its information. Consider a gene coding for an enzyme required to transform a substrate \(S\):</p>
+  <ul>
+    <li><strong>Normal (Unmodified) Allele:</strong> Produces the normal functional enzyme that converts substrate \(S\) into product.</li>
+    <li><strong>Modified Allele:</strong> Theoretically, the modified allele could be responsible for producing:
+      <ol>
+        <li><strong>The normal or a less efficient enzyme:</strong> The modified allele is equivalent to the unmodified allele and produces the same phenotype (transforms substrate \(S\)). Such equivalent allele pairs are very common.</li>
+        <li><strong>A non-functional enzyme, OR</strong></li>
+        <li><strong>No enzyme at all:</strong> In cases (2) and (3), the phenotype depends solely on the functioning of the unmodified allele. Thus, the <strong>unmodified (functioning) allele</strong> representing the original phenotype is the <strong>dominant allele</strong>, while the <strong>modified allele</strong> is generally the <strong>recessive allele</strong>. The recessive trait is expressed only when homozygous because no functional enzyme is produced.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h3>4.3 Co-dominance &amp; Multiple Alleles (Human ABO Blood Grouping)</h3>
+  <p>In <strong>co-dominance</strong>, the \(F_1\) generation resembles <strong>both parents simultaneously</strong>. Human ABO blood grouping is controlled by gene \(\mathrm{I}\), which determines the sugar polymers protruding from the plasma membrane surface of red blood cells (RBCs):</p>
+  <ul>
+    <li>Alleles \(\mathrm{I^A}\) and \(\mathrm{I^B}\) produce slightly different forms of sugar polymers (A-type and B-type sugars), whereas allele \(\mathrm{i}\) produces <strong>no sugar</strong> at all.</li>
+    <li>\(\mathrm{I^A}\) and \(\mathrm{I^B}\) are each completely dominant over \(\mathrm{i}\) (\(\mathrm{I^A i}\) gives blood group A; \(\mathrm{I^B i}\) gives blood group B).</li>
+    <li>When \(\mathrm{I^A}\) and \(\mathrm{I^B}\) are present together (\(\mathrm{I^A I^B}\)), both express their own types of sugars simultaneously on the RBC surface due to <strong>co-dominance</strong>, resulting in blood group AB.</li>
+    <li><strong>Multiple Allelism:</strong> Because there are more than two alleles (\(\mathrm{I^A}, \mathrm{I^B}, \mathrm{i}\)) governing the same character, ABO blood grouping also exemplifies <strong>multiple alleles</strong>. Since a diploid individual possesses only two alleles, multiple alleles can only be detected in <strong>population studies</strong>.</li>
+  </ul>
+
+  <table>
+    <caption>Tutorial Table 3: Genetic Basis of ABO Blood Groups in the Human Population (6 Genotypes, 4 Phenotypes)</caption>
+    <thead>
+      <tr>
+        <th>Allele from Parent 1</th>
+        <th>Allele from Parent 2</th>
+        <th>Genotype of Offspring</th>
+        <th>Blood Type (Phenotype)</th>
+        <th>RBC Surface Sugar Polymer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\(\mathrm{I^A}\)</td>
+        <td>\(\mathrm{I^A}\)</td>
+        <td>\(\mathrm{I^A I^A}\)</td>
+        <td>A</td>
+        <td>Type A sugar</td>
+      </tr>
+      <tr>
+        <td>\(\mathrm{I^A}\)</td>
+        <td>\(\mathrm{i}\)</td>
+        <td>\(\mathrm{I^A i}\)</td>
+        <td>A</td>
+        <td>Type A sugar</td>
+      </tr>
+      <tr>
+        <td>\(\mathrm{I^B}\)</td>
+        <td>\(\mathrm{I^B}\)</td>
+        <td>\(\mathrm{I^B I^B}\)</td>
+        <td>B</td>
+        <td>Type B sugar</td>
+      </tr>
+      <tr>
+        <td>\(\mathrm{I^B}\)</td>
+        <td>\(\mathrm{i}\)</td>
+        <td>\(\mathrm{I^B i}\)</td>
+        <td>B</td>
+        <td>Type B sugar</td>
+      </tr>
+      <tr>
+        <td>\(\mathrm{I^A}\) (or \(\mathrm{I^B}\))</td>
+        <td>\(\mathrm{I^B}\) (or \(\mathrm{I^A}\))</td>
+        <td>\(\mathrm{I^A I^B}\)</td>
+        <td>AB</td>
+        <td>Both Type A and Type B sugars (Co-dominance)</td>
+      </tr>
+      <tr>
+        <td>\(\mathrm{i}\)</td>
+        <td>\(\mathrm{i}\)</td>
+        <td>\(\mathrm{ii}\)</td>
+        <td>O</td>
+        <td>No sugar polymer produced</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.4 Single Gene Product with Multiple Effects: Starch Synthesis in Pea Seeds</h3>
+  <p>Dominance is not an autonomous feature of a gene or its product; it depends as much on the gene product as on the specific phenotype we choose to examine. In pea seeds, starch synthesis is controlled by one gene with two alleles (\(\mathrm{B}\) and \(\mathrm{b}\)):</p>
+  <ul>
+    <li><strong>\(\mathrm{BB}\) homozygotes:</strong> Synthesise starch effectively \(\rightarrow\) produce <strong>large starch grains</strong> \(\rightarrow\) seeds remain <strong>round</strong> upon maturation.</li>
+    <li><strong>\(\mathrm{bb}\) homozygotes:</strong> Have lesser efficiency in starch synthesis \(\rightarrow\) produce <strong>smaller starch grains</strong> \(\rightarrow\) seeds become <strong>wrinkled</strong> upon maturation.</li>
+    <li><strong>\(\mathrm{Bb}\) heterozygotes:</strong>
+      <ul>
+        <li>If <strong>seed shape</strong> is examined: \(\mathrm{Bb}\) seeds are <strong>round</strong>, so allele \(\mathrm{B}\) shows <strong>complete dominance</strong> over \(\mathrm{b}\) (\(3:1\) phenotypic ratio in \(F_2\)).</li>
+        <li>If <strong>starch grain size</strong> is examined: \(\mathrm{Bb}\) seeds produce starch grains of <strong>intermediate size</strong>, so the alleles show <strong>incomplete dominance</strong> (\(1:2:1\) phenotypic ratio in \(F_2\)).</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section id="two-genes">
+  <h2>5. Inheritance of Two Genes (Dihybrid Cross)</h2>
+  <p>Mendel crossed pea plants differing in two pairs of contrasting traits: a parent with <strong>round and yellow seeds (\(\mathrm{RRYY}\))</strong> and a parent with <strong>wrinkled and green seeds (\(\mathrm{rryy}\))</strong>:</p>
+  <ul>
+    <li><strong>Parental Gametes:</strong> \(\mathrm{RY}\) and \(\mathrm{ry}\).</li>
+    <li><strong>\(F_1\) Hybrid:</strong> All \(F_1\) seeds were <strong>round and yellow (\(\mathrm{RrYy}\))</strong>, showing that round seed shape (\(\mathrm{R}\)) is dominant over wrinkled (\(\mathrm{r}\)), and yellow seed colour (\(\mathrm{Y}\)) is dominant over green (\(\mathrm{y}\)).</li>
+    <li><strong>Independent Gamete Formation in \(F_1\):</strong> During meiosis in \(\mathrm{RrYy}\), segregation of \(50\%\,\mathrm{R}\) and \(50\%\,\mathrm{r}\) is completely independent of the segregation of \(50\%\,\mathrm{Y}\) and \(50\%\,\mathrm{y}\). Consequently, four types of gametes are formed in equal frequency (\(25\%\) or \(\frac{1}{4}\) each): <strong>\(\mathrm{RY}, \mathrm{Ry}, \mathrm{rY}, \mathrm{ry}\)</strong>.</li>
+  </ul>
+
+  <div class="card highlight">
+    <h4>Third Law — Mendel's Law of Independent Assortment</h4>
+    <p><em>"When two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair of characters."</em></p>
+    <p>Mathematically, the dihybrid \(F_2\) phenotypic ratio is the product of two independent monohybrid \(3:1\) ratios:</p>
+    \[\left(3\text{ Round} : 1\text{ Wrinkled}\right) \times \left(3\text{ Yellow} : 1\text{ Green}\right) = 9\text{ Round Yellow} : 3\text{ Wrinkled Yellow} : 3\text{ Round Green} : 1\text{ Wrinkled Green}\]
+  </div>
+
+  <table class="punnett-table">
+    <caption>Tutorial Table 4: Punnett Square &amp; Complete Genotypic/Phenotypic Breakdown of Dihybrid \(F_2\) Generation (\(\mathrm{RrYy} \times \mathrm{RrYy}\))</caption>
+    <thead>
+      <tr>
+        <th>Gametes</th>
+        <th>\(\mathrm{RY}\) (\(\frac{1}{4}\))</th>
+        <th>\(\mathrm{Ry}\) (\(\frac{1}{4}\))</th>
+        <th>\(\mathrm{rY}\) (\(\frac{1}{4}\))</th>
+        <th>\(\mathrm{ry}\) (\(\frac{1}{4}\))</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>\(\mathrm{RY}\) (\(\frac{1}{4}\))</th>
+        <td>\(\mathrm{RRYY}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{RRYy}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{RrYY}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{RrYy}\)<br><em>Round Yellow</em></td>
+      </tr>
+      <tr>
+        <th>\(\mathrm{Ry}\) (\(\frac{1}{4}\))</th>
+        <td>\(\mathrm{RRYy}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{RRyy}\)<br><em>Round Green</em></td>
+        <td>\(\mathrm{RrYy}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{Rryy}\)<br><em>Round Green</em></td>
+      </tr>
+      <tr>
+        <th>\(\mathrm{rY}\) (\(\frac{1}{4}\))</th>
+        <td>\(\mathrm{RrYY}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{RrYy}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{rrYY}\)<br><em>Wrinkled Yellow</em></td>
+        <td>\(\mathrm{rrYy}\)<br><em>Wrinkled Yellow</em></td>
+      </tr>
+      <tr>
+        <th>\(\mathrm{ry}\) (\(\frac{1}{4}\))</th>
+        <td>\(\mathrm{RrYy}\)<br><em>Round Yellow</em></td>
+        <td>\(\mathrm{Rryy}\)<br><em>Round Green</em></td>
+        <td>\(\mathrm{rrYy}\)<br><em>Wrinkled Yellow</em></td>
+        <td>\(\mathrm{rryy}\)<br><em>Wrinkled Green</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>From the 16 squares of the dihybrid cross, <strong>4 distinct phenotypes</strong> and <strong>9 distinct genotypes</strong> are formed:</p>
+  <ul>
+    <li><strong>Phenotypic Ratio (4 classes):</strong> \(9\text{ Round Yellow }(\mathrm{R\_Y\_}) : 3\text{ Round Green }(\mathrm{R\_yy}) : 3\text{ Wrinkled Yellow }(\mathrm{rrY\_}) : 1\text{ Wrinkled Green }(\mathrm{rryy})\).</li>
+    <li><strong>Genotypic Ratio (9 classes):</strong> \(1\,\mathrm{RRYY} : 2\,\mathrm{RRYy} : 1\,\mathrm{RRyy} : 2\,\mathrm{RrYY} : 4\,\mathrm{RrYy} : 2\,\mathrm{Rryy} : 1\,\mathrm{rrYY} : 2\,\mathrm{rrYy} : 1\,\mathrm{rryy}\) (i.e., \(1:2:1:2:4:2:1:2:1\)).</li>
+  </ul>
+</section>
+
+<section id="chromosomal-theory">
+  <h2>6. Chromosomal Theory of Inheritance, Linkage &amp; Recombination</h2>
+
+  <h3>6.1 Why Mendel's Work Remained Unrecognised (1865–1900)</h3>
+  <p>Mendel published his work in <strong>1865</strong>, but it remained unrecognised until <strong>1900</strong> for four key reasons:</p>
+  <ol>
+    <li>Communication was not easy in those days, so his work could not be widely publicised.</li>
+    <li>His concept of genes (factors) as stable, discrete units that did not "blend" was not accepted by contemporaries as an explanation for the apparently continuous variation seen in nature.</li>
+    <li>His approach of using mathematics and statistics to explain biological phenomena was totally new and unacceptable to many biologists of his time.</li>
+    <li>He could not provide any physical proof for the existence of factors or identify what they were made of.</li>
+  </ol>
+
+  <h3>6.2 Rediscovery &amp; Sutton-Boveri Chromosomal Theory</h3>
+  <p>In <strong>1900</strong>, three scientists—<strong>Hugo de Vries, Carl Correns, and Erich von Tschermak</strong>—independently rediscovered Mendel's results. By <strong>1902</strong>, advances in microscopy enabled scientists to observe chromosome movement during meiosis. <strong>Walter Sutton and Theodore Boveri</strong> noted that the behaviour of chromosomes was parallel to the behaviour of Mendelian genes, and Sutton united chromosomal segregation with Mendelian principles to formulate the <strong>Chromosomal Theory of Inheritance</strong>.</p>
+
+  <table>
+    <caption>Tutorial Table 5: Parallelism Between the Behaviour of Chromosomes and Mendelian Genes</caption>
+    <thead>
+      <tr>
+        <th>Column A (Chromosomes)</th>
+        <th>Column B ( Mendelian Genes / Factors)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Occur in homologous pairs in diploid cells.</td>
+        <td>Occur in allelic pairs in diploid organisms.</td>
+      </tr>
+      <tr>
+        <td>Segregate at the time of gamete formation such that only one chromosome of each homologous pair is transmitted to a gamete.</td>
+        <td>Segregate at gamete formation such that only one factor of each pair is transmitted to a gamete.</td>
+      </tr>
+      <tr>
+        <td><strong>Independent pairs</strong> of chromosomes segregate independently of each other during Meiosis I anaphase.</td>
+        <td><strong>One pair</strong> of genes segregates independently of another pair (if located on different chromosomes).</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><em>Key Distinction Note:</em> In the comparison above, "Independent pairs segregate independently of each other" specifically identifies <strong>chromosomes</strong>, because genes located on the <em>same</em> chromosome (linked genes) do not assort independently, whereas non-homologous chromosome pairs always assort independently during Anaphase I of meiosis.</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 760 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Possibility I -->
+      <rect x="15" y="15" width="350" height="210" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="190" y="38" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Possibility I (Meiosis I Metaphase/Anaphase)</text>
+      <text x="190" y="56" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#475569">Long Orange + Short Green at left pole;</text>
+      <text x="190" y="72" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#475569">Long Yellow + Short Red at right pole</text>
+
+      <!-- Left Pole Chromosomes -->
+      <rect x="85" y="90" width="16" height="55" rx="4" fill="#f97316" stroke="#c2410c" stroke-width="1.5"/>
+      <rect x="85" y="155" width="16" height="28" rx="4" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+      <text x="93" y="205" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#334155">2 Germ Cells:</text>
+      <text x="93" y="219" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#334155">Orange + Green</text>
+
+      <line x1="190" y1="82" x2="190" y2="192" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+      <!-- Right Pole Chromosomes -->
+      <rect x="275" y="90" width="16" height="55" rx="4" fill="#eab308" stroke="#a16207" stroke-width="1.5"/>
+      <rect x="275" y="155" width="16" height="28" rx="4" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="283" y="205" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#334155">2 Germ Cells:</text>
+      <text x="283" y="219" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#334155">Yellow + Red</text>
+
+      <!-- Possibility II -->
+      <rect x="395" y="15" width="350" height="210" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="570" y="38" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Possibility II (Meiosis I Metaphase/Anaphase)</text>
+      <text x="570" y="56" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#475569">Long Orange + Short Red at left pole;</text>
+      <text x="570" y="72" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#475569">Long Yellow + Short Green at right pole</text>
+
+      <!-- Left Pole Chromosomes -->
+      <rect x="465" y="90" width="16" height="55" rx="4" fill="#f97316" stroke="#c2410c" stroke-width="1.5"/>
+      <rect x="465" y="155" width="16" height="28" rx="4" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+      <text x="473" y="205" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#334155">2 Germ Cells:</text>
+      <text x="473" y="219" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#334155">Orange + Red</text>
+
+      <line x1="570" y1="82" x2="570" y2="192" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+      <!-- Right Pole Chromosomes -->
+      <rect x="655" y="90" width="16" height="55" rx="4" fill="#eab308" stroke="#a16207" stroke-width="1.5"/>
+      <rect x="655" y="155" width="16" height="28" rx="4" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+      <text x="663" y="205" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#334155">2 Germ Cells:</text>
+      <text x="663" y="219" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#334155">Yellow + Green</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 3: Independent assortment of two pairs of homologous chromosomes during Meiosis I yields four equally probable germ cell combinations.</div>
+  </div>
+
+  <h3>6.3 Experimental Verification by T. H. Morgan</h3>
+  <p><strong>Thomas Hunt Morgan</strong> and his colleagues experimentally verified the chromosomal theory of inheritance using the tiny fruit fly, <strong><em>Drosophila melanogaster</em></strong>, which is ideal for genetic studies because:</p>
+  <ol>
+    <li>They can be grown on a simple synthetic medium in the laboratory.</li>
+    <li>They complete their life cycle in about <strong>two weeks</strong>.</li>
+    <li>A single mating produces a large number of progeny flies.</li>
+    <li>There is clear differentiation of sexes—male and female flies are easily distinguishable (females are larger than males).</li>
+    <li>It has many types of hereditary variations observable with low-power microscopes.</li>
+  </ol>
+
+  <h3>6.4 Linkage, Recombination &amp; Genetic Mapping</h3>
+  <p>Morgan carried out dihybrid crosses in <em>Drosophila</em> to study sex-linked genes located on the X chromosome. He observed that when two genes in a dihybrid cross were situated on the <strong>same chromosome</strong>, the \(F_2\) ratio deviated significantly from Mendel's \(9:3:3:1\) ratio, and the proportion of <strong>parental gene combinations</strong> was much higher than non-parental types:</p>
+  <ul>
+    <li><strong>Linkage:</strong> Coined by Morgan to describe the physical association of genes on a chromosome.</li>
+    <li><strong>Recombination:</strong> Coined by Morgan to describe the generation of non-parental gene combinations (due to crossing over between homologous chromosomes).</li>
+  </ul>
+
+  <table>
+    <caption>Tutorial Table 6: Comparison of Morgan's Two Sex-Linked Crosses in <em>Drosophila melanogaster</em></caption>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Cross A (Genes \(\mathrm{y}\) and \(\mathrm{w}\))</th>
+        <th>Cross B (Genes \(\mathrm{w}\) and \(\mathrm{m}\))</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Parental Female (♀)</strong></td>
+        <td>Yellow-bodied, white-eyed (\(\mathrm{y\,w / y\,w}\))</td>
+        <td>White-eyed, miniature-winged (\(\mathrm{w\,m / w\,m}\))</td>
+      </tr>
+      <tr>
+        <td><strong>Parental Male (♂)</strong></td>
+        <td>Wild type: brown-bodied, red-eyed (\(\mathrm{y^+\,w^+ / Y}\))</td>
+        <td>Wild type: red-eyed, normal-winged (\(\mathrm{w^+\,m^+ / Y}\))</td>
+      </tr>
+      <tr>
+        <td><strong>Strength of Linkage</strong></td>
+        <td><strong>Very tightly linked</strong> (genes are very close together on X chromosome)</td>
+        <td><strong>Loosely linked</strong> (genes are farther apart on X chromosome)</td>
+      </tr>
+      <tr>
+        <td><strong>Parental Type Progeny in \(F_2\)</strong></td>
+        <td><strong>\(98.7\%\)</strong></td>
+        <td><strong>\(62.8\%\)</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Recombinant Type Progeny in \(F_2\)</strong></td>
+        <td><strong>\(1.3\%\)</strong></td>
+        <td><strong>\(37.2\%\)</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Chromosome Mapping:</strong> Morgan's student, <strong>Alfred Sturtevant</strong>, used the frequency of recombination between gene pairs on the same chromosome as a direct measure of the distance between genes and "mapped" their linear positions on the chromosome. Today, genetic linkage maps are used extensively as a starting point in whole-genome sequencing (such as the Human Genome Sequencing Project).</p>
+</section>
+
+<section id="polygenic-pleiotropy">
+  <h2>7. Polygenic Inheritance &amp; Pleiotropy</h2>
+
+  <table>
+    <caption>Tutorial Table 7: Comparison of Polygenic Inheritance and Pleiotropy</caption>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Polygenic Inheritance</th>
+        <th>Pleiotropy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Definition</strong></td>
+        <td>One trait controlled by <strong>three or more genes</strong> (multiple genes \(\rightarrow\) one trait).</td>
+        <td>A <strong>single gene</strong> exhibits multiple phenotypic expressions (one gene \(\rightarrow\) multiple traits).</td>
+      </tr>
+      <tr>
+        <td><strong>Phenotypic Distribution</strong></td>
+        <td>Spread across a continuous gradient rather than distinct alternate forms; strongly influenced by the environment.</td>
+        <td>Affects multiple distinct features simultaneously, usually because the gene product participates in metabolic pathways contributing to different phenotypes.</td>
+      </tr>
+      <tr>
+        <td><strong>Mode of Allelic Action</strong></td>
+        <td><strong>Additive effect:</strong> The phenotype reflects the quantitative contribution of each dominant/recessive allele.</td>
+        <td>Mutation in a single enzyme-coding gene disrupts downstream biochemical reactions.</td>
+      </tr>
+      <tr>
+        <td><strong>Classic Examples</strong></td>
+        <td><strong>Human height</strong> and <strong>human skin colour</strong> (controlled by three genes \(\mathrm{A, B, C}\): \(\mathrm{AABBCC}\) gives darkest skin; \(\mathrm{aabbcc}\) gives lightest skin; genotypes with 3 dominant and 3 recessive alleles such as \(\mathrm{AaBbCc}\) give intermediate skin colour).</td>
+        <td><strong>Phenylketonuria (PKU)</strong> in humans (single gene mutation in <em>phenylalanine hydroxylase</em> causes mental retardation and reduced hair and skin pigmentation) and <strong>starch synthesis gene (\(\mathrm{B/b}\))</strong> in pea seeds (controls both seed shape and starch grain size).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="sex-determination">
+  <h2>8. Mechanisms of Sex Determination</h2>
+  <p>In <strong>1891, Henking</strong> traced a specific nuclear structure all through spermatogenesis in a few insects and observed that \(50\%\) of the sperm received this structure while the other \(50\%\) did not. He named it the <strong>"X body"</strong>. Later scientists proved that Henking's X body was a chromosome, naming it the <strong>X-chromosome</strong> (sex chromosome), while the remaining chromosomes were named <strong>autosomes</strong>.</p>
+
+  <table>
+    <caption>Tutorial Table 8: Summary of Chromosomal Sex Determination Systems</caption>
+    <thead>
+      <tr>
+        <th>System</th>
+        <th>Organism Examples</th>
+        <th>Female Constitution</th>
+        <th>Male Constitution</th>
+        <th>Heterogametic Sex &amp; Key Features</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>XO Type</strong></td>
+        <td>Insects such as <strong>Grasshopper</strong></td>
+        <td>\(\mathrm{AA + XX}\)<br>(Homogametic: all eggs carry \(\mathrm{A+X}\))</td>
+        <td>\(\mathrm{AA + XO}\)<br>(Heterogametic: sperms carry \(\mathrm{A+X}\) or \(\mathrm{A+0}\))</td>
+        <td><strong>Male heterogamety.</strong> Males have 1 fewer chromosome than females.</td>
+      </tr>
+      <tr>
+        <td><strong>XY Type</strong></td>
+        <td><strong>Humans</strong> and <strong><em>Drosophila melanogaster</em></strong></td>
+        <td>\(\mathrm{AA + XX}\)<br>(Homogametic: all ova carry \(\mathrm{A+X}\))</td>
+        <td>\(\mathrm{AA + XY}\)<br>(Heterogametic: \(50\%\) sperms carry \(\mathrm{X}\), \(50\%\) carry smaller \(\mathrm{Y}\))</td>
+        <td><strong>Male heterogamety.</strong> Both sexes have the same total chromosome number (46 in humans: 22 pairs autosomes + 1 pair sex chromosomes). Genetic makeup of the <strong>sperm</strong> determines the sex of the child (\(50\%\) probability each pregnancy).</td>
+      </tr>
+      <tr>
+        <td><strong>ZW Type</strong></td>
+        <td><strong>Birds</strong> (e.g., Chicken)</td>
+        <td>\(\mathrm{AA + ZW}\)<br>(Heterogametic: produces \(\mathrm{Z}\) eggs and \(\mathrm{W}\) eggs)</td>
+        <td>\(\mathrm{AA + ZZ}\)<br>(Homogametic: all sperms carry \(\mathrm{Z}\))</td>
+        <td><strong>Female heterogamety.</strong> Both sexes have equal chromosome counts; the <strong>egg</strong> determines the sex of the chick.</td>
+      </tr>
+      <tr>
+        <td><strong>Haplodiploid System</strong></td>
+        <td><strong>Honey Bee</strong></td>
+        <td><strong>Diploid (\(2n = 32\))</strong><br>(Queen or Worker: formed from fertilised egg)</td>
+        <td><strong>Haploid (\(n = 16\))</strong><br>(Drone: develops from unfertilised egg via <strong>parthenogenesis</strong>)</td>
+        <td>Males produce sperms by <strong>mitosis</strong>. Males <strong>do not have a father and cannot have sons</strong>, but they <strong>have a grandfather and can have grandsons</strong>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 700 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Parents -->
+      <rect x="60" y="15" width="180" height="45" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="150" y="35" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#92400e">Female (Queen): 2n = 32</text>
+      <text x="150" y="52" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#92400e">Undergoes Meiosis</text>
+
+      <rect x="460" y="15" width="180" height="45" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="550" y="35" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e40af">Male (Drone): n = 16</text>
+      <text x="550" y="52" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#1e40af">Undergoes Mitosis</text>
+
+      <!-- Gametes -->
+      <line x1="115" y1="60" x2="95" y2="95" stroke="#475569" stroke-width="2"/>
+      <line x1="185" y1="60" x2="225" y2="95" stroke="#475569" stroke-width="2"/>
+      <line x1="550" y1="60" x2="550" y2="95" stroke="#475569" stroke-width="2"/>
+
+      <circle cx="90" cy="115" r="22" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+      <text x="90" y="119" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#78350f">Egg (16)</text>
+
+      <circle cx="230" cy="115" r="22" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+      <text x="230" y="119" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#78350f">Egg (16)</text>
+
+      <circle cx="550" cy="115" r="22" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="550" y="119" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Sperm (16)</text>
+
+      <!-- Offspring -->
+      <line x1="90" y1="137" x2="90" y2="165" stroke="#15803d" stroke-width="2"/>
+      <text x="90" y="155" font-family="sans-serif" font-size="11" font-style="italic" text-anchor="middle" fill="#15803d">Parthenogenesis</text>
+
+      <line x1="250" y1="125" x2="380" y2="165" stroke="#2563eb" stroke-width="2"/>
+      <line x1="530" y1="125" x2="400" y2="165" stroke="#2563eb" stroke-width="2"/>
+      <text x="390" y="142" font-family="sans-serif" font-size="11" font-style="italic" text-anchor="middle" fill="#1e3a8a">Fertilisation</text>
+
+      <rect x="20" y="168" width="140" height="40" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="90" y="187" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e40af">Male Drone (n = 16)</text>
+      <text x="90" y="201" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#1e40af">(Haploid)</text>
+
+      <rect x="310" y="168" width="160" height="40" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+      <text x="390" y="187" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#92400e">Female (2n = 32)</text>
+      <text x="390" y="201" font-family="sans-serif" font-size="10" text-anchor="middle" fill="#92400e">(Diploid Queen/Worker)</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 4: Haplodiploid sex-determination system in Honey Bee.</div>
+  </div>
+</section>
+
+<section id="mutation-disorders">
+  <h2>9. Mutation, Pedigree Analysis &amp; Human Genetic Disorders</h2>
+
+  <h3>9.1 Mutation</h3>
+  <p><strong>Mutation</strong> is a phenomenon that results in the alteration of DNA sequences and consequently changes the genotype and phenotype of an organism. Together with recombination, mutation generates genetic variation:</p>
+  <ul>
+    <li><strong>Chromosomal Aberrations:</strong> Because one continuous DNA helix runs from end to end in each chromatid in a supercoiled form, loss (<strong>deletion</strong>) or gain (<strong>insertion/duplication</strong>) of a DNA segment alters chromosomes. Chromosomal aberrations are commonly observed in <strong>cancer cells</strong>.</li>
+    <li><strong>Point Mutation:</strong> Mutation arising due to a change in a <strong>single base pair of DNA</strong> (classic example: <strong>sickle-cell anaemia</strong>).</li>
+    <li><strong>Frame-shift Mutation:</strong> Caused by deletions and insertions of base pairs of DNA.</li>
+    <li><strong>Mutagens:</strong> Chemical and physical factors that induce mutations (e.g., <strong>UV radiations</strong>).</li>
+  </ul>
+
+  <h3>9.2 Pedigree Analysis</h3>
+  <p>Because controlled crosses cannot be performed in humans, geneticists analyse the inheritance of traits across several generations of a family tree—a method called <strong>pedigree analysis</strong>.</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 760 310" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left Box: Standard Symbols -->
+      <rect x="10" y="10" width="270" height="290" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="145" y="32" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e3a8a">Standard Pedigree Symbols</text>
+
+      <rect x="25" y="45" width="20" height="20" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="60" y="60" font-family="sans-serif" font-size="12" fill="#1e293b">Normal Male</text>
+
+      <circle cx="35" cy="85" r="10" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="60" y="90" font-family="sans-serif" font-size="12" fill="#1e293b">Normal Female</text>
+
+      <polygon points="35,105 47,117 35,129 23,117" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="60" y="121" font-family="sans-serif" font-size="12" fill="#1e293b">Sex Unspecified</text>
+
+      <rect x="20" y="140" width="18" height="18" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+      <circle cx="50" cy="149" r="9" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+      <text x="72" y="154" font-family="sans-serif" font-size="12" fill="#1e293b">Affected Individuals</text>
+
+      <rect x="20" y="172" width="16" height="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="36" y1="180" x2="54" y2="180" stroke="#1e293b" stroke-width="2"/>
+      <circle cx="62" cy="180" r="8" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="80" y="184" font-family="sans-serif" font-size="12" fill="#1e293b">Mating</text>
+
+      <rect x="20" y="202" width="16" height="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="36" y1="208" x2="54" y2="208" stroke="#1e293b" stroke-width="1.8"/>
+      <line x1="36" y1="213" x2="54" y2="213" stroke="#1e293b" stroke-width="1.8"/>
+      <circle cx="62" cy="210" r="8" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="80" y="214" font-family="sans-serif" font-size="11.5" fill="#1e293b">Consanguineous Mating</text>
+
+      <polygon points="35,235 49,250 35,265 21,250" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="35" y="254" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">5</text>
+      <text x="60" y="254" font-family="sans-serif" font-size="12" fill="#1e293b">Five Unaffected Offspring</text>
+
+      <!-- Middle Box: Autosomal Dominant Pedigree -->
+      <rect x="295" y="10" width="220" height="290" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="405" y="30" font-family="sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1e3a8a">(a) Autosomal Dominant</text>
+      <text x="405" y="46" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#475569">(e.g., Myotonic Dystrophy)</text>
+
+      <!-- Gen I -->
+      <circle cx="370" cy="70" r="10" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+      <line x1="380" y1="70" x2="410" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="410" y="60" width="20" height="20" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="395" y1="70" x2="395" y2="105" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="315" y1="105" x2="455" y2="105" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- Gen II -->
+      <line x1="315" y1="105" x2="315" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="315" cy="130" r="9" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <line x1="350" y1="105" x2="350" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="341" y="120" width="18" height="18" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+
+      <line x1="385" y1="105" x2="385" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="376" y="120" width="18" height="18" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="394" y1="129" x2="412" y2="129" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="421" cy="129" r="9" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <line x1="455" y1="105" x2="455" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="455" cy="130" r="9" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+      <line x1="464" y1="130" x2="482" y2="130" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="482" y="121" width="18" height="18" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- Gen III Left (Unaffected parents -> all unaffected) -->
+      <line x1="403" y1="129" x2="403" y2="165" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="365" y1="165" x2="435" y2="165" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="365" y1="165" x2="365" y2="178" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="365" cy="187" r="8" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="400" y1="165" x2="400" y2="178" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="400" cy="187" r="8" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="435" y1="165" x2="435" y2="178" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="427" y="178" width="16" height="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- Gen III Right (Affected female -> affected child) -->
+      <line x1="473" y1="130" x2="473" y2="215" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="435" y1="215" x2="495" y2="215" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="435" y1="215" x2="435" y2="228" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="427" y="228" width="16" height="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="465" y1="215" x2="465" y2="228" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="465" cy="236" r="8" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+      <line x1="495" y1="215" x2="495" y2="228" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="487" y="228" width="16" height="16" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <text x="405" y="275" font-family="sans-serif" font-size="10.5" text-anchor="middle" fill="#334155">Does not skip generations; unaffected</text>
+      <text x="405" y="290" font-family="sans-serif" font-size="10.5" text-anchor="middle" fill="#334155">parents have unaffected children.</text>
+
+      <!-- Right Box: Autosomal Recessive Pedigree -->
+      <rect x="530" y="10" width="220" height="290" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="640" y="30" font-family="sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1e3a8a">(b) Autosomal Recessive</text>
+      <text x="640" y="46" font-family="sans-serif" font-size="11" text-anchor="middle" fill="#475569">(e.g., Sickle-cell Anaemia)</text>
+
+      <!-- Gen I -->
+      <rect x="595" y="60" width="20" height="20" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="615" y1="70" x2="645" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="655" cy="70" r="10" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="630" y1="70" x2="630" y2="105" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="550" y1="105" x2="730" y2="105" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- Gen II -->
+      <line x1="550" y1="105" x2="550" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="541" y="120" width="18" height="18" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <line x1="585" y1="105" x2="585" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="576" y="120" width="18" height="18" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+
+      <line x1="620" y1="105" x2="620" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="611" y="120" width="18" height="18" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="629" y1="129" x2="649" y2="129" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="658" y1="105" x2="658" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="658" cy="129" r="9" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <line x1="695" y1="105" x2="695" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="695" cy="129" r="9" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+
+      <line x1="730" y1="105" x2="730" y2="120" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="721" y="120" width="18" height="18" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- Gen III -->
+      <line x1="639" y1="129" x2="639" y2="180" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="595" y1="180" x2="685" y2="180" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="595" y1="180" x2="595" y2="195" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="586" y="195" width="18" height="18" fill="#dc2626" stroke="#7f1d1d" stroke-width="1.5"/>
+      <line x1="640" y1="180" x2="640" y2="195" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="640" cy="204" r="9" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+      <line x1="685" y1="180" x2="685" y2="195" stroke="#1e293b" stroke-width="1.5"/>
+      <circle cx="685" cy="204" r="9" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.5"/>
+
+      <text x="640" y="275" font-family="sans-serif" font-size="10.5" text-anchor="middle" fill="#334155">Unaffected carrier parents (\(\mathrm{Aa \times Aa}\))</text>
+      <text x="640" y="290" font-family="sans-serif" font-size="10.5" text-anchor="middle" fill="#334155">produce affected male &amp; female children.</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 5: Standard pedigree symbols and representative pedigrees for (a) Autosomal Dominant and (b) Autosomal Recessive traits.</div>
+  </div>
+
+  <h3>9.3 Mendelian Disorders (Single-Gene Mutations)</h3>
+  <p>Mendelian disorders are determined by alteration or mutation in a single gene and follow Mendelian inheritance patterns (autosomal dominant, autosomal recessive, or sex-linked recessive). Prevalent examples include <strong>Myotonic dystrophy</strong> (autosomal dominant), <strong>Cystic fibrosis</strong>, <strong>Haemophilia</strong>, <strong>Colour blindness</strong>, <strong>Sickle-cell anaemia</strong>, <strong>Phenylketonuria</strong>, and <strong>Thalassemia</strong>.</p>
+
+  <div class="card clinical">
+    <h4>1. Colour Blindness (X-Linked Recessive)</h4>
+    <ul>
+      <li><strong>Cause:</strong> Defect in either the red or green cone of the eye due to mutation in certain genes on the X chromosome, resulting in failure to discriminate between red and green colour.</li>
+      <li><strong>Prevalence:</strong> Occurs in about <strong>\(8\%\) of males</strong> and only about <strong>\(0.4\%\) of females</strong> because males have only one X chromosome (\(\mathrm{X^c Y}\)) whereas females have two (\(\mathrm{X^c X^c}\) required for expression).</li>
+      <li><strong>Inheritance:</strong> A heterozygous carrier woman (\(\mathrm{X^C X^c}\)) has normal vision (suppressed by dominant normal gene), but her sons have a <strong>\(50\%\) chance</strong> of being colour blind. A daughter is colour blind only if her mother is at least a carrier and her father is colour blind.</li>
+    </ul>
+
+    <h4>2. Haemophilia (X-Linked Recessive)</h4>
+    <ul>
+      <li><strong>Cause:</strong> A single protein that is part of the cascade of proteins involved in blood clotting is affected. A simple cut in an affected individual results in non-stop bleeding.</li>
+      <li><strong>Inheritance:</strong> Transmitted from unaffected heterozygous carrier females (\(\mathrm{X^H X^h}\)) to some male progeny (\(\mathrm{X^h Y}\)). The possibility of a female becoming haemophilic (\(\mathrm{X^h X^h}\)) is <strong>extremely rare</strong> because her mother must be at least a carrier and her father must be haemophilic (which is unviable in the later stage of life).</li>
+      <li><strong>Historical Example:</strong> The family pedigree of <strong>Queen Victoria</strong> shows a number of haemophilic descendants as she was a carrier of the disease.</li>
+    </ul>
+
+    <h4>3. Sickle-Cell Anaemia (Autosomal Recessive — Qualitative Globin Defect)</h4>
+    <ul>
+      <li><strong>Genetic Control:</strong> Controlled by a single pair of alleles, \(\mathrm{Hb^A}\) (normal) and \(\mathrm{Hb^S}\) (mutant). Only homozygous \(\mathrm{Hb^S Hb^S}\) individuals show the diseased phenotype. Heterozygous \(\mathrm{Hb^A Hb^S}\) individuals are apparently unaffected carriers (exhibiting <em>sickle-cell trait</em>) with a \(50\%\) probability of transmitting the mutant gene.</li>
+      <li><strong>Molecular Defect (Point Mutation):</strong> At the <strong>sixth codon of the \(\beta\)-globin gene</strong>, a single base substitution changes DNA template \(\mathrm{CTC \rightarrow CAC}\) (coding strand \(\mathrm{GAG \rightarrow GTG}\)), so the mRNA codon changes from <strong>\(\mathrm{GAG}\) to \(\mathrm{GUG}\)</strong>.</li>
+      <li><strong>Amino Acid Substitution:</strong> Causes substitution of <strong>Glutamic acid (Glu) by Valine (Val) at the 6th position</strong> of the \(\beta\)-globin chain of haemoglobin.</li>
+      <li><strong>Pathophysiology:</strong> Under low oxygen tension, the mutant haemoglobin (\(\mathrm{Hb^S}\)) undergoes polymerisation, changing the RBC shape from a biconcave disc to an elongated sickle-like structure.</li>
+    </ul>
+  </div>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 740 165" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Normal HbA -->
+      <rect x="10" y="10" width="350" height="145" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="185" y="32" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#166534">Normal Hb(A) Gene &amp; β-Globin Peptide</text>
+      <text x="185" y="55" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e293b">DNA: ...GAG... / ...CTC...  →  mRNA: ...GAG...</text>
+      <text x="185" y="85" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e293b">1:Val — 2:His — 3:Leu — 4:Thr — 5:Pro — [6:Glu] — 7:Glu</text>
+      <ellipse cx="185" cy="122" rx="45" ry="18" fill="#ef4444" stroke="#991b1b" stroke-width="2"/>
+      <ellipse cx="185" cy="122" rx="20" ry="7" fill="#fca5a5"/>
+      <text x="290" y="126" font-family="sans-serif" font-size="11" fill="#166534">Biconcave RBC</text>
+
+      <!-- Sickle HbS -->
+      <rect x="380" y="10" width="350" height="145" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="555" y="32" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#991b1b">Sickle-Cell Hb(S) Gene &amp; β-Globin Peptide</text>
+      <text x="555" y="55" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle" fill="#991b1b">DNA: ...GTG... / ...CAC...  →  mRNA: ...GUG...</text>
+      <text x="555" y="85" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#991b1b">1:Val — 2:His — 3:Leu — 4:Thr — 5:Pro — [6:Val] — 7:Glu</text>
+      <path d="M500,130 Q555,95 610,130 Q555,115 500,130 Z" fill="#ef4444" stroke="#991b1b" stroke-width="2"/>
+      <text x="665" y="126" font-family="sans-serif" font-size="11" fill="#991b1b">Sickled RBC</text>
+    </svg>
+    <div class="svg-caption">Tutorial Diagram 6: Point mutation in the β-globin gene (codon 6: GAG to GUG) substitutes Glutamic acid (Glu) with Valine (Val), causing RBC sickling.</div>
+  </div>
+
+  <div class="card clinical">
+    <h4>4. Phenylketonuria (PKU — Autosomal Recessive Inborn Error of Metabolism)</h4>
+    <ul>
+      <li><strong>Enzyme Defect:</strong> Affected individuals lack the enzyme <strong>phenylalanine hydroxylase</strong> required to convert the amino acid <strong>phenylalanine into tyrosine</strong>.</li>
+      <li><strong>Pathophysiology &amp; Symptoms:</strong> Phenylalanine accumulates and is converted into <strong>phenylpyruvic acid</strong> and other derivatives. Accumulation in the brain causes <strong>mental retardation</strong>; these compounds are also excreted in urine due to poor absorption by the kidney (and cause reduced hair and skin pigmentation).</li>
+    </ul>
+
+    <h4>5. Thalassemia (Autosomal Recessive — Quantitative Globin Defect)</h4>
+    <ul>
+      <li><strong>Mechanism:</strong> Transmitted from unaffected heterozygous carrier parents when mutation or deletion reduces the rate of synthesis of one of the globin chains (\(\alpha\) or \(\beta\)) of haemoglobin, causing abnormal haemoglobin formation and characteristic anaemia.</li>
+      <li><strong>\(\alpha\)-Thalassemia:</strong> Production of \(\alpha\)-globin chain is affected. Controlled by <strong>two closely linked genes <em>HBA1</em> and <em>HBA2</em> on chromosome 16</strong> of each parent (mutation/deletion of 1 to 4 genes; more genes affected \(\rightarrow\) fewer \(\alpha\)-globin molecules produced).</li>
+      <li><strong>\(\beta\)-Thalassemia:</strong> Production of \(\beta\)-globin chain is affected. Controlled by a <strong>single gene <em>HBB</em> on chromosome 11</strong> of each parent (mutation of one or both alleles).</li>
+      <li><strong>Crucial Exam Distinction:</strong> <strong>Thalassemia is a quantitative problem</strong> of synthesising too few globin molecules, whereas <strong>sickle-cell anaemia is a qualitative problem</strong> of synthesising an incorrectly functioning globin.</li>
+    </ul>
+  </div>
+
+  <h3>9.4 Chromosomal Disorders (Aneuploidy &amp; Polyploidy)</h3>
+  <ul>
+    <li><strong>Aneuploidy:</strong> Failure of segregation of chromatids during cell division cycle results in the gain or loss of one or more chromosomes. Includes <strong>trisomy</strong> (\(2n + 1\), an extra chromosome copy) and <strong>monosomy</strong> (\(2n - 1\), lacking one chromosome of a pair).</li>
+    <li><strong>Polyploidy:</strong> Failure of cytokinesis after telophase stage of cell division results in an increase in a whole set of chromosomes (often seen in plants).</li>
+  </ul>
+
+  <table>
+    <caption>Tutorial Table 9: Summary of Human Chromosomal Disorders</caption>
+    <thead>
+      <tr>
+        <th>Disorder</th>
+        <th>Karyotype &amp; Chromosomal Cause</th>
+        <th>Characteristic Clinical Features</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Down's Syndrome</strong><br><em>(First described by Langdon Down, 1866)</em></td>
+        <td><strong>47, Trisomy of chromosome 21</strong><br>(Presence of an extra copy of autosome 21)</td>
+        <td>Short statured; small round head with flat back of head; broad flat face; furrowed (big and wrinkled) tongue and partially open mouth; broad palm with characteristic <strong>palm crease</strong>; many "loops" on finger tips; congenital heart disease; physical, psychomotor, and mental development is retarded.</td>
+      </tr>
+      <tr>
+        <td><strong>Klinefelter's Syndrome</strong></td>
+        <td><strong>47, XXY</strong><br>(Presence of an additional copy of X-chromosome in males)</td>
+        <td>Overall masculine development with tall stature, but feminine development—specifically development of breast (<strong>Gynaecomastia</strong>)—is also expressed. Individuals are <strong>sterile</strong>.</td>
+      </tr>
+      <tr>
+        <td><strong>Turner's Syndrome</strong></td>
+        <td><strong>45 with XO</strong><br>(Absence/monosomy of one X-chromosome in females)</td>
+        <td>Females have short stature; <strong>sterile</strong> as ovaries are rudimentary; lack of other secondary sexual characters (underdeveloped feminine character).</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="formulas-methods">
+  <h2>10. Important Formulas &amp; Problem-Solving Procedures</h2>
+  <p>In NEET UG genetics problems, quick mathematical formulas allow you to determine gamete counts, genotypic classes, and phenotypic ratios for \(n\) heterozygous gene loci (assuming independent assortment):</p>
+
+  <table>
+    <caption>Tutorial Table 10: Mathematical Formulas for Independently Assorting Loci</caption>
+    <thead>
+      <tr>
+        <th>Quantity to Calculate</th>
+        <th>Formula (for \(n\) heterozygous loci)</th>
+        <th>Monohybrid (\(n=1\))</th>
+        <th>Dihybrid (\(n=2\))</th>
+        <th>Trihybrid (\(n=3\))</th>
+        <th>Tetrahybrid (\(n=4\))</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Types of gametes produced</td>
+        <td>\(2^n\)</td>
+        <td>\(2^1 = 2\)</td>
+        <td>\(2^2 = 4\)</td>
+        <td>\(2^3 = 8\)</td>
+        <td>\(2^4 = 16\)</td>
+      </tr>
+      <tr>
+        <td>Number of zygotic combinations on selfing</td>
+        <td>\(4^n\)</td>
+        <td>\(4^1 = 4\)</td>
+        <td>\(4^2 = 16\)</td>
+        <td>\(4^3 = 64\)</td>
+        <td>\(4^4 = 256\)</td>
+      </tr>
+      <tr>
+        <td>Number of distinct phenotypes in \(F_2\) (complete dominance)</td>
+        <td>\(2^n\)</td>
+        <td>\(2^1 = 2\)</td>
+        <td>\(2^2 = 4\)</td>
+        <td>\(2^3 = 8\)</td>
+        <td>\(2^4 = 16\)</td>
+      </tr>
+      <tr>
+        <td>Number of distinct genotypes in \(F_2\)</td>
+        <td>\(3^n\)</td>
+        <td>\(3^1 = 3\)</td>
+        <td>\(3^2 = 9\)</td>
+        <td>\(3^3 = 27\)</td>
+        <td>\(3^4 = 81\)</td>
+      </tr>
+      <tr>
+        <td>Number of genotypes for a gene with \(m\) alleles in a diploid population</td>
+        <td colspan="5">\(\displaystyle \frac{m(m+1)}{2}\) &nbsp;&nbsp;(For ABO blood group, \(m = 3 \implies \frac{3(4)}{2} = 6\) genotypes)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="worked-examples">
+  <h2>11. Worked Examples (Chapter Application Problems)</h2>
+
+  <div class="example-block">
+    <div class="example-header">Worked Example 1: Gamete Calculation for Multiple Loci</div>
+    <p><strong>Problem:</strong> A diploid organism is heterozygous for 4 loci (e.g., \(\mathrm{AaBbCcDd}\)). How many types of gametes can be produced assuming independent assortment?</p>
+    <p><strong>Solution:</strong></p>
+    <p>The number of different gamete types produced by a diploid organism heterozygous for \(n\) independently assorting loci is given by \(2^n\). Here, \(n = 4\):</p>
+    \[\text{Number of types of gametes} = 2^4 = 2 \times 2 \times 2 \times 2 = 16\text{ types of gametes.}\]
+  </div>
+
+  <div class="example-block">
+    <div class="example-header">Worked Example 2: Dihybrid Cross Phenotypic Proportions</div>
+    <p><strong>Problem:</strong> When a cross is made between a tall plant with yellow seeds (\(\mathrm{TtYy}\)) and a tall plant with green seeds (\(\mathrm{Ttyy}\)), what proportions of phenotype in the offspring could be expected to be: (a) tall and green, and (b) dwarf and green?</p>
+    <p><strong>Solution:</strong></p>
+    <p>Resolve the dihybrid cross (\(\mathrm{TtYy} \times \mathrm{Ttyy}\)) into two independent monohybrid crosses:</p>
+    <ul>
+      <li><strong>Height cross (\(\mathrm{Tt} \times \mathrm{Tt}\)):</strong> Progeny genotypes are \(\frac{1}{4}\mathrm{TT}, \frac{1}{2}\mathrm{Tt}, \frac{1}{4}\mathrm{tt}\). Thus, \(P(\text{Tall}) = \frac{3}{4}\) and \(P(\text{Dwarf}) = \frac{1}{4}\).</li>
+      <li><strong>Seed colour cross (\(\mathrm{Yy} \times \mathrm{yy}\)):</strong> Progeny genotypes are \(\frac{1}{2}\mathrm{Yy}\text{ (Yellow)}\) and \(\frac{1}{2}\mathrm{yy}\text{ (Green)}\). Thus, \(P(\text{Yellow}) = \frac{1}{2}\) and \(P(\text{Green}) = \frac{1}{2}\).</li>
+    </ul>
+    <p>Multiplying the independent probabilities:</p>
+    <ul>
+      <li><strong>(a) Tall and green (\(\mathrm{T\_yy}\)):</strong> \(\displaystyle P(\text{Tall}) \times P(\text{Green}) = \frac{3}{4} \times \frac{1}{2} = \frac{3}{8}\) (or \(37.5\%\)).</li>
+      <li><strong>(b) Dwarf and green (\(\mathrm{ttyy}\)):</strong> \(\displaystyle P(\text{Dwarf}) \times P(\text{Green}) = \frac{1}{4} \times \frac{1}{2} = \frac{1}{8}\) (or \(12.5\%\)).</li>
+    </ul>
+  </div>
+
+  <div class="example-block">
+    <div class="example-header">Worked Example 3: ABO Blood Group Paternity &amp; Sibling Genotypes</div>
+    <p><strong>Problem:</strong> A child has blood group O. If the father has blood group A and the mother has blood group B, work out the genotypes of the parents and the possible genotypes and phenotypes of the other offsprings.</p>
+    <p><strong>Solution:</strong></p>
+    <ul>
+      <li>A child with blood group O must be homozygous recessive with genotype \(\mathrm{ii}\), receiving one \(\mathrm{i}\) allele from the father and one \(\mathrm{i}\) allele from the mother.</li>
+      <li>Therefore, the father (blood group A) must be heterozygous <strong>\(\mathrm{I^A i}\)</strong>, and the mother (blood group B) must be heterozygous <strong>\(\mathrm{I^B i}\)</strong>.</li>
+      <li>Crossing \(\mathrm{I^A i} \times \mathrm{I^B i}\) yields four equally probable offspring genotypes (\(\frac{1}{4}\) or \(25\%\) each):
+        <ul>
+          <li>\(\mathrm{I^A I^B} \rightarrow\) Blood group AB</li>
+          <li>\(\mathrm{I^A i} \rightarrow\) Blood group A</li>
+          <li>\(\mathrm{I^B i} \rightarrow\) Blood group B</li>
+          <li>\(\mathrm{ii} \rightarrow\) Blood group O</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="example-block">
+    <div class="example-header">Worked Example 4: Cross Between Linked Heterozygous Loci</div>
+    <p><strong>Problem:</strong> Two heterozygous parents are crossed. If the two loci are linked, what would be the distribution of phenotypic features in the progeny compared to an unlinked dihybrid cross?</p>
+    <p><strong>Solution:</strong></p>
+    <p>If two genes are situated on the same chromosome (linked), they do not assort independently during meiosis. Consequently, the phenotypic distribution deviates significantly from the Mendelian \(9:3:3:1\) (or \(1:1:1:1\) test cross) ratio: <strong>parental phenotypic combinations appear in a much higher proportion</strong> than non-parental (recombinant) combinations. If linkage is complete (zero crossing over), only parental combinations are formed; if linkage is incomplete, recombinant phenotypes appear at a lower frequency proportional to the physical distance between the two loci on the chromosome.</p>
+  </div>
+</section>
+
+<section id="practice-questions">
+  <h2>12. NEET UG Practice Questions with Complete Worked Solutions</h2>
+  <p><em>Note: All questions below are original practice questions designed specifically in the NEET UG format to assess conceptual mastery of this tutorial.</em></p>
+
+  <!-- Question 1 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 1 (Single-Choice MCQ)</div>
+    <p>Which of the following pairs of contrasting traits in the garden pea plant studied by Gregor Mendel is <strong>incorrectly</strong> matched with its dominant and recessive expressions?</p>
+    <ul class="options-list">
+      <li>(A) Pod colour: Green (Dominant) / Yellow (Recessive)</li>
+      <li>(B) Seed colour: Green (Dominant) / Yellow (Recessive)</li>
+      <li>(C) Flower position: Axial (Dominant) / Terminal (Recessive)</li>
+      <li>(D) Pod shape: Inflated (Dominant) / Constricted (Recessive)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (B)</span>
+      <p><strong>Worked Solution:</strong> In garden pea (<em>Pisum sativum</em>), <strong>Yellow seed colour is dominant</strong> over green seed colour, whereas <strong>Green pod colour is dominant</strong> over yellow pod colour. Students frequently confuse the dominance direction of seed colour with pod colour. Options (A), (C), and (D) are all correctly matched.</p>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 2 (Single-Choice MCQ)</div>
+    <p>In pea seeds, starch synthesis is controlled by a single gene with two alleles (\(\mathrm{B}\) and \(\mathrm{b}\)). If a heterozygous pea plant (\(\mathrm{Bb}\)) is self-pollinated, what are the expected phenotypic ratios in the \(F_2\) generation with respect to (i) <strong>seed shape</strong> and (ii) <strong>starch grain size</strong>, respectively?</p>
+    <ul class="options-list">
+      <li>(A) \(1:2:1\) and \(3:1\)</li>
+      <li>(B) \(3:1\) and \(3:1\)</li>
+      <li>(C) \(3:1\) and \(1:2:1\)</li>
+      <li>(D) \(1:2:1\) and \(1:2:1\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (C)</span>
+      <p><strong>Worked Solution:</strong> Homozygous \(\mathrm{BB}\) seeds produce large starch grains and are round; homozygous \(\mathrm{bb}\) seeds produce small starch grains and are wrinkled. Heterozygous \(\mathrm{Bb}\) seeds are <strong>round</strong> (showing complete dominance for seed shape, giving a \(3\text{ Round} : 1\text{ Wrinkled}\) ratio in \(F_2\)), but produce starch grains of <strong>intermediate size</strong> (showing incomplete dominance for starch grain size, giving a \(1\text{ Large} : 2\text{ Intermediate} : 1\text{ Small}\) ratio in \(F_2\)).</p>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 3 (Single-Choice MCQ — Numerical Probability)</div>
+    <p>In a Mendelian dihybrid cross between two heterozygous round yellow seeded pea plants (\(\mathrm{RrYy} \times \mathrm{RrYy}\)), if \(320\) seeds are collected in the \(F_2\) generation, how many seeds are expected to have the genotype \(\mathrm{RrYY}\)?</p>
+    <ul class="options-list">
+      <li>(A) \(20\)</li>
+      <li>(B) \(40\)</li>
+      <li>(C) \(80\)</li>
+      <li>(D) \(180\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (B)</span>
+      <p><strong>Worked Solution:</strong> In the cross \(\mathrm{RrYy} \times \mathrm{RrYy}\):</p>
+      <ul>
+        <li>Probability of getting \(\mathrm{Rr}\) from \(\mathrm{Rr} \times \mathrm{Rr}\) is \(\frac{2}{4} = \frac{1}{2}\).</li>
+        <li>Probability of getting \(\mathrm{YY}\) from \(\mathrm{Yy} \times \mathrm{Yy}\) is \(\frac{1}{4}\).</li>
+      </ul>
+      <p>Combined probability of \(\mathrm{RrYY} = \frac{1}{2} \times \frac{1}{4} = \frac{2}{16} = \frac{1}{8}\). Out of \(320\) seeds, the expected number of \(\mathrm{RrYY}\) seeds is \(\frac{1}{8} \times 320 = 40\).</p>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 4 (Statement-Based Question)</div>
+    <p>Read the following two statements carefully and select the correct option:</p>
+    <p><strong>Statement I:</strong> In a theoretically modified allele of an enzyme-coding gene, if the modified allele produces no enzyme at all, it generally behaves as a recessive allele relative to the unmodified functioning allele.</p>
+    <p><strong>Statement II:</strong> In <em>Antirrhinum</em> sp. (snapdragon), a cross between a pink-flowered plant (\(\mathrm{Rr}\)) and a white-flowered plant (\(\mathrm{rr}\)) produces red, pink, and white-flowered progeny in a \(1:2:1\) ratio.</p>
+    <ul class="options-list">
+      <li>(A) Both Statement I and Statement II are correct.</li>
+      <li>(B) Both Statement I and Statement II are incorrect.</li>
+      <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+      <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (C)</span>
+      <p><strong>Worked Solution:</strong> Statement I is correct because the unmodified allele produces the functional enzyme required to transform the substrate and produce the dominant phenotype, whereas an allele producing a non-functional enzyme or no enzyme is recessive. Statement II is incorrect because crossing a pink plant (\(\mathrm{Rr}\)) with a white plant (\(\mathrm{rr}\)) is a test cross (\(\mathrm{Rr} \times \mathrm{rr}\)), which yields \(\frac{1}{2}\text{ Pink }(\mathrm{Rr}) : \frac{1}{2}\text{ White }(\mathrm{rr})\) in a \(1:1\) ratio (no red flowers are produced).</p>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 5 (Single-Choice MCQ)</div>
+    <p>In Thomas Hunt Morgan's linkage experiments on <em>Drosophila melanogaster</em>, what were the observed percentages of parental and recombinant types in the \(F_2\) generation for (i) Cross A (between yellow body \(\mathrm{y}\) and white eye \(\mathrm{w}\)) and (ii) Cross B (between white eye \(\mathrm{w}\) and miniature wing \(\mathrm{m}\))?</p>
+    <ul class="options-list">
+      <li>(A) Cross A: \(62.8\%\) parental, \(37.2\%\) recombinant; Cross B: \(98.7\%\) parental, \(1.3\%\) recombinant</li>
+      <li>(B) Cross A: \(98.7\%\) parental, \(1.3\%\) recombinant; Cross B: \(62.8\%\) parental, \(37.2\%\) recombinant</li>
+      <li>(C) Cross A: \(50.0\%\) parental, \(50.0\%\) recombinant; Cross B: \(98.7\%\) parental, \(1.3\%\) recombinant</li>
+      <li>(D) Cross A: \(98.7\%\) recombinant, \(1.3\%\) parental; Cross B: \(62.8\%\) recombinant, \(37.2\%\) parental</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (B)</span>
+      <p><strong>Worked Solution:</strong> Genes \(\mathrm{y}\) (yellow body) and \(\mathrm{w}\) (white eye) in Cross A were very tightly linked on the X chromosome, showing \(98.7\%\) parental types and only \(1.3\%\) recombinant types. Genes \(\mathrm{w}\) (white eye) and \(\mathrm{m}\) (miniature wing) in Cross B were loosely linked, showing \(62.8\%\) parental types and \(37.2\%\) recombinant types.</p>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 6 (Assertion–Reason Question)</div>
+    <p><strong>Assertion (A):</strong> In honey bees, male drones do not have a father and cannot have sons, but they have a grandfather and can have grandsons.</p>
+    <p><strong>Reason (R):</strong> Male drones (\(n = 16\)) develop from unfertilised eggs of a diploid female (\(2n = 32\)) by parthenogenesis, and they produce haploid sperms by mitosis that fertilise eggs to form only females.</p>
+    <ul class="options-list">
+      <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+      <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+      <li>(C) (A) is true, but (R) is false.</li>
+      <li>(D) (A) is false, but (R) is true.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (A)</span>
+      <p><strong>Worked Solution:</strong> Under the haplodiploid sex-determination system of honey bees, an unfertilised haploid egg (\(n = 16\)) develops parthenogenetically into a male (drone), so a drone has only a mother (and a maternal grandfather) but no father. When a drone produces sperm by mitosis and fertilises an egg, the diploid zygote (\(2n = 32\)) always develops into a female (daughter), never a son; that daughter can later lay unfertilised eggs that become grandsons. Thus both (A) and (R) are true and (R) directly explains (A).</p>
+    </div>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 7 (Single-Choice MCQ)</div>
+    <p>Human skin colour is a classic example of polygenic inheritance controlled by three genes \(\mathrm{A, B}\), and \(\mathrm{C}\). Which of the following genotypes will produce the <strong>exact same</strong> intermediate skin darkness as an individual with genotype \(\mathrm{AaBbCc}\)?</p>
+    <ul class="options-list">
+      <li>(A) \(\mathrm{AABbCc}\)</li>
+      <li>(B) \(\mathrm{AAbbCc}\)</li>
+      <li>(C) \(\mathrm{AaBbcc}\)</li>
+      <li>(D) \(\mathrm{aabbCC}\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (B)</span>
+      <p><strong>Worked Solution:</strong> In polygenic inheritance, the effect of each allele is additive, so the darkness of skin depends on the total number of dominant alleles present in the genotype. Genotype \(\mathrm{AaBbCc}\) has exactly <strong>3 dominant alleles</strong> and 3 recessive alleles. Examining the options: (A) \(\mathrm{AABbCc}\) has 4 dominant alleles; (B) \(\mathrm{AAbbCc}\) has <strong>3 dominant alleles</strong> (\(\mathrm{A, A, C}\)); (C) \(\mathrm{AaBbcc}\) has 2 dominant alleles; (D) \(\mathrm{aabbCC}\) has 2 dominant alleles. Therefore, \(\mathrm{AAbbCc}\) produces the same intermediate skin colour as \(\mathrm{AaBbCc}\).</p>
+    </div>
+  </div>
+
+  <!-- Question 8 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 8 (Matching-Type Question)</div>
+    <p>Match the genetic disorders in <strong>Column I</strong> with their exact molecular or chromosomal basis in <strong>Column II</strong>:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Column I (Genetic Disorder)</th>
+          <th>Column II (Genetic / Chromosomal Basis)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>(p) \(\alpha\)-Thalassemia</td>
+          <td>(i) Single gene <em>HBB</em> on chromosome 11</td>
+        </tr>
+        <tr>
+          <td>(q) \(\beta\)-Thalassemia</td>
+          <td>(ii) Two closely linked genes <em>HBA1</em> and <em>HBA2</em> on chromosome 16</td>
+        </tr>
+        <tr>
+          <td>(r) Phenylketonuria</td>
+          <td>(iii) Karyotype 47, XXY due to extra X chromosome</td>
+        </tr>
+        <tr>
+          <td>(s) Klinefelter's Syndrome</td>
+          <td>(iv) Single gene mutation coding for enzyme phenylalanine hydroxylase</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="options-list">
+      <li>(A) (p)–(i), (q)–(ii), (r)–(iv), (s)–(iii)</li>
+      <li>(B) (p)–(ii), (q)–(i), (r)–(iv), (s)–(iii)</li>
+      <li>(C) (p)–(ii), (q)–(iv), (r)–(i), (s)–(iii)</li>
+      <li>(D) (p)–(iii), (q)–(i), (r)–(iv), (s)–(ii)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (B)</span>
+      <p><strong>Worked Solution:</strong> \(\alpha\)-Thalassemia is controlled by two closely linked genes <em>HBA1</em> and <em>HBA2</em> on chromosome 16 [(p)–(ii)]. \(\beta\)-Thalassemia is controlled by a single gene <em>HBB</em> on chromosome 11 [(q)–(i)]. Phenylketonuria is caused by a mutation in the gene coding for the enzyme phenylalanine hydroxylase [(r)–(iv)]. Klinefelter's syndrome is caused by an additional copy of the X chromosome resulting in karyotype 47, XXY [(s)–(iii)].</p>
+    </div>
+  </div>
+
+  <!-- Question 9 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 9 (Single-Choice MCQ)</div>
+    <p>A woman whose father was colour blind marries a man with normal colour vision. Assuming the woman's mother was homozygous normal, what is the probability that their first <strong>son</strong> will be colour blind, and what is the probability that their first <strong>daughter</strong> will be colour blind?</p>
+    <ul class="options-list">
+      <li>(A) Son: \(50\%\); Daughter: \(50\%\)</li>
+      <li>(B) Son: \(100\%\); Daughter: \(0\%\)</li>
+      <li>(C) Son: \(50\%\); Daughter: \(0\%\)</li>
+      <li>(D) Son: \(25\%\); Daughter: \(25\%\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (C)</span>
+      <p><strong>Worked Solution:</strong> Because the woman's father was colour blind (\(\mathrm{X^c Y}\)) and her mother was homozygous normal (\(\mathrm{X^C X^C}\)), the woman inherited \(\mathrm{X^c}\) from her father and \(\mathrm{X^C}\) from her mother, making her a carrier (\(\mathrm{X^C X^c}\)). She marries a normal man (\(\mathrm{X^C Y}\)):</p>
+      <ul>
+        <li><strong>Sons</strong> receive \(\mathrm{Y}\) from the father and either \(\mathrm{X^C}\) (\(50\%\)) or \(\mathrm{X^c}\) (\(50\%\)) from the mother. Thus, a son has a <strong>\(50\%\) chance</strong> of being colour blind (\(\mathrm{X^c Y}\)).</li>
+        <li><strong>Daughters</strong> always receive the dominant normal \(\mathrm{X^C}\) from their father (\(\mathrm{X^C X^C}\) or \(\mathrm{X^C X^c}\)), so the probability of a daughter being colour blind is <strong>\(0\%\)</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 10 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 10 (Assertion–Reason Question)</div>
+    <p><strong>Assertion (A):</strong> Thalassemia is classified as a quantitative globin disorder, whereas sickle-cell anaemia is classified as a qualitative globin disorder.</p>
+    <p><strong>Reason (R):</strong> Thalassemia results from reduced synthesis of \(\alpha\) or \(\beta\) globin chains, whereas sickle-cell anaemia results from synthesis of an incorrectly functioning \(\beta\)-globin chain having Valine substituted for Glutamic acid at the sixth position.</p>
+    <ul class="options-list">
+      <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+      <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+      <li>(C) (A) is true, but (R) is false.</li>
+      <li>(D) (A) is false, but (R) is true.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (A)</span>
+      <p><strong>Worked Solution:</strong> Thalassemia is a quantitative problem of synthesising too few \(\alpha\) or \(\beta\) globin molecules due to mutation or deletion, whereas sickle-cell anaemia is a qualitative problem where an abnormal \(\beta\)-globin chain is synthesised due to a point mutation (\(\mathrm{GAG \rightarrow GUG}\)) substituting Glutamic acid with Valine at position 6. Both statements are true and (R) directly explains (A).</p>
+    </div>
+  </div>
+
+  <!-- Question 11 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 11 (Multi-Statement Clinical Identification)</div>
+    <p>An individual presents at a genetics clinic with the following clinical features:</p>
+    <ol>
+      <li>Short stature and small round head</li>
+      <li>Furrowed tongue and partially open mouth</li>
+      <li>Broad palm with a characteristic palm crease</li>
+      <li>Retarded physical, psychomotor, and mental development</li>
+    </ol>
+    <p>Which chromosomal abnormality is responsible for this condition, and who first described it?</p>
+    <ul class="options-list">
+      <li>(A) Monosomy of X chromosome (45, XO); described by Thomas Hunt Morgan</li>
+      <li>(B) Trisomy of chromosome 21 (47, +21); described by Langdon Down in 1866</li>
+      <li>(C) Additional copy of X chromosome (47, XXY); described by Henking in 1891</li>
+      <li>(D) Deletion on chromosome 16; described by Walter Sutton in 1902</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (B)</span>
+      <p><strong>Worked Solution:</strong> The listed features—short stature, small round head, furrowed tongue, partially open mouth, broad palm with characteristic palm crease, and retarded physical, psychomotor, and mental development—are diagnostic of <strong>Down's Syndrome</strong>, caused by trisomy of chromosome 21 and first described by <strong>Langdon Down in 1866</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Question 12 -->
+  <div class="question-block">
+    <div class="question-header">Practice Question 12 (Single-Choice MCQ)</div>
+    <p>Which of the following statements accurately compares sex determination across grasshoppers, birds, and humans?</p>
+    <ul class="options-list">
+      <li>(A) Grasshoppers and birds exhibit male heterogamety, while humans exhibit female heterogamety.</li>
+      <li>(B) Male grasshoppers have the same total number of chromosomes as female grasshoppers.</li>
+      <li>(C) Humans and grasshoppers exhibit male heterogamety (XY and XO respectively), while birds exhibit female heterogamety (ZW).</li>
+      <li>(D) In birds, the genetic constitution of the sperm determines whether the offspring is male or female.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="answer-tag">Correct Answer: (C)</span>
+      <p><strong>Worked Solution:</strong> Both humans (XY males, XX females) and grasshoppers (XO males, XX females) exhibit <strong>male heterogamety</strong>, where males produce two types of sperms. Birds exhibit <strong>female heterogamety</strong> (ZW females, ZZ males), where the egg (\(\mathrm{Z}\) or \(\mathrm{W}\)) determines the sex of the chick. Male grasshoppers (XO) have one fewer chromosome than female grasshoppers (XX).</p>
+    </div>
+  </div>
+</section>
+
+<section id="pitfalls-recap">
+  <h2>13. Common Pitfalls &amp; Final Revision Checklist</h2>
+
+  <div class="card warning">
+    <h4>High-Yield NEET UG Pitfalls to Avoid</h4>
+    <ol>
+      <li><strong>Seed Colour vs. Pod Colour in Pea:</strong> Do not mix them up! In <strong>seeds</strong>, Yellow is dominant over Green; in <strong>pods</strong>, Green is dominant over Yellow.</li>
+      <li><strong>Sickle-Cell Position &amp; Amino Acid Direction:</strong> In sickle-cell anaemia, <strong>Glutamic acid (Glu) is replaced by Valine (Val)</strong> at the <strong>6th position</strong> of the <strong>\(\beta\)-globin chain</strong> (mRNA codon \(\mathrm{GAG \rightarrow GUG}\)), never the reverse.</li>
+      <li><strong>Thalassemia Chromosomes &amp; Quantitative Nature:</strong> Remember that \(\alpha\)-Thalassemia involves <strong>two genes (<em>HBA1, HBA2</em>) on chromosome 16</strong>, while \(\beta\)-Thalassemia involves <strong>one gene (<em>HBB</em>) on chromosome 11</strong>. Thalassemia is <strong>quantitative</strong>; sickle-cell anaemia is <strong>qualitative</strong>.</li>
+      <li><strong>Aneuploidy vs. Polyploidy Mechanism:</strong> Aneuploidy results from failure of segregation of <strong>chromatids</strong> during cell division; polyploidy results from failure of <strong>cytokinesis after telophase</strong>.</li>
+      <li><strong>Dominant vs. Recessive Pedigrees:</strong> In an autosomal recessive pedigree (e.g., Sickle-cell anaemia), <strong>unaffected carrier parents</strong> produce affected children. In an autosomal dominant pedigree (e.g., Myotonic dystrophy), affected children always have at least one affected parent.</li>
+    </ol>
+  </div>
+
+  <h3>Concise Final Recap</h3>
+  <ul>
+    <li><strong>Mendel's Laws:</strong> Law of Dominance (explains \(F_1\) uniformity and \(3:1\) \(F_2\) ratio), Law of Segregation (universally applicable; no blending of alleles), and Law of Independent Assortment (\(9:3:3:1\) dihybrid ratio; applies only to genes on different chromosomes or distantly located on the same chromosome).</li>
+    <li><strong>Non-Mendelian Ratios:</strong> Incomplete dominance (Snapdragon flower colour; pea starch grain size) gives \(1:2:1\) phenotypic and genotypic ratios. Co-dominance and multiple alleles (\(\mathrm{I^A, I^B, i}\)) produce 6 genotypes and 4 phenotypes in human ABO blood groups.</li>
+    <li><strong>Chromosomes &amp; Linkage:</strong> Rediscovered in 1900 (de Vries, Correns, von Tschermak); Chromosomal Theory proposed by Sutton and Boveri (1902); verified in <em>Drosophila</em> by T. H. Morgan; genetic mapping developed by Alfred Sturtevant using recombination frequencies (\(\mathrm{y-w} = 1.3\%\); \(\mathrm{w-m} = 37.2\%\)).</li>
+    <li><strong>Disorders Summary:</strong>
+      <ul>
+        <li><em>X-linked Recessive:</em> Haemophilia, Red-green Colour Blindness.</li>
+        <li><em>Autosomal Recessive:</em> Sickle-cell Anaemia, Phenylketonuria (PKU), Thalassemia, Cystic Fibrosis.</li>
+        <li><em>Autosomal Dominant:</em> Myotonic Dystrophy.</li>
+        <li><em>Chromosomal (Aneuploidy):</em> Down's Syndrome (Trisomy 21; 47 chromosomes), Klinefelter's Syndrome (47, XXY; sterile male with gynaecomastia), Turner's Syndrome (45, XO; sterile female with rudimentary ovaries).</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+</body>
+</html>

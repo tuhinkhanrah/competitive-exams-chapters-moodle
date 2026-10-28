@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motion in a Plane — Complete NEET UG Physics Tutorial</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --primary: #1a365d;
+    --secondary: #2b6cb0;
+    --accent: #c53030;
+    --bg-light: #f7fafc;
+    --bg-card: #ffffff;
+    --border: #cbd5e0;
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --success-bg: #f0fff4;
+    --success-border: #38a169;
+    --warning-bg: #fffaf0;
+    --warning-border: #dd6b20;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background-color: var(--bg-card);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  header.tutorial-header {
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    color: var(--primary);
+    margin: 0.25rem 0 0.5rem 0;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 1.55rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.4rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow-wrap: break-word;
+  }
+
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.4rem;
+  }
+
+  .callout {
+    background-color: var(--bg-light);
+    border-left: 4px solid var(--secondary);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout.important {
+    background-color: var(--warning-bg);
+    border-left-color: var(--warning-border);
+  }
+
+  .callout.formula-box {
+    background-color: #ebf8ff;
+    border-left-color: #2b6cb0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: var(--primary);
+    display: block;
+  }
+
+  .svg-wrapper {
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+    max-width: 100%;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .svg-wrapper svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .svg-caption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.65rem;
+    font-style: italic;
+  }
+
+  .example-card, .question-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .example-header, .question-header {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 0.4rem;
+  }
+
+  .options-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0.75rem 0 1rem 0;
+  }
+
+  .options-list li {
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.35rem;
+    background-color: var(--bg-light);
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+  }
+
+  .solution-box {
+    background-color: var(--success-bg);
+    border-left: 4px solid var(--success-border);
+    padding: 0.9rem 1.1rem;
+    margin-top: 0.75rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .answer-tag {
+    font-weight: 700;
+    color: #22543d;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: break-word;
+  }
+
+  th {
+    background-color: #edf2f7;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f7fafc;
+  }
+
+  .math-scroll {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 0.25rem 0;
+  }
+
+  @page {
+    size: A4;
+    margin: 15mm 14mm;
+  }
+
+  @media print {
+    body {
+      background-color: #ffffff;
+      font-size: 11pt;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      box-shadow: none;
+    }
+    h2, h3 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    .example-card, .question-card, .svg-wrapper, .callout, table {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 1. TITLE AND EXAM CONTEXT -->
+  <header class="tutorial-header">
+    <span class="badge">NEET UG Physics — Mechanics</span>
+    <h1>Motion in a Plane</h1>
+    <p><strong>Syllabus Context:</strong> Two-dimensional kinematics, scalar and vector quantities, graphical and analytical vector operations, resolution of vectors into rectangular components, motion with constant acceleration in a plane, projectile motion, and uniform circular motion.</p>
+  </header>
+
+  <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+  <section id="objectives">
+    <h2>1. Learning Objectives &amp; Overview</h2>
+    <p>In one-dimensional motion along a straight line, only two directions exist, which are easily represented using positive (\(+\)) and negative (\(-\)) signs. However, when an object moves in two dimensions (a plane) or three dimensions (space), we must use <strong>vectors</strong> to describe physical quantities such as position, displacement, velocity, and acceleration. All equations developed for motion in a two-dimensional plane can be extended directly to three-dimensional space.</p>
+    <div class="callout">
+      <span class="callout-title">Core Competencies for NEET UG</span>
+      <ul>
+        <li>Distinguish between scalars and vectors, and identify free vectors versus localised vectors.</li>
+        <li>Perform vector addition and subtraction graphically (triangle and parallelogram laws) and analytically using unit vectors \(\hat{\mathbf{i}}\), \(\hat{\mathbf{j}}\), and \(\hat{\mathbf{k}}\).</li>
+        <li>Apply the law of cosines and law of sines to determine the magnitude and direction of a resultant vector.</li>
+        <li>Formulate position, displacement, instantaneous velocity, and instantaneous acceleration vectors in two and three dimensions.</li>
+        <li>Treat two-dimensional constant-acceleration motion as two independent, simultaneous one-dimensional motions along mutually perpendicular axes.</li>
+        <li>Analyze projectile motion to calculate trajectory equations, time to reach maximum height, total time of flight, maximum height, and horizontal range.</li>
+        <li>Calculate angular speed, linear speed, time period, frequency, and centripetal acceleration in uniform circular motion.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. CORE CONCEPTS AND EXPLANATIONS -->
+  <section id="scalars-vectors">
+    <h2>2. Scalars and Vectors</h2>
+
+    <h3>2.1 Classification of Physical Quantities</h3>
+    <p>Physical quantities are classified into scalars and vectors based on whether direction is associated with them and how they combine algebraically:</p>
+    <ul>
+      <li><strong>Scalar Quantities:</strong> Quantities that have <strong>magnitude only</strong> and no associated direction. A scalar is specified completely by a single number along with the proper unit.
+        <ul>
+          <li><em>Examples:</em> Distance between two points (total path length), mass, volume, density, temperature, time, speed, work, energy, power, electric current, pressure, gravitational potential, charge, number of moles, angular frequency, and coefficient of friction.</li>
+          <li><em>Algebra of Scalars:</em> Scalars obey the rules of ordinary algebra. Addition and subtraction of scalars are meaningful only for quantities with the <em>same units</em>, whereas multiplication and division are valid for scalars with different units.</li>
+          <li><em>Numerical Illustrations:</em>
+            <ol>
+              <li>If a rectangle has length \(1.0\,\mathrm{m}\) and breadth \(0.5\,\mathrm{m}\), its perimeter is the scalar sum of its four sides: \(1.0\,\mathrm{m} + 0.5\,\mathrm{m} + 1.0\,\mathrm{m} + 0.5\,\mathrm{m} = 3.0\,\mathrm{m}\).</li>
+              <li>If the maximum and minimum temperatures on a day are \(35.6\,^\circ\mathrm{C}\) and \(24.2\,^\circ\mathrm{C}\), their difference is \(35.6\,^\circ\mathrm{C} - 24.2\,^\circ\mathrm{C} = 11.4\,^\circ\mathrm{C}\).</li>
+              <li>If a uniform solid cube of aluminium of side \(10\,\mathrm{cm}\) has a mass of \(2.7\,\mathrm{kg}\), its volume is \(10^{-3}\,\mathrm{m^3}\) and its density is \(\dfrac{2.7\,\mathrm{kg}}{10^{-3}\,\mathrm{m^3}} = 2.7 \times 10^3\,\mathrm{kg\,m^{-3}}\).</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Vector Quantities:</strong> Quantities that possess <strong>both magnitude and direction</strong> and <strong>obey the triangle law of addition</strong> (or equivalently, the parallelogram law of addition).
+        <ul>
+          <li><em>Examples:</em> Displacement, velocity (average and instantaneous), relative velocity, acceleration, force, linear momentum, impulse, angular velocity, angular momentum, electric field, and magnetic moment.</li>
+          <li><em>Representation:</em> In print, vectors are represented by boldface letters such as \(\mathbf{v}, \mathbf{A}, \mathbf{a}, \mathbf{p}, \mathbf{q}, \mathbf{r}, \mathbf{x}, \mathbf{y}\), or with an arrow over the letter (\(\vec{v}\)). The magnitude (also called the <strong>absolute value</strong>) is denoted by lightface italics or vertical bars: \(|\mathbf{v}| = v\) or \(|\mathbf{A}| = A\).</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="callout important">
+      <span class="callout-title">Key Properties of Scalars</span>
+      <p>A scalar quantity does <em>not</em> have to be conserved in a process (e.g., kinetic energy in an inelastic collision), <em>can</em> take negative values (e.g., temperature or work), <em>can</em> have dimensions, and <em>can</em> vary from point to point in space (e.g., density or temperature in a room). However, a scalar quantity <strong>always has the same value for observers with different orientations of coordinate axes</strong>.</p>
+    </div>
+
+    <h3>2.2 Position and Displacement Vectors</h3>
+    <p>To locate an object moving in a plane, we choose a convenient origin \(O\). If the object is at point \(P\) at time \(t\) and moves to point \(P'\) at time \(t'\):</p>
+    <ul>
+      <li>The straight line segment \(\mathbf{OP}\) directed from \(O\) to \(P\) is the <strong>position vector</strong> \(\mathbf{r}\) at time \(t\). Its length gives the magnitude \(|\mathbf{r}|\), and its arrow points in the direction of \(P\) as viewed from \(O\).</li>
+      <li>Similarly, \(\mathbf{OP'} = \mathbf{r}'\) is the position vector at time \(t'\).</li>
+      <li>The vector \(\mathbf{PP'}\) (tail at initial position \(P\), tip at final position \(P'\)) is the <strong>displacement vector</strong> \(\Delta\mathbf{r} = \mathbf{r}' - \mathbf{r}\).</li>
+    </ul>
+
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1a202c"/>
+          </marker>
+          <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2b6cb0"/>
+          </marker>
+          <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c53030"/>
+          </marker>
+        </defs>
+
+        <!-- Panel (a) -->
+        <g transform="translate(20, 15)">
+          <line x1="30" y1="180" x2="260" y2="180" stroke="#1a202c" stroke-width="2" marker-end="url(#arrow-dark)"/>
+          <line x1="30" y1="180" x2="30" y2="15" stroke="#1a202c" stroke-width="2" marker-end="url(#arrow-dark)"/>
+          <text x="268" y="185" font-size="14" font-family="sans-serif" fill="#1a202c">x</text>
+          <text x="15" y="20" font-size="14" font-family="sans-serif" fill="#1a202c">y</text>
+          <text x="12" y="195" font-size="14" font-family="sans-serif" fill="#1a202c">O</text>
+
+          <!-- Trajectory curve -->
+          <path d="M 45 150 Q 65 80 100 75 T 185 45 T 250 20" fill="none" stroke="#319795" stroke-width="2.5"/>
+
+          <!-- Position vectors r and r' -->
+          <line x1="30" y1="180" x2="98" y2="77" stroke="#1a202c" stroke-width="2" marker-end="url(#arrow-dark)"/>
+          <line x1="30" y1="180" x2="183" y2="47" stroke="#1a202c" stroke-width="2" marker-end="url(#arrow-dark)"/>
+          <!-- Displacement PP' -->
+          <line x1="100" y1="75" x2="181" y2="47" stroke="#c53030" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+
+          <text x="50" y="125" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">r</text>
+          <text x="125" y="125" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">r'</text>
+          <text x="85" y="68" font-size="14" font-family="sans-serif" fill="#1a202c">P</text>
+          <text x="178" y="36" font-size="14" font-family="sans-serif" fill="#1a202c">P'</text>
+          <text x="115" y="208" font-size="13" font-family="sans-serif" fill="#4a5568">(a) Position &amp; displacement vectors</text>
+        </g>
+
+        <!-- Panel (b) -->
+        <g transform="translate(360, 15)">
+          <line x1="30" y1="180" x2="270" y2="180" stroke="#1a202c" stroke-width="2" marker-end="url(#arrow-dark)"/>
+          <line x1="30" y1="180" x2="30" y2="15" stroke="#1a202c" stroke-width="2" marker-end="url(#arrow-dark)"/>
+          <text x="278" y="185" font-size="14" font-family="sans-serif" fill="#1a202c">x</text>
+          <text x="15" y="20" font-size="14" font-family="sans-serif" fill="#1a202c">y</text>
+          <text x="12" y="195" font-size="14" font-family="sans-serif" fill="#1a202c">O</text>
+
+          <!-- Path PDQ -->
+          <path d="M 80 140 Q 60 50 90 45 Q 130 40 165 65" fill="none" stroke="#319795" stroke-width="2" stroke-dasharray="4,3"/>
+          <!-- Path PABCQ -->
+          <path d="M 80 140 Q 125 165 150 125 Q 195 100 225 75 Q 240 50 165 65" fill="none" stroke="#2b6cb0" stroke-width="2"/>
+          <!-- Path PBEFQ -->
+          <polyline points="80,140 165,112 260,80 242,35 165,65" fill="none" stroke="#718096" stroke-width="1.8"/>
+
+          <!-- Displacement vector PQ -->
+          <line x1="80" y1="140" x2="163" y2="67" stroke="#c53030" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+
+          <text x="68" y="156" font-size="13" font-family="sans-serif" fill="#1a202c">P</text>
+          <text x="158" y="55" font-size="13" font-family="sans-serif" fill="#1a202c">Q</text>
+          <text x="55" y="52" font-size="13" font-family="sans-serif" fill="#1a202c">D</text>
+          <text x="125" y="165" font-size="13" font-family="sans-serif" fill="#1a202c">A</text>
+          <text x="165" y="128" font-size="13" font-family="sans-serif" fill="#1a202c">B</text>
+          <text x="235" y="68" font-size="13" font-family="sans-serif" fill="#1a202c">C</text>
+          <text x="266" y="88" font-size="13" font-family="sans-serif" fill="#1a202c">E</text>
+          <text x="242" y="28" font-size="13" font-family="sans-serif" fill="#1a202c">F</text>
+          <text x="65" y="208" font-size="13" font-family="sans-serif" fill="#4a5568">(b) Path independence of displacement PQ</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 1: (a) Position vectors r and r' with displacement PP'. (b) Different paths (PDQ, PABCQ, PBEFQ) between P and Q all yield the exact same straight-line displacement vector PQ.</div>
+    </div>
+
+    <p><strong>Crucial Principle:</strong> The displacement vector depends only on the initial and final positions and is completely independent of the actual path taken. Consequently, the magnitude of displacement is always <strong>less than or equal to</strong> the total path length traversed between two points (\(|\Delta\mathbf{r}| \le \text{path length}\)). Equality holds if and only if the object moves in a straight line without changing direction.</p>
+
+    <h3>2.3 Equality of Vectors &amp; Free vs. Localised Vectors</h3>
+    <p>Two vectors \(\mathbf{A}\) and \(\mathbf{B}\) are defined to be equal (\(\mathbf{A} = \mathbf{B}\)) if and only if they have the <strong>same magnitude</strong> and the <strong>same direction</strong>.</p>
+    <ul>
+      <li><strong>Free Vectors:</strong> In basic kinematics, vectors do not have fixed locations. Displacing a vector parallel to itself leaves the vector unchanged. Such vectors are called <em>free vectors</em>. To test equality of \(\mathbf{A}\) and \(\mathbf{B}\), shift \(\mathbf{B}\) parallel to itself until its tail coincides with the tail of \(\mathbf{A}\); if their tips also coincide, then \(\mathbf{A} = \mathbf{B}\).</li>
+      <li><strong>Localised Vectors:</strong> In certain physical applications (such as torque or rotational mechanics), the specific point or line of application of a vector matters; such vectors are called <em>localised vectors</em>.</li>
+    </ul>
+
+    <h3>2.4 Multiplication of Vectors by Real Numbers</h3>
+    <ul>
+      <li><strong>Multiplication by a positive real number (\(\lambda > 0\)):</strong> Multiplying a vector \(\mathbf{A}\) by \(\lambda > 0\) produces a vector \(\lambda\mathbf{A}\) in the <strong>same direction</strong> as \(\mathbf{A}\) whose magnitude is scaled by \(\lambda\):
+        \[|\lambda\mathbf{A}| = \lambda|\mathbf{A}| \quad (\text{if } \lambda > 0)\]
+      </li>
+      <li><strong>Multiplication by a negative real number (\(-\lambda\), where \(\lambda > 0\)):</strong> Multiplying \(\mathbf{A}\) by \(-\lambda\) yields a vector \(-\lambda\mathbf{A}\) whose direction is <strong>opposite</strong> to that of \(\mathbf{A}\) and whose magnitude is \(\lambda|\mathbf{A}|\). For example, multiplying \(\mathbf{A}\) by \(-1\) gives \(-\mathbf{A}\) (equal magnitude, opposite direction), and multiplying by \(-1.5\) gives \(-1.5\mathbf{A}\) (magnitude \(1.5|\mathbf{A}|\), opposite direction).</li>
+      <li><strong>Dimensional Aspect:</strong> The scalar factor \(\lambda\) may have its own physical dimensions. The dimension of \(\lambda\mathbf{A}\) is the product of the dimensions of \(\lambda\) and \(\mathbf{A}\). For example, multiplying a constant velocity vector by a time duration produces a displacement vector.</li>
+    </ul>
+
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 660 155" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr-v" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2b6cb0"/>
+          </marker>
+          <marker id="arr-neg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c53030"/>
+          </marker>
+        </defs>
+
+        <!-- Equal vectors -->
+        <g transform="translate(15, 10)">
+          <line x1="20" y1="95" x2="90" y2="25" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arr-v)"/>
+          <line x1="65" y1="105" x2="135" y2="35" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arr-v)"/>
+          <text x="40" y="55" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">A</text>
+          <text x="105" y="75" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">B</text>
+          <text x="20" y="130" font-size="12.5" font-family="sans-serif" fill="#4a5568">(a) Equal: A = B</text>
+        </g>
+
+        <!-- Unequal vectors of equal length -->
+        <g transform="translate(185, 10)">
+          <line x1="20" y1="100" x2="55" y2="20" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arr-v)"/>
+          <line x1="60" y1="105" x2="130" y2="45" stroke="#c53030" stroke-width="2.5" marker-end="url(#arr-neg)"/>
+          <text x="18" y="58" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">A'</text>
+          <text x="102" y="88" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">B'</text>
+          <text x="15" y="130" font-size="12.5" font-family="sans-serif" fill="#4a5568">(b) Unequal: A' ≠ B'</text>
+        </g>
+
+        <!-- Scalar multiplication -->
+        <g transform="translate(365, 10)">
+          <line x1="15" y1="40" x2="95" y2="22" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arr-v)"/>
+          <text x="48" y="23" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a202c">A</text>
+
+          <line x1="15" y1="72" x2="175" y2="36" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#arr-v)"/>
+          <text x="90" y="48" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a202c">2A</text>
+
+          <line x1="255" y1="35" x2="175" y2="53" stroke="#c53030" stroke-width="2.5" marker-end="url(#arr-neg)"/>
+          <text x="205" y="36" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">−A</text>
+
+          <line x1="275" y1="75" x2="155" y2="102" stroke="#c53030" stroke-width="2.5" marker-end="url(#arr-neg)"/>
+          <text x="205" y="105" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">−1.5A</text>
+
+          <text x="45" y="130" font-size="12.5" font-family="sans-serif" fill="#4a5568">(c) Scalar multiples of vector A</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 2: (a) Equal vectors A and B have identical length and direction. (b) Vectors A' and B' have equal length but different directions, so A' ≠ B'. (c) Multiplying A by positive and negative scalars.</div>
+    </div>
+  </section>
+
+  <!-- 4. GRAPHICAL AND ANALYTICAL VECTOR OPERATIONS -->
+  <section id="vector-operations">
+    <h2>3. Addition, Subtraction, and Resolution of Vectors</h2>
+
+    <h3>3.1 Graphical Methods of Vector Addition</h3>
+    <ol>
+      <li><strong>Triangle Method (Head-to-Tail Method):</strong> To find \(\mathbf{R} = \mathbf{A} + \mathbf{B}\), place the tail of vector \(\mathbf{B}\) at the head of vector \(\mathbf{A}\). The vector joining the tail of \(\mathbf{A}\) to the head of \(\mathbf{B}\) is the resultant sum \(\mathbf{R} = \mathbf{A} + \mathbf{B}\).</li>
+      <li><strong>Parallelogram Method:</strong> Bring the tails of \(\mathbf{A}\) and \(\mathbf{B}\) to a common origin \(O\). Draw a line from the head of \(\mathbf{A}\) parallel to \(\mathbf{B}\), and another line from the head of \(\mathbf{B}\) parallel to \(\mathbf{A}\) to complete a parallelogram. The diagonal directed from the common origin \(O\) to the opposite corner represents \(\mathbf{R} = \mathbf{A} + \mathbf{B}\). The triangle and parallelogram methods are completely equivalent and yield the exact same resultant.</li>
+    </ol>
+
+    <h4>Fundamental Algebraic Laws of Vector Addition</h4>
+    <ul>
+      <li><strong>Commutative Law:</strong> Adding \(\mathbf{A}\) to \(\mathbf{B}\) gives the same resultant as adding \(\mathbf{B}\) to \(\mathbf{A}\):
+        \[\mathbf{A} + \mathbf{B} = \mathbf{B} + \mathbf{A}\]
+      </li>
+      <li><strong>Associative Law:</strong> The grouping of vectors in a sum does not affect the resultant:
+        \[(\mathbf{A} + \mathbf{B}) + \mathbf{C} = \mathbf{A} + (\mathbf{B} + \mathbf{C})\]
+      </li>
+      <li><strong>Null (Zero) Vector (\(\mathbf{0}\)):</strong> Adding two equal and opposite vectors \(\mathbf{A}\) and \(-\mathbf{A}\) yields a vector of zero magnitude called the <strong>null vector</strong>:
+        \[\mathbf{A} - \mathbf{A} = \mathbf{0}, \quad |\mathbf{0}| = 0\]
+        Because its magnitude is zero, the direction of a null vector cannot be specified. Its key algebraic properties are:
+        \[\mathbf{A} + \mathbf{0} = \mathbf{A}, \quad \lambda\mathbf{0} = \mathbf{0}, \quad 0\mathbf{A} = \mathbf{0}\]
+        <em>Physical Meaning:</em> If an object starts at position \(P\), moves to \(P'\), and returns to \(P\), its initial and final positions coincide, so its net displacement vector is the null vector \(\mathbf{0}\).
+      </li>
+      <li><strong>Vector Subtraction:</strong> Subtracting \(\mathbf{B}\) from \(\mathbf{A}\) is defined as adding \(-\mathbf{B}\) to \(\mathbf{A}\):
+        \[\mathbf{A} - \mathbf{B} = \mathbf{A} + (-\mathbf{B})\]
+      </li>
+    </ul>
+
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 680 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="a-blk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1a202c"/>
+          </marker>
+          <marker id="a-blu" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2b6cb0"/>
+          </marker>
+          <marker id="a-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c53030"/>
+          </marker>
+        </defs>
+
+        <!-- (a) Parallelogram & Triangle equivalence -->
+        <g transform="translate(20, 15)">
+          <line x1="25" y1="150" x2="165" y2="150" stroke="#1a202c" stroke-width="2.5" marker-end="url(#a-blk)"/>
+          <line x1="25" y1="150" x2="95" y2="45" stroke="#1a202c" stroke-width="2.5" marker-end="url(#a-blk)"/>
+          <line x1="95" y1="45" x2="235" y2="45" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4"/>
+          <line x1="165" y1="150" x2="235" y2="45" stroke="#1a202c" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#a-blk)"/>
+          <line x1="25" y1="150" x2="233" y2="46" stroke="#2b6cb0" stroke-width="2.8" marker-end="url(#a-blu)"/>
+
+          <text x="10" y="160" font-size="14" font-family="sans-serif" fill="#1a202c">O</text>
+          <text x="170" y="162" font-size="14" font-family="sans-serif" fill="#1a202c">P</text>
+          <text x="80" y="38" font-size="14" font-family="sans-serif" fill="#1a202c">Q</text>
+          <text x="240" y="45" font-size="14" font-family="sans-serif" fill="#1a202c">S</text>
+          <text x="95" y="170" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">A</text>
+          <text x="42" y="95" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">B</text>
+          <text x="208" y="108" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">B</text>
+          <text x="115" y="90" font-size="14" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">R = A + B</text>
+          <text x="30" y="192" font-size="13" font-family="sans-serif" fill="#4a5568">(a) Parallelogram &amp; Triangle Addition</text>
+        </g>
+
+        <!-- (b) Vector Subtraction -->
+        <g transform="translate(360, 15)">
+          <!-- Vector A from O(25,115) to P(165,95) -->
+          <line x1="25" y1="115" x2="165" y2="95" stroke="#1a202c" stroke-width="2.5" marker-end="url(#a-blk)"/>
+          <!-- Vector B from P(165,95) to Q(105,170) -->
+          <line x1="165" y1="95" x2="105" y2="170" stroke="#1a202c" stroke-width="2.5" marker-end="url(#a-blk)"/>
+          <!-- Vector -B from P(165,95) to S(225,20) -->
+          <line x1="165" y1="95" x2="225" y2="20" stroke="#c53030" stroke-width="2.5" marker-end="url(#a-red)"/>
+          <!-- R1 = A + B -->
+          <line x1="25" y1="115" x2="103" y2="168" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#a-blu)"/>
+          <!-- R2 = A - B -->
+          <line x1="25" y1="115" x2="223" y2="22" stroke="#c53030" stroke-width="2.5" marker-end="url(#a-red)"/>
+
+          <text x="95" y="100" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">A</text>
+          <text x="145" y="142" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">B</text>
+          <text x="200" y="65" font-size="14" font-weight="bold" font-family="sans-serif" fill="#c53030">−B</text>
+          <text x="20" y="160" font-size="13" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">R₁ = A + B</text>
+          <text x="80" y="55" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">R₂ = A − B</text>
+          <text x="45" y="192" font-size="13" font-family="sans-serif" fill="#4a5568">(b) Comparison of A + B and A − B</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 3: (a) Equivalence of the parallelogram and triangle laws of vector addition. (b) Graphical construction of R₁ = A + B and R₂ = A − B = A + (−B).</div>
+    </div>
+
+    <h3>3.2 Resolution of Vectors &amp; Unit Vectors</h3>
+    <p>Any vector \(\mathbf{A}\) lying in the same plane as two non-zero, non-collinear vectors \(\mathbf{a}\) and \(\mathbf{b}\) can be uniquely resolved into two component vectors parallel to \(\mathbf{a}\) and \(\mathbf{b}\):</p>
+    \[\mathbf{A} = \lambda\mathbf{a} + \mu\mathbf{b}\]
+    <p>where \(\lambda\) and \(\mu\) are real numbers.</p>
+
+    <h4>Unit Vectors</h4>
+    <p>A <strong>unit vector</strong> is a vector of magnitude equal to \(1\) that points in a specific direction. It has <strong>no dimensions and no units</strong>; its sole purpose is to specify direction. The unit vector \(\hat{\mathbf{n}}\) along any non-zero vector \(\mathbf{A}\) is:</p>
+    \[\hat{\mathbf{n}} = \frac{\mathbf{A}}{|\mathbf{A}|} \implies \mathbf{A} = |\mathbf{A}|\hat{\mathbf{n}}\]
+    <p>In a right-handed rectangular Cartesian coordinate system, the mutually perpendicular unit vectors along the \(x\)-, \(y\)-, and \(z\)-axes are denoted by \(\hat{\mathbf{i}}\), \(\hat{\mathbf{j}}\), and \(\hat{\mathbf{k}}\), respectively:</p>
+    \[|\hat{\mathbf{i}}| = |\hat{\mathbf{j}}| = |\hat{\mathbf{k}}| = 1\]
+
+    <h4>Rectangular Resolution in Two and Three Dimensions</h4>
+    <p>A vector \(\mathbf{A}\) lying in the \(x\)-\(y\) plane making an angle \(\theta\) with the positive \(x\)-axis can be written as:</p>
+    \[\mathbf{A} = \mathbf{A}_1 + \mathbf{A}_2 = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}}\]
+    <p>where the scalar components \(A_x\) and \(A_y\) (which can be positive, negative, or zero) are related to the magnitude \(A\) and angle \(\theta\) by:</p>
+    \[A_x = A\cos\theta, \qquad A_y = A\sin\theta\]
+    \[A = |\mathbf{A}| = \sqrt{A_x^2 + A_y^2}, \qquad \tan\theta = \frac{A_y}{A_x} \implies \theta = \tan^{-1}\!\left(\frac{A_y}{A_x}\right)\]
+    <p><em>Important Distinction:</em> \(A_x\) and \(A_y\) are scalar numbers, whereas \(A_x\hat{\mathbf{i}}\) and \(A_y\hat{\mathbf{j}}\) are component vectors.</p>
+
+    <p>In three dimensions, if vector \(\mathbf{A}\) makes angles \(\alpha\), \(\beta\), and \(\gamma\) with the \(x\)-, \(y\)-, and \(z\)-axes respectively:</p>
+    \[A_x = A\cos\alpha, \qquad A_y = A\cos\beta, \qquad A_z = A\cos\gamma\]
+    \[\mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}} + A_z\hat{\mathbf{k}}, \qquad A = \sqrt{A_x^2 + A_y^2 + A_z^2}\]
+    <p>Similarly, the position vector \(\mathbf{r}\) of a point \((x, y, z)\) in space is \(\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}} + z\hat{\mathbf{k}}\).</p>
+
+    <h3>3.3 Analytical Method of Vector Addition (Law of Cosines &amp; Sines)</h3>
+    <p>In component form, if \(\mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}} + A_z\hat{\mathbf{k}}\) and \(\mathbf{B} = B_x\hat{\mathbf{i}} + B_y\hat{\mathbf{j}} + B_z\hat{\mathbf{k}}\), their resultant \(\mathbf{R} = \mathbf{A} + \mathbf{B}\) has components:</p>
+    \[R_x = A_x + B_x, \qquad R_y = A_y + B_y, \qquad R_z = A_z + B_z\]
+    <p>More generally, for \(\mathbf{T} = \mathbf{a} + \mathbf{b} - \mathbf{c}\), the components are \(T_x = a_x + b_x - c_x\), \(T_y = a_y + b_y - c_y\), and \(T_z = a_z + b_z - c_z\).</p>
+
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 650 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1a202c"/>
+          </marker>
+          <marker id="ar-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2b6cb0"/>
+          </marker>
+        </defs>
+
+        <!-- Panel 1: 2D Resolution -->
+        <g transform="translate(20, 15)">
+          <line x1="30" y1="155" x2="215" y2="155" stroke="#1a202c" stroke-width="2" marker-end="url(#ar-k)"/>
+          <line x1="30" y1="155" x2="30" y2="20" stroke="#1a202c" stroke-width="2" marker-end="url(#ar-k)"/>
+          <line x1="30" y1="155" x2="175" y2="55" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#ar-b)"/>
+          <line x1="175" y1="55" x2="175" y2="155" stroke="#718096" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <line x1="175" y1="55" x2="30" y2="55" stroke="#718096" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <path d="M 68 155 A 38 38 0 0 0 61 133" fill="none" stroke="#1a202c" stroke-width="1.5"/>
+
+          <text x="15" y="168" font-size="13" font-family="sans-serif" fill="#1a202c">O</text>
+          <text x="220" y="160" font-size="13" font-family="sans-serif" fill="#1a202c">x</text>
+          <text x="15" y="25" font-size="13" font-family="sans-serif" fill="#1a202c">y</text>
+          <text x="72" y="147" font-size="13" font-family="sans-serif" fill="#1a202c">θ</text>
+          <text x="95" y="95" font-size="14" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">A</text>
+          <text x="85" y="175" font-size="13" font-family="sans-serif" fill="#1a202c">Aₓ = A cos θ</text>
+          <text x="38" y="50" font-size="13" font-family="sans-serif" fill="#1a202c">Aᵧ = A sin θ</text>
+        </g>
+
+        <!-- Panel 2: Law of Cosines & Sines geometry -->
+        <g transform="translate(290, 15)">
+          <!-- OP = A -->
+          <line x1="30" y1="155" x2="200" y2="155" stroke="#1a202c" stroke-width="2.5" marker-end="url(#ar-k)"/>
+          <!-- OQ = B -->
+          <line x1="30" y1="155" x2="95" y2="40" stroke="#1a202c" stroke-width="2.5" marker-end="url(#ar-k)"/>
+          <!-- QS and PS -->
+          <line x1="95" y1="40" x2="265" y2="40" stroke="#718096" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <line x1="200" y1="155" x2="265" y2="40" stroke="#718096" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <!-- OS = R -->
+          <line x1="30" y1="155" x2="263" y2="41" stroke="#2b6cb0" stroke-width="2.8" marker-end="url(#ar-b)"/>
+          <!-- Normal SN and extension PN -->
+          <line x1="200" y1="155" x2="265" y2="155" stroke="#718096" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="265" y1="40" x2="265" y2="155" stroke="#718096" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <!-- Right angle at N -->
+          <polyline points="255,155 255,145 265,145" fill="none" stroke="#4a5568" stroke-width="1.2"/>
+
+          <!-- Angles -->
+          <path d="M 65 155 A 35 35 0 0 0 47 125" fill="none" stroke="#1a202c" stroke-width="1.4"/>
+          <path d="M 85 155 A 55 55 0 0 0 79 131" fill="none" stroke="#2b6cb0" stroke-width="1.4"/>
+          <path d="M 225 155 A 25 25 0 0 0 212 133" fill="none" stroke="#1a202c" stroke-width="1.4"/>
+          <path d="M 243 51 A 25 25 0 0 0 253 62" fill="none" stroke="#1a202c" stroke-width="1.4"/>
+
+          <text x="15" y="168" font-size="13" font-family="sans-serif" fill="#1a202c">O</text>
+          <text x="195" y="172" font-size="13" font-family="sans-serif" fill="#1a202c">P</text>
+          <text x="268" y="168" font-size="13" font-family="sans-serif" fill="#1a202c">N</text>
+          <text x="80" y="34" font-size="13" font-family="sans-serif" fill="#1a202c">Q</text>
+          <text x="270" y="38" font-size="13" font-family="sans-serif" fill="#1a202c">S</text>
+          <text x="115" y="172" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">A</text>
+          <text x="42" y="92" font-size="14" font-weight="bold" font-family="sans-serif" fill="#1a202c">B</text>
+          <text x="145" y="88" font-size="14" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">R</text>
+          <text x="52" y="138" font-size="13" font-family="sans-serif" fill="#1a202c">θ</text>
+          <text x="88" y="148" font-size="13" font-family="sans-serif" fill="#2b6cb0">α</text>
+          <text x="228" y="148" font-size="13" font-family="sans-serif" fill="#1a202c">θ</text>
+          <text x="234" y="68" font-size="13" font-family="sans-serif" fill="#1a202c">β</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 4: Left — Rectangular resolution of vector A into Aₓ and Aᵧ. Right — Parallelogram geometry used to derive the Law of Cosines and Law of Sines for R = A + B.</div>
+    </div>
+
+    <div class="callout formula-box">
+      <span class="callout-title">Law of Cosines and Law of Sines for Two Vectors \(\mathbf{A}\) and \(\mathbf{B}\)</span>
+      <p>Let \(\mathbf{A}\) and \(\mathbf{B}\) be two vectors inclined at an angle \(\theta\). In right triangle \(OSN\) (where \(ON = OP + PN = A + B\cos\theta\) and \(SN = B\sin\theta\)), the magnitude of the resultant \(\mathbf{R} = \mathbf{A} + \mathbf{B}\) is given by the <strong>Law of Cosines</strong>:</p>
+      \[R = \sqrt{A^2 + B^2 + 2AB\cos\theta}\]
+      <p>If \(\mathbf{R}\) makes an angle \(\alpha\) with \(\mathbf{A}\) and an angle \(\beta\) with \(\mathbf{B}\), its direction is given by:</p>
+      \[\tan\alpha = \frac{B\sin\theta}{A + B\cos\theta} \qquad \text{and} \qquad \frac{R}{\sin\theta} = \frac{A}{\sin\beta} = \frac{B}{\sin\alpha} \quad (\text{Law of Sines})\]
+      <p><strong>Triangle Inequalities for Vectors:</strong> Because \(-1 \le \cos\theta \le 1\), for any two vectors \(\mathbf{a}\) and \(\mathbf{b}\):</p>
+      \[||\mathbf{a}| - |\mathbf{b}|| \le |\mathbf{a} + \mathbf{b}| \le |\mathbf{a}| + |\mathbf{b}| \qquad \text{and} \qquad ||\mathbf{a}| - |\mathbf{b}|| \le |\mathbf{a} - \mathbf{b}| \le |\mathbf{a}| + |\mathbf{b}|\]
+      <ul>
+        <li>\(|\mathbf{a} + \mathbf{b}| = |\mathbf{a}| + |\mathbf{b}|\) and \(|\mathbf{a} - \mathbf{b}| = ||\mathbf{a}| - |\mathbf{b}||\) hold when \(\mathbf{a}\) and \(\mathbf{b}\) point in the <strong>same direction</strong> (\(\theta = 0^\circ\)).</li>
+        <li>\(|\mathbf{a} + \mathbf{b}| = ||\mathbf{a}| - |\mathbf{b}||\) and \(|\mathbf{a} - \mathbf{b}| = |\mathbf{a}| + |\mathbf{b}|\) hold when \(\mathbf{a}\) and \(\mathbf{b}\) point in <strong>opposite directions</strong> (\(\theta = 180^\circ\)).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. KINEMATICS IN A PLANE -->
+  <section id="kinematics-plane">
+    <h2>4. Motion in a Plane: Position, Velocity, and Acceleration</h2>
+
+    <h3>4.1 Position Vector and Displacement in the \(x\)-\(y\) Plane</h3>
+    <p>The position vector of a particle at point \(P(x, y)\) is \(\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}}\). When the particle moves from \(P(x, y)\) at time \(t\) to \(P'(x', y')\) at time \(t'\), its displacement vector in component form is:</p>
+    \[\Delta\mathbf{r} = \mathbf{r}' - \mathbf{r} = (x'\hat{\mathbf{i}} + y'\hat{\mathbf{j}}) - (x\hat{\mathbf{i}} + y\hat{\mathbf{j}}) = \Delta x\hat{\mathbf{i}} + \Delta y\hat{\mathbf{j}}\]
+    <p>where \(\Delta x = x' - x\) and \(\Delta y = y' - y\).</p>
+
+    <h3>4.2 Average and Instantaneous Velocity</h3>
+    <ul>
+      <li><strong>Average Velocity (\(\bar{\mathbf{v}}\)):</strong> The ratio of the displacement vector \(\Delta\mathbf{r}\) to the time interval \(\Delta t\):
+        \[\bar{\mathbf{v}} = \frac{\Delta\mathbf{r}}{\Delta t} = \frac{\Delta x}{\Delta t}\hat{\mathbf{i}} + \frac{\Delta y}{\Delta t}\hat{\mathbf{j}} = \bar{v}_x\hat{\mathbf{i}} + \bar{v}_y\hat{\mathbf{j}}\]
+        The direction of \(\bar{\mathbf{v}}\) is identical to the direction of \(\Delta\mathbf{r}\). Because path length \(\ge |\Delta\mathbf{r}|\), the <strong>average speed</strong> (\(\text{total path length}/\Delta t\)) is always <strong>greater than or equal to</strong> the magnitude of average velocity (\(|\bar{\mathbf{v}}|\)).
+      </li>
+      <li><strong>Instantaneous Velocity (\(\mathbf{v}\)):</strong> The limiting value of average velocity as \(\Delta t \to 0\):
+        \[\mathbf{v} = \lim_{\Delta t \to 0} \frac{\Delta\mathbf{r}}{\Delta t} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = v_x\hat{\mathbf{i}} + v_y\hat{\mathbf{j}}, \qquad \text{where } v_x = \frac{\mathrm{d}x}{\mathrm{d}t}, \; v_y = \frac{\mathrm{d}y}{\mathrm{d}t}\]
+        As \(\Delta t \to 0\), the chord \(\Delta\mathbf{r}\) approaches the tangent to the trajectory. Thus, the instantaneous velocity vector \(\mathbf{v}\) at any point on the path is <strong>always tangential to the path at that point</strong> and directed along the motion. Its magnitude and direction with the \(x\)-axis are:
+        \[v = \sqrt{v_x^2 + v_y^2}, \qquad \tan\theta = \frac{v_y}{v_x} \implies \theta = \tan^{-1}\!\left(\frac{v_y}{v_x}\right)\]
+      </li>
+    </ul>
+
+    <h3>4.3 Average and Instantaneous Acceleration</h3>
+    <ul>
+      <li><strong>Average Acceleration (\(\bar{\mathbf{a}}\)):</strong> The change in velocity \(\Delta\mathbf{v} = \mathbf{v}' - \mathbf{v}\) divided by the time interval \(\Delta t\):
+        \[\bar{\mathbf{a}} = \frac{\Delta\mathbf{v}}{\Delta t} = \frac{\Delta v_x}{\Delta t}\hat{\mathbf{i}} + \frac{\Delta v_y}{\Delta t}\hat{\mathbf{j}} = \bar{a}_x\hat{\mathbf{i}} + \bar{a}_y\hat{\mathbf{j}}\]
+        The direction of \(\bar{\mathbf{a}}\) is along \(\Delta\mathbf{v}\).
+      </li>
+      <li><strong>Instantaneous Acceleration (\(\mathbf{a}\)):</strong> The limiting value of average acceleration as \(\Delta t \to 0\):
+        \[\mathbf{a} = \lim_{\Delta t \to 0} \frac{\Delta\mathbf{v}}{\Delta t} = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}\]
+        where:
+        \[a_x = \frac{\mathrm{d}v_x}{\mathrm{d}t} = \frac{\mathrm{d}^2x}{\mathrm{d}t^2}, \qquad a_y = \frac{\mathrm{d}v_y}{\mathrm{d}t} = \frac{\mathrm{d}^2y}{\mathrm{d}t^2}\]
+      </li>
+    </ul>
+    <p><strong>Crucial Dimensional Contrast:</strong> In one-dimensional motion, \(\mathbf{v}\) and \(\mathbf{a}\) are always collinear (angle \(0^\circ\) or \(180^\circ\)). In two- or three-dimensional motion, the velocity vector \(\mathbf{v}\) and acceleration vector \(\mathbf{a}\) may have <strong>any angle between \(0^\circ\) and \(180^\circ\)</strong> between them.</p>
+
+    <h3>4.4 Motion in a Plane with Constant Acceleration</h3>
+    <p>Suppose an object moves in the \(x\)-\(y\) plane with a constant acceleration \(\mathbf{a} = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}\). Let its position and velocity at \(t = 0\) be \(\mathbf{r}_0\) and \(\mathbf{v}_0\), and at time \(t\) be \(\mathbf{r}\) and \(\mathbf{v}\). Over any time interval, the average acceleration equals the constant instantaneous acceleration \(\mathbf{a}\), and the average velocity is \(\dfrac{\mathbf{v}_0 + \mathbf{v}}{2}\):</p>
+    \[\mathbf{v} = \mathbf{v}_0 + \mathbf{a}t\]
+    \[\mathbf{r} - \mathbf{r}_0 = \left(\frac{\mathbf{v} + \mathbf{v}_0}{2}\right)t = \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2 \implies \mathbf{r} = \mathbf{r}_0 + \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2\]
+
+    <div class="callout formula-box">
+      <span class="callout-title">Principle of Independence of Perpendicular Motions</span>
+      <p>Writing the constant-acceleration vector equations in rectangular component form yields two independent sets of equations:</p>
+      \[v_x = v_{0x} + a_xt, \qquad x = x_0 + v_{0x}t + \frac{1}{2}a_xt^2\]
+      \[v_y = v_{0y} + a_yt, \qquad y = y_0 + v_{0y}t + \frac{1}{2}a_yt^2\]
+      <p><strong>Physical Interpretation:</strong> Motion in a plane with constant acceleration can be treated as two separate, simultaneous one-dimensional motions with constant acceleration along two mutually perpendicular directions.</p>
+      <p><em>Warning for Arbitrary Motion:</em> The relations \(\mathbf{v}_{\text{average}} = \frac{1}{2}[\mathbf{v}(t_1) + \mathbf{v}(t_2)]\), \(\mathbf{v}(t) = \mathbf{v}(0) + \mathbf{a}t\), and \(\mathbf{r}(t) = \mathbf{r}(0) + \mathbf{v}(0)t + \frac{1}{2}\mathbf{a}t^2\) are valid <strong>only for constant acceleration</strong>. For arbitrary (non-uniformly accelerated) motion in space, only the general definitions \(\mathbf{v}_{\text{average}} = \dfrac{\mathbf{r}(t_2) - \mathbf{r}(t_1)}{t_2 - t_1}\) and \(\mathbf{a}_{\text{average}} = \dfrac{\mathbf{v}(t_2) - \mathbf{v}(t_1)}{t_2 - t_1}\) always hold true.</p>
+    </div>
+
+    <h4>Composite Velocity vs. Relative Velocity</h4>
+    <p>Carefully distinguish between two distinct vector operations involving velocities \(\mathbf{v}_1\) and \(\mathbf{v}_2\) measured with respect to a common reference frame:</p>
+    <ul>
+      <li><strong>Resultant Velocity of an Object Subjected to Two Velocities:</strong> If a single object experiences two simultaneous velocities (such as a motorboat moving with velocity \(\mathbf{v}_b\) in water that has a current velocity \(\mathbf{v}_c\)), the resultant velocity is the vector sum: \(\mathbf{v} = \mathbf{v}_1 + \mathbf{v}_2\).</li>
+      <li><strong>Relative Velocity Between Two Objects:</strong> The velocity of object 1 relative to object 2 (or the apparent velocity of rain relative to a moving observer) is the vector difference: \(\mathbf{v}_{12} = \mathbf{v}_1 - \mathbf{v}_2\).</li>
+    </ul>
+  </section>
+
+  <!-- 6. PROJECTILE MOTION -->
+  <section id="projectile-motion">
+    <h2>5. Projectile Motion</h2>
+    <p>An object that is in flight after being thrown or projected is called a <strong>projectile</strong>. As first stated by Galileo in his <em>Dialogue on the Great World Systems</em> (1632), neglecting air resistance, projectile motion is the superposition of two independent, simultaneously occurring components of motion:</p>
+    <ol>
+      <li>A <strong>horizontal component</strong> with <strong>zero acceleration</strong> (\(a_x = 0\)), so horizontal velocity remains constant throughout the flight.</li>
+      <li>A <strong>vertical component</strong> with <strong>constant downward acceleration</strong> due to gravity (\(\mathbf{a} = -g\hat{\mathbf{j}}\), so \(a_y = -g\)).</li>
+    </ol>
+
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 680 265" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="p-blk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1a202c"/>
+          </marker>
+          <marker id="p-blu" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2b6cb0"/>
+          </marker>
+          <marker id="p-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c53030"/>
+          </marker>
+        </defs>
+
+        <!-- Axes -->
+        <line x1="45" y1="210" x2="640" y2="210" stroke="#1a202c" stroke-width="2" marker-end="url(#p-blk)"/>
+        <line x1="45" y1="210" x2="45" y2="20" stroke="#1a202c" stroke-width="2" marker-end="url(#p-blk)"/>
+        <text x="648" y="215" font-size="14" font-family="sans-serif" fill="#1a202c">x</text>
+        <text x="30" y="25" font-size="14" font-family="sans-serif" fill="#1a202c">y</text>
+        <text x="28" y="225" font-size="14" font-family="sans-serif" fill="#1a202c">O</text>
+
+        <!-- Parabolic path: from (45,210) peak at (315,60) landing at (585,210) -->
+        <path d="M 45 210 Q 315 -90 585 210" fill="none" stroke="#319795" stroke-width="2.8"/>
+
+        <!-- Launch vectors at O(45,210) -->
+        <line x1="45" y1="210" x2="105" y2="210" stroke="#2b6cb0" stroke-width="2.2" marker-end="url(#p-blu)"/>
+        <line x1="45" y1="210" x2="45" y2="115" stroke="#2b6cb0" stroke-width="2.2" marker-end="url(#p-blu)"/>
+        <line x1="45" y1="210" x2="105" y2="115" stroke="#c53030" stroke-width="2.5" marker-end="url(#p-red)"/>
+        <path d="M 78 210 A 33 33 0 0 0 65 182" fill="none" stroke="#1a202c" stroke-width="1.4"/>
+        <text x="80" y="200" font-size="13" font-family="sans-serif" fill="#1a202c">θ₀</text>
+        <text x="85" y="138" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v₀</text>
+        <text x="52" y="228" font-size="12.5" font-family="sans-serif" fill="#2b6cb0">v₀ₓ = v₀ cos θ₀</text>
+        <text x="52" y="112" font-size="12.5" font-family="sans-serif" fill="#2b6cb0">v₀ᵧ = v₀ sin θ₀</text>
+
+        <!-- Ascending point (153, 114) -->
+        <line x1="153" y1="114" x2="213" y2="114" stroke="#2b6cb0" stroke-width="2" marker-end="url(#p-blu)"/>
+        <line x1="153" y1="114" x2="153" y2="62" stroke="#2b6cb0" stroke-width="2" marker-end="url(#p-blu)"/>
+        <line x1="153" y1="114" x2="213" y2="62" stroke="#c53030" stroke-width="2.2" marker-end="url(#p-red)"/>
+        <text x="195" y="88" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v</text>
+
+        <!-- Peak (315, 60) -->
+        <line x1="315" y1="60" x2="375" y2="60" stroke="#c53030" stroke-width="2.5" marker-end="url(#p-red)"/>
+        <line x1="315" y1="60" x2="315" y2="210" stroke="#718096" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="275" y="45" font-size="12.5" font-weight="bold" font-family="sans-serif" fill="#1a202c">vᵧ = 0, θ = 0° (v = v₀ₓ)</text>
+        <text x="322" y="145" font-size="13" font-weight="bold" font-family="sans-serif" fill="#4a5568">hₘ</text>
+
+        <!-- Descending point (477, 114) -->
+        <line x1="477" y1="114" x2="537" y2="114" stroke="#2b6cb0" stroke-width="2" marker-end="url(#p-blu)"/>
+        <line x1="477" y1="114" x2="477" y2="166" stroke="#2b6cb0" stroke-width="2" marker-end="url(#p-blu)"/>
+        <line x1="477" y1="114" x2="537" y2="166" stroke="#c53030" stroke-width="2.2" marker-end="url(#p-red)"/>
+        <text x="515" y="145" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v</text>
+
+        <!-- Landing point (585, 210) -->
+        <line x1="585" y1="210" x2="635" y2="210" stroke="#2b6cb0" stroke-width="2" marker-end="url(#p-blu)"/>
+        <line x1="585" y1="210" x2="585" y2="258" stroke="#2b6cb0" stroke-width="2" marker-end="url(#p-blu)"/>
+        <line x1="585" y1="210" x2="635" y2="258" stroke="#c53030" stroke-width="2.2" marker-end="url(#p-red)"/>
+        <text x="505" y="250" font-size="12.5" font-family="sans-serif" fill="#1a202c">θ = −θ₀, vᵧ = −v₀ᵧ</text>
+
+        <!-- Gravity vector -->
+        <line x1="430" y1="45" x2="430" y2="95" stroke="#1a202c" stroke-width="2.2" marker-end="url(#p-blk)"/>
+        <text x="440" y="75" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a202c">a = −g j</text>
+
+        <!-- Range label -->
+        <text x="275" y="232" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a365d">Horizontal Range R</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 5: Parabolic trajectory of a projectile launched with speed v₀ at angle θ₀. The horizontal velocity component v₀ₓ remains constant throughout flight, while the vertical component vᵧ changes linearly with time under gravity.</div>
+    </div>
+
+    <h3>5.1 Kinematic Equations of a Projectile</h3>
+    <p>Let a projectile be launched from the origin \((x_0 = 0, y_0 = 0)\) at \(t = 0\) with initial speed \(v_0\) at an angle \(\theta_0\) with the positive \(x\)-axis:</p>
+    <ul>
+      <li><strong>Initial Velocity Components:</strong>
+        \[v_{0x} = v_0\cos\theta_0, \qquad v_{0y} = v_0\sin\theta_0\]
+      </li>
+      <li><strong>Position Coordinates at Time \(t\):</strong>
+        \[x(t) = (v_0\cos\theta_0)t, \qquad y(t) = (v_0\sin\theta_0)t - \frac{1}{2}gt^2\]
+      </li>
+      <li><strong>Velocity Components at Time \(t\):</strong>
+        \[v_x = v_{0x} = v_0\cos\theta_0, \qquad v_y = v_0\sin\theta_0 - gt\]
+        At the point of maximum height, \(v_y = 0\) and \(v_x = v_0\cos\theta_0\), so the instantaneous velocity is purely horizontal (\(\theta = \tan^{-1}(v_y/v_x) = 0^\circ\)).
+      </li>
+      <li><strong>Equation of Path (Trajectory):</strong> Eliminating \(t = \dfrac{x}{v_0\cos\theta_0}\) from \(y(t)\) gives:
+        \[y = (\tan\theta_0)x - \frac{g}{2(v_0\cos\theta_0)^2}x^2\]
+        Since \(\theta_0\), \(v_0\), and \(g\) are constants, this is of the form \(y = ax + bx^2\), which is the equation of a <strong>parabola</strong>. Note that the shape of an object's trajectory under gravity is not determined by acceleration alone, but also by initial conditions: if \(\theta_0 = 90^\circ\) or \(v_{0x} = 0\), the trajectory is a vertical straight line; otherwise, it is a parabola.
+      </li>
+    </ul>
+
+    <h3>5.2 Standard Projectile Parameters (Same Horizontal Level)</h3>
+    <ol>
+      <li><strong>Time of Maximum Height (\(t_m\)):</strong> Setting \(v_y = 0\) at the highest point:
+        \[v_0\sin\theta_0 - gt_m = 0 \implies t_m = \frac{v_0\sin\theta_0}{g}\]
+      </li>
+      <li><strong>Total Time of Flight (\(T_f\)):</strong> Setting \(y = 0\) when the projectile returns to the launch level (\(y = 0\)):
+        \[T_f = \frac{2v_0\sin\theta_0}{g} = 2t_m\]
+        The equality \(T_f = 2t_m\) reflects the symmetry of the parabolic trajectory.
+      </li>
+      <li><strong>Maximum Height (\(h_m\)):</strong> Substituting \(t = t_m\) into \(y(t)\):
+        \[h_m = \frac{(v_0\sin\theta_0)^2}{2g}\]
+      </li>
+      <li><strong>Horizontal Range (\(R\)):</strong> The horizontal distance travelled during the time of flight \(T_f\):
+        \[R = (v_0\cos\theta_0)T_f = \frac{v_0^2(2\sin\theta_0\cos\theta_0)}{g} = \frac{v_0^2\sin 2\theta_0}{g}\]
+      </li>
+      <li><strong>Maximum Horizontal Range (\(R_m\)):</strong> For a given launch speed \(v_0\), \(R\) is maximum when \(\sin 2\theta_0 = 1\), i.e., when \(\theta_0 = 45^\circ\):
+        \[R_m = \frac{v_0^2}{g}\]
+      </li>
+      <li><strong>Complementary Launch Angles (Galileo's Theorem):</strong> For elevations that exceed or fall short of \(45^\circ\) by equal amounts \(\alpha\), i.e., \(\theta_1 = 45^\circ + \alpha\) and \(\theta_2 = 45^\circ - \alpha\) (so that \(\theta_1 + \theta_2 = 90^\circ\)):
+        \[\sin[2(45^\circ + \alpha)] = \sin(90^\circ + 2\alpha) = \cos 2\alpha \quad \text{and} \quad \sin[2(45^\circ - \alpha)] = \sin(90^\circ - 2\alpha) = \cos 2\alpha\]
+        Thus, the horizontal ranges are <strong>equal</strong> for complementary angles \((45^\circ + \alpha)\) and \((45^\circ - \alpha)\) (or \(\theta_0\) and \(90^\circ - \theta_0\)).
+      </li>
+    </ol>
+  </section>
+
+  <!-- 7. UNIFORM CIRCULAR MOTION -->
+  <section id="circular-motion">
+    <h2>6. Uniform Circular Motion</h2>
+    <p>When an object follows a circular path of radius \(R\) at a <strong>constant speed</strong> \(v\), its motion is called <strong>uniform circular motion</strong>. Although the speed is constant, the direction of the velocity vector \(\mathbf{v}\) changes continuously (always remaining tangent to the circle), so the object undergoes continuous acceleration.</p>
+
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 650 215" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="c-blk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#1a202c"/>
+          </marker>
+          <marker id="c-blu" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#2b6cb0"/>
+          </marker>
+          <marker id="c-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c53030"/>
+          </marker>
+        </defs>
+
+        <!-- Panel (a): Finite time interval -->
+        <g transform="translate(20, 10)">
+          <path d="M 85 180 A 95 95 0 0 0 85 15" fill="none" stroke="#319795" stroke-width="2.5"/>
+          <!-- C at (45, 97) -->
+          <circle cx="45" cy="97" r="3" fill="#1a202c"/>
+          <text x="26" y="102" font-size="14" font-family="sans-serif" fill="#1a202c">C</text>
+
+          <!-- P at (115, 161), P' at (115, 33) -->
+          <line x1="45" y1="97" x2="113" y2="159" stroke="#1a202c" stroke-width="2" marker-end="url(#c-blk)"/>
+          <line x1="45" y1="97" x2="113" y2="35" stroke="#1a202c" stroke-width="2" marker-end="url(#c-blk)"/>
+          <line x1="115" y1="161" x2="115" y2="37" stroke="#2b6cb0" stroke-width="2" marker-end="url(#c-blu)"/>
+
+          <!-- Tangential velocities at P and P' -->
+          <line x1="115" y1="161" x2="150" y2="123" stroke="#c53030" stroke-width="2.2" marker-end="url(#c-red)"/>
+          <line x1="115" y1="33" x2="80" y2="0" stroke="#c53030" stroke-width="2.2" marker-end="url(#c-red)"/>
+
+          <path d="M 67 117 A 30 30 0 0 0 67 77" fill="none" stroke="#1a202c" stroke-width="1.4"/>
+          <text x="72" y="102" font-size="13" font-family="sans-serif" fill="#1a202c">Δθ</text>
+          <text x="70" y="142" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a202c">r</text>
+          <text x="70" y="60" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a202c">r'</text>
+          <text x="120" y="102" font-size="13" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">Δr</text>
+          <text x="112" y="176" font-size="13" font-family="sans-serif" fill="#1a202c">P</text>
+          <text x="122" y="36" font-size="13" font-family="sans-serif" fill="#1a202c">P'</text>
+          <text x="145" y="145" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v</text>
+          <text x="102" y="15" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v'</text>
+        </g>
+
+        <!-- Panel (b): Velocity triangle GHI -->
+        <g transform="translate(245, 45)">
+          <!-- G at (75, 85), H at (120, 35), I at (30, 35) -->
+          <line x1="75" y1="85" x2="118" y2="37" stroke="#c53030" stroke-width="2.2" marker-end="url(#c-red)"/>
+          <line x1="75" y1="85" x2="32" y2="37" stroke="#c53030" stroke-width="2.2" marker-end="url(#c-red)"/>
+          <line x1="120" y1="35" x2="34" y2="35" stroke="#2b6cb0" stroke-width="2.5" marker-end="url(#c-blu)"/>
+          <path d="M 88 70 A 20 20 0 0 0 62 70" fill="none" stroke="#1a202c" stroke-width="1.3"/>
+          <text x="67" y="63" font-size="12.5" font-family="sans-serif" fill="#1a202c">Δθ</text>
+          <text x="70" y="102" font-size="13" font-family="sans-serif" fill="#1a202c">G</text>
+          <text x="125" y="40" font-size="13" font-family="sans-serif" fill="#1a202c">H</text>
+          <text x="18" y="40" font-size="13" font-family="sans-serif" fill="#1a202c">I</text>
+          <text x="105" y="68" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v</text>
+          <text x="36" y="68" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v'</text>
+          <text x="68" y="26" font-size="13" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">Δv</text>
+          <text x="15" y="135" font-size="12.5" font-family="sans-serif" fill="#4a5568">Similar triangles CPP' &amp; GHI</text>
+        </g>
+
+        <!-- Panel (c): Instantaneous limit Δt -> 0 -->
+        <g transform="translate(455, 10)">
+          <path d="M 65 180 A 95 95 0 0 0 65 15" fill="none" stroke="#319795" stroke-width="2.5"/>
+          <circle cx="25" cy="97" r="3" fill="#1a202c"/>
+          <text x="6" y="102" font-size="14" font-family="sans-serif" fill="#1a202c">C</text>
+
+          <!-- P at (105, 148) -->
+          <line x1="25" y1="97" x2="103" y2="147" stroke="#1a202c" stroke-width="2" marker-end="url(#c-blk)"/>
+          <!-- Centripetal acceleration a from P towards C -->
+          <line x1="105" y1="148" x2="55" y2="116" stroke="#2b6cb0" stroke-width="2.8" marker-end="url(#c-blu)"/>
+          <!-- Tangent velocity v at P -->
+          <line x1="105" y1="148" x2="142" y2="90" stroke="#c53030" stroke-width="2.5" marker-end="url(#c-red)"/>
+
+          <text x="108" y="164" font-size="13" font-family="sans-serif" fill="#1a202c">P</text>
+          <text x="72" y="145" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1a202c">r</text>
+          <text x="58" y="108" font-size="13" font-weight="bold" font-family="sans-serif" fill="#2b6cb0">a</text>
+          <text x="138" y="112" font-size="13" font-weight="bold" font-family="sans-serif" fill="#c53030">v</text>
+          <text x="15" y="192" font-size="12.5" font-family="sans-serif" fill="#4a5568">As Δt → 0, a points to C</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 6: Derivation of centripetal acceleration in uniform circular motion using similar isosceles triangles CPP' (position vectors) and GHI (velocity vectors). In the limit Δt → 0, instantaneous acceleration a is perpendicular to v and directed radially inward toward centre C.</div>
+    </div>
+
+    <h3>6.1 Derivation of Centripetal Acceleration</h3>
+    <p>As the particle moves from \(P\) to \(P'\) in time \(\Delta t\), the radius vector turns through an angle \(\Delta\theta\). Since \(\mathbf{v}\) is always perpendicular to \(\mathbf{r}\) and \(\mathbf{v}'\) is perpendicular to \(\mathbf{r}'\), the angle between \(\mathbf{v}\) and \(\mathbf{v}'\) is also \(\Delta\theta\). Thus, the isosceles position triangle \(CPP'\) (with side \(R\) and base \(|\Delta\mathbf{r}|\)) and the isosceles velocity triangle \(GHI\) (with side \(v\) and base \(|\Delta\mathbf{v}|\)) are <strong>similar triangles</strong>:</p>
+    \[\frac{|\Delta\mathbf{v}|}{v} = \frac{|\Delta\mathbf{r}|}{R} \implies |\Delta\mathbf{v}| = \frac{v}{R}|\Delta\mathbf{r}|\]
+    <p>Taking the limit as \(\Delta t \to 0\):</p>
+    \[a_c = |\mathbf{a}| = \lim_{\Delta t \to 0} \frac{|\Delta\mathbf{v}|}{\Delta t} = \frac{v}{R} \lim_{\Delta t \to 0} \frac{|\Delta\mathbf{r}|}{\Delta t} = \frac{v}{R}(v) = \frac{v^2}{R}\]
+    <ul>
+      <li>The term <strong>centripetal</strong> ("centre-seeking") was proposed by Newton, and a thorough analysis was first published in 1673 by the Dutch scientist Christiaan Huygens.</li>
+      <li><strong>Is Centripetal Acceleration a Constant Vector?</strong> <strong>No!</strong> Although its magnitude \(a_c = v^2/R\) is constant, its direction changes continuously (always pointing towards the centre \(C\)). Therefore, the kinematic equations for constant acceleration do <em>not</em> apply to uniform circular motion. Furthermore, averaged over one complete revolution, the acceleration vector of a particle in uniform circular motion is a <strong>null vector</strong> (\(\mathbf{0}\)).</li>
+      <li><em>Non-Uniform Circular Motion Caveat:</em> The net acceleration of a particle in circular motion is directed strictly along the radius towards the centre <strong>only if the speed is constant</strong>.</li>
+    </ul>
+
+    <h3>6.2 Angular Speed, Time Period, and Frequency</h3>
+    <ul>
+      <li><strong>Angular Speed (\(\omega\)):</strong> The time rate of change of angular displacement \(\Delta\theta\):
+        \[\omega = \frac{\Delta\theta}{\Delta t} \quad (\text{unit: }\mathrm{rad\,s^{-1}})\]
+      </li>
+      <li><strong>Relation Between Linear Speed (\(v\)) and Angular Speed (\(\omega\)):</strong> Since arc length \(\Delta s = R\Delta\theta\):
+        \[v = \frac{\Delta s}{\Delta t} = R\frac{\Delta\theta}{\Delta t} = R\omega\]
+      </li>
+      <li><strong>Centripetal Acceleration in Terms of \(\omega\):</strong>
+        \[a_c = \frac{v^2}{R} = \frac{(\omega R)^2}{R} = \omega^2 R = v\omega\]
+      </li>
+      <li><strong>Time Period (\(T\)) and Frequency (\(\nu\)):</strong> The time taken for one complete revolution is the time period \(T\), and the number of revolutions per second is the frequency \(\nu = \dfrac{1}{T}\). Since the distance covered in one period \(T\) is \(2\pi R\):
+        \[\omega = \frac{2\pi}{T} = 2\pi\nu, \qquad v = \frac{2\pi R}{T} = 2\pi R\nu, \qquad a_c = 4\pi^2\nu^2 R = \frac{4\pi^2 R}{T^2}\]
+      </li>
+    </ul>
+  </section>
+
+  <!-- 8. SUMMARY TABLE OF PHYSICAL QUANTITIES -->
+  <section id="summary-table">
+    <h2>7. Summary of Physical Quantities, Dimensions, and Formulae</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Physical Quantity</th>
+          <th>Symbol</th>
+          <th>Dimensions</th>
+          <th>SI Unit</th>
+          <th>Defining Relation / Remark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Position vector</td>
+          <td>\(\mathbf{r}\)</td>
+          <td>\([\mathrm{L}]\)</td>
+          <td>\(\mathrm{m}\)</td>
+          <td>\(\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}} + z\hat{\mathbf{k}}\) (Vector)</td>
+        </tr>
+        <tr>
+          <td>Displacement</td>
+          <td>\(\Delta\mathbf{r}\)</td>
+          <td>\([\mathrm{L}]\)</td>
+          <td>\(\mathrm{m}\)</td>
+          <td>\(\Delta\mathbf{r} = \mathbf{r}' - \mathbf{r} = \Delta x\hat{\mathbf{i}} + \Delta y\hat{\mathbf{j}}\) (Vector)</td>
+        </tr>
+        <tr>
+          <td>Average velocity</td>
+          <td>\(\bar{\mathbf{v}}\)</td>
+          <td>\([\mathrm{LT^{-1}}]\)</td>
+          <td>\(\mathrm{m\,s^{-1}}\)</td>
+          <td>\(\bar{\mathbf{v}} = \dfrac{\Delta\mathbf{r}}{\Delta t}\) (Vector along \(\Delta\mathbf{r}\))</td>
+        </tr>
+        <tr>
+          <td>Instantaneous velocity</td>
+          <td>\(\mathbf{v}\)</td>
+          <td>\([\mathrm{LT^{-1}}]\)</td>
+          <td>\(\mathrm{m\,s^{-1}}\)</td>
+          <td>\(\mathbf{v} = \dfrac{\mathrm{d}\mathbf{r}}{\mathrm{d}t}\) (Vector tangent to path)</td>
+        </tr>
+        <tr>
+          <td>Average acceleration</td>
+          <td>\(\bar{\mathbf{a}}\)</td>
+          <td>\([\mathrm{LT^{-2}}]\)</td>
+          <td>\(\mathrm{m\,s^{-2}}\)</td>
+          <td>\(\bar{\mathbf{a}} = \dfrac{\Delta\mathbf{v}}{\Delta t}\) (Vector along \(\Delta\mathbf{v}\))</td>
+        </tr>
+        <tr>
+          <td>Instantaneous acceleration</td>
+          <td>\(\mathbf{a}\)</td>
+          <td>\([\mathrm{LT^{-2}}]\)</td>
+          <td>\(\mathrm{m\,s^{-2}}\)</td>
+          <td>\(\mathbf{a} = \dfrac{\mathrm{d}\mathbf{v}}{\mathrm{d}t}\) (Vector)</td>
+        </tr>
+        <tr>
+          <td>Time of max. height</td>
+          <td>\(t_m\)</td>
+          <td>\([\mathrm{T}]\)</td>
+          <td>\(\mathrm{s}\)</td>
+          <td>\(t_m = \dfrac{v_0\sin\theta_0}{g}\) (Total flight \(T_f = 2t_m\))</td>
+        </tr>
+        <tr>
+          <td>Maximum height</td>
+          <td>\(h_m\)</td>
+          <td>\([\mathrm{L}]\)</td>
+          <td>\(\mathrm{m}\)</td>
+          <td>\(h_m = \dfrac{(v_0\sin\theta_0)^2}{2g}\)</td>
+        </tr>
+        <tr>
+          <td>Horizontal range</td>
+          <td>\(R\)</td>
+          <td>\([\mathrm{L}]\)</td>
+          <td>\(\mathrm{m}\)</td>
+          <td>\(R = \dfrac{v_0^2\sin 2\theta_0}{g}\) (\(R_{\max} = \dfrac{v_0^2}{g}\) at \(\theta_0 = 45^\circ\))</td>
+        </tr>
+        <tr>
+          <td>Angular speed</td>
+          <td>\(\omega\)</td>
+          <td>\([\mathrm{T^{-1}}]\)</td>
+          <td>\(\mathrm{rad\,s^{-1}}\)</td>
+          <td>\(\omega = \dfrac{\Delta\theta}{\Delta t} = \dfrac{v}{R} = 2\pi\nu\)</td>
+        </tr>
+        <tr>
+          <td>Centripetal acceleration</td>
+          <td>\(a_c\)</td>
+          <td>\([\mathrm{LT^{-2}}]\)</td>
+          <td>\(\mathrm{m\,s^{-2}}\)</td>
+          <td>\(a_c = \dfrac{v^2}{R} = \omega^2 R = 4\pi^2\nu^2 R\) (Towards centre)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 9. WORKED EXAMPLES -->
+  <section id="worked-examples">
+    <h2>8. Comprehensive Worked Examples</h2>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 1: Rain and Wind Vector Addition</div>
+      <p><strong>Problem:</strong> Rain is falling vertically with a speed of \(35\,\mathrm{m\,s^{-1}}\). Wind starts blowing after some time with a speed of \(12\,\mathrm{m\,s^{-1}}\) in the east-to-west direction. In which direction should a boy waiting at a bus stop hold his umbrella?</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p>Let \(\mathbf{v}_r\) represent the velocity of rain (vertically downward, \(v_r = 35\,\mathrm{m\,s^{-1}}\)) and \(\mathbf{v}_w\) represent the velocity of the wind blowing from east to west (\(v_w = 12\,\mathrm{m\,s^{-1}}\)). Since the two vectors are mutually perpendicular (\(\theta = 90^\circ\)), the magnitude of the resultant velocity \(\mathbf{R} = \mathbf{v}_r + \mathbf{v}_w\) of the rain is:</p>
+        \[R = \sqrt{v_r^2 + v_w^2} = \sqrt{35^2 + 12^2} = \sqrt{1225 + 144} = \sqrt{1369} = 37\,\mathrm{m\,s^{-1}}\]
+        <p>The angle \(\theta\) that the resultant velocity \(\mathbf{R}\) makes with the vertical is:</p>
+        \[\tan\theta = \frac{v_w}{v_r} = \frac{12}{35} \approx 0.343 \implies \theta = \tan^{-1}(0.343) \approx 19^\circ\]
+        <p>Since the rain is driven towards the west by the east-to-west wind, the boy must point his umbrella into the oncoming rain, i.e., in the vertical plane at an angle of about <strong>\(19^\circ\) with the vertical towards the east</strong>.</p>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 2: Resultant Velocity of a Motorboat in a Current</div>
+      <p><strong>Problem:</strong> A motorboat is racing towards north at \(25\,\mathrm{km/h}\) and the water current in that region is \(10\,\mathrm{km/h}\) in the direction of \(60^\circ\) east of south. Find the resultant velocity of the boat.</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p>Here, the boat velocity \(\mathbf{v}_b\) (\(v_b = 25\,\mathrm{km/h}\)) points due north, and the water current velocity \(\mathbf{v}_c\) (\(v_c = 10\,\mathrm{km/h}\)) points \(60^\circ\) east of south. Therefore, the angle \(\theta\) between \(\mathbf{v}_b\) (north) and \(\mathbf{v}_c\) (\(60^\circ\) from south) is:</p>
+        \[\theta = 180^\circ - 60^\circ = 120^\circ\]
+        <p>Using the Law of Cosines to find the magnitude of the resultant velocity \(\mathbf{R} = \mathbf{v}_b + \mathbf{v}_c\):</p>
+        \[R = \sqrt{v_b^2 + v_c^2 + 2v_bv_c\cos 120^\circ} = \sqrt{25^2 + 10^2 + 2(25)(10)\!\left(-\frac{1}{2}\right)} = \sqrt{625 + 100 - 250} = \sqrt{475} \approx 21.8\,\mathrm{km/h} \cong 22\,\mathrm{km/h}\]
+        <p>Let \(\phi\) be the angle that \(\mathbf{R}\) makes with the north direction (\(\mathbf{v}_b\)). Applying the Law of Sines:</p>
+        \[\frac{R}{\sin\theta} = \frac{v_c}{\sin\phi} \implies \sin\phi = \frac{v_c\sin 120^\circ}{R} = \frac{10 \times (\sqrt{3}/2)}{21.8} \approx 0.397 \implies \phi \cong 23.4^\circ\]
+        <p>Thus, the resultant velocity of the boat has a magnitude of approximately <strong>\(22\,\mathrm{km/h}\) in the direction \(23.4^\circ\) east of north</strong>.</p>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 3: Instantaneous Velocity and Acceleration from Position Vector</div>
+      <p><strong>Problem:</strong> The position of a particle is given by \(\mathbf{r} = 3.0t\hat{\mathbf{i}} + 2.0t^2\hat{\mathbf{j}} + 5.0\hat{\mathbf{k}}\), where \(t\) is in seconds and the coefficients have the proper units for \(\mathbf{r}\) to be in metres. (a) Find \(\mathbf{v}(t)\) and \(\mathbf{a}(t)\) of the particle. (b) Find the magnitude and direction of \(\mathbf{v}(t)\) at \(t = 1.0\,\mathrm{s}\).</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p><strong>(a)</strong> Differentiating \(\mathbf{r}(t)\) with respect to time \(t\) gives the velocity \(\mathbf{v}(t)\):</p>
+        \[\mathbf{v}(t) = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\!\left(3.0t\hat{\mathbf{i}} + 2.0t^2\hat{\mathbf{j}} + 5.0\hat{\mathbf{k}}\right) = (3.0\hat{\mathbf{i}} + 4.0t\hat{\mathbf{j}})\,\mathrm{m\,s^{-1}}\]
+        <p>Differentiating \(\mathbf{v}(t)\) with respect to \(t\) gives the acceleration \(\mathbf{a}(t)\):</p>
+        \[\mathbf{a}(t) = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = +4.0\hat{\mathbf{j}}\,\mathrm{m\,s^{-2}} \quad (\text{i.e., } 4.0\,\mathrm{m\,s^{-2}} \text{ along the positive } y\text{-axis})\]
+        <p><strong>(b)</strong> At \(t = 1.0\,\mathrm{s}\), substituting \(t = 1.0\) into \(\mathbf{v}(t)\) gives \(\mathbf{v} = (3.0\hat{\mathbf{i}} + 4.0\hat{\mathbf{j}})\,\mathrm{m\,s^{-1}}\). Its magnitude and direction with the \(x\)-axis are:</p>
+        \[v = \sqrt{3.0^2 + 4.0^2} = 5.0\,\mathrm{m\,s^{-1}}, \qquad \theta = \tan^{-1}\!\left(\frac{v_y}{v_x}\right) = \tan^{-1}\!\left(\frac{4}{3}\right) \cong 53^\circ \text{ with the } x\text{-axis.}\]
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 4: Two-Dimensional Motion with Constant Acceleration</div>
+      <p><strong>Problem:</strong> A particle starts from the origin at \(t = 0\) with a velocity \(5.0\hat{\mathbf{i}}\,\mathrm{m/s}\) and moves in the \(x\)-\(y\) plane under the action of a force that produces a constant acceleration of \((3.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})\,\mathrm{m/s^2}\). (a) What is the \(y\)-coordinate of the particle at the instant its \(x\)-coordinate is \(84\,\mathrm{m}\)? (b) What is the speed of the particle at this time?</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p><strong>(a)</strong> Since \(\mathbf{r}_0 = \mathbf{0}\), \(\mathbf{v}_0 = 5.0\hat{\mathbf{i}}\,\mathrm{m/s}\), and \(\mathbf{a} = (3.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})\,\mathrm{m/s^2}\), the position vector at time \(t\) is:</p>
+        \[\mathbf{r}(t) = \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2 = 5.0t\hat{\mathbf{i}} + \frac{1}{2}(3.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})t^2 = (5.0t + 1.5t^2)\hat{\mathbf{i}} + 1.0t^2\hat{\mathbf{j}}\]
+        <p>Thus, \(x(t) = 5.0t + 1.5t^2\) and \(y(t) = 1.0t^2\). Setting \(x(t) = 84\,\mathrm{m}\):</p>
+        \[1.5t^2 + 5.0t - 84 = 0 \implies 3t^2 + 10t - 168 = 0 \implies (t - 6)(3t + 28) = 0 \implies t = 6\,\mathrm{s}\]
+        <p>At \(t = 6\,\mathrm{s}\), the \(y\)-coordinate is:</p>
+        \[y(6) = 1.0 \times (6)^2 = 36.0\,\mathrm{m}\]
+        <p><strong>(b)</strong> The velocity at any time \(t\) is \(\mathbf{v}(t) = \dfrac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = (5.0 + 3.0t)\hat{\mathbf{i}} + 2.0t\hat{\mathbf{j}}\). At \(t = 6\,\mathrm{s}\):</p>
+        \[\mathbf{v}(6) = 23.0\hat{\mathbf{i}} + 12.0\hat{\mathbf{j}}\,\mathrm{m\,s^{-1}} \implies \text{Speed } |\mathbf{v}| = \sqrt{23^2 + 12^2} = \sqrt{529 + 144} = \sqrt{673} \cong 26\,\mathrm{m\,s^{-1}}\]
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 5: Horizontal Projectile from a Cliff</div>
+      <p><strong>Problem:</strong> A hiker stands on the edge of a cliff \(490\,\mathrm{m}\) above the ground and throws a stone horizontally with an initial speed of \(15\,\mathrm{m\,s^{-1}}\). Neglecting air resistance, find the time taken by the stone to reach the ground, and the speed with which it hits the ground. (Take \(g = 9.8\,\mathrm{m\,s^{-2}}\)).</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p>Choose the origin \((x_0 = 0, y_0 = 0)\) at the edge of the cliff, with \(+x\) along the horizontal throw and \(+y\) vertically upward. Then \(v_{0x} = 15\,\mathrm{m\,s^{-1}}\), \(v_{0y} = 0\), \(a_x = 0\), and \(a_y = -g = -9.8\,\mathrm{m\,s^{-2}}\).</p>
+        <p>When the stone hits the ground, \(y(t) = -490\,\mathrm{m}\):</p>
+        \[y(t) = v_{0y}t - \frac{1}{2}gt^2 \implies -490 = -\frac{1}{2}(9.8)t^2 = -4.9t^2 \implies t^2 = 100 \implies t = 10\,\mathrm{s}\]
+        <p>At \(t = 10\,\mathrm{s}\), the velocity components upon impact are:</p>
+        \[v_x = v_{0x} = 15\,\mathrm{m\,s^{-1}}, \qquad v_y = v_{0y} - gt = 0 - 9.8(10) = -98\,\mathrm{m\,s^{-1}}\]
+        <p>Therefore, the speed with which the stone hits the ground is:</p>
+        \[v = \sqrt{v_x^2 + v_y^2} = \sqrt{15^2 + (-98)^2} = \sqrt{225 + 9604} = \sqrt{9829} \cong 99\,\mathrm{m\,s^{-1}}\]
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 6: Ground-to-Ground Oblique Projectile</div>
+      <p><strong>Problem:</strong> A cricket ball is thrown at a speed of \(28\,\mathrm{m\,s^{-1}}\) in a direction \(30^\circ\) above the horizontal. Calculate (a) the maximum height, (b) the time taken by the ball to return to the same level, and (c) the distance from the thrower to the point where the ball returns to the same level. (Take \(g = 9.8\,\mathrm{m\,s^{-2}}\)).</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p>Here \(v_0 = 28\,\mathrm{m\,s^{-1}}\), \(\theta_0 = 30^\circ\), and \(g = 9.8\,\mathrm{m\,s^{-2}}\). Note that \(v_0\sin 30^\circ = 28 \times 0.5 = 14\,\mathrm{m\,s^{-1}}\).</p>
+        <ul>
+          <li><strong>(a) Maximum height (\(h_m\)):</strong>
+            \[h_m = \frac{(v_0\sin\theta_0)^2}{2g} = \frac{14^2}{2 \times 9.8} = \frac{196}{19.6} = 10.0\,\mathrm{m}\]
+          </li>
+          <li><strong>(b) Time of flight (\(T_f\)):</strong>
+            \[T_f = \frac{2v_0\sin\theta_0}{g} = \frac{2 \times 14}{9.8} = \frac{28}{9.8}\,\mathrm{s} \approx 2.86\,\mathrm{s} \cong 2.9\,\mathrm{s}\]
+          </li>
+          <li><strong>(c) Horizontal range (\(R\)):</strong>
+            \[R = \frac{v_0^2\sin 2\theta_0}{g} = \frac{28^2 \times \sin 60^\circ}{9.8} = \frac{784 \times (\sqrt{3}/2)}{9.8} = 40\sqrt{3}\,\mathrm{m} \cong 69\,\mathrm{m}\]
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 7: Uniform Circular Motion of an Insect</div>
+      <p><strong>Problem:</strong> An insect trapped in a circular groove of radius \(12\,\mathrm{cm}\) moves along the groove steadily and completes \(7\) revolutions in \(100\,\mathrm{s}\). (a) What is the angular speed and the linear speed of the motion? (b) Is the acceleration vector a constant vector? What is its magnitude?</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p><strong>(a)</strong> Radius \(R = 12\,\mathrm{cm}\) and frequency \(\nu = \dfrac{7}{100}\,\mathrm{s^{-1}}\) (so time period \(T = \dfrac{100}{7}\,\mathrm{s}\)).</p>
+        \[\text{Angular speed } \omega = \frac{2\pi}{T} = 2\pi\nu = 2 \times \frac{22}{7} \times \frac{7}{100} = 0.44\,\mathrm{rad\,s^{-1}}\]
+        \[\text{Linear speed } v = \omega R = 0.44\,\mathrm{s^{-1}} \times 12\,\mathrm{cm} = 5.28\,\mathrm{cm\,s^{-1}} \cong 5.3\,\mathrm{cm\,s^{-1}}\]
+        <p><strong>(b)</strong> The acceleration vector is directed towards the centre of the circle at every instant; since its direction changes continuously, <strong>acceleration is not a constant vector</strong>. However, its magnitude is constant:</p>
+        \[a_c = \omega^2 R = (0.44\,\mathrm{s^{-1}})^2 \times 12\,\mathrm{cm} = 0.1936 \times 12 \approx 2.3\,\mathrm{cm\,s^{-2}}\]
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 8: Displacement and Path Length Along a Hexagonal Track</div>
+      <p><strong>Problem:</strong> On an open ground, a motorist follows a track that turns to his left by an angle of \(60^\circ\) after every \(500\,\mathrm{m}\). Starting from a given turn, specify the displacement of the motorist at the third, sixth, and eighth turn. Compare the magnitude of the displacement with the total path length covered by the motorist in each case.</p>
+      <div class="solution-box">
+        <span class="answer-tag">Solution:</span>
+        <p>Since the motorist turns left by an exterior angle of \(60^\circ\) after every \(500\,\mathrm{m}\) segment, the path forms a regular hexagon \(ABCDEF\) of side \(a = 500\,\mathrm{m}\) (since \(6 \times 60^\circ = 360^\circ\)). Let the motorist start at vertex \(A\) (the given turn) and move along \(A \to B\) (1st turn at \(B\)) \(\to C\) (2nd turn at \(C\)) \(\to D\) (3rd turn at \(D\)) \(\to E \to F \to A\) (6th turn at \(A\)):</p>
+        <ul>
+          <li><strong>At the 3rd turn (point \(D\), diametrically opposite to \(A\)):</strong>
+            <ul>
+              <li>Displacement magnitude: \(|\Delta\mathbf{r}_3| = AD = 2a = 2 \times 500\,\mathrm{m} = 1000\,\mathrm{m} = 1.0\,\mathrm{km}\) (directed along \(AD\), which makes an angle of \(60^\circ\) to the left of the initial direction \(AB\)).</li>
+              <li>Total path length: \(s_3 = 3 \times 500\,\mathrm{m} = 1500\,\mathrm{m} = 1.5\,\mathrm{km}\).</li>
+              <li>Ratio of displacement magnitude to path length: \(\dfrac{1000}{1500} = \dfrac{2}{3} \approx 0.67\).</li>
+            </ul>
+          </li>
+          <li><strong>At the 6th turn (back at starting point \(A\)):</strong>
+            <ul>
+              <li>Displacement vector: \(\Delta\mathbf{r}_6 = \mathbf{0}\) (magnitude \(= 0\,\mathrm{m}\)).</li>
+              <li>Total path length: \(s_6 = 6 \times 500\,\mathrm{m} = 3000\,\mathrm{m} = 3.0\,\mathrm{km}\).</li>
+              <li>Ratio of displacement magnitude to path length: \(0\).</li>
+            </ul>
+          </li>
+          <li><strong>At the 8th turn (equivalent to the 2nd turn, at point \(C\)):</strong>
+            <ul>
+              <li>Displacement is the sum of two \(500\,\mathrm{m}\) vectors inclined at \(60^\circ\):
+                \[|\Delta\mathbf{r}_8| = \sqrt{500^2 + 500^2 + 2(500)(500)\cos 60^\circ} = 500\sqrt{3}\,\mathrm{m} \approx 866\,\mathrm{m}\]
+                directed at \(30^\circ\) to the left of the initial direction \(AB\).
+              </li>
+              <li>Total path length: \(s_8 = 8 \times 500\,\mathrm{m} = 4000\,\mathrm{m} = 4.0\,\mathrm{km}\).</li>
+              <li>Ratio of displacement magnitude to path length: \(\dfrac{500\sqrt{3}}{4000} = \dfrac{\sqrt{3}}{8} \approx 0.22\).</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. NEET UG PRACTICE QUESTIONS -->
+  <section id="practice-questions">
+    <h2>9. NEET UG Practice Questions with Worked Solutions</h2>
+    <p><em>Note: The following original practice questions are designed specifically in the NEET UG examination format to test conceptual depth, multi-statement analysis, and numerical problem-solving speed.</em></p>
+
+    <!-- Q1 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 1 (Single-Choice MCQ — Vector vs. Scalar Identification)</div>
+      <p>Consider the following list of ten physical quantities: <em>Temperature, pressure, impulse, time, power, total path length, energy, gravitational potential, coefficient of friction, and electric charge</em>. How many of these quantities are vectors, and which ones are they?</p>
+      <ul class="options-list">
+        <li>(A) Two — Pressure and impulse</li>
+        <li>(B) One — Impulse only</li>
+        <li>(C) Three — Pressure, impulse, and electric charge</li>
+        <li>(D) Two — Impulse and gravitational potential</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong> Impulse is defined as the change in linear momentum (\(\mathbf{J} = \Delta\mathbf{p} = \mathbf{F}\Delta t\)), which has both magnitude and direction and obeys the triangle law of vector addition. All the other nine quantities—temperature, pressure, time, power, total path length, energy, gravitational potential, coefficient of friction, and electric charge—are scalar quantities.</p>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 2 (Multiple-Statement — Properties of Vector Addition)</div>
+      <p>Four vectors \(\mathbf{a}, \mathbf{b}, \mathbf{c},\) and \(\mathbf{d}\) satisfy the relation \(\mathbf{a} + \mathbf{b} + \mathbf{c} + \mathbf{d} = \mathbf{0}\). Which of the following statements are necessarily correct?</p>
+      <ol>
+        <li>\(\mathbf{a}, \mathbf{b}, \mathbf{c},\) and \(\mathbf{d}\) must each be a null vector.</li>
+        <li>The magnitude of \((\mathbf{a} + \mathbf{c})\) equals the magnitude of \((\mathbf{b} + \mathbf{d})\).</li>
+        <li>The magnitude of \(\mathbf{a}\) can never be greater than the sum of the magnitudes of \(\mathbf{b}, \mathbf{c},\) and \(\mathbf{d}\).</li>
+        <li>\(\mathbf{b} + \mathbf{c}\) must lie in the plane of \(\mathbf{a}\) and \(\mathbf{d}\) if \(\mathbf{a}\) and \(\mathbf{d}\) are not collinear, and in the line of \(\mathbf{a}\) and \(\mathbf{d}\) if they are collinear.</li>
+      </ol>
+      <ul class="options-list">
+        <li>(A) 1, 2, and 3 only</li>
+        <li>(B) 2, 3, and 4 only</li>
+        <li>(C) 2 and 3 only</li>
+        <li>(D) 1, 2, 3, and 4</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong></p>
+        <ul>
+          <li><strong>Statement 1 is incorrect:</strong> Four non-zero vectors can add up to a closed polygon with zero resultant.</li>
+          <li><strong>Statement 2 is correct:</strong> Since \(\mathbf{a} + \mathbf{c} = -(\mathbf{b} + \mathbf{d})\), taking magnitudes gives \(|\mathbf{a} + \mathbf{c}| = |-(\mathbf{b} + \mathbf{d})| = |\mathbf{b} + \mathbf{d}|\).</li>
+          <li><strong>Statement 3 is correct:</strong> \(\mathbf{a} = -(\mathbf{b} + \mathbf{c} + \mathbf{d})\), so by the triangle inequality, \(|\mathbf{a}| = |\mathbf{b} + \mathbf{c} + \mathbf{d}| \le |\mathbf{b}| + |\mathbf{c}| + |\mathbf{d}|\).</li>
+          <li><strong>Statement 4 is correct:</strong> Since \((\mathbf{b} + \mathbf{c}) = -(\mathbf{a} + \mathbf{d})\), the vector \(\mathbf{b} + \mathbf{c}\) is equal and opposite to \(\mathbf{a} + \mathbf{d}\). Because \(\mathbf{a} + \mathbf{d}\) always lies in the plane formed by \(\mathbf{a}\) and \(\mathbf{d}\) (or along their common line if collinear), \(\mathbf{b} + \mathbf{c}\) must also lie in that same plane (or line).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 3 (Single-Choice MCQ — Circular Park Kinematics)</div>
+      <p>A cyclist starts from the centre \(O\) of a circular park of radius \(1\,\mathrm{km}\), reaches the edge \(P\) of the park, cycles along one-quarter of the circumference to point \(Q\) (such that \(\angle POQ = 90^\circ\)), and returns to the centre along \(QO\). If the round trip takes \(10\,\mathrm{min}\), what are the (i) net displacement, (ii) average velocity, and (iii) average speed of the cyclist?</p>
+      <ul class="options-list">
+        <li>(A) \(0\,\mathrm{m}\), \(0\,\mathrm{km/h}\), and \(21.4\,\mathrm{km/h}\)</li>
+        <li>(B) \(2\,\mathrm{km}\), \(12\,\mathrm{km/h}\), and \(21.4\,\mathrm{km/h}\)</li>
+        <li>(C) \(0\,\mathrm{m}\), \(0\,\mathrm{km/h}\), and \(12.0\,\mathrm{km/h}\)</li>
+        <li>(D) \(1.57\,\mathrm{km}\), \(9.42\,\mathrm{km/h}\), and \(21.4\,\mathrm{km/h}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <p><strong>Worked Solution:</strong></p>
+        <ul>
+          <li>Since the cyclist starts at the centre \(O\) and finishes back at \(O\), the net displacement vector is \(\Delta\mathbf{r} = \mathbf{0}\) (magnitude \(0\,\mathrm{m}\)).</li>
+          <li>Average velocity \(\bar{\mathbf{v}} = \dfrac{\Delta\mathbf{r}}{\Delta t} = \mathbf{0}\) (magnitude \(0\,\mathrm{km/h}\)).</li>
+          <li>Total path length \(s = OP + \text{arc}(PQ) + QO = R + \frac{1}{4}(2\pi R) + R = 1 + \frac{\pi}{2} + 1 \approx 2 + 1.571 = 3.571\,\mathrm{km}\).</li>
+          <li>Time taken \(\Delta t = 10\,\mathrm{min} = \dfrac{10}{60}\,\mathrm{h} = \dfrac{1}{6}\,\mathrm{h}\). Therefore, average speed \(= \dfrac{3.571\,\mathrm{km}}{(1/6)\,\mathrm{h}} \approx 21.4\,\mathrm{km/h}\).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 4 (Single-Choice MCQ — Average Speed vs. Average Velocity)</div>
+      <p>A passenger arriving in a new town wishes to go from the station to a hotel located \(10\,\mathrm{km}\) away on a straight road from the station. A cabman takes him along a circuitous path \(23\,\mathrm{km}\) long and reaches the hotel in \(28\,\mathrm{min}\). What are the average speed of the taxi and the magnitude of its average velocity, respectively?</p>
+      <ul class="options-list">
+        <li>(A) \(49.3\,\mathrm{km/h}\) and \(49.3\,\mathrm{km/h}\)</li>
+        <li>(B) \(49.3\,\mathrm{km/h}\) and \(21.4\,\mathrm{km/h}\)</li>
+        <li>(C) \(21.4\,\mathrm{km/h}\) and \(49.3\,\mathrm{km/h}\)</li>
+        <li>(D) \(23.0\,\mathrm{km/h}\) and \(10.0\,\mathrm{km/h}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong> Total path length \(s = 23\,\mathrm{km}\), straight-line displacement magnitude \(|\Delta\mathbf{r}| = 10\,\mathrm{km}\), and time interval \(\Delta t = 28\,\mathrm{min} = \dfrac{28}{60}\,\mathrm{h} = \dfrac{7}{15}\,\mathrm{h}\).</p>
+        \[\text{Average speed} = \frac{s}{\Delta t} = \frac{23\,\mathrm{km}}{(7/15)\,\mathrm{h}} = \frac{345}{7} \approx 49.3\,\mathrm{km/h}\]
+        \[|\text{Average velocity}| = \frac{|\Delta\mathbf{r}|}{\Delta t} = \frac{10\,\mathrm{km}}{(7/15)\,\mathrm{h}} = \frac{150}{7} \approx 21.4\,\mathrm{km/h}\]
+        <p>Because the path is curved, the average speed is strictly greater than the magnitude of average velocity.</p>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 5 (Single-Choice MCQ — Projectile Motion Under a Ceiling Constraint)</div>
+      <p>The ceiling of a long hall is \(25\,\mathrm{m}\) high. What is the maximum horizontal distance that a ball thrown with a speed of \(40\,\mathrm{m\,s^{-1}}\) can go without hitting the ceiling of the hall? (Take \(g = 9.8\,\mathrm{m\,s^{-2}}\)).</p>
+      <ul class="options-list">
+        <li>(A) \(163.3\,\mathrm{m}\)</li>
+        <li>(B) \(150.5\,\mathrm{m}\)</li>
+        <li>(C) \(125.0\,\mathrm{m}\)</li>
+        <li>(D) \(100.0\,\mathrm{m}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong> Unconstrained maximum range occurs at \(\theta_0 = 45^\circ\), which would give \(h_m = \dfrac{(40\sin 45^\circ)^2}{2 \times 9.8} = \dfrac{800}{19.6} \approx 40.8\,\mathrm{m} > 25\,\mathrm{m}\). Thus, to avoid hitting the ceiling, the launch angle \(\theta_0\) must be restricted so that \(h_m = 25\,\mathrm{m}\):</p>
+        \[h_m = \frac{v_0^2\sin^2\theta_0}{2g} = 25 \implies \sin^2\theta_0 = \frac{2 \times 9.8 \times 25}{40^2} = \frac{490}{1600} = 0.30625 \implies \sin\theta_0 = 0.5534\]
+        <p>Then \(\cos\theta_0 = \sqrt{1 - \sin^2\theta_0} = \sqrt{1 - 0.30625} = \sqrt{0.69375} \approx 0.8329\). The corresponding maximum horizontal range is:</p>
+        \[R = \frac{v_0^2(2\sin\theta_0\cos\theta_0)}{g} = \frac{1600 \times 2 \times 0.5534 \times 0.8329}{9.8} \approx 150.5\,\mathrm{m}\]
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 6 (Single-Choice MCQ — Maximum Range vs. Maximum Vertical Height)</div>
+      <p>A cricketer can throw a ball to a maximum horizontal distance of \(100\,\mathrm{m}\). How high above the ground can the cricketer throw the same ball with the same initial speed?</p>
+      <ul class="options-list">
+        <li>(A) \(100\,\mathrm{m}\)</li>
+        <li>(B) \(75\,\mathrm{m}\)</li>
+        <li>(C) \(50\,\mathrm{m}\)</li>
+        <li>(D) \(25\,\mathrm{m}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (C)</span>
+        <p><strong>Worked Solution:</strong> The maximum horizontal range for a given launch speed \(v_0\) is achieved at \(\theta_0 = 45^\circ\):</p>
+        \[R_{\max} = \frac{v_0^2}{g} = 100\,\mathrm{m}\]
+        <p>To throw the ball to the maximum possible height above the ground, the cricketer throws it vertically upward (\(\theta_0 = 90^\circ\)):</p>
+        \[H_{\max} = \frac{v_0^2}{2g} = \frac{R_{\max}}{2} = \frac{100\,\mathrm{m}}{2} = 50\,\mathrm{m}\]
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 7 (Single-Choice MCQ — Centripetal Acceleration of a Whirled Stone)</div>
+      <p>A stone tied to the end of a string \(80\,\mathrm{cm}\) long is whirled in a horizontal circle with a constant speed. If the stone makes \(14\) revolutions in \(25\,\mathrm{s}\), what are the magnitude and direction of the acceleration of the stone? (Use \(\pi = \dfrac{22}{7}\)).</p>
+      <ul class="options-list">
+        <li>(A) \(9.9\,\mathrm{m\,s^{-2}}\), along the radius towards the centre</li>
+        <li>(B) \(9.9\,\mathrm{m\,s^{-2}}\), along the tangent to the circle</li>
+        <li>(C) \(4.95\,\mathrm{m\,s^{-2}}\), along the radius towards the centre</li>
+        <li>(D) \(19.8\,\mathrm{m\,s^{-2}}\), along the radius away from the centre</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <p><strong>Worked Solution:</strong> Radius \(R = 80\,\mathrm{cm} = 0.80\,\mathrm{m}\) and frequency \(\nu = \dfrac{14}{25}\,\mathrm{s^{-1}}\). The angular speed \(\omega\) is:</p>
+        \[\omega = 2\pi\nu = 2 \times \frac{22}{7} \times \frac{14}{25} = \frac{88}{25}\,\mathrm{rad\,s^{-1}} = 3.52\,\mathrm{rad\,s^{-1}}\]
+        <p>The magnitude of the centripetal acceleration is:</p>
+        \[a_c = \omega^2 R = (3.52\,\mathrm{s^{-1}})^2 \times 0.80\,\mathrm{m} \approx 12.39 \times 0.80 \approx 9.91\,\mathrm{m\,s^{-2}} \cong 9.9\,\mathrm{m\,s^{-2}}\]
+        <p>Since the speed is constant, the acceleration is purely centripetal and directed <strong>along the radius towards the centre</strong> at every point.</p>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 8 (Single-Choice MCQ — Aircraft Centripetal Acceleration Ratio)</div>
+      <p>An aircraft executes a horizontal loop of radius \(1.00\,\mathrm{km}\) with a steady speed of \(900\,\mathrm{km/h}\). What is the ratio of its centripetal acceleration to the acceleration due to gravity (\(g = 9.8\,\mathrm{m\,s^{-2}}\))?</p>
+      <ul class="options-list">
+        <li>(A) \(3.2\)</li>
+        <li>(B) \(6.4\)</li>
+        <li>(C) \(9.8\)</li>
+        <li>(D) \(12.8\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong> Radius \(R = 1.00\,\mathrm{km} = 1000\,\mathrm{m}\). Converting speed \(v\) to \(\mathrm{m\,s^{-1}}\):</p>
+        \[v = 900\,\mathrm{km/h} = 900 \times \frac{5}{18}\,\mathrm{m\,s^{-1}} = 250\,\mathrm{m\,s^{-1}}\]
+        <p>The centripetal acceleration is:</p>
+        \[a_c = \frac{v^2}{R} = \frac{250^2}{1000} = \frac{62500}{1000} = 62.5\,\mathrm{m\,s^{-2}}\]
+        <p>Comparing with \(g = 9.8\,\mathrm{m\,s^{-2}}\):</p>
+        \[\frac{a_c}{g} = \frac{62.5}{9.8} \approx 6.38 \cong 6.4\]
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 9 (Assertion–Reason — Circular Motion &amp; Curvilinear Velocity)</div>
+      <p><strong>Assertion (A):</strong> The net acceleration of a particle in any circular motion is always directed along the radius of the circle towards the centre.<br>
+      <strong>Reason (R):</strong> The instantaneous velocity vector of a particle at any point on its trajectory is always along the tangent to the path at that point.</p>
+      <ul class="options-list">
+        <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+        <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+        <li>(C) (A) is true, but (R) is false.</li>
+        <li>(D) (A) is false, but (R) is true.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (D)</span>
+        <p><strong>Worked Solution:</strong> Assertion (A) is <strong>false</strong> because the net acceleration of a particle in circular motion points strictly along the radius towards the centre <em>only in uniform circular motion</em> (when speed is constant). If the speed changes, there is also a tangential component of acceleration. Reason (R) is <strong>true</strong> for any motion along a curved or straight path.</p>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 10 (Single-Choice MCQ — 3D Position Vector Differentiation)</div>
+      <p>The position of a particle is given by \(\mathbf{r} = 3.0t\hat{\mathbf{i}} - 2.0t^2\hat{\mathbf{j}} + 4.0\hat{\mathbf{k}}\,\mathrm{m}\), where \(t\) is in seconds. What are the magnitude and direction of the velocity of the particle at \(t = 2.0\,\mathrm{s}\)?</p>
+      <ul class="options-list">
+        <li>(A) \(8.54\,\mathrm{m\,s^{-1}}\), at an angle of \(70^\circ\) with the \(x\)-axis (in the \(4\text{th}\) quadrant of the \(x\)-\(y\) plane)</li>
+        <li>(B) \(5.00\,\mathrm{m\,s^{-1}}\), at an angle of \(53^\circ\) with the \(x\)-axis</li>
+        <li>(C) \(8.54\,\mathrm{m\,s^{-1}}\), at an angle of \(20^\circ\) with the \(x\)-axis</li>
+        <li>(D) \(9.43\,\mathrm{m\,s^{-1}}\), along the \(z\)-axis</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <p><strong>Worked Solution:</strong> Differentiating \(\mathbf{r}(t)\) with respect to \(t\):</p>
+        \[\mathbf{v}(t) = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = (3.0\hat{\mathbf{i}} - 4.0t\hat{\mathbf{j}})\,\mathrm{m\,s^{-1}}, \qquad \mathbf{a}(t) = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = -4.0\hat{\mathbf{j}}\,\mathrm{m\,s^{-2}}\]
+        <p>At \(t = 2.0\,\mathrm{s}\), \(\mathbf{v}(2.0) = (3.0\hat{\mathbf{i}} - 8.0\hat{\mathbf{j}})\,\mathrm{m\,s^{-1}}\). Its magnitude is:</p>
+        \[v = \sqrt{3.0^2 + (-8.0)^2} = \sqrt{9 + 64} = \sqrt{73} \approx 8.54\,\mathrm{m\,s^{-1}}\]
+        <p>The angle \(\theta\) with the positive \(x\)-axis is given by \(\tan\theta = \dfrac{v_y}{v_x} = \dfrac{-8.0}{3.0} \approx -2.667 \implies |\theta| = \tan^{-1}(2.667) \approx 70^\circ\) below the positive \(x\)-axis.</p>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 11 (Single-Choice MCQ — 2D Constant Acceleration Kinematics)</div>
+      <p>A particle starts from the origin at \(t = 0\,\mathrm{s}\) with a velocity of \(10.0\hat{\mathbf{j}}\,\mathrm{m/s}\) and moves in the \(x\)-\(y\) plane with a constant acceleration of \((8.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})\,\mathrm{m\,s^{-2}}\). At the instant the \(x\)-coordinate of the particle is \(16\,\mathrm{m}\), what are its \(y\)-coordinate and its speed?</p>
+      <ul class="options-list">
+        <li>(A) \(y = 24\,\mathrm{m}\) and speed \(= 21.26\,\mathrm{m\,s^{-1}}\)</li>
+        <li>(B) \(y = 20\,\mathrm{m}\) and speed \(= 16.00\,\mathrm{m\,s^{-1}}\)</li>
+        <li>(C) \(y = 24\,\mathrm{m}\) and speed \(= 30.00\,\mathrm{m\,s^{-1}}\)</li>
+        <li>(D) \(y = 16\,\mathrm{m}\) and speed \(= 21.26\,\mathrm{m\,s^{-1}}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <p><strong>Worked Solution:</strong> Given \(\mathbf{r}_0 = \mathbf{0}\), \(\mathbf{v}_0 = 10.0\hat{\mathbf{j}}\,\mathrm{m/s}\), and \(\mathbf{a} = (8.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})\,\mathrm{m\,s^{-2}}\):</p>
+        \[\mathbf{r}(t) = \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2 = 10.0t\hat{\mathbf{j}} + \frac{1}{2}(8.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})t^2 = 4.0t^2\hat{\mathbf{i}} + (10.0t + 1.0t^2)\hat{\mathbf{j}}\]
+        <p>Setting \(x(t) = 4.0t^2 = 16\,\mathrm{m} \implies t^2 = 4 \implies t = 2.0\,\mathrm{s}\). At \(t = 2.0\,\mathrm{s}\):</p>
+        \[y(2.0) = 10.0(2.0) + 1.0(2.0)^2 = 20 + 4 = 24\,\mathrm{m}\]
+        <p>The velocity vector at \(t = 2.0\,\mathrm{s}\) is \(\mathbf{v}(t) = 8.0t\hat{\mathbf{i}} + (10.0 + 2.0t)\hat{\mathbf{j}} = 16.0\hat{\mathbf{i}} + 14.0\hat{\mathbf{j}}\,\mathrm{m\,s^{-1}}\). Thus, the speed is:</p>
+        \[v = \sqrt{16.0^2 + 14.0^2} = \sqrt{256 + 196} = \sqrt{452} \approx 21.26\,\mathrm{m\,s^{-1}}\]
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 12 (Single-Choice MCQ — Resolution Along Diagonal Unit Vectors)</div>
+      <p>Let \(\hat{\mathbf{i}}\) and \(\hat{\mathbf{j}}\) be unit vectors along the \(x\)- and \(y\)-axes respectively. What are the scalar components of the vector \(\mathbf{A} = 2\hat{\mathbf{i}} + 3\hat{\mathbf{j}}\) along the directions of the vectors \((\hat{\mathbf{i}} + \hat{\mathbf{j}})\) and \((\hat{\mathbf{i}} - \hat{\mathbf{j}})\), respectively?</p>
+      <ul class="options-list">
+        <li>(A) \(5\) and \(-1\)</li>
+        <li>(B) \(\dfrac{5}{\sqrt{2}}\) and \(-\dfrac{1}{\sqrt{2}}\)</li>
+        <li>(C) \(\dfrac{5}{2}\) and \(-\dfrac{1}{2}\)</li>
+        <li>(D) \(\sqrt{13}\) and \(\sqrt{2}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong> Notice that \(\mathbf{u}_1 = \hat{\mathbf{i}} + \hat{\mathbf{j}}\) (magnitude \(\sqrt{2}\), angle \(+45^\circ\) with \(x\)-axis) and \(\mathbf{u}_2 = \hat{\mathbf{i}} - \hat{\mathbf{j}}\) (magnitude \(\sqrt{2}\), angle \(-45^\circ\) with \(x\)-axis) are mutually perpendicular. Their unit vectors are:</p>
+        \[\hat{\mathbf{n}}_1 = \frac{\hat{\mathbf{i}} + \hat{\mathbf{j}}}{\sqrt{2}} \qquad \text{and} \qquad \hat{\mathbf{n}}_2 = \frac{\hat{\mathbf{i}} - \hat{\mathbf{j}}}{\sqrt{2}}\]
+        <p>Since \(\hat{\mathbf{i}} = \dfrac{\hat{\mathbf{n}}_1 + \hat{\mathbf{n}}_2}{\sqrt{2}}\) and \(\hat{\mathbf{j}} = \dfrac{\hat{\mathbf{n}}_1 - \hat{\mathbf{n}}_2}{\sqrt{2}}\), substituting into \(\mathbf{A} = 2\hat{\mathbf{i}} + 3\hat{\mathbf{j}}\) gives:</p>
+        \[\mathbf{A} = 2\left(\frac{\hat{\mathbf{n}}_1 + \hat{\mathbf{n}}_2}{\sqrt{2}}\right) + 3\left(\frac{\hat{\mathbf{n}}_1 - \hat{\mathbf{n}}_2}{\sqrt{2}}\right) = \frac{5}{\sqrt{2}}\hat{\mathbf{n}}_1 - \frac{1}{\sqrt{2}}\hat{\mathbf{n}}_2\]
+        <p>Therefore, the scalar components of \(\mathbf{A}\) along \((\hat{\mathbf{i}} + \hat{\mathbf{j}})\) and \((\hat{\mathbf{i}} - \hat{\mathbf{j}})\) are \(\dfrac{5}{\sqrt{2}}\) and \(-\dfrac{1}{\sqrt{2}}\), respectively.</p>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 13 (Single-Choice MCQ — Speed of an Aircraft from Ground Observation)</div>
+      <p>An aircraft is flying horizontally at a constant height of \(3400\,\mathrm{m}\) above the ground. If the angle subtended at a ground observation point by the aircraft positions \(10.0\,\mathrm{s}\) apart is \(30^\circ\) (symmetric about the vertical), what is the speed of the aircraft? (Use \(\tan 15^\circ \approx 0.2679\)).</p>
+      <ul class="options-list">
+        <li>(A) \(91.1\,\mathrm{m\,s^{-1}}\)</li>
+        <li>(B) \(182.2\,\mathrm{m\,s^{-1}}\)</li>
+        <li>(C) \(340.0\,\mathrm{m\,s^{-1}}\)</li>
+        <li>(D) \(196.3\,\mathrm{m\,s^{-1}}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (B)</span>
+        <p><strong>Worked Solution:</strong> Let \(O\) be the ground observation point and \(A, B\) be the two positions of the aircraft at height \(h = 3400\,\mathrm{m}\) separated by time \(t = 10.0\,\mathrm{s}\). The vertical from \(O\) bisects \(\angle AOB = 30^\circ\) into two right-angled triangles, each with apex angle \(15^\circ\) and altitude \(h = 3400\,\mathrm{m}\). Thus, the horizontal distance \(AB\) covered in \(10.0\,\mathrm{s}\) is:</p>
+        \[AB = 2h\tan 15^\circ = 2 \times 3400\,\mathrm{m} \times 0.2679 \approx 1821.7\,\mathrm{m}\]
+        <p>Therefore, the speed of the aircraft is:</p>
+        \[v = \frac{AB}{t} = \frac{1821.7\,\mathrm{m}}{10.0\,\mathrm{s}} \approx 182.2\,\mathrm{m\,s^{-1}}\]
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card">
+      <div class="question-header">Practice Question 14 (Multiple-Statement — Conceptual Truths in Vector Algebra)</div>
+      <p>Examine the following five statements carefully:</p>
+      <ol>
+        <li>The magnitude of a vector is always a scalar.</li>
+        <li>Each scalar component (\(A_x, A_y\)) of a vector is always a vector.</li>
+        <li>Three vectors not lying in a single plane can never add up to give a null vector.</li>
+        <li>Multiplying any vector by any scalar is a meaningful algebraic operation.</li>
+        <li>Adding a scalar component of a vector to the same vector is a meaningful algebraic operation.</li>
+      </ol>
+      <p>Which of the above statements are <strong>true</strong>?</p>
+      <ul class="options-list">
+        <li>(A) 1, 3, and 4 only</li>
+        <li>(B) 1, 2, and 3 only</li>
+        <li>(C) 1, 3, 4, and 5 only</li>
+        <li>(D) 3 and 4 only</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Correct Answer: (A)</span>
+        <p><strong>Worked Solution:</strong></p>
+        <ul>
+          <li><strong>Statement 1 is true:</strong> The magnitude \(|\mathbf{A}|\) is a pure non-negative number with unit (a scalar).</li>
+          <li><strong>Statement 2 is false:</strong> Each rectangular component \(A_x = A\cos\theta\) or \(A_y = A\sin\theta\) is a scalar number, whereas \(A_x\hat{\mathbf{i}}\) is a component vector.</li>
+          <li><strong>Statement 3 is true:</strong> If \(\mathbf{A} + \mathbf{B} + \mathbf{C} = \mathbf{0}\), then \(\mathbf{C} = -(\mathbf{A} + \mathbf{B})\), which means \(\mathbf{C}\) must lie in the plane of \(\mathbf{A}\) and \(\mathbf{B}\). Thus, three non-coplanar vectors can never sum to \(\mathbf{0}\).</li>
+          <li><strong>Statement 4 is true:</strong> Any vector can be multiplied by any scalar (e.g., \(\mathbf{F} = m\mathbf{a}\), \(\mathbf{p} = m\mathbf{v}\)).</li>
+          <li><strong>Statement 5 is false:</strong> A scalar (such as \(A_x\)) can never be added to a vector (\(\mathbf{A}\)).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. COMMON PITFALLS & REVISION CHECKLIST -->
+  <section id="pitfalls-recap">
+    <h2>10. Common Pitfalls &amp; Quick Revision Checklist</h2>
+
+    <div class="callout important">
+      <span class="callout-title">Common Exam Pitfalls to Avoid in NEET UG</span>
+      <ol>
+        <li><strong>Confusing \(\mathbf{v}_1 + \mathbf{v}_2\) with \(\mathbf{v}_1 - \mathbf{v}_2\):</strong> When an object (such as a boat or aircraft) is simultaneously carried by a medium (water or wind), its resultant ground velocity is \(\mathbf{v}_1 + \mathbf{v}_2\). When finding the velocity of object 1 relative to object 2, use \(\mathbf{v}_{12} = \mathbf{v}_1 - \mathbf{v}_2\).</li>
+        <li><strong>Misidentifying Angle \(\theta\) Between Vectors:</strong> In \(R = \sqrt{A^2 + B^2 + 2AB\cos\theta}\), \(\theta\) is the angle between the directions of \(\mathbf{A}\) and \(\mathbf{B}\) when placed <em>tail-to-tail</em> (or head-to-head), <em>not</em> the interior angle of the head-to-tail triangle.</li>
+        <li><strong>Using Constant-Acceleration Equations in Uniform Circular Motion:</strong> Because centripetal acceleration continuously changes direction, \(\mathbf{a}\) is <em>not</em> constant. Never apply \(\mathbf{v} = \mathbf{v}_0 + \mathbf{a}t\) to circular motion.</li>
+        <li><strong>Assuming Zero Velocity at the Peak of a Projectile:</strong> At the highest point of an oblique projectile, only the vertical component \(v_y = 0\); the net velocity is \(v_x = v_0\cos\theta_0 \ne 0\), and the acceleration is still \(\mathbf{a} = -g\hat{\mathbf{j}}\).</li>
+        <li><strong>Assuming Equal Path Length and Displacement:</strong> For three skaters starting at point \(P\) on a circular ice ground of radius \(R = 200\,\mathrm{m}\) and reaching the diametrically opposite point \(Q\) along different paths, the displacement magnitude for <em>all three</em> is identical and equal to the diameter \(2R = 400\,\mathrm{m}\) (directed from \(P\) to \(Q\)); this equals the actual path length <em>only</em> for the skater moving straight along the diameter.</li>
+      </ol>
+    </div>
+
+    <h3>Final Revision Recap</h3>
+    <ul>
+      <li><strong>Vector Resolution:</strong> \(\mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}} = (A\cos\theta)\hat{\mathbf{i}} + (A\sin\theta)\hat{\mathbf{j}}\), where \(A = \sqrt{A_x^2 + A_y^2}\) and \(\tan\theta = \dfrac{A_y}{A_x}\).</li>
+      <li><strong>Law of Cosines &amp; Sines:</strong> \(R = \sqrt{A^2 + B^2 + 2AB\cos\theta}\), \(\tan\alpha = \dfrac{B\sin\theta}{A + B\cos\theta}\), and \(\dfrac{R}{\sin\theta} = \dfrac{A}{\sin\beta} = \dfrac{B}{\sin\alpha}\).</li>
+      <li><strong>2D Constant Acceleration:</strong> \(\mathbf{v} = \mathbf{v}_0 + \mathbf{a}t\) and \(\mathbf{r} = \mathbf{r}_0 + \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2\); the \(x\)- and \(y\)-motions are completely independent.</li>
+      <li><strong>Projectile Formulae:</strong> \(y = (\tan\theta_0)x - \dfrac{gx^2}{2(v_0\cos\theta_0)^2}\), \(t_m = \dfrac{v_0\sin\theta_0}{g}\), \(T_f = \dfrac{2v_0\sin\theta_0}{g}\), \(h_m = \dfrac{(v_0\sin\theta_0)^2}{2g}\), and \(R = \dfrac{v_0^2\sin 2\theta_0}{g}\).</li>
+      <li><strong>Uniform Circular Motion:</strong> \(v = \omega R = 2\pi\nu R\) and \(a_c = \dfrac{v^2}{R} = \omega^2 R = 4\pi^2\nu^2 R\) (directed radially inward towards the centre).</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
