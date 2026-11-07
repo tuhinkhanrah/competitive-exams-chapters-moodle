@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrostatic Potential and Capacitance | स्थिरवैद्युत विभव तथा धारिता - NEET UG Master Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; line-height: 1.55; color: #1e293b; background-color: #f8fafc; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Devanagari", sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 16px; background-color: #ffffff; border: 1px solid #e2e8f0; }
+    h1, h2, h3, h4 { color: #0f172a; line-height: 1.3; margin-top: 1.4em; margin-bottom: 0.5em; font-weight: 700; }
+    h1 { font-size: 1.85rem; border-bottom: 3px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; color: #1e3a8a; }
+    h2 { font-size: 1.35rem; border-bottom: 2px solid #0f766e; padding-bottom: 5px; margin-top: 1.6em; color: #0f766e; }
+    h3 { font-size: 1.1rem; color: #1e40af; }
+    p { margin-bottom: 0.8em; text-align: justify; }
+    ul, ol { margin-bottom: 0.8em; padding-left: 22px; }
+    li { margin-bottom: 0.3em; }
+    .lang-en { border-left: 4px solid #1e3a8a; padding-left: 12px; margin-bottom: 12px; }
+    .lang-hi { border-left: 4px solid #0f766e; padding-left: 12px; margin-bottom: 18px; background-color: #f0fdfa; padding: 10px 14px; border-radius: 0 6px 6px 0; }
+    .lang-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-bottom: 6px; letter-spacing: 0.04em; }
+    .tag-en { background-color: #dbeafe; color: #1e3a8a; }
+    .tag-hi { background-color: #ccfbf1; color: #0f766e; }
+    .card { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+    .formula-card { background-color: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #2563eb; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+    .pitfall-card { background-color: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #d97706; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; table-layout: fixed; word-wrap: break-word; font-size: 0.9rem; }
+    th, td { border: 1px solid #cbd5e1; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background-color: #f1f5f9; font-weight: 700; color: #0f172a; }
+    tr:nth-child(even) td { background-color: #f8fafc; }
+    .question-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 16px; margin: 18px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.03); page-break-inside: avoid; }
+    .question-card hr { border: 0; height: 1px; background-color: #cbd5e1; margin: 14px 0; }
+    .q-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; background-color: #1e3a8a; color: #ffffff; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+    .q-type { display: inline-block; font-size: 0.72rem; font-weight: 600; background-color: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 3px; margin-left: 6px; border: 1px solid #cbd5e1; }
+    .options-grid { display: grid; grid-template-columns: 1fr; gap: 6px; margin: 10px 0 12px 0; }
+    .option-item { background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 0.9rem; }
+    .ans-box { background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 4px; padding: 10px 14px; margin-top: 10px; }
+    .ans-box strong { color: #166534; }
+    .svg-container { display: flex; justify-content: center; align-items: center; margin: 16px 0; padding: 10px; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; }
+    @media print {
+      body { max-width: 100%; margin: 0; padding: 10mm; border: none; font-size: 11pt; }
+      .question-card, .card, .formula-card { page-break-inside: avoid; }
+      h2, h3 { page-break-after: avoid; }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+<header>
+  <h1>Electrostatic Potential and Capacitance | स्थिरवैद्युत विभव तथा धारिता</h1>
+  <p style="font-size: 0.95rem; color: #475569; margin-top: 4px;">
+    <strong>Target Standard:</strong> NEET-UG / NCERT Class 12 Physics (Chapter 2) • Comprehensive High-Yield Bilingual Tutorial
+  </p>
+</header>
+
+<section id="objectives">
+  <h2>1. Exam Context &amp; High-Yield Learning Objectives</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>In NEET-UG, <strong>Electrostatic Potential and Capacitance</strong> carries a consistent weighting of 2 to 3 direct questions (8–12 marks). The core testable themes focus on work done in conservative electric fields, potential of concentric spherical shells, relation \(E = -\mathrm{d}V/\mathrm{d}r\), dielectric insertion in capacitors with battery connected vs. disconnected, combinations of capacitors, and energy loss during charge redistribution.</p>
+    <ul>
+      <li>Master the work-potential energy equivalence: \(W_{\mathrm{ext}} = \Delta U = q\Delta V\).</li>
+      <li>Distinguish the potential behavior of conducting versus non-conducting spherical charge configurations.</li>
+      <li>Analyze equipotential geometries and apply the gradient relation \(E = -\frac{\mathrm{d}V}{\mathrm{d}r}\).</li>
+      <li>Evaluate electrostatics of conductors: surface charge density, cavity shielding, and tangential field conditions.</li>
+      <li>Compute equivalent capacitance and track parametric changes (\(C, V, Q, E, U\)) when dielectric slabs are inserted.</li>
+    </ul>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p>NEET-UG परीक्षा में <strong>स्थिरवैद्युत विभव तथा धारिता</strong> अध्याय से प्रतिवर्ष 2 से 3 प्रश्न (8–12 अंक) अनिवार्य रूप से पूछे जाते हैं। मुख्य परीक्षा बिंदु संरक्षी वैद्युत क्षेत्र में किया गया कार्य, संकेंद्री गोलीय कोशों का विभव, संबंध \(E = -\mathrm{d}V/\mathrm{d}r\), बैटरी जुड़ी अथवा हटी अवस्था में संधारित्र में परावैद्युत पट्टी का प्रवेश, संधारित्रों का संयोजन, तथा आवेश पुनर्वितरण में ऊर्जा ह्रास हैं।</p>
+    <ul>
+      <li>कार्य-विभव ऊर्जा संबंध में दक्षता प्राप्त करना: \(W_{\mathrm{ext}} = \Delta U = q\Delta V\)।</li>
+      <li>चालक एवं अचालक गोलीय आवेश विन्यासों के विभव व्यवहार में अंतर समझना।</li>
+      <li>समविभव पृष्ठों के गुणधर्म तथा प्रवणता संबंध \(E = -\frac{\mathrm{d}V}{\mathrm{d}r}\) का अनुप्रयोग।</li>
+      <li>चालकों की स्थिरवैद्युतिकी: पृष्ठ आवेश घनत्व, कोटर (कैविटी) परिरक्षण एवं स्पर्शरेखीय क्षेत्र प्रतिबंध।</li>
+      <li>तुल्य धारिता ज्ञात करना तथा परावैद्युत पट्टिका प्रविष्ट कराने पर विभिन्न प्राचलों (\(C, V, Q, E, U\)) के परिवर्तनों की गणना करना।</li>
+    </ul>
+  </div>
+</section>
+
+<section id="potential-energy">
+  <h2>2. Electrostatic Potential &amp; Potential Energy</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>Coulomb force is a central, inverse-square force and therefore strictly <strong>conservative</strong>. The work done by an external agent against the electrostatic field in moving a test charge \(q\) slowly (without acceleration, \(\vec{F}_{\mathrm{ext}} = -\vec{F}_E\)) from point \(R\) to point \(P\) depends only on the endpoints and equals the change in electrostatic potential energy:</p>
+    <div class="formula-card">
+      \[\Delta U = U_P - U_R = W_{R \to P}^{\mathrm{ext}} = -W_{R \to P}^{\mathrm{electric}} = -\int_R^P \vec{F}_E \cdot \mathrm{d}\vec{r} = -q\int_R^P \vec{E} \cdot \mathrm{d}\vec{r}\]
+    </div>
+    <p>Electrostatic potential \(V\) at a point is defined as the work done per unit positive charge by an external force in bringing a small test charge from infinity (reference \(V_\infty = 0\)) to that point:</p>
+    <div class="formula-card">
+      \[V(r) = \frac{W_{\infty \to r}^{\mathrm{ext}}}{q} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}\]
+    </div>
+    <p><strong>Potential due to an Electric Dipole:</strong> For an electric dipole of moment \(\vec{p} = 2a q\,\hat{p}\) at a distance \(r \gg a\):</p>
+    <div class="formula-card">
+      \[V(r, \theta) = \frac{1}{4\pi\varepsilon_0}\frac{\vec{p}\cdot\hat{r}}{r^2} = \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{r^2}\]
+      <p style="margin-top: 4px; font-size: 0.88rem;">• Axial line (\(\theta = 0^\circ, 180^\circ\)): \(V = \pm\frac{1}{4\pi\varepsilon_0}\frac{p}{r^2}\)<br>
+      • Equatorial plane (\(\theta = 90^\circ\)): \(V = 0\) everywhere, though electric field \(\vec{E} \neq 0\).</p>
+    </div>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p>कूलॉम बल एक केंद्रीय तथा व्युत्क्रम-वर्ग बल है, अतः यह पूर्णतः <strong>संरक्षी बल</strong> है। किसी परीक्षण आवेश \(q\) को बिना त्वरण (\(\vec{F}_{\mathrm{ext}} = -\vec{F}_E\)) बिंदु \(R\) से \(P\) तक ले जाने में बाह्य कारक द्वारा किया गया कार्य केवल प्रारंभिक एवं अंतिम स्थितियों पर निर्भर करता है तथा स्थिरवैद्युत स्थितिज ऊर्जा में परिवर्तन के बराबर होता है:</p>
+    <div class="formula-card">
+      \[\Delta U = U_P - U_R = W_{R \to P}^{\mathrm{ext}} = -q\int_R^P \vec{E} \cdot \mathrm{d}\vec{r}\]
+    </div>
+    <p>किसी बिंदु पर स्थिरवैद्युत विभव \(V\) एकांक धन परीक्षण आवेश को अनंत (\(V_\infty = 0\)) से उस बिंदु तक लाने में बाह्य बल द्वारा किए गए कार्य के बराबर होता है:</p>
+    <div class="formula-card">
+      \[V(r) = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}\]
+    </div>
+    <p><strong>वैद्युत द्विध्रुव के कारण विभव:</strong> द्विध्रुव आघूर्ण \(\vec{p}\) से दूरी \(r \gg a\) पर:</p>
+    <div class="formula-card">
+      \[V(r, \theta) = \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{r^2}\]
+      <p style="margin-top: 4px; font-size: 0.88rem;">• अक्षीय रेखा (\(\theta = 0^\circ, 180^\circ\)): \(V = \pm\frac{1}{4\pi\varepsilon_0}\frac{p}{r^2}\)<br>
+      • निरक्षीय तल (\(\theta = 90^\circ\)): प्रत्येक बिंदु पर \(V = 0\) होता है, यद्यपि वैद्युत क्षेत्र \(\vec{E} \neq 0\) रहता है।</p>
+    </div>
+  </div>
+</section>
+
+<section id="spherical-shell">
+  <h2>3. Potential of Charged Spherical Shell &amp; Concentric Shells</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>For a thin spherical conducting shell of radius \(R\) carrying total charge \(Q\):</p>
+    <ul>
+      <li><strong>Outside the shell (\(r \ge R\)):</strong> \(V(r) = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}\) (behaves as if all charge is concentrated at the center).</li>
+      <li><strong>On the surface (\(r = R\)):</strong> \(V_s = \frac{1}{4\pi\varepsilon_0}\frac{Q}{R}\).</li>
+      <li><strong>Inside the shell (\(r &lt; R\)):</strong> Since \(\vec{E}_{\mathrm{in}} = 0\), \(\frac{\mathrm{d}V}{\mathrm{d}r} = 0\), meaning potential is <strong>constant</strong> throughout the interior and strictly equal to the surface value:
+        <div class="formula-card">
+          \[V_{\mathrm{in}} = V_{\mathrm{surface}} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{R}\]
+        </div>
+      </li>
+    </ul>
+    <p><em>NEET Crucial Distinction:</em> While electric field \(\vec{E}\) is discontinuous at the surface (\(E = 0\) inside, \(E = \sigma/\varepsilon_0\) outside), the potential \(V(r)\) is strictly <strong>continuous</strong> everywhere.</p>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p>त्रिज्या \(R\) तथा कुल आवेश \(Q\) वाले पतले गोलीय चालक कोश के लिए:</p>
+    <ul>
+      <li><strong>कोश के बाहर (\(r \ge R\)):</strong> \(V(r) = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}\) (समस्त आवेश केंद्र पर संकेंद्रित माना जा सकता है)।</li>
+      <li><strong>पृष्ठ पर (\(r = R\)):</strong> \(V_s = \frac{1}{4\pi\varepsilon_0}\frac{Q}{R}\)।</li>
+      <li><strong>कोश के भीतर (\(r &lt; R\)):</strong> चूँकि \(\vec{E}_{\mathrm{in}} = 0\), अतः \(\frac{\mathrm{d}V}{\mathrm{d}r} = 0\), जिसका अर्थ है कि भीतर प्रत्येक बिंदु पर विभव <strong>नियत</strong> रहता है तथा पृष्ठ के विभव के ठीक बराबर होता है:
+        <div class="formula-card">
+          \[V_{\mathrm{in}} = V_{\mathrm{surface}} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{R}\]
+        </div>
+      </li>
+    </ul>
+    <p><em>NEET मुख्य बिंदु:</em> पृष्ठ पर वैद्युत क्षेत्र \(\vec{E}\) असतत (discontinuous) होता है (भीतर 0, बाहर \(\sigma/\varepsilon_0\)), परंतु स्थिरवैद्युत विभव \(V(r)\) सर्वत्र <strong>सतत (continuous)</strong> रहता है।</p>
+  </div>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 650 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background & axes -->
+      <line x1="50" y1="210" x2="310" y2="210" stroke="#334155" stroke-width="2"/>
+      <line x1="50" y1="210" x2="50" y2="30" stroke="#334155" stroke-width="2"/>
+      <text x="315" y="214" font-family="sans-serif" font-size="12" fill="#334155">r</text>
+      <text x="45" y="22" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="middle">E(r)</text>
+      <!-- E-graph -->
+      <line x1="50" y1="209" x2="160" y2="209" stroke="#dc2626" stroke-width="3"/>
+      <line x1="160" y1="209" x2="160" y2="70" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <path d="M 160 70 Q 210 160 300 195" fill="none" stroke="#dc2626" stroke-width="3"/>
+      <circle cx="160" cy="209" r="3" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+      <circle cx="160" cy="70" r="3" fill="#dc2626"/>
+      <line x1="160" y1="210" x2="160" y2="216" stroke="#334155" stroke-width="1.5"/>
+      <text x="160" y="230" font-family="sans-serif" font-size="12" fill="#1e293b" text-anchor="middle">r = R</text>
+      <text x="175" y="65" font-family="sans-serif" font-size="11" fill="#dc2626">E = σ/ε₀</text>
+      <text x="95" y="195" font-family="sans-serif" font-size="11" fill="#dc2626">E = 0</text>
+      <text x="235" y="130" font-family="sans-serif" font-size="11" fill="#dc2626">E ∝ 1/r²</text>
+      <text x="170" y="245" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Electric Field E vs r</text>
+
+      <!-- V-graph axes -->
+      <line x1="380" y1="210" x2="630" y2="210" stroke="#334155" stroke-width="2"/>
+      <line x1="380" y1="210" x2="380" y2="30" stroke="#334155" stroke-width="2"/>
+      <text x="635" y="214" font-family="sans-serif" font-size="12" fill="#334155">r</text>
+      <text x="375" y="22" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="middle">V(r)</text>
+      <!-- V-graph -->
+      <line x1="380" y1="70" x2="490" y2="70" stroke="#2563eb" stroke-width="3"/>
+      <path d="M 490 70 Q 535 140 620 185" fill="none" stroke="#2563eb" stroke-width="3"/>
+      <line x1="490" y1="70" x2="490" y2="210" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <circle cx="490" cy="70" r="3" fill="#2563eb"/>
+      <text x="490" y="230" font-family="sans-serif" font-size="12" fill="#1e293b" text-anchor="middle">r = R</text>
+      <text x="430" y="60" font-family="sans-serif" font-size="11" fill="#2563eb">V = const</text>
+      <text x="560" y="125" font-family="sans-serif" font-size="11" fill="#2563eb">V ∝ 1/r</text>
+      <text x="500" y="245" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Electric Potential V vs r</text>
+    </svg>
+  </div>
+</section>
+
+<section id="equipotential-surfaces">
+  <h2>4. Equipotential Surfaces &amp; Field Gradient Relation</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>An <strong>equipotential surface</strong> is a surface having a constant electrostatic potential at every point. Important fundamental properties:</p>
+    <ol>
+      <li><strong>No work done:</strong> Moving any charge \(q\) along an equipotential surface requires zero work: \(W = q\Delta V = q(0) = 0\).</li>
+      <li><strong>Strict orthogonality:</strong> Electric field \(\vec{E}\) is always perpendicular to the equipotential surface at every point. (If it had a tangential component, work would be required to move a charge along the surface).</li>
+      <li><strong>Spacing indicates field strength:</strong> From the differential gradient relation:
+        <div class="formula-card">
+          \[E = -\frac{\mathrm{d}V}{\mathrm{d}l}\]
+        </div>
+        Equipotential surfaces are crowded closer together in regions of strong electric fields and farther apart where fields are weak.
+      </li>
+      <li><strong>Direction:</strong> Electric field lines always point in the direction of the steepest decrease of potential.</li>
+    </ol>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p><strong>समविभव पृष्ठ</strong> वह पृष्ठ है जिसके प्रत्येक बिंदु पर स्थिरवैद्युत विभव का मान एकसमान होता है। प्रमुख गुणधर्म:</p>
+    <ol>
+      <li><strong>शून्य कार्य:</strong> समविभव पृष्ठ पर किसी परीक्षण आवेश \(q\) को एक बिंदु से दूसरे बिंदु तक ले जाने में किया गया कार्य शून्य होता है: \(W = q\Delta V = 0\)।</li>
+      <li><strong>लंबवत प्रकृति:</strong> वैद्युत क्षेत्र रेखाएँ सदैव समविभव पृष्ठ के लंबवत होती हैं। (यदि कोई स्पर्शरेखीय घटक होता, तो पृष्ठ पर आवेश संचलन में अशून्य कार्य करना पड़ता)।</li>
+      <li><strong>क्षेत्र तीव्रता का संकेतक:</strong> प्रवणता संबंध के अनुसार:
+        <div class="formula-card">
+          \[E = -\frac{\mathrm{d}V}{\mathrm{d}l}\]
+        </div>
+        प्रबल वैद्युत क्षेत्र वाले क्षेत्रों में समविभव पृष्ठ परस्पर पास-पास तथा दुर्बल क्षेत्र वाले क्षेत्रों में दूर-दूर होते हैं।
+      </li>
+      <li><strong>दिशा:</strong> वैद्युत क्षेत्र की दिशा सदैव विभव घटने की सर्वाधिक तीव्र दर की दिशा में होती है।</li>
+    </ol>
+  </div>
+</section>
+
+<section id="electrostatics-conductors">
+  <h2>5. Electrostatics of Conductors &amp; Shielding</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>In electrostatic equilibrium, metallic conductors exhibit six invariant properties:</p>
+    <ol>
+      <li><strong>Inside a conductor, electrostatic field is zero:</strong> Free electrons redistribute instantaneously until internal field vanishes completely (\(\vec{E}_{\mathrm{inside}} = 0\)).</li>
+      <li><strong>At the surface, \(\vec{E}\) must be normal:</strong> Any tangential component would cause surface currents, violating electrostatic equilibrium.</li>
+      <li><strong>Interior excess charge is zero:</strong> By Gauss's Law, any net charge resides entirely on the outer surface of the conductor.</li>
+      <li><strong>Electrostatic potential is constant throughout:</strong> Since \(\vec{E} = 0\) inside, \(\mathrm{d}V = -\vec{E}\cdot\mathrm{d}\vec{r} = 0\); the entire volume and surface form an equipotential body.</li>
+      <li><strong>Surface electric field:</strong> \(\vec{E} = \frac{\sigma}{\varepsilon_0}\hat{n}\), where \(\sigma\) is local surface charge density.</li>
+      <li><strong>Electrostatic Shielding:</strong> In any cavity inside a conductor (with no internal charge), \(\vec{E} = 0\) regardless of external fields or charges on the conductor shell.</li>
+    </ol>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p>स्थिरवैद्युत साम्यावस्था में चालकों के 6 अपरिवर्तनीय गुणधर्म:</p>
+    <ol>
+      <li><strong>चालक के भीतर स्थिरवैद्युत क्षेत्र शून्य होता है:</strong> मुक्त इलेक्ट्रॉन तब तक पुनर्वितरित होते हैं जब तक नेट आंतरिक क्षेत्र पूर्णतः शून्य न हो जाए (\(\vec{E} = 0\))।</li>
+      <li><strong>चालक पृष्ठ पर क्षेत्र सदैव अभिलंबवत होता है:</strong> कोई भी स्पर्शरेखीय घटक पृष्ठ धारा उत्पन्न कर देगा, जो साम्यावस्था के विरुद्ध है।</li>
+      <li><strong>चालक के आंतरिक आयतन में कोई अतिरिक्त आवेश नहीं रहता:</strong> गाउस नियम के अनुसार संपूर्ण नेट आवेश केवल बाहरी पृष्ठ पर विद्यमान रहता है।</li>
+      <li><strong>चालक के संपूर्ण आयतन में विभव नियत रहता है:</strong> भीतर \(\vec{E} = 0\) होने से विभव पृष्ठ के विभव के बराबर होता है; चालक एक समविभव पिंड है।</li>
+      <li><strong>पृष्ठ पर वैद्युत क्षेत्र:</strong> \(\vec{E} = \frac{\sigma}{\varepsilon_0}\hat{n}\), जहाँ \(\sigma\) स्थानीय पृष्ठ आवेश घनत्व है।</li>
+      <li><strong>स्थिरवैद्युत परिरक्षण (Electrostatic Shielding):</strong> चालक के भीतर स्थित किसी कोटर (कैविटी) में बाह्य वैद्युत प्रभावों से सर्वथा मुक्त \(\vec{E} = 0\) वातावरण बना रहता है।</li>
+    </ol>
+  </div>
+</section>
+
+<section id="capacitors-dielectrics">
+  <h2>6. Capacitors, Dielectrics &amp; Energy Density</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>A capacitor consists of two conductors separated by an insulator. Capacitance \(C = \frac{Q}{V}\) depends purely on geometric configuration and the intervening medium, not on \(Q\) or \(V\).</p>
+    <p><strong>Parallel Plate Capacitor:</strong> With plate area \(A\) and separation \(d\):</p>
+    <div class="formula-card">
+      \[C_0 = \frac{\varepsilon_0 A}{d}\]
+    </div>
+    <p>When a dielectric medium of dielectric constant \(K\) fills the space entirely, the bound charges produce an opposing induced electric field \(E_{\mathrm{ind}}\), reducing net electric field to \(E = E_0/K\), which increases capacitance:</p>
+    <div class="formula-card">
+      \[C = K C_0 = \frac{K\varepsilon_0 A}{d}\]
+    </div>
+    <p>For a dielectric slab of thickness \(t &lt; d\):</p>
+    <div class="formula-card">
+      \[C = \frac{\varepsilon_0 A}{d - t\left(1 - \frac{1}{K}\right)}\]
+    </div>
+    <p><strong>Energy Stored &amp; Energy Density:</strong> Work done in charging a capacitor is stored in the electrostatic field between plates:</p>
+    <div class="formula-card">
+      \[U = \frac{1}{2} C V^2 = \frac{1}{2}\frac{Q^2}{C} = \frac{1}{2} Q V\]
+      \[u_E = \frac{U}{\text{Volume}} = \frac{1}{2}\varepsilon_0 E^2\]
+    </div>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p>संधारित्र दो चालकों का ऐसा निकाय है जो विद्युतरोधी माध्यम द्वारा पृथक्कृत होते हैं। धारिता \(C = \frac{Q}{V}\) केवल चालकों की ज्यामिति तथा मध्यवर्ती माध्यम पर निर्भर करती है, \(Q\) या \(V\) पर नहीं।</p>
+    <p><strong>समांतर पट्टिका संधारित्र:</strong> पट्टिका क्षेत्रफल \(A\) तथा दूरी \(d\) होने पर:</p>
+    <div class="formula-card">
+      \[C_0 = \frac{\varepsilon_0 A}{d}\]
+    </div>
+    <p>जब परावैद्युतांक \(K\) का माध्यम पट्टिकाओं के मध्य पूर्णतः भर दिया जाता है, तो प्रेरित ध्रुवण आवेशों के कारण आंतरिक क्षेत्र घटकर \(E = E_0/K\) रह जाता है, जिससे धारिता बढ़ जाती है:</p>
+    <div class="formula-card">
+      \[C = K C_0 = \frac{K\varepsilon_0 A}{d}\]
+    </div>
+    <p>यदि \(t &lt; d\) मोटाई की परावैद्युत पट्टिका रखी जाए:</p>
+    <div class="formula-card">
+      \[C = \frac{\varepsilon_0 A}{d - t\left(1 - \frac{1}{K}\right)}\]
+    </div>
+    <p><strong>संचित ऊर्जा तथा ऊर्जा घनत्व:</strong> संधारित्र को आवेशित करने में किया गया कार्य पट्टिकाओं के मध्य वैद्युत क्षेत्र में संचित हो जाता है:</p>
+    <div class="formula-card">
+      \[U = \frac{1}{2} C V^2 = \frac{1}{2}\frac{Q^2}{C} = \frac{1}{2} Q V\]
+      \[u_E = \frac{1}{2}\varepsilon_0 E^2\]
+    </div>
+  </div>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 600 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Plates -->
+      <rect x="70" y="20" width="18" height="190" fill="#94a3b8" rx="3"/>
+      <rect x="512" y="20" width="18" height="190" fill="#94a3b8" rx="3"/>
+      <!-- Charges on plates -->
+      <text x="79" y="55" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+      <text x="79" y="95" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+      <text x="79" y="135" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+      <text x="79" y="175" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+
+      <text x="521" y="55" font-family="sans-serif" font-size="16" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+      <text x="521" y="95" font-family="sans-serif" font-size="16" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+      <text x="521" y="135" font-family="sans-serif" font-size="16" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+      <text x="521" y="175" font-family="sans-serif" font-size="16" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+
+      <!-- Dielectric Slab -->
+      <rect x="180" y="30" width="240" height="170" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="4"/>
+      <text x="300" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e40af" text-anchor="middle">Dielectric Slab (K)</text>
+
+      <!-- Induced Surface Charges -->
+      <text x="195" y="85" font-family="sans-serif" font-size="14" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+      <text x="195" y="120" font-family="sans-serif" font-size="14" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+      <text x="195" y="155" font-family="sans-serif" font-size="14" font-weight="bold" fill="#dc2626" text-anchor="middle">−</text>
+      <text x="195" y="180" font-family="sans-serif" font-size="11" fill="#dc2626" text-anchor="middle">-σₚ</text>
+
+      <text x="405" y="85" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+      <text x="405" y="120" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+      <text x="405" y="155" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">+</text>
+      <text x="405" y="180" font-family="sans-serif" font-size="11" fill="#1e3a8a" text-anchor="middle">+σₚ</text>
+
+      <!-- Field Vectors -->
+      <!-- E0 vector -->
+      <line x1="220" y1="90" x2="370" y2="90" stroke="#0f172a" stroke-width="2.5" marker-end="url(#arrow)"/>
+      <polygon points="370,86 380,90 370,94" fill="#0f172a"/>
+      <text x="295" y="82" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f172a">Applied Field E₀</text>
+
+      <!-- Eind vector -->
+      <line x1="360" y1="130" x2="240" y2="130" stroke="#dc2626" stroke-width="2"/>
+      <polygon points="240,126 230,130 240,134" fill="#dc2626"/>
+      <text x="295" y="124" font-family="sans-serif" font-size="11" font-weight="bold" fill="#dc2626">Induced Field Eₚ</text>
+
+      <!-- Net field -->
+      <text x="300" y="160" font-family="sans-serif" font-size="12" font-weight="bold" fill="#059669" text-anchor="middle">Net Field E = E₀ - Eₚ = E₀/K</text>
+
+      <!-- Dimensions -->
+      <line x1="180" y1="212" x2="420" y2="212" stroke="#475569" stroke-width="1.5"/>
+      <line x1="180" y1="208" x2="180" y2="216" stroke="#475569" stroke-width="1.5"/>
+      <line x1="420" y1="208" x2="420" y2="216" stroke="#475569" stroke-width="1.5"/>
+      <text x="300" y="225" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">Thickness t</text>
+    </svg>
+  </div>
+</section>
+
+<section id="battery-cases">
+  <h2>7. High-Yield Comparative Table: Dielectric Insertion</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p>A dielectric slab of constant \(K\) is inserted to completely fill the space between plates of a capacitor originally charged to \(V_0, Q_0, E_0, U_0, C_0\):</p>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p>प्रारंभ में \(V_0, Q_0, E_0, U_0, C_0\) से आवेशित संधारित्र की पट्टिकाओं के मध्य पूर्णतः \(K\) परावैद्युतांक की पट्टिका प्रविष्ट कराने पर प्रभाव:</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Physical Quantity (भौतिक राशि)</th>
+        <th style="width: 37%;">Case A: Battery Disconnected (बैटरी विच्छेदित)</th>
+        <th style="width: 38%;">Case B: Battery Connected (बैटरी जुड़ी हुई)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Charge \(Q\) (आवेश)</strong></td>
+        <td><strong>Remains Constant:</strong> \(Q = Q_0\) (Isolated system, charge conserved)</td>
+        <td><strong>Increases \(K\)-fold:</strong> \(Q = K Q_0\) (Battery supplies additional charge)</td>
+      </tr>
+      <tr>
+        <td><strong>Capacitance \(C\) (धारिता)</strong></td>
+        <td><strong>Increases \(K\)-fold:</strong> \(C = K C_0\) (Geometric property)</td>
+        <td><strong>Increases \(K\)-fold:</strong> \(C = K C_0\) (Geometric property)</td>
+      </tr>
+      <tr>
+        <td><strong>Potential \(V\) (विभव)</strong></td>
+        <td><strong>Decreases:</strong> \(V = \frac{V_0}{K}\) (Since \(V = Q/C\))</td>
+        <td><strong>Remains Constant:</strong> \(V = V_0\) (Fixed by the external battery)</td>
+      </tr>
+      <tr>
+        <td><strong>Electric Field \(E\) (क्षेत्र)</strong></td>
+        <td><strong>Decreases:</strong> \(E = \frac{E_0}{K}\)</td>
+        <td><strong>Remains Constant:</strong> \(E = \frac{V}{d} = E_0\)</td>
+      </tr>
+      <tr>
+        <td><strong>Stored Energy \(U\) (ऊर्जा)</strong></td>
+        <td><strong>Decreases:</strong> \(U = \frac{Q_0^2}{2(KC_0)} = \frac{U_0}{K}\)</td>
+        <td><strong>Increases \(K\)-fold:</strong> \(U = \frac{1}{2}(KC_0)V_0^2 = K U_0\)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="charge-redistribution">
+  <h2>8. Combination of Capacitors &amp; Charge Redistribution</h2>
+  <div class="lang-en">
+    <span class="lang-tag tag-en">English</span>
+    <p><strong>Series Combination:</strong> Charge \(Q\) is identical across all capacitors; potentials add (\(V = V_1 + V_2\)):</p>
+    <div class="formula-card">
+      \[\frac{1}{C_{\mathrm{eq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n}\]
+    </div>
+    <p><strong>Parallel Combination:</strong> Potential difference \(V\) is identical across all capacitors; charges add (\(Q = Q_1 + Q_2\)):</p>
+    <div class="formula-card">
+      \[C_{\mathrm{eq}} = C_1 + C_2 + \dots + C_n\]
+    </div>
+    <p><strong>Redistribution of Charge &amp; Energy Loss:</strong> When two capacitors of capacitances \(C_1\) and \(C_2\) charged to potentials \(V_1\) and \(V_2\) are connected in parallel, charge flows until they attain a <strong>common potential \(V_c\)</strong>:</p>
+    <div class="formula-card">
+      \[V_c = \frac{Q_{\mathrm{total}}}{C_{\mathrm{total}}} = \frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}\]
+    </div>
+    <p>Electrostatic energy is always dissipated (as heat and electromagnetic radiation) during this redistribution:</p>
+    <div class="formula-card">
+      \[\Delta U = U_i - U_f = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2 \ge 0\]
+    </div>
+  </div>
+  <div class="lang-hi">
+    <span class="lang-tag tag-hi">हिन्दी</span>
+    <p><strong>श्रेणीक्रम संयोजन:</strong> सभी संधारित्रों पर आवेश \(Q\) समान रहता है; विभवांतर जुड़ते हैं (\(V = V_1 + V_2\)):</p>
+    <div class="formula-card">
+      \[\frac{1}{C_{\mathrm{eq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots\]
+    </div>
+    <p><strong>पार्श्वक्रम (समांतर क्रम) संयोजन:</strong> सभी संधारित्रों के सिरों पर विभवांतर \(V\) समान रहता है; आवेश जुड़ते हैं (\(Q = Q_1 + Q_2\)):</p>
+    <div class="formula-card">
+      \[C_{\mathrm{eq}} = C_1 + C_2 + \dots\]
+    </div>
+    <p><strong>आवेश पुनर्वितरण एवं ऊर्जा ह्रास:</strong> जब \(V_1\) तथा \(V_2\) विभव तक आवेशित \(C_1\) एवं \(C_2\) धारिता के संधारित्रों को परस्पर जोड़ा जाता है, तो वे एक <strong>उभयनिष्ठ विभव \(V_c\)</strong> प्राप्त कर लेते हैं:</p>
+    <div class="formula-card">
+      \[V_c = \frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}\]
+    </div>
+    <p>इस प्रक्रिया में सदैव स्थिरवैद्युत ऊर्जा का ह्रास (ऊष्मा एवं विकिरण के रूप में) होता है:</p>
+    <div class="formula-card">
+      \[\Delta U = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2 \ge 0\]
+    </div>
+  </div>
+</section>
+
+<section id="worked-examples">
+  <h2>9. High-Yield Worked Examples</h2>
+
+  <!-- Example 1 -->
+  <div class="card">
+    <div class="lang-en">
+      <span class="lang-tag tag-en">Worked Example 1 (English)</span>
+      <p><strong>Problem:</strong> Three point charges \(+q\), \(+q\), and \(-2q\) are placed at the vertices of an equilateral triangle of side length \(a\). Calculate the total electrostatic potential energy of this charge configuration.</p>
+      <p><strong>Solution:</strong> The system has three distinct pairs of interactions: \((1, 2)\), \((2, 3)\), and \((1, 3)\). Using \(U = \frac{1}{4\pi\varepsilon_0}\frac{q_j q_k}{r_{jk}}\):</p>
+      \[U = \frac{1}{4\pi\varepsilon_0}\left[\frac{(q)(q)}{a} + \frac{(q)(-2q)}{a} + \frac{(q)(-2q)}{a}\right] = \frac{1}{4\pi\varepsilon_0 a}[q^2 - 2q^2 - 2q^2] = -\frac{3 q^2}{4\pi\varepsilon_0 a}\]
+      <p>The negative sign indicates that the system is bound; an external work of \(+\frac{3q^2}{4\pi\varepsilon_0 a}\) would be required to disassemble the charges to infinite separation.</p>
+    </div>
+    <hr style="border:0; height:1px; background:#cbd5e1; margin:12px 0;">
+    <div class="lang-hi">
+      <span class="lang-tag tag-hi">हल किया गया उदाहरण 1 (हिन्दी)</span>
+      <p><strong>प्रश्न:</strong> \(a\) भुजा वाले समबाहु त्रिभुज के शीर्षों पर तीन बिंदु आवेश \(+q\), \(+q\) तथा \(-2q\) रखे गए हैं। इस निकाय की कुल स्थिरवैद्युत स्थितिज ऊर्जा की गणना कीजिए।</p>
+      <p><strong>हल:</strong> निकाय में तीन युग्म अंतःक्रियाएँ हैं: \((1, 2)\), \((2, 3)\) एवं \((1, 3)\)। सूत्र \(U = \frac{1}{4\pi\varepsilon_0}\frac{q_j q_k}{r_{jk}}\) का प्रयोग करने पर:</p>
+      \[U = \frac{1}{4\pi\varepsilon_0}\left[\frac{q^2}{a} - \frac{2q^2}{a} - \frac{2q^2}{a}\right] = -\frac{3 q^2}{4\pi\varepsilon_0 a}\]
+      <p>ऋणात्मक चिह्न यह दर्शाता है कि निकाय बद्ध (bound) है; आवेशों को परस्पर अनंत दूरी तक पृथक करने के लिए \(+\frac{3q^2}{4\pi\varepsilon_0 a}\) कार्य करना पड़ेगा।</p>
+    </div>
+  </div>
+
+  <!-- Example 2 -->
+  <div class="card">
+    <div class="lang-en">
+      <span class="lang-tag tag-en">Worked Example 2 (English)</span>
+      <p><strong>Problem:</strong> A parallel plate capacitor of capacitance \(C_0 = 900\,\mathrm{pF}\) is charged fully by a \(100\,\mathrm{V}\) battery. The battery is then disconnected, and a dielectric slab of dielectric constant \(K = 3\) is inserted between the plates. Determine: (a) final potential difference, (b) final stored energy, and (c) change in electrostatic energy.</p>
+      <p><strong>Solution:</strong><br>
+      Initial state: \(Q_0 = C_0 V_0 = (900 \times 10^{-12}\,\mathrm{F})(100\,\mathrm{V}) = 9 \times 10^{-8}\,\mathrm{C} = 90\,\mathrm{nC}\).<br>
+      Initial energy: \(U_0 = \frac{1}{2} C_0 V_0^2 = \frac{1}{2}(900 \times 10^{-12})(100)^2 = 4.5 \times 10^{-6}\,\mathrm{J} = 4.5\,\mathrm{µJ}\).<br>
+      Since battery is disconnected, charge remains conserved: \(Q = Q_0 = 90\,\mathrm{nC}\).<br>
+      New capacitance: \(C = K C_0 = 3 \times 900\,\mathrm{pF} = 2700\,\mathrm{pF}\).<br>
+      (a) Final potential: \(V = \frac{V_0}{K} = \frac{100\,\mathrm{V}}{3} = 33.33\,\mathrm{V}\).<br>
+      (b) Final energy: \(U_f = \frac{U_0}{K} = \frac{4.5\,\mathrm{µJ}}{3} = 1.5\,\mathrm{µJ}\).<br>
+      (c) Change in energy: \(\Delta U = U_f - U_0 = 1.5 - 4.5 = -3.0\,\mathrm{µJ}\).<br>
+      (The lost \(3.0\,\mathrm{µJ}\) is converted into mechanical work done by the electrostatic field in pulling the dielectric slab into the capacitor plates).</p>
+    </div>
+    <hr style="border:0; height:1px; background:#cbd5e1; margin:12px 0;">
+    <div class="lang-hi">
+      <span class="lang-tag tag-hi">हल किया गया उदाहरण 2 (हिन्दी)</span>
+      <p><strong>प्रश्न:</strong> धारिता \(C_0 = 900\,\mathrm{pF}\) का एक समांतर पट्टिका संधारित्र \(100\,\mathrm{V}\) की बैटरी द्वारा पूर्णतः आवेशित किया जाता है। इसके पश्चात बैटरी हटा दी जाती है तथा पट्टिकाओं के मध्य \(K = 3\) परावैद्युतांक की पट्टिका रख दी जाती है। ज्ञात कीजिए: (a) अंतिम विभवांतर, (b) अंतिम संचित ऊर्जा, तथा (c) स्थितिज ऊर्जा में परिवर्तन।</p>
+      <p><strong>हल:</strong><br>
+      प्रारंभिक आवेश: \(Q_0 = C_0 V_0 = 90\,\mathrm{nC}\)।<br>
+      प्रारंभिक ऊर्जा: \(U_0 = \frac{1}{2} C_0 V_0^2 = 4.5\,\mathrm{µJ}\)।<br>
+      बैटरी विच्छेदित होने के कारण आवेश संरक्षित रहेगा: \(Q = Q_0 = 90\,\mathrm{nC}\)।<br>
+      नई धारिता: \(C = K C_0 = 3 \times 900 = 2700\,\mathrm{pF}\)।<br>
+      (a) अंतिम विभवांतर: \(V = \frac{V_0}{K} = \frac{100}{3} = 33.33\,\mathrm{V}\)।<br>
+      (b) अंतिम ऊर्जा: \(U_f = \frac{U_0}{K} = \frac{4.5\,\mathrm{µJ}}{3} = 1.5\,\mathrm{µJ}\)।<br>
+      (c) ऊर्जा में परिवर्तन: \(\Delta U = 1.5 - 4.5 = -3.0\,\mathrm{µJ}\)।<br>
+      (ऊर्जा में यह \(3.0\,\mathrm{µJ}\) ह्रास परावैद्युत पट्टी को पट्टिकाओं के भीतर खींचने में किए गए यांत्रिक कार्य में परिवर्तित हो जाता है)।</p>
+    </div>
+  </div>
+</section>
+
+<section id="practice-questions">
+  <h2>10. NEET-UG Pattern Practice Questions</h2>
+
+  <!-- Question 1 -->
+  <div class="question-card">
+    <span class="q-badge">Question 1</span>
+    <span class="q-type">NEET-UG Single Correct MCQ</span>
+    <div class="lang-en">
+      <p>In a certain region of space, the electrostatic potential is given by \(V(x, y, z) = 6x - 8x y - 8y + 6y z\), where \(V\) is in volts and \(x, y, z\) are in meters. The magnitude of the electrostatic force experienced by a point charge of \(2\,\mathrm{C}\) situated at the origin \((0, 0, 0)\) is:</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(10\,\mathrm{N}\)</div>
+        <div class="option-item">(B) \(20\,\mathrm{N}\)</div>
+        <div class="option-item">(C) \(28\,\mathrm{N}\)</div>
+        <div class="option-item">(D) \(4\sqrt{35}\,\mathrm{N}\)</div>
+      </div>
+    </div>
+    <hr>
+    <div class="lang-hi">
+      <p>किसी त्रिविमीय क्षेत्र में स्थिरवैद्युत विभव \(V(x, y, z) = 6x - 8x y - 8y + 6y z\) वोल्ट द्वारा दिया गया है, जहाँ निर्देशांक मीटर में हैं। मूलबिंदु \((0, 0, 0)\) पर रखे \(2\,\mathrm{C}\) के बिंदु आवेश पर लगने वाले स्थिरवैद्युत बल का परिमाण क्या होगा?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(10\,\mathrm{N}\)</div>
+        <div class="option-item">(B) \(20\,\mathrm{N}\)</div>
+        <div class="option-item">(C) \(28\,\mathrm{N}\)</div>
+        <div class="option-item">(D) \(4\sqrt{35}\,\mathrm{N}\)</div>
+      </div>
+    </div>
+    <div class="ans-box">
+      <p><strong>Correct Answer / सही उत्तर:</strong> (B) \(20\,\mathrm{N}\)</p>
+      <p><strong>Detailed Explanation / विस्तृत हल:</strong><br>
+      The electric field components are given by \(\vec{E} = -\left(\frac{\partial V}{\partial x}\hat{i} + \frac{\partial V}{\partial y}\hat{j} + \frac{\partial V}{\partial z}\hat{k}\right)\).<br>
+      • \(E_x = -\frac{\partial V}{\partial x} = -(6 - 8y)\). At \((0,0,0)\): \(E_x = -6\,\mathrm{V/m}\).<br>
+      • \(E_y = -\frac{\partial V}{\partial y} = -(-8x - 8 + 6z)\). At \((0,0,0)\): \(E_y = -(-8) = +8\,\mathrm{V/m}\).<br>
+      • \(E_z = -\frac{\partial V}{\partial z} = -(6y)\). At \((0,0,0)\): \(E_z = 0\,\mathrm{V/m}\).<br>
+      Resultant electric field magnitude at the origin:
+      \[|\vec{E}| = \sqrt{E_x^2 + E_y^2 + E_z^2} = \sqrt{(-6)^2 + (8)^2 + 0} = \sqrt{36 + 64} = 10\,\mathrm{V/m}\]
+      Force on charge \(q = 2\,\mathrm{C}\):
+      \[F = |q||\vec{E}| = (2\,\mathrm{C})(10\,\mathrm{N/C}) = 20\,\mathrm{N}\]</p>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question-card">
+    <span class="q-badge">Question 2</span>
+    <span class="q-type">NEET-UG Concentric Shells Concept</span>
+    <div class="lang-en">
+      <p>Two thin concentric conducting spherical shells of radii \(a\) and \(b\) (\(b &gt; a\)) carry total charges \(Q_a\) and \(Q_b\) respectively. What is the electrostatic potential on the surface of the inner shell?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{a} + \frac{Q_b}{b}\right]\)</div>
+        <div class="option-item">(B) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a + Q_b}{b}\right]\)</div>
+        <div class="option-item">(C) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{a} + \frac{Q_b}{a}\right]\)</div>
+        <div class="option-item">(D) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{b} + \frac{Q_b}{a}\right]\)</div>
+      </div>
+    </div>
+    <hr>
+    <div class="lang-hi">
+      <p>त्रिज्याओं \(a\) तथा \(b\) (\(b &gt; a\)) के दो पतले संकेंद्री चालक गोलीय कोशों पर क्रमशः \(Q_a\) एवं \(Q_b\) आवेश हैं। आंतरिक कोश के पृष्ठ पर स्थिरवैद्युत विभव का मान क्या होगा?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{a} + \frac{Q_b}{b}\right]\)</div>
+        <div class="option-item">(B) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a + Q_b}{b}\right]\)</div>
+        <div class="option-item">(C) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{a} + \frac{Q_b}{a}\right]\)</div>
+        <div class="option-item">(D) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{b} + \frac{Q_b}{a}\right]\)</div>
+      </div>
+    </div>
+    <div class="ans-box">
+      <p><strong>Correct Answer / सही उत्तर:</strong> (A) \(\frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{a} + \frac{Q_b}{b}\right]\)</p>
+      <p><strong>Detailed Explanation / विस्तृत हल:</strong><br>
+      By the principle of superposition, the potential at any point is the scalar algebraic sum of the potentials produced by both shells.<br>
+      • For the inner shell of radius \(a\) and charge \(Q_a\), the point of interest lies on its surface (\(r = a\)), contributing \(V_1 = \frac{1}{4\pi\varepsilon_0}\frac{Q_a}{a}\).<br>
+      • For the outer shell of radius \(b\) and charge \(Q_b\), the inner shell lies entirely inside it (\(r = a &lt; b\)). Inside a spherical shell, the potential is constant and equals its surface potential, contributing \(V_2 = \frac{1}{4\pi\varepsilon_0}\frac{Q_b}{b}\).<br>
+      Total potential at inner surface: \(V_a = V_1 + V_2 = \frac{1}{4\pi\varepsilon_0}\left[\frac{Q_a}{a} + \frac{Q_b}{b}\right]\).</p>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question-card">
+    <span class="q-badge">Question 3</span>
+    <span class="q-type">NEET-UG Dielectric Slab Insertion</span>
+    <div class="lang-en">
+      <p>A parallel plate capacitor having plate area \(A\) and plate separation \(d\) has air as medium between plates and a capacitance \(C_0\). A dielectric slab of dielectric constant \(K = 4\) and thickness \(t = \frac{d}{2}\) is inserted between the plates. The new capacitance of the capacitor becomes:</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(\frac{5}{8} C_0\)</div>
+        <div class="option-item">(B) \(\frac{8}{5} C_0\)</div>
+        <div class="option-item">(C) \(2 C_0\)</div>
+        <div class="option-item">(D) \(\frac{4}{3} C_0\)</div>
+      </div>
+    </div>
+    <hr>
+    <div class="lang-hi">
+      <p>पट्टिका क्षेत्रफल \(A\) तथा पट्टिका पृथक्करण \(d\) वाले वायु समांतर पट्टिका संधारित्र की धारिता \(C_0\) है। पट्टिकाओं के मध्य \(K = 4\) परावैद्युतांक तथा मोटाई \(t = \frac{d}{2}\) की एक पट्टिका रखी जाती है। संधारित्र की नई धारिता क्या होगी?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(\frac{5}{8} C_0\)</div>
+        <div class="option-item">(B) \(\frac{8}{5} C_0\)</div>
+        <div class="option-item">(C) \(2 C_0\)</div>
+        <div class="option-item">(D) \(\frac{4}{3} C_0\)</div>
+      </div>
+    </div>
+    <div class="ans-box">
+      <p><strong>Correct Answer / सही उत्तर:</strong> (B) \(\frac{8}{5} C_0\)</p>
+      <p><strong>Detailed Explanation / विस्तृत हल:</strong><br>
+      The general formula for a capacitor with a dielectric slab of thickness \(t\) is:
+      \[C = \frac{\varepsilon_0 A}{d - t\left(1 - \frac{1}{K}\right)}\]
+      Substitute \(t = \frac{d}{2}\) and \(K = 4\):
+      \[d - t\left(1 - \frac{1}{K}\right) = d - \frac{d}{2}\left(1 - \frac{1}{4}\right) = d - \frac{d}{2}\left(\frac{3}{4}\right) = d - \frac{3d}{8} = \frac{5d}{8}\]
+      Therefore:
+      \[C = \frac{\varepsilon_0 A}{\frac{5d}{8}} = \frac{8}{5}\frac{\varepsilon_0 A}{d} = \frac{8}{5} C_0 = 1.6\,C_0\]</p>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question-card">
+    <span class="q-badge">Question 4</span>
+    <span class="q-type">NEET-UG Charge Sharing Energy Loss</span>
+    <div class="lang-en">
+      <p>A \(4\,\mathrm{µF}\) capacitor is charged to a potential of \(200\,\mathrm{V}\). It is then disconnected from the power supply and connected in parallel with an uncharged \(2\,\mathrm{µF}\) capacitor. The loss of electrostatic potential energy during the redistribution of charge is:</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(1.33 \times 10^{-2}\,\mathrm{J}\)</div>
+        <div class="option-item">(B) \(2.67 \times 10^{-2}\,\mathrm{J}\)</div>
+        <div class="option-item">(C) \(4.00 \times 10^{-2}\,\mathrm{J}\)</div>
+        <div class="option-item">(D) \(8.00 \times 10^{-2}\,\mathrm{J}\)</div>
+      </div>
+    </div>
+    <hr>
+    <div class="lang-hi">
+      <p>एक \(4\,\mathrm{µF}\) के संधारित्र को \(200\,\mathrm{V}\) के विभव तक आवेशित किया जाता है। इसके पश्चात इसे प्रदाय (सप्लाई) से हटाकर एक अनावेशित \(2\,\mathrm{µF}\) के संधारित्र के साथ समांतर क्रम में जोड़ दिया जाता है। आवेश के पुनर्वितरण में स्थिरवैद्युत स्थितिज ऊर्जा का ह्रास कितना होगा?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(1.33 \times 10^{-2}\,\mathrm{J}\)</div>
+        <div class="option-item">(B) \(2.67 \times 10^{-2}\,\mathrm{J}\)</div>
+        <div class="option-item">(C) \(4.00 \times 10^{-2}\,\mathrm{J}\)</div>
+        <div class="option-item">(D) \(8.00 \times 10^{-2}\,\mathrm{J}\)</div>
+      </div>
+    </div>
+    <div class="ans-box">
+      <p><strong>Correct Answer / सही उत्तर:</strong> (B) \(2.67 \times 10^{-2}\,\mathrm{J}\)</p>
+      <p><strong>Detailed Explanation / विस्तृत हल:</strong><br>
+      Given: \(C_1 = 4\,\mathrm{µF}\), \(V_1 = 200\,\mathrm{V}\), \(C_2 = 2\,\mathrm{µF}\), \(V_2 = 0\,\mathrm{V}\).<br>
+      The standard formula for electrostatic energy loss during charge sharing:
+      \[\Delta U = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2\]
+      Substitute the given values:
+      \[\Delta U = \frac{1}{2}\frac{(4 \times 10^{-6})(2 \times 10^{-6})}{4 \times 10^{-6} + 2 \times 10^{-6}}(200 - 0)^2 = \frac{1}{2}\frac{8 \times 10^{-12}}{6 \times 10^{-6}}(40000)\]
+      \[\Delta U = \frac{1}{2}\left(\frac{4}{3} \times 10^{-6}\right)(40000) = \frac{2}{3} \times 4 \times 10^{-2}\,\mathrm{J} = \frac{8}{3} \times 10^{-2}\,\mathrm{J} \approx 2.67 \times 10^{-2}\,\mathrm{J}\]</p>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question-card">
+    <span class="q-badge">Question 5</span>
+    <span class="q-type">NEET-UG Assertion &amp; Reason</span>
+    <div class="lang-en">
+      <p><strong>Assertion (A):</strong> Sensitive electronic instruments can be effectively shielded from external electrostatic fields by enclosing them within a hollow metallic box.<br>
+      <strong>Reason (R):</strong> Inside a closed metallic conductor containing no cavity charges, the electrostatic field is identically zero under all external conditions.</p>
+      <div class="options-grid">
+        <div class="option-item">(A) Both (A) and (R) are true and (R) is the correct explanation of (A).</div>
+        <div class="option-item">(B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</div>
+        <div class="option-item">(C) (A) is true but (R) is false.</div>
+        <div class="option-item">(D) (A) is false but (R) is true.</div>
+      </div>
+    </div>
+    <hr>
+    <div class="lang-hi">
+      <p><strong>अभिकथन (A):</strong> सुग्राही इलेक्ट्रॉनिक उपकरणों को किसी खोखले धात्विक बक्से में रखकर बाह्य स्थिरवैद्युत क्षेत्रों से प्रभावी रूप से सुरक्षित किया जा सकता है।<br>
+      <strong>कारण (R):</strong> किसी बंद धात्विक चालक के भीतर (यदि कोटर में कोई आवेश न हो), सभी बाह्य परिस्थितियों में स्थिरवैद्युत क्षेत्र सर्वथा शून्य होता है।</p>
+      <div class="options-grid">
+        <div class="option-item">(A) (A) और (R) दोनों सही हैं तथा (R), (A) की सही व्याख्या है।</div>
+        <div class="option-item">(B) (A) और (R) दोनों सही हैं परंतु (R), (A) की सही व्याख्या नहीं है।</div>
+        <div class="option-item">(C) (A) सही है परंतु (R) गलत है।</div>
+        <div class="option-item">(D) (A) गलत है परंतु (R) सही है।</div>
+      </div>
+    </div>
+    <div class="ans-box">
+      <p><strong>Correct Answer / सही उत्तर:</strong> (A) Both (A) and (R) are true and (R) is the correct explanation of (A).</p>
+      <p><strong>Detailed Explanation / विस्तृत हल:</strong><br>
+      By Gauss's law and the properties of conductors in electrostatic equilibrium, any charge placed outside or on the shell induces charges on the outer metallic surface such that the resultant electric field inside the cavity is strictly zero (\(\vec{E} = 0\)). This phenomenon is known as <em>Electrostatic Shielding</em>. Hence, enclosing sensitive equipment in a Faraday cage shields it completely.</p>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question-card">
+    <span class="q-badge">Question 6</span>
+    <span class="q-type">NEET-UG Variable Capacitor Network</span>
+    <div class="lang-en">
+      <p>A parallel plate capacitor is connected to a battery of constant voltage \(V\). If the plate separation is doubled while keeping the battery connected, what is the work done by the battery?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(-\frac{1}{2} C_0 V^2\)</div>
+        <div class="option-item">(B) \(+\frac{1}{2} C_0 V^2\)</div>
+        <div class="option-item">(C) \(-C_0 V^2\)</div>
+        <div class="option-item">(D) \(0\)</div>
+      </div>
+    </div>
+    <hr>
+    <div class="lang-hi">
+      <p>एक समांतर पट्टिका संधारित्र नियत वोल्टता \(V\) की बैटरी से जुड़ा है। बैटरी को जुड़ा रखते हुए यदि पट्टिकाओं के बीच की दूरी दोगुनी कर दी जाए, तो बैटरी द्वारा किया गया कार्य क्या होगा?</p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(-\frac{1}{2} C_0 V^2\)</div>
+        <div class="option-item">(B) \(+\frac{1}{2} C_0 V^2\)</div>
+        <div class="option-item">(C) \(-C_0 V^2\)</div>
+        <div class="option-item">(D) \(0\)</div>
+      </div>
+    </div>
+    <div class="ans-box">
+      <p><strong>Correct Answer / सही उत्तर:</strong> (A) \(-\frac{1}{2} C_0 V^2\)</p>
+      <p><strong>Detailed Explanation / विस्तृत हल:</strong><br>
+      Initial capacitance \(C_i = C_0\); Initial charge \(Q_i = C_0 V\).<br>
+      When separation is doubled (\(d' = 2d\)), new capacitance is \(C_f = \frac{C_0}{2}\).<br>
+      Since battery remains connected, final voltage is still \(V\).<br>
+      Final charge: \(Q_f = C_f V = \frac{1}{2} C_0 V\).<br>
+      Change in charge: \(\Delta Q = Q_f - Q_i = \frac{1}{2}C_0 V - C_0 V = -\frac{1}{2} C_0 V\).<br>
+      Work done by battery: \(W_{\mathrm{battery}} = (\Delta Q) \cdot V = \left(-\frac{1}{2} C_0 V\right) V = -\frac{1}{2} C_0 V^2\).<br>
+      (The negative sign signifies that charge flows back into the battery, recharging it).</p>
+    </div>
+  </div>
+</section>
+
+<section id="pitfalls-checklist">
+  <h2>11. Common Traps, Pitfalls &amp; NEET Revision Checklist</h2>
+  
+  <div class="pitfall-card">
+    <h3 style="color: #9a3412;">⚠️ High-Frequency Traps in NEET-UG</h3>
+    <ul>
+      <li><strong>Trap 1: Confusing \(\vec{E} = 0\) with \(V = 0\).</strong> Inside a charged conducting shell, \(\vec{E} = 0\), but \(V = \text{constant} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{R} \neq 0\). Conversely, on the equatorial plane of an electric dipole, \(V = 0\) everywhere, but \(\vec{E} \neq 0\) (\(\vec{E} = -\frac{\vec{p}}{4\pi\varepsilon_0 r^3}\)).</li>
+      <li><strong>Trap 2: Battery Connected vs. Disconnected.</strong> Always read the problem condition first! If battery is disconnected, \(Q\) is strictly constant. If battery remains connected, \(V\) is strictly constant.</li>
+      <li><strong>Trap 3: Work done on/by electric field.</strong> Work done <em>by external agent</em> in moving a charge is \(W_{\mathrm{ext}} = q\Delta V = q(V_f - V_i)\). Work done <em>by electrostatic field</em> is \(W_{\mathrm{field}} = -q\Delta V = q(V_i - V_f)\). A reversed sign will cost 5 marks in NEET!</li>
+      <li><strong>Trap 4: Dielectric energy dissipation.</strong> During charge sharing between two capacitors, energy is <em>always lost</em> (\(\Delta U &gt; 0\)) as heat and radiation, even with ideal zero-resistance connecting wires.</li>
+    </ul>
+  </div>
+
+  <div class="card" style="border-left: 4px solid #16a34a; background-color: #f0fdf4;">
+    <h3 style="color: #166534;">✅ Rapid 60-Second Revision Checklist</h3>
+    <ul style="padding-left: 18px;">
+      <li>[ ] Point charge: \(V \propto 1/r\); Dipole: \(V \propto 1/r^2\); Quadrupole: \(V \propto 1/r^3\).</li>
+      <li>[ ] Potential is scalar: Add algebraically with proper signs (\(+\) and \(-\)).</li>
+      <li>[ ] Relation: \(\vec{E} = -\vec{\nabla} V\); \(E_x = -\partial V/\partial x\). Field points towards decreasing \(V\).</li>
+      <li>[ ] Concentric shells: Potential inside equals surface potential of that shell plus potentials from all outer shells.</li>
+      <li>[ ] Parallel plate capacitor: \(C_0 = \frac{\varepsilon_0 A}{d}\); With slab \(t\): \(C = \frac{\varepsilon_0 A}{d - t(1 - 1/K)}\).</li>
+      <li>[ ] Energy density: \(u = \frac{1}{2}\varepsilon_0 E^2 = \frac{1}{2}\frac{\sigma^2}{\varepsilon_0}\).</li>
+      <li>[ ] Energy loss formula: \(\Delta U = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2\).</li>
+    </ul>
+  </div>
+</section>
+
+<section id="master-formula-recap">
+  <h2>12. Master Formula Recap (अंतिम सूत्र सारांश)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">Topic / Concept</th>
+        <th style="width: 40%;">Core Formula (MathJax)</th>
+        <th style="width: 30%;">Crucial Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Potential of Point Charge</strong><br>(बिंदु आवेश का विभव)</td>
+        <td>\(V(r) = \frac{1}{4\pi\varepsilon_0}\frac{q}{r}\)</td>
+        <td>Scalar quantity, zero at infinity.</td>
+      </tr>
+      <tr>
+        <td><strong>Electric Dipole Potential</strong><br>(वैद्युत द्विध्रुव विभव)</td>
+        <td>\(V = \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{r^2}\)</td>
+        <td>Zero on entire equatorial plane (\(\theta = 90^\circ\)).</td>
+      </tr>
+      <tr>
+        <td><strong>Field-Potential Relation</strong><br>(विभव प्रवणता संबंध)</td>
+        <td>\(E = -\frac{\mathrm{d}V}{\mathrm{d}r}\) or \(\vec{E} = -\vec{\nabla}V\)</td>
+        <td>Field directed along maximum decrease of \(V\).</td>
+      </tr>
+      <tr>
+        <td><strong>Parallel Plate Capacitor</strong><br>(समांतर पट्टिका धारिता)</td>
+        <td>\(C = \frac{K\varepsilon_0 A}{d}\)</td>
+        <td>Independent of charge \(Q\) or voltage \(V\).</td>
+      </tr>
+      <tr>
+        <td><strong>Dielectric Slab (\(t &lt; d\))</strong><br>(आंशिक परावैद्युत पट्टिका)</td>
+        <td>\(C = \frac{\varepsilon_0 A}{d - t\left(1 - \frac{1}{K}\right)}\)</td>
+        <td>For metal slab, \(K \to \infty \implies C = \frac{\varepsilon_0 A}{d - t}\).</td>
+      </tr>
+      <tr>
+        <td><strong>Combinations</strong><br>(संयोजन)</td>
+        <td>Series: \(\frac{1}{C_s} = \sum \frac{1}{C_i}\); Parallel: \(C_p = \sum C_i\)</td>
+        <td>Series: same \(Q\); Parallel: same \(V\).</td>
+      </tr>
+      <tr>
+        <td><strong>Stored Energy &amp; Density</strong><br>(संचित ऊर्जा एवं घनत्व)</td>
+        <td>\(U = \frac{1}{2}CV^2 = \frac{Q^2}{2C}\); \(u = \frac{1}{2}\varepsilon_0 E^2\)</td>
+        <td>Stored in electric field between plates.</td>
+      </tr>
+      <tr>
+        <td><strong>Charge Sharing Loss</strong><br>(आवेश पुनर्वितरण में ह्रास)</td>
+        <td>\(\Delta U = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2\)</td>
+        <td>Common potential \(V_c = \frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}\).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer style="text-align: center; margin-top: 30px; padding-top: 14px; border-top: 2px solid #cbd5e1; color: #64748b; font-size: 0.85rem;">
+    <p>NEET-UG Physics Master Series • Electrostatic Potential and Capacitance • NCERT Class 12 Chapter 2 Complete Bilingual Tutorial</p>
+  </footer>
+</section>
+</body>
+</html>

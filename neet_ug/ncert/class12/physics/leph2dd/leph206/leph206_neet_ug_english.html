@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semiconductor Electronics: Materials, Devices and Simple Circuits — NEET UG Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2b6cb0;
+      --secondary: #2c7a7b;
+      --accent: #c53030;
+      --bg-main: #f7fafc;
+      --bg-card: #ffffff;
+      --text-dark: #2d3748;
+      --text-muted: #4a5568;
+      --border-color: #e2e8f0;
+      --callout-bg: #ebf8ff;
+      --callout-border: #3182ce;
+      --success-bg: #f0fff4;
+      --success-border: #38a169;
+      --warning-bg: #fffaf0;
+      --warning-border: #dd6b20;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text-dark);
+      background-color: var(--bg-main);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Headings */
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      text-align: center;
+      border-bottom: 3px solid var(--primary-light);
+      padding-bottom: 12px;
+      margin-top: 0;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .header-tagline {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-left: 5px solid var(--primary-light);
+      padding-left: 12px;
+      margin-top: 2rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: var(--secondary);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Cards & Containers */
+    .concept-box, .callout {
+      background-color: var(--callout-bg);
+      border-left: 4px solid var(--callout-border);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .key-result {
+      background-color: var(--success-bg);
+      border-left: 4px solid var(--success-border);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .pitfall-box {
+      background-color: var(--warning-bg);
+      border-left: 4px solid var(--warning-border);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+
+    .worked-example {
+      background: #fafafa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px 22px;
+      margin: 1.5rem 0;
+    }
+
+    .worked-example-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    /* Responsive Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #edf2f7;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f7fafc;
+    }
+
+    /* SVG Containers */
+    .svg-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 1.5rem auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid #edf2f7;
+      border-radius: 6px;
+    }
+
+    .svg-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* Practice Questions Section */
+    .practice-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .q-number {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .options {
+      margin: 12px 0 12px 10px;
+    }
+
+    .options div {
+      margin-bottom: 6px;
+    }
+
+    .solution-block {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: #f7fafc;
+      border-left: 3px solid var(--primary-light);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.93rem;
+    }
+
+    .ans-tag {
+      font-weight: bold;
+      color: var(--secondary);
+    }
+
+    /* Print Styles */
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm 15mm 15mm 15mm;
+      }
+
+      body {
+        background: #ffffff;
+        color: #000000;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .practice-item, .worked-example, .key-result, .concept-box, .pitfall-box {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      h1, h2, h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+<div class="container">
+
+  <div class="header-tagline">
+    <span class="exam-badge">NEET UG High-Yield Physics</span>
+    <h1>Semiconductor Electronics: Materials, Devices and Simple Circuits</h1>
+    <p style="text-align: center; color: var(--text-muted); margin-top: 5px;">Comprehensive Self-Contained Study Tutorial, Theory Synthesis, and Exam Practice</p>
+  </div>
+
+  <h2>1. Module Context and NEET UG High-Yield Overview</h2>
+  <p>Semiconductor physics constitutes one of the most consistent, highly weighted topics in the NEET UG Physics syllabus. In modern electronic systems, devices that govern a controlled flow of electrons serve as fundamental building blocks. Historically, early radio and electronic equipment utilized <strong>vacuum tubes</strong> (or valves: vacuum diodes, triodes, tetrodes, and pentodes). In these bulky devices, electrons were emitted from a heated cathode via thermionic emission and accelerated through an evacuated space to an anode. Such vacuum devices required high operating voltages (~100 V), consumed significant power for filament heating, had limited lifespans, and broke easily.</p>
+
+  <p>Modern solid-state semiconductors revolutionized technology because charge carriers are produced and flow <strong>entirely within the solid crystal lattice itself</strong>. No vacuum or filament heating is necessary. Solid-state devices operate reliably at small DC voltages, feature negligible power consumption, possess long operational lifespans, and allow micro-scale integration.</p>
+
+  <div class="concept-box">
+    <strong>Key NEET UG Learning Targets:</strong>
+    <ul>
+      <li>Classification of solids based on electrical conductivity (\(\sigma\)) and resistivity (\(\rho\)).</li>
+      <li>Band theory of solids: Valence Band (VB), Conduction Band (CB), and Energy Band Gap (\(E_g\)) across conductors, insulators, and semiconductors.</li>
+      <li>Mechanism of electrical conduction in intrinsic semiconductors; the physics of holes and intrinsic carrier concentration (\(n_i\)).</li>
+      <li>Extrinsic semiconductors: n-type (donor impurities) and p-type (acceptor impurities), energy levels (\(E_D, E_A\)), and the Mass Action Law (\(n_e n_h = n_i^2\)).</li>
+      <li>Physics of the p-n junction: diffusion vs. drift currents, depletion layer formation, and barrier potential.</li>
+      <li>Semiconductor diode characteristics under forward and reverse bias; dynamic resistance.</li>
+      <li>Rectification: Half-wave and full-wave (centre-tapped) rectifiers, output frequencies, and capacitor filter action.</li>
+    </ul>
+  </div>
+
+  <h2>2. Classification of Metals, Conductors, and Semiconductors</h2>
+
+  <h3>A. Classification Based on Conductivity and Resistivity</h3>
+  <p>Solids are broadly grouped according to their room-temperature resistivity (\(\rho\)) or electrical conductivity (\(\sigma = 1/\rho\)):</p>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Resistivity Range (\(\rho\) in \(\Omega\cdot\mathrm{m}\))</th>
+          <th>Conductivity Range (\(\sigma\) in \(\mathrm{S\cdot m^{-1}}\))</th>
+          <th>Characteristic Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Metals (Conductors)</strong></td>
+          <td>\(10^{-2}\) to \(10^{-8}\)</td>
+          <td>\(10^{2}\) to \(10^{8}\)</td>
+          <td>Extremely low resistivity; abundant conduction electrons.</td>
+        </tr>
+        <tr>
+          <td><strong>Semiconductors</strong></td>
+          <td>\(10^{-5}\) to \(10^{6}\)</td>
+          <td>\(10^{5}\) to \(10^{-6}\)</td>
+          <td>Intermediate resistivity; sensitive to temperature, light, and dopants.</td>
+        </tr>
+        <tr>
+          <td><strong>Insulators</strong></td>
+          <td>\(10^{11}\) to \(10^{19}\)</td>
+          <td>\(10^{-11}\) to \(10^{-19}\)</td>
+          <td>Extremely high resistivity; tightly bound valence electrons.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>B. Chemical Classification of Semiconductors</h3>
+  <ul>
+    <li><strong>Elemental Semiconductors:</strong> Silicon (\(\mathrm{Si}\)) and Germanium (\(\mathrm{Ge}\)). Both belong to Group 14 of the periodic table.</li>
+    <li><strong>Compound Semiconductors:</strong>
+      <ul>
+        <li><em>Inorganic:</em> Cadmium Sulphide (\(\mathrm{CdS}\)), Gallium Arsenide (\(\mathrm{GaAs}\)), Cadmium Selenide (\(\mathrm{CdSe}\)), Indium Phosphide (\(\mathrm{InP}\)).</li>
+        <li><em>Organic:</em> Anthracene, doped phthalocyanines.</li>
+        <li><em>Organic Conducting Polymers:</em> Polypyrrole, polyaniline, polythiophene.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>C. Classification Based on Energy Bands</h3>
+  <p>In an isolated atom, discrete atomic orbitals define electron energies. When \(N\) identical atoms assemble to form a crystal lattice, atomic orbitals overlap. Due to the Pauli exclusion principle, each discrete energy level splits into \(N\) closely spaced levels, forming continuous <strong>energy bands</strong>.</p>
+  <ul>
+    <li><strong>Valence Band (VB):</strong> The energy band formed by the valence electrons. At absolute zero (\(0\,\mathrm{K}\)), it is completely filled. The top edge is designated as \(E_V\).</li>
+    <li><strong>Conduction Band (CB):</strong> The lowest unfilled energy band situated directly above the valence band. The bottom edge is designated as \(E_C\). Electrons in this band are mobile and participate in electrical conduction.</li>
+    <li><strong>Energy Band Gap (\(E_g\)):</strong> The forbidden energy gap separating the valence band top and the conduction band bottom:
+      \[
+      E_g = E_C - E_V
+      \]
+      No permitted electron energy states can exist within this gap.
+    </li>
+  </ul>
+
+  <!-- SVG Diagram 1: Energy Bands -->
+  <div class="svg-container">
+    <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background panels -->
+      <rect x="10" y="10" width="200" height="210" fill="#f8fafc" stroke="#cbd5e0" rx="6"/>
+      <rect x="240" y="10" width="200" height="210" fill="#f8fafc" stroke="#cbd5e0" rx="6"/>
+      <rect x="470" y="10" width="200" height="210" fill="#f8fafc" stroke="#cbd5e0" rx="6"/>
+
+      <!-- Panel 1: Metal / Conductor -->
+      <text x="110" y="32" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle">Metals (Overlap / No Gap)</text>
+      <rect x="35" y="55" width="150" height="70" fill="#bee3f8" stroke="#3182ce" stroke-width="1.5"/>
+      <rect x="35" y="95" width="150" height="75" fill="#90cdf4" fill-opacity="0.7" stroke="#2b6cb0" stroke-width="1.5"/>
+      <text x="110" y="75" font-size="11" fill="#2c5282" text-anchor="middle">Conduction Band</text>
+      <text x="110" y="115" font-size="11" font-weight="bold" fill="#1a365d" text-anchor="middle">Overlap Region (Eg = 0)</text>
+      <text x="110" y="150" font-size="11" fill="#2c5282" text-anchor="middle">Valence Band</text>
+      <text x="110" y="195" font-size="11" fill="#4a5568" text-anchor="middle">High Conductivity</text>
+
+      <!-- Panel 2: Insulator -->
+      <text x="340" y="32" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle">Insulators (Eg &gt; 3 eV)</text>
+      <rect x="265" y="50" width="150" height="35" fill="#edf2f7" stroke="#a0aec0" stroke-width="1.5"/>
+      <text x="340" y="72" font-size="11" fill="#718096" text-anchor="middle">Empty CB (Ec)</text>
+      <!-- Gap indicator -->
+      <line x1="340" y1="88" x2="340" y2="142" stroke="#e53e3e" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="375" y="118" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">Eg &gt; 3 eV</text>
+      <rect x="265" y="145" width="150" height="40" fill="#90cdf4" stroke="#2b6cb0" stroke-width="1.5"/>
+      <text x="340" y="168" font-size="11" fill="#1a365d" text-anchor="middle">Full VB (Ev)</text>
+      <text x="340" y="205" font-size="11" fill="#4a5568" text-anchor="middle">E.g., Diamond (Eg = 5.4 eV)</text>
+
+      <!-- Panel 3: Semiconductor -->
+      <text x="570" y="32" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle">Semiconductors (Eg &lt; 3 eV)</text>
+      <rect x="495" y="55" width="150" height="35" fill="#ebf8ff" stroke="#3182ce" stroke-width="1.5"/>
+      <text x="570" y="77" font-size="11" fill="#2b6cb0" text-anchor="middle">Conduction Band (Ec)</text>
+      <!-- Small gap -->
+      <line x1="570" y1="93" x2="570" y2="127" stroke="#dd6b20" stroke-width="1.5"/>
+      <text x="605" y="113" font-size="11" font-weight="bold" fill="#c05621" text-anchor="middle">Eg &lt; 3 eV</text>
+      <rect x="495" y="130" width="150" height="40" fill="#90cdf4" stroke="#2b6cb0" stroke-width="1.5"/>
+      <text x="570" y="153" font-size="11" fill="#1a365d" text-anchor="middle">Valence Band (Ev)</text>
+      <text x="570" y="195" font-size="11" fill="#4a5568" text-anchor="middle">Si: 1.1 eV | Ge: 0.72 eV</text>
+    </svg>
+    <div class="svg-caption">Figure 1: Energy band representations for Metals, Insulators, and Semiconductors.</div>
+  </div>
+
+  <p>In crystalline Silicon (\(n=3\) outer shell) and Germanium (\(n=4\) outer shell), each atom has 4 outer electrons. For \(N\) atoms, the total number of valence electrons is \(4N\), occupying \(8N\) outer quantum states (\(2s\) and \(2p\) subshells). In solid crystal equilibrium, these \(8N\) states split into two separate bands of \(4N\) states each, separated by \(E_g\):</p>
+  <ul>
+    <li>The lower band of \(4N\) states is fully occupied at \(0\,\mathrm{K}\) (Valence Band).</li>
+    <li>The upper band of \(4N\) states is completely unoccupied at \(0\,\mathrm{K}\) (Conduction Band).</li>
+  </ul>
+
+  <div class="key-result">
+    <strong>Comparative Band Gaps:</strong>
+    \[
+    E_{g,\mathrm{C}} \ (5.4\,\mathrm{eV}) > E_{g,\mathrm{Si}} \ (1.1\,\mathrm{eV}) > E_{g,\mathrm{Ge}} \ (0.7\,\mathrm{eV}) > E_{g,\mathrm{Sn}} \ (0\,\mathrm{eV})
+    \]
+    Although Carbon (diamond), Silicon, Germanium, and Tin all belong to Group 14, Carbon is an insulator (\(E_g > 3\,\mathrm{eV}\)), Silicon and Germanium are semiconductors, and Tin is a metal (\(E_g = 0\,\mathrm{eV}\)).
+  </div>
+
+  <h2>3. Intrinsic Semiconductors</h2>
+  <p>A pure, undoped semiconductor crystal is called an <strong>intrinsic semiconductor</strong>. Silicon and Germanium crystallize in a tetrahedral, diamond-like diamond-cubic lattice where every atom is bonded to four nearest neighbors by shared electron pairs (covalent bonds). Respective lattice constants are \(3.56\,\text{Å}\) for Carbon, \(5.43\,\text{Å}\) for Silicon, and \(5.66\,\text{Å}\) for Germanium.</p>
+
+  <!-- SVG Diagram 2: Covalent Lattice & Hole Generation -->
+  <div class="svg-container">
+    <svg viewBox="0 0 650 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grid of Silicon Cores -->
+      <g fill="#2b6cb0" stroke="#1a365d" stroke-width="1.5">
+        <!-- Row 1 -->
+        <circle cx="100" cy="50" r="18" fill="#bee3f8"/><text x="100" y="55" font-size="12" font-weight="bold" fill="#1a365d" text-anchor="middle">+4</text>
+        <circle cx="230" cy="50" r="18" fill="#bee3f8"/><text x="230" y="55" font-size="12" font-weight="bold" fill="#1a365d" text-anchor="middle">+4</text>
+        <circle cx="360" cy="50" r="18" fill="#bee3f8"/><text x="360" y="55" font-size="12" font-weight="bold" fill="#1a365d" text-anchor="middle">+4</text>
+        <!-- Row 2 -->
+        <circle cx="100" cy="150" r="18" fill="#bee3f8"/><text x="100" y="155" font-size="12" font-weight="bold" fill="#1a365d" text-anchor="middle">+4</text>
+        <circle cx="230" cy="150" r="18" fill="#bee3f8"/><text x="230" y="155" font-size="12" font-weight="bold" fill="#1a365d" text-anchor="middle">+4</text>
+        <circle cx="360" cy="150" r="18" fill="#bee3f8"/><text x="360" y="155" font-size="12" font-weight="bold" fill="#1a365d" text-anchor="middle">+4</text>
+      </g>
+
+      <!-- Bonds (dashed lines) -->
+      <g stroke="#718096" stroke-dasharray="4,3" stroke-width="1.5">
+        <line x1="118" y1="50" x2="212" y2="50"/>
+        <line x1="248" y1="50" x2="342" y2="50"/>
+        <line x1="118" y1="150" x2="212" y2="150"/>
+        <line x1="248" y1="150" x2="342" y2="150"/>
+        <line x1="100" y1="68" x2="100" y2="132"/>
+        <line x1="230" y1="68" x2="230" y2="132"/>
+        <line x1="360" y1="68" x2="360" y2="132"/>
+      </g>
+
+      <!-- Bonding pairs (dots) -->
+      <circle cx="160" cy="47" r="3.5" fill="#3182ce"/>
+      <circle cx="170" cy="53" r="3.5" fill="#3182ce"/>
+      <circle cx="100" cy="95" r="3.5" fill="#3182ce"/>
+      <circle cx="100" cy="105" r="3.5" fill="#3182ce"/>
+      <circle cx="360" cy="95" r="3.5" fill="#3182ce"/>
+      <circle cx="360" cy="105" r="3.5" fill="#3182ce"/>
+      <circle cx="160" cy="147" r="3.5" fill="#3182ce"/>
+      <circle cx="170" cy="153" r="3.5" fill="#3182ce"/>
+      <circle cx="290" cy="147" r="3.5" fill="#3182ce"/>
+      <circle cx="300" cy="153" r="3.5" fill="#3182ce"/>
+
+      <!-- Broken bond & free electron -->
+      <circle cx="230" cy="95" r="6" fill="#fff" stroke="#e53e3e" stroke-width="2"/>
+      <text x="210" y="99" font-size="10" font-weight="bold" fill="#e53e3e" text-anchor="end">Hole (Site 1)</text>
+
+      <!-- Displaced free electron -->
+      <path d="M 230,95 Q 260,80 300,90" fill="none" stroke="#e53e3e" stroke-width="1.5" stroke-dasharray="2,2"/>
+      <circle cx="300" cy="90" r="4.5" fill="#e53e3e"/>
+      <text x="312" y="93" font-size="11" font-weight="bold" fill="#e53e3e">Free Conduction Electron (-q)</text>
+
+      <!-- Valence electron jump explanation -->
+      <path d="M 290,147 Q 260,130 234,103" fill="none" stroke="#2c7a7b" stroke-width="1.5"/>
+      <text x="260" y="125" font-size="10" fill="#2c7a7b">Electron hop</text>
+      <text x="470" y="60" font-size="12" font-weight="bold" fill="#1a365d">Generation Mechanism (T &gt; 0 K):</text>
+      <text x="470" y="85" font-size="11" fill="#4a5568">• Thermal energy breaks covalent bond.</text>
+      <text x="470" y="105" font-size="11" fill="#4a5568">• Electron enters Conduction Band.</text>
+      <text x="470" y="125" font-size="11" fill="#4a5568">• Vacancy in Valence Band is a Hole.</text>
+      <text x="470" y="150" font-size="11" font-weight="bold" fill="#2c7a7b">Electrical Neutrality:</text>
+      <text x="470" y="170" font-size="12" fill="#2c7a7b">ne = nh = ni</text>
+      <text x="470" y="195" font-size="11" fill="#4a5568">Total Current: I = Ie + Ih</text>
+    </svg>
+    <div class="svg-caption">Figure 2: Two-dimensional covalent bonding lattice in Silicon showing thermal generation of an electron-hole pair.</div>
+  </div>
+
+  <h3>A. Behavior at Absolute Zero (\(T = 0\,\mathrm{K}\))</h3>
+  <p>At \(0\,\mathrm{K}\), all valence electrons are locked securely inside covalent bonds. Thermal excitation energy is completely absent. Consequently, the valence band is completely full, the conduction band is completely empty, and the crystal behaves as an <strong>ideal electrical insulator</strong>.</p>
+
+  <h3>B. Thermal Generation and the Nature of a Hole (\(T > 0\,\mathrm{K}\))</h3>
+  <p>As temperature rises, lattice vibrations impart thermal energy to valence electrons. When an electron gains energy exceeding \(E_g\), it breaks away from its covalent bond, enters the conduction band, and becomes a mobile <strong>conduction electron</strong> with charge \(-q\). It leaves behind a localized vacant bond site with an effective positive charge \(+q\), designated as a <strong>hole</strong>.</p>
+  <p>A hole is not an actual physical subatomic particle; it is an <em>apparent particle</em> representing the collective motion of bound valence electrons. When a neighboring valence electron jumps to fill this vacancy, the hole appears to move in the opposite direction. Thus:</p>
+  <ul>
+    <li>Free conduction electrons move in the conduction band under an electric field, producing electron current \(I_e\).</li>
+    <li>Holes move through the valence band towards the negative potential, producing hole current \(I_h\).</li>
+    <li>The total current flowing through an intrinsic semiconductor is the direct arithmetic sum:
+      \[
+      I = I_e + I_h
+      \]
+    </li>
+  </ul>
+
+  <div class="key-result">
+    <strong>Intrinsic Carrier Balance:</strong>
+    In a pure semiconductor, every thermally generated conduction electron creates exactly one hole. Thus:
+    \[
+    n_e = n_h = n_i
+    \]
+    where \(n_e\) is the conduction electron concentration, \(n_h\) is the hole concentration, and \(n_i\) is the intrinsic carrier concentration. Dynamic equilibrium ensures that the rate of carrier generation equals the rate of electron-hole recombination.
+  </div>
+
+  <h2>4. Extrinsic Semiconductors</h2>
+  <p>Because the intrinsic carrier concentration of pure Silicon at room temperature is extremely small (\(n_i \approx 1.5 \times 10^{16}\,\mathrm{m^{-3}}\) compared to an atomic density of \(\sim 5 \times 10^{28}\,\mathrm{atoms\cdot m^{-3}}\)), intrinsic semiconductors exhibit very high electrical resistance and cannot be used for practical device fabrication. Their conductivity is enhanced by many orders of magnitude via <strong>doping</strong>.</p>
+  <p><strong>Doping</strong> is the deliberate addition of a precise, minute concentration (typically a few parts per million, ppm) of selected impurity atoms into a pure semiconductor crystal lattice. The added impurities are termed <strong>dopants</strong>. To avoid distorting the parent crystal lattice, dopant atoms must have atomic radii nearly identical to the host Silicon or Germanium atoms.</p>
+
+  <h3>A. n-Type Semiconductors</h3>
+  <p>When a tetravalent host (Si or Ge) is doped with a <strong>pentavalent impurity</strong> (Group 15 elements: Phosphorus [\(\mathrm{P}\)], Arsenic [\(\mathrm{As}\)], or Antimony [\(\mathrm{Sb}\)]):</p>
+  <ul>
+    <li>Four of the dopant's five valence electrons establish covalent bonds with four neighboring Silicon atoms.</li>
+    <li>The fifth valence electron remains loosely bound to its parent donor nucleus by an extremely small electrostatic ionization energy:
+      \[
+      \Delta E \approx 0.01\,\mathrm{eV} \ (\text{in Germanium}), \quad \Delta E \approx 0.05\,\mathrm{eV} \ (\text{in Silicon})
+      \]
+    </li>
+    <li>At room temperature (\(\approx 300\,\mathrm{K}\), where thermal energy \(k_B T \approx 0.026\,\mathrm{eV}\)), practically all donor atoms are ionised, releasing their fifth electrons into the conduction band.</li>
+    <li>The pentavalent atom is termed a <strong>donor impurity</strong> because it donates a conduction electron without generating a hole.</li>
+    <li>The donor energy level, \(E_D\), sits just below the bottom of the conduction band (\(E_C\)).</li>
+  </ul>
+
+  <!-- SVG Diagram 3: Extrinsic Band Levels -->
+  <div class="svg-container">
+    <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- n-type Band -->
+      <g>
+        <rect x="30" y="20" width="290" height="190" fill="#f8fafc" stroke="#cbd5e0" rx="6"/>
+        <text x="175" y="42" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle">n-Type Energy Bands (T &gt; 0 K)</text>
+
+        <!-- CB -->
+        <rect x="50" y="55" width="250" height="40" fill="#ebf8ff" stroke="#3182ce" stroke-width="1.5"/>
+        <text x="60" y="75" font-size="11" font-weight="bold" fill="#2b6cb0">CB (Ec)</text>
+        <!-- Electrons in CB -->
+        <circle cx="120" cy="75" r="3.5" fill="#1a365d"/><circle cx="150" cy="75" r="3.5" fill="#1a365d"/>
+        <circle cx="180" cy="70" r="3.5" fill="#1a365d"/><circle cx="210" cy="75" r="3.5" fill="#1a365d"/>
+        <circle cx="240" cy="70" r="3.5" fill="#1a365d"/><circle cx="270" cy="75" r="3.5" fill="#1a365d"/>
+
+        <!-- Donor Level ED -->
+        <line x1="50" y1="110" x2="300" y2="110" stroke="#e53e3e" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <text x="305" y="113" font-size="10" font-weight="bold" fill="#e53e3e">ED (~0.05 eV below Ec)</text>
+
+        <!-- VB -->
+        <rect x="50" y="145" width="250" height="40" fill="#90cdf4" stroke="#2b6cb0" stroke-width="1.5"/>
+        <text x="60" y="165" font-size="11" font-weight="bold" fill="#1a365d">VB (Ev)</text>
+        <circle cx="170" cy="165" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/> <!-- thermally generated hole -->
+        <text x="180" y="169" font-size="9" fill="#1a365d">minority hole</text>
+        <text x="175" y="200" font-size="11" fill="#4a5568" text-anchor="middle">ne &gt;&gt; nh | Majority: e- | Minority: holes</text>
+      </g>
+
+      <!-- p-type Band -->
+      <g>
+        <rect x="360" y="20" width="290" height="190" fill="#f8fafc" stroke="#cbd5e0" rx="6"/>
+        <text x="505" y="42" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle">p-Type Energy Bands (T &gt; 0 K)</text>
+
+        <!-- CB -->
+        <rect x="380" y="55" width="250" height="40" fill="#ebf8ff" stroke="#3182ce" stroke-width="1.5"/>
+        <text x="390" y="75" font-size="11" font-weight="bold" fill="#2b6cb0">CB (Ec)</text>
+        <circle cx="500" cy="75" r="3.5" fill="#1a365d"/> <!-- minority electron -->
+        <text x="510" y="79" font-size="9" fill="#1a365d">minority e-</text>
+
+        <!-- Acceptor Level EA -->
+        <line x1="380" y1="130" x2="630" y2="130" stroke="#38a169" stroke-dasharray="4,3" stroke-width="1.5"/>
+        <text x="635" y="133" font-size="10" font-weight="bold" fill="#38a169">EA (~0.01-0.05 eV above Ev)</text>
+
+        <!-- VB -->
+        <rect x="380" y="145" width="250" height="40" fill="#90cdf4" stroke="#2b6cb0" stroke-width="1.5"/>
+        <text x="390" y="165" font-size="11" font-weight="bold" fill="#1a365d">VB (Ev)</text>
+        <!-- Holes in VB -->
+        <circle cx="440" cy="165" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/>
+        <circle cx="470" cy="165" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/>
+        <circle cx="500" cy="160" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/>
+        <circle cx="530" cy="165" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/>
+        <circle cx="560" cy="165" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/>
+        <circle cx="590" cy="160" r="4" fill="#fff" stroke="#1a365d" stroke-width="1.5"/>
+        <text x="505" y="200" font-size="11" fill="#4a5568" text-anchor="middle">nh &gt;&gt; ne | Majority: holes | Minority: e-</text>
+      </g>
+    </svg>
+    <div class="svg-caption">Figure 3: Energy level representations for n-type and p-type semiconductors.</div>
+  </div>
+
+  <h3>B. p-Type Semiconductors</h3>
+  <p>When Silicon or Germanium is doped with a <strong>trivalent impurity</strong> (Group 13 elements: Boron [\(\mathrm{B}\)], Aluminium [\(\mathrm{Al}\)], Indium [\(\mathrm{In}\)], or Gallium [\(\mathrm{Ga}\)]):</p>
+  <ul>
+    <li>The dopant atom provides 3 valence electrons to form bonds with three neighboring host atoms. The fourth bond with the adjacent Silicon atom remains incomplete, creating an inherent hole.</li>
+    <li>An electron from a nearby Si—Si covalent bond can easily jump into this vacancy, leaving a hole behind in the host valence band.</li>
+    <li>Because the trivalent impurity accepts an electron from the host lattice, it is termed an <strong>acceptor impurity</strong>. Upon accepting an electron, it becomes a fixed, negatively charged immobile ion core.</li>
+    <li>The acceptor energy level, \(E_A\), sits slightly above the valence band top (\(E_V\)).</li>
+    <li>Here, <strong>holes are the majority carriers</strong> and <strong>electrons are the minority carriers</strong> (\(n_h \gg n_e\)).</li>
+  </ul>
+
+  <div class="key-result">
+    <strong>The Mass Action Law and Overall Crystal Neutrality:</strong>
+    <p>1. Under thermal equilibrium, the product of electron and hole concentrations is invariant for a given semiconductor at a specific temperature, regardless of doping:</p>
+    \[
+    n_e n_h = n_i^2
+    \]
+    <p>In an n-type semiconductor with donor concentration \(N_D\), since practically all donors are ionised at room temperature and \(N_D \gg n_i\), the electron concentration is \(n_e \approx N_D\). From the Mass Action Law, the minority hole concentration is drastically suppressed:</p>
+    \[
+    n_h = \frac{n_i^2}{N_D}
+    \]
+    <p>2. <strong>Crucial Exam Truth:</strong> An extrinsic semiconductor (whether n-type or p-type) maintains <strong>complete electrical neutrality</strong>. For an n-type semiconductor, the total negative mobile charge of electrons is perfectly balanced by the total positive charge of immobile ionised donor cores plus minority holes:</p>
+    \[
+    q(n_e) = q(N_D^+ + n_h)
+    \]
+  </div>
+
+  <h2>5. The p-n Junction</h2>
+  <p>A p-n junction is created when a single semiconductor single crystal is fabricated such that one region is doped with acceptor impurities (p-type) and the contiguous region is doped with donor impurities (n-type). A p-n junction cannot be formed by mechanically pressing two independent semiconductor pieces together because surface roughness (typically \(\sim 100\,\text{Å}\) to \(1000\,\text{Å}\)) greatly exceeds interatomic spacing (\(\sim 2\text{ to }3\,\text{Å}\)), presenting an insurmountable barrier of interfacial discontinuities and oxide traps.</p>
+
+  <h3>A. Formation Dynamics: Diffusion vs. Drift</h3>
+  <ol>
+    <li><strong>Diffusion Process:</strong> Because of the vast concentration gradient across the metallurgical junction, holes diffuse from the p-side to the n-side (\(\mathrm{p} \to \mathrm{n}\)), and free electrons diffuse from the n-side to the p-side (\(\mathrm{n} \to \mathrm{p}\)). This migration gives rise to a <strong>diffusion current</strong> directed from the p-side to the n-side.</li>
+    <li><strong>Formation of the Depletion Region:</strong>
+      <ul>
+        <li>When an electron diffuses across the junction from \(\mathrm{n}\) to \(\mathrm{p}\), it unmasks an uncompensated, fixed positive donor ion (\(\mathrm{P}^+, \mathrm{As}^+\)) on the n-side.</li>
+        <li>When a hole diffuses from \(\mathrm{p}\) to \(\mathrm{n}\), it leaves an uncompensated, fixed negative acceptor ion (\(\mathrm{B}^-, \mathrm{Al}^-\)) on the p-side.</li>
+        <li>This localized region spanning both sides of the metallurgical interface is stripped bare of mobile charge carriers; it is termed the <strong>depletion region</strong> (or space-charge region). Its physical thickness is on the order of one-tenth of a micrometre (\(d \sim 10^{-7}\,\mathrm{m} = 0.1\,\mathrm{µm}\)).</li>
+      </ul>
+    </li>
+    <li><strong>Internal Electric Field and Drift Current:</strong> The layer of immobile positive ions on the n-side and immobile negative ions on the p-side establishes an internal electric field \(\vec{E}_{\mathrm{in}}\) directed strictly from the <strong>n-side to the p-side</strong>. This electric field sweeps thermally generated minority carriers (electrons in the p-side and holes in the n-side) across the junction. This motion constitutes the <strong>drift current</strong> directed from the <strong>n-side to the p-side</strong>.</li>
+    <li><strong>Thermal Equilibrium:</strong> Initially, the diffusion current is large while the drift current is negligible. As diffusion continues, the space-charge layer widens, augmenting the internal electric field. The drift current increases until it perfectly balances the diffusion current:
+      \[
+      I_{\mathrm{diffusion}} = I_{\mathrm{drift}} \implies I_{\mathrm{net}} = 0
+      \]
+      At equilibrium, no net macroscopic current flows across an isolated p-n junction.
+    </li>
+  </ol>
+
+  <!-- SVG Diagram 4: Depletion Region & Built-in Potential -->
+  <div class="svg-container">
+    <svg viewBox="0 0 680 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Junction block -->
+      <rect x="80" y="25" width="220" height="100" fill="#90cdf4" stroke="#2b6cb0" stroke-width="1.5"/>
+      <rect x="300" y="25" width="80" height="100" fill="#edf2f7" stroke="#718096" stroke-width="1.5"/>
+      <rect x="380" y="25" width="220" height="100" fill="#bee3f8" stroke="#3182ce" stroke-width="1.5"/>
+
+      <!-- Labels -->
+      <text x="180" y="70" font-size="20" font-weight="bold" fill="#1a365d" text-anchor="middle">p - region</text>
+      <text x="180" y="95" font-size="11" fill="#2c5282" text-anchor="middle">(Majority: Holes)</text>
+
+      <text x="490" y="70" font-size="20" font-weight="bold" fill="#1a365d" text-anchor="middle">n - region</text>
+      <text x="490" y="95" font-size="11" fill="#2c5282" text-anchor="middle">(Majority: Electrons)</text>
+
+      <!-- Immobile Ions in Depletion Zone -->
+      <g fill="#e53e3e">
+        <circle cx="320" cy="45" r="7" fill="#fed7d7" stroke="#e53e3e"/>
+        <text x="320" y="49" font-size="11" font-weight="bold" text-anchor="middle">-</text>
+        <circle cx="320" cy="75" r="7" fill="#fed7d7" stroke="#e53e3e"/>
+        <text x="320" y="79" font-size="11" font-weight="bold" text-anchor="middle">-</text>
+        <circle cx="320" cy="105" r="7" fill="#fed7d7" stroke="#e53e3e"/>
+        <text x="320" y="109" font-size="11" font-weight="bold" text-anchor="middle">-</text>
+      </g>
+      <g fill="#2b6cb0">
+        <circle cx="360" cy="45" r="7" fill="#c3dafe" stroke="#3182ce"/>
+        <text x="360" y="49" font-size="11" font-weight="bold" text-anchor="middle">+</text>
+        <circle cx="360" cy="75" r="7" fill="#c3dafe" stroke="#3182ce"/>
+        <text x="360" y="79" font-size="11" font-weight="bold" text-anchor="middle">+</text>
+        <circle cx="360" cy="105" r="7" fill="#c3dafe" stroke="#3182ce"/>
+        <text x="360" y="109" font-size="11" font-weight="bold" text-anchor="middle">+</text>
+      </g>
+
+      <!-- Arrows showing field & currents -->
+      <line x1="365" y1="18" x2="315" y2="18" stroke="#d69e2e" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="340" y="12" font-size="10" font-weight="bold" fill="#b7791f" text-anchor="middle">Internal Field E (n to p)</text>
+
+      <line x1="220" y1="135" x2="280" y2="135" stroke="#3182ce" stroke-width="2"/>
+      <text x="250" y="148" font-size="10" fill="#2b6cb0" text-anchor="middle">Hole Diffusion (p to n)</text>
+
+      <line x1="460" y1="135" x2="400" y2="135" stroke="#e53e3e" stroke-width="2"/>
+      <text x="430" y="148" font-size="10" fill="#c53030" text-anchor="middle">Electron Diffusion (n to p)</text>
+
+      <text x="340" y="142" font-size="10" font-weight="bold" fill="#4a5568" text-anchor="middle">Depletion Width (w)</text>
+
+      <!-- Potential Barrier curve -->
+      <path d="M 80,225 L 300,225 Q 340,225 340,195 Q 340,165 380,165 L 600,165" fill="none" stroke="#2b6cb0" stroke-width="2.5"/>
+      <line x1="300" y1="225" x2="300" y2="165" stroke="#a0aec0" stroke-dasharray="3,3"/>
+      <line x1="380" y1="225" x2="380" y2="165" stroke="#a0aec0" stroke-dasharray="3,3"/>
+      <!-- Height V0 -->
+      <line x1="270" y1="225" x2="270" y2="165" stroke="#c53030" stroke-width="1.5"/>
+      <text x="255" y="198" font-size="12" font-weight="bold" fill="#c53030" text-anchor="end">Barrier Potential V0</text>
+    </svg>
+    <div class="svg-caption">Figure 4: Detailed structure of a p-n junction at equilibrium and the corresponding electrostatic barrier potential profile.</div>
+  </div>
+
+  <h3>B. Built-In Barrier Potential (\(V_0\))</h3>
+  <p>The separation of fixed charges creates a potential difference across the depletion layer termed the <strong>barrier potential</strong> (\(V_0\)). Because the n-region has surrendered electrons while the p-region has accrued electrons, <strong>the n-side resides at a higher electric potential than the p-side</strong>. This potential hill effectively impedes further majority carrier diffusion. At room temperature (\(300\,\mathrm{K}\)), \(V_0 \approx 0.7\,\mathrm{V}\) for Silicon and \(V_0 \approx 0.2\text{ to }0.3\,\mathrm{V}\) for Germanium.</p>
+
+  <h2>6. Semiconductor Diode and Biasing</h2>
+  <p>A semiconductor diode is a two-terminal p-n junction device fitted with metallic contacts for connection to an external electrical circuit. In its circuit symbol, the triangle represents the p-type anode (pointing in the direction of conventional forward current flow) and the vertical bar represents the n-type cathode.</p>
+
+  <h3>A. Forward Bias Condition</h3>
+  <p>A diode is <strong>forward biased</strong> when its p-side is connected to the positive terminal of a battery and its n-side is connected to the negative terminal.</p>
+  <ul>
+    <li>Because the high-resistance depletion layer bears almost the entire external voltage drop, the externally applied voltage \(V\) acts in direct opposition to the built-in barrier potential \(V_0\).</li>
+    <li><strong>Effective Barrier Height:</strong> Decreases from \(V_0\) to \((V_0 - V)\).</li>
+    <li><strong>Depletion Layer Width:</strong> Progressively narrows as majority carriers are repelled by the battery terminals toward the junction.</li>
+    <li><strong>Minority Carrier Injection:</strong> Electrons easily overcome the suppressed barrier, traversing from \(\mathrm{n}\) to \(\mathrm{p}\), while holes traverse from \(\mathrm{p}\) to \(\mathrm{n}\). Upon reaching the opposing sides, they diffuse away from the junction edge as injected minority carriers.</li>
+    <li>The forward current is large, measured in milliamperes (\(\mathrm{mA}\)), and rises exponentially once the applied voltage surpasses the cut-in/threshold voltage (\(\sim 0.7\,\mathrm{V}\) for \(\mathrm{Si}\), \(\sim 0.2\,\mathrm{V}\) for \(\mathrm{Ge}\)).</li>
+  </ul>
+
+  <h3>B. Reverse Bias Condition</h3>
+  <p>A diode is <strong>reverse biased</strong> when its n-side is connected to the positive terminal of a battery and its p-side is connected to the negative terminal.</p>
+  <ul>
+    <li>The applied voltage \(V\) acts in the same direction as the built-in barrier potential \(V_0\).</li>
+    <li><strong>Effective Barrier Height:</strong> Increases from \(V_0\) to \((V_0 + V)\).</li>
+    <li><strong>Depletion Layer Width:</strong> Widens significantly as mobile holes in the p-side and mobile electrons in the n-side are drawn away from the junction.</li>
+    <li>Diffusion of majority carriers is suppressed. The only current that can flow is a minuscule <strong>reverse saturation current</strong> (\(I_s\)) generated by the drift of thermally generated minority carriers across the junction.</li>
+    <li>The reverse current is exceedingly small (microamperes, \(\mathrm{µA}\), in Germanium; nanoamperes, \(\mathrm{nA}\), in Silicon). Over a wide range of reverse voltage, \(I_s\) is practically independent of voltage because it is strictly limited by the rate of thermal generation of minority carriers, not by the applied electric field.</li>
+    <li><strong>Reverse Breakdown Voltage (\(V_{br}\)):</strong> At a critical high reverse voltage, covalent bonds rupture or avalanche multiplication ensues, causing a sudden surge in reverse current. Without external current-limiting resistance, the diode will suffer destructive thermal runaway.</li>
+  </ul>
+
+  <!-- SVG Diagram 5: V-I Characteristics -->
+  <div class="svg-container">
+    <svg viewBox="0 0 650 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axes -->
+      <line x1="50" y1="180" x2="600" y2="180" stroke="#4a5568" stroke-width="2"/>
+      <line x1="300" y1="20" x2="300" y2="300" stroke="#4a5568" stroke-width="2"/>
+
+      <!-- Axis Labels -->
+      <text x="590" y="170" font-size="12" font-weight="bold" fill="#1a365d">V (Forward)</text>
+      <text x="60" y="170" font-size="12" font-weight="bold" fill="#1a365d">-V (Reverse)</text>
+      <text x="310" y="35" font-size="12" font-weight="bold" fill="#1a365d">I (mA) [Forward]</text>
+      <text x="310" y="295" font-size="12" font-weight="bold" fill="#1a365d">-I (µA) [Reverse]</text>
+      <text x="290" y="195" font-size="12" fill="#718096">0</text>
+
+      <!-- Forward Bias Curve -->
+      <path d="M 300,180 Q 420,180 440,160 Q 455,130 465,40" fill="none" stroke="#2b6cb0" stroke-width="2.5"/>
+      <!-- Knee voltage line -->
+      <line x1="435" y1="180" x2="435" y2="165" stroke="#e53e3e" stroke-dasharray="3,3" stroke-width="1.5"/>
+      <text x="435" y="200" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">Vth ~ 0.7 V (Si)</text>
+      <text x="490" y="70" font-size="11" fill="#2b6cb0">Exponential Growth</text>
+
+      <!-- Reverse Bias Curve -->
+      <path d="M 300,182 L 120,185 Q 110,188 108,280" fill="none" stroke="#c53030" stroke-width="2.5"/>
+      <line x1="110" y1="180" x2="110" y2="280" stroke="#718096" stroke-dasharray="3,3"/>
+      <text x="110" y="170" font-size="11" font-weight="bold" fill="#c53030" text-anchor="middle">Vbr (Breakdown)</text>
+      <text x="210" y="210" font-size="10" fill="#4a5568">Reverse Saturation Current Is (~µA)</text>
+    </svg>
+    <div class="svg-caption">Figure 5: Typical V-I characteristic curve for a Silicon p-n junction diode.</div>
+  </div>
+
+  <div class="key-result">
+    <strong>Dynamic (AC) Resistance Formula:</strong>
+    The dynamic resistance of a diode at a specific operational operating point is defined as the ratio of a small incremental change in voltage (\(\Delta V\)) to the resulting incremental change in current (\(\Delta I\)):
+    \[
+    r_d = \frac{\Delta V}{\Delta I}
+    \]
+    In forward conduction beyond the knee voltage, \(r_d\) is typically very small (\(\sim 1\text{ to }30\,\Omega\)). Under reverse bias prior to breakdown, \(r_d\) is exceptionally large (\(\sim 10^6\text{ to }10^7\,\Omega\)).
+  </div>
+
+  <h2>7. Applications of Junction Diodes: Rectification</h2>
+  <p>Because a p-n junction diode permits substantial current conduction strictly when forward biased and presents virtually infinite resistance under reverse bias, it acts as an ideal electronic <strong>rectifier</strong>: converting alternating voltages/currents (AC) into unidirectional, pulsating direct voltages/currents (DC).</p>
+
+  <h3>A. Half-Wave Rectifier</h3>
+  <p>In a half-wave rectifier, an alternating AC voltage from the secondary winding of a transformer is applied across a single diode connected in series with a load resistor \(R_L\).</p>
+  <ul>
+    <li><strong>Positive Half-Cycle:</strong> The transformer terminal connected to the diode anode becomes positive with respect to the cathode. The diode is forward biased and conducts. Current flows through \(R_L\), generating an output voltage pulse across it.</li>
+    <li><strong>Negative Half-Cycle:</strong> The transformer terminal connected to the anode becomes negative. The diode is reverse biased and non-conducting. The current through \(R_L\) is essentially zero.</li>
+    <li><strong>Output Characteristics:</strong> The rectified output consists of single-polarity half-sinusoids appearing only during alternate half-cycles.</li>
+    <li><strong>Fundamental Frequency Relationship:</strong> If the input AC line frequency is \(f\), the ripple frequency of the output pulsating DC is identical:
+      \[
+      f_{\mathrm{out}} = f_{\mathrm{in}}
+      \]
+      For an input frequency of \(50\,\mathrm{Hz}\), the half-wave rectified output pulses at \(50\,\mathrm{Hz}\).
+    </li>
+  </ul>
+
+  <!-- SVG Diagram 6: Rectifier Circuits -->
+  <div class="svg-container">
+    <svg viewBox="0 0 680 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Full-Wave Centre-Tapped Rectifier Schematic -->
+      <text x="340" y="22" font-size="14" font-weight="bold" fill="#1a365d" text-anchor="middle">Full-Wave Centre-Tapped Rectifier Circuit</text>
+
+      <!-- Transformer Primary -->
+      <g stroke="#1a365d" stroke-width="2" fill="none">
+        <path d="M 60,60 C 80,75 80,85 60,100 C 80,115 80,125 60,140 C 80,155 80,165 60,180"/>
+        <!-- Core lines -->
+        <line x1="95" y1="50" x2="95" y2="190" stroke="#718096" stroke-width="1.5"/>
+        <line x1="102" y1="50" x2="102" y2="190" stroke="#718096" stroke-width="1.5"/>
+        <!-- Secondary -->
+        <path d="M 135,60 C 115,75 115,85 135,100 C 115,115 115,125 135,140 C 115,155 115,165 135,180"/>
+      </g>
+      <text x="45" y="125" font-size="10" font-weight="bold" fill="#4a5568">AC In</text>
+
+      <!-- Top Terminal A & Diode D1 -->
+      <line x1="135" y1="60" x2="220" y2="60" stroke="#1a365d" stroke-width="2"/>
+      <text x="175" y="52" font-size="11" font-weight="bold" fill="#2b6cb0">A</text>
+      <!-- Diode D1 -->
+      <polygon points="220,50 220,70 240,60" fill="#3182ce"/>
+      <line x1="240" y1="50" x2="240" y2="70" stroke="#1a365d" stroke-width="2"/>
+      <line x1="240" y1="60" x2="380" y2="60" stroke="#1a365d" stroke-width="2"/>
+      <text x="230" y="42" font-size="11" font-weight="bold" fill="#2b6cb0">Diode D1</text>
+
+      <!-- Bottom Terminal B & Diode D2 -->
+      <line x1="135" y1="180" x2="220" y2="180" stroke="#1a365d" stroke-width="2"/>
+      <text x="175" y="195" font-size="11" font-weight="bold" fill="#2b6cb0">B</text>
+      <!-- Diode D2 -->
+      <polygon points="220,170 220,190 240,180" fill="#3182ce"/>
+      <line x1="240" y1="170" x2="240" y2="190" stroke="#1a365d" stroke-width="2"/>
+      <line x1="240" y1="180" x2="380" y2="180" stroke="#1a365d" stroke-width="2"/>
+      <text x="230" y="208" font-size="11" font-weight="bold" fill="#2b6cb0">Diode D2</text>
+
+      <!-- Centre Tap -->
+      <line x1="135" y1="120" x2="480" y2="120" stroke="#1a365d" stroke-width="2"/>
+      <circle cx="135" cy="120" r="3" fill="#1a365d"/>
+      <text x="155" y="115" font-size="10" font-weight="bold" fill="#718096">Centre Tap</text>
+
+      <!-- Common node connecting cathode ends -->
+      <line x1="380" y1="60" x2="380" y2="180" stroke="#1a365d" stroke-width="2"/>
+      <line x1="380" y1="120" x2="410" y2="120" stroke="#1a365d" stroke-width="2"/>
+
+      <!-- Load Resistor RL -->
+      <rect x="410" y="105" width="40" height="30" fill="#edf2f7" stroke="#1a365d" stroke-width="1.5"/>
+      <text x="430" y="125" font-size="11" font-weight="bold" fill="#1a365d" text-anchor="middle">RL</text>
+      <line x1="450" y1="120" x2="480" y2="120" stroke="#1a365d" stroke-width="2"/>
+
+      <!-- Current arrow across RL -->
+      <line x1="400" y1="95" x2="460" y2="95" stroke="#e53e3e" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="430" y="90" font-size="10" font-weight="bold" fill="#c53030" text-anchor="middle">DC Current (Unidirectional)</text>
+
+      <!-- Waveform Summary on Right -->
+      <g transform="translate(510, 30)">
+        <text x="75" y="15" font-size="11" font-weight="bold" fill="#1a365d" text-anchor="middle">Output Waveform</text>
+        <!-- Axes -->
+        <line x1="10" y1="70" x2="150" y2="70" stroke="#4a5568" stroke-width="1.5"/>
+        <line x1="10" y1="140" x2="150" y2="140" stroke="#4a5568" stroke-width="1.5"/>
+        <text x="10" y="45" font-size="9" fill="#718096">Input AC (50 Hz)</text>
+        <path d="M 10,70 Q 30,40 50,70 Q 70,100 90,70 Q 110,40 130,70" fill="none" stroke="#2b6cb0" stroke-width="1.5"/>
+
+        <text x="10" y="115" font-size="9" fill="#c53030">Rectified Output (100 Hz)</text>
+        <path d="M 10,140 Q 30,115 50,140 Q 70,115 90,140 Q 110,115 130,140" fill="none" stroke="#c53030" stroke-width="2"/>
+        <text x="30" y="155" font-size="8" fill="#4a5568">via D1</text>
+        <text x="70" y="155" font-size="8" fill="#4a5568">via D2</text>
+        <text x="110" y="155" font-size="8" fill="#4a5568">via D1</text>
+      </g>
+    </svg>
+    <div class="svg-caption">Figure 6: Complete schematic of a full-wave centre-tapped rectifier and input/output waveforms.</div>
+  </div>
+
+  <h3>B. Full-Wave Rectifier (Centre-Tapped)</h3>
+  <p>To utilize both halves of the input cycle, a centre-tapped transformer with two diodes (\(D_1\) and \(D_2\)) is employed:</p>
+  <ul>
+    <li>The centre tap is treated as the zero-potential reference point.</li>
+    <li><strong>During Positive Half-Cycle:</strong> Terminal A is positive with respect to the centre tap, while Terminal B is negative. Diode \(D_1\) is forward biased and conducts; Diode \(D_2\) is reverse biased and non-conducting. Current flows through the load resistor \(R_L\) from terminal \(X\) to \(Y\).</li>
+    <li><strong>During Negative Half-Cycle:</strong> Terminal A becomes negative while Terminal B becomes positive with respect to the centre tap. Diode \(D_1\) is reverse biased, while Diode \(D_2\) is forward biased and conducts. Current once again flows through \(R_L\) in the <em>identical direction</em> from \(X\) to \(Y\).</li>
+    <li><strong>Frequency Doubling:</strong> Current flows through the load during both half-cycles. Hence, the output pulsating frequency is exactly double the input AC line frequency:
+      \[
+      f_{\mathrm{out}} = 2 f_{\mathrm{in}}
+      \]
+      For a \(50\,\mathrm{Hz}\) input, the full-wave rectified output ripple frequency is \(100\,\mathrm{Hz}\).
+    </li>
+  </ul>
+
+  <h3>C. Capacitor Filter Circuit</h3>
+  <p>The rectified output from half-wave or full-wave circuits consists of pulsating DC with substantial AC ripple. To obtain steady DC suitable for electronic devices, a <strong>smoothing filter</strong> is placed across the output terminals.</p>
+  <ul>
+    <li>A capacitor of large capacitance \(C\) is connected in parallel with the load resistor \(R_L\).</li>
+    <li><strong>Charging Phase:</strong> As the rectified pulse voltage rises toward its peak value \(V_0\), the capacitor charges rapidly (through the low forward resistance of the conducting diode).</li>
+    <li><strong>Discharging Phase:</strong> As the rectifier voltage begins to drop, the diode becomes reverse biased because the capacitor retains a voltage higher than the input transformer voltage. The capacitor discharges through \(R_L\) with a characteristic discharge time constant:
+      \[
+      \tau = R_L C
+      \]
+    </li>
+    <li>By choosing a large capacitance \(C\) such that \(R_L C \gg T\) (where \(T\) is the period of the rectified wave), the voltage across \(R_L\) decays negligibly before the next rectified voltage pulse charges the capacitor back to peak value.</li>
+    <li>Consequently, the output voltage remains smoothed and clamped near the peak AC voltage \(V_{\mathrm{peak}}\).</li>
+  </ul>
+
+  <!-- SVG Diagram 7: Filter Action -->
+  <div class="svg-container">
+    <svg viewBox="0 0 650 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Filter Waveform -->
+      <line x1="40" y1="130" x2="600" y2="130" stroke="#4a5568" stroke-width="1.5"/>
+      <line x1="40" y1="20" x2="40" y2="140" stroke="#4a5568" stroke-width="1.5"/>
+      <text x="30" y="25" font-size="11" font-weight="bold" fill="#1a365d" text-anchor="end">Voltage</text>
+      <text x="600" y="145" font-size="11" font-weight="bold" fill="#1a365d">Time (t)</text>
+
+      <!-- Pulsating raw DC (dashed) -->
+      <path d="M 40,130 Q 80,30 120,130 Q 160,30 200,130 Q 240,30 280,130 Q 320,30 360,130 Q 400,30 440,130 Q 480,30 520,130" fill="none" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+      <!-- Filtered output curve -->
+      <path d="M 40,130 Q 60,80 80,30 L 195,48 L 200,30 L 315,48 L 320,30 L 435,48 L 440,30 L 555,48" fill="none" stroke="#c53030" stroke-width="2.5"/>
+
+      <!-- Annotations -->
+      <text x="140" y="25" font-size="11" font-weight="bold" fill="#c53030">Peak Voltage V0</text>
+      <text x="260" y="65" font-size="10" fill="#2c5282">Slow discharge: tau = RL * C</text>
+      <text x="450" y="115" font-size="10" fill="#718096">Raw Unfiltered Wave (Dashed)</text>
+    </svg>
+    <div class="svg-caption">Figure 7: Output voltage waveform of a full-wave rectifier with a parallel capacitor smoothing filter.</div>
+  </div>
+
+  <h2>8. Rigorous Worked Examples</h2>
+
+  <div class="worked-example">
+    <div class="worked-example-title">Worked Example 1: Charge Carrier Concentrations in Extrinsic Silicon</div>
+    <p><strong>Problem:</strong> A pure silicon crystal contains \(5 \times 10^{28}\,\mathrm{atoms\cdot m^{-3}}\). It is doped with a pentavalent Arsenic impurity at a concentration of \(1\,\mathrm{ppm}\) (\(1\,\text{part per million}\)). If the intrinsic carrier concentration of Silicon at room temperature is \(n_i = 1.5 \times 10^{16}\,\mathrm{m^{-3}}\), calculate:</p>
+    <ol>
+      <li>The majority carrier concentration (\(n_e\)).</li>
+      <li>The minority carrier concentration (\(n_h\)).</li>
+    </ol>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p><strong>Step 1:</strong> Calculate donor atom concentration \(N_D\):</p>
+      \[
+      N_D = \frac{1}{10^6} \times (5 \times 10^{28}\,\mathrm{m^{-3}}) = 5 \times 10^{22}\,\mathrm{atoms\cdot m^{-3}}
+      \]
+      <p><strong>Step 2:</strong> At room temperature, essentially all donor atoms are ionised. Because \(N_D \gg n_i\) (\(5 \times 10^{22} \gg 1.5 \times 10^{16}\)), the thermally generated electron concentration is completely negligible in comparison to the donor contribution. Hence:</p>
+      \[
+      n_e \approx N_D = 5 \times 10^{22}\,\mathrm{m^{-3}}
+      \]
+      <p><strong>Step 3:</strong> Using the Mass Action Law under thermal equilibrium (\(n_e n_h = n_i^2\)):</p>
+      \[
+      n_h = \frac{n_i^2}{n_e} = \frac{(1.5 \times 10^{16})^2}{5 \times 10^{22}} = \frac{2.25 \times 10^{32}}{5 \times 10^{22}} = 4.5 \times 10^{9}\,\mathrm{m^{-3}}
+      \]
+      <p><span class="ans-tag">Conclusion:</span> Doping increased the conduction electron concentration from \(1.5 \times 10^{16}\,\mathrm{m^{-3}}\) to \(5 \times 10^{22}\,\mathrm{m^{-3}}\), while the hole concentration was suppressed through recombination to \(4.5 \times 10^{9}\,\mathrm{m^{-3}}\).</p>
+    </div>
+  </div>
+
+  <div class="worked-example">
+    <div class="worked-example-title">Worked Example 2: Dynamic Resistance Determination from Experimental Characteristics</div>
+    <p><strong>Problem:</strong> An experimental silicon diode exhibits the following operating points: in forward bias, current changes from \(10\,\mathrm{mA}\) at \(0.7\,\mathrm{V}\) to \(20\,\mathrm{mA}\) at \(0.8\,\mathrm{V}\). Under reverse bias, a reverse voltage of \(-10\,\mathrm{V}\) results in a reverse current of \(-1\,\mathrm{µA}\). Determine:</p>
+    <ol>
+      <li>The dynamic forward resistance (\(r_{fb}\)) in this region.</li>
+      <li>The dynamic reverse resistance (\(r_{rb}\)) at \(-10\,\mathrm{V}\).</li>
+    </ol>
+    <div class="solution-block">
+      <p><strong>Solution:</strong></p>
+      <p><strong>Part 1: Forward Dynamic Resistance:</strong></p>
+      \[
+      \Delta V_F = 0.8\,\mathrm{V} - 0.7\,\mathrm{V} = 0.1\,\mathrm{V}
+      \]
+      \[
+      \Delta I_F = 20\,\mathrm{mA} - 10\,\mathrm{mA} = 10\,\mathrm{mA} = 10 \times 10^{-3}\,\mathrm{A}
+      \]
+      \[
+      r_{fb} = \frac{\Delta V_F}{\Delta I_F} = \frac{0.1}{10 \times 10^{-3}} = 10\,\Omega
+      \]
+      <p><strong>Part 2: Reverse Resistance:</strong></p>
+      \[
+      r_{rb} = \frac{V_R}{I_R} = \frac{10\,\mathrm{V}}{1\,\mathrm{µA}} = \frac{10}{10^{-6}\,\mathrm{A}} = 1.0 \times 10^7\,\Omega = 10\,\mathrm{M\Omega}
+      \]
+      <p><span class="ans-tag">Conclusion:</span> The forward dynamic resistance is extremely low (\(10\,\Omega\)), while the reverse resistance is exceptionally large (\(10\,\mathrm{M\Omega}\)), confirming the near-ideal one-way valve behavior of the diode.</p>
+    </div>
+  </div>
+
+  <h2>9. NEET UG Exam-Style Practice Questions</h2>
+  <p style="color: var(--text-muted); margin-bottom: 20px;">The following questions are prepared strictly according to the latest NEET UG format and difficulty level, including single-correct MCQs, Assertion-Reason pairs, and statement-based questions.</p>
+
+  <!-- Question 1 -->
+  <div class="practice-item">
+    <div class="q-number">Practice Question 1 (NEET UG Single-Correct MCQ)</div>
+    <p>In an unbiased, isolated p-n junction at room temperature, mobile holes diffuse from the p-region to the n-region primarily because:</p>
+    <div class="options">
+      <div>(A) The free electrons in the n-region attract holes across the interface.</div>
+      <div>(B) The built-in potential barrier actively pulls holes into the n-region.</div>
+      <div>(C) The concentration of holes in the p-region is substantially higher than in the n-region.</div>
+      <div>(D) Immobile donor ions on the n-side exert an electrostatic attractive force on holes.</div>
+    </div>
+    <div class="solution-block">
+      <p><span class="ans-tag">Correct Answer: (C)</span></p>
+      <p><strong>Explanation:</strong> Diffusion is an entropic, concentration-driven transport process. In a p-type region, holes are majority carriers (high concentration), while in the n-type region, holes are minority carriers (low concentration). Due to this steep concentration gradient, holes naturally diffuse from high concentration (p-side) to low concentration (n-side). Note that the built-in barrier potential opposes, rather than aids, this diffusion.</p>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="practice-item">
+    <div class="q-number">Practice Question 2 (NEET UG Assertion &amp; Reason)</div>
+    <p><strong>Directions:</strong> Select the correct option from the following choices:</p>
+    <ul>
+      <li>(A) Both Assertion and Reason are true, and Reason is the correct explanation of Assertion.</li>
+      <li>(B) Both Assertion and Reason are true, but Reason is NOT the correct explanation of Assertion.</li>
+      <li>(C) Assertion is true, but Reason is false.</li>
+      <li>(D) Assertion is false, but Reason is true.</li>
+    </ul>
+    <p><strong>Assertion:</strong> An n-type silicon crystal carries zero net macroscopic electric charge and is perfectly electrically neutral.</p>
+    <p><strong>Reason:</strong> For every extra conduction electron provided by a pentavalent donor impurity atom, an uncompensated, fixed positive donor ion core is created in the crystal lattice.</p>
+    <div class="solution-block">
+      <p><span class="ans-tag">Correct Answer: (A)</span></p>
+      <p><strong>Explanation:</strong> A common trap for NEET aspirants is assuming that because electrons are the majority carriers in an n-type semiconductor, the crystal must carry a net negative charge. In reality, the semiconductor is prepared from electrically neutral host silicon atoms and electrically neutral pentavalent dopant atoms. When a donor atom donates its 5th electron to the conduction band, it becomes a positively charged ion (\(\mathrm{P}^+\)). Thus, the total mobile negative charge is exactly counterbalanced by the total positive charge of the immobile donor cores and thermally generated minority holes. Assertion and Reason are both true, and the Reason correctly explains the Assertion.</p>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="practice-item">
+    <div class="q-number">Practice Question 3 (NEET UG Single-Correct MCQ)</div>
+    <p>Carbon, Silicon, and Germanium all possess four valence electrons each in their outermost atomic shells. Their forbidden energy band gaps are respectively denoted as \((E_g)_C\), \((E_g)_{Si}\), and \((E_g)_{Ge}\). Which of the following relationships is correct?</p>
+    <div class="options">
+      <div>(A) \((E_g)_{Si} < (E_g)_{Ge} < (E_g)_C\)</div>
+      <div>(B) \((E_g)_C < (E_g)_{Si} < (E_g)_{Ge}\)</div>
+      <div>(C) \((E_g)_C > (E_g)_{Si} > (E_g)_{Ge}\)</div>
+      <div>(D) \((E_g)_C = (E_g)_{Si} = (E_g)_{Ge}\)</div>
+    </div>
+    <div class="solution-block">
+      <p><span class="ans-tag">Correct Answer: (C)</span></p>
+      <p><strong>Explanation:</strong> The valence electrons of Carbon, Silicon, and Germanium reside in the second (\(n=2\)), third (\(n=3\)), and fourth (\(n=4\)) atomic orbits, respectively. With increasing principal quantum number and atomic radius, the valence electrons are bound less tightly to the nucleus, requiring less energy to ionize. Consequently, the energy band gap decreases systematically down the group:
+      \[
+      (E_g)_C \ (5.4\,\mathrm{eV}) > (E_g)_{Si} \ (1.1\,\mathrm{eV}) > (E_g)_{Ge} \ (0.72\,\mathrm{eV})
+      \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="practice-item">
+    <div class="q-number">Practice Question 4 (NEET UG Numerical / Frequency Problem)</div>
+    <p>An alternating sinusoidal voltage having a frequency of \(60\,\mathrm{Hz}\) is fed into the primary winding of a transformer. Calculate the fundamental ripple frequency of the output voltage across the load resistor when the secondary is connected to:</p>
+    <ol>
+      <li>A half-wave rectifier circuit.</li>
+      <li>A centre-tapped full-wave rectifier circuit.</li>
+    </ol>
+    <div class="options">
+      <div>(A) \(60\,\mathrm{Hz}\) in half-wave, and \(60\,\mathrm{Hz}\) in full-wave.</div>
+      <div>(B) \(30\,\mathrm{Hz}\) in half-wave, and \(60\,\mathrm{Hz}\) in full-wave.</div>
+      <div>(C) \(60\,\mathrm{Hz}\) in half-wave, and \(120\,\mathrm{Hz}\) in full-wave.</div>
+      <div>(D) \(120\,\mathrm{Hz}\) in half-wave, and \(60\,\mathrm{Hz}\) in full-wave.</div>
+    </div>
+    <div class="solution-block">
+      <p><span class="ans-tag">Correct Answer: (C)</span></p>
+      <p><strong>Explanation:</strong>
+      <br>1. In a half-wave rectifier, current flows only during the positive half-cycle; the output waveform repeats once every full input period \(T\). Therefore, the output frequency equals the input frequency:
+      \[
+      f_{\mathrm{HW}} = f_{\mathrm{in}} = 60\,\mathrm{Hz}
+      \]
+      <br>2. In a full-wave rectifier, both positive and negative half-cycles are converted into positive pulses, meaning the output waveform repeats every half-period (\(T/2\)). The ripple frequency is therefore doubled:
+      \[
+      f_{\mathrm{FW}} = 2 f_{\mathrm{in}} = 2 \times 60 = 120\,\mathrm{Hz}
+      \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="practice-item">
+    <div class="q-number">Practice Question 5 (NEET UG Statement Analysis)</div>
+    <p>Consider the following two statements regarding a p-n junction diode:</p>
+    <ul>
+      <li><strong>Statement I:</strong> Applying a forward bias voltage lowers the potential barrier height and narrows the width of the depletion layer.</li>
+      <li><strong>Statement II:</strong> Applying a reverse bias voltage suppresses majority carrier diffusion and causes the reverse current to depend linearly on the magnitude of the applied reverse voltage up to breakdown.</li>
+    </ul>
+    <div class="options">
+      <div>(A) Both Statement I and Statement II are correct.</div>
+      <div>(B) Both Statement I and Statement II are incorrect.</div>
+      <div>(C) Statement I is correct, but Statement II is incorrect.</div>
+      <div>(D) Statement I is incorrect, but Statement II is correct.</div>
+    </div>
+    <div class="solution-block">
+      <p><span class="ans-tag">Correct Answer: (C)</span></p>
+      <p><strong>Explanation:</strong>
+      <br><strong>Statement I is correct:</strong> The forward applied voltage opposes the built-in barrier, decreasing effective barrier height to \((V_0 - V)\) and narrowing the depletion region.
+      <br><strong>Statement II is incorrect:</strong> The reverse current (reverse saturation current \(I_s\)) is almost completely <em>independent</em> of the applied reverse voltage (it is voltage-saturated, not linear). It is limited strictly by the thermal generation rate of minority carriers across the junction boundaries, not by the applied voltage.
+      </p>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="practice-item">
+    <div class="q-number">Practice Question 6 (NEET UG Single-Correct MCQ)</div>
+    <p>A pure semiconductor material is doped with a trivalent impurity at room temperature. Which of the following statements correctly characterizes the resulting extrinsic semiconductor?</p>
+    <div class="options">
+      <div>(A) Holes are the majority carriers; the acceptor energy level \(E_A\) lies slightly above the top of the valence band.</div>
+      <div>(B) Electrons are the majority carriers; the donor energy level \(E_D\) lies slightly below the bottom of the conduction band.</div>
+      <div>(C) Holes are the minority carriers; the donor energy level \(E_D\) lies midway in the forbidden energy gap.</div>
+      <div>(D) Electrons are the minority carriers; the acceptor energy level \(E_A\) lies slightly below the bottom of the conduction band.</div>
+    </div>
+    <div class="solution-block">
+      <p><span class="ans-tag">Correct Answer: (A)</span></p>
+      <p><strong>Explanation:</strong> Doping with a trivalent impurity (e.g., Boron, Indium) produces a p-type semiconductor where holes are the majority carriers (\(n_h \gg n_e\)). The accepted electrons occupy an acceptor energy level \(E_A\) located merely \(\sim 0.01\text{ to }0.05\,\mathrm{eV}\) directly above the valence band edge \(E_V\), facilitating easy excitation of valence electrons into \(E_A\) and leaving mobile holes in the valence band.</p>
+    </div>
+  </div>
+
+  <h2>10. Common Student Pitfalls and Revision Checklist</h2>
+
+  <div class="pitfall-box">
+    <strong>NEET UG Critical Revision Checklist &amp; Common Pitfalls:</strong>
+    <ul>
+      <li><strong>Pitfall 1 (Charge of Extrinsic Crystals):</strong> Do not think that an n-type semiconductor is negatively charged or that a p-type semiconductor is positively charged. <em>Both are strictly electrically neutral.</em></li>
+      <li><strong>Pitfall 2 (Direction of Diffusion vs. Drift):</strong> Remember the exact conventions:
+        <ul>
+          <li><strong>Hole diffusion:</strong> from \(\mathrm{p} \to \mathrm{n}\).</li>
+          <li><strong>Electron diffusion:</strong> from \(\mathrm{n} \to \mathrm{p}\).</li>
+          <li><strong>Diffusion current (conventional):</strong> directed from \(\mathrm{p} \to \mathrm{n}\).</li>
+          <li><strong>Internal electric field:</strong> directed from \(\mathrm{n} \to \mathrm{p}\) (due to positive donor ions on the n-side and negative acceptor ions on the p-side).</li>
+          <li><strong>Drift current (conventional):</strong> directed from \(\mathrm{n} \to \mathrm{p}\).</li>
+        </ul>
+      </li>
+      <li><strong>Pitfall 3 (Mass Action Law Application):</strong> The equation \(n_e n_h = n_i^2\) holds under <em>thermal equilibrium</em> for both intrinsic and extrinsic semiconductors. Note that \(n_i\) is an exponential function of temperature; at a fixed temperature, raising \(n_e\) by donor doping forces a sharp decline in \(n_h\) through recombination.</li>
+      <li><strong>Pitfall 4 (Nature of Reverse Saturation Current):</strong> Reverse saturation current \(I_s\) is insensitive to applied voltage, but it is <em>highly sensitive to temperature</em>. Because \(I_s\) originates from thermally generated electron-hole pairs, it roughly doubles for every \(10\,^\circ\mathrm{C}\) rise in temperature.</li>
+      <li><strong>Pitfall 5 (Rectifier Frequency vs. Filter Ripple):</strong>
+        <ul>
+          <li>Half-wave output frequency = \(f_{\mathrm{in}}\).</li>
+          <li>Full-wave output frequency = \(2 f_{\mathrm{in}}\).</li>
+          <li>A capacitor filter connects in <em>parallel</em> with the load \(R_L\); an inductor filter connects in <em>series</em> with \(R_L\).</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2>11. Final Comprehensive Recap</h2>
+  <div class="key-result">
+    <p><strong>1. Energy Bands:</strong> Insulators have \(E_g > 3\,\mathrm{eV}\) (Diamond \(= 5.4\,\mathrm{eV}\)); semiconductors have \(E_g < 3\,\mathrm{eV}\) (\(\mathrm{Si} = 1.1\,\mathrm{eV}\), \(\mathrm{Ge} = 0.72\,\mathrm{eV}\)); metals have overlapping bands or partially filled conduction bands (\(E_g = 0\)).</p>
+    <p><strong>2. Intrinsic Transport:</strong> Pure crystal with \(n_e = n_h = n_i\). Total conduction current is \(I = I_e + I_h\). Perfect insulator at \(0\,\mathrm{K}\).</p>
+    <p><strong>3. Extrinsic Doping:</strong> Pentavalent dopants (P, As, Sb) give n-type semiconductors (\(n_e \gg n_h\)) with donor level \(E_D\) just below \(E_C\). Trivalent dopants (B, Al, In) give p-type semiconductors (\(n_h \gg n_e\)) with acceptor level \(E_A\) just above \(E_V\). Mass Action Law: \(n_e n_h = n_i^2\).</p>
+    <p><strong>4. p-n Junction Mechanics:</strong> Formed by diffusion of majority carriers and subsequent drift of minority carriers under the induced electric field. Equilibrium corresponds to \(I_{\mathrm{diff}} = I_{\mathrm{drift}} \implies I_{\mathrm{net}} = 0\). Depletion layer comprises uncompensated immobile ions (\(w \sim 0.1\,\mathrm{µm}\)).</p>
+    <p><strong>5. Diode Biasing:</strong> Forward bias reduces barrier to \((V_0 - V)\) and produces \(\mathrm{mA}\) diffusion currents beyond cut-in (\(0.7\,\mathrm{V}\) for \(\mathrm{Si}\), \(0.2\,\mathrm{V}\) for \(\mathrm{Ge}\)). Reverse bias increases barrier to \((V_0 + V)\), yielding a minute \(\mathrm{µA}\) minority drift saturation current.</p>
+    <p><strong>6. Rectifier Formulas:</strong> Half-wave produces pulsating DC at \(f_{\mathrm{out}} = f_{\mathrm{in}}\); full-wave produces pulsating DC at \(f_{\mathrm{out}} = 2 f_{\mathrm{in}}\). Smoothing is achieved with a parallel capacitor filter (\(\tau = R_L C\)).</p>
+  </div>
+
+</div>
+
+</body>
+</html>

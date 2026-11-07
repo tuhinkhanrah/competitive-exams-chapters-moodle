@@ -1,0 +1,2682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion in a Straight Line - NEET UG Physics Master Tutorial (सरल रेखा में गति)</title>
+  
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --secondary: #0f766e;
+      --secondary-light: #f0fdfa;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #cbd5e1;
+      --card-bg: #ffffff;
+      --accent-en: #2563eb;
+      --accent-hi: #d97706;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: #f8fafc;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      border: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 1.85rem;
+      color: var(--primary);
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 0.35rem 0.65rem;
+      margin: 1.75rem 0 0.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin: 0.75rem 0 0.4rem 0;
+    }
+    h4 {
+      font-size: 1rem;
+      color: var(--text);
+      margin: 0.5rem 0 0.3rem 0;
+    }
+    p { margin-bottom: 0.75rem; text-align: justify; }
+    ul, ol { margin-left: 1.4rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.25rem; }
+    
+    /* Bilingual Layout */
+    .content-block {
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+    .content-block.lang-en { border-left: 4px solid var(--accent-en); }
+    .content-block.lang-hi { border-left: 4px solid var(--accent-hi); background-color: #fffdfa; }
+    .lang-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      margin-bottom: 0.4rem;
+    }
+    .badge-en { background: #dbeafe; color: #1e40af; }
+    .badge-hi { background: #fef3c7; color: #92400e; }
+    
+    /* Box Callouts */
+    .concept-box {
+      background: var(--primary-light);
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+    }
+    .formula-box {
+      background: var(--secondary-light);
+      border: 1px solid #99f6e4;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+    }
+    .example-card, .practice-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    }
+    .pitfall-box {
+      background: #fff1f2;
+      border-left: 4px solid #e11d48;
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      margin: 0.6rem 0;
+    }
+    .option-item {
+      padding: 0.35rem 0.65rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 0.92rem;
+    }
+    .ans-tag {
+      display: inline-block;
+      font-weight: 700;
+      color: #15803d;
+      background: #dcfce7;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.4rem;
+      border: 1px solid #86efac;
+      font-size: 0.88rem;
+    }
+    .sol-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 0.65rem 0.85rem;
+      margin-top: 0.4rem;
+      font-size: 0.92rem;
+    }
+    hr.bilingual-sep {
+      border: 0;
+      height: 1px;
+      background: #cbd5e1;
+      margin: 1rem 0;
+    }
+
+    /* Diagrams & Tables */
+    .svg-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 0.4rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .svg-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+    .table-container { width: 100%; overflow-x: auto; margin: 0.75rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { border: 1px solid var(--border); padding: 0.45rem 0.65rem; text-align: left; }
+    th { background: #f1f5f9; color: var(--primary); font-weight: 600; }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    /* Print Safety */
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: #ffffff !important; color: #000000 !important; padding: 0 !important; font-size: 9pt !important; }
+      .container { max-width: 100% !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+      h1 { font-size: 15pt !important; }
+      h2 { font-size: 12pt !important; background: #eee !important; page-break-after: avoid; }
+      h3 { font-size: 10.5pt !important; page-break-after: avoid; }
+      .example-card, .practice-card, .content-block { page-break-inside: avoid; border: 1px solid #888 !important; margin: 6pt 0 !important; padding: 6pt !important; }
+      .svg-container { page-break-inside: avoid; max-width: 85% !important; }
+      svg { max-width: 100% !important; height: auto !important; }
+      table { page-break-inside: avoid; font-size: 8pt !important; }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header style="text-align: center; margin-bottom: 1.5rem;">
+    <h1>Motion in a Straight Line</h1>
+    <div class="subtitle">सरल रेखा में गति | NEET UG Physics High-Yield Master Tutorial</div>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem;">
+      Aligned with NCERT Physics Class 11 (Motion in a Straight Line) &bull; Target Standard: NEET UG &bull; Bilingual Edition (English &amp; हिन्दी)
+    </p>
+  </header>
+
+  <!-- 1. Syllabus Overview & Learning Objectives -->
+  <section>
+    <h2>1. Syllabus Overview &amp; Learning Objectives / पाठ्यक्रम अवलोकन एवं उद्देश्य</h2>
+    
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>Rectilinear kinematics is foundational to mechanics, yielding 1 to 2 direct questions annually in NEET UG. Key target concepts include:</p>
+      <ul>
+        <li><strong>Point Object:</strong> Approximating objects as particles when size &ll; distance moved.</li>
+        <li><strong>Calculus Kinematics:</strong> Instantaneous velocity \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\) and acceleration \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\).</li>
+        <li><strong>Motion Graphs:</strong> Tangent slopes (\(\frac{\mathrm{d}x}{\mathrm{d}t}, \frac{\mathrm{d}v}{\mathrm{d}t}\)) and areas under curves (\(\int v\,\mathrm{d}t, \int a\,\mathrm{d}t\)).</li>
+        <li><strong>Uniformly Accelerated Motion:</strong> Derivation and sign conventions for the kinematic equations.</li>
+        <li><strong>Free Fall &amp; Gravity:</strong> Vertical symmetry, Galileo's law of odd numbers, stopping distance, and reaction time.</li>
+        <li><strong>Relative Velocity in 1D:</strong> Collinear motion equations for overtaking and approaching bodies.</li>
+      </ul>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>सरल रेखीय गति यांत्रिकी की आधारशिला है, जिससे नीट (NEET UG) में प्रतिवर्ष 1 से 2 प्रश्न पूछे जाते हैं। मुख्य अधिगम बिन्दु:</p>
+      <ul>
+        <li><strong>बिन्दु वस्तु:</strong> वस्तु का आकार तय की गई दूरी की तुलना में नगण्य होने पर कण मानना।</li>
+        <li><strong>अवकलन गतिकी:</strong> तात्क्षणिक वेग \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\) तथा त्वरण \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\) का निर्धारण।</li>
+        <li><strong>ग्राफ विश्लेषण:</strong> ढाल (स्पर्श रेखा) तथा वक्र के अंतर्गत क्षेत्रफल का भौतिक अर्थ।</li>
+        <li><strong>एकसमान त्वरित गति:</strong> शुद्धगतिक समीकरणों का निगमन व उचित चिन्ह परिपाटी।</li>
+        <li><strong>मुक्त पतन:</strong> सममित ऊर्ध्वाधर गति, गैलीलियो का विषम अंक नियम, विराम दूरी तथा प्रतिक्रिया काल।</li>
+        <li><strong>एक विमीय सापेक्ष वेग:</strong> एक ही रेखा पर गतिमान पिण्डों के सापेक्ष वेग का परिकलन।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Point Object Model -->
+  <section>
+    <h2>2. Rectilinear Motion &amp; Point Object / सरल रेखीय गति एवं बिन्दु वस्तु</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p><strong>Rectilinear motion</strong> is motion along a single straight line. To analyze motion without internal degrees of freedom, we treat the moving body as a <strong>point object</strong>:</p>
+      <div class="concept-box">
+        <strong>Point Object Criterion:</strong> An object can be modeled as a point object if its linear dimensions are negligibly small compared to the distance it traverses in the given time interval.
+      </div>
+      <p><em>Examples:</em> A train traveling several hundred kilometers between cities acts as a point object; however, while crossing a 150 m bridge, its size cannot be neglected.</p>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>किसी सरल रेखा के अनुदिश होने वाली गति को <strong>ऋजुरेखीय या सरल रेखीय गति</strong> कहते हैं। विश्लेषण को सरल बनाने हेतु वस्तु को <strong>बिन्दु वस्तु</strong> माना जाता है:</p>
+      <div class="concept-box">
+        <strong>बिन्दु वस्तु की कसौटी:</strong> यदि किसी वस्तु का आकार उसके द्वारा तय की गई दूरी की तुलना में नगण्य हो, तो उसे बिन्दु वस्तु माना जाता है।
+      </div>
+      <p><em>उदाहरण:</em> दो स्टेशनों के बीच सैकड़ों किलोमीटर दौड़ती रेलगाड़ी बिन्दु वस्तु है, किन्तु 150 मीटर लंबे पुल को पार करते समय उसकी लंबाई नगण्य नहीं मानी जा सकती।</p>
+    </div>
+  </section>
+
+  <!-- 3. Instantaneous Velocity and Speed -->
+  <section>
+    <h2>3. Instantaneous Velocity &amp; Speed / तात्क्षणिक वेग एवं चाल</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>Average velocity \(\bar{v} = \frac{\Delta x}{\Delta t}\) gives the overall rate of displacement over a finite interval \(\Delta t\). <strong>Instantaneous velocity</strong> \(v\) gives the rate of change of position at a specific instant \(t\):</p>
+      <div class="formula-box">
+        \[
+        v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{\mathrm{d}x}{\mathrm{d}t}
+        \]
+        <strong>Graphical Meaning:</strong> Instantaneous velocity equals the slope of the tangent to the position-time (\(x\text{--}t\)) curve at that instant.
+      </div>
+      <p><strong>Instantaneous Speed:</strong> The instantaneous speed is the absolute magnitude of instantaneous velocity: \(\text{Speed} = |v(t)| = \left|\frac{\mathrm{d}x}{\mathrm{d}t}\right|\). Over a finite interval, average speed \(\ge |\text{average velocity}|\), but at any infinitesimal instant, <strong>instantaneous speed \(\equiv |\text{instantaneous velocity}|\)</strong>.</p>
+    </div>
+
+    <!-- SVG Diagram 1: Tangent Limiting Process -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="260" fill="#ffffff"/>
+        <!-- Axes -->
+        <line x1="60" y1="220" x2="490" y2="220" stroke="#1f2937" stroke-width="1.5"/>
+        <line x1="60" y1="220" x2="60" y2="20" stroke="#1f2937" stroke-width="1.5"/>
+        <polygon points="490,217 498,220 490,223" fill="#1f2937"/>
+        <polygon points="57,20 60,12 63,20" fill="#1f2937"/>
+        <text x="470" y="240" font-family="sans-serif" font-size="11" fill="#1f2937">t (s)</text>
+        <text x="25" y="25" font-family="sans-serif" font-size="11" fill="#1f2937">x (m)</text>
+
+        <!-- Curve x = 0.08 t^3 -->
+        <path d="M 60,215 Q 200,205 270,165 T 460,35" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+        <text x="440" y="25" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0284c7">x(t)</text>
+
+        <!-- Secant P1 P2 -->
+        <line x1="130" y1="210" x2="410" y2="105" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3"/>
+        <circle cx="170" cy="195" r="3.5" fill="#475569"/>
+        <text x="155" y="190" font-family="sans-serif" font-size="9" fill="#475569">P1 (3s)</text>
+        <circle cx="370" cy="120" r="3.5" fill="#475569"/>
+        <text x="375" y="125" font-family="sans-serif" font-size="9" fill="#475569">P2 (5s)</text>
+
+        <!-- Tangent at P (t=4s) -->
+        <line x1="140" y1="215" x2="400" y2="105" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="270" cy="160" r="4.5" fill="#dc2626"/>
+        <text x="275" y="155" font-family="sans-serif" font-size="11" font-weight="bold" fill="#dc2626">P (t = 4 s)</text>
+
+        <!-- Legend -->
+        <rect x="70" y="30" width="180" height="50" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <line x1="75" y1="45" x2="100" y2="45" stroke="#94a3b8" stroke-dasharray="3,3"/>
+        <text x="105" y="48" font-family="sans-serif" font-size="9.5" fill="#334155">Secant (Δt = 2 s)</text>
+        <line x1="75" y1="65" x2="100" y2="65" stroke="#dc2626" stroke-width="2"/>
+        <text x="105" y="68" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#dc2626">Tangent (Δt → 0)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 1: Limiting Process on \(x\text{--}t\) Graph: Secant Slope Converging to Tangent Slope at \(t = 4\,\mathrm{s}\)</div>
+    </div>
+
+    <!-- Limiting Table -->
+    <div class="content-block lang-en">
+      <p><strong>Limiting Table for \(x = 0.08 t^3\) around \(t = 4.0\,\mathrm{s}\):</strong></p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>\(\Delta t\) (s)</th>
+              <th>\(t_1\) (s)</th>
+              <th>\(t_2\) (s)</th>
+              <th>\(x(t_1)\) (m)</th>
+              <th>\(x(t_2)\) (m)</th>
+              <th>\(\Delta x\) (m)</th>
+              <th>\(\bar{v} = \Delta x / \Delta t\) (\(\mathrm{m\,s^{-1}}\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2.0</td><td>3.0</td><td>5.0</td><td>2.16</td><td>10.00</td><td>7.84</td><td>3.92</td></tr>
+            <tr><td>1.0</td><td>3.5</td><td>4.5</td><td>3.43</td><td>7.29</td><td>3.86</td><td>3.86</td></tr>
+            <tr><td>0.1</td><td>3.95</td><td>4.05</td><td>4.9304</td><td>5.3144</td><td>0.384</td><td>3.8402</td></tr>
+            <tr><td>0.01</td><td>3.995</td><td>4.005</td><td>5.1008</td><td>5.1392</td><td>0.0384</td><td><strong>3.8400</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>By calculus: \(\frac{\mathrm{d}x}{\mathrm{d}t} = 0.24 t^2\). At \(t = 4\,\mathrm{s}\), \(v = 0.24(16) = 3.84\,\mathrm{m\,s^{-1}}\), exactly matching the limiting ratio.</p>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>औसत वेग \(\bar{v} = \frac{\Delta x}{\Delta t}\) किसी समयांतराल में विस्थापन की दर है, जबकि <strong>तात्क्षणिक वेग</strong> \(v\) किसी विशिष्ट क्षण पर स्थिति परिवर्तन की दर है:</p>
+      <div class="formula-box">
+        \[
+        v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{\mathrm{d}x}{\mathrm{d}t}
+        \]
+        <strong>ग्राफीय अर्थ:</strong> किसी क्षण पर तात्क्षणिक वेग, उस क्षण पर स्थिति-समय ग्राफ पर खींची गई स्पर्श रेखा की ढाल (प्रवणता) के बराबर होता है।
+      </div>
+      <p><strong>तात्क्षणिक चाल:</strong> तात्क्षणिक चाल वेग का निरपेक्ष मान है: \(|v| = |\frac{\mathrm{d}x}{\mathrm{d}t}|\)। परिमित समयांतराल में औसत चाल \(\ge |\text{औसत वेग}|\), परन्तु किसी क्षण पर <strong>तात्क्षणिक चाल \(\equiv |\text{तात्क्षणिक वेग}|\)</strong> होती है।</p>
+    </div>
+  </section>
+
+  <!-- 4. Acceleration and Graphical Analysis -->
+  <section>
+    <h2>4. Acceleration &amp; Motion Graphs / त्वरण एवं गति के ग्राफ</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>Acceleration describes the rate of change of velocity with respect to time:</p>
+      <div class="formula-box">
+        <strong>Average Acceleration:</strong> \(\bar{a} = \frac{\Delta v}{\Delta t} = \frac{v_2 - v_1}{t_2 - t_1}\)<br/>
+        <strong>Instantaneous Acceleration:</strong> \(a = \lim_{\Delta t \to 0}\frac{\Delta v}{\Delta t} = \frac{\mathrm{d}v}{\mathrm{d}t} = \frac{\mathrm{d}^2x}{\mathrm{d}t^2} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)
+      </div>
+      <p><strong>Curvature of \(x\text{--}t\) Graph:</strong></p>
+      <ul>
+        <li>\(a > 0\): Concave upward (parabolic curve opening upward, \(\frac{\mathrm{d}^2x}{\mathrm{d}t^2} > 0\)).</li>
+        <li>\(a < 0\): Concave downward (parabolic curve opening downward, \(\frac{\mathrm{d}^2x}{\mathrm{d}t^2} < 0\)).</li>
+        <li>\(a = 0\): Straight line (uniform velocity, zero acceleration).</li>
+      </ul>
+    </div>
+
+    <!-- SVG Diagram 2: Curvature of x-t graphs -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 160" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="160" fill="#ffffff"/>
+        <!-- (a) a > 0 -->
+        <g transform="translate(20, 10)">
+          <line x1="15" y1="120" x2="140" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="130" y="135" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">x</text>
+          <path d="M 25,85 Q 70,105 125,35" fill="none" stroke="#0284c7" stroke-width="2"/>
+          <text x="35" y="25" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#0284c7">a &gt; 0 (Concave Up)</text>
+        </g>
+        <!-- (b) a < 0 -->
+        <g transform="translate(190, 10)">
+          <line x1="15" y1="120" x2="140" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="130" y="135" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">x</text>
+          <path d="M 25,85 Q 70,35 125,85" fill="none" stroke="#d97706" stroke-width="2"/>
+          <text x="30" y="25" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#d97706">a &lt; 0 (Concave Down)</text>
+        </g>
+        <!-- (c) a = 0 -->
+        <g transform="translate(360, 10)">
+          <line x1="15" y1="120" x2="140" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="130" y="135" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">x</text>
+          <line x1="25" y1="100" x2="125" y2="30" stroke="#16a34a" stroke-width="2"/>
+          <text x="40" y="25" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#16a34a">a = 0 (Straight Line)</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 2: Position-Time Curvature for Positive, Negative, and Zero Acceleration</div>
+    </div>
+
+
+    <!-- SVG Diagram: Four v-t scenarios -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="180" fill="#ffffff"/>
+        <!-- (a) v > 0, a > 0 -->
+        <g transform="translate(10, 10)">
+          <line x1="15" y1="120" x2="115" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="132" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="90" x2="100" y2="30" stroke="#0284c7" stroke-width="2"/>
+          <text x="3" y="93" font-family="sans-serif" font-size="8.5" fill="#0284c7">v0</text>
+          <text x="12" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(a) v &gt; 0, a &gt; 0</text>
+        </g>
+        <!-- (b) v > 0, a < 0 -->
+        <g transform="translate(145, 10)">
+          <line x1="15" y1="120" x2="115" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="132" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="30" x2="100" y2="90" stroke="#d97706" stroke-width="2"/>
+          <text x="3" y="33" font-family="sans-serif" font-size="8.5" fill="#d97706">v0</text>
+          <text x="12" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(b) v &gt; 0, a &lt; 0</text>
+        </g>
+        <!-- (c) v < 0, a < 0 -->
+        <g transform="translate(280, 10)">
+          <line x1="15" y1="35" x2="115" y2="35" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="30" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="50" x2="100" y2="110" stroke="#e11d48" stroke-width="2"/>
+          <text x="-1" y="55" font-family="sans-serif" font-size="8.5" fill="#e11d48">-v0</text>
+          <text x="12" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(c) v &lt; 0, a &lt; 0</text>
+        </g>
+        <!-- (d) Reversal at t1 -->
+        <g transform="translate(415, 10)">
+          <line x1="5" y1="75" x2="115" y2="75" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="70" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="30" x2="105" y2="115" stroke="#7c3aed" stroke-width="2"/>
+          <circle cx="60" cy="75" r="3" fill="#dc2626"/>
+          <text x="55" y="68" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">t1</text>
+          <text x="10" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(d) Reversal at t1</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 3: Velocity-Time Graphs for Uniformly Accelerated Motion in Four Canonical Cases</div>
+    </div>
+
+    <p><strong>Area Under Velocity-Time Curve Equals Displacement:</strong></p>
+      <div class="formula-box">
+        \[
+        \Delta x = \int_{t_1}^{t_2} v(t)\,\mathrm{d}t = \text{Area under } v\text{--}t \text{ curve}
+        \]
+        <em>Dimensional Analysis:</em> \([\text{Velocity}] \times [\text{Time}] = (\mathrm{m\,s^{-1}}) \times (\mathrm{s}) = \mathrm{m}\) (Displacement).
+      </div>
+    </div>
+
+    <!-- SVG Diagram 3: Area under v-t graph -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="180" fill="#ffffff"/>
+        <!-- Uniform Velocity -->
+        <g transform="translate(30, 15)">
+          <line x1="20" y1="130" x2="200" y2="130" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="20" y1="130" x2="20" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="190" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="8" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">v</text>
+          <rect x="20" y="55" width="150" height="75" fill="#cbd5e1" opacity="0.6"/>
+          <line x1="20" y1="55" x2="170" y2="55" stroke="#0f766e" stroke-width="2"/>
+          <line x1="170" y1="55" x2="170" y2="130" stroke="#64748b" stroke-dasharray="2,2"/>
+          <text x="5" y="60" font-family="sans-serif" font-size="10" fill="#0f766e">u</text>
+          <text x="165" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">T</text>
+          <text x="60" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f766e">Area = u × T = Δx</text>
+        </g>
+        <!-- Uniform Acceleration -->
+        <g transform="translate(280, 15)">
+          <line x1="20" y1="130" x2="220" y2="130" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="20" y1="130" x2="20" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="210" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="8" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">v</text>
+          <!-- Shaded trapezoid -->
+          <rect x="20" y="80" width="160" height="50" fill="#94a3b8" opacity="0.4"/>
+          <polygon points="20,80 180,80 180,30" fill="#38bdf8" opacity="0.6"/>
+          <line x1="20" y1="80" x2="180" y2="30" stroke="#1d4ed8" stroke-width="2"/>
+          <line x1="20" y1="80" x2="180" y2="80" stroke="#475569" stroke-dasharray="2,2"/>
+          <line x1="180" y1="30" x2="180" y2="130" stroke="#475569" stroke-dasharray="2,2"/>
+          <text x="5" y="85" font-family="sans-serif" font-size="10" fill="#1f2937">v0</text>
+          <text x="185" y="35" font-family="sans-serif" font-size="10" fill="#1f2937">v</text>
+          <text x="175" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="50" y="110" font-family="sans-serif" font-size="9.5" fill="#334155">Rectangle = v0 · t</text>
+          <text x="65" y="65" font-family="sans-serif" font-size="9.5" fill="#0369a1">Triangle = ½ (v - v0) t</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 4: Area Under Velocity-Time Graph Representing Displacement</div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>समय के साथ वेग परिवर्तन की दर <strong>त्वरण</strong> कहलाती है:</p>
+      <div class="formula-box">
+        <strong>औसत त्वरण:</strong> \(\bar{a} = \frac{\Delta v}{\Delta t}\), &emsp; <strong>तात्क्षणिक त्वरण:</strong> \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = \frac{\mathrm{d}^2x}{\mathrm{d}t^2} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)
+      </div>
+      <p><strong>\(x\text{--}t\) ग्राफ की वक्रता:</strong> \(a > 0\) पर वक्र ऊपर की ओर खुलता है (उत्तल), \(a < 0\) पर नीचे की ओर खुलता है (अवतल), तथा \(a = 0\) पर सरल रेखा होता है।</p>
+      <p><strong>\(v\text{--}t\) ग्राफ का क्षेत्रफल:</strong> \(v\text{--}t\) वक्र तथा समय-अक्ष के मध्य परिबद्ध क्षेत्रफल विस्थापन \(\Delta x = \int v\,\mathrm{d}t\) को व्यक्त करता है।</p>
+    </div>
+  </section>
+
+  <!-- 5. Kinematic Equations for Uniform Acceleration -->
+  <section>
+    <h2>5. Kinematic Equations for Constant Acceleration / एकसमान त्वरित गति के समीकरण</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>When acceleration \(a\) is strictly constant, integration yields the canonical kinematic equations:</p>
+      <div class="formula-box">
+        <ol>
+          <li>\(v = v_0 + at\) &emsp; (from \(\int_{v_0}^v \mathrm{d}v = a\int_0^t \mathrm{d}t\))</li>
+          <li>\(x = x_0 + v_0 t + \frac{1}{2}at^2\) &emsp; (from \(\int_{x_0}^x \mathrm{d}x = \int_0^t (v_0 + at)\,\mathrm{d}t\))</li>
+          <li>\(v^2 = v_0^2 + 2a(x - x_0)\) &emsp; (from \(\int_{v_0}^v v\,\mathrm{d}v = a\int_{x_0}^x \mathrm{d}x\))</li>
+          <li>\(x - x_0 = \bar{v}t = \left(\frac{v_0 + v}{2}\right)t\)</li>
+          <li>\(s_n = v_0 + \frac{a}{2}(2n - 1)\) &emsp; (Displacement in the \(n\)-th second)</li>
+        </ol>
+      </div>
+
+      <h3>Important Physical Applications</h3>
+      <ul>
+        <li><strong>Free Fall under Gravity (\(a = -g = -9.8\,\mathrm{m\,s^{-2}}\)):</strong>
+          For a body dropped from rest: \(v = -gt\), \(y = -\frac{1}{2}gt^2\), \(v^2 = -2gy\).<br/>
+          For upward projection with speed \(u\): Max height \(H = \frac{u^2}{2g}\), Flight time \(T = \frac{2u}{g}\).
+        </li>
+        <li><strong>Galileo's Law of Odd Numbers:</strong>
+          Distances traversed in successive equal time intervals \(\tau\) by a body falling from rest are in the ratio:
+          \[
+          y_1 : y_2 : y_3 : y_4 : \dots = 1 : 3 : 5 : 7 : \dots
+          \]
+        </li>
+        <li><strong>Stopping Distance of Vehicles:</strong>
+          With initial velocity \(v_0\) and braking deceleration \(-a\):
+          \[
+          d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2
+          \]
+          Doubling initial speed quadruples the required stopping distance.
+        </li>
+        <li><strong>Driver Reaction Time:</strong>
+          Time \(t_r\) between perception and braking action. Using a dropped ruler falling distance \(d\):
+          \[
+          t_r = \sqrt{\frac{2d}{g}}
+          \]
+        </li>
+
+    <!-- SVG Diagram: Reaction Time Ruler -->
+    <div class="svg-container" style="max-width: 480px;">
+      <svg viewBox="0 0 480 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="180" fill="#ffffff"/>
+        <!-- Releasing hand -->
+        <rect x="50" y="15" width="80" height="22" rx="4" fill="#e2e8f0" stroke="#94a3b8"/>
+        <text x="55" y="30" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#334155">Friend Releases</text>
+
+        <!-- Ruler -->
+        <rect x="150" y="15" width="18" height="150" fill="#fef08a" stroke="#ca8a04"/>
+        <line x1="150" y1="25" x2="158" y2="25" stroke="#854d0e"/>
+        <line x1="150" y1="45" x2="162" y2="45" stroke="#854d0e"/>
+        <line x1="150" y1="65" x2="158" y2="65" stroke="#854d0e"/>
+        <line x1="150" y1="85" x2="162" y2="85" stroke="#854d0e"/>
+        <line x1="150" y1="105" x2="158" y2="105" stroke="#854d0e"/>
+        <line x1="150" y1="125" x2="162" y2="125" stroke="#854d0e"/>
+        <line x1="150" y1="145" x2="158" y2="145" stroke="#854d0e"/>
+
+        <!-- Catching hand -->
+        <rect x="50" y="120" width="80" height="25" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+        <text x="56" y="136" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#1e40af">Student Catches</text>
+
+        <!-- Measurement arrow -->
+        <line x1="180" y1="25" x2="180" y2="130" stroke="#dc2626" stroke-width="1.8"/>
+        <polygon points="177,32 180,25 183,32" fill="#dc2626"/>
+        <polygon points="177,123 180,130 183,123" fill="#dc2626"/>
+        <text x="190" y="80" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#dc2626">Slip Distance d = 21.0 cm</text>
+
+        <!-- Formula card -->
+        <rect x="200" y="100" width="230" height="55" rx="5" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="210" y="118" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">Reaction Time Formula:</text>
+        <text x="210" y="135" font-family="sans-serif" font-size="10" fill="#0f766e">t = √(2d / g) = √(2×0.21 / 9.8) ≈ 0.2 s</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 6: Experimental Determination of Reaction Time via Dropped Ruler Method</div>
+    </div>
+
+      </ul>
+    </div>
+
+    <!-- SVG Diagram 4: Vertical Motion Tower -->
+    <div class="svg-container">
+      <svg viewBox="0 0 460 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="460" height="260" fill="#ffffff"/>
+        <!-- Ground -->
+        <line x1="30" y1="230" x2="430" y2="230" stroke="#1f2937" stroke-width="2"/>
+        <text x="380" y="245" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">Ground (y = 0)</text>
+        
+        <!-- Tower 25m -->
+        <rect x="80" y="120" width="50" height="110" fill="#0284c7" stroke="#0369a1"/>
+        <text x="35" y="180" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#1f2937">h = 25 m</text>
+
+        <!-- Trajectory -->
+        <circle cx="130" cy="120" r="4" fill="#15803d"/>
+        <text x="140" y="125" font-family="sans-serif" font-size="10" font-weight="bold" fill="#15803d">A (v0 = +20 m/s)</text>
+        <!-- Upward path -->
+        <path d="M 130,120 L 130,60" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="3,3"/>
+        <circle cx="130" cy="60" r="4" fill="#dc2626"/>
+        <text x="95" y="55" font-family="sans-serif" font-size="10" font-weight="bold" fill="#dc2626">B (Apex, v = 0)</text>
+        <text x="140" y="90" font-family="sans-serif" font-size="9" fill="#1f2937">Rise = 20 m</text>
+        <!-- Downward path -->
+        <path d="M 150,60 L 150,230" stroke="#d97706" stroke-width="1.8" stroke-dasharray="3,3"/>
+        <circle cx="150" cy="230" r="4" fill="#b45309"/>
+        <text x="160" y="225" font-family="sans-serif" font-size="10" font-weight="bold" fill="#b45309">C (Hits ground at t = 5 s)</text>
+
+        <!-- Coordinate & Gravity -->
+        <line x1="320" y1="230" x2="320" y2="30" stroke="#1e3a8a" stroke-width="1.5"/>
+        <polygon points="317,38 320,30 323,38" fill="#1e3a8a"/>
+        <text x="330" y="35" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a">+y (Upward)</text>
+        <text x="330" y="125" font-family="sans-serif" font-size="9.5" fill="#1e3a8a">y0 = 25 m</text>
+        <text x="330" y="65" font-family="sans-serif" font-size="9.5" fill="#1e3a8a">ymax = 45 m</text>
+
+        <line x1="390" y1="100" x2="390" y2="150" stroke="#dc2626" stroke-width="2"/>
+        <polygon points="387,142 390,150 393,142" fill="#dc2626"/>
+        <text x="365" y="165" font-family="sans-serif" font-size="10" font-weight="bold" fill="#dc2626">a = -g = -10 m/s²</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 5: Vertical Projection from a Tower of Height 25 m under Gravity</div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>नियत त्वरण \(a\) के अंतर्गत समाकलन से शुद्धगतिक समीकरण प्राप्त होते हैं:</p>
+      <div class="formula-box">
+        <ol>
+          <li>\(v = v_0 + at\)</li>
+          <li>\(x = x_0 + v_0 t + \frac{1}{2}at^2\)</li>
+          <li>\(v^2 = v_0^2 + 2a(x - x_0)\)</li>
+          <li>\(s_n = v_0 + \frac{a}{2}(2n - 1)\) &emsp; (\(n\)-वें सेकंड में तय दूरी)</li>
+        </ol>
+      </div>
+      <h3>प्रमुख अनुप्रयोग:</h3>
+      <ul>
+        <li><strong>मुक्त पतन:</strong> \(a = -g = -9.8\,\mathrm{m\,s^{-2}}\)। उच्चतम ऊँचाई \(H = \frac{u^2}{2g}\), कुल उड्डयन काल \(T = \frac{2u}{g}\)।</li>
+        <li><strong>गैलीलियो का विषम अंक नियम:</strong> विराम से गिरते पिण्ड द्वारा समान समयांतरालों \(\tau\) में तय दूरियों का अनुपात \(1 : 3 : 5 : 7 : \dots\) होता है।</li>
+        <li><strong>विराम दूरी:</strong> ब्रेक लगाने पर रुकने से पूर्व तय दूरी \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\)। चाल दोगुनी करने पर विराम दूरी 4 गुना हो जाती है।</li>
+        <li><strong>प्रतिक्रिया काल:</strong> \(t_r = \sqrt{\frac{2d}{g}}\)। यदि पैमाना \(21\,\mathrm{cm}\) फिसलता है, तो \(t_r \approx 0.2\,\mathrm{s}\)।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Relative Velocity in One Dimension -->
+  <section>
+    <h2>6. Relative Velocity in One Dimension / एक विमीय सापेक्ष वेग</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>When two bodies \(A\) and \(B\) move along the same straight line with ground velocities \(v_A\) and \(v_B\):</p>
+      <div class="formula-box">
+        \[
+        v_{AB} = v_A - v_B \quad (\text{Velocity of } A \text{ relative to } B)
+        \]
+        \[
+        v_{BA} = v_B - v_A = -v_{AB}
+        \]
+      </div>
+      <ul>
+        <li><strong>Same Direction:</strong> Relative speed is the difference of magnitudes: \(|v_A - v_B|\).</li>
+        <li><strong>Opposite Directions (Approaching / Receding):</strong> Relative speed is the sum of magnitudes: \(v_A - (-v_B) = v_A + v_B\).</li>
+        <li><strong>Relative Acceleration under Gravity:</strong> Since both freely falling bodies experience \(a = -g\), their relative acceleration is \(a_{\text{rel}} = (-g) - (-g) = 0\). Thus, in free fall, one body moves with <em>constant relative velocity</em> with respect to another.</li>
+      </ul>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>सरल रेखा पर गतिमान दो पिण्डों \(A\) व \(B\) के लिए धरातल के सापेक्ष वेग \(v_A\) तथा \(v_B\) होने पर:</p>
+      <div class="formula-box">
+        \[
+        v_{AB} = v_A - v_B \quad (B \text{ के सापेक्ष } A \text{ का वेग})
+        \]
+      </div>
+      <ul>
+        <li><strong>समान दिशा:</strong> सापेक्ष चाल परिमाणों का अंतर होती है (\(|v_A - v_B|\))।</li>
+        <li><strong>विपरीत दिशा:</strong> सापेक्ष चाल परिमाणों का योग होती है (\(v_A + v_B\))।</li>
+        <li><strong>मुक्त पतन में सापेक्ष त्वरण:</strong> दोनों का त्वरण समान होने से \(a_{\text{rel}} = (-g) - (-g) = 0\) होता है। अतः एक मुक्त गिरते पिण्ड के सापेक्ष दूसरा पिण्ड <em>एकसमान वेग</em> से गति करता है।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. Kinematic Quantities Table & Graph Tests -->
+  <section>
+    <h2>7. Summary Table &amp; Graph Traps / राशियों की सारणी एवं ग्राफ विश्लेषण</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Physical Quantity</th>
+              <th>Symbol</th>
+              <th>SI Unit</th>
+              <th>Dimensions</th>
+              <th>Defining Formula &amp; Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Path Length (Distance)</td>
+              <td>\(s\)</td>
+              <td>\(\mathrm{m}\)</td>
+              <td>\([\mathrm{L}]\)</td>
+              <td>Actual path length; scalar; \(s \ge 0\); never decreases with time.</td>
+            </tr>
+            <tr>
+              <td>Displacement</td>
+              <td>\(\Delta x\)</td>
+              <td>\(\mathrm{m}\)</td>
+              <td>\([\mathrm{L}]\)</td>
+              <td>\(\Delta x = x_2 - x_1\); vector in 1D; \(|\Delta x| \le s\).</td>
+            </tr>
+            <tr>
+              <td>Average Velocity</td>
+              <td>\(\bar{v}\)</td>
+              <td>\(\mathrm{m\,s^{-1}}\)</td>
+              <td>\([\mathrm{L\,T^{-1}}]\)</td>
+              <td>\(\bar{v} = \Delta x / \Delta t\); chord slope on \(x\text{--}t\) graph.</td>
+            </tr>
+            <tr>
+              <td>Instantaneous Velocity</td>
+              <td>\(v\)</td>
+              <td>\(\mathrm{m\,s^{-1}}\)</td>
+              <td>\([\mathrm{L\,T^{-1}}]\)</td>
+              <td>\(v = \frac{\mathrm{d}x}{\mathrm{d}t}\); tangent slope on \(x\text{--}t\) curve.</td>
+            </tr>
+            <tr>
+              <td>Instantaneous Speed</td>
+              <td>\(|v|\)</td>
+              <td>\(\mathrm{m\,s^{-1}}\)</td>
+              <td>\([\mathrm{L\,T^{-1}}]\)</td>
+              <td>\(|v| = \left|\frac{\mathrm{d}x}{\mathrm{d}t}\right|\); strictly \(\ge 0\).</td>
+            </tr>
+            <tr>
+              <td>Instantaneous Acceleration</td>
+              <td>\(a\)</td>
+              <td>\(\mathrm{m\,s^{-2}}\)</td>
+              <td>\([\mathrm{L\,T^{-2}}]\)</td>
+              <td>\(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\); tangent slope on \(v\text{--}t\) curve.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SVG Diagram 5: Impossible Graphs -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 140" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="140" fill="#ffffff"/>
+        <!-- (a) Loop on x-t -->
+        <g transform="translate(15, 10)">
+          <line x1="15" y1="100" x2="110" y2="100" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="100" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="112" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">x</text>
+          <circle cx="60" cy="55" r="25" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="12" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Loop (2 values of x)</text>
+        </g>
+        <!-- (b) Circle on v-t -->
+        <g transform="translate(145, 10)">
+          <line x1="15" y1="60" x2="110" y2="60" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="60" y1="100" x2="60" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="55" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="50" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <circle cx="60" cy="60" r="25" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="8" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Circle (Infinite a)</text>
+        </g>
+        <!-- (c) Negative Speed -->
+        <g transform="translate(275, 10)">
+          <line x1="15" y1="60" x2="110" y2="60" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="100" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="55" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="8.5" fill="#1f2937">Speed</text>
+          <path d="M 20,30 Q 45,95 65,60 T 105,95" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="12" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Speed &lt; 0 (Impossible)</text>
+        </g>
+        <!-- (d) Decreasing Distance -->
+        <g transform="translate(405, 10)">
+          <line x1="15" y1="100" x2="110" y2="100" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="100" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="112" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="8.5" fill="#1f2937">Dist</text>
+          <polyline points="20,90 45,40 70,85 100,30" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="8" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Decreasing Distance</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 7: Four Physically Impossible Kinematic Curves Frequently Tested in NEET UG</div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p><strong>नीट हेतु महत्वपूर्ण ग्राफ नियम:</strong></p>
+      <ul>
+        <li>\(x\text{--}t\) की ढाल \(\implies\) तात्क्षणिक वेग; &emsp; \(v\text{--}t\) की ढाल \(\implies\) तात्क्षणिक त्वरण।</li>
+        <li>\(v\text{--}t\) वक्र का क्षेत्रफल \(\implies\) विस्थापन; &emsp; चाल-समय ग्राफ का क्षेत्रफल \(\implies\) कुल दूरी।</li>
+        <li><strong>असम्भव आलेख:</strong> एक ही समय पर दो स्थितियाँ, बन्द लूप, ऋणात्मक चाल, या घटती हुई कुल दूरी भौतिक रूप से असम्भव हैं।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. Step-by-Step Worked Examples -->
+  <section>
+    <h2>8. Step-by-Step Worked Examples / चरणबद्ध हल किए गए उदाहरण</h2>
+
+    <!-- Example 1 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <h4>Worked Example 1: Calculus Differentiation of Position Function</h4>
+        <p><strong>Problem:</strong> An object's position along the \(x\)-axis is \(x(t) = a + bt^2\), where \(a = 8.5\,\mathrm{m}\), \(b = 2.5\,\mathrm{m\,s^{-2}}\), and \(t\) is in seconds. Find (a) velocity at \(t = 0\,\mathrm{s}\) and \(t = 2.0\,\mathrm{s}\), and (b) average velocity between \(t = 2.0\,\mathrm{s}\) and \(t = 4.0\,\mathrm{s}\).</p>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          (a) \(v(t) = \frac{\mathrm{d}x}{\mathrm{d}t} = 2bt = 2(2.5)t = 5.0\,t\,\mathrm{m\,s^{-1}}\).<br/>
+          - At \(t = 0\,\mathrm{s}\): \(v(0) = \mathbf{0\,\mathrm{m\,s^{-1}}}\).<br/>
+          - At \(t = 2.0\,\mathrm{s}\): \(v(2) = 5.0(2.0) = \mathbf{10.0\,\mathrm{m\,s^{-1}}}\).<br/>
+          (b) \(\bar{v} = \frac{x(4) - x(2)}{4 - 2} = \frac{[a + b(16)] - [a + b(4)]}{2} = 6b = 6(2.5) = \mathbf{15.0\,\mathrm{m\,s^{-1}}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <h4>हल किया गया उदाहरण 1: स्थिति फलन का अवकलन</h4>
+        <p><strong>प्रश्न:</strong> \(x\)-अक्ष पर गतिमान वस्तु की स्थिति \(x(t) = a + bt^2\) है (\(a = 8.5\,\mathrm{m}\), \(b = 2.5\,\mathrm{m\,s^{-2}}\))। (a) \(t = 0\,\mathrm{s}\) व \(t = 2.0\,\mathrm{s}\) पर वेग, तथा (b) \(t = 2.0\,\mathrm{s}\) से \(4.0\,\mathrm{s}\) के मध्य औसत वेग ज्ञात कीजिए।</p>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          (a) \(v = \frac{\mathrm{d}x}{\mathrm{d}t} = 2bt = 5.0\,t\)। \(t = 0\) पर \(v = \mathbf{0\,\mathrm{m\,s^{-1}}}\); \(t = 2\,\mathrm{s}\) पर \(v = \mathbf{10.0\,\mathrm{m\,s^{-1}}}\)।<br/>
+          (b) \(\bar{v} = \frac{x(4) - x(2)}{4 - 2} = \frac{12b}{2} = 6(2.5) = \mathbf{15.0\,\mathrm{m\,s^{-1}}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <h4>Worked Example 2: Vertical Launch from a 25 m Building</h4>
+        <p><strong>Problem:</strong> A ball is thrown vertically upwards with \(v_0 = 20\,\mathrm{m\,s^{-1}}\) from the top of a \(25.0\,\mathrm{m}\) tall tower. Taking \(g = 10\,\mathrm{m\,s^{-2}}\) and ground as \(y = 0\): (a) How high will it rise? (b) After how long does it hit the ground?</p>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          (a) Upward direction positive. At peak, \(v = 0\):<br/>
+          \(v^2 = v_0^2 + 2(-g)(y - y_0) \implies 0 = 20^2 - 20(y - 25) \implies y - 25 = \mathbf{20.0\,\mathrm{m}}\).<br/>
+          Maximum height above ground is \(y_{\text{max}} = 25 + 20 = \mathbf{45.0\,\mathrm{m}}\).<br/>
+          (b) Setting final ground coordinate \(y = 0\):<br/>
+          \(y = y_0 + v_0 t - \frac{1}{2}gt^2 \implies 0 = 25 + 20t - 5t^2 \implies t^2 - 4t - 5 = 0\).<br/>
+          Factoring: \((t - 5)(t + 1) = 0 \implies t = \mathbf{5.0\,\mathrm{s}}\) (discarding unphysical \(t = -1\,\mathrm{s}\)).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <h4>हल किया गया उदाहरण 2: 25 मीटर मीनार की छत से प्रक्षेपण</h4>
+        <p><strong>प्रश्न:</strong> \(25.0\,\mathrm{m}\) ऊँची मीनार से गेंद \(20\,\mathrm{m\,s^{-1}}\) वेग से ऊपर फेंकी जाती है (\(g = 10\,\mathrm{m\,s^{-2}}\))। (a) अधिकतम ऊँचाई, तथा (b) धरातल तक पहुँचने में कुल समय ज्ञात कीजिए।</p>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          (a) उच्चतम बिन्दु पर \(v = 0 \implies 0 = 20^2 - 2(10)(y - 25) \implies y - 25 = \mathbf{20.0\,\mathrm{m}}\)। धरातल से ऊँचाई \(= \mathbf{45.0\,\mathrm{m}}\)।<br/>
+          (b) धरातल पर \(y = 0 \implies 0 = 25 + 20t - 5t^2 \implies t^2 - 4t - 5 = 0 \implies t = \mathbf{5.0\,\mathrm{s}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <h4>Worked Example 3: Relative Velocity of a Bullet Fired at a Fleeing Car</h4>
+        <p><strong>Problem:</strong> A police van moving at \(30\,\mathrm{km\,h^{-1}}\) fires a bullet with muzzle speed \(150\,\mathrm{m\,s^{-1}}\) at a thief's car fleeing in the same direction at \(192\,\mathrm{km\,h^{-1}}\). With what speed does the bullet hit the thief's car?</p>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Convert speeds: \(v_P = 30 \times \frac{5}{18} = \frac{25}{3}\,\mathrm{m\,s^{-1}}\), \(v_T = 192 \times \frac{5}{18} = \frac{160}{3}\,\mathrm{m\,s^{-1}}\).<br/>
+          Bullet ground speed: \(v_{BG} = v_{\text{muzzle}} + v_P = 150 + \frac{25}{3} = \frac{475}{3}\,\mathrm{m\,s^{-1}}\).<br/>
+          Impact speed relative to thief: \(v_{BT} = v_{BG} - v_T = \frac{475}{3} - \frac{160}{3} = \frac{315}{3} = \mathbf{105\,\mathrm{m\,s^{-1}}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <h4>हल किया गया उदाहरण 3: दागी गई गोली का सापेक्ष संघात वेग</h4>
+        <p><strong>प्रश्न:</strong> \(30\,\mathrm{km\,h^{-1}}\) की चाल से चल रही पुलिस वैन से उसी दिशा में \(192\,\mathrm{km\,h^{-1}}\) से भाग रही कार पर नालमुखी चाल \(150\,\mathrm{m\,s^{-1}}\) की गोली चलाई जाती है। गोली कार से किस चाल से टकराएगी?</p>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          \(v_P = \frac{25}{3}\,\mathrm{m\,s^{-1}}\), \(v_T = \frac{160}{3}\,\mathrm{m\,s^{-1}}\)।<br/>
+          धरातल के सापेक्ष गोली का वेग: \(v_{BG} = 150 + \frac{25}{3} = \frac{475}{3}\,\mathrm{m\,s^{-1}}\)।<br/>
+          चोर की कार के सापेक्ष वेग: \(v_{BT} = \frac{475}{3} - \frac{160}{3} = \mathbf{105\,\mathrm{m\,s^{-1}}}\)।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. NEET UG Exam Practice Questions -->
+  <section>
+    <h2>9. NEET UG Exam Practice Questions / नीट-यूजी परीक्षा अभ्यास प्रश्न</h2>
+
+    <!-- Question 1 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 1 (Calculus Kinematics): A particle moves along the \(x\)-axis such that \(x(t) = 2t^3 - 9t^2 + 12t + 4\) (with \(x\) in meters, \(t\) in seconds). What is the acceleration of the particle when its velocity becomes zero for the second time?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(-6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(B) \(+6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(C) \(+12\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(D) \(0\,\mathrm{m\,s^{-2}}\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (B)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Velocity \(v(t) = \frac{\mathrm{d}x}{\mathrm{d}t} = 6t^2 - 18t + 12\). Set \(v = 0 \implies 6(t - 1)(t - 2) = 0\). Velocity is zero at \(t = 1\,\mathrm{s}\) and \(t = 2\,\mathrm{s}\) (second instant).<br/>
+          Acceleration \(a(t) = \frac{\mathrm{d}v}{\mathrm{d}t} = 12t - 18\). At \(t = 2\,\mathrm{s}\): \(a(2) = 12(2) - 18 = \mathbf{+6\,\mathrm{m\,s^{-2}}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 1 (कलन गतिकी): किसी कण की स्थिति \(x(t) = 2t^3 - 9t^2 + 12t + 4\) मीटर है। उस क्षण कण का त्वरण क्या होगा जब उसका वेग दूसरी बार शून्य होता है?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(-6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(B) \(+6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(C) \(+12\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(D) \(0\,\mathrm{m\,s^{-2}}\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (B)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          \(v = \frac{\mathrm{d}x}{\mathrm{d}t} = 6t^2 - 18t + 12 = 0 \implies t = 1\,\mathrm{s}, 2\,\mathrm{s}\)। दूसरी बार वेग शून्य \(t = 2\,\mathrm{s}\) पर होता है।<br/>
+          \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = 12t - 18 \implies a(2) = 24 - 18 = \mathbf{+6\,\mathrm{m\,s^{-2}}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 2 (Graph Area - Distance vs. Displacement): A particle's \(v\text{--}t\) graph consists of a positive trapezoid from \(t = 0\) to \(6\,\mathrm{s}\) (parallel bases \(6\,\mathrm{s}\) and \(2\,\mathrm{s}\), peak velocity \(+10\,\mathrm{m\,s^{-1}}\)) and a negative trapezoid from \(t = 6\) to \(8\,\mathrm{s}\) (area \(-7.5\,\mathrm{m}\)). What are the total displacement and distance covered from \(t = 0\) to \(8\,\mathrm{s}\)?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) Displacement = \(40\,\mathrm{m}\), Distance = \(40\,\mathrm{m}\)</div>
+          <div class="option-item">(B) Displacement = \(32.5\,\mathrm{m}\), Distance = \(47.5\,\mathrm{m}\)</div>
+          <div class="option-item">(C) Displacement = \(47.5\,\mathrm{m}\), Distance = \(32.5\,\mathrm{m}\)</div>
+          <div class="option-item">(D) Displacement = \(25\,\mathrm{m}\), Distance = \(55\,\mathrm{m}\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (B)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Positive Area \(A_1 = \frac{1}{2}(6 + 2) \times 10 = +40.0\,\mathrm{m}\). Negative Area \(A_2 = -7.5\,\mathrm{m}\).<br/>
+          Displacement \(\Delta x = A_1 + A_2 = 40.0 - 7.5 = \mathbf{32.5\,\mathrm{m}}\).<br/>
+          Distance \(s = |A_1| + |A_2| = 40.0 + 7.5 = \mathbf{47.5\,\mathrm{m}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 2 (विस्थापन एवं दूरी): किसी कण के \(v\text{--}t\) ग्राफ में \(t = 0\) से \(6\,\mathrm{s}\) का धनात्मक क्षेत्रफल \(+40\,\mathrm{m}\) तथा \(t = 6\) से \(8\,\mathrm{s}\) का ऋणात्मक क्षेत्रफल \(-7.5\,\mathrm{m}\) है। कुल विस्थापन एवं कुल दूरी क्या होगी?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) विस्थापन = \(40\,\mathrm{m}\), दूरी = \(40\,\mathrm{m}\)</div>
+          <div class="option-item">(B) विस्थापन = \(32.5\,\mathrm{m}\), दूरी = \(47.5\,\mathrm{m}\)</div>
+          <div class="option-item">(C) विस्थापन = \(47.5\,\mathrm{m}\), दूरी = \(32.5\,\mathrm{m}\)</div>
+          <div class="option-item">(D) विस्थापन = \(25\,\mathrm{m}\), दूरी = \(55\,\mathrm{m}\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (B)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          विस्थापन \(= A_1 + A_2 = 40 - 7.5 = \mathbf{32.5\,\mathrm{m}}\)।<br/>
+          दूरी \(= |A_1| + |A_2| = 40 + 7.5 = \mathbf{47.5\,\mathrm{m}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 3 (Galileo's Odd Number Law): A stone falls freely from rest under gravity. If it traverses distances \(h_1, h_2, h_3\) during the 1st second, 2nd second, and 3rd second respectively, what is the ratio \(h_1 : h_2 : h_3\)?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(1 : 2 : 3\)</div>
+          <div class="option-item">(B) \(1 : 4 : 9\)</div>
+          <div class="option-item">(C) \(1 : 3 : 5\)</div>
+          <div class="option-item">(D) \(1 : \sqrt{2} : \sqrt{3}\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (C)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Displacement in \(n\)-th second from rest is \(s_n = \frac{g}{2}(2n - 1)\).<br/>
+          For \(n = 1, 2, 3\): \(h_1 = \frac{g}{2}(1)\), \(h_2 = \frac{g}{2}(3)\), \(h_3 = \frac{g}{2}(5)\).<br/>
+          Ratio \(h_1 : h_2 : h_3 = \mathbf{1 : 3 : 5}\) (Galileo's law of odd numbers).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 3 (गैलीलियो का विषम अंक नियम): विराम से गिरते पत्थर द्वारा प्रथम, द्वितीय एवं तृतीय सेकंड में तय की गई दूरियाँ क्रमशः \(h_1, h_2, h_3\) हैं। अनुपात \(h_1 : h_2 : h_3\) क्या होगा?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(1 : 2 : 3\)</div>
+          <div class="option-item">(B) \(1 : 4 : 9\)</div>
+          <div class="option-item">(C) \(1 : 3 : 5\)</div>
+          <div class="option-item">(D) \(1 : \sqrt{2} : \sqrt{3}\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (C)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          \(s_n = \frac{g}{2}(2n - 1)\)। \(n = 1, 2, 3\) रखने पर अनुपात \(\mathbf{1 : 3 : 5}\) प्राप्त होता है।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 4 (Vehicle Stopping Distance Scaling): A car traveling with initial speed \(u\) stops over a minimum distance \(x\) upon maximum braking. If its speed is tripled to \(3u\) under the same road and braking conditions, its new minimum stopping distance will be:
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(3x\)</div>
+          <div class="option-item">(B) \(6x\)</div>
+          <div class="option-item">(C) \(9x\)</div>
+          <div class="option-item">(D) \(12x\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (C)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Stopping distance \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\).<br/>
+          When \(v_0' = 3u\), \(d_s' = (3)^2 x = \mathbf{9x}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 4 (विराम दूरी का अनुपात): \(u\) चाल से चल रही कार ब्रेक लगाने पर न्यूनतम \(x\) दूरी में रुकती है। यदि चाल तीन गुनी (\(3u\)) कर दी जाए, तो समान मंदन पर न्यूनतम विराम दूरी क्या होगी?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(3x\)</div>
+          <div class="option-item">(B) \(6x\)</div>
+          <div class="option-item">(C) \(9x\)</div>
+          <div class="option-item">(D) \(12x\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (C)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          विराम दूरी \(d_s \propto v_0^2\)। चाल 3 गुनी होने पर दूरी \(3^2 = \mathbf{9x}\) होगी।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 5 (Assertion-Reason Format):<br/>
+          <strong>Assertion (A):</strong> A body moving in a straight line with strictly constant speed must have zero acceleration.<br/>
+          <strong>Reason (R):</strong> In one-dimensional rectilinear motion, speed is the magnitude of velocity, and a body cannot reverse its direction without its speed becoming momentarily zero.
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) Both (A) and (R) are true and (R) is the correct explanation of (A).</div>
+          <div class="option-item">(B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</div>
+          <div class="option-item">(C) (A) is true but (R) is false.</div>
+          <div class="option-item">(D) (A) is false but (R) is true.</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (A)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          In 1D, there are only two directions (+ and -). If speed is strictly non-zero and constant, direction cannot change because direction reversal requires passing through \(v = 0\). Therefore, the velocity vector is entirely constant, making \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = 0\). (A) and (R) are true and (R) explains (A).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 5 (अभिकथन-कारण):<br/>
+          <strong>अभिकथन (A):</strong> सरल रेखा में नियत चाल से गतिमान वस्तु का त्वरण अनिवार्यतः शून्य होना चाहिए।<br/>
+          <strong>कारण (R):</strong> एक-विमीय गति में चाल वेग का परिमाण होती है, तथा बिना चाल शून्य हुए सरल रेखा में गति की दिशा नहीं बदली जा सकती।
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) (A) और (R) दोनों सही हैं तथा (R), (A) की सही व्याख्या है।</div>
+          <div class="option-item">(B) (A) और (R) दोनों सही हैं परन्तु (R), (A) की सही व्याख्या नहीं है।</div>
+          <div class="option-item">(C) (A) सही है परन्तु (R) गलत है।</div>
+          <div class="option-item">(D) (A) गलत है परन्तु (R) सही है।</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (A)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          सरल रेखा में चाल नियत रहने पर दिशा नहीं बदल सकती, अतः वेग पूर्णतः नियत रहता है जिससे त्वरण शून्य होता है। सही विकल्प (A) है।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 6 (Relative Velocity - Opposite Directions): Train A travels North at \(54\,\mathrm{km\,h^{-1}}\), and Train B travels South at \(90\,\mathrm{km\,h^{-1}}\) on parallel tracks. What is the velocity of Train B relative to Train A?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(+40\,\mathrm{m\,s^{-1}}\) North</div>
+          <div class="option-item">(B) \(-40\,\mathrm{m\,s^{-1}}\) South</div>
+          <div class="option-item">(C) \(-10\,\mathrm{m\,s^{-1}}\) South</div>
+          <div class="option-item">(D) \(+144\,\mathrm{m\,s^{-1}}\) North</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (B)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Taking North as \(+x\): \(v_A = +54 \times \frac{5}{18} = +15\,\mathrm{m\,s^{-1}}\), and \(v_B = -90 \times \frac{5}{18} = -25\,\mathrm{m\,s^{-1}}\).<br/>
+          Relative velocity: \(v_{BA} = v_B - v_A = -25 - (+15) = \mathbf{-40\,\mathrm{m\,s^{-1}}}\) (Southward).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 6 (सापेक्ष वेग): ट्रेन A उत्तर दिशा में \(54\,\mathrm{km\,h^{-1}}\) से तथा ट्रेन B दक्षिण दिशा में \(90\,\mathrm{km\,h^{-1}}\) से समांतर पटरियों पर चल रही हैं। ट्रेन A के सापेक्ष ट्रेन B का वेग क्या होगा?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(+40\,\mathrm{m\,s^{-1}}\) (उत्तर)</div>
+          <div class="option-item">(B) \(-40\,\mathrm{m\,s^{-1}}\) (दक्षिण)</div>
+          <div class="option-item">(C) \(-10\,\mathrm{m\,s^{-1}}\) (दक्षिण)</div>
+          <div class="option-item">(D) \(+144\,\mathrm{m\,s^{-1}}\) (उत्तर)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (B)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          उत्तर को धनात्मक मानने पर: \(v_A = +15\,\mathrm{m\,s^{-1}}\), \(v_B = -25\,\mathrm{m\,s^{-1}}\)।<br/>
+          \(v_{BA} = v_B - v_A = -25 - 15 = \mathbf{-40\,\mathrm{m\,s^{-1}}}\) (दक्षिण दिशा में)। सही विकल्प (B) है।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Common Pitfalls & Revision Checklist -->
+  <section>
+    <h2>10. Common Pitfalls &amp; Checklist / सामान्य त्रुटियाँ एवं पुनरीक्षण सूची</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <div class="pitfall-box">
+        <strong>1. Sign of Acceleration vs. Speeding Up:</strong> Positive acceleration does NOT always mean speeding up! A particle speeds up if \(v\) and \(a\) share the <em>same sign</em> (\(v > 0, a > 0\) OR \(v < 0, a < 0\)). If signs differ, it slows down.
+      </div>
+      <div class="pitfall-box">
+        <strong>2. Zero Velocity with Non-Zero Acceleration:</strong> At the highest point of vertical flight, \(v = 0\), but \(a = -g \ne 0\). Acceleration is the <em>rate of change</em> of velocity, not the instantaneous velocity itself.
+      </div>
+      <div class="pitfall-box">
+        <strong>3. Constant vs. Variable Acceleration:</strong> Formulas \(v = v_0 + at\) and \(x = v_0 t + \frac{1}{2}at^2\) apply ONLY when \(a\) is constant. If \(a = f(t)\) or \(f(x)\), calculus integration must be used.
+      </div>
+      <div class="pitfall-box">
+        <strong>4. Distance vs. Displacement:</strong> Total distance \(s \ge |\Delta x|\). In a round trip, displacement is zero, but total distance is positive.
+      </div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <div class="pitfall-box">
+        <strong>1. त्वरण के चिन्ह का भ्रम:</strong> धनात्मक त्वरण का अर्थ सदैव चाल बढ़ना नहीं होता। यदि \(v\) व \(a\) दोनों के चिन्ह समान हों तो चाल बढ़ती है; विपरीत चिन्ह होने पर चाल घटती है।
+      </div>
+      <div class="pitfall-box">
+        <strong>2. शून्य वेग पर अशून्य त्वरण:</strong> ऊर्ध्वाधर गति के शीर्ष पर \(v = 0\) होता है, किन्तु त्वरण \(a = -g\) निरंतर कार्य करता रहता है।
+      </div>
+      <div class="pitfall-box">
+        <strong>3. गति के समीकरणों की सीमा:</strong> \(v = v_0 + at\) केवल नियत त्वरण पर मान्य है। परिवर्ती त्वरण में समाकलन आवश्यक है।
+      </div>
+      <div class="pitfall-box">
+        <strong>4. दूरी बनाम विस्थापन:</strong> किसी पूर्ण यात्रा (लौटने) में विस्थापन शून्य हो सकता है, किन्तु दूरी सदैव धनात्मक होती है।
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Final Quick Recap -->
+  <section>
+    <h2>11. Final Quick Recap / अंतिम त्वरित सारांश</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <div class="formula-box">
+        <h4>Core Formula Reference Sheet:</h4>
+        <ul>
+          <li>Differential: \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\), \quad \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)</li>
+          <li>Integrals: \(\Delta x = \int v\,\mathrm{d}t\) (Area under \(v\text{--}t\)), \quad \(\Delta v = \int a\,\mathrm{d}t\) (Area under \(a\text{--}t\))</li>
+          <li>Kinematic Equations (Constant \(a\)):
+            \[
+            v = v_0 + at, \quad x = x_0 + v_0 t + \frac{1}{2}at^2, \quad v^2 = v_0^2 + 2a(x - x_0)
+            \]
+          </li>
+          <li>\(n\)-th Second: \(s_n = v_0 + \frac{a}{2}(2n - 1)\)</li>
+          <li>Galileo Odd Ratios: \(1 : 3 : 5 : 7 : 9 \dots\)</li>
+          <li>Free Fall: Max height \(H = \frac{u^2}{2g}\), \quad Flight Time \(T = \frac{2u}{g}\)</li>
+          <li>Stopping Distance: \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\)</li>
+          <li>Reaction Time: \(t_r = \sqrt{\frac{2d}{g}}\)</li>
+          <li>Relative Velocity: \(v_{AB} = v_A - v_B\)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <div class="formula-box">
+        <h4>महत्वपूर्ण सूत्र सारांश:</h4>
+        <ul>
+          <li>अवकलन: \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\), \quad \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)</li>
+          <li>समाकलन: \(\Delta x = \int v\,\mathrm{d}t\) (\(v\text{--}t\) वक्र का क्षेत्रफल), \quad \(\Delta v = \int a\,\mathrm{d}t\) (\(a\text{--}t\) वक्र का क्षेत्रफल)</li>
+          <li>समीकरण: \(v = v_0 + at\), \quad \(x = x_0 + v_0 t + \frac{1}{2}at^2\), \quad \(v^2 = v_0^2 + 2a(x - x_0)\)</li>
+          <li>\(n\)-वें सेकंड में विस्थापन: \(s_n = v_0 + \frac{a}{2}(2n - 1)\)</li>
+          <li>गैलीलियो अनुपात: \(1 : 3 : 5 : 7 \dots\)</li>
+          <li>ऊर्ध्वाधर प्रक्षेपण: \(H = \frac{u^2}{2g}\), \quad \(T = \frac{2u}{g}\)</li>
+          <li>विराम दूरी: \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\)</li>
+          <li>प्रतिक्रिया काल: \(t_r = \sqrt{\frac{2d}{g}}\)</li>
+          <li>सापेक्ष वेग: \(v_{AB} = v_A - v_B\)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.82rem;">
+    <p>NEET UG Physics Self-Contained Master Tutorial &bull; Motion in a Straight Line (सरल रेखा में गति) &bull; NCERT Class 11</p>
+  </footer>
+
+</div> <!-- /container -->
+</body>
+</html>
+EOF
+python3 /tmp/validate_clean.py
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion in a Straight Line - NEET UG Physics Master Tutorial (सरल रेखा में गति)</title>
+  
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --secondary: #0f766e;
+      --secondary-light: #f0fdfa;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --border: #cbd5e1;
+      --card-bg: #ffffff;
+      --accent-en: #2563eb;
+      --accent-hi: #d97706;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: #f8fafc;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      border: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 1.85rem;
+      color: var(--primary);
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 0.35rem 0.65rem;
+      margin: 1.75rem 0 0.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin: 0.75rem 0 0.4rem 0;
+    }
+    h4 {
+      font-size: 1rem;
+      color: var(--text);
+      margin: 0.5rem 0 0.3rem 0;
+    }
+    p { margin-bottom: 0.75rem; text-align: justify; }
+    ul, ol { margin-left: 1.4rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.25rem; }
+    
+    /* Bilingual Layout */
+    .content-block {
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+    .content-block.lang-en { border-left: 4px solid var(--accent-en); }
+    .content-block.lang-hi { border-left: 4px solid var(--accent-hi); background-color: #fffdfa; }
+    .lang-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      margin-bottom: 0.4rem;
+    }
+    .badge-en { background: #dbeafe; color: #1e40af; }
+    .badge-hi { background: #fef3c7; color: #92400e; }
+    
+    /* Box Callouts */
+    .concept-box {
+      background: var(--primary-light);
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+    }
+    .formula-box {
+      background: var(--secondary-light);
+      border: 1px solid #99f6e4;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+    }
+    .example-card, .practice-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    }
+    .pitfall-box {
+      background: #fff1f2;
+      border-left: 4px solid #e11d48;
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      margin: 0.6rem 0;
+    }
+    .option-item {
+      padding: 0.35rem 0.65rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 0.92rem;
+    }
+    .ans-tag {
+      display: inline-block;
+      font-weight: 700;
+      color: #15803d;
+      background: #dcfce7;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.4rem;
+      border: 1px solid #86efac;
+      font-size: 0.88rem;
+    }
+    .sol-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 0.65rem 0.85rem;
+      margin-top: 0.4rem;
+      font-size: 0.92rem;
+    }
+    hr.bilingual-sep {
+      border: 0;
+      height: 1px;
+      background: #cbd5e1;
+      margin: 1rem 0;
+    }
+
+    /* Diagrams & Tables */
+    .svg-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 0.4rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .svg-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+    .table-container { width: 100%; overflow-x: auto; margin: 0.75rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { border: 1px solid var(--border); padding: 0.45rem 0.65rem; text-align: left; }
+    th { background: #f1f5f9; color: var(--primary); font-weight: 600; }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    /* Print Safety */
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: #ffffff !important; color: #000000 !important; padding: 0 !important; font-size: 9pt !important; }
+      .container { max-width: 100% !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+      h1 { font-size: 15pt !important; }
+      h2 { font-size: 12pt !important; background: #eee !important; page-break-after: avoid; }
+      h3 { font-size: 10.5pt !important; page-break-after: avoid; }
+      .example-card, .practice-card, .content-block { page-break-inside: avoid; border: 1px solid #888 !important; margin: 6pt 0 !important; padding: 6pt !important; }
+      .svg-container { page-break-inside: avoid; max-width: 85% !important; }
+      svg { max-width: 100% !important; height: auto !important; }
+      table { page-break-inside: avoid; font-size: 8pt !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header style="text-align: center; margin-bottom: 1.5rem;">
+    <h1>Motion in a Straight Line</h1>
+    <div class="subtitle">सरल रेखा में गति | NEET UG Physics High-Yield Master Tutorial</div>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.88rem;">
+      Aligned with NCERT Physics Class 11 (Motion in a Straight Line) &bull; Target Standard: NEET UG &bull; Bilingual Edition (English &amp; हिन्दी)
+    </p>
+  </header>
+
+  <!-- 1. Syllabus Overview & Learning Objectives -->
+  <section>
+    <h2>1. Syllabus Overview &amp; Learning Objectives / पाठ्यक्रम अवलोकन एवं उद्देश्य</h2>
+    
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>Rectilinear kinematics is foundational to mechanics, yielding 1 to 2 direct questions annually in NEET UG. Key target concepts include:</p>
+      <ul>
+        <li><strong>Point Object:</strong> Approximating objects as particles when size &ll; distance moved.</li>
+        <li><strong>Calculus Kinematics:</strong> Instantaneous velocity \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\) and acceleration \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\).</li>
+        <li><strong>Motion Graphs:</strong> Tangent slopes (\(\frac{\mathrm{d}x}{\mathrm{d}t}, \frac{\mathrm{d}v}{\mathrm{d}t}\)) and areas under curves (\(\int v\,\mathrm{d}t, \int a\,\mathrm{d}t\)).</li>
+        <li><strong>Uniformly Accelerated Motion:</strong> Derivation and sign conventions for the kinematic equations.</li>
+        <li><strong>Free Fall &amp; Gravity:</strong> Vertical symmetry, Galileo's law of odd numbers, stopping distance, and reaction time.</li>
+        <li><strong>Relative Velocity in 1D:</strong> Collinear motion equations for overtaking and approaching bodies.</li>
+      </ul>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>सरल रेखीय गति यांत्रिकी की आधारशिला है, जिससे नीट (NEET UG) में प्रतिवर्ष 1 से 2 प्रश्न पूछे जाते हैं। मुख्य अधिगम बिन्दु:</p>
+      <ul>
+        <li><strong>बिन्दु वस्तु:</strong> वस्तु का आकार तय की गई दूरी की तुलना में नगण्य होने पर कण मानना।</li>
+        <li><strong>अवकलन गतिकी:</strong> तात्क्षणिक वेग \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\) तथा त्वरण \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\) का निर्धारण।</li>
+        <li><strong>ग्राफ विश्लेषण:</strong> ढाल (स्पर्श रेखा) तथा वक्र के अंतर्गत क्षेत्रफल का भौतिक अर्थ।</li>
+        <li><strong>एकसमान त्वरित गति:</strong> शुद्धगतिक समीकरणों का निगमन व उचित चिन्ह परिपाटी।</li>
+        <li><strong>मुक्त पतन:</strong> सममित ऊर्ध्वाधर गति, गैलीलियो का विषम अंक नियम, विराम दूरी तथा प्रतिक्रिया काल।</li>
+        <li><strong>एक विमीय सापेक्ष वेग:</strong> एक ही रेखा पर गतिमान पिण्डों के सापेक्ष वेग का परिकलन।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Point Object Model -->
+  <section>
+    <h2>2. Rectilinear Motion &amp; Point Object / सरल रेखीय गति एवं बिन्दु वस्तु</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p><strong>Rectilinear motion</strong> is motion along a single straight line. To analyze motion without internal degrees of freedom, we treat the moving body as a <strong>point object</strong>:</p>
+      <div class="concept-box">
+        <strong>Point Object Criterion:</strong> An object can be modeled as a point object if its linear dimensions are negligibly small compared to the distance it traverses in the given time interval.
+      </div>
+      <p><em>Examples:</em> A train traveling several hundred kilometers between cities acts as a point object; however, while crossing a 150 m bridge, its size cannot be neglected.</p>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>किसी सरल रेखा के अनुदिश होने वाली गति को <strong>ऋजुरेखीय या सरल रेखीय गति</strong> कहते हैं। विश्लेषण को सरल बनाने हेतु वस्तु को <strong>बिन्दु वस्तु</strong> माना जाता है:</p>
+      <div class="concept-box">
+        <strong>बिन्दु वस्तु की कसौटी:</strong> यदि किसी वस्तु का आकार उसके द्वारा तय की गई दूरी की तुलना में नगण्य हो, तो उसे बिन्दु वस्तु माना जाता है।
+      </div>
+      <p><em>उदाहरण:</em> दो स्टेशनों के बीच सैकड़ों किलोमीटर दौड़ती रेलगाड़ी बिन्दु वस्तु है, किन्तु 150 मीटर लंबे पुल को पार करते समय उसकी लंबाई नगण्य नहीं मानी जा सकती।</p>
+    </div>
+  </section>
+
+  <!-- 3. Instantaneous Velocity and Speed -->
+  <section>
+    <h2>3. Instantaneous Velocity &amp; Speed / तात्क्षणिक वेग एवं चाल</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>Average velocity \(\bar{v} = \frac{\Delta x}{\Delta t}\) gives the overall rate of displacement over a finite interval \(\Delta t\). <strong>Instantaneous velocity</strong> \(v\) gives the rate of change of position at a specific instant \(t\):</p>
+      <div class="formula-box">
+        \[
+        v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{\mathrm{d}x}{\mathrm{d}t}
+        \]
+        <strong>Graphical Meaning:</strong> Instantaneous velocity equals the slope of the tangent to the position-time (\(x\text{--}t\)) curve at that instant.
+      </div>
+      <p><strong>Instantaneous Speed:</strong> The instantaneous speed is the absolute magnitude of instantaneous velocity: \(\text{Speed} = |v(t)| = \left|\frac{\mathrm{d}x}{\mathrm{d}t}\right|\). Over a finite interval, average speed \(\ge |\text{average velocity}|\), but at any infinitesimal instant, <strong>instantaneous speed \(\equiv |\text{instantaneous velocity}|\)</strong>.</p>
+    </div>
+
+    <!-- SVG Diagram 1: Tangent Limiting Process -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="260" fill="#ffffff"/>
+        <!-- Axes -->
+        <line x1="60" y1="220" x2="490" y2="220" stroke="#1f2937" stroke-width="1.5"/>
+        <line x1="60" y1="220" x2="60" y2="20" stroke="#1f2937" stroke-width="1.5"/>
+        <polygon points="490,217 498,220 490,223" fill="#1f2937"/>
+        <polygon points="57,20 60,12 63,20" fill="#1f2937"/>
+        <text x="470" y="240" font-family="sans-serif" font-size="11" fill="#1f2937">t (s)</text>
+        <text x="25" y="25" font-family="sans-serif" font-size="11" fill="#1f2937">x (m)</text>
+
+        <!-- Curve x = 0.08 t^3 -->
+        <path d="M 60,215 Q 200,205 270,165 T 460,35" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+        <text x="440" y="25" font-family="sans-serif" font-size="10" font-weight="bold" fill="#0284c7">x(t)</text>
+
+        <!-- Secant P1 P2 -->
+        <line x1="130" y1="210" x2="410" y2="105" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3"/>
+        <circle cx="170" cy="195" r="3.5" fill="#475569"/>
+        <text x="155" y="190" font-family="sans-serif" font-size="9" fill="#475569">P1 (3s)</text>
+        <circle cx="370" cy="120" r="3.5" fill="#475569"/>
+        <text x="375" y="125" font-family="sans-serif" font-size="9" fill="#475569">P2 (5s)</text>
+
+        <!-- Tangent at P (t=4s) -->
+        <line x1="140" y1="215" x2="400" y2="105" stroke="#dc2626" stroke-width="2"/>
+        <circle cx="270" cy="160" r="4.5" fill="#dc2626"/>
+        <text x="275" y="155" font-family="sans-serif" font-size="11" font-weight="bold" fill="#dc2626">P (t = 4 s)</text>
+
+        <!-- Legend -->
+        <rect x="70" y="30" width="180" height="50" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+        <line x1="75" y1="45" x2="100" y2="45" stroke="#94a3b8" stroke-dasharray="3,3"/>
+        <text x="105" y="48" font-family="sans-serif" font-size="9.5" fill="#334155">Secant (Δt = 2 s)</text>
+        <line x1="75" y1="65" x2="100" y2="65" stroke="#dc2626" stroke-width="2"/>
+        <text x="105" y="68" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#dc2626">Tangent (Δt → 0)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 1: Limiting Process on \(x\text{--}t\) Graph: Secant Slope Converging to Tangent Slope at \(t = 4\,\mathrm{s}\)</div>
+    </div>
+
+    <!-- Limiting Table -->
+    <div class="content-block lang-en">
+      <p><strong>Limiting Table for \(x = 0.08 t^3\) around \(t = 4.0\,\mathrm{s}\):</strong></p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>\(\Delta t\) (s)</th>
+              <th>\(t_1\) (s)</th>
+              <th>\(t_2\) (s)</th>
+              <th>\(x(t_1)\) (m)</th>
+              <th>\(x(t_2)\) (m)</th>
+              <th>\(\Delta x\) (m)</th>
+              <th>\(\bar{v} = \Delta x / \Delta t\) (\(\mathrm{m\,s^{-1}}\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2.0</td><td>3.0</td><td>5.0</td><td>2.16</td><td>10.00</td><td>7.84</td><td>3.92</td></tr>
+            <tr><td>1.0</td><td>3.5</td><td>4.5</td><td>3.43</td><td>7.29</td><td>3.86</td><td>3.86</td></tr>
+            <tr><td>0.1</td><td>3.95</td><td>4.05</td><td>4.9304</td><td>5.3144</td><td>0.384</td><td>3.8402</td></tr>
+            <tr><td>0.01</td><td>3.995</td><td>4.005</td><td>5.1008</td><td>5.1392</td><td>0.0384</td><td><strong>3.8400</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>By calculus: \(\frac{\mathrm{d}x}{\mathrm{d}t} = 0.24 t^2\). At \(t = 4\,\mathrm{s}\), \(v = 0.24(16) = 3.84\,\mathrm{m\,s^{-1}}\), exactly matching the limiting ratio.</p>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>औसत वेग \(\bar{v} = \frac{\Delta x}{\Delta t}\) किसी समयांतराल में विस्थापन की दर है, जबकि <strong>तात्क्षणिक वेग</strong> \(v\) किसी विशिष्ट क्षण पर स्थिति परिवर्तन की दर है:</p>
+      <div class="formula-box">
+        \[
+        v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{\mathrm{d}x}{\mathrm{d}t}
+        \]
+        <strong>ग्राफीय अर्थ:</strong> किसी क्षण पर तात्क्षणिक वेग, उस क्षण पर स्थिति-समय ग्राफ पर खींची गई स्पर्श रेखा की ढाल (प्रवणता) के बराबर होता है।
+      </div>
+      <p><strong>तात्क्षणिक चाल:</strong> तात्क्षणिक चाल वेग का निरपेक्ष मान है: \(|v| = |\frac{\mathrm{d}x}{\mathrm{d}t}|\)। परिमित समयांतराल में औसत चाल \(\ge |\text{औसत वेग}|\), परन्तु किसी क्षण पर <strong>तात्क्षणिक चाल \(\equiv |\text{तात्क्षणिक वेग}|\)</strong> होती है।</p>
+    </div>
+  </section>
+
+  <!-- 4. Acceleration and Graphical Analysis -->
+  <section>
+    <h2>4. Acceleration &amp; Motion Graphs / त्वरण एवं गति के ग्राफ</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>Acceleration describes the rate of change of velocity with respect to time:</p>
+      <div class="formula-box">
+        <strong>Average Acceleration:</strong> \(\bar{a} = \frac{\Delta v}{\Delta t} = \frac{v_2 - v_1}{t_2 - t_1}\)<br/>
+        <strong>Instantaneous Acceleration:</strong> \(a = \lim_{\Delta t \to 0}\frac{\Delta v}{\Delta t} = \frac{\mathrm{d}v}{\mathrm{d}t} = \frac{\mathrm{d}^2x}{\mathrm{d}t^2} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)
+      </div>
+      <p><strong>Curvature of \(x\text{--}t\) Graph:</strong></p>
+      <ul>
+        <li>\(a > 0\): Concave upward (parabolic curve opening upward, \(\frac{\mathrm{d}^2x}{\mathrm{d}t^2} > 0\)).</li>
+        <li>\(a < 0\): Concave downward (parabolic curve opening downward, \(\frac{\mathrm{d}^2x}{\mathrm{d}t^2} < 0\)).</li>
+        <li>\(a = 0\): Straight line (uniform velocity, zero acceleration).</li>
+      </ul>
+    </div>
+
+    <!-- SVG Diagram 2: Curvature of x-t graphs -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 160" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="160" fill="#ffffff"/>
+        <!-- (a) a > 0 -->
+        <g transform="translate(20, 10)">
+          <line x1="15" y1="120" x2="140" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="130" y="135" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">x</text>
+          <path d="M 25,85 Q 70,105 125,35" fill="none" stroke="#0284c7" stroke-width="2"/>
+          <text x="35" y="25" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#0284c7">a &gt; 0 (Concave Up)</text>
+        </g>
+        <!-- (b) a < 0 -->
+        <g transform="translate(190, 10)">
+          <line x1="15" y1="120" x2="140" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="130" y="135" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">x</text>
+          <path d="M 25,85 Q 70,35 125,85" fill="none" stroke="#d97706" stroke-width="2"/>
+          <text x="30" y="25" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#d97706">a &lt; 0 (Concave Down)</text>
+        </g>
+        <!-- (c) a = 0 -->
+        <g transform="translate(360, 10)">
+          <line x1="15" y1="120" x2="140" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="130" y="135" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">x</text>
+          <line x1="25" y1="100" x2="125" y2="30" stroke="#16a34a" stroke-width="2"/>
+          <text x="40" y="25" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#16a34a">a = 0 (Straight Line)</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 2: Position-Time Curvature for Positive, Negative, and Zero Acceleration</div>
+    </div>
+
+
+    <!-- SVG Diagram: Four v-t scenarios -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="180" fill="#ffffff"/>
+        <!-- (a) v > 0, a > 0 -->
+        <g transform="translate(10, 10)">
+          <line x1="15" y1="120" x2="115" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="132" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="90" x2="100" y2="30" stroke="#0284c7" stroke-width="2"/>
+          <text x="3" y="93" font-family="sans-serif" font-size="8.5" fill="#0284c7">v0</text>
+          <text x="12" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(a) v &gt; 0, a &gt; 0</text>
+        </g>
+        <!-- (b) v > 0, a < 0 -->
+        <g transform="translate(145, 10)">
+          <line x1="15" y1="120" x2="115" y2="120" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="132" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="30" x2="100" y2="90" stroke="#d97706" stroke-width="2"/>
+          <text x="3" y="33" font-family="sans-serif" font-size="8.5" fill="#d97706">v0</text>
+          <text x="12" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(b) v &gt; 0, a &lt; 0</text>
+        </g>
+        <!-- (c) v < 0, a < 0 -->
+        <g transform="translate(280, 10)">
+          <line x1="15" y1="35" x2="115" y2="35" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="30" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="50" x2="100" y2="110" stroke="#e11d48" stroke-width="2"/>
+          <text x="-1" y="55" font-family="sans-serif" font-size="8.5" fill="#e11d48">-v0</text>
+          <text x="12" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(c) v &lt; 0, a &lt; 0</text>
+        </g>
+        <!-- (d) Reversal at t1 -->
+        <g transform="translate(415, 10)">
+          <line x1="5" y1="75" x2="115" y2="75" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="120" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="105" y="70" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <line x1="15" y1="30" x2="105" y2="115" stroke="#7c3aed" stroke-width="2"/>
+          <circle cx="60" cy="75" r="3" fill="#dc2626"/>
+          <text x="55" y="68" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">t1</text>
+          <text x="10" y="145" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#334155">(d) Reversal at t1</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 3: Velocity-Time Graphs for Uniformly Accelerated Motion in Four Canonical Cases</div>
+    </div>
+
+    <p><strong>Area Under Velocity-Time Curve Equals Displacement:</strong></p>
+      <div class="formula-box">
+        \[
+        \Delta x = \int_{t_1}^{t_2} v(t)\,\mathrm{d}t = \text{Area under } v\text{--}t \text{ curve}
+        \]
+        <em>Dimensional Analysis:</em> \([\text{Velocity}] \times [\text{Time}] = (\mathrm{m\,s^{-1}}) \times (\mathrm{s}) = \mathrm{m}\) (Displacement).
+      </div>
+    </div>
+
+    <!-- SVG Diagram 3: Area under v-t graph -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="180" fill="#ffffff"/>
+        <!-- Uniform Velocity -->
+        <g transform="translate(30, 15)">
+          <line x1="20" y1="130" x2="200" y2="130" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="20" y1="130" x2="20" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="190" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="8" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">v</text>
+          <rect x="20" y="55" width="150" height="75" fill="#cbd5e1" opacity="0.6"/>
+          <line x1="20" y1="55" x2="170" y2="55" stroke="#0f766e" stroke-width="2"/>
+          <line x1="170" y1="55" x2="170" y2="130" stroke="#64748b" stroke-dasharray="2,2"/>
+          <text x="5" y="60" font-family="sans-serif" font-size="10" fill="#0f766e">u</text>
+          <text x="165" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">T</text>
+          <text x="60" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0f766e">Area = u × T = Δx</text>
+        </g>
+        <!-- Uniform Acceleration -->
+        <g transform="translate(280, 15)">
+          <line x1="20" y1="130" x2="220" y2="130" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="20" y1="130" x2="20" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="210" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="8" y="20" font-family="sans-serif" font-size="10" fill="#1f2937">v</text>
+          <!-- Shaded trapezoid -->
+          <rect x="20" y="80" width="160" height="50" fill="#94a3b8" opacity="0.4"/>
+          <polygon points="20,80 180,80 180,30" fill="#38bdf8" opacity="0.6"/>
+          <line x1="20" y1="80" x2="180" y2="30" stroke="#1d4ed8" stroke-width="2"/>
+          <line x1="20" y1="80" x2="180" y2="80" stroke="#475569" stroke-dasharray="2,2"/>
+          <line x1="180" y1="30" x2="180" y2="130" stroke="#475569" stroke-dasharray="2,2"/>
+          <text x="5" y="85" font-family="sans-serif" font-size="10" fill="#1f2937">v0</text>
+          <text x="185" y="35" font-family="sans-serif" font-size="10" fill="#1f2937">v</text>
+          <text x="175" y="145" font-family="sans-serif" font-size="10" fill="#1f2937">t</text>
+          <text x="50" y="110" font-family="sans-serif" font-size="9.5" fill="#334155">Rectangle = v0 · t</text>
+          <text x="65" y="65" font-family="sans-serif" font-size="9.5" fill="#0369a1">Triangle = ½ (v - v0) t</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 4: Area Under Velocity-Time Graph Representing Displacement</div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>समय के साथ वेग परिवर्तन की दर <strong>त्वरण</strong> कहलाती है:</p>
+      <div class="formula-box">
+        <strong>औसत त्वरण:</strong> \(\bar{a} = \frac{\Delta v}{\Delta t}\), &emsp; <strong>तात्क्षणिक त्वरण:</strong> \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = \frac{\mathrm{d}^2x}{\mathrm{d}t^2} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)
+      </div>
+      <p><strong>\(x\text{--}t\) ग्राफ की वक्रता:</strong> \(a > 0\) पर वक्र ऊपर की ओर खुलता है (उत्तल), \(a < 0\) पर नीचे की ओर खुलता है (अवतल), तथा \(a = 0\) पर सरल रेखा होता है।</p>
+      <p><strong>\(v\text{--}t\) ग्राफ का क्षेत्रफल:</strong> \(v\text{--}t\) वक्र तथा समय-अक्ष के मध्य परिबद्ध क्षेत्रफल विस्थापन \(\Delta x = \int v\,\mathrm{d}t\) को व्यक्त करता है।</p>
+    </div>
+  </section>
+
+  <!-- 5. Kinematic Equations for Uniform Acceleration -->
+  <section>
+    <h2>5. Kinematic Equations for Constant Acceleration / एकसमान त्वरित गति के समीकरण</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>When acceleration \(a\) is strictly constant, integration yields the canonical kinematic equations:</p>
+      <div class="formula-box">
+        <ol>
+          <li>\(v = v_0 + at\) &emsp; (from \(\int_{v_0}^v \mathrm{d}v = a\int_0^t \mathrm{d}t\))</li>
+          <li>\(x = x_0 + v_0 t + \frac{1}{2}at^2\) &emsp; (from \(\int_{x_0}^x \mathrm{d}x = \int_0^t (v_0 + at)\,\mathrm{d}t\))</li>
+          <li>\(v^2 = v_0^2 + 2a(x - x_0)\) &emsp; (from \(\int_{v_0}^v v\,\mathrm{d}v = a\int_{x_0}^x \mathrm{d}x\))</li>
+          <li>\(x - x_0 = \bar{v}t = \left(\frac{v_0 + v}{2}\right)t\)</li>
+          <li>\(s_n = v_0 + \frac{a}{2}(2n - 1)\) &emsp; (Displacement in the \(n\)-th second)</li>
+        </ol>
+      </div>
+
+      <h3>Important Physical Applications</h3>
+      <ul>
+        <li><strong>Free Fall under Gravity (\(a = -g = -9.8\,\mathrm{m\,s^{-2}}\)):</strong>
+          For a body dropped from rest: \(v = -gt\), \(y = -\frac{1}{2}gt^2\), \(v^2 = -2gy\).<br/>
+          For upward projection with speed \(u\): Max height \(H = \frac{u^2}{2g}\), Flight time \(T = \frac{2u}{g}\).
+        </li>
+        <li><strong>Galileo's Law of Odd Numbers:</strong>
+          Distances traversed in successive equal time intervals \(\tau\) by a body falling from rest are in the ratio:
+          \[
+          y_1 : y_2 : y_3 : y_4 : \dots = 1 : 3 : 5 : 7 : \dots
+          \]
+        </li>
+        <li><strong>Stopping Distance of Vehicles:</strong>
+          With initial velocity \(v_0\) and braking deceleration \(-a\):
+          \[
+          d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2
+          \]
+          Doubling initial speed quadruples the required stopping distance.
+        </li>
+        <li><strong>Driver Reaction Time:</strong>
+          Time \(t_r\) between perception and braking action. Using a dropped ruler falling distance \(d\):
+          \[
+          t_r = \sqrt{\frac{2d}{g}}
+          \]
+        </li>
+
+    <!-- SVG Diagram: Reaction Time Ruler -->
+    <div class="svg-container" style="max-width: 480px;">
+      <svg viewBox="0 0 480 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="180" fill="#ffffff"/>
+        <!-- Releasing hand -->
+        <rect x="50" y="15" width="80" height="22" rx="4" fill="#e2e8f0" stroke="#94a3b8"/>
+        <text x="55" y="30" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#334155">Friend Releases</text>
+
+        <!-- Ruler -->
+        <rect x="150" y="15" width="18" height="150" fill="#fef08a" stroke="#ca8a04"/>
+        <line x1="150" y1="25" x2="158" y2="25" stroke="#854d0e"/>
+        <line x1="150" y1="45" x2="162" y2="45" stroke="#854d0e"/>
+        <line x1="150" y1="65" x2="158" y2="65" stroke="#854d0e"/>
+        <line x1="150" y1="85" x2="162" y2="85" stroke="#854d0e"/>
+        <line x1="150" y1="105" x2="158" y2="105" stroke="#854d0e"/>
+        <line x1="150" y1="125" x2="162" y2="125" stroke="#854d0e"/>
+        <line x1="150" y1="145" x2="158" y2="145" stroke="#854d0e"/>
+
+        <!-- Catching hand -->
+        <rect x="50" y="120" width="80" height="25" rx="4" fill="#dbeafe" stroke="#3b82f6"/>
+        <text x="56" y="136" font-family="sans-serif" font-size="9.5" font-weight="600" fill="#1e40af">Student Catches</text>
+
+        <!-- Measurement arrow -->
+        <line x1="180" y1="25" x2="180" y2="130" stroke="#dc2626" stroke-width="1.8"/>
+        <polygon points="177,32 180,25 183,32" fill="#dc2626"/>
+        <polygon points="177,123 180,130 183,123" fill="#dc2626"/>
+        <text x="190" y="80" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#dc2626">Slip Distance d = 21.0 cm</text>
+
+        <!-- Formula card -->
+        <rect x="200" y="100" width="230" height="55" rx="5" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="210" y="118" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">Reaction Time Formula:</text>
+        <text x="210" y="135" font-family="sans-serif" font-size="10" fill="#0f766e">t = √(2d / g) = √(2×0.21 / 9.8) ≈ 0.2 s</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 6: Experimental Determination of Reaction Time via Dropped Ruler Method</div>
+    </div>
+
+      </ul>
+    </div>
+
+    <!-- SVG Diagram 4: Vertical Motion Tower -->
+    <div class="svg-container">
+      <svg viewBox="0 0 460 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="460" height="260" fill="#ffffff"/>
+        <!-- Ground -->
+        <line x1="30" y1="230" x2="430" y2="230" stroke="#1f2937" stroke-width="2"/>
+        <text x="380" y="245" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937">Ground (y = 0)</text>
+        
+        <!-- Tower 25m -->
+        <rect x="80" y="120" width="50" height="110" fill="#0284c7" stroke="#0369a1"/>
+        <text x="35" y="180" font-family="sans-serif" font-size="10.5" font-weight="bold" fill="#1f2937">h = 25 m</text>
+
+        <!-- Trajectory -->
+        <circle cx="130" cy="120" r="4" fill="#15803d"/>
+        <text x="140" y="125" font-family="sans-serif" font-size="10" font-weight="bold" fill="#15803d">A (v0 = +20 m/s)</text>
+        <!-- Upward path -->
+        <path d="M 130,120 L 130,60" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="3,3"/>
+        <circle cx="130" cy="60" r="4" fill="#dc2626"/>
+        <text x="95" y="55" font-family="sans-serif" font-size="10" font-weight="bold" fill="#dc2626">B (Apex, v = 0)</text>
+        <text x="140" y="90" font-family="sans-serif" font-size="9" fill="#1f2937">Rise = 20 m</text>
+        <!-- Downward path -->
+        <path d="M 150,60 L 150,230" stroke="#d97706" stroke-width="1.8" stroke-dasharray="3,3"/>
+        <circle cx="150" cy="230" r="4" fill="#b45309"/>
+        <text x="160" y="225" font-family="sans-serif" font-size="10" font-weight="bold" fill="#b45309">C (Hits ground at t = 5 s)</text>
+
+        <!-- Coordinate & Gravity -->
+        <line x1="320" y1="230" x2="320" y2="30" stroke="#1e3a8a" stroke-width="1.5"/>
+        <polygon points="317,38 320,30 323,38" fill="#1e3a8a"/>
+        <text x="330" y="35" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a">+y (Upward)</text>
+        <text x="330" y="125" font-family="sans-serif" font-size="9.5" fill="#1e3a8a">y0 = 25 m</text>
+        <text x="330" y="65" font-family="sans-serif" font-size="9.5" fill="#1e3a8a">ymax = 45 m</text>
+
+        <line x1="390" y1="100" x2="390" y2="150" stroke="#dc2626" stroke-width="2"/>
+        <polygon points="387,142 390,150 393,142" fill="#dc2626"/>
+        <text x="365" y="165" font-family="sans-serif" font-size="10" font-weight="bold" fill="#dc2626">a = -g = -10 m/s²</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 5: Vertical Projection from a Tower of Height 25 m under Gravity</div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>नियत त्वरण \(a\) के अंतर्गत समाकलन से शुद्धगतिक समीकरण प्राप्त होते हैं:</p>
+      <div class="formula-box">
+        <ol>
+          <li>\(v = v_0 + at\)</li>
+          <li>\(x = x_0 + v_0 t + \frac{1}{2}at^2\)</li>
+          <li>\(v^2 = v_0^2 + 2a(x - x_0)\)</li>
+          <li>\(s_n = v_0 + \frac{a}{2}(2n - 1)\) &emsp; (\(n\)-वें सेकंड में तय दूरी)</li>
+        </ol>
+      </div>
+      <h3>प्रमुख अनुप्रयोग:</h3>
+      <ul>
+        <li><strong>मुक्त पतन:</strong> \(a = -g = -9.8\,\mathrm{m\,s^{-2}}\)। उच्चतम ऊँचाई \(H = \frac{u^2}{2g}\), कुल उड्डयन काल \(T = \frac{2u}{g}\)।</li>
+        <li><strong>गैलीलियो का विषम अंक नियम:</strong> विराम से गिरते पिण्ड द्वारा समान समयांतरालों \(\tau\) में तय दूरियों का अनुपात \(1 : 3 : 5 : 7 : \dots\) होता है।</li>
+        <li><strong>विराम दूरी:</strong> ब्रेक लगाने पर रुकने से पूर्व तय दूरी \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\)। चाल दोगुनी करने पर विराम दूरी 4 गुना हो जाती है।</li>
+        <li><strong>प्रतिक्रिया काल:</strong> \(t_r = \sqrt{\frac{2d}{g}}\)। यदि पैमाना \(21\,\mathrm{cm}\) फिसलता है, तो \(t_r \approx 0.2\,\mathrm{s}\)।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Relative Velocity in One Dimension -->
+  <section>
+    <h2>6. Relative Velocity in One Dimension / एक विमीय सापेक्ष वेग</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <p>When two bodies \(A\) and \(B\) move along the same straight line with ground velocities \(v_A\) and \(v_B\):</p>
+      <div class="formula-box">
+        \[
+        v_{AB} = v_A - v_B \quad (\text{Velocity of } A \text{ relative to } B)
+        \]
+        \[
+        v_{BA} = v_B - v_A = -v_{AB}
+        \]
+      </div>
+      <ul>
+        <li><strong>Same Direction:</strong> Relative speed is the difference of magnitudes: \(|v_A - v_B|\).</li>
+        <li><strong>Opposite Directions (Approaching / Receding):</strong> Relative speed is the sum of magnitudes: \(v_A - (-v_B) = v_A + v_B\).</li>
+        <li><strong>Relative Acceleration under Gravity:</strong> Since both freely falling bodies experience \(a = -g\), their relative acceleration is \(a_{\text{rel}} = (-g) - (-g) = 0\). Thus, in free fall, one body moves with <em>constant relative velocity</em> with respect to another.</li>
+      </ul>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p>सरल रेखा पर गतिमान दो पिण्डों \(A\) व \(B\) के लिए धरातल के सापेक्ष वेग \(v_A\) तथा \(v_B\) होने पर:</p>
+      <div class="formula-box">
+        \[
+        v_{AB} = v_A - v_B \quad (B \text{ के सापेक्ष } A \text{ का वेग})
+        \]
+      </div>
+      <ul>
+        <li><strong>समान दिशा:</strong> सापेक्ष चाल परिमाणों का अंतर होती है (\(|v_A - v_B|\))।</li>
+        <li><strong>विपरीत दिशा:</strong> सापेक्ष चाल परिमाणों का योग होती है (\(v_A + v_B\))।</li>
+        <li><strong>मुक्त पतन में सापेक्ष त्वरण:</strong> दोनों का त्वरण समान होने से \(a_{\text{rel}} = (-g) - (-g) = 0\) होता है। अतः एक मुक्त गिरते पिण्ड के सापेक्ष दूसरा पिण्ड <em>एकसमान वेग</em> से गति करता है।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. Kinematic Quantities Table & Graph Tests -->
+  <section>
+    <h2>7. Summary Table &amp; Graph Traps / राशियों की सारणी एवं ग्राफ विश्लेषण</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Physical Quantity</th>
+              <th>Symbol</th>
+              <th>SI Unit</th>
+              <th>Dimensions</th>
+              <th>Defining Formula &amp; Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Path Length (Distance)</td>
+              <td>\(s\)</td>
+              <td>\(\mathrm{m}\)</td>
+              <td>\([\mathrm{L}]\)</td>
+              <td>Actual path length; scalar; \(s \ge 0\); never decreases with time.</td>
+            </tr>
+            <tr>
+              <td>Displacement</td>
+              <td>\(\Delta x\)</td>
+              <td>\(\mathrm{m}\)</td>
+              <td>\([\mathrm{L}]\)</td>
+              <td>\(\Delta x = x_2 - x_1\); vector in 1D; \(|\Delta x| \le s\).</td>
+            </tr>
+            <tr>
+              <td>Average Velocity</td>
+              <td>\(\bar{v}\)</td>
+              <td>\(\mathrm{m\,s^{-1}}\)</td>
+              <td>\([\mathrm{L\,T^{-1}}]\)</td>
+              <td>\(\bar{v} = \Delta x / \Delta t\); chord slope on \(x\text{--}t\) graph.</td>
+            </tr>
+            <tr>
+              <td>Instantaneous Velocity</td>
+              <td>\(v\)</td>
+              <td>\(\mathrm{m\,s^{-1}}\)</td>
+              <td>\([\mathrm{L\,T^{-1}}]\)</td>
+              <td>\(v = \frac{\mathrm{d}x}{\mathrm{d}t}\); tangent slope on \(x\text{--}t\) curve.</td>
+            </tr>
+            <tr>
+              <td>Instantaneous Speed</td>
+              <td>\(|v|\)</td>
+              <td>\(\mathrm{m\,s^{-1}}\)</td>
+              <td>\([\mathrm{L\,T^{-1}}]\)</td>
+              <td>\(|v| = \left|\frac{\mathrm{d}x}{\mathrm{d}t}\right|\); strictly \(\ge 0\).</td>
+            </tr>
+            <tr>
+              <td>Instantaneous Acceleration</td>
+              <td>\(a\)</td>
+              <td>\(\mathrm{m\,s^{-2}}\)</td>
+              <td>\([\mathrm{L\,T^{-2}}]\)</td>
+              <td>\(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\); tangent slope on \(v\text{--}t\) curve.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SVG Diagram 5: Impossible Graphs -->
+    <div class="svg-container">
+      <svg viewBox="0 0 540 140" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="540" height="140" fill="#ffffff"/>
+        <!-- (a) Loop on x-t -->
+        <g transform="translate(15, 10)">
+          <line x1="15" y1="100" x2="110" y2="100" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="100" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="112" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">x</text>
+          <circle cx="60" cy="55" r="25" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="12" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Loop (2 values of x)</text>
+        </g>
+        <!-- (b) Circle on v-t -->
+        <g transform="translate(145, 10)">
+          <line x1="15" y1="60" x2="110" y2="60" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="60" y1="100" x2="60" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="55" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="50" y="20" font-family="sans-serif" font-size="9" fill="#1f2937">v</text>
+          <circle cx="60" cy="60" r="25" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="8" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Circle (Infinite a)</text>
+        </g>
+        <!-- (c) Negative Speed -->
+        <g transform="translate(275, 10)">
+          <line x1="15" y1="60" x2="110" y2="60" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="100" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="55" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="8.5" fill="#1f2937">Speed</text>
+          <path d="M 20,30 Q 45,95 65,60 T 105,95" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="12" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Speed &lt; 0 (Impossible)</text>
+        </g>
+        <!-- (d) Decreasing Distance -->
+        <g transform="translate(405, 10)">
+          <line x1="15" y1="100" x2="110" y2="100" stroke="#1f2937" stroke-width="1.2"/>
+          <line x1="15" y1="100" x2="15" y2="15" stroke="#1f2937" stroke-width="1.2"/>
+          <text x="100" y="112" font-family="sans-serif" font-size="9" fill="#1f2937">t</text>
+          <text x="5" y="20" font-family="sans-serif" font-size="8.5" fill="#1f2937">Dist</text>
+          <polyline points="20,90 45,40 70,85 100,30" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <text x="8" y="125" font-family="sans-serif" font-size="8.5" font-weight="bold" fill="#dc2626">Decreasing Distance</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 7: Four Physically Impossible Kinematic Curves Frequently Tested in NEET UG</div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <p><strong>नीट हेतु महत्वपूर्ण ग्राफ नियम:</strong></p>
+      <ul>
+        <li>\(x\text{--}t\) की ढाल \(\implies\) तात्क्षणिक वेग; &emsp; \(v\text{--}t\) की ढाल \(\implies\) तात्क्षणिक त्वरण।</li>
+        <li>\(v\text{--}t\) वक्र का क्षेत्रफल \(\implies\) विस्थापन; &emsp; चाल-समय ग्राफ का क्षेत्रफल \(\implies\) कुल दूरी।</li>
+        <li><strong>असम्भव आलेख:</strong> एक ही समय पर दो स्थितियाँ, बन्द लूप, ऋणात्मक चाल, या घटती हुई कुल दूरी भौतिक रूप से असम्भव हैं।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. Step-by-Step Worked Examples -->
+  <section>
+    <h2>8. Step-by-Step Worked Examples / चरणबद्ध हल किए गए उदाहरण</h2>
+
+    <!-- Example 1 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <h4>Worked Example 1: Calculus Differentiation of Position Function</h4>
+        <p><strong>Problem:</strong> An object's position along the \(x\)-axis is \(x(t) = a + bt^2\), where \(a = 8.5\,\mathrm{m}\), \(b = 2.5\,\mathrm{m\,s^{-2}}\), and \(t\) is in seconds. Find (a) velocity at \(t = 0\,\mathrm{s}\) and \(t = 2.0\,\mathrm{s}\), and (b) average velocity between \(t = 2.0\,\mathrm{s}\) and \(t = 4.0\,\mathrm{s}\).</p>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          (a) \(v(t) = \frac{\mathrm{d}x}{\mathrm{d}t} = 2bt = 2(2.5)t = 5.0\,t\,\mathrm{m\,s^{-1}}\).<br/>
+          - At \(t = 0\,\mathrm{s}\): \(v(0) = \mathbf{0\,\mathrm{m\,s^{-1}}}\).<br/>
+          - At \(t = 2.0\,\mathrm{s}\): \(v(2) = 5.0(2.0) = \mathbf{10.0\,\mathrm{m\,s^{-1}}}\).<br/>
+          (b) \(\bar{v} = \frac{x(4) - x(2)}{4 - 2} = \frac{[a + b(16)] - [a + b(4)]}{2} = 6b = 6(2.5) = \mathbf{15.0\,\mathrm{m\,s^{-1}}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <h4>हल किया गया उदाहरण 1: स्थिति फलन का अवकलन</h4>
+        <p><strong>प्रश्न:</strong> \(x\)-अक्ष पर गतिमान वस्तु की स्थिति \(x(t) = a + bt^2\) है (\(a = 8.5\,\mathrm{m}\), \(b = 2.5\,\mathrm{m\,s^{-2}}\))। (a) \(t = 0\,\mathrm{s}\) व \(t = 2.0\,\mathrm{s}\) पर वेग, तथा (b) \(t = 2.0\,\mathrm{s}\) से \(4.0\,\mathrm{s}\) के मध्य औसत वेग ज्ञात कीजिए।</p>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          (a) \(v = \frac{\mathrm{d}x}{\mathrm{d}t} = 2bt = 5.0\,t\)। \(t = 0\) पर \(v = \mathbf{0\,\mathrm{m\,s^{-1}}}\); \(t = 2\,\mathrm{s}\) पर \(v = \mathbf{10.0\,\mathrm{m\,s^{-1}}}\)।<br/>
+          (b) \(\bar{v} = \frac{x(4) - x(2)}{4 - 2} = \frac{12b}{2} = 6(2.5) = \mathbf{15.0\,\mathrm{m\,s^{-1}}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <h4>Worked Example 2: Vertical Launch from a 25 m Building</h4>
+        <p><strong>Problem:</strong> A ball is thrown vertically upwards with \(v_0 = 20\,\mathrm{m\,s^{-1}}\) from the top of a \(25.0\,\mathrm{m}\) tall tower. Taking \(g = 10\,\mathrm{m\,s^{-2}}\) and ground as \(y = 0\): (a) How high will it rise? (b) After how long does it hit the ground?</p>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          (a) Upward direction positive. At peak, \(v = 0\):<br/>
+          \(v^2 = v_0^2 + 2(-g)(y - y_0) \implies 0 = 20^2 - 20(y - 25) \implies y - 25 = \mathbf{20.0\,\mathrm{m}}\).<br/>
+          Maximum height above ground is \(y_{\text{max}} = 25 + 20 = \mathbf{45.0\,\mathrm{m}}\).<br/>
+          (b) Setting final ground coordinate \(y = 0\):<br/>
+          \(y = y_0 + v_0 t - \frac{1}{2}gt^2 \implies 0 = 25 + 20t - 5t^2 \implies t^2 - 4t - 5 = 0\).<br/>
+          Factoring: \((t - 5)(t + 1) = 0 \implies t = \mathbf{5.0\,\mathrm{s}}\) (discarding unphysical \(t = -1\,\mathrm{s}\)).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <h4>हल किया गया उदाहरण 2: 25 मीटर मीनार की छत से प्रक्षेपण</h4>
+        <p><strong>प्रश्न:</strong> \(25.0\,\mathrm{m}\) ऊँची मीनार से गेंद \(20\,\mathrm{m\,s^{-1}}\) वेग से ऊपर फेंकी जाती है (\(g = 10\,\mathrm{m\,s^{-2}}\))। (a) अधिकतम ऊँचाई, तथा (b) धरातल तक पहुँचने में कुल समय ज्ञात कीजिए।</p>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          (a) उच्चतम बिन्दु पर \(v = 0 \implies 0 = 20^2 - 2(10)(y - 25) \implies y - 25 = \mathbf{20.0\,\mathrm{m}}\)। धरातल से ऊँचाई \(= \mathbf{45.0\,\mathrm{m}}\)।<br/>
+          (b) धरातल पर \(y = 0 \implies 0 = 25 + 20t - 5t^2 \implies t^2 - 4t - 5 = 0 \implies t = \mathbf{5.0\,\mathrm{s}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <h4>Worked Example 3: Relative Velocity of a Bullet Fired at a Fleeing Car</h4>
+        <p><strong>Problem:</strong> A police van moving at \(30\,\mathrm{km\,h^{-1}}\) fires a bullet with muzzle speed \(150\,\mathrm{m\,s^{-1}}\) at a thief's car fleeing in the same direction at \(192\,\mathrm{km\,h^{-1}}\). With what speed does the bullet hit the thief's car?</p>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Convert speeds: \(v_P = 30 \times \frac{5}{18} = \frac{25}{3}\,\mathrm{m\,s^{-1}}\), \(v_T = 192 \times \frac{5}{18} = \frac{160}{3}\,\mathrm{m\,s^{-1}}\).<br/>
+          Bullet ground speed: \(v_{BG} = v_{\text{muzzle}} + v_P = 150 + \frac{25}{3} = \frac{475}{3}\,\mathrm{m\,s^{-1}}\).<br/>
+          Impact speed relative to thief: \(v_{BT} = v_{BG} - v_T = \frac{475}{3} - \frac{160}{3} = \frac{315}{3} = \mathbf{105\,\mathrm{m\,s^{-1}}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <h4>हल किया गया उदाहरण 3: दागी गई गोली का सापेक्ष संघात वेग</h4>
+        <p><strong>प्रश्न:</strong> \(30\,\mathrm{km\,h^{-1}}\) की चाल से चल रही पुलिस वैन से उसी दिशा में \(192\,\mathrm{km\,h^{-1}}\) से भाग रही कार पर नालमुखी चाल \(150\,\mathrm{m\,s^{-1}}\) की गोली चलाई जाती है। गोली कार से किस चाल से टकराएगी?</p>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          \(v_P = \frac{25}{3}\,\mathrm{m\,s^{-1}}\), \(v_T = \frac{160}{3}\,\mathrm{m\,s^{-1}}\)।<br/>
+          धरातल के सापेक्ष गोली का वेग: \(v_{BG} = 150 + \frac{25}{3} = \frac{475}{3}\,\mathrm{m\,s^{-1}}\)।<br/>
+          चोर की कार के सापेक्ष वेग: \(v_{BT} = \frac{475}{3} - \frac{160}{3} = \mathbf{105\,\mathrm{m\,s^{-1}}}\)।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. NEET UG Exam Practice Questions -->
+  <section>
+    <h2>9. NEET UG Exam Practice Questions / नीट-यूजी परीक्षा अभ्यास प्रश्न</h2>
+
+    <!-- Question 1 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 1 (Calculus Kinematics): A particle moves along the \(x\)-axis such that \(x(t) = 2t^3 - 9t^2 + 12t + 4\) (with \(x\) in meters, \(t\) in seconds). What is the acceleration of the particle when its velocity becomes zero for the second time?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(-6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(B) \(+6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(C) \(+12\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(D) \(0\,\mathrm{m\,s^{-2}}\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (B)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Velocity \(v(t) = \frac{\mathrm{d}x}{\mathrm{d}t} = 6t^2 - 18t + 12\). Set \(v = 0 \implies 6(t - 1)(t - 2) = 0\). Velocity is zero at \(t = 1\,\mathrm{s}\) and \(t = 2\,\mathrm{s}\) (second instant).<br/>
+          Acceleration \(a(t) = \frac{\mathrm{d}v}{\mathrm{d}t} = 12t - 18\). At \(t = 2\,\mathrm{s}\): \(a(2) = 12(2) - 18 = \mathbf{+6\,\mathrm{m\,s^{-2}}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 1 (कलन गतिकी): किसी कण की स्थिति \(x(t) = 2t^3 - 9t^2 + 12t + 4\) मीटर है। उस क्षण कण का त्वरण क्या होगा जब उसका वेग दूसरी बार शून्य होता है?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(-6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(B) \(+6\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(C) \(+12\,\mathrm{m\,s^{-2}}\)</div>
+          <div class="option-item">(D) \(0\,\mathrm{m\,s^{-2}}\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (B)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          \(v = \frac{\mathrm{d}x}{\mathrm{d}t} = 6t^2 - 18t + 12 = 0 \implies t = 1\,\mathrm{s}, 2\,\mathrm{s}\)। दूसरी बार वेग शून्य \(t = 2\,\mathrm{s}\) पर होता है।<br/>
+          \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = 12t - 18 \implies a(2) = 24 - 18 = \mathbf{+6\,\mathrm{m\,s^{-2}}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 2 (Graph Area - Distance vs. Displacement): A particle's \(v\text{--}t\) graph consists of a positive trapezoid from \(t = 0\) to \(6\,\mathrm{s}\) (parallel bases \(6\,\mathrm{s}\) and \(2\,\mathrm{s}\), peak velocity \(+10\,\mathrm{m\,s^{-1}}\)) and a negative trapezoid from \(t = 6\) to \(8\,\mathrm{s}\) (area \(-7.5\,\mathrm{m}\)). What are the total displacement and distance covered from \(t = 0\) to \(8\,\mathrm{s}\)?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) Displacement = \(40\,\mathrm{m}\), Distance = \(40\,\mathrm{m}\)</div>
+          <div class="option-item">(B) Displacement = \(32.5\,\mathrm{m}\), Distance = \(47.5\,\mathrm{m}\)</div>
+          <div class="option-item">(C) Displacement = \(47.5\,\mathrm{m}\), Distance = \(32.5\,\mathrm{m}\)</div>
+          <div class="option-item">(D) Displacement = \(25\,\mathrm{m}\), Distance = \(55\,\mathrm{m}\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (B)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Positive Area \(A_1 = \frac{1}{2}(6 + 2) \times 10 = +40.0\,\mathrm{m}\). Negative Area \(A_2 = -7.5\,\mathrm{m}\).<br/>
+          Displacement \(\Delta x = A_1 + A_2 = 40.0 - 7.5 = \mathbf{32.5\,\mathrm{m}}\).<br/>
+          Distance \(s = |A_1| + |A_2| = 40.0 + 7.5 = \mathbf{47.5\,\mathrm{m}}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 2 (विस्थापन एवं दूरी): किसी कण के \(v\text{--}t\) ग्राफ में \(t = 0\) से \(6\,\mathrm{s}\) का धनात्मक क्षेत्रफल \(+40\,\mathrm{m}\) तथा \(t = 6\) से \(8\,\mathrm{s}\) का ऋणात्मक क्षेत्रफल \(-7.5\,\mathrm{m}\) है। कुल विस्थापन एवं कुल दूरी क्या होगी?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) विस्थापन = \(40\,\mathrm{m}\), दूरी = \(40\,\mathrm{m}\)</div>
+          <div class="option-item">(B) विस्थापन = \(32.5\,\mathrm{m}\), दूरी = \(47.5\,\mathrm{m}\)</div>
+          <div class="option-item">(C) विस्थापन = \(47.5\,\mathrm{m}\), दूरी = \(32.5\,\mathrm{m}\)</div>
+          <div class="option-item">(D) विस्थापन = \(25\,\mathrm{m}\), दूरी = \(55\,\mathrm{m}\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (B)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          विस्थापन \(= A_1 + A_2 = 40 - 7.5 = \mathbf{32.5\,\mathrm{m}}\)।<br/>
+          दूरी \(= |A_1| + |A_2| = 40 + 7.5 = \mathbf{47.5\,\mathrm{m}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 3 (Galileo's Odd Number Law): A stone falls freely from rest under gravity. If it traverses distances \(h_1, h_2, h_3\) during the 1st second, 2nd second, and 3rd second respectively, what is the ratio \(h_1 : h_2 : h_3\)?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(1 : 2 : 3\)</div>
+          <div class="option-item">(B) \(1 : 4 : 9\)</div>
+          <div class="option-item">(C) \(1 : 3 : 5\)</div>
+          <div class="option-item">(D) \(1 : \sqrt{2} : \sqrt{3}\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (C)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Displacement in \(n\)-th second from rest is \(s_n = \frac{g}{2}(2n - 1)\).<br/>
+          For \(n = 1, 2, 3\): \(h_1 = \frac{g}{2}(1)\), \(h_2 = \frac{g}{2}(3)\), \(h_3 = \frac{g}{2}(5)\).<br/>
+          Ratio \(h_1 : h_2 : h_3 = \mathbf{1 : 3 : 5}\) (Galileo's law of odd numbers).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 3 (गैलीलियो का विषम अंक नियम): विराम से गिरते पत्थर द्वारा प्रथम, द्वितीय एवं तृतीय सेकंड में तय की गई दूरियाँ क्रमशः \(h_1, h_2, h_3\) हैं। अनुपात \(h_1 : h_2 : h_3\) क्या होगा?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(1 : 2 : 3\)</div>
+          <div class="option-item">(B) \(1 : 4 : 9\)</div>
+          <div class="option-item">(C) \(1 : 3 : 5\)</div>
+          <div class="option-item">(D) \(1 : \sqrt{2} : \sqrt{3}\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (C)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          \(s_n = \frac{g}{2}(2n - 1)\)। \(n = 1, 2, 3\) रखने पर अनुपात \(\mathbf{1 : 3 : 5}\) प्राप्त होता है।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 4 (Vehicle Stopping Distance Scaling): A car traveling with initial speed \(u\) stops over a minimum distance \(x\) upon maximum braking. If its speed is tripled to \(3u\) under the same road and braking conditions, its new minimum stopping distance will be:
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(3x\)</div>
+          <div class="option-item">(B) \(6x\)</div>
+          <div class="option-item">(C) \(9x\)</div>
+          <div class="option-item">(D) \(12x\)</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (C)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Stopping distance \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\).<br/>
+          When \(v_0' = 3u\), \(d_s' = (3)^2 x = \mathbf{9x}\).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 4 (विराम दूरी का अनुपात): \(u\) चाल से चल रही कार ब्रेक लगाने पर न्यूनतम \(x\) दूरी में रुकती है। यदि चाल तीन गुनी (\(3u\)) कर दी जाए, तो समान मंदन पर न्यूनतम विराम दूरी क्या होगी?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(3x\)</div>
+          <div class="option-item">(B) \(6x\)</div>
+          <div class="option-item">(C) \(9x\)</div>
+          <div class="option-item">(D) \(12x\)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (C)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          विराम दूरी \(d_s \propto v_0^2\)। चाल 3 गुनी होने पर दूरी \(3^2 = \mathbf{9x}\) होगी।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 5 (Assertion-Reason Format):<br/>
+          <strong>Assertion (A):</strong> A body moving in a straight line with strictly constant speed must have zero acceleration.<br/>
+          <strong>Reason (R):</strong> In one-dimensional rectilinear motion, speed is the magnitude of velocity, and a body cannot reverse its direction without its speed becoming momentarily zero.
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) Both (A) and (R) are true and (R) is the correct explanation of (A).</div>
+          <div class="option-item">(B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</div>
+          <div class="option-item">(C) (A) is true but (R) is false.</div>
+          <div class="option-item">(D) (A) is false but (R) is true.</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (A)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          In 1D, there are only two directions (+ and -). If speed is strictly non-zero and constant, direction cannot change because direction reversal requires passing through \(v = 0\). Therefore, the velocity vector is entirely constant, making \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = 0\). (A) and (R) are true and (R) explains (A).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 5 (अभिकथन-कारण):<br/>
+          <strong>अभिकथन (A):</strong> सरल रेखा में नियत चाल से गतिमान वस्तु का त्वरण अनिवार्यतः शून्य होना चाहिए।<br/>
+          <strong>कारण (R):</strong> एक-विमीय गति में चाल वेग का परिमाण होती है, तथा बिना चाल शून्य हुए सरल रेखा में गति की दिशा नहीं बदली जा सकती।
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) (A) और (R) दोनों सही हैं तथा (R), (A) की सही व्याख्या है।</div>
+          <div class="option-item">(B) (A) और (R) दोनों सही हैं परन्तु (R), (A) की सही व्याख्या नहीं है।</div>
+          <div class="option-item">(C) (A) सही है परन्तु (R) गलत है।</div>
+          <div class="option-item">(D) (A) गलत है परन्तु (R) सही है।</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (A)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          सरल रेखा में चाल नियत रहने पर दिशा नहीं बदल सकती, अतः वेग पूर्णतः नियत रहता है जिससे त्वरण शून्य होता है। सही विकल्प (A) है।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="practice-card">
+      <div class="lang-en">
+        <span class="lang-badge badge-en">English</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          Practice Question 6 (Relative Velocity - Opposite Directions): Train A travels North at \(54\,\mathrm{km\,h^{-1}}\), and Train B travels South at \(90\,\mathrm{km\,h^{-1}}\) on parallel tracks. What is the velocity of Train B relative to Train A?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(+40\,\mathrm{m\,s^{-1}}\) North</div>
+          <div class="option-item">(B) \(-40\,\mathrm{m\,s^{-1}}\) South</div>
+          <div class="option-item">(C) \(-10\,\mathrm{m\,s^{-1}}\) South</div>
+          <div class="option-item">(D) \(+144\,\mathrm{m\,s^{-1}}\) North</div>
+        </div>
+        <div class="ans-tag">Correct Answer: (B)</div>
+        <div class="sol-box">
+          <strong>Solution:</strong><br/>
+          Taking North as \(+x\): \(v_A = +54 \times \frac{5}{18} = +15\,\mathrm{m\,s^{-1}}\), and \(v_B = -90 \times \frac{5}{18} = -25\,\mathrm{m\,s^{-1}}\).<br/>
+          Relative velocity: \(v_{BA} = v_B - v_A = -25 - (+15) = \mathbf{-40\,\mathrm{m\,s^{-1}}}\) (Southward).
+        </div>
+      </div>
+      <hr class="bilingual-sep"/>
+      <div class="lang-hi">
+        <span class="lang-badge badge-hi">हिन्दी</span>
+        <div style="font-weight: 600; margin-bottom: 0.5rem;">
+          अभ्यास प्रश्न 6 (सापेक्ष वेग): ट्रेन A उत्तर दिशा में \(54\,\mathrm{km\,h^{-1}}\) से तथा ट्रेन B दक्षिण दिशा में \(90\,\mathrm{km\,h^{-1}}\) से समांतर पटरियों पर चल रही हैं। ट्रेन A के सापेक्ष ट्रेन B का वेग क्या होगा?
+        </div>
+        <div class="options-grid">
+          <div class="option-item">(A) \(+40\,\mathrm{m\,s^{-1}}\) (उत्तर)</div>
+          <div class="option-item">(B) \(-40\,\mathrm{m\,s^{-1}}\) (दक्षिण)</div>
+          <div class="option-item">(C) \(-10\,\mathrm{m\,s^{-1}}\) (दक्षिण)</div>
+          <div class="option-item">(D) \(+144\,\mathrm{m\,s^{-1}}\) (उत्तर)</div>
+        </div>
+        <div class="ans-tag">सही उत्तर: (B)</div>
+        <div class="sol-box">
+          <strong>हल:</strong><br/>
+          उत्तर को धनात्मक मानने पर: \(v_A = +15\,\mathrm{m\,s^{-1}}\), \(v_B = -25\,\mathrm{m\,s^{-1}}\)।<br/>
+          \(v_{BA} = v_B - v_A = -25 - 15 = \mathbf{-40\,\mathrm{m\,s^{-1}}}\) (दक्षिण दिशा में)। सही विकल्प (B) है।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Common Pitfalls & Revision Checklist -->
+  <section>
+    <h2>10. Common Pitfalls &amp; Checklist / सामान्य त्रुटियाँ एवं पुनरीक्षण सूची</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <div class="pitfall-box">
+        <strong>1. Sign of Acceleration vs. Speeding Up:</strong> Positive acceleration does NOT always mean speeding up! A particle speeds up if \(v\) and \(a\) share the <em>same sign</em> (\(v > 0, a > 0\) OR \(v < 0, a < 0\)). If signs differ, it slows down.
+      </div>
+      <div class="pitfall-box">
+        <strong>2. Zero Velocity with Non-Zero Acceleration:</strong> At the highest point of vertical flight, \(v = 0\), but \(a = -g \ne 0\). Acceleration is the <em>rate of change</em> of velocity, not the instantaneous velocity itself.
+      </div>
+      <div class="pitfall-box">
+        <strong>3. Constant vs. Variable Acceleration:</strong> Formulas \(v = v_0 + at\) and \(x = v_0 t + \frac{1}{2}at^2\) apply ONLY when \(a\) is constant. If \(a = f(t)\) or \(f(x)\), calculus integration must be used.
+      </div>
+      <div class="pitfall-box">
+        <strong>4. Distance vs. Displacement:</strong> Total distance \(s \ge |\Delta x|\). In a round trip, displacement is zero, but total distance is positive.
+      </div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <div class="pitfall-box">
+        <strong>1. त्वरण के चिन्ह का भ्रम:</strong> धनात्मक त्वरण का अर्थ सदैव चाल बढ़ना नहीं होता। यदि \(v\) व \(a\) दोनों के चिन्ह समान हों तो चाल बढ़ती है; विपरीत चिन्ह होने पर चाल घटती है।
+      </div>
+      <div class="pitfall-box">
+        <strong>2. शून्य वेग पर अशून्य त्वरण:</strong> ऊर्ध्वाधर गति के शीर्ष पर \(v = 0\) होता है, किन्तु त्वरण \(a = -g\) निरंतर कार्य करता रहता है।
+      </div>
+      <div class="pitfall-box">
+        <strong>3. गति के समीकरणों की सीमा:</strong> \(v = v_0 + at\) केवल नियत त्वरण पर मान्य है। परिवर्ती त्वरण में समाकलन आवश्यक है।
+      </div>
+      <div class="pitfall-box">
+        <strong>4. दूरी बनाम विस्थापन:</strong> किसी पूर्ण यात्रा (लौटने) में विस्थापन शून्य हो सकता है, किन्तु दूरी सदैव धनात्मक होती है।
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Final Quick Recap -->
+  <section>
+    <h2>11. Final Quick Recap / अंतिम त्वरित सारांश</h2>
+
+    <div class="content-block lang-en">
+      <span class="lang-badge badge-en">English</span>
+      <div class="formula-box">
+        <h4>Core Formula Reference Sheet:</h4>
+        <ul>
+          <li>Differential: \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\), \quad \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)</li>
+          <li>Integrals: \(\Delta x = \int v\,\mathrm{d}t\) (Area under \(v\text{--}t\)), \quad \(\Delta v = \int a\,\mathrm{d}t\) (Area under \(a\text{--}t\))</li>
+          <li>Kinematic Equations (Constant \(a\)):
+            \[
+            v = v_0 + at, \quad x = x_0 + v_0 t + \frac{1}{2}at^2, \quad v^2 = v_0^2 + 2a(x - x_0)
+            \]
+          </li>
+          <li>\(n\)-th Second: \(s_n = v_0 + \frac{a}{2}(2n - 1)\)</li>
+          <li>Galileo Odd Ratios: \(1 : 3 : 5 : 7 : 9 \dots\)</li>
+          <li>Free Fall: Max height \(H = \frac{u^2}{2g}\), \quad Flight Time \(T = \frac{2u}{g}\)</li>
+          <li>Stopping Distance: \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\)</li>
+          <li>Reaction Time: \(t_r = \sqrt{\frac{2d}{g}}\)</li>
+          <li>Relative Velocity: \(v_{AB} = v_A - v_B\)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content-block lang-hi">
+      <span class="lang-badge badge-hi">हिन्दी</span>
+      <div class="formula-box">
+        <h4>महत्वपूर्ण सूत्र सारांश:</h4>
+        <ul>
+          <li>अवकलन: \(v = \frac{\mathrm{d}x}{\mathrm{d}t}\), \quad \(a = \frac{\mathrm{d}v}{\mathrm{d}t} = v\frac{\mathrm{d}v}{\mathrm{d}x}\)</li>
+          <li>समाकलन: \(\Delta x = \int v\,\mathrm{d}t\) (\(v\text{--}t\) वक्र का क्षेत्रफल), \quad \(\Delta v = \int a\,\mathrm{d}t\) (\(a\text{--}t\) वक्र का क्षेत्रफल)</li>
+          <li>समीकरण: \(v = v_0 + at\), \quad \(x = x_0 + v_0 t + \frac{1}{2}at^2\), \quad \(v^2 = v_0^2 + 2a(x - x_0)\)</li>
+          <li>\(n\)-वें सेकंड में विस्थापन: \(s_n = v_0 + \frac{a}{2}(2n - 1)\)</li>
+          <li>गैलीलियो अनुपात: \(1 : 3 : 5 : 7 \dots\)</li>
+          <li>ऊर्ध्वाधर प्रक्षेपण: \(H = \frac{u^2}{2g}\), \quad \(T = \frac{2u}{g}\)</li>
+          <li>विराम दूरी: \(d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\)</li>
+          <li>प्रतिक्रिया काल: \(t_r = \sqrt{\frac{2d}{g}}\)</li>
+          <li>सापेक्ष वेग: \(v_{AB} = v_A - v_B\)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.82rem;">
+    <p>NEET UG Physics Self-Contained Master Tutorial &bull; Motion in a Straight Line (सरल रेखा में गति) &bull; NCERT Class 11</p>
+  </footer>
+
+</div> <!-- /container -->
+</body>
+</html>

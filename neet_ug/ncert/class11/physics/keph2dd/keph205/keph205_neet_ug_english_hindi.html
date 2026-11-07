@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetic Theory of Gases | NEET UG Comprehensive Tutorial & Assessment</title>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #eff6ff;
+    --secondary: #0f766e;
+    --secondary-light: #f0fdfa;
+    --accent: #b45309;
+    --accent-light: #fffbeb;
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+    --bg-light: #f8fafc;
+    --card-bg: #ffffff;
+    --correct-bg: #f0fdf4;
+    --correct-border: #22c55e;
+    --correct-text: #15803d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    color: var(--text-dark);
+    background-color: #f1f5f9;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  header.hero-banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f766e 100%);
+    color: #ffffff;
+    padding: 32px 24px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  .hero-banner h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.2rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+  .hero-banner .subtitle {
+    font-size: 1.15rem;
+    font-weight: 500;
+    opacity: 0.95;
+    margin: 0 0 16px 0;
+  }
+  .hero-banner .meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  h2.section-title {
+    font-size: 1.6rem;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 8px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h3.subsection-title {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-top: 24px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--secondary);
+    padding-left: 10px;
+  }
+  .lang-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .lang-tag.en { background-color: #dbeafe; color: #1e40af; }
+  .lang-tag.hi { background-color: #fef3c7; color: #92400e; }
+  .bilingual-block {
+    margin-bottom: 24px;
+  }
+  .block-en {
+    background-color: #ffffff;
+    padding: 18px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+  }
+  .block-hi {
+    background-color: #fafaf9;
+    padding: 18px 20px;
+    border-radius: 8px;
+    border: 1px solid #e7e5e4;
+    border-left: 4px solid #b45309;
+    margin-bottom: 24px;
+  }
+  .card-callout {
+    background-color: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+  }
+  .card-warning {
+    background-color: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+  }
+  .diagram-container {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .diagram-caption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+  }
+  table.custom-table th, table.custom-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    text-align: left;
+  }
+  table.custom-table th {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+  }
+  table.custom-table tr:nth-child(even) {
+    background-color: var(--bg-light);
+  }
+  .question-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    page-break-inside: avoid;
+  }
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .option-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 14px 0;
+  }
+  .option-item {
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    background-color: var(--bg-light);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: flex-start;
+  }
+  .option-label {
+    font-weight: 700;
+    margin-right: 10px;
+    min-width: 24px;
+    color: var(--primary);
+  }
+  .answer-box {
+    background-color: var(--correct-bg);
+    border: 1px solid var(--correct-border);
+    border-radius: 6px;
+    padding: 14px;
+    margin-top: 14px;
+  }
+  .answer-badge {
+    display: inline-block;
+    background-color: var(--correct-text);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  .solution-text {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+  hr.bilingual-sep {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, #cbd5e1, #94a3b8, #cbd5e1);
+    margin: 20px 0;
+  }
+  @media print {
+    body { background-color: #ffffff; color: #000000; }
+    .container { max-width: 100%; padding: 0; box-shadow: none; }
+    header.hero-banner { background: #1e3a8a !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .question-card, .block-en, .block-hi { page-break-inside: avoid; }
+    .diagram-container { page-break-inside: avoid; }
+    @page { size: A4 portrait; margin: 15mm 12mm 15mm 12mm; }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+<!-- SECTION 1: TITLE & EXAM CONTEXT -->
+<header class="hero-banner">
+  <h1>Kinetic Theory of Gases | गैसों का अणुगति सिद्धांत</h1>
+  <div class="subtitle">NEET UG Masterclass &bull; Complete Chapter Tutorial, Conceptual Rigour & Assessment</div>
+  <div class="meta-badges">
+    <span class="badge">Target: NEET UG</span>
+    <span class="badge">Subject: Physics</span>
+    <span class="badge">NCERT Chapter 12</span>
+    <span class="badge">Bilingual: English + हिन्दी</span>
+    <span class="badge">Self-Contained</span>
+  </div>
+</header>
+
+<!-- SECTION 2: LEARNING OBJECTIVES & OVERVIEW -->
+<h2 class="section-title">
+  <span>1. Learning Objectives &amp; Overview</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">अधिगम उद्देश्य एवं अवलोकन</span>
+</h2>
+
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Chapter Overview:</strong> Kinetic Theory bridges the macroscopic thermodynamic properties of matter (such as pressure, volume, and temperature) with microscopic atomic dynamics (mass, velocity, and collisions of molecules). Developed by Maxwell, Boltzmann, and Clausius, this theory provides an exact molecular foundation for empirical gas laws, internal energy, specific heat capacities, and transport phenomena.</p>
+    <p><strong>Key NEET UG Learning Objectives:</strong></p>
+    <ul>
+      <li>Understand the molecular nature of matter, atomic hypothesis, intermolecular separations, and conditions under which real gases approach ideal behavior.</li>
+      <li>Master the ideal gas equation of state \(PV = \mu RT = k_{\mathrm{B}} N T\) and Dalton's Law of Partial Pressures.</li>
+      <li>Derive and apply the kinetic pressure expression \(P = \frac{1}{3}\rho \overline{v^2} = \frac{1}{3} n m \overline{v^2}\).</li>
+      <li>Appreciate the kinetic interpretation of absolute temperature: average translational kinetic energy per molecule is \(\frac{3}{2} k_{\mathrm{B}} T\).</li>
+      <li>Calculate root-mean-square speed \(v_{\mathrm{rms}}\), and analyze its dependencies on temperature, molar mass, and pressure.</li>
+      <li>Apply the Law of Equipartition of Energy to count translational, rotational, and vibrational degrees of freedom.</li>
+      <li>Predict molar heat capacities (\(C_v, C_p\)) and adiabatic ratio \(\gamma\) for monatomic, diatomic (rigid and vibrating), and polyatomic gases, as well as elemental solids (Dulong-Petit law).</li>
+      <li>Understand mean free path \(l = \frac{1}{\sqrt{2} n \pi d^2}\), collision frequency, and relaxation time.</li>
+    </ul>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>अध्याय अवलोकन:</strong> गैसों का अणुगति सिद्धांत (Kinetic Theory) पदार्थ के स्थूल ऊष्मागतिकीय गुणों (जैसे दाब, आयतन और ताप) को सूक्ष्म आण्विक गतिशीलता (अणुओं के द्रव्यमान, वेग तथा संघट्ट) से जोड़ता है। मैक्सवेल, बोल्ट्ज़मान तथा क्लॉसियस द्वारा विकसित यह सिद्धांत प्रायोगिक गैस नियमों, आंतरिक ऊर्जा, विशिष्ट ऊष्मा धारिताओं तथा अभिगमन परिघटनाओं का सटीक आण्विक आधार प्रदान करता है।</p>
+    <p><strong>NEET UG मुख्य अधिगम उद्देश्य:</strong></p>
+    <ul>
+      <li>पदार्थ की आण्विक प्रकृति, परमाणु परिकल्पना, अंतराण्विक दूरियों तथा वास्तविक गैसों के आदर्श व्यवहार के निकट पहुँचने की शर्तों को समझना।</li>
+      <li>आदर्श गैस अवस्था समीकरण \(PV = \mu RT = k_{\mathrm{B}} N T\) तथा डाल्टन के आंशिक दाब के नियम में पारंगत होना।</li>
+      <li>अणुगति सिद्धांत द्वारा गैस के दाब के व्यंजक \(P = \frac{1}{3}\rho \overline{v^2} = \frac{1}{3} n m \overline{v^2}\) का व्युत्पत्ति एवं अनुप्रयोग करना।</li>
+      <li>परम ताप की गतिज व्याख्या: प्रति अणु औसत स्थानांतरीय गतिज ऊर्जा \(\frac{3}{2} k_{\mathrm{B}} T\) होती है।</li>
+      <li>वर्ग-माध्य-मूल चाल \(v_{\mathrm{rms}}\) की गणना करना, तथा ताप, मोलर द्रव्यमान व दाब पर इसकी निर्भरता का विश्लेषण करना।</li>
+      <li>ऊर्जा के समविभाजन नियम का उपयोग करके स्थानांतरीय, घूर्णी तथा कंपन स्वातंत्र्य कोटियों की गणना करना।</li>
+      <li>एकपरमाणुक, द्विपरमाणुक (दृढ़ तथा अप्रतिरोधी/कंपनशील) व बहुपरमाणुक गैसों और ठोसों (डुलॉन्ग-पैटिट नियम) के लिए मोलर विशिष्ट ऊष्माओं (\(C_v, C_p\)) एवं \(\gamma\) का सटीक निर्धारण।</li>
+      <li>माध्य मुक्त पथ \(l = \frac{1}{\sqrt{2} n \pi d^2}\), संघट्ट आवृत्ति और संघट्ट काल की भौतिक समझ।</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 3: CORE CONCEPTS & THEORETICAL EXPLANATIONS -->
+<h2 class="section-title">
+  <span>2. Core Concepts &amp; Detailed Theory</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">मूल अवधारणाएँ एवं विस्तृत सिद्धांत</span>
+</h2>
+
+<!-- 3.1 Molecular Nature of Matter -->
+<h3 class="subsection-title">2.1 Molecular Nature of Matter &amp; Historical Context | पदार्थ की आण्विक प्रकृति</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>Richard Feynman famously stated the <strong>Atomic Hypothesis</strong>: <em>"All things are made of atoms — little particles that move around in perpetual motion, attracting each other when they are a little distance apart, but repelling upon being squeezed into one another."</em></p>
+    <p><strong>Historical Perspective:</strong> In ancient India, Acharya Kanada (6th century B.C.) in the Vaiseshika school proposed the detailed concept of <strong>Paramanu</strong> (indivisible, eternal smallest particle of matter) forming diatomic (<em>dryanuka</em>) and triatomic (<em>tryanuka</em>) aggregates. In ancient Greece, Democritus (4th century B.C.) proposed the concept of "atomos" (indivisible). The modern quantitative foundation was established by John Dalton (1808) to explain the laws of definite and multiple proportions, complemented by Gay-Lussac's law of combining volumes and Avogadro's hypothesis (1811).</p>
+    <p><strong>Microscopic Scales of Matter:</strong></p>
+    <ul>
+      <li><strong>Atomic Size:</strong> Typically of the order of \(1\,\mathrm{\mathring{A}} = 10^{-10}\,\mathrm{m}\).</li>
+      <li><strong>Interatomic Separation in Solids and Liquids:</strong> Approximately \(2\,\mathrm{\mathring{A}}\) to \(3\,\mathrm{\mathring{A}}\). In solids, atoms oscillate about fixed lattice sites. In liquids, atoms are closely packed but can slide past one another, conferring fluidity.</li>
+      <li><strong>Interatomic Separation in Gases:</strong> At STP, intermolecular spacing is tens of ångströms (\(\sim 30\,\mathrm{\mathring{A}}\) to \(40\,\mathrm{\mathring{A}}\)), roughly 10 times larger than the molecular diameter.</li>
+      <li><strong>Mean Free Path in Gases:</strong> Thousands of ångströms (\(\sim 1000\,\mathrm{\mathring{A}}\) to \(3000\,\mathrm{\mathring{A}}\)), which is roughly 100 times the interatomic distance and 1000 times the molecular size.</li>
+    </ul>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>प्रसिद्ध भौतिकविद् रिचर्ड फाइनमैन के अनुसार <strong>परमाणु परिकल्पना</strong> है: <em>"सभी वस्तुएँ परमाणुओं से बनी हैं — ऐसे सूक्ष्म कण जो निरंतर गति में रहते हैं, एक-दूसरे से थोड़ी दूरी पर होने पर आकर्षित करते हैं, परंतु अत्यधिक निकट दबाए जाने पर तीव्र प्रतिकर्षण करते हैं।"</em></p>
+    <p><strong>ऐतिहासिक परिप्रेक्ष्य:</strong> प्राचीन भारत में महर्षि कणाद (छठी शताब्दी ईसा पूर्व) ने वैशेषिक दर्शन में <strong>परमाणु</strong> (पदार्थ का शाश्वत व सूक्ष्मतम अविभाज्य कण) की विस्तृत संकल्पना प्रस्तुत की, जो मिलकर द्व्यणुक (diatomic) और त्र्यणुक (triatomic) अणु बनाते हैं। प्राचीन ग्रीस में डेमोक्रिटस ने 'atomos' का विचार दिया। आधुनिक वैज्ञानिक परमाणु सिद्धांत का प्रतिपादन जॉन डाल्टन (1808) ने स्थिर व गुणित अनुपात के नियमों की व्याख्या हेतु किया, जिसे बाद में गे-लुसाक के गैसीय आयतन नियम तथा आवोगाद्रो की परिकल्पना (1811) से पूर्ण समर्थन मिला।</p>
+    <p><strong>पदार्थ के सूक्ष्मदर्शीय पैमाने:</strong></p>
+    <ul>
+      <li><strong>परमाणु का आकार:</strong> लगभग \(1\,\mathrm{\mathring{A}} = 10^{-10}\,\mathrm{m}\) की कोटि का होता है।</li>
+      <li><strong>ठोसों एवं द्रवों में अंतरापरमाण्विक दूरी:</strong> लगभग \(2\,\mathrm{\mathring{A}}\) से \(3\,\mathrm{\mathring{A}}\)। ठोसों में परमाणु जालक बिंदुओं के परितः कंपन करते हैं। द्रवों में निकट संकुलित रहते हुए भी एक-दूसरे पर फिसल सकते हैं।</li>
+      <li><strong>गैसों में अंतरापरमाण्विक दूरी:</strong> मानक ताप व दाब (STP) पर अणुओं के बीच की दूरी दर्जनों ऐंगस्ट्रॉम (\(\sim 30\,\mathrm{\mathring{A}}\) से \(40\,\mathrm{\mathring{A}}\)) होती है, जो आण्विक आकार से लगभग 10 गुना अधिक है।</li>
+      <li><strong>गैसों में माध्य मुक्त पथ:</strong> हजारों ऐंगस्ट्रॉम (\(\sim 1000\,\mathrm{\mathring{A}}\) से \(3000\,\mathrm{\mathring{A}}\)), जो अंतराण्विक दूरी का लगभग 100 गुना तथा आण्विक आकार का लगभग 1000 गुना होता है।</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3.2 Behaviour of Gases & Equation of State -->
+<h3 class="subsection-title">2.2 Macroscopic Behaviour of Gases &amp; Ideal Gas Equation | गैसों का व्यवहार एवं अवस्था समीकरण</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>At low pressures and high temperatures, the molecules of any real gas are far apart. Under these conditions, the volume occupied by the molecules themselves is negligible compared to the container volume, and intermolecular interactions are negligible except during collisions. The gas then obeys the <strong>Ideal Gas Equation of State</strong>:</p>
+    \[
+      PV = \mu RT = k_{\mathrm{B}} N T
+    \]
+    <p>Where:</p>
+    <ul>
+      <li>\(P\) = absolute pressure of the gas (\(\mathrm{N\,m^{-2}}\) or \(\mathrm{Pa}\))</li>
+      <li>\(V\) = volume occupied by the gas (\(\mathrm{m^3}\))</li>
+      <li>\(T\) = absolute temperature (\(\mathrm{K}\))</li>
+      <li>\(\mu\) = number of moles of gas = \(\frac{M}{M_0} = \frac{N}{N_{\mathrm{A}}}\) (\(M\) is mass of gas, \(M_0\) is molar mass)</li>
+      <li>\(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\) = Universal Gas Constant</li>
+      <li>\(N_{\mathrm{A}} = 6.022 \times 10^{23}\,\mathrm{mol^{-1}}\) = Avogadro's number</li>
+      <li>\(k_{\mathrm{B}} = \frac{R}{N_{\mathrm{A}}} = 1.38 \times 10^{-23}\,\mathrm{J\,K^{-1}}\) = Boltzmann Constant</li>
+      <li>\(n = \frac{N}{V}\) = number density of molecules (\(\mathrm{m^{-3}}\)), yielding \(P = n k_{\mathrm{B}} T\)</li>
+      <li>\(\rho = \frac{M}{V} = \frac{\mu M_0}{V}\) = mass density (\(\mathrm{kg\,m^{-3}}\)), yielding \(P = \frac{\rho RT}{M_0}\)</li>
+    </ul>
+
+    <p><strong>Constituent Empirical Gas Laws:</strong></p>
+    <ol>
+      <li><strong>Boyle's Law (1661):</strong> For a given mass of gas at constant temperature \(T\), \(PV = \text{constant}\). The \(P-V\) curves are rectangular hyperbolas (isotherms).</li>
+      <li><strong>Charles's Law:</strong> For a given mass of gas at constant pressure \(P\), \(V \propto T\) (isobars).</li>
+      <li><strong>Gay-Lussac's Law (Regnault's Law):</strong> At constant volume \(V\), \(P \propto T\) (isochores).</li>
+      <li><strong>Avogadro's Hypothesis:</strong> Equal volumes of all ideal gases at identical temperature and pressure contain an equal number of molecules (\(N_1 = N_2\)). At STP (\(T = 273.15\,\mathrm{K}, P = 1\,\mathrm{atm} = 1.013 \times 10^5\,\mathrm{Pa}\)), \(1\,\mathrm{mol}\) of any ideal gas occupies \(22.4\,\mathrm{litres} = 22.4 \times 10^{-3}\,\mathrm{m^3}\).</li>
+      <li><strong>Dalton's Law of Partial Pressures:</strong> The total pressure \(P\) exerted by a mixture of non-reactive ideal gases in a volume \(V\) at temperature \(T\) is equal to the sum of their individual partial pressures:
+      \[
+        P = P_1 + P_2 + P_3 + \dots = (\mu_1 + \mu_2 + \dots)\frac{RT}{V}
+      \]
+      where \(P_i = \mu_i \frac{RT}{V}\) is the partial pressure of the \(i\)-th gas.</li>
+    </ol>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>निम्न दाब और उच्च ताप पर, किसी भी वास्तविक गैस के अणु परस्पर बहुत दूर होते हैं। इस स्थिति में पात्र के आयतन की तुलना में अणुओं का निजी आयतन नगण्य होता है, तथा संघट्टों के अतिरिक्त पारस्परिक अंतराण्विक आकर्षण बल भी नगण्य होते हैं। इस अवस्था में गैस <strong>आदर्श गैस अवस्था समीकरण</strong> का पालन करती है:</p>
+    \[
+      PV = \mu RT = k_{\mathrm{B}} N T
+    \]
+    <p>यहाँ विभिन्न पद निम्नलिखित हैं:</p>
+    <ul>
+      <li>\(P\) = गैस का परम दाब (\(\mathrm{Pa}\) अथवा \(\mathrm{N\,m^{-2}}\))</li>
+      <li>\(V\) = गैस द्वारा घेरा गया आयतन (\(\mathrm{m^3}\))</li>
+      <li>\(T\) = परम ताप (\(\mathrm{K}\))</li>
+      <li>\(\mu\) = मोलों की संख्या = \(\frac{M}{M_0} = \frac{N}{N_{\mathrm{A}}}\) (\(M\) गैस का द्रव्यमान, \(M_0\) मोलर द्रव्यमान है)</li>
+      <li>\(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\) = सार्वत्रिक गैस नियतांक</li>
+      <li>\(N_{\mathrm{A}} = 6.022 \times 10^{23}\,\mathrm{mol^{-1}}\) = आवोगाद्रो संख्या</li>
+      <li>\(k_{\mathrm{B}} = \frac{R}{N_{\mathrm{A}}} = 1.38 \times 10^{-23}\,\mathrm{J\,K^{-1}}\) = बोल्ट्ज़मान नियतांक</li>
+      <li>\(n = \frac{N}{V}\) = संख्या घनत्व (प्रति एकांक आयतन अणुओं की संख्या), जिससे \(P = n k_{\mathrm{B}} T\)</li>
+      <li>\(\rho = \frac{M}{V}\) = द्रव्यमान घनत्व, जिससे \(P = \frac{\rho RT}{M_0}\) प्राप्त होता है।</li>
+    </ul>
+
+    <p><strong>मूलभूत प्रायोगिक गैस नियम:</strong></p>
+    <ol>
+      <li><strong>बॉयल का नियम:</strong> नियत ताप \(T\) पर गैस के दिए गए द्रव्यमान के लिए, \(PV = \text{नियतांक}\)। समतापीय वक्र आयताकार अतिपरवलय होते हैं।</li>
+      <li><strong>चार्ल्स का नियम:</strong> नियत दाब \(P\) पर गैस के निश्चित द्रव्यमान का आयतन परम ताप के अनुक्रमानुपाती होता है (\(V \propto T\))।</li>
+      <li><strong>गे-लुसाक का नियम:</strong> नियत आयतन \(V\) पर गैस का दाब उसके परम ताप के अनुक्रमानुपाती होता है (\(P \propto T\))।</li>
+      <li><strong>आवोगाद्रो की परिकल्पना:</strong> समान ताप एवं दाब पर सभी आदर्श गैसों के समान आयतन में अणुओं की संख्या समान होती है। STP पर \(1\,\mathrm{mol}\) गैस का मोलर आयतन \(22.4\,\mathrm{लीटर}\) होता है।</li>
+      <li><strong>डाल्टन का आंशिक दाब का नियम:</strong> अक्रिय गैसों के मिश्रण का कुल दाब प्रत्येक घटक गैस के आंशिक दाबों के योग के बराबर होता है:
+      \[
+        P = P_1 + P_2 + P_3 + \dots = (\mu_1 + \mu_2 + \dots)\frac{RT}{V}
+      \]
+      जहाँ \(P_i = \mu_i \frac{RT}{V}\) घटक गैस का आंशिक दाब है।</li>
+    </ol>
+  </div>
+</div>
+
+<!-- DIAGRAM 1: Real Gas vs Ideal Gas -->
+<div class="diagram-container">
+  <svg viewBox="0 0 650 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="650" height="340" fill="#f8fafc" rx="8" stroke="#cbd5e1" stroke-width="1"/>
+    <!-- Title -->
+    <text x="325" y="28" font-size="15" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Real Gas Behaviour vs Ideal Gas Law at Different Temperatures</text>
+    <!-- Axes -->
+    <line x1="80" y1="280" x2="600" y2="280" stroke="#334155" stroke-width="2"/>
+    <line x1="80" y1="280" x2="80" y2="50" stroke="#334155" stroke-width="2"/>
+    <!-- Axis Labels -->
+    <text x="590" y="305" font-size="13" font-weight="600" fill="#334155" text-anchor="end">Pressure P (atm)</text>
+    <text x="30" y="160" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" transform="rotate(-90 30 160)">PV / (μRT)</text>
+    <!-- Grid and Ticks -->
+    <text x="75" y="285" font-size="11" fill="#64748b" text-anchor="end">0</text>
+    <text x="200" y="298" font-size="11" fill="#64748b" text-anchor="middle">200</text>
+    <text x="330" y="298" font-size="11" fill="#64748b" text-anchor="middle">400</text>
+    <text x="460" y="298" font-size="11" fill="#64748b" text-anchor="middle">600</text>
+    <text x="570" y="298" font-size="11" fill="#64748b" text-anchor="middle">800</text>
+    <!-- Ideal Gas Horizontal Line -->
+    <line x1="80" y1="120" x2="590" y2="120" stroke="#059669" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <text x="72" y="124" font-size="12" font-weight="bold" fill="#059669" text-anchor="end">1.0</text>
+    <text x="595" y="115" font-size="12" font-weight="bold" fill="#059669">Ideal Gas (PV = μRT)</text>
+    <!-- Real Gas Curves -->
+    <!-- T1 (Highest temperature) -->
+    <path d="M 80 120 C 150 135, 250 145, 360 140 C 440 135, 520 115, 580 85" fill="none" stroke="#2563eb" stroke-width="2.2"/>
+    <text x="365" y="158" font-size="12" font-weight="600" fill="#2563eb">T1 (High Temp)</text>
+    <!-- T2 (Intermediate temperature) -->
+    <path d="M 80 120 C 140 165, 230 185, 330 175 C 430 160, 510 120, 575 75" fill="none" stroke="#d97706" stroke-width="2.2"/>
+    <text x="300" y="195" font-size="12" font-weight="600" fill="#d97706">T2</text>
+    <!-- T3 (Lowest temperature) -->
+    <path d="M 80 120 C 130 225, 210 255, 310 230 C 410 190, 500 125, 565 65" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+    <text x="210" y="270" font-size="12" font-weight="600" fill="#dc2626">T3 (Low Temp, T1 &gt; T2 &gt; T3)</text>
+    <!-- Convergence Annotation -->
+    <circle cx="80" cy="120" r="5" fill="#059669"/>
+    <text x="95" y="90" font-size="11" fill="#0f172a">All real gases approach 1.0 as P → 0</text>
+    <line x1="140" y1="95" x2="88" y2="115" stroke="#0f172a" stroke-width="1.2" marker-end="url(#arrow)"/>
+  </svg>
+  <div class="diagram-caption">
+    <strong>Diagram 1:</strong> Deviation of real gases from ideal gas behavior as a function of pressure. Notice that as \(P \to 0\) or at high temperatures (\(T_1 > T_2 > T_3\)), the compressibility ratio \(PV/(\mu RT)\) converges to 1.
+  </div>
+</div>
+
+<!-- DIAGRAM 2: Boyle's Law Isotherms -->
+<div class="diagram-container">
+  <svg viewBox="0 0 650 330" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+    <rect width="650" height="330" fill="#f8fafc" rx="8" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="325" y="26" font-size="15" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Boyle's Law: P-V Isotherms at Different Temperatures</text>
+    <!-- Axes -->
+    <line x1="80" y1="280" x2="600" y2="280" stroke="#334155" stroke-width="2"/>
+    <line x1="80" y1="280" x2="80" y2="45" stroke="#334155" stroke-width="2"/>
+    <text x="590" y="305" font-size="13" font-weight="600" fill="#334155" text-anchor="end">Volume V (L)</text>
+    <text x="30" y="160" font-size="13" font-weight="600" fill="#334155" text-anchor="middle" transform="rotate(-90 30 160)">Pressure P (atm)</text>
+    <!-- Isotherms: Hyperbolas P = C/V -->
+    <!-- T1 (Highest) -->
+    <path d="M 110 70 Q 150 160 260 210 T 560 260" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="470" y="240" font-size="12" font-weight="bold" fill="#2563eb">T1 (Highest)</text>
+    <!-- T2 -->
+    <path d="M 98 100 Q 130 190 220 235 T 540 268" fill="none" stroke="#059669" stroke-width="2.5"/>
+    <text x="380" y="245" font-size="12" font-weight="bold" fill="#059669">T2</text>
+    <!-- T3 (Lowest) -->
+    <path d="M 88 140 Q 115 220 180 255 T 510 273" fill="none" stroke="#d97706" stroke-width="2.5"/>
+    <text x="280" y="265" font-size="12" font-weight="bold" fill="#d97706">T3 (T1 &gt; T2 &gt; T3)</text>
+    <!-- Annotation -->
+    <text x="320" y="100" font-size="12" fill="#334155" font-style="italic">PV = constant at constant T</text>
+    <text x="320" y="120" font-size="12" fill="#334155" font-style="italic">Higher isotherm corresponds to higher T</text>
+  </svg>
+  <div class="diagram-caption">
+    <strong>Diagram 2:</strong> Isothermal \(P-V\) curves. For a given mass of gas, curves further from the origin represent higher absolute temperatures.
+  </div>
+</div>
+
+<!-- 3.3 Kinetic Theory: Derivation of Pressure -->
+<h3 class="subsection-title">2.3 Kinetic Theory of an Ideal Gas: Pressure Derivation | आदर्श गैस का अणुगति सिद्धांत एवं दाब की व्युत्पत्ति</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>The kinetic theory of gases models a gas as an ensemble of a very large number of microscopic particles in continuous, random motion. The fundamental postulates are:</p>
+    <ul>
+      <li>A gas consists of a very large number of identical, tiny, spherical molecules in perpetual random motion.</li>
+      <li>The size of a molecule is negligible compared to the average intermolecular distance (molecules are point masses).</li>
+      <li>Intermolecular forces of attraction or repulsion are negligible except during actual collisions. Between collisions, molecules travel in straight lines at constant speed in accordance with Newton's first law.</li>
+      <li>All collisions (between molecules, and between molecules and container walls) are perfectly elastic. Total momentum and total kinetic energy are conserved.</li>
+      <li>The duration of a collision is vanishingly small compared to the time interval between successive collisions.</li>
+      <li>The molecules obey Newton's laws of motion. Gravitational effects on molecular motion are negligible due to their high speeds.</li>
+    </ul>
+
+    <p><strong>Step-by-Step Derivation of Pressure:</strong></p>
+    <p>Consider a gas enclosed in a cubical box of side \(L\) with volume \(V = L^3\). Let the Cartesian axes be parallel to the edges of the box. Consider a molecule of mass \(m\) moving with velocity \(\vec{v} = (v_x, v_y, v_z)\).</p>
+    <ol>
+      <li><strong>Change in Momentum per Collision:</strong> When the molecule undergoes an elastic collision with a planar wall perpendicular to the \(x\)-axis (parallel to the \(yz\)-plane, area \(A = L^2\)), its \(y\) and \(z\) components of velocity remain unchanged, while its \(x\)-component reverses from \(+v_x\) to \(-v_x\):
+      \[
+        \Delta p_x = (-m v_x) - (m v_x) = -2 m v_x
+      \]
+      By momentum conservation, the momentum imparted to the wall in a single collision is:
+      \[
+        \Delta p_{\text{wall}} = +2 m v_x
+      \]
+      </li>
+      <li><strong>Collision Rate on the Wall:</strong> In a small time interval \(\Delta t\), only molecules having an \(x\)-velocity component \(v_x\) directed towards the wall and located within a distance \(v_x \Delta t\) can reach the wall. The volume of this slab is \(A v_x \Delta t\).
+      Assuming isotropic velocity distribution, on average, half of the molecules in this volume are moving towards the wall and half away from it. If \(n = N/V\) is the number density of molecules, the number of such collisions in time \(\Delta t\) is:
+      \[
+        \Delta N = \frac{1}{2} n A v_x \Delta t
+      \]
+      </li>
+      <li><strong>Force and Pressure Exerted:</strong> The total momentum \(Q\) transferred to the wall in time \(\Delta t\) is:
+      \[
+        Q = (2 m v_x) \times \left(\frac{1}{2} n A v_x \Delta t\right) = n m A v_x^2 \Delta t
+      \]
+      The force \(F\) exerted on the wall is the rate of momentum transfer:
+      \[
+        F = \frac{Q}{\Delta t} = n m A v_x^2
+      \]
+      Hence, the pressure \(P\) is the force per unit area:
+      \[
+        P = \frac{F}{A} = n m v_x^2
+      \]
+      </li>
+      <li><strong>Averaging over Velocity Distribution and Isotropy:</strong> Molecules possess a distribution of velocities. Replacing \(v_x^2\) with its statistical average \(\overline{v_x^2}\):
+      \[
+        P = n m \overline{v_x^2}
+      \]
+      Because molecular motion is completely isotropic (no preferred direction in space):
+      \[
+        \overline{v_x^2} = \overline{v_y^2} = \overline{v_z^2} = \frac{1}{3}\left(\overline{v_x^2} + \overline{v_y^2} + \overline{v_z^2}\right) = \frac{1}{3}\overline{v^2}
+      \]
+      where \(\overline{v^2}\) is the mean square speed. Substituting this yields the celebrated <strong>Kinetic Pressure Formula</strong>:
+      \[
+        P = \frac{1}{3} n m \overline{v^2} = \frac{1}{3} \rho \overline{v^2}
+      \]
+      where \(\rho = n m = \frac{M}{V}\) is the mass density of the gas.
+      </li>
+    </ol>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>अणुगति सिद्धांत गैस को निरंतर, यादृच्छिक गति करने वाले अत्यंत विशाल संख्या में सूक्ष्म कणों के समूह के रूप में मॉडल करता है। इसके मूल अभिगृहीत निम्नलिखित हैं:</p>
+    <ul>
+      <li>प्रत्येक गैस अत्यंत सूक्ष्म, पूर्णतः प्रत्यास्थ तथा समरूप गोलाकार अणुओं से मिलकर बनी होती है जो सभी संभव दिशाओं में यादृच्छिक गति करते हैं।</li>
+      <li>अणुओं का वास्तविक आयतन गैस के कुल आयतन की तुलना में नगण्य होता है (अणु बिंदु द्रव्यमान माने जाते हैं)।</li>
+      <li>संघट्ट के समय को छोड़कर अणुओं के मध्य कोई आकर्षण या प्रतिकर्षण बल कार्य नहीं करता। दो क्रमागत संघट्टों के बीच अणु नियत चाल से ऋजुरेखीय गति करते हैं।</li>
+      <li>अणुओं के परस्पर तथा पात्र की दीवारों के साथ सभी संघट्ट पूर्णतः प्रत्यास्थ (perfectly elastic) होते हैं, अर्थात् कुल संवेग व गतिज ऊर्जा संरक्षित रहते हैं।</li>
+      <li>दो संघट्टों के बीच लगे समय की तुलना में संघट्ट काल अत्यंत नगण्य होता है।</li>
+      <li>अणुओं की गति न्यूटन के गति नियमों का पालन करती है। अणुओं की तीव्र चाल के कारण उन पर गुरुत्वाकर्षण का प्रभाव नगण्य होता है।</li>
+    </ul>
+
+    <p><strong>दाब के सूत्र की पद-दर-पद व्युत्पत्ति:</strong></p>
+    <p>मान लीजिए \(L\) भुजा वाले घनाकार पात्र का आयतन \(V = L^3\) है। द्रव्यमान \(m\) का एक अणु वेग \(\vec{v} = (v_x, v_y, v_z)\) से गतिमान है।</p>
+    <ol>
+      <li><strong>एक संघट्ट में संवेग परिवर्तन:</strong> जब अणु \(yz\)-तल के समांतर दीवार (क्षेत्रफल \(A = L^2\)) से पूर्ण प्रत्यास्थ संघट्ट करता है, तो उसके \(y\) व \(z\) वेग घटक अपरिवर्तित रहते हैं, जबकि \(x\)-घटक की दिशा उत्क्रमित (\(+v_x\) से \(-v_x\)) हो जाती है:
+      \[
+        \Delta p_x = (-m v_x) - (m v_x) = -2 m v_x
+      \]
+      संवेग संरक्षण के नियमानुसार, दीवार को स्थानांतरित संवेग:
+      \[
+        \Delta p_{\text{दीवार}} = +2 m v_x
+      \]
+      </li>
+      <li><strong>दीवार पर संघट्ट दर:</strong> \(\Delta t\) समय अंतराल में केवल वही अणु दीवार से टकरा सकते हैं जो दीवार की ओर गतिमान हों तथा दीवार से \(v_x \Delta t\) दूरी के भीतर स्थित हों। इस बेलनाकार खंड का आयतन \(A v_x \Delta t\) है।
+      समदैशिक वितरण के कारण औसतन आधे अणु दीवार की ओर तथा आधे विपरीत दिशा में चलते हैं। अतः संघट्ट करने वाले अणुओं की संख्या:
+      \[
+        \Delta N = \frac{1}{2} n A v_x \Delta t
+      \]
+      </li>
+      <li><strong>दीवार पर आरोपित बल एवं दाब:</strong> \(\Delta t\) समय में दीवार को दिया गया कुल संवेग:
+      \[
+        Q = (2 m v_x) \times \left(\frac{1}{2} n A v_x \Delta t\right) = n m A v_x^2 \Delta t
+      \]
+      दीवार पर आरोपित बल \(F = \frac{Q}{\Delta t} = n m A v_x^2\) तथा दाब:
+      \[
+        P = \frac{F}{A} = n m v_x^2
+      \]
+      </li>
+      <li><strong>चाल वितरण पर औसत एवं समदैशिकता:</strong> सभी अणुओं का वेग एकसमान नहीं होता। अतः \(v_x^2\) के स्थान पर उसका औसत मान \(\overline{v_x^2}\) लेने पर:
+      \[
+        P = n m \overline{v_x^2}
+      \]
+      गैस की गति पूर्णतः समदैशिक (isotropic) होने के कारण:
+      \[
+        \overline{v_x^2} = \overline{v_y^2} = \overline{v_z^2} = \frac{1}{3}\overline{v^2}
+      \]
+      अतः आदर्श गैस के <strong>दाब का समीकरण</strong> प्राप्त होता है:
+      \[
+        P = \frac{1}{3} n m \overline{v^2} = \frac{1}{3} \rho \overline{v^2}
+      \]
+      जहाँ \(\rho = n m\) गैस का द्रव्यमान घनत्व है।
+      </li>
+    </ol>
+  </div>
+</div>
+
+<!-- DIAGRAM 3: Molecule Colliding with Wall -->
+<div class="diagram-container">
+  <svg viewBox="0 0 650 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+    <rect width="650" height="360" fill="#f8fafc" rx="8" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="325" y="26" font-size="15" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Elastic Collision of a Gas Molecule with Container Wall</text>
+    
+    <!-- 3D Cube Representation -->
+    <!-- Back face -->
+    <rect x="220" y="70" width="180" height="180" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="4,4" stroke-width="1.5"/>
+    <!-- Connecting edges -->
+    <line x1="140" y1="130" x2="220" y2="70" stroke="#94a3b8" stroke-dasharray="4,4" stroke-width="1.5"/>
+    <line x1="320" y1="130" x2="400" y2="70" stroke="#94a3b8" stroke-width="1.5"/>
+    <line x1="140" y1="310" x2="220" y2="250" stroke="#94a3b8" stroke-dasharray="4,4" stroke-width="1.5"/>
+    <line x1="320" y1="310" x2="400" y2="250" stroke="#94a3b8" stroke-width="1.5"/>
+    <!-- Front face -->
+    <rect x="140" y="130" width="180" height="180" fill="none" stroke="#475569" stroke-width="2"/>
+    
+    <!-- Collision Wall Highlight (Right Face) -->
+    <polygon points="320,130 400,70 400,250 320,310" fill="rgba(37, 99, 235, 0.12)" stroke="#2563eb" stroke-width="2"/>
+    <text x="375" y="295" font-size="12" font-weight="bold" fill="#2563eb">Wall (Area A)</text>
+
+    <!-- Incident and Reflected Trajectory -->
+    <!-- Molecule start -->
+    <circle cx="210" cy="170" r="7" fill="#ef4444"/>
+    <text x="200" y="155" font-size="12" font-weight="600" fill="#ef4444">Molecule (m)</text>
+    <!-- Incident Vector -->
+    <line x1="217" y1="170" x2="355" y2="190" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="250" y="172" font-size="11" font-weight="600" fill="#ef4444">v = (vx, vy, vz)</text>
+    <!-- Collision Point on Wall -->
+    <circle cx="360" cy="190" r="4" fill="#1e3a8a"/>
+    <!-- Rebound Vector -->
+    <line x1="360" y1="190" x2="225" y2="240" stroke="#059669" stroke-width="2.5"/>
+    <circle cx="225" cy="240" r="7" fill="#059669"/>
+    <text x="215" y="260" font-size="11" font-weight="600" fill="#059669">v' = (-vx, vy, vz)</text>
+    
+    <!-- Explanatory Box on Right -->
+    <rect x="440" y="80" width="190" height="180" fill="#ffffff" stroke="#cbd5e1" rx="6"/>
+    <text x="450" y="105" font-size="12" font-weight="bold" fill="#1e3a8a">Momentum Transfer:</text>
+    <text x="450" y="130" font-size="11" fill="#334155">• Initial px = +m vx</text>
+    <text x="450" y="152" font-size="11" fill="#334155">• Final px = -m vx</text>
+    <text x="450" y="174" font-size="11" fill="#334155">• Δpx (molecule) = -2m vx</text>
+    <text x="450" y="196" font-size="11" font-weight="bold" fill="#059669">• Δp (wall) = +2m vx</text>
+    <text x="450" y="222" font-size="11" fill="#334155">Only normal component</text>
+    <text x="450" y="240" font-size="11" fill="#334155">reverses upon reflection.</text>
+  </svg>
+  <div class="diagram-caption">
+    <strong>Diagram 3:</strong> Geometry of an elastic collision of a molecule with the right container wall parallel to the \(yz\)-plane.
+  </div>
+</div>
+
+<!-- 3.4 Kinetic Interpretation of Temperature & Molecular Speeds -->
+<h3 class="subsection-title">2.4 Kinetic Interpretation of Temperature &amp; Molecular Speeds | ताप की गतिज व्याख्या एवं आण्विक चालें</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>Multiplying the pressure equation \(P = \frac{1}{3} \frac{N}{V} m \overline{v^2}\) by volume \(V\):</p>
+    \[
+      PV = \frac{2}{3} N \left(\frac{1}{2} m \overline{v^2}\right) = \frac{2}{3} E
+    \]
+    <p>where \(E = N \left(\frac{1}{2} m \overline{v^2}\right)\) is the total internal translational kinetic energy of the gas. Comparing this with the ideal gas equation \(PV = N k_{\mathrm{B}} T = \mu R T\):</p>
+    \[
+      E = \frac{3}{2} N k_{\mathrm{B}} T = \frac{3}{2} \mu R T
+    \]
+    <p>Dividing by the total number of molecules \(N\), we obtain the profound <strong>Kinetic Definition of Temperature</strong>:</p>
+    \[
+      \overline{\varepsilon_t} = \frac{1}{2} m \overline{v^2} = \frac{3}{2} k_{\mathrm{B}} T
+    \]
+    <div class="card-callout">
+      <strong>Crucial NEET Takeaway:</strong> The average translational kinetic energy of a molecule depends <em>solely</em> on absolute temperature \(T\). It is completely independent of pressure, volume, and the chemical nature or molar mass of the gas. At the same temperature, a molecule of light hydrogen (\(\mathrm{H_2}\)) and a molecule of heavy uranium hexafluoride (\(\mathrm{UF_6}\)) have the <strong>exact same average translational kinetic energy</strong> (\(\frac{3}{2} k_{\mathrm{B}} T\)).
+    </div>
+
+    <p><strong>Root-Mean-Square Speed (\(v_{\mathrm{rms}}\)):</strong></p>
+    \[
+      v_{\mathrm{rms}} = \sqrt{\overline{v^2}} = \sqrt{\frac{3 k_{\mathrm{B}} T}{m}} = \sqrt{\frac{3 R T}{M_0}} = \sqrt{\frac{3 P}{\rho}}
+    \]
+    <p>where \(m\) is the mass of a single molecule and \(M_0 = N_{\mathrm{A}} m\) is the molar mass in \(\mathrm{kg\,mol^{-1}}\).</p>
+    
+    <div class="card-warning">
+      <strong>Classic NEET Trap — Pressure Change at Constant Temperature:</strong> If the pressure of an ideal gas is doubled at constant temperature, what happens to \(v_{\mathrm{rms}}\)?<br/>
+      <em>Answer:</em> \(v_{\mathrm{rms}}\) <strong>remains unchanged</strong>! Because at constant \(T\), by Boyle's law, doubling the pressure also doubles the density \(\rho\). Thus the ratio \(P/\rho\) remains constant, leaving \(v_{\mathrm{rms}} = \sqrt{3P/\rho}\) completely invariant. \(v_{\mathrm{rms}}\) changes only if temperature \(T\) changes!
+    </div>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>दाब समीकरण \(P = \frac{1}{3} \frac{N}{V} m \overline{v^2}\) को आयतन \(V\) से गुणा करने पर:</p>
+    \[
+      PV = \frac{2}{3} N \left(\frac{1}{2} m \overline{v^2}\right) = \frac{2}{3} E
+    \]
+    <p>जहाँ \(E\) गैस के सभी अणुओं की कुल स्थानांतरीय गतिज ऊर्जा (आंतरिक ऊर्जा) है। इसकी तुलना आदर्श गैस समीकरण \(PV = N k_{\mathrm{B}} T\) से करने पर:</p>
+    \[
+      E = \frac{3}{2} N k_{\mathrm{B}} T = \frac{3}{2} \mu R T
+    \]
+    <p>अतः प्रति अणु औसत स्थानांतरीय गतिज ऊर्जा प्राप्त होती है:</p>
+    \[
+      \overline{\varepsilon_t} = \frac{1}{2} m \overline{v^2} = \frac{3}{2} k_{\mathrm{B}} T
+    \]
+    <div class="card-callout">
+      <strong>NEET हेतु अत्यंत महत्वपूर्ण निष्कर्ष:</strong> किसी भी गैस के एक अणु की औसत स्थानांतरीय गतिज ऊर्जा <em>केवल और केवल</em> परम ताप \(T\) पर निर्भर करती है। यह दाब, आयतन या गैस की रासायनिक प्रकृति पर निर्भर नहीं करती। समान ताप पर हाइड्रोजन (\(\mathrm{H_2}\)) और यूरेनियम हेक्साफ्लोराइड (\(\mathrm{UF_6}\)) दोनों के प्रति अणु की औसत स्थानांतरीय गतिज ऊर्जा ठीक <strong>समान</strong> (\(\frac{3}{2} k_{\mathrm{B}} T\)) होती है।
+    </div>
+
+    <p><strong>वर्ग-माध्य-मूल चाल (Root-Mean-Square Speed):</strong></p>
+    \[
+      v_{\mathrm{rms}} = \sqrt{\overline{v^2}} = \sqrt{\frac{3 k_{\mathrm{B}} T}{m}} = \sqrt{\frac{3 R T}{M_0}} = \sqrt{\frac{3 P}{\rho}}
+    \]
+    <p>जहाँ \(M_0\) गैस का मोलर द्रव्यमान (\(\mathrm{kg\,mol^{-1}}\) में) है।</p>
+
+    <div class="card-warning">
+      <strong>NEET का वैचारिक भ्रम — नियत ताप पर दाब परिवर्तन:</strong> यदि नियत ताप पर गैस का दाब दोगुना कर दिया जाए, तो \(v_{\mathrm{rms}}\) पर क्या प्रभाव पड़ेगा?<br/>
+      <em>उत्तर:</em> \(v_{\mathrm{rms}}\) <strong>अपरिवर्तित रहेगा</strong>! बॉयल के नियमानुसार नियत ताप पर दाब दोगुना करने से घनत्व \(\rho\) भी दोगुना हो जाता है, जिससे अनुपात \(P/\rho\) नियत रहता है। \(v_{\mathrm{rms}}\) केवल ताप बदलने पर ही बदलता है।
+    </div>
+  </div>
+</div>
+
+<!-- 3.5 Law of Equipartition of Energy & Degrees of Freedom -->
+<h3 class="subsection-title">2.5 Law of Equipartition of Energy &amp; Degrees of Freedom | ऊर्जा के समविभाजन का नियम एवं स्वातंत्र्य कोटियाँ</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Law of Equipartition of Energy (Maxwell &amp; Boltzmann):</strong> In thermal equilibrium at absolute temperature \(T\), the total energy of a dynamic system is distributed equally among all its independent degrees of freedom (independent quadratic modes of energy). The average energy associated with <strong>each degree of freedom is exactly \(\frac{1}{2} k_{\mathrm{B}} T\)</strong>.</p>
+
+    <p><strong>Classification of Degrees of Freedom (\(f\)):</strong></p>
+    <ul>
+      <li><strong>Translational Degrees of Freedom (\(f_t = 3\)):</strong> Any molecule free to move in three dimensions possesses three independent translational velocity components (\(v_x, v_y, v_z\)). Energy terms: \(\frac{1}{2}mv_x^2 + \frac{1}{2}mv_y^2 + \frac{1}{2}mv_z^2\). Each contributes \(\frac{1}{2}k_{\mathrm{B}}T\), giving \(\frac{3}{2}k_{\mathrm{B}}T\).</li>
+      <li><strong>Rotational Degrees of Freedom (\(f_r\)):</strong>
+        <ul>
+          <li><em>Monatomic Gas (He, Ne, Ar):</em> Point-mass approximation gives negligible moment of inertia about all axes (\(I \approx 0\)). Thus \(f_r = 0\). Total \(f = 3\).</li>
+          <li><em>Diatomic Gas (Rigid Rotator, \(\mathrm{O_2, N_2, CO}\)):</em> Linear dumbbell geometry has significant moments of inertia (\(I_1 = I_2\)) about two mutually perpendicular axes perpendicular to the internuclear bond axis. The moment of inertia along the internuclear axis is practically zero. Thus \(f_r = 2\). Energy: \(\frac{1}{2}I_1\omega_1^2 + \frac{1}{2}I_2\omega_2^2\). Total degrees of freedom = \(3 + 2 = 5\).</li>
+          <li><em>Non-linear Polyatomic Gas (\(\mathrm{H_2O, CH_4}\)):</em> Can rotate independently about three mutually perpendicular axes. Thus \(f_r = 3\). Total rigid \(f = 3 + 3 = 6\).</li>
+        </ul>
+      </li>
+      <li><strong>Vibrational Modes (\(f_v\)):</strong> At high temperatures, atoms oscillate along their interatomic bonds like a harmonic oscillator. Each vibrational mode contributes <strong>two independent quadratic energy terms</strong>:
+      \[
+        \varepsilon_v = \frac{1}{2} m \left(\frac{dy}{dt}\right)^2 + \frac{1}{2} k y^2 \quad \text{(Kinetic + Potential Energy)}
+      \]
+      Therefore, each vibrational mode contributes:
+      \[
+        2 \times \left(\frac{1}{2} k_{\mathrm{B}} T\right) = k_{\mathrm{B}} T
+      \]
+      to the average energy of the molecule!
+      </li>
+    </ul>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>ऊर्जा के समविभाजन का नियम (मैक्सवेल एवं बोल्ट्ज़मान):</strong> तापीय साम्यावस्था में परम ताप \(T\) पर, किसी गतिज निकाय की कुल ऊर्जा उसकी सभी स्वतंत्र स्वातंत्र्य कोटियों (ऊर्जा के द्विघाती पदों) में समान रूप से वितरित होती है। <strong>प्रत्येक स्वातंत्र्य कोटि के संगत औसत ऊर्जा ठीक \(\frac{1}{2} k_{\mathrm{B}} T\) होती है</strong>।</p>
+
+    <p><strong>स्वातंत्र्य कोटियों का वर्गीकरण (\(f\)):</strong></p>
+    <ul>
+      <li><strong>स्थानांतरीय स्वातंत्र्य कोटियाँ (\(f_t = 3\)):</strong> त्रिविम में स्वतंत्र गति करने वाले किसी भी अणु के तीन स्वतंत्र वेग घटक (\(v_x, v_y, v_z\)) होते हैं। गतिज ऊर्जा पद \(\frac{1}{2}mv_x^2 + \frac{1}{2}mv_y^2 + \frac{1}{2}mv_z^2\) हैं। प्रत्येक पद \(\frac{1}{2}k_{\mathrm{B}}T\) ऊर्जा देता है, कुल \(\frac{3}{2}k_{\mathrm{B}}T\)।</li>
+      <li><strong>घूर्णी स्वातंत्र्य कोटियाँ (\(f_r\)):</strong>
+        <ul>
+          <li><em>एकपरमाणुक गैस (He, Ne, Ar):</em> बिंदु द्रव्यमान होने के कारण जड़त्व आघूर्ण नगण्य होता है। अतः \(f_r = 0\)। कुल \(f = 3\)।</li>
+          <li><em>द्विपरमाणुक गैस (दृढ़ डंबल, \(\mathrm{O_2, N_2}\)):</em> नाभिकीय अक्ष के लंबवत दो परस्पर लंबवत अक्षों के परितः घूर्णन संभव है (\(I_1 = I_2\))। अंतरानाभिकीय अक्ष के परितः जड़त्व आघूर्ण नगण्य होता है। अतः \(f_r = 2\)। कुल दृढ़ स्वातंत्र्य कोटियाँ = \(3 + 2 = 5\)।</li>
+          <li><em>अरेखीय बहुपरमाणुक गैस (\(\mathrm{H_2O}\)):</em> तीन स्वतंत्र अक्षों के परितः घूर्णन कर सकती है। अतः \(f_r = 3\)। कुल दृढ़ \(f = 3 + 3 = 6\)।</li>
+        </ul>
+      </li>
+      <li><strong>कंपन विधाएँ (Vibrational Modes):</strong> उच्च ताप पर परमाणु बंध के अनुदिश सरल आवर्ती दोलन करते हैं। प्रत्येक कंपन विधा में <strong>दो स्वतंत्र द्विघाती पद</strong> (गतिज ऊर्जा + स्थितिज ऊर्जा) होते हैं:
+      \[
+        \varepsilon_v = \frac{1}{2} m \left(\frac{dy}{dt}\right)^2 + \frac{1}{2} k y^2
+      \]
+      अतः प्रत्येक कंपन विधा अणु की औसत ऊर्जा में:
+      \[
+        2 \times \left(\frac{1}{2} k_{\mathrm{B}} T\right) = k_{\mathrm{B}} T
+      \]
+      का योगदान करती है (अर्थात् 2 स्वातंत्र्य कोटियों के समतुल्य)!
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- DIAGRAM 4: Diatomic Molecule Rotational Axes -->
+<div class="diagram-container">
+  <svg viewBox="0 0 650 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+    <rect width="650" height="320" fill="#f8fafc" rx="8" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="325" y="26" font-size="15" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Two Independent Rotational Axes of a Diatomic Molecule</text>
+    
+    <!-- Left: Rotation about Axis 1 -->
+    <g transform="translate(60, 40)">
+      <text x="100" y="20" font-size="13" font-weight="bold" fill="#0f766e" text-anchor="middle">Rotation about Axis 1</text>
+      <!-- Vertical rotation axis -->
+      <line x1="100" y1="35" x2="100" y2="230" stroke="#0f766e" stroke-width="2" stroke-dasharray="6,4"/>
+      <text x="110" y="50" font-size="11" font-weight="bold" fill="#0f766e">Axis 1</text>
+      <!-- Elliptical Orbit Track -->
+      <ellipse cx="100" cy="140" rx="75" ry="25" fill="none" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5"/>
+      <!-- Molecule Bond -->
+      <line x1="40" y1="140" x2="160" y2="140" stroke="#1e3a8a" stroke-width="4"/>
+      <!-- Atoms -->
+      <circle cx="40" cy="140" r="14" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2"/>
+      <circle cx="160" cy="140" r="14" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2"/>
+      <circle cx="100" cy="140" r="3" fill="#0f172a"/>
+      <text x="100" y="158" font-size="10" fill="#0f172a" text-anchor="middle">CM</text>
+      <!-- Arrow showing rotation -->
+      <path d="M 165 130 C 175 140, 165 155, 150 160" fill="none" stroke="#dc2626" stroke-width="2"/>
+      <polygon points="146,162 153,156 156,164" fill="#dc2626"/>
+      <text x="100" y="248" font-size="11" fill="#334155" text-anchor="middle">Energy: ½ I₁ ω₁²</text>
+    </g>
+
+    <!-- Right: Rotation about Axis 2 -->
+    <g transform="translate(370, 40)">
+      <text x="100" y="20" font-size="13" font-weight="bold" fill="#0f766e" text-anchor="middle">Rotation about Axis 2</text>
+      <!-- Inclined/Perpendicular axis -->
+      <line x1="20" y1="210" x2="180" y2="70" stroke="#0f766e" stroke-width="2" stroke-dasharray="6,4"/>
+      <text x="180" y="65" font-size="11" font-weight="bold" fill="#0f766e">Axis 2</text>
+      <!-- Elliptical Orbit Track -->
+      <ellipse cx="100" cy="140" rx="30" ry="70" fill="none" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5"/>
+      <!-- Molecule Bond -->
+      <line x1="80" y1="80" x2="120" y2="200" stroke="#1e3a8a" stroke-width="4"/>
+      <!-- Atoms -->
+      <circle cx="80" cy="80" r="14" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2"/>
+      <circle cx="120" cy="200" r="14" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2"/>
+      <circle cx="100" cy="140" r="3" fill="#0f172a"/>
+      <text x="115" y="142" font-size="10" fill="#0f172a">CM</text>
+      <!-- Arrow showing rotation -->
+      <path d="M 85 65 C 100 60, 115 70, 115 85" fill="none" stroke="#dc2626" stroke-width="2"/>
+      <polygon points="113,88 118,80 110,78" fill="#dc2626"/>
+      <text x="100" y="248" font-size="11" fill="#334155" text-anchor="middle">Energy: ½ I₂ ω₂²</text>
+    </g>
+  </svg>
+  <div class="diagram-caption">
+    <strong>Diagram 4:</strong> The two mutually perpendicular rotational axes of a rigid diatomic molecule. Both axes pass through the centre of mass (CM) and are normal to the internuclear bond axis.
+  </div>
+</div>
+
+<!-- 3.6 Specific Heat Capacity of Gases and Solids -->
+<h3 class="subsection-title">2.6 Specific Heat Capacity of Gases &amp; Solids | विशिष्ट ऊष्मा धारिता</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>Using the law of equipartition of energy, for 1 mole of an ideal gas with \(f\) total degrees of freedom, the molar internal energy is:</p>
+    \[
+      U = f \times \left(\frac{1}{2} k_{\mathrm{B}} T\right) \times N_{\mathrm{A}} = \frac{f}{2} R T
+    \]
+    <p>The molar specific heat at constant volume \(C_v\) and constant pressure \(C_p\) (Mayer's relation: \(C_p - C_v = R\)) are:</p>
+    \[
+      C_v = \frac{dU}{dT} = \frac{f}{2} R, \qquad C_p = C_v + R = \left(\frac{f}{2} + 1\right) R
+    \]
+    \[
+      \gamma = \frac{C_p}{C_v} = 1 + \frac{2}{f}
+    \]
+
+    <p><strong>Comprehensive Gas Types Breakdown:</strong></p>
+    <ol>
+      <li><strong>Monatomic Gases (He, Ne, Ar):</strong> \(f = 3\) (translational only).
+      \[
+        U = \frac{3}{2} R T, \quad C_v = \frac{3}{2} R \approx 12.5\,\mathrm{J\,mol^{-1}\,K^{-1}}, \quad C_p = \frac{5}{2} R \approx 20.8\,\mathrm{J\,mol^{-1}\,K^{-1}}, \quad \gamma = \frac{5}{3} \approx 1.67
+      \]
+      </li>
+      <li><strong>Diatomic Gases — Rigid Rotator (\(\mathrm{O_2, N_2, H_2}\) at room temp):</strong> \(f = 3 + 2 = 5\).
+      \[
+        U = \frac{5}{2} R T, \quad C_v = \frac{5}{2} R \approx 20.8\,\mathrm{J\,mol^{-1}\,K^{-1}}, \quad C_p = \frac{7}{2} R \approx 29.1\,\mathrm{J\,mol^{-1}\,K^{-1}}, \quad \gamma = \frac{7}{5} = 1.40
+      \]
+      </li>
+      <li><strong>Diatomic Gases with 1 Vibrational Mode (High temp, e.g., CO):</strong> \(f = 3 + 2 + 2 = 7\).
+      \[
+        U = \frac{7}{2} R T, \quad C_v = \frac{7}{2} R \approx 29.1\,\mathrm{J\,mol^{-1}\,K^{-1}}, \quad C_p = \frac{9}{2} R \approx 37.4\,\mathrm{J\,mol^{-1}\,K^{-1}}, \quad \gamma = \frac{9}{7} \approx 1.29
+      \]
+      </li>
+      <li><strong>Non-Linear Polyatomic Gases (\(\mathrm{H_2O, CH_4}\)) with \(f_v\) vibrational modes:</strong>
+      \[
+        C_v = (3 + f_v) R, \qquad C_p = (4 + f_v) R, \qquad \gamma = \frac{4 + f_v}{3 + f_v}
+      \]
+      For \(\mathrm{H_2O}\) vapour without vibration: \(C_v = 3R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}, C_p = 4R \approx 33.2\,\mathrm{J\,mol^{-1}\,K^{-1}}, \gamma = 4/3 \approx 1.33\).
+      </li>
+      <li><strong>Specific Heat Capacity of Elemental Solids (Dulong-Petit Law):</strong> In a solid of \(N_{\mathrm{A}}\) atoms, each atom oscillates in 3 dimensions about its lattice site. Each 1D oscillation has 2 quadratic energy modes (\(\text{KE} + \text{PE} = k_{\mathrm{B}} T\)). In 3D, energy per atom is \(3 k_{\mathrm{B}} T\).
+      \[
+        U = 3 N_{\mathrm{A}} k_{\mathrm{B}} T = 3 R T \implies C = \frac{dU}{dT} = 3 R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}
+      \]
+      This accurately describes aluminium, copper, lead, and silver at room temperature (carbon/diamond is an exception due to high quantum Debye temperature).
+      </li>
+    </ol>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>ऊर्जा के समविभाजन नियम के अनुसार, \(f\) स्वातंत्र्य कोटियों वाली आदर्श गैस के 1 मोल की आंतरिक ऊर्जा:</p>
+    \[
+      U = \frac{f}{2} R T
+    \]
+    <p>मेयर के संबंध (\(C_p - C_v = R\)) द्वारा स्थिर आयतन व स्थिर दाब पर मोलर विशिष्ट ऊष्माएँ:</p>
+    \[
+      C_v = \frac{f}{2} R, \qquad C_p = \left(\frac{f}{2} + 1\right) R, \qquad \gamma = \frac{C_p}{C_v} = 1 + \frac{2}{f}
+    \]
+
+    <p><strong>गैसों के प्रमुख प्रकारों हेतु मान:</strong></p>
+    <ol>
+      <li><strong>एकपरमाणुक गैसें (He, Ne, Ar):</strong> \(f = 3\)
+      \[
+        C_v = \frac{3}{2} R, \quad C_p = \frac{5}{2} R, \quad \gamma = \frac{5}{3} \approx 1.67
+      \]
+      </li>
+      <li><strong>द्विपरमाणुक गैसें — दृढ़ घूर्णी (\(\mathrm{O_2, N_2}\)):</strong> \(f = 5\)
+      \[
+        C_v = \frac{5}{2} R, \quad C_p = \frac{7}{2} R, \quad \gamma = \frac{7}{5} = 1.40
+      \]
+      </li>
+      <li><strong>द्विपरमाणुक गैसें — 1 कंपन विधा सहित (उच्च ताप पर):</strong> \(f = 5 + 2 = 7\)
+      \[
+        C_v = \frac{7}{2} R, \quad C_p = \frac{9}{2} R, \quad \gamma = \frac{9}{7} \approx 1.29
+      \]
+      </li>
+      <li><strong>अरेखीय बहुपरमाणुक गैसें (\(\mathrm{H_2O}\)):</strong> कंपन रहित \(f = 6\)
+      \[
+        C_v = 3 R, \quad C_p = 4 R, \quad \gamma = \frac{4}{3} \approx 1.33
+      \]
+      </li>
+      <li><strong>ठोसों की विशिष्ट ऊष्मा (डुलॉन्ग तथा पेटिट का नियम):</strong> ठोस में प्रत्येक परमाणु जालक बिंदु के परितः 3 विमाओं में दोलन करता है। 1 विमा में ऊर्जा \(k_{\mathrm{B}} T\) होने से 3 विमाओं में प्रति परमाणु ऊर्जा \(3 k_{\mathrm{B}} T\) होती है:
+      \[
+        U = 3 N_{\mathrm{A}} k_{\mathrm{B}} T = 3 R T \implies C = \frac{dU}{dT} = 3 R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}
+      \]
+      यह नियम कमरे के ताप पर अधिकांश धातुओं (जैसे Cu, Al, Pb, Ag) के लिए सत्य है।
+      </li>
+    </ol>
+  </div>
+</div>
+
+<!-- 3.7 Mean Free Path and Collision Frequency -->
+<h3 class="subsection-title">2.7 Mean Free Path &amp; Collision Frequency | माध्य मुक्त पथ एवं संघट्ट आवृत्ति</h3>
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>Although gas molecules move with speeds comparable to the speed of sound (\(\sim 500\,\mathrm{m\,s^{-1}}\)), a fragrance or smoke diffuses slowly across a room. This is because molecules collide incessantly, undergoing random zig-zag walks.</p>
+    <p><strong>Definition:</strong> The <strong>mean free path</strong> (\(l\)) is the average straight-line distance traveled by a molecule between two successive collisions.</p>
+
+    <p><strong>Derivation:</strong></p>
+    <ol>
+      <li>Model molecules as hard spheres of diameter \(d\). Consider a molecule moving with average speed \(\langle v \rangle\) through stationary target molecules.</li>
+      <li>It will collide with any molecule whose center lies within a cylinder of collision cross-section \(\sigma = \pi d^2\). In time \(\Delta t\), the sweeping volume is \(\pi d^2 \langle v \rangle \Delta t\).</li>
+      <li>If \(n\) is the number density, the number of collisions suffered in time \(\Delta t\) is \(n \pi d^2 \langle v \rangle \Delta t\). Hence, collision rate is \(n \pi d^2 \langle v \rangle\), and mean time between collisions is \(\tau = \frac{1}{n \pi \langle v \rangle d^2}\).</li>
+      <li>This gives an approximate mean free path: \(l = \langle v \rangle \tau = \frac{1}{n \pi d^2}\).</li>
+      <li><strong>Maxwell's Exact Treatment (Relative Velocity Correction):</strong> Because all molecules are in motion, collisions depend on the relative velocity \(v_{\mathrm{rel}} = \sqrt{2} \langle v \rangle\). Thus:
+      \[
+        l = \frac{1}{\sqrt{2} n \pi d^2}
+      \]
+      </li>
+    </ol>
+
+    <p><strong>Dependence on Temperature and Pressure:</strong> Using \(P = n k_{\mathrm{B}} T \implies n = \frac{P}{k_{\mathrm{B}} T}\):</p>
+    \[
+      l = \frac{k_{\mathrm{B}} T}{\sqrt{2} \pi d^2 P}
+    \]
+    <ul>
+      <li>At constant pressure \(P\): \(l \propto T\).</li>
+      <li>At constant temperature \(T\): \(l \propto \frac{1}{P}\).</li>
+      <li><strong>At constant volume \(V\) (fixed number density \(n\)):</strong> \(l\) is <strong>constant</strong>, completely independent of temperature \(T\)!</li>
+    </ul>
+    <p><strong>Collision Frequency (\(\nu_c\)):</strong></p>
+    \[
+      \nu_c = \frac{1}{\tau} = \sqrt{2} n \pi d^2 \langle v \rangle
+    \]
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>यद्यपि गैस अणुओं की चाल ध्वनि की चाल के समतुल्य (\(\sim 500\,\mathrm{m\,s^{-1}}\)) होती है, फिर भी कमरे में इत्र की सुगंध या धुएँ का विसरण धीमा होता है। इसका कारण अणुओं के अत्यधिक तीव्र व निरंतर संघट्ट हैं, जिससे वे टेढ़े-मेढ़े (zig-zag) पथ पर गति करते हैं।</p>
+    <p><strong>परिभाषा:</strong> किसी गैस अणु द्वारा दो उत्तरोत्तर (क्रमागत) संघट्टों के बीच तय की गई औसत दूरी को <strong>माध्य मुक्त पथ</strong> (\(l\)) कहते हैं।</p>
+
+    <p><strong>व्युत्पत्ति एवं सूत्र:</strong></p>
+    <ol>
+      <li>अणुओं को \(d\) व्यास का दृढ़ गोला मानिए। यदि एक अणु औसत चाल \(\langle v \rangle\) से गति करता है और अन्य अणु स्थिर माने जाएँ, तो वह \(\pi d^2\) अनुप्रस्थ-काट क्षेत्रफल वाले संघट्ट बेलन में गति करता है।</li>
+      <li>\(\Delta t\) समय में झाड़ा गया आयतन \(\pi d^2 \langle v \rangle \Delta t\) होता है। यदि संख्या घनत्व \(n\) हो, तो संघट्टों की संख्या \(n \pi d^2 \langle v \rangle \Delta t\) होगी।</li>
+      <li>परंतु वास्तव में सभी अणु गतिमान होते हैं। आपेक्षिक वेग \(\sqrt{2} \langle v \rangle\) का संशोधन करने पर मैक्सवेल का <strong>सटीक व्यंजक</strong> प्राप्त होता है:
+      \[
+        l = \frac{1}{\sqrt{2} n \pi d^2}
+      \]
+      </li>
+    </ol>
+
+    <p><strong>ताप एवं दाब पर निर्भरता:</strong> \(P = n k_{\mathrm{B}} T\) का प्रयोग करने पर:</p>
+    \[
+      l = \frac{k_{\mathrm{B}} T}{\sqrt{2} \pi d^2 P}
+    \]
+    <ul>
+      <li>नियत दाब पर: \(l \propto T\)</li>
+      <li>नियत ताप पर: \(l \propto \frac{1}{P}\)</li>
+      <li><strong>नियत आयतन पर (नियत संख्या घनत्व \(n\)):</strong> माध्य मुक्त पथ \(l\) <strong>नियत</strong> रहता है, ताप चाहे जितना भी बदल जाए!</li>
+    </ul>
+    <p><strong>संघट्ट आवृत्ति (\(\nu_c\)):</strong> प्रति सेकंड होने वाले संघट्टों की संख्या:</p>
+    \[
+      \nu_c = \frac{1}{\tau} = \frac{\langle v \rangle}{l} = \sqrt{2} n \pi d^2 \langle v \rangle
+    \]
+  </div>
+</div>
+
+<!-- DIAGRAM 5: Collision Cylinder for Mean Free Path -->
+<div class="diagram-container">
+  <svg viewBox="0 0 650 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+    <rect width="650" height="280" fill="#f8fafc" rx="8" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="325" y="24" font-size="15" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Collision Cylinder Swept by a Molecule in Time Δt</text>
+    
+    <!-- Cylinder Body -->
+    <g transform="translate(70, 45)">
+      <!-- Outer dashed cylinder representing collision boundary radius d -->
+      <path d="M 90 60 L 390 60" stroke="#0f766e" stroke-width="2" stroke-dasharray="5,4"/>
+      <path d="M 90 160 L 390 160" stroke="#0f766e" stroke-width="2" stroke-dasharray="5,4"/>
+      <!-- Left ellipse -->
+      <ellipse cx="90" cy="110" rx="30" ry="50" fill="none" stroke="#0f766e" stroke-width="2" stroke-dasharray="5,4"/>
+      <!-- Right ellipse -->
+      <ellipse cx="390" cy="110" rx="30" ry="50" fill="rgba(15, 118, 110, 0.08)" stroke="#0f766e" stroke-width="2"/>
+      
+      <!-- Central Molecule Path -->
+      <line x1="90" y1="110" x2="390" y2="110" stroke="#3b82f6" stroke-width="2"/>
+      <!-- Moving Molecule at start -->
+      <circle cx="90" cy="110" r="18" fill="#3b82f6" stroke="#1e3a8a" stroke-width="2"/>
+      <text x="90" y="115" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">v</text>
+      <!-- Moving Molecule at end -->
+      <circle cx="390" cy="110" r="18" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3"/>
+      
+      <!-- Colliding Molecule (Center inside cylinder) -->
+      <circle cx="260" cy="75" r="18" fill="#ef4444" stroke="#991b1b" stroke-width="2"/>
+      <line x1="260" y1="75" x2="260" y2="110" stroke="#991b1b" stroke-width="1.5" stroke-dasharray="2,2"/>
+      <text x="270" y="98" font-size="11" font-weight="bold" fill="#991b1b">&lt; d (Collision!)</text>
+
+      <!-- Non-colliding Molecule (Center outside cylinder) -->
+      <circle cx="220" cy="180" r="18" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
+      <text x="245" y="195" font-size="11" fill="#475569">&gt; d (Missed)</text>
+
+      <!-- Dimension Arrows -->
+      <!-- Diameter 2d of cylinder -->
+      <line x1="50" y1="60" x2="50" y2="160" stroke="#334155" stroke-width="1.5"/>
+      <line x1="45" y1="60" x2="55" y2="60" stroke="#334155" stroke-width="1.5"/>
+      <line x1="45" y1="160" x2="55" y2="160" stroke="#334155" stroke-width="1.5"/>
+      <text x="40" y="115" font-size="12" font-weight="bold" fill="#334155" text-anchor="end">2d</text>
+
+      <!-- Length <v> Δt -->
+      <line x1="90" y1="190" x2="390" y2="190" stroke="#334155" stroke-width="1.5"/>
+      <line x1="90" y1="185" x2="90" y2="195" stroke="#334155" stroke-width="1.5"/>
+      <line x1="390" y1="185" x2="390" y2="195" stroke="#334155" stroke-width="1.5"/>
+      <text x="240" y="210" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">Distance = &lt;v&gt; Δt</text>
+    </g>
+  </svg>
+  <div class="diagram-caption">
+    <strong>Diagram 5:</strong> Collision cylinder of radius \(d\) (diameter \(2d\)) swept by a molecule moving through distance \(\langle v \rangle \Delta t\). Any molecule whose center falls within this swept volume undergoes a collision.
+  </div>
+</div>
+
+<!-- SECTION 4: DEFINITIONS, EQUATIONS & SUMMARY TABLES -->
+<h2 class="section-title">
+  <span>3. Key Definitions, Equations &amp; Reference Tables</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">प्रमुख सूत्र, परिभाषाएँ एवं संदर्भ सारणियाँ</span>
+</h2>
+
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p>Below is a consolidated summary of the indispensable mathematical relationships in Kinetic Theory required for NEET UG.</p>
+  </div>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p>NEET UG परीक्षा हेतु अणुगति सिद्धांत के अनिवार्य गणितीय सूत्रों एवं संबंधों का समेकित सारांश नीचे सारणीबद्ध है।</p>
+  </div>
+</div>
+
+<table class="custom-table">
+  <thead>
+    <tr>
+      <th>Physical Quantity / Concept</th>
+      <th>Mathematical Formula</th>
+      <th>Key Physical Remarks &amp; NEET Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Ideal Gas Equation of State</strong></td>
+      <td>\(PV = \mu RT = N k_{\mathrm{B}} T = n k_{\mathrm{B}} T V\)</td>
+      <td>Valid strictly at low \(P\) and high \(T\). \(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\), \(k_{\mathrm{B}} = 1.38 \times 10^{-23}\,\mathrm{J\,K^{-1}}\).</td>
+    </tr>
+    <tr>
+      <td><strong>Mass Density Relation</strong></td>
+      <td>\(P = \frac{\rho R T}{M_0}\)</td>
+      <td>\(\rho = M/V\). At constant \(T\), \(\frac{P}{\rho} = \text{constant}\).</td>
+    </tr>
+    <tr>
+      <td><strong>Kinetic Pressure Formula</strong></td>
+      <td>\(P = \frac{1}{3} n m \overline{v^2} = \frac{1}{3}\rho \overline{v^2}\)</td>
+      <td>Directly links macroscopic pressure to mean-square molecular speed.</td>
+    </tr>
+    <tr>
+      <td><strong>Kinetic Energy &amp; Pressure</strong></td>
+      <td>\(P = \frac{2}{3} E_v\)</td>
+      <td>\(E_v = \frac{E}{V} = \frac{1}{2}\rho \overline{v^2}\) is total translational KE per unit volume.</td>
+    </tr>
+    <tr>
+      <td><strong>Average KE per Molecule</strong></td>
+      <td>\(\overline{\varepsilon_t} = \frac{1}{2}m\overline{v^2} = \frac{3}{2} k_{\mathrm{B}} T\)</td>
+      <td>Independent of molecular mass or nature of gas; depends solely on \(T\).</td>
+    </tr>
+    <tr>
+      <td><strong>Root-Mean-Square Speed</strong></td>
+      <td>\(v_{\mathrm{rms}} = \sqrt{\frac{3 k_{\mathrm{B}} T}{m}} = \sqrt{\frac{3 R T}{M_0}} = \sqrt{\frac{3 P}{\rho}}\)</td>
+      <td>For a given gas: \(v_{\mathrm{rms}} \propto \sqrt{T}\). At same \(T\): \(v_{\mathrm{rms}} \propto 1/\sqrt{M_0}\).</td>
+    </tr>
+    <tr>
+      <td><strong>Total Internal Energy (\(\mu\) moles)</strong></td>
+      <td>\(U = \frac{f}{2} \mu R T\)</td>
+      <td>\(f\) is total active degrees of freedom. Internal energy of ideal gas depends solely on \(T\).</td>
+    </tr>
+    <tr>
+      <td><strong>Molar Heat Capacities</strong></td>
+      <td>\(C_v = \frac{f}{2}R, \quad C_p = \left(\frac{f}{2}+1\right)R\)</td>
+      <td>Mayer's formula: \(C_p - C_v = R\) holds universally for all ideal gases.</td>
+    </tr>
+    <tr>
+      <td><strong>Adiabatic Index (\(\gamma\))</strong></td>
+      <td>\(\gamma = \frac{C_p}{C_v} = 1 + \frac{2}{f}\)</td>
+      <td>Monatomic: 1.67; Diatomic (rigid): 1.40; Diatomic (vibrating): 1.29.</td>
+    </tr>
+    <tr>
+      <td><strong>Mean Free Path (\(l\))</strong></td>
+      <td>\(l = \frac{1}{\sqrt{2} n \pi d^2} = \frac{k_{\mathrm{B}} T}{\sqrt{2} \pi d^2 P}\)</td>
+      <td>At constant volume (\(n = \text{const}\)), \(l\) is independent of \(T\).</td>
+    </tr>
+    <tr>
+      <td><strong>Collision Frequency (\(\nu_c\))</strong></td>
+      <td>\(\nu_c = \frac{\langle v \rangle}{l} = \sqrt{2} n \pi d^2 \langle v \rangle\)</td>
+      <td>Number of collisions suffered by a molecule per second.</td>
+    </tr>
+    <tr>
+      <td><strong>Dulong-Petit Law (Solids)</strong></td>
+      <td>\(C = 3R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}\)</td>
+      <td>Molar heat capacity of elemental solids at room temperature.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Summary Table of Specific Heat Capacities -->
+<table class="custom-table">
+  <thead>
+    <tr>
+      <th>Gas Category / Structure</th>
+      <th>Degrees of Freedom (\(f\))</th>
+      <th>\(C_v\)</th>
+      <th>\(C_p\)</th>
+      <th>\(\gamma = C_p/C_v\)</th>
+      <th>Representative Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Monatomic</strong></td>
+      <td>3 (translational)</td>
+      <td>\(\frac{3}{2}R \approx 12.5\)</td>
+      <td>\(\frac{5}{2}R \approx 20.8\)</td>
+      <td>\(\frac{5}{3} \approx 1.67\)</td>
+      <td>\(\mathrm{He, Ne, Ar, Kr}\)</td>
+    </tr>
+    <tr>
+      <td><strong>Diatomic (Rigid)</strong></td>
+      <td>5 (3 trans + 2 rot)</td>
+      <td>\(\frac{5}{2}R \approx 20.8\)</td>
+      <td>\(\frac{7}{2}R \approx 29.1\)</td>
+      <td>\(\frac{7}{5} = 1.40\)</td>
+      <td>\(\mathrm{H_2, N_2, O_2, CO}\) (Room Temp)</td>
+    </tr>
+    <tr>
+      <td><strong>Diatomic (Vibrating)</strong></td>
+      <td>7 (3 trans + 2 rot + 2 vib)</td>
+      <td>\(\frac{7}{2}R \approx 29.1\)</td>
+      <td>\(\frac{9}{2}R \approx 37.4\)</td>
+      <td>\(\frac{9}{7} \approx 1.29\)</td>
+      <td>\(\mathrm{CO, Cl_2}\) (Elevated Temp)</td>
+    </tr>
+    <tr>
+      <td><strong>Polyatomic (Non-linear, rigid)</strong></td>
+      <td>6 (3 trans + 3 rot)</td>
+      <td>\(3R \approx 24.9\)</td>
+      <td>\(4R \approx 33.2\)</td>
+      <td>\(\frac{4}{3} \approx 1.33\)</td>
+      <td>\(\mathrm{H_2O}\) (vapour), \(\mathrm{CH_4}, \mathrm{NH_3}\)</td>
+    </tr>
+    <tr>
+      <td><strong>Elemental Solid</strong></td>
+      <td>6 (3 3D-vibrational modes)</td>
+      <td>\(3R \approx 24.9\)</td>
+      <td>\(3R \approx 24.9\)</td>
+      <td>\(\approx 1.00\)</td>
+      <td>\(\mathrm{Al, Cu, Pb, Ag}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- SECTION 5: SYSTEMATIC PROBLEM-SOLVING STRATEGIES -->
+<h2 class="section-title">
+  <span>4. Systematic Problem-Solving Strategies</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">समस्या-समाधान की व्यवस्थित रणनीतियाँ</span>
+</h2>
+
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Strategy 1: Handling Non-Reactive Gas Mixtures</strong></p>
+    <ul>
+      <li>Total moles: \(\mu_{\text{mix}} = \mu_1 + \mu_2 = \frac{m_1}{M_1} + \frac{m_2}{M_2}\).</li>
+      <li>Equivalent molar mass: \(M_{\text{mix}} = \frac{m_{\text{total}}}{\mu_{\text{total}}} = \frac{\mu_1 M_1 + \mu_2 M_2}{\mu_1 + \mu_2}\).</li>
+      <li>Mixture heat capacity: \(C_{v,\text{mix}} = \frac{\mu_1 C_{v1} + \mu_2 C_{v2}}{\mu_1 + \mu_2}\), and \(C_{p,\text{mix}} = C_{v,\text{mix}} + R\).</li>
+      <li>Mixture adiabatic index: \(\gamma_{\text{mix}} = \frac{C_{p,\text{mix}}}{C_{v,\text{mix}}} = \frac{\mu_1 C_{p1} + \mu_2 C_{p2}}{\mu_1 C_{v1} + \mu_2 C_{v2}}\).</li>
+    </ul>
+
+    <p><strong>Strategy 2: Air Bubble Rising from Lake Bottom</strong></p>
+    <ul>
+      <li>At lake bottom (depth \(h\)): \(P_1 = P_{\text{atm}} + \rho_{\text{water}} g h\), temperature \(T_1\), volume \(V_1\).</li>
+      <li>At surface: \(P_2 = P_{\text{atm}}\), temperature \(T_2\), volume \(V_2\).</li>
+      <li>Apply Combined Gas Law: \(\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2} \implies V_2 = V_1 \left(\frac{P_1}{P_2}\right)\left(\frac{T_2}{T_1}\right)\). Always convert temperatures to Kelvin!</li>
+    </ul>
+
+    <p><strong>Strategy 3: Gas Compression / Piston Collision Analysis</strong></p>
+    <ul>
+      <li>When a molecule of speed \(u\) collides elastically head-on with a piston moving inward with speed \(V\), relative approach speed is \(u + V\). Upon rebound, speed relative to piston is \(u + V\).</li>
+      <li>Rebound speed relative to cylinder = \(V + (u + V) = u + 2V\). The molecule gains speed (\(\Delta u = 2V\)), explaining why gas temperature rises during rapid compression.</li>
+      <li>Conversely, during expansion against a retreating piston, rebound speed is \(u - 2V\), causing the gas to cool.</li>
+    </ul>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>रणनीति 1: अक्रिय गैस मिश्रण संबंधी प्रश्न</strong></p>
+    <ul>
+      <li>कुल मोल: \(\mu_{\text{मिश्रण}} = \mu_1 + \mu_2 = \frac{m_1}{M_1} + \frac{m_2}{M_2}\)।</li>
+      <li>प्रभावी मोलर द्रव्यमान: \(M_{\text{मिश्रण}} = \frac{\mu_1 M_1 + \mu_2 M_2}{\mu_1 + \mu_2}\)।</li>
+      <li>मिश्रण की स्थिर आयतन पर मोलर विशिष्ट ऊष्मा: \(C_{v,\text{मिश्रण}} = \frac{\mu_1 C_{v1} + \mu_2 C_{v2}}{\mu_1 + \mu_2}\), तथा \(C_{p,\text{मिश्रण}} = C_{v,\text{मिश्रण}} + R\)।</li>
+      <li>मिश्रण का रुद्धोष्म अनुपात: \(\gamma_{\text{मिश्रण}} = \frac{C_{p,\text{मिश्रण}}}{C_{v,\text{मिश्रण}}}\)।</li>
+    </ul>
+
+    <p><strong>रणनीति 2: झील की तली से ऊपर उठते बुलबुले का आयतन</strong></p>
+    <ul>
+      <li>झील की तली पर (\(h\) गहराई): \(P_1 = P_{\text{atm}} + \rho_{\text{जल}} g h\), ताप \(T_1\), आयतन \(V_1\)।</li>
+      <li>सतह पर: \(P_2 = P_{\text{atm}}\), ताप \(T_2\), आयतन \(V_2\)।</li>
+      <li>संयुक्त गैस नियम: \(\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2} \implies V_2 = V_1 \left(\frac{P_1}{P_2}\right)\left(\frac{T_2}{T_1}\right)\)। ताप को सदैव केल्विन में बदलें!</li>
+    </ul>
+
+    <p><strong>रणनीति 3: पिस्टन संघट्ट द्वारा ताप वृद्धि की गतिज व्याख्या</strong></p>
+    <ul>
+      <li>जब \(u\) चाल का अणु \(V\) चाल से अंदर की ओर आते पिस्टन से टकराता है, तो आपेक्षिक चाल \(u + V\) होती है। संघट्ट के पश्चात पिस्टन के सापेक्ष चाल \(u + V\) ही रहती है।</li>
+      <li>सिलेंडर के सापेक्ष लौटने वाले अणु की चाल = \(V + (u + V) = u + 2V\) हो जाती है। चाल में वृद्धि (\(\Delta u = 2V\)) अणुओं की गतिज ऊर्जा बढ़ाती है, जिससे संपीडन में गैस का ताप बढ़ जाता है।</li>
+      <li>विस्तार के समय पिस्टन पीछे हटता है, जिससे अणु की चाल \(u - 2V\) रह जाती है और गैस ठंडी हो जाती है।</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 6: WORKED EXAMPLES -->
+<h2 class="section-title">
+  <span>5. Comprehensive Worked Examples</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">विस्तृत हल सहित उदाहरण</span>
+</h2>
+
+<!-- Example 1 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Worked Example 1: Molecular Volume Fraction in Water Vapour</span>
+    <span>उदाहरण 1</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Problem:</strong> The density of liquid water is \(1000\,\mathrm{kg\,m^{-3}}\), and the density of water vapour at \(100^\circ\mathrm{C}\) and \(1\,\mathrm{atm}\) is \(0.6\,\mathrm{kg\,m^{-3}}\). Estimate the fraction of molecular volume to the total volume occupied by water vapour under these conditions.</p>
+    <div class="solution-text">
+      <strong>Solution:</strong><br/>
+      For a given mass \(M\) of water, volume is inversely proportional to density: \(V = M/\rho\).<br/>
+      Let \(V_{\text{liquid}}\) be the volume occupied by liquid water and \(V_{\text{vapour}}\) be the volume in vapour phase:<br/>
+      \[
+        \frac{V_{\text{vapour}}}{V_{\text{liquid}}} = \frac{\rho_{\text{liquid}}}{\rho_{\text{vapour}}} = \frac{1000}{0.6} = \frac{1}{6 \times 10^{-4}} \approx 1.67 \times 10^3
+      \]
+      In the liquid state, molecules are tightly packed touching one another, so the volume of the molecules themselves is roughly equal to \(V_{\text{liquid}}\).<br/>
+      Therefore, the fraction of the actual molecular volume to the total volume in the vapour state is:
+      \[
+        \text{Fraction} = \frac{V_{\text{molecules}}}{V_{\text{vapour}}} \approx \frac{V_{\text{liquid}}}{V_{\text{vapour}}} = 6 \times 10^{-4} = 0.06\%
+      \]
+      This proves that in a gas at atmospheric pressure, molecules occupy less than \(0.1\%\) of the total volume!
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> द्रव जल का घनत्व \(1000\,\mathrm{kg\,m^{-3}}\) है तथा \(100^\circ\mathrm{C}\) व \(1\,\mathrm{atm}\) पर जलवाष्प का घनत्व \(0.6\,\mathrm{kg\,m^{-3}}\) है। इन परिस्थितियों में जलवाष्प द्वारा घेरे गए कुल आयतन में आण्विक आयतन के अनुपात (या अंश) का आकलन कीजिए।</p>
+    <div class="solution-text">
+      <strong>हल:</strong><br/>
+      जल के दिए गए द्रव्यमान \(M\) हेतु, आयतन घनत्व के व्युत्क्रमानुपाती होता है: \(V = M/\rho\)।<br/>
+      द्रव अवस्था में अणु परस्पर सटे होते हैं, अतः अणुओं का वास्तविक आयतन द्रव जल के आयतन के लगभग बराबर होता है:<br/>
+      \[
+        \frac{V_{\text{वाष्प}}}{V_{\text{द्रव}}} = \frac{\rho_{\text{द्रव}}}{\rho_{\text{वाष्प}}} = \frac{1000}{0.6} = \frac{1}{6 \times 10^{-4}} \approx 1.67 \times 10^3
+      \]
+      अतः वाष्प अवस्था में आण्विक आयतन का कुल आयतन से अनुपात:
+      \[
+        \text{अंश} = \frac{V_{\text{अणु}}}{V_{\text{वाष्प}}} \approx \frac{V_{\text{द्रव}}}{V_{\text{वाष्प}}} = 6 \times 10^{-4} = 0.06\%
+      \]
+      यह दर्शाता है कि गैसीय अवस्था में अणुओं का निजी आयतन कुल आयतन के \(0.1\%\) से भी कम होता है।
+    </div>
+  </div>
+</div>
+
+<!-- Example 2 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Worked Example 2: Volume and Effective Radius of a Water Molecule</span>
+    <span>उदाहरण 2</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Problem:</strong> Using the density of water (\(1000\,\mathrm{kg\,m^{-3}}\)) and molar mass of water (\(18\,\mathrm{g\,mol^{-1}}\)), estimate the volume and effective radius of a single water molecule. (Take Avogadro's number \(N_{\mathrm{A}} = 6.02 \times 10^{23}\,\mathrm{mol^{-1}}\)).</p>
+    <div class="solution-text">
+      <strong>Solution:</strong><br/>
+      Mass of 1 mole of water (\(\mathrm{H_2O}\)) = \(18\,\mathrm{g} = 0.018\,\mathrm{kg}\).<br/>
+      Mass of a single water molecule:
+      \[
+        m = \frac{0.018\,\mathrm{kg}}{6.02 \times 10^{23}} \approx 3.0 \times 10^{-26}\,\mathrm{kg}
+      \]
+      Volume of a single molecule (assuming bulk liquid density):
+      \[
+        V_{\text{molecule}} = \frac{m}{\rho_{\text{liquid}}} = \frac{3.0 \times 10^{-26}\,\mathrm{kg}}{1000\,\mathrm{kg\,m^{-3}}} = 3.0 \times 10^{-29}\,\mathrm{m^3}
+      \]
+      Assuming spherical geometry, \(V_{\text{molecule}} = \frac{4}{3}\pi r^3\):
+      \[
+        r^3 = \frac{3 \times (3.0 \times 10^{-29})}{4\pi} \approx 7.16 \times 10^{-30}\,\mathrm{m^3} \implies r \approx 1.93 \times 10^{-10}\,\mathrm{m} \approx 2\,\mathrm{\mathring{A}}
+      \]
+      Thus, the effective radius of a water molecule is approximately \(2\,\mathrm{\mathring{A}}\).
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> जल के घनत्व (\(1000\,\mathrm{kg\,m^{-3}}\)) तथा जल के मोलर द्रव्यमान (\(18\,\mathrm{g\,mol^{-1}}\)) का उपयोग करके जल के एक अणु के आयतन तथा प्रभावी त्रिज्या का आकलन कीजिए।</p>
+    <div class="solution-text">
+      <strong>हल:</strong><br/>
+      जल के 1 मोल का द्रव्यमान = \(0.018\,\mathrm{kg}\)।<br/>
+      एक अणु का द्रव्यमान:
+      \[
+        m = \frac{0.018}{6.02 \times 10^{23}} \approx 3.0 \times 10^{-26}\,\mathrm{kg}
+      \]
+      द्रव में अणुओं के निकट संकुलन के आधार पर एक अणु का आयतन:
+      \[
+        V_{\text{अणु}} = \frac{m}{\rho} = \frac{3.0 \times 10^{-26}}{1000} = 3.0 \times 10^{-29}\,\mathrm{m^3}
+      \]
+      गोलीय आकृति (\(\frac{4}{3}\pi r^3\)) मानने पर:
+      \[
+        r = \left(\frac{3 \times 3.0 \times 10^{-29}}{4\pi}\right)^{1/3} \approx 2 \times 10^{-10}\,\mathrm{m} = 2\,\mathrm{\mathring{A}}
+      \]
+      अतः जल के अणु की प्रभावी त्रिज्या लगभग \(2\,\mathrm{\mathring{A}}\) है।
+    </div>
+  </div>
+</div>
+
+<!-- Example 3 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Worked Example 3: Ratio of Number of Molecules and Density in a Mixture</span>
+    <span>उदाहरण 3</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Problem:</strong> A vessel contains two non-reactive gases: Neon (atomic mass \(20.2\,\mathrm{u}\)) and Oxygen (molecular mass \(32.0\,\mathrm{u}\)). The ratio of their partial pressures is \(3:2\). Estimate the ratio of (i) the number of molecules, and (ii) the mass density of neon and oxygen in the vessel.</p>
+    <div class="solution-text">
+      <strong>Solution:</strong><br/>
+      Both gases share the same volume \(V\) and temperature \(T\). Ideal gas law for each gas: \(P_1 V = \mu_1 RT\) and \(P_2 V = \mu_2 RT\).<br/>
+      Therefore:
+      \[
+        \frac{\mu_1}{\mu_2} = \frac{P_1}{P_2} = \frac{3}{2}
+      \]
+      (i) Number of molecules \(N = \mu N_{\mathrm{A}}\). Hence:
+      \[
+        \frac{N_1}{N_2} = \frac{\mu_1}{\mu_2} = \frac{3}{2} = 1.5
+      \]
+      (ii) Mass density \(\rho = \frac{m}{V} = \frac{\mu M}{V}\). Hence:
+      \[
+        \frac{\rho_1}{\rho_2} = \frac{\mu_1 M_1}{\mu_2 M_2} = \left(\frac{\mu_1}{\mu_2}\right) \times \left(\frac{M_1}{M_2}\right) = \frac{3}{2} \times \frac{20.2}{32.0} = 1.5 \times 0.63125 \approx 0.947
+      \]
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> एक पात्र में दो अक्रिय गैसें भरी हैं: नियॉन (परमाणु द्रव्यमान \(20.2\,\mathrm{u}\)) और ऑक्सीजन (आण्विक द्रव्यमान \(32.0\,\mathrm{u}\))। उनके आंशिक दाबों का अनुपात \(3:2\) है। पात्र में नियॉन और ऑक्सीजन के (i) अणुओं की संख्या का अनुपात, तथा (ii) द्रव्यमान घनत्व का अनुपात ज्ञात कीजिए।</p>
+    <div class="solution-text">
+      <strong>हल:</strong><br/>
+      दोनों गैसों का आयतन \(V\) व ताप \(T\) समान है। आदर्श गैस समीकरण से:
+      \[
+        \frac{\mu_1}{\mu_2} = \frac{P_1}{P_2} = \frac{3}{2}
+      \]
+      (i) अणुओं की संख्या का अनुपात:
+      \[
+        \frac{N_1}{N_2} = \frac{\mu_1}{\mu_2} = \frac{3}{2}
+      \]
+      (ii) द्रव्यमान घनत्व का अनुपात:
+      \[
+        \frac{\rho_1}{\rho_2} = \frac{\mu_1 M_1}{\mu_2 M_2} = \frac{3}{2} \times \frac{20.2}{32.0} \approx 0.947
+      \]
+    </div>
+  </div>
+</div>
+
+<!-- Example 4 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Worked Example 4: Average Kinetic Energy &amp; RMS Speed Ratio</span>
+    <span>उदाहरण 4</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Problem:</strong> A flask contains Argon (atomic mass \(39.9\,\mathrm{u}\)) and Chlorine (molecular mass \(70.9\,\mathrm{u}\)) in the mass ratio \(2:1\) at \(27^\circ\mathrm{C}\). Find the ratio of: (i) average translational kinetic energy per molecule, and (ii) root-mean-square speed \(v_{\mathrm{rms}}\) of the molecules.</p>
+    <div class="solution-text">
+      <strong>Solution:</strong><br/>
+      (i) Average translational kinetic energy per molecule is \(\overline{\varepsilon_t} = \frac{3}{2} k_{\mathrm{B}} T\). It depends exclusively on absolute temperature \(T\), and not on molecular mass or mass ratio in the flask. Since both gases are at the same temperature (\(27^\circ\mathrm{C} = 300\,\mathrm{K}\)):
+      \[
+        \frac{\overline{\varepsilon_t}(\mathrm{Ar})}{\overline{\varepsilon_t}(\mathrm{Cl_2})} = \frac{1}{1} = 1.0
+      \]
+      (ii) Root-mean-square speed is \(v_{\mathrm{rms}} = \sqrt{\frac{3 k_{\mathrm{B}} T}{m}} = \sqrt{\frac{3 R T}{M_0}}\). Thus:
+      \[
+        \frac{v_{\mathrm{rms}}(\mathrm{Ar})}{v_{\mathrm{rms}}(\mathrm{Cl_2})} = \sqrt{\frac{M(\mathrm{Cl_2})}{M(\mathrm{Ar})}} = \sqrt{\frac{70.9}{39.9}} \approx \sqrt{1.777} \approx 1.33
+      \]
+      The mass ratio \(2:1\) in the flask is completely irrelevant to both results!
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> एक फ्लास्क में \(27^\circ\mathrm{C}\) पर ऑर्गन (परमाणु द्रव्यमान \(39.9\,\mathrm{u}\)) तथा क्लोरीन (आण्विक द्रव्यमान \(70.9\,\mathrm{u}\)) द्रव्यमान अनुपात \(2:1\) में उपस्थित हैं। (i) प्रति अणु औसत गतिज ऊर्जा का अनुपात, तथा (ii) अणुओं की वर्ग-माध्य-मूल चाल \(v_{\mathrm{rms}}\) का अनुपात ज्ञात कीजिए।</p>
+    <div class="solution-text">
+      <strong>हल:</strong><br/>
+      (i) प्रति अणु औसत गतिज ऊर्जा \(\frac{3}{2} k_{\mathrm{B}} T\) केवल ताप पर निर्भर करती है। चूँकि दोनों गैसें समान ताप पर हैं:
+      \[
+        \frac{\text{औसत KE}(\mathrm{Ar})}{\text{औसत KE}(\mathrm{Cl_2})} = 1:1
+      \]
+      (ii) वर्ग-माध्य-मूल चाल मोलर द्रव्यमान के वर्गमूल के व्युत्क्रमानुपाती होती है:
+      \[
+        \frac{v_{\mathrm{rms}}(\mathrm{Ar})}{v_{\mathrm{rms}}(\mathrm{Cl_2})} = \sqrt{\frac{M_{\mathrm{Cl_2}}}{M_{\mathrm{Ar}}}} = \sqrt{\frac{70.9}{39.9}} \approx 1.33
+      \]
+    </div>
+  </div>
+</div>
+
+<!-- Example 5 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Worked Example 5: Isotopic Separation of Uranium Hexafluoride</span>
+    <span>उदाहरण 5</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Problem:</strong> Uranium hexafluoride (\(\mathrm{UF_6}\)) gas contains two isotopes of uranium: \(^{235}\mathrm{U}\) and \(^{238}\mathrm{U}\). Atomic mass of Fluorine is \(19.0\,\mathrm{u}\). Which molecule has greater average speed, and what is the percentage difference in their speeds at any given temperature?</p>
+    <div class="solution-text">
+      <strong>Solution:</strong><br/>
+      Molar mass of \(^{235}\mathrm{UF_6}\) = \(235 + 6 \times 19 = 235 + 114 = 349\,\mathrm{u}\).<br/>
+      Molar mass of \(^{238}\mathrm{UF_6}\) = \(238 + 6 \times 19 = 238 + 114 = 352\,\mathrm{u}\).<br/>
+      Because \(\overline{v} \propto 1/\sqrt{M}\), the lighter molecule \(^{235}\mathrm{UF_6}\) moves faster.<br/>
+      Ratio of speeds:
+      \[
+        \frac{v_{349}}{v_{352}} = \sqrt{\frac{352}{349}} = \left(1 + \frac{3}{349}\right)^{1/2} \approx 1 + \frac{1}{2} \times \frac{3}{349} \approx 1 + 0.0043 = 1.0043
+      \]
+      Percentage difference in speed:
+      \[
+        \frac{\Delta v}{v} \times 100\% = (1.0043 - 1) \times 100\% \approx 0.43\% \approx 0.44\%
+      \]
+      Because of this slight speed advantage, the lighter isotope diffuses through porous barriers faster, enabling gaseous diffusion enrichment for nuclear power.
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> यूरेनियम हेक्साफ्लोराइड (\(\mathrm{UF_6}\)) गैस में यूरेनियम के दो समस्थानिक \(^{235}\mathrm{U}\) और \(^{238}\mathrm{U}\) उपस्थित हैं। फ्लोरीन का परमाणु द्रव्यमान \(19.0\,\mathrm{u}\) है। किस अणु की औसत चाल अधिक होगी, तथा किसी भी ताप पर उनकी चालों में प्रतिशत अंतर कितना होगा?</p>
+    <div class="solution-text">
+      <strong>हल:</strong><br/>
+      \(^{235}\mathrm{UF_6}\) का द्रव्यमान = \(235 + 6 \times 19 = 349\,\mathrm{u}\)।<br/>
+      \(^{238}\mathrm{UF_6}\) का द्रव्यमान = \(238 + 6 \times 19 = 352\,\mathrm{u}\)।<br/>
+      हल्के अणु (\(^{235}\mathrm{UF_6}\)) की औसत चाल अधिक होगी। चालों का अनुपात:
+      \[
+        \frac{v_{349}}{v_{352}} = \sqrt{\frac{352}{349}} \approx 1.0043
+      \]
+      चाल में प्रतिशत अंतर:
+      \[
+        \frac{\Delta v}{v} \times 100\% \approx 0.43\% \approx 0.44\%
+      \]
+    </div>
+  </div>
+</div>
+
+<!-- Example 6 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Worked Example 6: Heat Required to Warm Helium at Constant Volume</span>
+    <span>उदाहरण 6</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Problem:</strong> A cylinder of fixed capacity \(44.8\,\mathrm{litres}\) contains helium gas at standard temperature and pressure (\(273\,\mathrm{K}, 1\,\mathrm{atm}\)). How much heat is required to raise the temperature of the gas by \(15.0^\circ\mathrm{C}\)? (Take \(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\)).</p>
+    <div class="solution-text">
+      <strong>Solution:</strong><br/>
+      1 mole of an ideal gas at STP occupies \(22.4\,\mathrm{litres}\).<br/>
+      Therefore, number of moles in \(44.8\,\mathrm{L}\) is:
+      \[
+        \mu = \frac{44.8\,\mathrm{L}}{22.4\,\mathrm{L\,mol^{-1}}} = 2.0\,\mathrm{mol}
+      \]
+      Helium is a monatomic gas, so its molar heat capacity at constant volume is:
+      \[
+        C_v = \frac{3}{2} R
+      \]
+      Because the cylinder has fixed capacity, volume is constant (\(\Delta V = 0\)). Thus work done \(W = 0\), and heat required is:
+      \[
+        \Delta Q = \mu C_v \Delta T = 2.0 \times \left(\frac{3}{2} R\right) \times 15.0 = 45.0 \times R
+      \]
+      Substituting \(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\):
+      \[
+        \Delta Q = 45.0 \times 8.314 = 374.1\,\mathrm{J} \approx 374\,\mathrm{J}
+      \]
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> \(44.8\,\mathrm{लीटर}\) नियत क्षमता वाले एक बेलन में मानक ताप व दाब (STP) पर हीलियम गैस भरी है। गैस का ताप \(15.0^\circ\mathrm{C}\) बढ़ाने के लिए आवश्यक ऊष्मा की मात्रा ज्ञात कीजिए। (\(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\))।</p>
+    <div class="solution-text">
+      <strong>हल:</strong><br/>
+      STP पर 1 मोल गैस का आयतन \(22.4\,\mathrm{L}\) होता है। अतः मोलों की संख्या:
+      \[
+        \mu = \frac{44.8}{22.4} = 2.0\,\mathrm{mol}
+      \]
+      हीलियम एकपरमाणुक गैस है, अतः \(C_v = \frac{3}{2} R\)। आयतन स्थिर होने के कारण आवश्यक ऊष्मा:
+      \[
+        \Delta Q = \mu C_v \Delta T = 2.0 \times \left(\frac{3}{2} \times 8.314\right) \times 15.0 = 45 \times 8.314 \approx 374\,\mathrm{J}
+      \]
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: NEET UG PRACTICE QUESTIONS -->
+<h2 class="section-title">
+  <span>6. NEET UG Exam-Style Practice Questions</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">NEET UG परीक्षा-प्रारूप अभ्यास प्रश्न</span>
+</h2>
+
+<!-- Practice Question 1 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 1 &bull; Molecular Speeds</span>
+    <span>अभ्यास प्रश्न 1</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> At what temperature is the root-mean-square speed (\(v_{\mathrm{rms}}\)) of an atom in an argon gas cylinder equal to the \(v_{\mathrm{rms}}\) of a helium gas atom at \(-20^\circ\mathrm{C}\)? (Take atomic mass of \(\mathrm{Ar} = 39.9\,\mathrm{u}\) and \(\mathrm{He} = 4.0\,\mathrm{u}\)).</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(2524\,\mathrm{K}\) (or \(\approx 2251^\circ\mathrm{C}\))</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(1262\,\mathrm{K}\) (or \(\approx 989^\circ\mathrm{C}\))</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(5048\,\mathrm{K}\) (or \(\approx 4775^\circ\mathrm{C}\))</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(253\,\mathrm{K}\) (or \(-20^\circ\mathrm{C}\))</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        The root-mean-square speed of a gas molecule is given by:
+        \[
+          v_{\mathrm{rms}} = \sqrt{\frac{3 R T}{M}}
+        \]
+        For \(v_{\mathrm{rms}}(\mathrm{Ar}) = v_{\mathrm{rms}}(\mathrm{He})\), we must have:
+        \[
+          \frac{3 R T_{\mathrm{Ar}}}{M_{\mathrm{Ar}}} = \frac{3 R T_{\mathrm{He}}}{M_{\mathrm{He}}} \implies \frac{T_{\mathrm{Ar}}}{M_{\mathrm{Ar}}} = \frac{T_{\mathrm{He}}}{M_{\mathrm{He}}}
+        \]
+        Given:
+        <ul>
+          <li>\(T_{\mathrm{He}} = -20^\circ\mathrm{C} = 273.15 - 20 = 253.15\,\mathrm{K} \approx 253\,\mathrm{K}\)</li>
+          <li>\(M_{\mathrm{He}} = 4.0\,\mathrm{u}\)</li>
+          <li>\(M_{\mathrm{Ar}} = 39.9\,\mathrm{u}\)</li>
+        </ul>
+        Solving for \(T_{\mathrm{Ar}}\):
+        \[
+          T_{\mathrm{Ar}} = T_{\mathrm{He}} \times \left(\frac{M_{\mathrm{Ar}}}{M_{\mathrm{He}}}\right) = 253\,\mathrm{K} \times \left(\frac{39.9}{4.0}\right) = 253 \times 9.975 \approx 2523.7\,\mathrm{K} \approx 2524\,\mathrm{K}
+        \]
+        In Celsius: \(2523.7 - 273.15 \approx 2251^\circ\mathrm{C}\). Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> किस ताप पर ऑर्गन गैस सिलेंडर में एक परमाणु की वर्ग-माध्य-मूल चाल (\(v_{\mathrm{rms}}\)), \(-20^\circ\mathrm{C}\) पर हीलियम गैस के परमाणु की \(v_{\mathrm{rms}}\) के बराबर होगी? (ऑर्गन का परमाणु भार \(= 39.9\,\mathrm{u}\), हीलियम \(= 4.0\,\mathrm{u}\))।</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(2524\,\mathrm{K}\) (अथवा \(\approx 2251^\circ\mathrm{C}\))</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(1262\,\mathrm{K}\) (अथवा \(\approx 989^\circ\mathrm{C}\))</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(5048\,\mathrm{K}\) (अथवा \(\approx 4775^\circ\mathrm{C}\))</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(253\,\mathrm{K}\) (अथवा \(-20^\circ\mathrm{C}\))</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        गैस के अणुओं की वर्ग-माध्य-मूल चाल:
+        \[
+          v_{\mathrm{rms}} = \sqrt{\frac{3 R T}{M}}
+        \]
+        दोनों चालों के समान होने के लिए:
+        \[
+          \frac{T_{\mathrm{Ar}}}{M_{\mathrm{Ar}}} = \frac{T_{\mathrm{He}}}{M_{\mathrm{He}}} \implies T_{\mathrm{Ar}} = T_{\mathrm{He}} \times \left(\frac{M_{\mathrm{Ar}}}{M_{\mathrm{He}}}\right)
+        \]
+        \(T_{\mathrm{He}} = -20^\circ\mathrm{C} = 253\,\mathrm{K}\) रखने पर:
+        \[
+          T_{\mathrm{Ar}} = 253 \times \frac{39.9}{4.0} \approx 2524\,\mathrm{K}
+        \]
+        सेल्सियस में: \(2524 - 273 = 2251^\circ\mathrm{C}\)। अतः विकल्प (A) सत्य है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 2 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 2 &bull; Mean Free Path Dependencies</span>
+    <span>अभ्यास प्रश्न 2</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> A rigid, closed container of constant volume contains an ideal gas. If the absolute temperature of the gas is doubled, the mean free path of the gas molecules will:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> Double</li>
+      <li class="option-item"><span class="option-label">(B)</span> Be halved</li>
+      <li class="option-item"><span class="option-label">(C)</span> Remain unchanged</li>
+      <li class="option-item"><span class="option-label">(D)</span> Increase by a factor of \(\sqrt{2}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (C)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        The mean free path of gas molecules is given by:
+        \[
+          l = \frac{1}{\sqrt{2} n \pi d^2}
+        \]
+        where \(n = N/V\) is the number density of molecules and \(d\) is molecular diameter.<br/>
+        For a closed container of fixed volume \(V\), neither the total number of molecules \(N\) nor the volume \(V\) changes. Therefore, the number density \(n\) is strictly constant.<br/>
+        Although the pressure doubles (since \(P \propto T\) at constant \(V\)), the ratio \(T/P\) remains constant. Consequently, the mean free path \(l\) <strong>remains unchanged</strong>.<br/>
+        (Note: The collision frequency \(\nu_c = \langle v \rangle / l\) increases by \(\sqrt{2}\) because \(\langle v \rangle \propto \sqrt{T}\), but \(l\) itself does not change). Hence, option (C) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> नियत आयतन वाले एक बंद दृढ़ पात्र में एक आदर्श गैस भरी है। यदि गैस का परम ताप दोगुना कर दिया जाए, तो गैस अणुओं का माध्य मुक्त पथ:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> दोगुना हो जाएगा</li>
+      <li class="option-item"><span class="option-label">(B)</span> आधा हो जाएगा</li>
+      <li class="option-item"><span class="option-label">(C)</span> अपरिवर्तित रहेगा</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(\sqrt{2}\) गुना बढ़ जाएगा</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (C)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        माध्य मुक्त पथ का सूत्र है:
+        \[
+          l = \frac{1}{\sqrt{2} n \pi d^2}
+        \]
+        जहाँ \(n = N/V\) संख्या घनत्व है। चूँकि पात्र बंद व दृढ़ है (आयतन \(V\) तथा अणुओं की संख्या \(N\) नियत हैं), अतः संख्या घनत्व \(n\) नियत रहता है।<br/>
+        यद्यपि ताप दोगुना होने से दाब भी दोगुना हो जाता है (\(P \propto T\)), परंतु \(T/P\) का मान नियत रहता है। फलस्वरूप, माध्य मुक्त पथ \(l\) <strong>अपरिवर्तित रहेगा</strong>। अतः विकल्प (C) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 3 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 3 &bull; Gas Mixtures &amp; Specific Heat Ratio</span>
+    <span>अभ्यास प्रश्न 3</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> A gas mixture consists of \(2\,\mathrm{moles}\) of Helium (\(\mathrm{He}\), monatomic) and \(1\,\mathrm{mole}\) of Oxygen (\(\mathrm{O_2}\), treated as a rigid diatomic molecule). The equivalent adiabatic exponent \(\gamma_{\mathrm{mix}} = C_{p,\mathrm{mix}}/C_{v,\mathrm{mix}}\) of the mixture is:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(1.545\) (or \(\frac{17}{11}\))</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(1.400\) (or \(\frac{7}{5}\))</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(1.667\) (or \(\frac{5}{3}\))</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(1.470\) (or \(\frac{25}{17}\))</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        For Helium (monatomic, \(\mu_1 = 2\)): \(C_{v1} = \frac{3}{2} R\), \(C_{p1} = \frac{5}{2} R\).<br/>
+        For Oxygen (rigid diatomic, \(\mu_2 = 1\)): \(C_{v2} = \frac{5}{2} R\), \(C_{p2} = \frac{7}{2} R\).<br/>
+        Total moles: \(\mu_{\mathrm{total}} = 2 + 1 = 3\,\mathrm{mol}\).<br/>
+        Equivalent molar specific heat at constant volume:
+        \[
+          C_{v,\mathrm{mix}} = \frac{\mu_1 C_{v1} + \mu_2 C_{v2}}{\mu_1 + \mu_2} = \frac{2 \times \left(\frac{3}{2} R\right) + 1 \times \left(\frac{5}{2} R\right)}{3} = \frac{3 R + 2.5 R}{3} = \frac{5.5 R}{3} = \frac{11}{6} R
+        \]
+        Equivalent molar specific heat at constant pressure:
+        \[
+          C_{p,\mathrm{mix}} = C_{v,\mathrm{mix}} + R = \frac{11}{6} R + R = \frac{17}{6} R
+        \]
+        The adiabatic exponent of the mixture is:
+        \[
+          \gamma_{\mathrm{mix}} = \frac{C_{p,\mathrm{mix}}}{C_{v,\mathrm{mix}}} = \frac{\frac{17}{6} R}{\frac{11}{6} R} = \frac{17}{11} \approx 1.545
+        \]
+        Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> एक गैस मिश्रण में \(2\,\mathrm{मोल}\) हीलियम (\(\mathrm{He}\), एकपरमाणुक) तथा \(1\,\mathrm{मोल}\) ऑक्सीजन (\(\mathrm{O_2}\), दृढ़ द्विपरमाणुक) उपस्थित हैं। इस मिश्रण का तुल्य रुद्धोष्म घातांक \(\gamma_{\mathrm{मिश्रण}} = C_{p}/C_{v}\) होगा:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(1.545\) (अर्थात् \(\frac{17}{11}\))</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(1.400\) (अर्थात् \(\frac{7}{5}\))</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(1.667\) (अर्थात् \(\frac{5}{3}\))</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(1.470\) (अर्थात् \(\frac{25}{17}\))</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        हीलियम (\(\mu_1 = 2\)) हेतु: \(C_{v1} = \frac{3}{2} R\)<br/>
+        ऑक्सीजन (\(\mu_2 = 1\)) हेतु: \(C_{v2} = \frac{5}{2} R\)<br/>
+        मिश्रण की स्थिर आयतन पर मोलर विशिष्ट ऊष्मा:
+        \[
+          C_{v,\mathrm{मिश्रण}} = \frac{2 \times \frac{3}{2} R + 1 \times \frac{5}{2} R}{2 + 1} = \frac{3 R + 2.5 R}{3} = \frac{11}{6} R
+        \]
+        मिश्रण की स्थिर दाब पर विशिष्ट ऊष्मा:
+        \[
+          C_{p,\mathrm{मिश्रण}} = C_{v,\mathrm{मिश्रण}} + R = \frac{11}{6} R + R = \frac{17}{6} R
+        \]
+        अतः रुद्धोष्म घातांक:
+        \[
+          \gamma_{\mathrm{मिश्रण}} = \frac{C_{p,\mathrm{मिश्रण}}}{C_{v,\mathrm{मिश्रण}}} = \frac{17/6}{11/6} = \frac{17}{11} \approx 1.545
+        \]
+        अतः विकल्प (A) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 4 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 4 &bull; Kinetic Energy &amp; Pressure Relation</span>
+    <span>अभ्यास प्रश्न 4</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> The volume of an ideal gas sample is reduced to half its initial value at constant temperature. The pressure \(P\) and the average translational kinetic energy per molecule \(\overline{\varepsilon_t}\) change respectively as:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(P\) is doubled, \(\overline{\varepsilon_t}\) is doubled</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(P\) is doubled, \(\overline{\varepsilon_t}\) remains unchanged</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(P\) remains unchanged, \(\overline{\varepsilon_t}\) is halved</li>
+      <li class="option-item"><span class="option-label">(D)</span> Both \(P\) and \(\overline{\varepsilon_t}\) remain unchanged</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (B)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        1. By Boyle's Law, for a given mass of gas at constant temperature \(T\):
+        \[
+          P_1 V_1 = P_2 V_2 \implies P_2 = P_1 \left(\frac{V_1}{V_2}\right) = P_1 \times \left(\frac{V_1}{V_1/2}\right) = 2 P_1
+        \]
+        Hence, pressure \(P\) is doubled.<br/>
+        2. The average translational kinetic energy per molecule is given by:
+        \[
+          \overline{\varepsilon_t} = \frac{3}{2} k_{\mathrm{B}} T
+        \]
+        Because the process occurs at <strong>constant temperature</strong>, \(\overline{\varepsilon_t}\) remains completely unchanged.<br/>
+        (Note: The total translational KE per unit volume \(E_v = \frac{3}{2} P\) doubles, but per molecule it stays identical). Hence, option (B) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> नियत ताप पर किसी आदर्श गैस का आयतन घटाकर उसके प्रारंभिक मान का आधा कर दिया जाता है। गैस के दाब \(P\) तथा प्रति अणु औसत स्थानांतरीय गतिज ऊर्जा \(\overline{\varepsilon_t}\) में क्रमशः क्या परिवर्तन होगा?</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(P\) दोगुना होगा, \(\overline{\varepsilon_t}\) दोगुनी होगी</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(P\) दोगुना होगा, \(\overline{\varepsilon_t}\) अपरिवर्तित रहेगी</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(P\) अपरिवर्तित रहेगा, \(\overline{\varepsilon_t}\) आधी होगी</li>
+      <li class="option-item"><span class="option-label">(D)</span> दोनों \(P\) और \(\overline{\varepsilon_t}\) अपरिवर्तित रहेंगे</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (B)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        1. बॉयल के नियमानुसार, नियत ताप पर \(P \propto 1/V\)। आयतन आधा करने पर दाब \(P\) <strong>दोगुना</strong> हो जाएगा।<br/>
+        2. प्रति अणु औसत स्थानांतरीय गतिज ऊर्जा \(\overline{\varepsilon_t} = \frac{3}{2} k_{\mathrm{B}} T\) केवल ताप पर निर्भर करती है। चूँकि ताप नियत है, अतः \(\overline{\varepsilon_t}\) <strong>अपरिवर्तित</strong> रहेगी। अतः विकल्प (B) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 5 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 5 &bull; Non-Rigid Diatomic Gas Heat Capacities</span>
+    <span>अभ्यास प्रश्न 5</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> At elevated temperatures, carbon monoxide (\(\mathrm{CO}\)) gas exhibits one active vibrational mode in addition to its translational and rotational motions. The predicted values of \(C_v\), \(C_p\), and \(\gamma\) for this non-rigid diatomic gas are respectively:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(\frac{5}{2}R, \; \frac{7}{2}R, \; 1.40\)</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(\frac{7}{2}R, \; \frac{9}{2}R, \; 1.29\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(3R, \; 4R, \; 1.33\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(\frac{9}{2}R, \; \frac{11}{2}R, \; 1.22\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (B)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        For a diatomic gas at high temperature:
+        <ul>
+          <li>Translational degrees of freedom = 3 (contributes \(3 \times \frac{1}{2} k_{\mathrm{B}} T\))</li>
+          <li>Rotational degrees of freedom = 2 (contributes \(2 \times \frac{1}{2} k_{\mathrm{B}} T\))</li>
+          <li>1 Vibrational mode contains two quadratic energy modes (KE + PE), contributing \(2 \times \frac{1}{2} k_{\mathrm{B}} T = k_{\mathrm{B}} T\)</li>
+        </ul>
+        Total internal energy for 1 mole of gas:
+        \[
+          U = \left(\frac{3}{2} + \frac{2}{2} + 1\right) R T = \frac{7}{2} R T
+        \]
+        Therefore:
+        \[
+          C_v = \frac{dU}{dT} = \frac{7}{2} R
+        \]
+        Using Mayer's relation \(C_p = C_v + R\):
+        \[
+          C_p = \frac{7}{2} R + R = \frac{9}{2} R
+        \]
+        The adiabatic ratio is:
+        \[
+          \gamma = \frac{C_p}{C_v} = \frac{9/2}{7/2} = \frac{9}{7} \approx 1.286 \approx 1.29
+        \]
+        Hence, option (B) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> उच्च ताप पर कार्बन मोनोऑक्साइड (\(\mathrm{CO}\)) गैस अपनी स्थानांतरीय तथा घूर्णी गतियों के साथ-साथ एक कंपन विधा (vibrational mode) भी दर्शाती है। इस अप्रतिरोधी द्विपरमाणुक गैस के लिए \(C_v\), \(C_p\) तथा \(\gamma\) के सैद्धांतिक मान क्रमशः होंगे:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(\frac{5}{2}R, \; \frac{7}{2}R, \; 1.40\)</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(\frac{7}{2}R, \; \frac{9}{2}R, \; 1.29\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(3R, \; 4R, \; 1.33\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(\frac{9}{2}R, \; \frac{11}{2}R, \; 1.22\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (B)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        उच्च ताप पर द्विपरमाणुक गैस में:
+        <ul>
+          <li>स्थानांतरीय स्वातंत्र्य कोटियाँ = 3</li>
+          <li>घूर्णी स्वातंत्र्य कोटियाँ = 2</li>
+          <li>1 कंपन विधा में 2 द्विघाती पद (गतिज + स्थितिज ऊर्जा) होते हैं = 2 स्वातंत्र्य कोटियों के तुल्य</li>
+        </ul>
+        कुल प्रभावी स्वातंत्र्य कोटियाँ = \(3 + 2 + 2 = 7\)।<br/>
+        अतः 1 मोल हेतु आंतरिक ऊर्जा \(U = \frac{7}{2} R T\)।<br/>
+        \(C_v = \frac{dU}{dT} = \frac{7}{2} R\)<br/>
+        \(C_p = C_v + R = \frac{9}{2} R\)<br/>
+        \(\gamma = \frac{C_p}{C_v} = \frac{9}{7} \approx 1.29\)। अतः विकल्प (B) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 6 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 6 &bull; Assertion-Reason (NEET Format)</span>
+    <span>अभ्यास प्रश्न 6</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Directions:</strong> In the following question, a statement of Assertion (A) is followed by a statement of Reason (R).</p>
+    <p><strong>Assertion (A):</strong> If the pressure of an ideal gas is doubled at constant temperature, the root-mean-square speed of its molecules remains completely unchanged.</p>
+    <p><strong>Reason (R):</strong> According to Boyle's law, doubling the pressure at constant temperature doubles the mass density of the gas, keeping the ratio \(P/\rho\) constant in the expression \(v_{\mathrm{rms}} = \sqrt{3P/\rho}\).</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+      <li class="option-item"><span class="option-label">(B)</span> Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</li>
+      <li class="option-item"><span class="option-label">(C)</span> (A) is true but (R) is false.</li>
+      <li class="option-item"><span class="option-label">(D)</span> Both (A) and (R) are false.</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        Root-mean-square speed is given by:
+        \[
+          v_{\mathrm{rms}} = \sqrt{\frac{3 R T}{M_0}} = \sqrt{\frac{3 P}{\rho}}
+        \]
+        At constant temperature \(T\), \(v_{\mathrm{rms}}\) depends only on \(T\) and \(M_0\), so changing pressure cannot change \(v_{\mathrm{rms}}\). Thus Assertion (A) is true.<br/>
+        Under isothermal conditions, Boyle's law states \(P \propto \rho\). When pressure is doubled (\(P \to 2P\)), the gas compresses to half volume, doubling its density (\(\rho \to 2\rho\)). Therefore, the ratio \(\frac{P}{\rho} = \frac{2P}{2\rho} = \frac{P}{\rho}\) is strictly constant. This precisely explains why \(v_{\mathrm{rms}} = \sqrt{3P/\rho}\) does not change. Reason (R) is true and correctly explains (A). Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>निर्देश:</strong> निम्नलिखित प्रश्न में अभिकथन (A) के बाद तर्क (R) दिया गया है।</p>
+    <p><strong>अभिकथन (A):</strong> यदि नियत ताप पर किसी आदर्श गैस का दाब दोगुना कर दिया जाए, तो उसके अणुओं की वर्ग-माध्य-मूल चाल पूर्णतः अपरिवर्तित रहती है।</p>
+    <p><strong>तर्क (R):</strong> बॉयल के नियमानुसार, नियत ताप पर दाब दोगुना करने से गैस का द्रव्यमान घनत्व भी दोगुना हो जाता है, जिससे व्यंजक \(v_{\mathrm{rms}} = \sqrt{3P/\rho}\) में अनुपात \(P/\rho\) नियत बना रहता है।</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> (A) और (R) दोनों सही हैं तथा (R), (A) की सही व्याख्या है।</li>
+      <li class="option-item"><span class="option-label">(B)</span> (A) और (R) दोनों सही हैं परंतु (R), (A) की सही व्याख्या नहीं है।</li>
+      <li class="option-item"><span class="option-label">(C)</span> (A) सही है परंतु (R) गलत है।</li>
+      <li class="option-item"><span class="option-label">(D)</span> (A) और (R) दोनों गलत हैं।</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        \(v_{\mathrm{rms}} = \sqrt{3RT/M_0} = \sqrt{3P/\rho}\)। नियत ताप पर \(v_{\mathrm{rms}}\) केवल ताप पर निर्भर करता है, अतः दाब बढ़ाने पर भी यह नहीं बदलता (अभिकथन सत्य है)।<br/>
+        नियत ताप पर \(P \propto \rho\) होने से दाब दोगुना होने पर घनत्व भी दोगुना हो जाता है, जिससे \(P/\rho\) नियत रहता है (तर्क सत्य है तथा अभिकथन की पूर्ण व सही व्याख्या करता है)। अतः विकल्प (A) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 7 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 7 &bull; Air Bubble Rising in a Lake</span>
+    <span>अभ्यास प्रश्न 7</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> An air bubble of volume \(1.0\,\mathrm{cm^3}\) rises from the bottom of a lake \(40\,\mathrm{m}\) deep where the water temperature is \(12^\circ\mathrm{C}\). The surface temperature of the lake is \(35^\circ\mathrm{C}\). Atmospheric pressure is \(1.01 \times 10^5\,\mathrm{Pa}\), density of water is \(1000\,\mathrm{kg\,m^{-3}}\), and \(g = 9.8\,\mathrm{m\,s^{-2}}\). What is the volume of the bubble when it reaches the surface?</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(5.3\,\mathrm{cm^3}\)</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(4.9\,\mathrm{cm^3}\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(2.8\,\mathrm{cm^3}\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(3.9\,\mathrm{cm^3}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        At the lake bottom (depth \(h = 40\,\mathrm{m}\)):
+        <ul>
+          <li>Temperature: \(T_1 = 12^\circ\mathrm{C} = 12 + 273.15 = 285.15\,\mathrm{K} \approx 285\,\mathrm{K}\)</li>
+          <li>Hydrostatic pressure:
+          \[
+            P_1 = P_{\mathrm{atm}} + \rho g h = 1.01 \times 10^5 + (1000 \times 9.8 \times 40) = 1.01 \times 10^5 + 3.92 \times 10^5 = 4.93 \times 10^5\,\mathrm{Pa}
+          \]
+          </li>
+          <li>Volume: \(V_1 = 1.0\,\mathrm{cm^3}\)</li>
+        </ul>
+        At the lake surface:
+        <ul>
+          <li>Temperature: \(T_2 = 35^\circ\mathrm{C} = 35 + 273.15 = 308.15\,\mathrm{K} \approx 308\,\mathrm{K}\)</li>
+          <li>Pressure: \(P_2 = P_{\mathrm{atm}} = 1.01 \times 10^5\,\mathrm{Pa}\)</li>
+        </ul>
+        Applying the Ideal Gas Law \(\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2}\):
+        \[
+          V_2 = V_1 \times \left(\frac{P_1}{P_2}\right) \times \left(\frac{T_2}{T_1}\right) = 1.0 \times \left(\frac{4.93 \times 10^5}{1.01 \times 10^5}\right) \times \left(\frac{308}{285}\right)
+        \]
+        \[
+          V_2 = 1.0 \times 4.881 \times 1.0807 \approx 5.275\,\mathrm{cm^3} \approx 5.3\,\mathrm{cm^3}
+        \]
+        Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> \(40\,\mathrm{m}\) गहरी झील की तली से, जहाँ ताप \(12^\circ\mathrm{C}\) है, \(1.0\,\mathrm{cm^3}\) आयतन का वायु का एक बुलबुला ऊपर उठता है। सतह पर जल का ताप \(35^\circ\mathrm{C}\) है। यदि वायुमंडलीय दाब \(1.01 \times 10^5\,\mathrm{Pa}\), जल का घनत्व \(1000\,\mathrm{kg\,m^{-3}}\) तथा \(g = 9.8\,\mathrm{m\,s^{-2}}\) हो, तो सतह पर पहुँचने पर बुलबुले का आयतन क्या होगा?</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(5.3\,\mathrm{cm^3}\)</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(4.9\,\mathrm{cm^3}\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(2.8\,\mathrm{cm^3}\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(3.9\,\mathrm{cm^3}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        झील की तली पर:
+        \[
+          T_1 = 12 + 273 = 285\,\mathrm{K}
+        \]
+        \[
+          P_1 = P_0 + \rho g h = 1.01 \times 10^5 + (1000 \times 9.8 \times 40) = 4.93 \times 10^5\,\mathrm{Pa}
+        \]
+        सतह पर:
+        \[
+          T_2 = 35 + 273 = 308\,\mathrm{K}, \quad P_2 = 1.01 \times 10^5\,\mathrm{Pa}
+        \]
+        आदर्श गैस समीकरण से:
+        \[
+          V_2 = V_1 \left(\frac{P_1}{P_2}\right) \left(\frac{T_2}{T_1}\right) = 1.0 \times \left(\frac{4.93 \times 10^5}{1.01 \times 10^5}\right) \times \left(\frac{308}{285}\right) \approx 5.3\,\mathrm{cm^3}
+        \]
+        अतः विकल्प (A) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 8 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 8 &bull; Matching Matrix (NEET Standard)</span>
+    <span>अभ्यास प्रश्न 8</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> Match the physical systems in <strong>Column I</strong> with their theoretical molar heat capacities at constant volume (\(C_v\)) in <strong>Column II</strong>:</p>
+    <table class="custom-table">
+      <thead>
+        <tr><th>Column I (Substance / Model)</th><th>Column II (Molar Specific Heat \(C_v\))</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>(a) Monatomic ideal gas (e.g., Argon)</td><td>(1) \(3 R\)</td></tr>
+        <tr><td>(b) Rigid diatomic ideal gas (e.g., Oxygen at 300 K)</td><td>(2) \(\frac{7}{2} R\)</td></tr>
+        <tr><td>(c) Diatomic gas with 1 vibrational mode</td><td>(3) \(\frac{3}{2} R\)</td></tr>
+        <tr><td>(d) Elemental solid at room temperature</td><td>(4) \(\frac{5}{2} R\)</td></tr>
+      </tbody>
+    </table>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> (a) &rarr; (3), (b) &rarr; (4), (c) &rarr; (2), (d) &rarr; (1)</li>
+      <li class="option-item"><span class="option-label">(B)</span> (a) &rarr; (4), (b) &rarr; (3), (c) &rarr; (1), (d) &rarr; (2)</li>
+      <li class="option-item"><span class="option-label">(C)</span> (a) &rarr; (3), (b) &rarr; (1), (c) &rarr; (4), (d) &rarr; (2)</li>
+      <li class="option-item"><span class="option-label">(D)</span> (a) &rarr; (2), (b) &rarr; (4), (c) &rarr; (3), (d) &rarr; (1)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        <ul>
+          <li><strong>(a) Monatomic ideal gas:</strong> 3 translational degrees of freedom \(\implies C_v = \frac{3}{2} R\). Matches (3).</li>
+          <li><strong>(b) Rigid diatomic gas:</strong> 3 translational + 2 rotational = 5 degrees of freedom \(\implies C_v = \frac{5}{2} R\). Matches (4).</li>
+          <li><strong>(c) Diatomic gas with 1 vibrational mode:</strong> 5 rigid modes + 2 vibrational modes = 7 \(\implies C_v = \frac{7}{2} R\). Matches (2).</li>
+          <li><strong>(d) Elemental solid:</strong> Each atom vibrates in 3 dimensions with kinetic and potential energy modes (\(3 \times 2 = 6\) modes) \(\implies C = 3 R\) (Dulong-Petit law). Matches (1).</li>
+        </ul>
+        Thus, the matching is: (a) &rarr; (3), (b) &rarr; (4), (c) &rarr; (2), (d) &rarr; (1). Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> <strong>स्तम्भ I</strong> में दिए गए पदार्थों/मॉडलों का <strong>स्तम्भ II</strong> में दी गई उनकी स्थिर आयतन पर मोलर विशिष्ट ऊष्माओं (\(C_v\)) से सही सुमेलन कीजिए:</p>
+    <table class="custom-table">
+      <thead>
+        <tr><th>स्तम्भ I (पदार्थ / मॉडल)</th><th>स्तम्भ II (मोलर विशिष्ट ऊष्मा \(C_v\))</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>(a) एकपरमाणुक आदर्श गैस (जैसे ऑर्गन)</td><td>(1) \(3 R\)</td></tr>
+        <tr><td>(b) दृढ़ द्विपरमाणुक आदर्श गैस (जैसे 300 K पर ऑक्सीजन)</td><td>(2) \(\frac{7}{2} R\)</td></tr>
+        <tr><td>(c) 1 कंपन विधा युक्त द्विपरमाणुक गैस</td><td>(3) \(\frac{3}{2} R\)</td></tr>
+        <tr><td>(d) कमरे के ताप पर सरल तात्विक ठोस</td><td>(4) \(\frac{5}{2} R\)</td></tr>
+      </tbody>
+    </table>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> (a) &rarr; (3), (b) &rarr; (4), (c) &rarr; (2), (d) &rarr; (1)</li>
+      <li class="option-item"><span class="option-label">(B)</span> (a) &rarr; (4), (b) &rarr; (3), (c) &rarr; (1), (d) &rarr; (2)</li>
+      <li class="option-item"><span class="option-label">(C)</span> (a) &rarr; (3), (b) &rarr; (1), (c) &rarr; (4), (d) &rarr; (2)</li>
+      <li class="option-item"><span class="option-label">(D)</span> (a) &rarr; (2), (b) &rarr; (4), (c) &rarr; (3), (d) &rarr; (1)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        (a) एकपरमाणुक गैस: \(C_v = \frac{3}{2} R\) &rarr; (3)<br/>
+        (b) दृढ़ द्विपरमाणुक गैस: \(C_v = \frac{5}{2} R\) &rarr; (4)<br/>
+        (c) कंपनशील द्विपरमाणुक गैस: \(C_v = \frac{7}{2} R\) &rarr; (2)<br/>
+        (d) तात्विक ठोस: \(C = 3 R\) (डुलॉन्ग-पैटिट नियम) &rarr; (1)<br/>
+        अतः सही सुमेलन (A) है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 9 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 9 &bull; Total Translational Kinetic Energy</span>
+    <span>अभ्यास प्रश्न 9</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> Estimate the total translational kinetic energy of all air molecules in a room of capacity \(25.0\,\mathrm{m^3}\) at temperature \(27^\circ\mathrm{C}\) and atmospheric pressure \(1.013 \times 10^5\,\mathrm{Pa}\).</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(3.80 \times 10^6\,\mathrm{J}\)</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(2.53 \times 10^6\,\mathrm{J}\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(5.70 \times 10^6\,\mathrm{J}\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(1.27 \times 10^6\,\mathrm{J}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        From kinetic theory, the relationship between total internal translational kinetic energy \(E\) of a gas and its pressure \(P\) and volume \(V\) is:
+        \[
+          P V = \frac{2}{3} E \implies E = \frac{3}{2} P V
+        \]
+        Notice that this relationship is <strong>completely independent of the chemical composition</strong> of the air (whether it is \(\mathrm{N_2}\), \(\mathrm{O_2}\), or a mixture) and even independent of temperature once \(P\) and \(V\) are specified!<br/>
+        Given:
+        <ul>
+          <li>\(P = 1.013 \times 10^5\,\mathrm{Pa}\)</li>
+          <li>\(V = 25.0\,\mathrm{m^3}\)</li>
+        </ul>
+        Calculating \(E\):
+        \[
+          E = \frac{3}{2} \times (1.013 \times 10^5\,\mathrm{Pa}) \times 25.0\,\mathrm{m^3} = 1.5 \times 25.325 \times 10^5 = 3.79875 \times 10^6\,\mathrm{J} \approx 3.80 \times 10^6\,\mathrm{J}
+        \]
+        Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> \(27^\circ\mathrm{C}\) ताप तथा \(1.013 \times 10^5\,\mathrm{Pa}\) वायुमंडलीय दाब पर \(25.0\,\mathrm{m^3}\) धारिता वाले कमरे में उपस्थित समस्त वायु अणुओं की कुल स्थानांतरीय गतिज ऊर्जा का मान ज्ञात कीजिए।</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(3.80 \times 10^6\,\mathrm{J}\)</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(2.53 \times 10^6\,\mathrm{J}\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(5.70 \times 10^6\,\mathrm{J}\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(1.27 \times 10^6\,\mathrm{J}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        अणुगति सिद्धांत के अनुसार कुल स्थानांतरीय गतिज ऊर्जा \(E\):
+        \[
+          P V = \frac{2}{3} E \implies E = \frac{3}{2} P V
+        \]
+        यह संबंध गैस के आण्विक संघटन पर निर्भर नहीं करता।<br/>
+        मान रखने पर:
+        \[
+          E = \frac{3}{2} \times (1.013 \times 10^5) \times 25.0 = 3.799 \times 10^6\,\mathrm{J} \approx 3.80 \times 10^6\,\mathrm{J}
+        \]
+        अतः सही विकल्प (A) है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Practice Question 10 -->
+<div class="question-card">
+  <div class="question-header">
+    <span>Practice Question 10 &bull; Dalton's Law &amp; Mixture Pressure</span>
+    <span>अभ्यास प्रश्न 10</span>
+  </div>
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Question:</strong> A rigid vessel of volume \(V\) contains \(8.0\,\mathrm{g}\) of Oxygen (\(\mathrm{O_2}\), molar mass \(32.0\,\mathrm{g\,mol^{-1}}\)) and \(14.0\,\mathrm{g}\) of Nitrogen (\(\mathrm{N_2}\), molar mass \(28.0\,\mathrm{g\,mol^{-1}}\)) at absolute temperature \(T\). Assuming ideal behavior, the total pressure exerted by the gas mixture is:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(\frac{0.75 R T}{V}\) (or \(\frac{3 R T}{4 V}\))</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(\frac{0.50 R T}{V}\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(\frac{1.25 R T}{V}\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(\frac{22.0 R T}{V}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">Correct Answer: (A)</span>
+      <div class="solution-text">
+        <strong>Detailed Explanation:</strong><br/>
+        By Dalton's Law of Partial Pressures, the total pressure is the sum of the partial pressures:
+        \[
+          P = P_{\mathrm{O_2}} + P_{\mathrm{N_2}} = (\mu_{\mathrm{O_2}} + \mu_{\mathrm{N_2}}) \frac{R T}{V}
+        \]
+        Calculate the number of moles of each gas:
+        \[
+          \mu_{\mathrm{O_2}} = \frac{m_{\mathrm{O_2}}}{M_{\mathrm{O_2}}} = \frac{8.0\,\mathrm{g}}{32.0\,\mathrm{g\,mol^{-1}}} = 0.25\,\mathrm{mol}
+        \]
+        \[
+          \mu_{\mathrm{N_2}} = \frac{m_{\mathrm{N_2}}}{M_{\mathrm{N_2}}} = \frac{14.0\,\mathrm{g}}{28.0\,\mathrm{g\,mol^{-1}}} = 0.50\,\mathrm{mol}
+        \]
+        Total moles in the container:
+        \[
+          \mu_{\mathrm{total}} = 0.25 + 0.50 = 0.75\,\mathrm{mol} = \frac{3}{4}\,\mathrm{mol}
+        \]
+        Therefore, total pressure:
+        \[
+          P = \frac{0.75 R T}{V} = \frac{3 R T}{4 V}
+        \]
+        Hence, option (A) is correct.
+      </div>
+    </div>
+  </div>
+  <hr class="bilingual-sep"/>
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>प्रश्न:</strong> \(V\) आयतन वाले एक दृढ़ पात्र में परम ताप \(T\) पर \(8.0\,\mathrm{g}\) ऑक्सीजन (\(\mathrm{O_2}\), मोलर द्रव्यमान \(32.0\,\mathrm{g\,mol^{-1}}\)) तथा \(14.0\,\mathrm{g}\) नाइट्रोजन (\(\mathrm{N_2}\), मोलर द्रव्यमान \(28.0\,\mathrm{g\,mol^{-1}}\)) उपस्थित हैं। आदर्श व्यवहार मानते हुए, गैस मिश्रण द्वारा आरोपित कुल दाब होगा:</p>
+    <ul class="option-list">
+      <li class="option-item"><span class="option-label">(A)</span> \(\frac{0.75 R T}{V}\) (अर्थात् \(\frac{3 R T}{4 V}\))</li>
+      <li class="option-item"><span class="option-label">(B)</span> \(\frac{0.50 R T}{V}\)</li>
+      <li class="option-item"><span class="option-label">(C)</span> \(\frac{1.25 R T}{V}\)</li>
+      <li class="option-item"><span class="option-label">(D)</span> \(\frac{22.0 R T}{V}\)</li>
+    </ul>
+    <div class="answer-box">
+      <span class="answer-badge">सही उत्तर: (A)</span>
+      <div class="solution-text">
+        <strong>विस्तृत हल:</strong><br/>
+        डाल्टन के आंशिक दाब के नियमानुसार कुल दाब \(P = (\mu_1 + \mu_2)\frac{RT}{V}\)।<br/>
+        ऑक्सीजन के मोल: \(\mu_{\mathrm{O_2}} = \frac{8.0}{32.0} = 0.25\,\mathrm{mol}\)<br/>
+        नाइट्रोजन के मोल: \(\mu_{\mathrm{N_2}} = \frac{14.0}{28.0} = 0.50\,\mathrm{mol}\)<br/>
+        कुल मोल: \(\mu = 0.25 + 0.50 = 0.75\,\mathrm{mol} = \frac{3}{4}\)।<br/>
+        अतः कुल दाब:
+        \[
+          P = \frac{0.75 R T}{V} = \frac{3 R T}{4 V}
+        \]
+        अतः विकल्प (A) सही है।
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: COMMON PITFALLS & REVISION CHECKLIST -->
+<h2 class="section-title">
+  <span>7. Common Pitfalls &amp; High-Yield Revision Checklist</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">सामान्य त्रुटियाँ एवं त्वरित पुनरावलोकन चेकलिस्ट</span>
+</h2>
+
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Top Conceptual Pitfalls &amp; Exam Traps to Avoid:</strong></p>
+    <ul>
+      <li><strong>Trap 1: Confusing \(\langle v \rangle^2\) with \(\langle v^2 \rangle\).</strong> The square of the average speed is <em>never</em> equal to the mean square speed. In fact, \(v_{\mathrm{rms}} = \sqrt{\langle v^2 \rangle} > \langle v \rangle > v_p\). Specifically:
+      \[
+        v_{\mathrm{rms}} = \sqrt{\frac{3RT}{M}} \approx 1.732\sqrt{\frac{RT}{M}}, \quad \langle v \rangle = \sqrt{\frac{8RT}{\pi M}} \approx 1.596\sqrt{\frac{RT}{M}}, \quad v_p = \sqrt{\frac{2RT}{M}} \approx 1.414\sqrt{\frac{RT}{M}}
+      \]
+      </li>
+      <li><strong>Trap 2: Assuming \(v_{\mathrm{rms}}\) increases when pressure increases.</strong> At constant temperature, \(v_{\mathrm{rms}}\) is completely invariant under pressure changes because \(\rho\) changes proportionally. \(v_{\mathrm{rms}}\) changes <em>only</em> if temperature changes or if gas molar mass changes.</li>
+      <li><strong>Trap 3: Counting vibrational modes as 1 degree of freedom.</strong> A vibrational mode involves both kinetic energy (\(\frac{1}{2}m\dot{y}^2\)) and potential energy (\(\frac{1}{2}ky^2\)). Thus, each vibrational frequency contributes <strong>two</strong> degrees of freedom (\(2 \times \frac{1}{2}k_{\mathrm{B}}T = k_{\mathrm{B}}T\)), not one!</li>
+      <li><strong>Trap 4: Mean free path temperature dependence.</strong> If a problem states "at constant volume", \(l = \frac{1}{\sqrt{2}n\pi d^2}\) is <strong>independent of temperature</strong> because number density \(n = N/V\) is fixed. Only at constant pressure does \(l \propto T\).</li>
+      <li><strong>Trap 5: Atmospheric settling under gravity.</strong> Why don't air molecules settle to the bottom of a room? Because thermal kinetic energy (\(\sim \frac{3}{2} k_{\mathrm{B}} T \approx 6.2 \times 10^{-21}\,\mathrm{J}\)) is vastly larger than the gravitational potential energy difference (\(mgh \approx 4.6 \times 10^{-26} \times 9.8 \times 3 \approx 1.4 \times 10^{-24}\,\mathrm{J}\)) across room height. Incessant high-speed collisions maintain dynamic equilibrium.</li>
+    </ul>
+
+    <p><strong>NEET UG Readiness Checklist:</strong></p>
+    <ul>
+      <li>&check; Memorized \(PV = \mu R T = N k_{\mathrm{B}} T\) and \(P = \frac{1}{3}\rho \overline{v^2} = \frac{2}{3}E_v\).</li>
+      <li>&check; Mastered \(\overline{\varepsilon_t} = \frac{3}{2}k_{\mathrm{B}}T\) for any molecule regardless of atomicity.</li>
+      <li>&check; Fluent with \(\gamma = 5/3\) (mono), \(7/5\) (rigid dia), \(9/7\) (vibrating dia), \(4/3\) (polyatomic non-linear).</li>
+      <li>&check; Mastered Dulong-Petit Law for solids: \(C = 3R \approx 25\,\mathrm{J\,mol^{-1}\,K^{-1}}\).</li>
+      <li>&check; Fluent with \(l = \frac{1}{\sqrt{2} n \pi d^2} = \frac{k_{\mathrm{B}} T}{\sqrt{2}\pi d^2 P}\).</li>
+    </ul>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <p><strong>NEET परीक्षा में होने वाली प्रमुख वैचारिक त्रुटियाँ एवं उनसे बचाव:</strong></p>
+    <ul>
+      <li><strong>भ्रम 1: \(\langle v \rangle^2\) और \(\langle v^2 \rangle\) को समान मानना।</strong> चालों के औसत का वर्ग कभी भी चालों के वर्ग के औसत के बराबर नहीं होता। सदैव \(v_{\mathrm{rms}} > \langle v \rangle > v_p\) होता है।
+      \[
+        v_{\mathrm{rms}} : \langle v \rangle : v_p = \sqrt{3} : \sqrt{\frac{8}{\pi}} : \sqrt{2} \approx 1.732 : 1.596 : 1.414
+      \]
+      </li>
+      <li><strong>भ्रम 2: दाब बढ़ाने पर \(v_{\mathrm{rms}}\) का बढ़ना मानना।</strong> नियत ताप पर दाब बढ़ाने से घनत्व भी उसी अनुपात में बढ़ जाता है, अतः \(v_{\mathrm{rms}} = \sqrt{3P/\rho}\) पूर्णतः अपरिवर्तित रहता है। यह केवल ताप बदलने पर बदलता है।</li>
+      <li><strong>भ्रम 3: कंपन विधा को 1 स्वातंत्र्य कोटि गिनना।</strong> प्रत्येक कंपन विधा में गतिज व स्थितिज ऊर्जा दोनों पद होते हैं, अतः एक कंपन विधा <strong>2 स्वातंत्र्य कोटियों</strong> (\(k_{\mathrm{B}} T\) ऊर्जा) का योगदान करती है।</li>
+      <li><strong>भ्रम 4: नियत आयतन पर माध्य मुक्त पथ।</strong> यदि आयतन नियत है, तो संख्या घनत्व \(n = N/V\) नियत रहता है, जिससे माध्य मुक्त पथ \(l\) ताप पर निर्भर नहीं करता। केवल नियत दाब पर \(l \propto T\) होता है।</li>
+      <li><strong>भ्रम 5: गुरुत्वाकर्षण के कारण वायु का फर्श पर न बैठना।</strong> कमरे की ऊँचाई में अणुओं की गुरुत्वीय स्थितिज ऊर्जा (\(mgh\)) उनकी औसत तापीय गतिज ऊर्जा (\(\frac{3}{2}k_{\mathrm{B}}T\)) की तुलना में हजारों गुना कम होती है। निरंतर तीव्र संघट्ट अणुओं को निलंबित रखते हैं।</li>
+    </ul>
+
+    <p><strong>NEET UG त्वरित पुनरावलोकन चेकलिस्ट:</strong></p>
+    <ul>
+      <li>&check; \(PV = \mu R T\) तथा \(P = \frac{1}{3}\rho \overline{v^2} = \frac{2}{3}E_v\) का कंठस्थ होना।</li>
+      <li>&check; किसी भी गैस के एक अणु की औसत स्थानांतरीय गतिज ऊर्जा \(\frac{3}{2}k_{\mathrm{B}}T\) केवल ताप पर निर्भर करती है।</li>
+      <li>&check; विशिष्ट ऊष्मा अनुपात \(\gamma\): एकपरमाणुक (1.67), दृढ़ द्विपरमाणुक (1.40), कंपनशील द्विपरमाणुक (1.29), बहुपरमाणुक (1.33)।</li>
+      <li>&check; ठोसों हेतु डुलॉन्ग-पैटिट नियम: \(C = 3R \approx 25\,\mathrm{J\,mol^{-1}\,K^{-1}}\)।</li>
+      <li>&check; माध्य मुक्त पथ सूत्र: \(l = \frac{1}{\sqrt{2} n \pi d^2}\)।</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 9: CONCISE FINAL RECAP -->
+<h2 class="section-title">
+  <span>8. Concise Final Recap</span>
+  <span style="font-size: 1rem; font-weight: normal; color: var(--text-muted);">त्वरित अंतिम सारांश</span>
+</h2>
+
+<div class="bilingual-block">
+  <div class="block-en">
+    <span class="lang-tag en">English</span>
+    <ol style="line-height: 1.8;">
+      <li><strong>Ideal Gas Model:</strong> Point masses with negligible volume, undergoing perfectly elastic collisions, exerting pressure \(P = \frac{1}{3}\rho \overline{v^2}\).</li>
+      <li><strong>Microscopic Temperature:</strong> Absolute temperature is a direct measure of average molecular translational kinetic energy: \(\frac{1}{2}m\overline{v^2} = \frac{3}{2}k_{\mathrm{B}}T\).</li>
+      <li><strong>Molecular Speeds:</strong> \(v_{\mathrm{rms}} = \sqrt{3RT/M_0}\). Heavy molecules move slower than light molecules at the same temperature.</li>
+      <li><strong>Equipartition of Energy:</strong> Every independent quadratic energy term receives \(\frac{1}{2}k_{\mathrm{B}}T\). Translation = 3 modes; Rotation = 2 modes (linear) or 3 modes (non-linear); Vibration = 2 modes per frequency.</li>
+      <li><strong>Molar Heat Capacities:</strong> \(C_v = \frac{f}{2}R\), \(C_p = \left(\frac{f}{2}+1\right)R\), \(\gamma = 1 + \frac{2}{f}\). Always \(C_p - C_v = R\).</li>
+      <li><strong>Solids:</strong> \(C = 3R\) (Dulong-Petit law) arises from 3D lattice oscillations with 6 quadratic energy modes.</li>
+      <li><strong>Mean Free Path:</strong> \(l = \frac{1}{\sqrt{2}n\pi d^2}\). At STP, \(l \approx 1000\) times the molecular diameter.</li>
+      <li><strong>Dalton's Law:</strong> Total pressure is the scalar sum of partial pressures of all non-reacting constituents.</li>
+    </ol>
+  </div>
+
+  <div class="block-hi">
+    <span class="lang-tag hi">हिन्दी अनुवाद</span>
+    <ol style="line-height: 1.8;">
+      <li><strong>आदर्श गैस मॉडल:</strong> नगण्य आयतन वाले बिंदु द्रव्यमान जो पूर्णतः प्रत्यास्थ संघट्ट करते हैं तथा पात्र पर दाब \(P = \frac{1}{3}\rho \overline{v^2}\) आरोपित करते हैं।</li>
+      <li><strong>ताप की सूक्ष्मदर्शीय व्याख्या:</strong> गैस का परम ताप उसके अणुओं की औसत स्थानांतरीय गतिज ऊर्जा का सीधा माप है: \(\frac{1}{2}m\overline{v^2} = \frac{3}{2}k_{\mathrm{B}}T\)।</li>
+      <li><strong>आण्विक चालें:</strong> \(v_{\mathrm{rms}} = \sqrt{3RT/M_0}\)। समान ताप पर भारी गैस के अणुओं की चाल हल्की गैस से कम होती है।</li>
+      <li><strong>ऊर्जा समविभाजन:</strong> तापीय साम्य में प्रत्येक द्विघाती पद को \(\frac{1}{2}k_{\mathrm{B}}T\) ऊर्जा मिलती है। स्थानांतरीय = 3, घूर्णी = 2 (रेखीय) अथवा 3 (अरेखीय), कंपन = 2 प्रति विधा।</li>
+      <li><strong>विशिष्ट ऊष्मा धारिताएँ:</strong> \(C_v = \frac{f}{2}R\), \(C_p = \left(\frac{f}{2}+1\right)R\), \(\gamma = 1 + \frac{2}{f}\)। सर्वत्र \(C_p - C_v = R\)।</li>
+      <li><strong>ठोस:</strong> 3D जालक दोलनों के 6 पदों के कारण मोलर विशिष्ट ऊष्मा \(C = 3R\) होती है (डुलॉन्ग-पैटिट नियम)।</li>
+      <li><strong>माध्य मुक्त पथ:</strong> \(l = \frac{1}{\sqrt{2}n\pi d^2}\)। STP पर यह आण्विक आकार का लगभग 1000 गुना होता है।</li>
+      <li><strong>डाल्टन का नियम:</strong> अक्रिय गैसों के मिश्रण का कुल दाब सभी घटकों के आंशिक दाबों का योग होता है।</li>
+    </ol>
+  </div>
+</div>
+
+</div> <!-- end container -->
+</body>
+</html>
+'''
+
+append_to_file("/tmp/part1.html", sec8_9)
+print("Sections 8, 9, and closing tags appended successfully.")
+EOF
+python3 /tmp/gen_sec8_9.py
+}

@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locomotion and Movement - NEET UG Comprehensive Master Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --secondary: #0d9488;
+      --secondary-light: #f0fdfa;
+      --accent: #b45309;
+      --accent-light: #fef3c7;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --border-color: #cbd5e1;
+      --card-bg: #ffffff;
+      --bg-main: #f8fafc;
+      --hindi-color: #0f172a;
+      --hindi-bg: #fafaf9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", "Noto Sans", Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text-main);
+      background-color: var(--bg-main);
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .meta-tag {
+      display: inline-block;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 6px;
+      border: 1px solid #bfdbfe;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary);
+      border-left: 4px solid var(--secondary);
+      padding-left: 10px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #1e293b;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-top: 14px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Bilingual styling */
+    .lang-en {
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .lang-hi {
+      background-color: var(--hindi-bg);
+      border-left: 3px solid #f59e0b;
+      padding: 12px 16px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      border-radius: 0 6px 6px 0;
+      color: var(--hindi-color);
+      font-family: "Noto Sans Devanagari", -apple-system, sans-serif;
+    }
+
+    .lang-hi h2, .lang-hi h3, .lang-hi h4 {
+      color: #92400e;
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .lang-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .label-en {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .label-hi {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      background-color: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #15803d;
+      margin-bottom: 6px;
+    }
+
+    .callout-warning {
+      background-color: #fffbeb;
+      border-left: 4px solid #d97706;
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .callout-warning .callout-title {
+      color: #b45309;
+    }
+
+    /* SVG Containers */
+    .svg-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 18px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+    }
+
+    .svg-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* Practice Questions */
+    .question-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 18px;
+      margin-bottom: 24px;
+      background: #ffffff;
+      page-break-inside: avoid;
+    }
+
+    .q-number {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .options {
+      list-style-type: none;
+      margin-left: 0;
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+
+    .options li {
+      padding: 6px 10px;
+      margin-bottom: 4px;
+      border-radius: 4px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .solution-box {
+      margin-top: 12px;
+      background-color: #f0fdfa;
+      border: 1px solid #99f6e4;
+      padding: 12px 14px;
+      border-radius: 5px;
+      font-size: 0.92rem;
+    }
+
+    .solution-title {
+      font-weight: 700;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #e2e8f0;
+      margin: 16px 0;
+    }
+
+    .question-divider {
+      border: 0;
+      height: 2px;
+      background: #cbd5e1;
+      margin: 20px 0;
+    }
+
+    /* Print styles */
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      body {
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 10.5pt;
+        line-height: 1.45;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .question-card {
+        page-break-inside: avoid;
+        border: 1px solid #94a3b8;
+        margin-bottom: 16px;
+      }
+
+      .svg-container {
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1;
+      }
+
+      .lang-hi {
+        background-color: #fdfbf7;
+        border-left: 2px solid #b45309;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Locomotion and Movement / गमन एवं संचलन</h1>
+    <div class="subtitle">Comprehensive NEET-UG Master Tutorial & Assessment / सम्पूर्ण नीट-यूजी ट्यूटोरियल एवं मूल्यांकन</div>
+    <div>
+      <span class="meta-tag">Exam: NEET UG</span>
+      <span class="meta-tag">Class 11 Biology (NCERT)</span>
+      <span class="meta-tag">Bilingual: English & हिन्दी</span>
+      <span class="meta-tag">Core Unit: Human Physiology</span>
+    </div>
+  </header>
+
+  <!-- SECTION 1: OVERVIEW AND OBJECTIVES -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>1. Overview and Learning Objectives</h2>
+      <p>Locomotion and movement are fundamental hallmarks of living organisms. Movement represents any change in position of an organ, cell, or organism, whereas locomotion refers specifically to voluntary movements that lead to a displacement or change of location. In human physiology, movement is executed through the tight coordination of three body systems: the <strong>muscular system</strong>, the <strong>skeletal system</strong>, and the <strong>neural system</strong>.</p>
+      <p>By the end of this tutorial, the NEET aspirant will be able to:</p>
+      <ul>
+        <li>Differentiate between amoeboid, ciliary, flagellar, and muscular movements with physiological examples.</li>
+        <li>Classify human muscle types (skeletal, visceral, cardiac) based on histological structure, location, and control.</li>
+        <li>Describe the microscopic anatomy of skeletal muscle, myofibrils, sarcomere, and contractile myofilaments.</li>
+        <li>Explain the Sliding Filament Theory and the cyclic biochemical events of cross-bridge mechanics driven by ATP and Ca<sup>2+</sup>.</li>
+        <li>Compare slow-twitch (red) and fast-twitch (white) muscle fibres.</li>
+        <li>Enumerate all 206 bones of the human skeleton across the axial (80) and appendicular (126) divisions.</li>
+        <li>Classify structural and functional joint types (fibrous, cartilaginous, synovial) and identify their clinical locations.</li>
+        <li>Recognize clinical signs, causes, and mechanisms of neuromuscular and skeletal pathologies: Myasthenia gravis, Muscular dystrophy, Tetany, Arthritis, Osteoporosis, and Gout.</li>
+      </ul>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>1. समीक्षा एवं शिक्षण उद्देश्य</h2>
+      <p>संचलन एवं गमन सजीवों की मूलभूत विशेषताएँ हैं। संचलन किसी अंग, कोशिका या जीव की स्थिति में परिवर्तन को कहते हैं, जबकि गमन (लोकोमोशन) विशेष रूप से ऐसे ऐच्छिक संचलनों को संदर्भित करता है जिसके परिणामस्वरूप स्थान या स्थिति में परिवर्तन होता है। मानव शरीर क्रिया विज्ञान में, गमन तीन प्रणालियों के परस्पर सटीक समन्वय द्वारा संपन्न होता है: <strong>पेशीय तंत्र</strong>, <strong>कंकाल तंत्र</strong>, और <strong>तंत्रिका तंत्र</strong>।</p>
+      <p>इस ट्यूटोरियल के अध्ययन के पश्चात नीट (NEET) अभ्यर्थी निम्नलिखित में दक्ष होंगे:</p>
+      <ul>
+        <li>अमीबीय, पक्ष्माभी, कशाभी तथा पेशीय गतियों में शारीरिक उदाहरणों सहित अंतर स्पष्ट करना।</li>
+        <li>औतिकी संरचना, स्थिति एवं नियंत्रण के आधार पर मानव पेशियों (कंकाल, अंतरांगी, हृद) का वर्गीकरण करना।</li>
+        <li>कंकाल पेशी, पेशी तंतुक (मायोफाइब्रिल), सार्कोमियर तथा संकुचनशील प्रोटीनों की सूक्ष्म संरचना का विशद विश्लेषण करना।</li>
+        <li>एटीपी (ATP) एवं Ca<sup>2+</sup> द्वारा संचालित विसर्पी तंतु सिद्धांत (स्लाइडिंग फिलामेंट थ्योरी) एवं क्रॉस-ब्रिज चक्र की जैव-रासायनिक क्रियाविधि समझना।</li>
+        <li>लाल एवं श्वेत पेशी तंतुओं के मध्य तुलनात्मक विभेद करना।</li>
+        <li>अक्षीय (80) एवं उपांगी (126) कंकाल में विभाजित संपूर्ण 206 अस्थियों की सटीक गणना व पहचान करना।</li>
+        <li>संधियों के संरचनात्मक प्रकारों (रेशीय, उपास्थिमय, साइनोवियल) का वर्गीकरण तथा उनके शारीरिक स्थलों को जानना।</li>
+        <li>पेशीय एवं कंकाल तंत्र से संबंधित विकारों जैसे मायस्थेनिया ग्रेविस, मस्कुलर डिस्ट्रॉफी, टिटैनी, आर्थराइटिस (संधिशोथ), ऑस्टियोपोरोसिस तथा गाउट के कारणों व लक्षणों की पहचान करना।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 2: TYPES OF MOVEMENT -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>2. Types of Movement in Living Organisms</h2>
+      <p>Streaming of protoplasm (cyclosis) in unicellular organisms like <em>Amoeba</em> is the simplest form of movement. Many organisms employ specialized locomotory organelles: <em>Paramoecium</em> uses cilia for guiding food through the cytopharynx as well as for locomotion; <em>Hydra</em> utilizes its tentacles for prey capture and locomotion. Humans employ limbs for posture and locomotion. Thus, <strong>all locomotions are movements, but all movements are not locomotions</strong>.</p>
+      <p>Human body cells exhibit three primary types of movement, along with flagellar movement:</p>
+      <ol>
+        <li><strong>Amoeboid Movement:</strong> Exhibited by specialized cells such as <em>macrophages</em> and <em>leucocytes</em> (neutrophils) in blood. It is mediated by the formation of pseudopodia via protoplasmic streaming. Cytoskeletal elements like <strong>microfilaments</strong> (actin) are actively involved.</li>
+        <li><strong>Ciliary Movement:</strong> Occurs in internal hollow tubular organs lined by ciliated epithelium.
+          <ul>
+            <li>Coordinated beating of cilia in the respiratory tract (trachea) drives mucus loaded with inhaled dust particles outward.</li>
+            <li>Passage of ova (and zygote) through the female genital tract (fallopian tubes/oviducts) is propelled by ciliary currents.</li>
+          </ul>
+        </li>
+        <li><strong>Muscular Movement:</strong> Movement of jaws, limbs, tongue, and neck relies on the contractile property of muscle tissue. Locomotion predominantly depends on muscular movements acting across skeletal levers.</li>
+        <li><strong>Flagellar Movement:</strong> Flagella are membrane outgrowths. In humans, flagellar movement aids in the swimming motility of spermatozoa. In other organisms, it maintains water currents in the canal system of sponges and assists locomotion in flagellated protists like <em>Euglena</em>.</li>
+      </ol>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>2. सजीवों में संचलन के प्रकार</h2>
+      <p><em>अमीबा</em> जैसे एककोशिकीय जीवों में जीवद्रव्य का प्रवाही संचलन (cyclosis) संचलन का सबसे सरल रूप है। कई जीव विशिष्ट अंगों का उपयोग करते हैं: <em>पैरामीशियम</em> में पक्ष्माभ (सीलिया) ग्रसिका (साइटोफैरिंक्स) में भोजन के प्रवेश तथा गमन दोनों में सहायक होते हैं; <em>हाइड्रा</em> अपने स्पर्शकों (टेंटेकल्स) का उपयोग शिकार पकड़ने और गमन दोनों के लिए करता है। मनुष्य अपने पादों (हाथ-पैरों) का उपयोग शारीरिक मुद्रा परिवर्तन व गमन दोनों के लिए करता है। अतः, <strong>सभी गमन संचलन होते हैं, किंतु सभी संचलन गमन नहीं होते।</strong></p>
+      <p>मानव शरीर की कोशिकाएं मुख्य रूप से तीन प्रकार के संचलन प्रदर्शित करती हैं, साथ ही कशाभी संचलन भी पाया जाता है:</p>
+      <ol>
+        <li><strong>अमीबीय संचलन (Amoeboid Movement):</strong> हमारे शरीर की कुछ विशिष्ट कोशिकाएं जैसे रक्त में उपस्थित <em>महाभक्षकाणु (मैक्रोफेज)</em> तथा <em>श्वेताणु (ल्यूकोसाइट्स)</em> अमीबीय गति दर्शाती हैं। यह जीवद्रव्य प्रवाह द्वारा कूटपाद (स्यूडोपोडिया) बनाकर संपन्न होती है। इसमें कोशिकापंजर तत्व जैसे <strong>सूक्ष्मतंतु (माइक्रोफिलामेंट्स)</strong> भी सक्रिय रूप से सम्मिलित होते हैं।</li>
+        <li><strong>पक्ष्माभी संचलन (Ciliary Movement):</strong> यह हमारे उन आंतरिक खोखले नलिकाकार अंगों में होता है जो पक्ष्माभी उपकला (पक्ष्माभयुक्त एपीथीलियम) से आस्तरित होते हैं।
+          <ul>
+            <li>श्वासनली (ट्रेकिया) में पक्ष्माभों की समन्वित गति श्वास के साथ भीतर आए धूल कणों व बाहरी पदार्थों को बाहर निकालने में सहायता करती है।</li>
+            <li>मादा जनन मार्ग (अंडवाहिनी / फैलोपियन नलिका) में अंडाणु का आगे बढ़ना पक्ष्माभी गति द्वारा सुगम होता है।</li>
+          </ul>
+        </li>
+        <li><strong>पेशीय संचलन (Muscular Movement):</strong> हमारे जबड़ों, पादों, जीभ आदि का संचलन पेशीय गति पर निर्भर करता है। पेशियों के संकुचनशील गुण का उपयोग मानव एवं अधिकांश बहुकोशिकीय जीवों द्वारा गमन हेतु किया जाता है।</li>
+        <li><strong>कशाभी संचलन (Flagellar Movement):</strong> कशाभिका (फ्लैजिला) कोशिका झिल्ली का उभार है। मानव में शुक्राणुओं का तैरना कशाभी संचलन द्वारा होता है। स्पंजों के नाल तंत्र में जलधारा बनाए रखना तथा <em>यूग्लीना</em> जैसे प्रोटिस्ट में गमन भी कशाभिका द्वारा होता है।</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SECTION 3: MUSCLE TISSUE AND ARCHITECTURE -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>3. Muscle Tissue: Classification and Structural Organization</h2>
+      <p>Muscle is a specialized tissue of <strong>mesodermal origin</strong>. In a healthy human adult, muscles account for approximately <strong>40% to 50%</strong> of total body weight. Muscles exhibit four essential physiological characteristics:</p>
+      <ul>
+        <li><strong>Excitability:</strong> Ability to perceive and respond to electrical or chemical stimuli.</li>
+        <li><strong>Contractility:</strong> Ability to shorten forcibly upon stimulation.</li>
+        <li><strong>Extensibility:</strong> Ability to stretch or extend without damage.</li>
+        <li><strong>Elasticity:</strong> Capacity to recoil back to resting length following contraction or stretch.</li>
+      </ul>
+
+      <h3>Comparison of Muscle Types</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Skeletal Muscle</th>
+              <th>Visceral (Smooth) Muscle</th>
+              <th>Cardiac Muscle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Location</strong></td>
+              <td>Attached to bones and skeletal framework</td>
+              <td>Walls of internal hollow visceral organs (gut, blood vessels, genital tract)</td>
+              <td>Myocardium of the heart</td>
+            </tr>
+            <tr>
+              <td><strong>Microscopic Appearance</strong></td>
+              <td>Striated (transverse alternate dark and light bands)</td>
+              <td>Non-striated (smooth, unstriped, spindle-shaped/fusiform)</td>
+              <td>Striated with intercalated discs and branching patterns</td>
+            </tr>
+            <tr>
+              <td><strong>Control of Activity</strong></td>
+              <td>Voluntary (somatic nervous system)</td>
+              <td>Involuntary (autonomic nervous system)</td>
+              <td>Involuntary (myogenic with autonomic modulation)</td>
+            </tr>
+            <tr>
+              <td><strong>Nuclear Condition</strong></td>
+              <td>Multinucleated syncytium (peripheral nuclei)</td>
+              <td>Uninucleated (central oval nucleus)</td>
+              <td>Uninucleated or binucleated (centrally placed)</td>
+            </tr>
+            <tr>
+              <td><strong>Fatigue</strong></td>
+              <td>Subject to fatigue upon repeated stimulation</td>
+              <td>Slow to contract, highly fatigue-resistant</td>
+              <td>Immune to physiological fatigue (continuous rhythmic contractions)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Hierarchical Organization of a Skeletal Muscle</h3>
+      <p>A skeletal muscle (e.g., biceps) is enclosed by an outer connective tissue sheath. Internally, it comprises numerous muscle bundles called <strong>fascicles</strong>, bound together by a common collagenous connective tissue layer known as <strong>fascia</strong>. Within each fascicle reside numerous cylindrical muscle cells termed <strong>muscle fibres</strong>.</p>
+      <ul>
+        <li><strong>Sarcolemma:</strong> The plasma membrane enveloping the muscle fibre.</li>
+        <li><strong>Sarcoplasm:</strong> The cytoplasm of the muscle fibre, which contains multiple nuclei (making it a true <em>syncytium</em> resulting from myoblast fusion).</li>
+        <li><strong>Sarcoplasmic Reticulum:</strong> The modified smooth endoplasmic reticulum running parallel to myofibrils; it acts as the primary intracellular reservoir and release site for calcium ions (\(\mathrm{Ca}^{2+}\)).</li>
+        <li><strong>Myofibrils (Myofilaments):</strong> Densely packed, parallel cylindrical organelles traversing the length of the fibre, containing ordered arrays of contractile proteins that give rise to microscopic striations.</li>
+      </ul>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>3. पेशी ऊतक: वर्गीकरण एवं संरचनात्मक संघटन</h2>
+      <p>पेशी एक विशिष्ट ऊतक है जिसकी उत्पत्ति <strong>मध्यजनस्तर (मीसोडर्म / Mesoderm)</strong> से होती है। एक वयस्क मानव के शरीर के कुल भार का लगभग <strong>40 से 50 प्रतिशत</strong> भाग पेशियों का होता है। पेशियों में चार मूलभूत गुणधर्म पाए जाते हैं:</p>
+      <ul>
+        <li><strong>उत्तेजनशीलता (Excitability):</strong> रासायनिक अथवा तंत्रिकीय उद्दीपनों को ग्रहण कर प्रतिक्रिया देने की क्षमता।</li>
+        <li><strong>संकुचनशीलता (Contractility):</strong> उद्दीपन पर बलपूर्वक छोटे (संकुचित) होने का गुण।</li>
+        <li><strong>प्रसार्यता (Extensibility):</strong> बिना क्षतिग्रस्त हुए विस्तारित अथवा खिंचने की क्षमता।</li>
+        <li><strong>प्रत्यास्थता (Elasticity):</strong> खिंचाव या संकुचन के पश्चात पुनः अपनी मूल विश्राम अवस्था में लौटने की क्षमता।</li>
+      </ul>
+
+      <h3>पेशियों के तीनों प्रकारों में तुलना</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>लक्षण</th>
+              <th>कंकाल पेशी (Skeletal)</th>
+              <th>अंतरांगी / चिकनी पेशी (Visceral/Smooth)</th>
+              <th>हृद पेशी (Cardiac)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>स्थिति</strong></td>
+              <td>कंकालीय अस्थियों से संलग्न</td>
+              <td>आंतरिक खोखले अंगों (आहारनाल, जनन मार्ग, वाहिकाएं) की भित्ति में</td>
+              <td>हृदय की मायोकार्डियम भित्ति</td>
+            </tr>
+            <tr>
+              <td><strong>सूक्ष्मदर्शीय स्वरूप</strong></td>
+              <td>रेखित (प्रत्यावर्ती गहरी एवं हल्की पट्टियाँ उपस्थित)</td>
+              <td>अरेखित (चिकनी, तर्कुरूपी / fusiform, पट्टिका रहित)</td>
+              <td>रेखित, शाखान्वित प्ररूप एवं अंतर्विष्ट चक्रिकाएं (Intercalated discs) युक्त</td>
+            </tr>
+            <tr>
+              <td><strong>क्रिया नियंत्रण</strong></td>
+              <td>ऐच्छिक (दैहिक तंत्रिका तंत्र के अधीन)</td>
+              <td>अनैच्छिक (स्वायत्त तंत्रिका तंत्र के अधीन)</td>
+              <td>अनैच्छिक (पेशीजनक / मायोजेनिक, स्वायत्त तंत्रिका द्वारा नियमन)</td>
+            </tr>
+            <tr>
+              <td><strong>केंद्रक की स्थिति</strong></td>
+              <td>बहुकेंद्रकी संकोशिका (Syncytium), परिधीय केंद्रक</td>
+              <td>एककेंद्रकी, केंद्र में स्थित अंडाकार केंद्रक</td>
+              <td>एक या द्विकेंद्रकी, केंद्र में स्थित</td>
+            </tr>
+            <tr>
+              <td><strong>थकान (Fatigue)</strong></td>
+              <td>लगातार कार्य करने पर शीघ्र थकान का अनुभव</td>
+              <td>मंद संकुचन, थकान के प्रति अत्यधिक प्रतिरोधी</td>
+              <td>थकान रहित (आजीवन निरंतर लयबद्ध संकुचन)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>कंकाल पेशी का पदानुक्रमिक संगठन</h3>
+      <p>प्रत्येक संगठित कंकाल पेशी कई <strong>पेशी बंडलों (Fascicles)</strong> की बनी होती है, जो परस्पर एक सामान्य कोलेजनी संयोजी ऊतक स्तर द्वारा जुड़ी रहती हैं, जिसे <strong>प्रावरणी (Fascia)</strong> कहते हैं। प्रत्येक पेशी बंडल में अत्यधिक संख्या में <strong>पेशी रेशे (Muscle fibres)</strong> उपस्थित होते हैं।</p>
+      <ul>
+        <li><strong>सार्कोलेमा (Sarcolemma):</strong> पेशी रेशे को घेरने वाली विशिष्ट प्लाज्मा झिल्ली।</li>
+        <li><strong>सार्कोप्लाज्म (Sarcoplasm):</strong> पेशी तंतु का कोशिकाद्रव्य, जिसमें कई केंद्रक होते हैं; अतः पेशी रेशा एक बहुकेंद्रकी संरचना (Syncytium) है।</li>
+        <li><strong>सार्कोप्लाज्मिक रेटिकुलम (Sarcoplasmic Reticulum):</strong> पेशी रेशे की अंतर्द्रव्यी जालिका जो कैल्शियम आयनों (\(\mathrm{Ca}^{2+}\)) का विशाल भंडार गृह (Storehouse) है।</li>
+        <li><strong>मायोफाइब्रिल्स (पेशी तंतुक):</strong> सार्कोप्लाज्म में समानांतर रूप से विन्यस्त बड़ी संख्या में उपस्थित तंतुक, जिन पर एकांतर रूप से गहरे और हल्के बैंड्स पाए जाते हैं।</li>
+      </ul>
+    </div>
+
+    <!-- SVG DIAGRAM 1: SKELETAL MUSCLE HIERARCHY -->
+    <div class="svg-container">
+      <svg viewBox="0 0 750 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="750" height="260" fill="#f8fafc" rx="8" />
+        
+        <!-- Whole Muscle Outer Sheath -->
+        <path d="M 40,30 C 40,20 180,20 180,30 L 180,210 C 180,220 40,220 40,210 Z" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+        <text x="110" y="240" font-size="13" font-weight="bold" fill="#991b1b" text-anchor="middle">Skeletal Muscle / पेशी</text>
+        <text x="110" y="125" font-size="12" fill="#7f1d1d" text-anchor="middle">Epimysium / Fascia</text>
+
+        <!-- Connector Arrow -->
+        <path d="M 180,120 L 230,120" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+
+        <!-- Fascicle -->
+        <g transform="translate(230, 45)">
+          <rect x="0" y="0" width="120" height="150" rx="20" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+          <!-- Internal Fibres -->
+          <circle cx="35" cy="40" r="14" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+          <circle cx="85" cy="40" r="14" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+          <circle cx="35" cy="80" r="14" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+          <circle cx="85" cy="80" r="14" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+          <circle cx="60" cy="115" r="14" fill="#fca5a5" stroke="#ef4444" stroke-width="1.5"/>
+          <text x="60" y="175" font-size="13" font-weight="bold" fill="#c2410c" text-anchor="middle">Fascicle / बंडल</text>
+          <text x="60" y="192" font-size="11" fill="#7c2d12" text-anchor="middle">(Perimysium)</text>
+        </g>
+
+        <!-- Connector Arrow -->
+        <path d="M 350,120 L 400,120" stroke="#475569" stroke-width="2" />
+
+        <!-- Muscle Fibre (Cell) -->
+        <g transform="translate(400, 60)">
+          <rect x="0" y="0" width="130" height="120" rx="10" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+          <ellipse cx="65" cy="20" rx="30" ry="8" fill="#93c5fd" stroke="#2563eb" stroke-width="1"/>
+          <text x="65" y="24" font-size="10" fill="#1e3a8a" text-anchor="middle">Peripheral Nucleus</text>
+          
+          <rect x="15" y="45" width="100" height="18" fill="#cbd5e1" stroke="#475569" stroke-dasharray="4,2"/>
+          <rect x="15" y="70" width="100" height="18" fill="#cbd5e1" stroke="#475569" stroke-dasharray="4,2"/>
+          <text x="65" y="150" font-size="13" font-weight="bold" fill="#a16207" text-anchor="middle">Muscle Fibre / पेशी रेशा</text>
+          <text x="65" y="167" font-size="11" fill="#713f12" text-anchor="middle">Sarcolemma &amp; Sarcoplasm</text>
+        </g>
+
+        <!-- Connector Arrow -->
+        <path d="M 530,120 L 580,120" stroke="#475569" stroke-width="2" />
+
+        <!-- Myofibril showing bands -->
+        <g transform="translate(580, 80)">
+          <rect x="0" y="0" width="140" height="80" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+          <!-- Striations -->
+          <rect x="25" y="0" width="35" height="80" fill="#94a3b8" />
+          <rect x="85" y="0" width="35" height="80" fill="#94a3b8" />
+          <!-- Z lines -->
+          <line x1="10" y1="0" x2="10" y2="80" stroke="#dc2626" stroke-width="2.5" />
+          <line x1="70" y1="0" x2="70" y2="80" stroke="#dc2626" stroke-width="2.5" />
+          <line x1="130" y1="0" x2="130" y2="80" stroke="#dc2626" stroke-width="2.5" />
+          <text x="70" y="110" font-size="13" font-weight="bold" fill="#1e293b" text-anchor="middle">Myofibril / मायोफाइब्रिल</text>
+          <text x="70" y="127" font-size="11" fill="#475569" text-anchor="middle">Alternate A &amp; I bands</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Structural Hierarchy: Skeletal Muscle &rarr; Fascicles (Bundles) &rarr; Muscle Fibres &rarr; Myofibrils</div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SARCOMERE & CONTRACTILE PROTEINS -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>4. The Sarcomere and Molecular Anatomy of Contractile Proteins</h2>
+      <p>The striated pattern of a myofibril is due to the precise spatial distribution of two contractile filament proteins: thin filaments (composed primarily of <strong>Actin</strong>) and thick filaments (composed of <strong>Myosin</strong>).</p>
+
+      <h3>Anatomy of the Sarcomere</h3>
+      <p>The <strong>sarcomere</strong> is the structural and functional unit of muscle contraction. It represents the segment of a myofibril situated between two consecutive <strong>Z-lines</strong>.</p>
+      <ul>
+        <li><strong>'I' Band (Isotropic Band):</strong> The light band containing only thin (actin) filaments. It is bisected by a dense, elastic protein disc called the <strong>'Z' line</strong> (Zwischenscheibe). Thin filaments are anchored firmly to the Z-line.</li>
+        <li><strong>'A' Band (Anisotropic Band):</strong> The dark band traversing the entire length of the thick (myosin) filaments. Towards its outer margins, thin filaments partially overlap the thick filaments.</li>
+        <li><strong>'H' Zone (Hensen's Zone):</strong> The central region of the 'A' band where thick filaments are <em>not</em> overlapped by thin filaments in the resting state.</li>
+        <li><strong>'M' Line (Mittelscheibe):</strong> A delicate fibrous protein membrane in the dead center of the 'A' band that holds adjacent thick filaments together.</li>
+      </ul>
+
+      <h3>Molecular Structure of the Thin Filament (Actin Complex)</h3>
+      <p>Each thin filament is a ternary protein complex constructed from three distinct proteins:</p>
+      <ol>
+        <li><strong>F-Actin (Filamentous Actin):</strong> Two strands of 'F'-actin are helically wound around each other to form the structural backbone. Each F-actin is a polymer assembled from monomeric globular subunits called <strong>G-actins (Globular Actins)</strong>.</li>
+        <li><strong>Tropomyosin:</strong> Two continuous proteinaceous filaments that run parallel to and within the helical groove along the entire length of the F-actin strands.</li>
+        <li><strong>Troponin:</strong> A complex trimeric globular protein distributed at regular repeating intervals along the tropomyosin chains. In the relaxed state, a specific subunit of troponin (Troponin I) masks the active binding sites for myosin on the actin monomers, preventing premature cross-bridge interaction.</li>
+      </ol>
+
+      <h3>Molecular Structure of the Thick Filament (Myosin)</h3>
+      <p>Each thick filament is a polymer composed of numerous repeating monomeric subunits called <strong>Meromyosins</strong>. A single meromyosin molecule consists of two functional regions:</p>
+      <ol>
+        <li><strong>Heavy Meromyosin (HMM):</strong> Comprises a globular double head and an adjoining short neck/arm. The head and neck project outward at regular distances and angles from the filament surface, functioning as the dynamic <strong>cross-arm</strong>.
+          <ul>
+            <li>The globular head functions as an active <strong>\(\mathrm{Mg}^{2+}\)-dependent ATPase enzyme</strong>.</li>
+            <li>It bears two critical functional domains: an <strong>ATP-binding site</strong> and an <strong>actin-binding site</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Light Meromyosin (LMM):</strong> The extended coiled-coil alpha-helical tail piece that forms the structural core of the thick filament shaft.</li>
+      </ol>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>4. सार्कोमियर तथा संकुचनशील प्रोटीनों की आणविक संरचना</h2>
+      <p>मायोफाइब्रिल की रेखित बनावट दो महत्वपूर्ण प्रोटीनों के सुव्यवस्थित वितरण के कारण होती है: पतले तंतु (मुख्यतः <strong>एक्टिन</strong> निर्मित) तथा मोटे तंतु (<strong>मायोसिन</strong> निर्मित)।</p>
+
+      <h3>सार्कोमियर (Sarcomere) की संरचना</h3>
+      <p>कंकाल पेशी के संकुचन की मूलभूत कार्यात्मक इकाई को <strong>सार्कोमियर (पेशीखंड)</strong> कहते हैं। यह दो क्रमागत <strong>'Z' रेखाओं</strong> के मध्य स्थित मायोफाइब्रिल का भाग होता है।</p>
+      <ul>
+        <li><strong>'I' बैंड (समदैशिक / Isotropic Band):</strong> यह हल्का बैंड है जिसमें केवल पतले (एक्टिन) तंतु पाए जाते हैं। इसके मध्य में एक लचीली प्रत्यास्थ झिल्ली होती है जिसे <strong>'Z' रेखा</strong> कहते हैं, जो इसे दो समान भागों में विभाजित करती है। एक्टिन तंतु Z-रेखा से दृढ़तापूर्वक जुड़े होते हैं।</li>
+        <li><strong>'A' बैंड (विषमदैशिक / Anisotropic Band):</strong> यह गहरा बैंड है जो मोटे (मायोसिन) तंतुओं की पूरी लंबाई का प्रतिनिधित्व करता है। इसके किनारों पर पतले तंतु मोटे तंतुओं को आंशिक रूप से ढके रहते हैं।</li>
+        <li><strong>'H' क्षेत्र (H-Zone):</strong> विश्राम अवस्था में 'A' बैंड का वह मध्य भाग जो पतले तंतुओं द्वारा अतिव्याप्त (overlap) नहीं होता, 'H' क्षेत्र कहलाता है।</li>
+        <li><strong>'M' रेखा:</strong> 'A' बैंड के ठीक मध्य में स्थित एक महीन रेशेदार संयोजी झिल्ली जो मोटे तंतुओं को परस्पर बांधे रखती है।</li>
+      </ul>
+
+      <h3>पतले तंतु (एक्टिन) की आणविक संरचना</h3>
+      <p>प्रत्येक पतला तंतु तीन प्रमुख प्रोटीनों के संयोजन से बना होता है:</p>
+      <ol>
+        <li><strong>F-एक्टिन (तंतुमय एक्टिन):</strong> दो 'F' एक्टिन तंतु परस्पर सर्पिलाकार रूप में लिपटे रहते हैं। प्रत्येक F-एक्टिन कई गोलाकार <strong>'G' (Globular) एक्टिन</strong> एकलकों (मोनोमर्स) का बहुलक होता है।</li>
+        <li><strong>ट्रोपोमायोसिन (Tropomyosin):</strong> दो धागेनुमा तंतु जो संपूर्ण लंबाई में F-एक्टिन के खांचों के समीप समानांतर रूप से चलते हैं।</li>
+        <li><strong>ट्रोपोनिन (Troponin):</strong> यह एक जटिल त्रितयी प्रोटीन है जो ट्रोपोमायोसिन पर नियमित अंतरालों पर उपस्थित होता है। विश्राम की अवस्था में, ट्रोपोनिन की एक उप-इकाई एक्टिन तंतुओं पर मायोसिन के सक्रिय बंधन स्थलों को ढके (mask किए) रखती है।</li>
+      </ol>
+
+      <h3>मोटे तंतु (मायोसिन) की आणविक संरचना</h3>
+      <p>प्रत्येक मोटा तंतु भी एक बहुलकीकृत प्रोटीन है जो कई एकलकों से मिलकर बनता है जिन्हें <strong>मेरोमायोसिन (Meromyosin)</strong> कहते हैं। प्रत्येक मेरोमायोसिन के दो प्रमुख भाग होते हैं:</p>
+      <ol>
+        <li><strong>भारी मेरोमायोसिन (HMM - Heavy Meromyosin):</strong> इसमें एक गोलाकार शीर्ष (Head) तथा छोटी भुजा (Short arm) सम्मिलित होती है। यह शीर्ष एवं भुजा मिलकर बाहर की ओर नियमित दूरी व कोण पर उभरे रहते हैं, जिसे <strong>क्रॉस आर्म (Cross arm)</strong> कहते हैं।
+          <ul>
+            <li>मायोसिन का शीर्ष एक सक्रिय <strong>ATPase एंजाइम</strong> के रूप में कार्य करता है।</li>
+            <li>शीर्ष पर दो विशिष्ट स्थल होते हैं: <strong>ATP बंधन स्थल</strong> तथा <strong>एक्टिन बंधन स्थल</strong>।</li>
+          </ul>
+        </li>
+        <li><strong>हल्का मेरोमायोसिन (LMM - Light Meromyosin):</strong> यह मेरोमायोसिन की पूंछ (Tail) का निर्माण करता है।</li>
+      </ol>
+    </div>
+
+    <!-- SVG DIAGRAM 2: SARCOMERE DETAILED -->
+    <div class="svg-container">
+      <svg viewBox="0 0 750 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="750" height="320" fill="#ffffff" rx="8" />
+
+        <!-- Top dimension bracket: Sarcomere -->
+        <line x1="120" y1="25" x2="630" y2="25" stroke="#0f172a" stroke-width="2"/>
+        <line x1="120" y1="20" x2="120" y2="30" stroke="#0f172a" stroke-width="2"/>
+        <line x1="630" y1="20" x2="630" y2="30" stroke="#0f172a" stroke-width="2"/>
+        <text x="375" y="18" font-size="14" font-weight="bold" fill="#0f172a" text-anchor="middle">Sarcomere (Between two Z-lines) / सार्कोमियर</text>
+
+        <!-- Band Annotations -->
+        <!-- I-Band left -->
+        <rect x="50" y="38" width="140" height="20" fill="#dbeafe" rx="3"/>
+        <text x="120" y="52" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">I Band / समदैशिक</text>
+
+        <!-- A-Band center -->
+        <rect x="220" y="38" width="310" height="20" fill="#fee2e2" rx="3"/>
+        <text x="375" y="52" font-size="11" font-weight="bold" fill="#991b1b" text-anchor="middle">A Band (Constant length) / विषमदैशिक</text>
+
+        <!-- I-Band right -->
+        <rect x="560" y="38" width="140" height="20" fill="#dbeafe" rx="3"/>
+        <text x="630" y="52" font-size="11" font-weight="bold" fill="#1e40af" text-anchor="middle">I Band / समदैशिक</text>
+
+        <!-- H-Zone bracket -->
+        <line x1="310" y1="68" x2="440" y2="68" stroke="#b45309" stroke-width="1.5"/>
+        <line x1="310" y1="64" x2="310" y2="72" stroke="#b45309" stroke-width="1.5"/>
+        <line x1="440" y1="64" x2="440" y2="72" stroke="#b45309" stroke-width="1.5"/>
+        <text x="375" y="80" font-size="11" font-weight="bold" fill="#b45309" text-anchor="middle">H Zone / H-क्षेत्र</text>
+
+        <!-- Z-Line Left (Zig-zag) -->
+        <path d="M 120,90 L 128,110 L 112,130 L 128,150 L 112,170 L 128,190 L 112,210 L 128,230 L 120,250" fill="none" stroke="#2563eb" stroke-width="3.5" />
+        <text x="120" y="275" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">Z Line</text>
+
+        <!-- Z-Line Right (Zig-zag) -->
+        <path d="M 630,90 L 638,110 L 622,130 L 638,150 L 622,170 L 638,190 L 622,210 L 638,230 L 630,250" fill="none" stroke="#2563eb" stroke-width="3.5" />
+        <text x="630" y="275" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">Z Line</text>
+
+        <!-- M-Line (Center vertical line) -->
+        <line x1="375" y1="90" x2="375" y2="250" stroke="#059669" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="375" y="275" font-size="12" font-weight="bold" fill="#059669" text-anchor="middle">M Line</text>
+
+        <!-- Thin Filaments (Actin) - Top Tier -->
+        <line x1="120" y1="110" x2="310" y2="110" stroke="#3b82f6" stroke-width="4"/>
+        <line x1="440" y1="110" x2="630" y2="110" stroke="#3b82f6" stroke-width="4"/>
+        <!-- Thin Filaments - Mid Tier -->
+        <line x1="120" y1="150" x2="310" y2="150" stroke="#3b82f6" stroke-width="4"/>
+        <line x1="440" y1="150" x2="630" y2="150" stroke="#3b82f6" stroke-width="4"/>
+        <!-- Thin Filaments - Lower Tier -->
+        <line x1="120" y1="190" x2="310" y2="190" stroke="#3b82f6" stroke-width="4"/>
+        <line x1="440" y1="190" x2="630" y2="190" stroke="#3b82f6" stroke-width="4"/>
+        <!-- Thin Filaments - Bottom Tier -->
+        <line x1="120" y1="230" x2="310" y2="230" stroke="#3b82f6" stroke-width="4"/>
+        <line x1="440" y1="230" x2="630" y2="230" stroke="#3b82f6" stroke-width="4"/>
+
+        <!-- Thick Filaments (Myosin) with projecting heads -->
+        <!-- Thick 1 -->
+        <line x1="220" y1="130" x2="530" y2="130" stroke="#dc2626" stroke-width="8"/>
+        <!-- Cross bridges -->
+        <path d="M 240,130 L 250,113 M 280,130 L 290,113 M 470,130 L 460,113 M 510,130 L 500,113" stroke="#b91c1c" stroke-width="2"/>
+        <path d="M 240,130 L 250,147 M 280,130 L 290,147 M 470,130 L 460,147 M 510,130 L 500,147" stroke="#b91c1c" stroke-width="2"/>
+
+        <!-- Thick 2 -->
+        <line x1="220" y1="170" x2="530" y2="170" stroke="#dc2626" stroke-width="8"/>
+        <path d="M 240,170 L 250,153 M 280,170 L 290,153 M 470,170 L 460,153 M 510,170 L 500,153" stroke="#b91c1c" stroke-width="2"/>
+        <path d="M 240,170 L 250,187 M 280,170 L 290,187 M 470,170 L 460,187 M 510,170 L 500,187" stroke="#b91c1c" stroke-width="2"/>
+
+        <!-- Thick 3 -->
+        <line x1="220" y1="210" x2="530" y2="210" stroke="#dc2626" stroke-width="8"/>
+        <path d="M 240,210 L 250,193 M 280,210 L 290,193 M 470,210 L 460,193 M 510,210 L 500,193" stroke="#b91c1c" stroke-width="2"/>
+        <path d="M 240,210 L 250,227 M 280,210 L 290,227 M 470,210 L 460,227 M 510,210 L 500,227" stroke="#b91c1c" stroke-width="2"/>
+
+        <!-- Labels at bottom -->
+        <text x="60" y="305" font-size="12" fill="#3b82f6" font-weight="bold">Thin filament (Actin)</text>
+        <text x="690" y="305" font-size="12" fill="#dc2626" font-weight="bold" text-anchor="end">Thick filament (Myosin)</text>
+      </svg>
+      <div class="svg-caption">Ultrastructure of a Sarcomere showing Bands, Zones, and Filament Overlap</div>
+    </div>
+
+    <!-- SVG DIAGRAM 3: ACTIN & MYOSIN MOLECULAR DETAIL -->
+    <div class="svg-container">
+      <svg viewBox="0 0 750 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="750" height="280" fill="#f8fafc" rx="8"/>
+
+        <!-- PART A: ACTIN FILAMENT -->
+        <text x="20" y="25" font-size="14" font-weight="bold" fill="#0f172a">(a) Actin (Thin) Filament / एक्टिन (पतला) तंतु</text>
+        
+        <!-- F-Actin beads strand 1 -->
+        <g transform="translate(40, 45)">
+          <!-- Tropomyosin ribbons -->
+          <path d="M 0,22 Q 80,5 160,22 T 320,22 T 480,22 T 640,22" fill="none" stroke="#b45309" stroke-width="3.5"/>
+          <path d="M 0,22 Q 80,38 160,22 T 320,22 T 480,22 T 640,22" fill="none" stroke="#b45309" stroke-width="3.5"/>
+
+          <!-- G-Actin monomers -->
+          <circle cx="20" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="36" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="52" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="68" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="84" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="100" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="116" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="132" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="148" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="164" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="180" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="196" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="212" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="228" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="244" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="260" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="276" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="292" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="308" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="324" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="340" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="356" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="372" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="388" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="404" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="420" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="436" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="452" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="468" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="484" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="500" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="516" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="532" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="548" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="564" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="580" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="596" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="612" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="628" cy="18" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+          <circle cx="644" cy="24" r="9" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+
+          <!-- Troponin Complexes (Trimers) -->
+          <!-- Trimer 1 -->
+          <circle cx="110" cy="8" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <circle cx="120" cy="6" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <circle cx="115" cy="16" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <!-- Trimer 2 -->
+          <circle cx="310" cy="8" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <circle cx="320" cy="6" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <circle cx="315" cy="16" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <!-- Trimer 3 -->
+          <circle cx="510" cy="8" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <circle cx="520" cy="6" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+          <circle cx="515" cy="16" r="6" fill="#f87171" stroke="#b91c1c" stroke-width="1"/>
+        </g>
+        <!-- Annotations for Actin -->
+        <text x="640" y="50" font-size="11" fill="#15803d" font-weight="bold">F-Actin / एफ-एक्टिन</text>
+        <text x="640" y="68" font-size="11" fill="#b45309" font-weight="bold">Tropomyosin / ट्रोपोमायोसिन</text>
+        <text x="640" y="86" font-size="11" fill="#b91c1c" font-weight="bold">Troponin / ट्रोपोनिन</text>
+
+        <!-- PART B: MYOSIN MONOMER (MEROMYOSIN) -->
+        <text x="20" y="145" font-size="14" font-weight="bold" fill="#0f172a">(b) Myosin Monomer (Meromyosin) / मायोसिन एकलक (मेरोमायोसिन)</text>
+
+        <g transform="translate(100, 155)">
+          <!-- Tail (LMM) -->
+          <path d="M 50,85 Q 120,80 200,85 T 350,85" fill="none" stroke="#4ade80" stroke-width="6"/>
+          <path d="M 50,88 Q 120,83 200,88 T 350,88" fill="none" stroke="#22c55e" stroke-width="5"/>
+          <text x="200" y="112" font-size="12" font-weight="bold" fill="#15803d" text-anchor="middle">Tail (Light Meromyosin - LMM) / पूंछ</text>
+
+          <!-- Short Arm / Neck -->
+          <path d="M 350,85 C 380,85 410,70 430,45" fill="none" stroke="#ca8a04" stroke-width="8"/>
+          
+          <!-- Globular Heads (HMM) -->
+          <ellipse cx="445" cy="30" rx="20" ry="14" transform="rotate(-30 445 30)" fill="#fef08a" stroke="#a16207" stroke-width="2"/>
+          <ellipse cx="465" cy="20" rx="20" ry="14" transform="rotate(-30 465 20)" fill="#fef08a" stroke="#a16207" stroke-width="2"/>
+
+          <!-- Binding sites on Head -->
+          <!-- Actin binding sites -->
+          <circle cx="452" cy="12" r="4" fill="#16a34a" />
+          <circle cx="472" cy="4" r="4" fill="#16a34a" />
+          <text x="510" y="10" font-size="11" font-weight="bold" fill="#15803d">&larr; Actin binding site</text>
+
+          <!-- ATP binding sites -->
+          <circle cx="445" cy="26" r="4" fill="#dc2626" />
+          <circle cx="465" cy="18" r="4" fill="#dc2626" />
+          <text x="525" y="32" font-size="11" font-weight="bold" fill="#b91c1c">&larr; ATP binding site (ATPase)</text>
+
+          <!-- Cross-arm bracket -->
+          <path d="M 430,65 L 475,65" stroke="#475569" stroke-width="1.5"/>
+          <text x="455" y="80" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Head + Arm = Cross Arm (HMM)</text>
+        </g>
+      </svg>
+      <div class="svg-caption">Molecular Architecture: (a) Thin Filament Complex (b) Monomeric Meromyosin Unit</div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: MECHANISM OF MUSCLE CONTRACTION -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>5. Mechanism of Muscle Contraction: The Sliding Filament Theory</h2>
+      <p>The <strong>Sliding Filament Theory</strong>, proposed by A.F. Huxley and H.E. Huxley, states that contraction of a muscle fibre occurs by the physical <strong>sliding of thin (actin) filaments over the thick (myosin) filaments</strong>, without any physical shortening of the myofilaments themselves.</p>
+
+      <h3>Step-by-Step Electromechanical Coupling and Cross-Bridge Cycle</h3>
+      <ol>
+        <li><strong>Neural Excitation:</strong>
+          <ul>
+            <li>A voluntary nerve impulse originates in the Central Nervous System (CNS) and travels down a motor neuron to reach the <strong>Neuromuscular Junction (NMJ)</strong> or <strong>motor end-plate</strong> (the specialized synapsing junction between a motor neuron terminal and the muscle fibre sarcolemma). A single motor neuron together with all the muscle fibres it innervates forms a functional <strong>motor unit</strong>.</li>
+            <li>Action potential arrival triggers exocytosis of the neurotransmitter <strong>Acetylcholine (ACh)</strong> into the synaptic cleft.</li>
+            <li>ACh binds to nicotinic receptors on the sarcolemma, generating a muscle action potential that propagates rapidly across the surface and deep into the fibre via transverse tubular networks.</li>
+          </ul>
+        </li>
+        <li><strong>Calcium Release:</strong>
+          <ul>
+            <li>The depolarization wave triggers massive release of calcium ions (\(\mathrm{Ca}^{2+}\)) from the cisternae of the <strong>sarcoplasmic reticulum</strong> into the surrounding sarcoplasm.</li>
+          </ul>
+        </li>
+        <li><strong>Removal of Masking (Tropomyosin Shift):</strong>
+          <ul>
+            <li>Free \(\mathrm{Ca}^{2+}\) binds specifically to a regulatory subunit of <strong>Troponin</strong> (Troponin C) located on the thin filaments.</li>
+            <li>This induces a steric conformational change in troponin, which physically pulls the attached <strong>tropomyosin</strong> strand deeper into the actin helix groove.</li>
+            <li>This uncovers (unmasks) the myosin-binding active sites on the G-actin monomers.</li>
+          </ul>
+        </li>
+        <li><strong>Cross-Bridge Formation:</strong>
+          <ul>
+            <li>The energized myosin head (which has pre-hydrolyzed ATP into \(\mathrm{ADP} + \mathrm{P}_i\)) binds tightly to the exposed active site on actin, forming an active <strong>cross-bridge</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Power Stroke:</strong>
+          <ul>
+            <li>Upon binding, the myosin head undergoes an angular conformational tilt (rotation of approximately 45°), pulling the anchored actin filament inward toward the center of the 'A' band (M-line).</li>
+            <li>\(\mathrm{ADP}\) and inorganic phosphate (\(\mathrm{P}_i\)) are released from the myosin head during this mechanical stroke.</li>
+          </ul>
+        </li>
+        <li><strong>Cross-Bridge Detachment (Breaking):</strong>
+          <ul>
+            <li>A fresh molecule of <strong>ATP binds</strong> to the nucleotide-binding pocket on the myosin head. This immediately reduces the head's affinity for actin, causing the cross-bridge to detach.</li>
+            <li><em>Clinical Note:</em> If ATP is exhausted post-mortem, cross-bridges cannot detach, resulting in <strong>rigor mortis</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Myosin Head Reactivation (Cocked State):</strong>
+          <ul>
+            <li>The myosin ATPase enzyme hydrolyzes the newly bound ATP:
+              \[\mathrm{ATP} \xrightarrow{\mathrm{ATPase}} \mathrm{ADP} + \mathrm{P}_i + \text{Energy}\]
+            </li>
+            <li>The released free energy re-cocks the myosin head back into its high-energy, ready-to-bind configuration. The cycle repeats as long as sarcoplasmic \(\mathrm{Ca}^{2+}\) remains elevated.</li>
+          </ul>
+        </li>
+        <li><strong>Muscle Relaxation:</strong>
+          <ul>
+            <li>When neural stimulation ceases, \(\mathrm{Ca}^{2+}\) is actively pumped out of the sarcoplasm back into the sarcoplasmic reticulum cisternae via ATP-dependent \(\mathrm{Ca}^{2+}\) pumps.</li>
+            <li>In the absence of \(\mathrm{Ca}^{2+}\), troponin reverts to its resting conformation, allowing tropomyosin to once again mask the myosin-binding sites on actin.</li>
+            <li>The thin filaments slide back, and the sarcomere returns to its resting length.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-title">Key Dimensional Changes During Sarcomere Contraction (NEET Core Rule)</div>
+        <ul>
+          <li><strong>'A' Band:</strong> Retains its constant length throughout contraction and relaxation.</li>
+          <li><strong>'I' Band:</strong> Progressively narrows (shortens) as thin filaments penetrate deeper into the 'A' band.</li>
+          <li><strong>'H' Zone:</strong> Narrows during contraction and completely disappears during maximal contraction.</li>
+          <li><strong>Sarcomere:</strong> Shortens as opposing 'Z' lines are pulled toward each other.</li>
+          <li><strong>Individual Filaments:</strong> Actin and Myosin filaments <em>do not shorten</em>; they merely slide past one another.</li>
+        </ul>
+      </div>
+
+      <h3>Red Muscle Fibres vs. White Muscle Fibres</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Characteristic</th>
+              <th>Red Muscle Fibres (Type I / Aerobic)</th>
+              <th>White Muscle Fibres (Type II / Anaerobic)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Myoglobin Content</strong></td>
+              <td>Very high (gives deep red appearance)</td>
+              <td>Very low (appears pale or whitish)</td>
+            </tr>
+            <tr>
+              <td><strong>Mitochondria Count</strong></td>
+              <td>Abundant (adapted for sustained oxidative phosphorylation)</td>
+              <td>Few (limited aerobic capacity)</td>
+            </tr>
+            <tr>
+              <td><strong>Sarcoplasmic Reticulum</strong></td>
+              <td>Moderately developed</td>
+              <td>Extensive and highly developed (rapid \(\mathrm{Ca}^{2+}\) surge)</td>
+            </tr>
+            <tr>
+              <td><strong>Blood Capillary Supply</strong></td>
+              <td>Dense and rich</td>
+              <td>Relatively poor</td>
+            </tr>
+            <tr>
+              <td><strong>Metabolic Pathway</strong></td>
+              <td>Aerobic respiration (produces large ATP yield)</td>
+              <td>Anaerobic glycolysis (rapid ATP, leads to lactic acid buildup)</td>
+            </tr>
+            <tr>
+              <td><strong>Contraction Speed & Fatigue</strong></td>
+              <td>Slow, sustained contraction; highly resistant to fatigue</td>
+              <td>Fast, powerful twitch; fatigues rapidly</td>
+            </tr>
+            <tr>
+              <td><strong>Examples</strong></td>
+              <td>Extensor muscles of back, flight muscles of migratory birds</td>
+              <td>Eyeball muscles, flight muscles of sparrow</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>5. पेशी संकुचन की क्रियाविधि: विसर्पी तंतु सिद्धांत</h2>
+      <p>पेशी संकुचन की क्रियाविधि को <strong>विसर्पी तंतु सिद्धांत (Sliding Filament Theory)</strong> द्वारा सर्वाधिक मान्यता प्राप्त है। इसके अनुसार पेशी रेशे का संकुचन मोटे (मायोसिन) तंतुओं के ऊपर <strong>पतले (एक्टिन) तंतुओं के फिसलने (sliding)</strong> द्वारा संपन्न होता है, जिसमें तंतुओं की अपनी मूल लंबाई में कोई कमी नहीं आती।</p>
+
+      <h3>क्रॉस-ब्रिज चक्र एवं संकुचन के चरणबद्ध सोपान</h3>
+      <ol>
+        <li><strong>तंत्रिकीय उद्दीपन:</strong>
+          <ul>
+            <li>केंद्रीय तंत्रिका तंत्र (CNS) से एक प्रेरक न्यूरॉन द्वारा संकेत <strong>तंत्रिका-पेशी संगम (Neuromuscular Junction)</strong> अथवा <strong>प्रेरक अंत्य पट्टिका (Motor-end plate)</strong> तक पहुँचता है। एक प्रेरक न्यूरॉन तथा उससे जुड़े सभी पेशी रेशे मिलकर एक <strong>प्रेरक इकाई (Motor unit)</strong> बनाते हैं।</li>
+            <li>सिग्नल पहुँचने पर अंत्य पट्टिका से न्यूरोट्रांसमीटर <strong>एसिटिलकोलिन (Acetylcholine - ACh)</strong> मुक्त होता है।</li>
+            <li>ACh सार्कोलेमा में एक क्रियात्मक विभव (Action potential) उत्पन्न करता है, जो पेशी रेशे में गहराई तक प्रसारित होता है।</li>
+          </ul>
+        </li>
+        <li><strong>कैल्शियम आयनों का निष्कासन:</strong>
+          <ul>
+            <li>यह विभव सार्कोप्लाज्मिक रेटिकुलम को उत्तेजित करता है, जिससे इसके सिस्टर्नी से भारी मात्रा में कैल्शियम आयन (\(\mathrm{Ca}^{2+}\)) सार्कोप्लाज्म में विमुक्त होते हैं।</li>
+          </ul>
+        </li>
+        <li><strong>सक्रिय स्थलों का अनावरण (Unmasking):</strong>
+          <ul>
+            <li>सार्कोप्लाज्म में \(\mathrm{Ca}^{2+}\) का बढ़ा हुआ स्तर एक्टिन तंतु पर उपस्थित <strong>ट्रोपोनिन</strong> की उप-इकाई से जुड़ जाता है।</li>
+            <li>इसके परिणामस्वरूप ट्रोपोनिन में विन्यासी परिवर्तन होता है, जिससे <strong>ट्रोपोमायोसिन</strong> हट जाता है और एक्टिन पर स्थित मायोसिन के सक्रिय बंधन स्थल अनावृत (खुले) हो जाते हैं।</li>
+          </ul>
+        </li>
+        <li><strong>क्रॉस-ब्रिज (सेतु-बंधन) का निर्माण:</strong>
+          <ul>
+            <li>मायोसिन शीर्ष ATP के जलअपघटन से ऊर्जा प्राप्त कर एक्टिन के खुले सक्रिय स्थल से जुड़ जाता है और एक <strong>क्रॉस-ब्रिज (सेतु बंधन)</strong> बनाता है।</li>
+          </ul>
+        </li>
+        <li><strong>पावर स्ट्रोक (खिंचाव / घूर्णन):</strong>
+          <ul>
+            <li>मायोसिन शीर्ष अंदर की ओर झुकता है, जिससे उससे जुड़े एक्टिन तंतु 'A' बैंड के केंद्र (M-रेखा) की ओर खिंचते हैं। इस प्रक्रिया में \(\mathrm{ADP}\) तथा अकार्बनिक फॉस्फेट (\(\mathrm{P}_i\)) मुक्त हो जाते हैं।</li>
+          </ul>
+        </li>
+        <li><strong>क्रॉस-ब्रिज का टूटना (Detachment):</strong>
+          <ul>
+            <li>मायोसिन शीर्ष से एक नया <strong>ATP अणु जुड़ता है</strong>, जिसके जुड़ते ही क्रॉस-ब्रिज तुरंत टूट जाता है और मायोसिन एक्टिन से पृथक हो जाता है।</li>
+          </ul>
+        </li>
+        <li><strong>पुनः चक्रीकरण:</strong>
+          <ul>
+            <li>मायोसिन शीर्ष का ATPase एंजाइम पुनः ATP का जलअपघटन करता है, जिससे शीर्ष पुनः सक्रिय होकर अगली चक्राकार क्रिया हेतु तैयार हो जाता है।</li>
+          </ul>
+        </li>
+        <li><strong>पेशी विश्रांति (Relaxation):</strong>
+          <ul>
+            <li>तंत्रिकीय उद्दीपन समाप्त होने पर \(\mathrm{Ca}^{2+}\) आयन सक्रिय परिवहन द्वारा सार्कोप्लाज्मिक रेटिकुलम के सिस्टर्नी में वापस पंप कर दिए जाते हैं।</li>
+            <li>कैल्शियम की अनुपस्थिति में ट्रोपोनिन-ट्रोपोमायोसिन पुनः एक्टिन के सक्रिय स्थलों को ढक (mask कर) देते हैं। Z-रेखाएं अपनी मूल स्थिति में लौट आती हैं और पेशी शिथिल (विश्रामित) हो जाती है।</li>
+          </ul>
+        </li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-title">सार्कोमियर संकुचन के दौरान होने वाले आयामी परिवर्तन (नीट हेतु अति-महत्वपूर्ण)</div>
+        <ul>
+          <li><strong>'A' बैंड:</strong> इसकी लंबाई सदैव अपरिवर्तित (स्थिर) रहती है।</li>
+          <li><strong>'I' बैंड:</strong> इसकी लंबाई घटती है (यह छोटा हो जाता है)।</li>
+          <li><strong>'H' क्षेत्र:</strong> संकुचन के दौरान घटता है तथा पूर्ण संकुचन में पूर्णतः लुप्त हो जाता है।</li>
+          <li><strong>सार्कोमियर:</strong> दो Z-रेखाओं के पास आने के कारण छोटा हो जाता है।</li>
+          <li><strong>मायोफिलामेंट्स (एक्टिन व मायोसिन):</strong> प्रोटीनों की अपनी लंबाई कभी नहीं घटती; वे केवल एक-दूसरे के ऊपर फिसलते हैं।</li>
+        </ul>
+      </div>
+
+      <h3>लाल पेशी रेशे बनाम श्वेत पेशी रेशे</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>लक्षण</th>
+              <th>लाल पेशी रेशे (Red Fibres / एरोबिक)</th>
+              <th>श्वेत पेशी रेशे (White Fibres / एनारोबिक)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>मायोग्लोबिन की मात्रा</strong></td>
+              <td>अत्यधिक (गहरे लाल रंग की दिखाई देती हैं)</td>
+              <td>बहुत कम (हल्की अथवा श्वेत दिखाई देती हैं)</td>
+            </tr>
+            <tr>
+              <td><strong>माइटोकॉन्ड्रिया</strong></td>
+              <td>प्रचुर मात्रा में उपस्थित (एरोबिक ऊर्जा उत्पादन हेतु)</td>
+              <td>बहुत कम संख्या में</td>
+            </tr>
+            <tr>
+              <td><strong>सार्कोप्लाज्मिक रेटिकुलम</strong></td>
+              <td>मध्यम विकसित</td>
+              <td>अत्यधिक विकसित ও प्रचुर मात्रा में</td>
+            </tr>
+            <tr>
+              <td><strong>रक्त केशिकाएं</strong></td>
+              <td>घनी ও अत्यधिक संख्या में</td>
+              <td>अपेक्षाकृत कम</td>
+            </tr>
+            <tr>
+              <td><strong>ऊर्जा स्रोत / श्वसन</strong></td>
+              <td>ऑक्सी (एरोबिक) श्वसन पर निर्भर</td>
+              <td>अनाक्सी (एनारोबिक) ग्लाइकोलिसिस पर निर्भर (लैक्टिक अम्ल जमाव)</td>
+            </tr>
+            <tr>
+              <td><strong>संकुचन गति एवं थकान</strong></td>
+              <td>धीमा संकुचन, लंबे समय तक बिना थके कार्य करने में सक्षम</td>
+              <td>तीव्र व शक्तिशाली संकुचन, किंतु शीघ्र थकानग्रस्त (थकावट युक्त)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SVG DIAGRAM 4: CROSS-BRIDGE CYCLE -->
+    <div class="svg-container">
+      <svg viewBox="0 0 750 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="750" height="360" fill="#f8fafc" rx="8" />
+
+        <!-- Circular flow arrows in background -->
+        <path d="M 375,50 A 130,130 0 1,1 374,50" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8,6"/>
+        <text x="375" y="185" font-size="14" font-weight="bold" fill="#475569" text-anchor="middle">Cross-Bridge Cycle</text>
+        <text x="375" y="202" font-size="12" fill="#64748b" text-anchor="middle">सेतु-बंधन चक्र</text>
+
+        <!-- STAGE 1: Top (Binding / Cross-bridge formation) -->
+        <g transform="translate(260, 20)">
+          <rect width="230" height="75" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+          <text x="115" y="18" font-size="12" font-weight="bold" fill="#065f46" text-anchor="middle">1. Cross Bridge Formation</text>
+          <!-- Mini Actin & Myosin -->
+          <line x1="20" y1="35" x2="210" y2="35" stroke="#3b82f6" stroke-width="4"/>
+          <line x1="20" y1="65" x2="210" y2="65" stroke="#ef4444" stroke-width="5"/>
+          <!-- Head bound -->
+          <path d="M 115,65 L 115,37" stroke="#b91c1c" stroke-width="3"/>
+          <circle cx="115" cy="37" r="5" fill="#ef4444"/>
+          <text x="115" y="55" font-size="10" fill="#047857" text-anchor="middle">Ca²⁺ exposed; Myosin-ADP-Pi binds</text>
+        </g>
+
+        <!-- STAGE 2: Right (Power Stroke / Sliding) -->
+        <g transform="translate(500, 140)">
+          <rect width="230" height="80" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="115" y="18" font-size="12" font-weight="bold" fill="#92400e" text-anchor="middle">2. Sliding / Power Stroke</text>
+          <line x1="20" y1="35" x2="210" y2="35" stroke="#3b82f6" stroke-width="4"/>
+          <line x1="20" y1="65" x2="210" y2="65" stroke="#ef4444" stroke-width="5"/>
+          <!-- Tilted head -->
+          <path d="M 125,65 L 95,37" stroke="#b91c1c" stroke-width="3"/>
+          <circle cx="95" cy="37" r="5" fill="#ef4444"/>
+          <text x="115" y="55" font-size="10" fill="#b45309" text-anchor="middle">Head tilts 45°; ADP + Pi released</text>
+        </g>
+
+        <!-- STAGE 3: Bottom (Detachment via ATP binding) -->
+        <g transform="translate(260, 260)">
+          <rect width="230" height="75" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="115" y="18" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">3. Breaking of Cross Bridge</text>
+          <line x1="20" y1="35" x2="210" y2="35" stroke="#3b82f6" stroke-width="4"/>
+          <line x1="20" y1="65" x2="210" y2="65" stroke="#ef4444" stroke-width="5"/>
+          <!-- Detached head -->
+          <path d="M 115,65 L 115,48" stroke="#b91c1c" stroke-width="3"/>
+          <circle cx="115" cy="48" r="5" fill="#ef4444"/>
+          <text x="115" y="58" font-size="10" fill="#1d4ed8" text-anchor="middle">New ATP binds; head detaches</text>
+        </g>
+
+        <!-- STAGE 4: Left (Cocked / ATP Hydrolysis) -->
+        <g transform="translate(20, 140)">
+          <rect width="230" height="80" rx="6" fill="#fdf4ff" stroke="#c084fc" stroke-width="1.5"/>
+          <text x="115" y="18" font-size="12" font-weight="bold" fill="#86198f" text-anchor="middle">4. Reactivation (Cocked State)</text>
+          <line x1="20" y1="35" x2="210" y2="35" stroke="#3b82f6" stroke-width="4"/>
+          <line x1="20" y1="65" x2="210" y2="65" stroke="#ef4444" stroke-width="5"/>
+          <!-- Cocked head -->
+          <path d="M 105,65 L 125,48" stroke="#b91c1c" stroke-width="3"/>
+          <circle cx="125" cy="48" r="5" fill="#ef4444"/>
+          <text x="115" y="55" font-size="10" fill="#701a75" text-anchor="middle">ATP hydrolyzed to ADP + Pi</text>
+        </g>
+
+        <!-- Directional Flow Arrows -->
+        <path d="M 495,65 L 535,130" stroke="#0d9488" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+        <path d="M 535,230 L 495,295" stroke="#0d9488" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+        <path d="M 255,295 L 215,230" stroke="#0d9488" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+        <path d="M 215,130 L 255,65" stroke="#0d9488" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+      </svg>
+      <div class="svg-caption">Cyclic Stages of Cross-Bridge Mechanics: Binding &rarr; Power Stroke &rarr; ATP Binding & Detachment &rarr; Hydrolysis & Recocking</div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: THE HUMAN SKELETAL SYSTEM -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>6. The Human Skeletal System</h2>
+      <p>The skeletal system forms the rigid internal framework of the body, providing mechanical support, protection to vital viscera, and articulation surfaces for locomotion. It is composed of <strong>bones</strong> and <strong>cartilages</strong>, both of which are specialized forms of connective tissue:</p>
+      <ul>
+        <li><strong>Bone:</strong> Possesses a rock-hard, non-pliable matrix heavily impregnated with inorganic <strong>calcium salts</strong> (primarily hydroxyapatite).</li>
+        <li><strong>Cartilage:</strong> Possesses a firm yet slightly pliable, resilient matrix containing <strong>chondroitin salts</strong>.</li>
+      </ul>
+      <p>The adult human skeleton comprises precisely <strong>206 bones</strong>, categorized into two major anatomical divisions: the <strong>Axial Skeleton</strong> (80 bones) and the <strong>Appendicular Skeleton</strong> (126 bones).</p>
+
+      <h3>I. The Axial Skeleton (80 Bones)</h3>
+      <p>The axial skeleton aligns along the main longitudinal central axis of the human body:</p>
+      <ol>
+        <li><strong>Skull (22 Bones + Associated Bones):</strong>
+          <ul>
+            <li><strong>Cranial Bones (8):</strong> Form the hard protective cranium surrounding the brain: <em>Frontal (1)</em>, <em>Parietal (2)</em>, <em>Temporal (2)</em>, <em>Occipital (1)</em>, <em>Sphenoid (1)</em>, and <em>Ethmoid (1)</em>.</li>
+            <li><strong>Facial Bones (14):</strong> Form the anterior facial skeleton: <em>Nasals (2)</em>, <em>Maxillae (2)</em>, <em>Zygomatics (2)</em>, <em>Lacrimals (2)</em>, <em>Palatines (2)</em>, <em>Inferior Nasal Conchae (2)</em>, <em>Vomer (1)</em>, and <em>Mandible (1 - lower jaw, single movable skull bone)</em>.</li>
+            <li><strong>Associated Cranial Elements:</strong>
+              <ul>
+                <li><strong>Hyoid Bone (1):</strong> A solitary U-shaped bone located at the base of the buccal cavity; it does not articulate directly with any other bone.</li>
+                <li><strong>Ear Ossicles (6):</strong> Three tiny bones in each middle ear cavity: <strong>Malleus (hammer)</strong>, <strong>Incus (anvil)</strong>, and <strong>Stapes (stirrup - smallest bone in the human body)</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>Occipital Condyles:</strong> The human skull articulates with the first vertebra (Atlas) via two rounded articular protuberances called occipital condyles, making the human skull <strong>dicondylic</strong>.</li>
+          </ul>
+        </li>
+
+        <li><strong>Vertebral Column (26 Serial Units in Adults):</strong>
+          <p>Dorsally placed, extending from the base of the skull through the trunk. Each vertebra possesses a central hollow opening called the <strong>neural canal</strong>, through which the spinal cord passes.</p>
+          <ul>
+            <li><strong>Cervical Vertebrae (7):</strong> \(C_1\) to \(C_7\). The first cervical vertebra (\(C_1\)) is the <strong>Atlas</strong> (articulates with the occipital condyles); the second (\(C_2\)) is the <strong>Axis</strong> (bears the odontoid process). Almost all mammals, including humans, have 7 cervical vertebrae.</li>
+            <li><strong>Thoracic Vertebrae (12):</strong> \(T_1\) to \(T_{12}\), each bearing articulating facets for ribs.</li>
+            <li><strong>Lumbar Vertebrae (5):</strong> \(L_1\) to \(L_5\), large, stout load-bearing vertebrae.</li>
+            <li><strong>Sacrum (1):</strong> Single large triangular bone formed by the fusion of 5 sacral vertebrae (\(S_1 - S_5\)).</li>
+            <li><strong>Coccyx (1):</strong> Tailbone formed by the fusion of 4 rudimentary coccygeal vertebrae (\(Co_1 - Co_4\)).</li>
+          </ul>
+        </li>
+
+        <li><strong>Sternum (1 Bone):</strong>
+          <p>A flat dagger-shaped bone situated on the ventral midline of the thorax.</p>
+        </li>
+
+        <li><strong>Ribs (12 Pairs = 24 Bones):</strong>
+          <p>Each rib is a thin, flat, curved bone connected dorsally to the thoracic vertebrae. Because it possesses two distinct articulation facets on its dorsal head, each rib is termed <strong>bicephalic</strong>.</p>
+          <ul>
+            <li><strong>True Ribs (Vertebrosternal, Pairs 1–7):</strong> Connected dorsally to the thoracic vertebrae and attached ventrally directly to the sternum via flexible strips of <strong>hyaline cartilage</strong> (costal cartilage).</li>
+            <li><strong>False Ribs (Vertebrochondral, Pairs 8, 9, and 10):</strong> Do not articulate directly with the sternum; instead, their costal cartilages fuse with the hyaline cartilage of the 7th rib immediately above.</li>
+            <li><strong>Floating Ribs (Vertebral, Pairs 11 and 12):</strong> Possess no ventral attachment whatsoever; their anterior ends remain free in the abdominal wall musculature.</li>
+            <li><strong>The Rib Cage:</strong> Formed jointly by the 12 Thoracic Vertebrae, 12 pairs of Ribs, and the single ventral Sternum.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>II. The Appendicular Skeleton (126 Bones)</h3>
+      <p>Comprises the bones of the limbs and the pectoral and pelvic girdles that anchor them to the axial skeleton:</p>
+      
+      <h4>1. Forelimbs (Upper Limbs: 30 × 2 = 60 Bones)</h4>
+      <ul>
+        <li><strong>Humerus (1):</strong> Upper arm bone.</li>
+        <li><strong>Radius (1) & Ulna (1):</strong> Forearm bones (radius is lateral/thumb-side; ulna is medial).</li>
+        <li><strong>Carpals (8):</strong> Wrist bones arranged in two rows of four.</li>
+        <li><strong>Metacarpals (5):</strong> Palm bones numbered I to V from thumb to little finger.</li>
+        <li><strong>Phalanges (14):</strong> Digits/finger bones with digital formula 2, 3, 3, 3, 3 (thumb has 2; all other digits have 3).</li>
+      </ul>
+
+      <h4>2. Pectoral (Shoulder) Girdle (2 × 2 = 4 Bones)</h4>
+      <p>Composed of two symmetrical halves, each consisting of two bones:</p>
+      <ul>
+        <li><strong>Clavicle (Collar bone):</strong> A slender, S-shaped horizontal bone featuring two distinct curvatures. Articulates laterally with the acromion and medially with the sternum.</li>
+        <li><strong>Scapula (Shoulder blade):</strong> A large, flat triangular bone positioned dorsally over the thoracic cage between the <strong>second and seventh ribs</strong>.
+          <ul>
+            <li>Its dorsal surface features a sharp elevated ridge called the <strong>spine</strong> of the scapula.</li>
+            <li>The spine terminates laterally as a flattened, expanded process called the <strong>acromion</strong>, which articulates with the clavicle.</li>
+            <li>Below the acromion lies a shallow cup-like depression called the <strong>glenoid cavity</strong>, which articulates with the hemispherical head of the humerus to form the ball-and-socket shoulder joint.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. Hindlimbs (Lower Limbs: 30 × 2 = 60 Bones)</h4>
+      <ul>
+        <li><strong>Femur (1):</strong> Thigh bone; the <em>longest, heaviest, and strongest</em> bone in the human body.</li>
+        <li><strong>Patella (1):</strong> Knee cap; a triangular sesamoid bone that protects the knee joint ventrally.</li>
+        <li><strong>Tibia (1) & Fibula (1):</strong> Shank/lower leg bones (tibia is the larger medial weight-bearing shin bone; fibula is lateral and slender).</li>
+        <li><strong>Tarsals (7):</strong> Ankle bones (one fewer than carpals, compensated by the presence of the patella).</li>
+        <li><strong>Metatarsals (5):</strong> Sole bones.</li>
+        <li><strong>Phalanges (14):</strong> Toe digits with digital formula 2, 3, 3, 3, 3 (hallux/great toe has 2; other four toes have 3).</li>
+      </ul>
+
+      <h4>4. Pelvic (Hip) Girdle (2 Bones)</h4>
+      <p>Formed of two large <strong>coxal (hip) bones</strong> that join anteriorly at the midline to form the <strong>pubic symphysis</strong>, which contains resilient <strong>fibrous cartilage</strong>.</p>
+      <ul>
+        <li>Each coxal bone develops embryonically by the complete fusion of three distinct bones: the superior flaring <strong>Ilium</strong>, the inferior/posterior <strong>Ischium</strong>, and the anterior <strong>Pubis</strong>.</li>
+        <li>At the exact junction of these three bones lies a deep, cup-shaped lateral socket called the <strong>Acetabulum</strong>, into which the spherical head of the femur articulates to form the hip joint.</li>
+      </ul>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>6. मानव कंकाल तंत्र</h2>
+      <p>कंकाल तंत्र अस्थियों एवं कुछ उपास्थियों का एक दृढ़ आंतरिक ढांचा है जो शरीर को अवलंबन, सुरक्षा तथा गमन हेतु उत्तोलक प्रदान करता है। अस्थि एवं उपास्थि दोनों विशिष्ट संयोजी ऊतक हैं:</p>
+      <ul>
+        <li><strong>अस्थि (Bone):</strong> इसका आधात्री (मैट्रिक्स) <strong>कैल्शियम लवणों</strong> की उपस्थिति के कारण अत्यधिक कठोर तथा अप्रत्यास्थ होता है।</li>
+        <li><strong>उपास्थि (Cartilage):</strong> इसका मैट्रिक्स <strong>कॉन्ड्रोइटिन लवणों</strong> की उपस्थिति के कारण कुछ लचीला (pliable) एवं प्रत्यास्थ होता है।</li>
+      </ul>
+      <p>वयस्क मानव कंकाल में कुल <strong>206 अस्थियाँ</strong> होती हैं, जिन्हें दो प्रमुख प्रभागों में विभाजित किया गया है: <strong>अक्षीय कंकाल (80 अस्थियाँ)</strong> तथा <strong>उपांगी कंकाल (126 अस्थियाँ)</strong>।</p>
+
+      <h3>I. अक्षीय कंकाल (Axial Skeleton - 80 अस्थियाँ)</h3>
+      <p>अक्षीय कंकाल शरीर के मुख्य अनुदैर्ध्य अक्ष पर स्थित होता है:</p>
+      <ol>
+        <li><strong>करोटि / खोपड़ी (Skull - 22 अस्थियाँ + सहायक अस्थियाँ):</strong>
+          <ul>
+            <li><strong>कपाल अस्थियाँ (Cranial Bones - 8):</strong> मस्तिष्क को सुरक्षा प्रदान करने वाला बाह्य आवरण (कपाल) बनाती हैं: <em>फ्रंटल (1)</em>, <em>पार्श्विका/पेराइटल (2)</em>, <em>शंख/टेम्पोरल (2)</em>, <em>पश्चकपाल/ऑक्सीपिटल (1)</em>, <em>स्फीनॉइड (1)</em>, तथा <em>एथ्मॉइड (1)</em>।</li>
+            <li><strong>आननी / चेहरे की अस्थियाँ (Facial Bones - 14):</strong> चेहरे का अग्र भाग बनाती हैं: <em>नासास्थि (2)</em>, <em>मैक्सिला (2)</em>, <em>जाइगोमैटिक (2)</em>, <em>लेक्राइमल (2)</em>, <em>पैलेटाइन (2)</em>, <em>निम्न नासा कोंकी (2)</em>, <em>वोमर (1)</em>, तथा <em>मैंडिबल (1 - निचला जबड़ा, एकमात्र गतिशील अस्थि)</em>।</li>
+            <li><strong>संबंधित अस्थियाँ:</strong>
+              <ul>
+                <li><strong>कंठिका अस्थि (Hyoid Bone - 1):</strong> मुखगुहा के फर्श पर स्थित U-आकार की एकल अस्थि।</li>
+                <li><strong>कर्णस्थिकाएँ (Ear Ossicles - 6):</strong> प्रत्येक मध्य कर्ण में तीन सूक्ष्म अस्थियाँ: <strong>मैलियस (Malleus)</strong>, <strong>इन्कस (Incus)</strong>, तथा <strong>स्टेप्स (Stapes - मानव शरीर की सबसे छोटी अस्थि)</strong>।</li>
+              </ul>
+            </li>
+            <li><strong>डाइकंडाइलिक खोपड़ी (Dicondylic Skull):</strong> मानव खोपड़ी दो ऑक्सीपिटल कोंडाइल्स (पश्चकपाल अस्थिकंदों) की सहायता से कशेरुक दंड के प्रथम कशेरुक (एटलस) के साथ संधि बनाती है।</li>
+          </ul>
+        </li>
+
+        <li><strong>कशेरुक दंड (Vertebral Column - 26 कशेरुक):</strong>
+          <p>यह पीठ की ओर स्थित होता है तथा खोपड़ी के आधार से प्रारंभ होकर धड़ का मुख्य ढांचा बनाता है। प्रत्येक कशेरुक के मध्य में एक खोखला भाग होता है जिसे <strong>तंत्रिका नाल (Neural Canal)</strong> कहते हैं, जिससे होकर मेरुरज्जु गुजरती है।</p>
+          <ul>
+            <li><strong>ग्रीवा कशेरुक (Cervical - 7):</strong> मानव सहित लगभग सभी स्तनधारियों में ग्रीवा कशेरुकों की संख्या 7 होती है। प्रथम कशेरुक <strong>एटलस (Atlas)</strong> तथा द्वितीय <strong>एक्सिस (Axis)</strong> कहलाता है।</li>
+            <li><strong>वक्षीय कशेरुक (Thoracic - 12):</strong> पसलियों से जुड़ने हेतु संधायी सतह युक्त।</li>
+            <li><strong>कटि कशेरुक (Lumbar - 5):</strong> उदर क्षेत्र के विशाल व मजबूत कशेरुक।</li>
+            <li><strong>त्रिक कशेरुक (Sacrum - 1):</strong> 5 कशेरुकों के संलयन (fuse) से बनी एक त्रिकोणीय अस्थि।</li>
+            <li><strong>अनुत्रिक कशेरुक (Coccyx - 1):</strong> 4 अल्पविकसित कशेरुकों के संलयन से बनी पूंछ अस्थि।</li>
+          </ul>
+        </li>
+
+        <li><strong>उरोस्थि (Sternum - 1):</strong>
+          <p>वक्ष के अधर (ventral) मध्य भाग पर स्थित एक चपटी अस्थि।</p>
+        </li>
+
+        <li><strong>पसलियाँ (Ribs - 12 जोड़ी = 24 अस्थियाँ):</strong>
+          <p>प्रत्येक पसली एक पतली चपटी अस्थि है जो पृष्ठ भाग में वक्षीय कशेरुकों से तथा अधर भाग में उरोस्थि से जुड़ी होती है। इसके पृष्ठीय सिरे पर दो संधि सतहें होती हैं, अतः इसे <strong>बाइसिफेलिक (Bicephalic)</strong> कहते हैं।</p>
+          <ul>
+            <li><strong>वास्तविक पसलियाँ (True Ribs - 1 से 7वीं जोड़ी):</strong> पृष्ठ में वक्षीय कशेरुकों से और अधर में <strong>काचाभ उपास्थि (Hyaline cartilage)</strong> की सहायता से सीधे उरोस्थि से जुड़ी होती हैं।</li>
+            <li><strong>कूट / वर्टेब्रोकॉन्ड्रल पसलियाँ (False Ribs - 8वीं, 9वीं व 10वीं जोड़ी):</strong> उरोस्थि से सीधे नहीं जुड़तीं, बल्कि काचाभ उपास्थि द्वारा 7वीं पसली से जुड़ती हैं।</li>
+            <li><strong>प्लावी पसलियाँ (Floating Ribs - 11वीं व 12वीं जोड़ी):</strong> अधर सिरे पर किसी से नहीं जुड़तीं और स्वतंत्र रहती हैं।</li>
+            <li><strong>पसली पिंजर (Rib Cage):</strong> 12 वक्षीय कशेरुक, 12 जोड़ी पसलियाँ तथा 1 उरोस्थि मिलकर इसका निर्माण करते हैं।</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>II. उपांगी कंकाल (Appendicular Skeleton - 126 अस्थियाँ)</h3>
+      <p>पाद (हाथ-पैर) की अस्थियाँ एवं मेखलाएं मिलकर उपांगी कंकाल बनाती हैं:</p>
+
+      <h4>1. अग्रपाद / हाथ की अस्थियाँ (30 × 2 = 60)</h4>
+      <ul>
+        <li><strong>ह्यूमरस (Humerus - 1):</strong> प्रगंडिका (भुजा की अस्थि)।</li>
+        <li><strong>रेडियस (Radius - 1) व अल्ना (Ulna - 1):</strong> अग्रभुजा की अस्थियाँ (अंगूठे की ओर रेडियस, कनिष्ठिका की ओर अल्ना)।</li>
+        <li><strong>कार्पल्स (Carpals - 8):</strong> मणिबंध (कलाई) की अस्थियाँ।</li>
+        <li><strong>मेटाकार्पल्स (Metacarpals - 5):</strong> हथेली की अस्थियाँ।</li>
+        <li><strong>फेलेंजिस / अंगुलास्थियाँ (Phalanges - 14):</strong> अंगुलियों की अस्थियाँ (अंगूठे में 2, शेष में 3-3)।</li>
+      </ul>
+
+      <h4>2. अंस मेखला (Pectoral Girdle - 2 × 2 = 4)</h4>
+      <p>प्रत्येक अंस मेखला दो अर्ध-भागों की बनी होती है, प्रत्येक में दो अस्थियाँ होती हैं:</p>
+      <ul>
+        <li><strong>जत्रुक / क्लैविकल (Clavicle):</strong> दो घुमावों वाली पतली लंबी अस्थि, जिसे कॉलर बोन भी कहते हैं।</li>
+        <li><strong>अंसफलक / स्कैपुला (Scapula):</strong> वक्ष के पृष्ठ भाग में <strong>दूसरी से सातवीं पसली</strong> के मध्य स्थित एक बड़ी त्रिकोणीय चपटी अस्थि।
+          <ul>
+            <li>इसके पृष्ठ भाग पर एक उभारयुक्त कटक (Spine) होता है, जो एक चपटे प्रवर्ध के रूप में फैला रहता है जिसे <strong>एक्रोमियन (Acromion)</strong> कहते हैं। क्लैविकल इसी से संधि बनाती है।</li>
+            <li>एक्रोमियन के नीचे एक गड्ढा होता है जिसे <strong>ग्लिनॉइड गुहा (Glenoid cavity)</strong> कहते हैं। इसमें ह्यूमरस का शीर्ष जुड़कर कंधे का जोड़ बनाता है।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. पश्चपाद / पैर की अस्थियाँ (30 × 2 = 60)</h4>
+      <ul>
+        <li><strong>फीमर (Femur - 1):</strong> जांघ की अस्थि; मानव शरीर की <em>सबसे लंबी, भारी एवं मजबूत</em> अस्थि।</li>
+        <li><strong>पटेला (Patella - 1):</strong> जानुक / घुटने की कटोरी (Knee cap); सीसामॉइड अस्थि।</li>
+        <li><strong>टिबिया (Tibia - 1) व फिबुला (Fibula - 1):</strong> पिंडली की अस्थियाँ (टिबिया भीतर की मुख्य भारवाहक अस्थि, फिबुला पतली बाह्य अस्थि)।</li>
+        <li><strong>टार्सल्स (Tarsals - 7):</strong> गुल्फ (टखने) की अस्थियाँ।</li>
+        <li><strong>मेटाटार्सल्स (Metatarsals - 5):</strong> तलवे (प्रपद) की अस्थियाँ।</li>
+        <li><strong>फेलेंजिस (Phalanges - 14):</strong> पैर की अंगुलियों की अस्थियाँ (अंगूठे में 2, अन्य अंगुलियों में 3-3)।</li>
+      </ul>
+
+      <h4>4. श्रोणि मेखला (Pelvic Girdle - 2)</h4>
+      <p>दो <strong>श्रोणि अस्थियों (Coxal bones)</strong> की बनी होती है। अधर भाग में दोनों श्रोणि अस्थियाँ मिलकर <strong>प्यूबिक सिम्फाइसिस</strong> बनाती हैं, जिसमें <strong>रेशेदार उपास्थि</strong> पाई जाती है।</p>
+      <ul>
+        <li>प्रत्येक कॉक्सल अस्थि तीन अस्थियों के संलयन से बनती है: <strong>इलियम (Ilium)</strong>, <strong>इश्चियम (Ischium)</strong>, तथा <strong>प्यूबिस (Pubis)</strong>।</li>
+        <li>इन तीनों अस्थियों के संलयन स्थल पर एक गहरी प्यालेनुमा गुहा होती है जिसे <strong>ऐसेटाबुलम (Acetabulum)</strong> कहते हैं। इसमें फीमर का शीर्ष जुड़कर कूल्हे की संधि बनाता है।</li>
+      </ul>
+    </div>
+
+    <!-- SVG DIAGRAM 5: THORACIC CAGE & RIBS -->
+    <div class="svg-container">
+      <svg viewBox="0 0 750 350" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="750" height="350" fill="#f8fafc" rx="8" />
+
+        <text x="375" y="24" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">Human Rib Cage Anatomy / मानव पसली पिंजर</text>
+
+        <!-- Vertebral column in background center -->
+        <rect x="365" y="45" width="20" height="270" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5" rx="3"/>
+        <text x="375" y="330" font-size="11" font-weight="bold" fill="#475569" text-anchor="middle">Thoracic Vertebrae (12)</text>
+
+        <!-- Sternum in center foreground -->
+        <path d="M 360,55 L 390,55 L 385,85 L 382,210 L 375,230 L 368,210 L 365,85 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+        <text x="375" y="140" font-size="11" font-weight="bold" fill="#854d0e" text-anchor="middle">Sternum</text>
+        <text x="375" y="155" font-size="9" fill="#854d0e" text-anchor="middle">(उरोस्थि)</text>
+
+        <!-- True Ribs (1-7) - Bilateral Arcs -->
+        <!-- Rib 1 -->
+        <path d="M 365,65 Q 270,55 360,65" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,65 Q 480,55 390,65" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <!-- Rib 2 -->
+        <path d="M 365,80 Q 240,75 363,85" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,80 Q 510,75 387,85" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <!-- Rib 3 -->
+        <path d="M 365,100 Q 220,95 365,110" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,100 Q 530,95 385,110" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <!-- Rib 4 -->
+        <path d="M 365,120 Q 200,120 365,135" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,120 Q 550,120 385,135" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <!-- Rib 5 -->
+        <path d="M 365,145 Q 185,145 365,160" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,145 Q 565,145 385,160" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <!-- Rib 6 -->
+        <path d="M 365,170 Q 170,175 366,185" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,170 Q 580,175 384,185" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <!-- Rib 7 -->
+        <path d="M 365,195 Q 160,205 368,210" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+        <path d="M 385,195 Q 590,205 382,210" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+
+        <!-- False Ribs (8, 9, 10) connected to 7th costal cartilage -->
+        <path d="M 365,220 Q 165,230 330,225" fill="none" stroke="#d97706" stroke-width="2.5"/>
+        <path d="M 385,220 Q 585,230 420,225" fill="none" stroke="#d97706" stroke-width="2.5"/>
+        <path d="M 365,240 Q 180,250 330,232" fill="none" stroke="#d97706" stroke-width="2.5"/>
+        <path d="M 385,240 Q 570,250 420,232" fill="none" stroke="#d97706" stroke-width="2.5"/>
+        <path d="M 365,260 Q 200,270 330,238" fill="none" stroke="#d97706" stroke-width="2.5"/>
+        <path d="M 385,260 Q 550,270 420,238" fill="none" stroke="#d97706" stroke-width="2.5"/>
+
+        <!-- Hyaline Cartilage Bridges (green) -->
+        <path d="M 330,225 L 368,210 M 330,232 L 340,227 M 330,238 L 335,234" stroke="#10b981" stroke-width="3"/>
+        <path d="M 420,225 L 382,210 M 420,232 L 410,227 M 420,238 L 415,234" stroke="#10b981" stroke-width="3"/>
+
+        <!-- Floating Ribs (11, 12) - Unattached anteriorly -->
+        <path d="M 365,280 Q 240,285 270,300" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+        <path d="M 385,280 Q 510,285 480,300" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+        <path d="M 365,300 Q 260,305 290,315" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+        <path d="M 385,300 Q 490,305 460,315" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+
+        <!-- Annotations Left -->
+        <text x="120" y="110" font-size="12" font-weight="bold" fill="#2563eb">True Ribs (1-7 pairs)</text>
+        <text x="120" y="125" font-size="10" fill="#1e40af">Vertebrosternal</text>
+
+        <text x="100" y="240" font-size="12" font-weight="bold" fill="#d97706">False Ribs (8-10 pairs)</text>
+        <text x="100" y="255" font-size="10" fill="#b45309">Vertebrochondral</text>
+
+        <text x="110" y="305" font-size="12" font-weight="bold" fill="#dc2626">Floating Ribs (11-12)</text>
+        <text x="110" y="320" font-size="10" fill="#991b1b">Vertebral (No ventral attachment)</text>
+
+        <!-- Right Side Legend -->
+        <circle cx="630" cy="90" r="5" fill="#2563eb"/>
+        <text x="645" y="94" font-size="11" fill="#334155">Pairs 1–7 (Direct Hyaline attachment)</text>
+        <circle cx="630" cy="120" r="5" fill="#d97706"/>
+        <text x="645" y="124" font-size="11" fill="#334155">Pairs 8–10 (Join 7th rib cartilage)</text>
+        <circle cx="630" cy="150" r="5" fill="#dc2626"/>
+        <text x="645" y="154" font-size="11" fill="#334155">Pairs 11–12 (Free floating ends)</text>
+      </svg>
+      <div class="svg-caption">Structural Classification of Ribs: True (1–7), False (8–10), and Floating (11–12) Ribs</div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: JOINTS -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>7. Joints: Structural and Functional Classification</h2>
+      <p>Joints are points of articulation between bones or between bone and cartilage. Force exerted by contracting muscles is transmitted to the skeleton across joints, where the <strong>joint acts as a physical fulcrum</strong>. Joints are categorized into three major structural and functional classes:</p>
+
+      <h3>1. Fibrous Joints (Synarthroses - Immovable)</h3>
+      <p>Articulating bones are anchored immovably end-to-end by dense white fibrous connective tissue. <em>Example:</em> <strong>Sutures</strong> uniting the flat bones of the skull to build the protective cranium.</p>
+
+      <h3>2. Cartilaginous Joints (Amphiarthroses - Slightly Movable)</h3>
+      <p>Bones are united directly by pads or discs of cartilage, permitting limited, shock-absorbing movement. <em>Examples:</em></p>
+      <ul>
+        <li>Joints between adjacent vertebrae in the vertebral column (intervertebral discs).</li>
+        <li><strong>Pubic symphysis</strong> connecting the two pubic bones of the pelvic girdle ventrally (contains fibrous cartilage).</li>
+      </ul>
+
+      <h3>3. Synovial Joints (Diarthroses - Freely Movable)</h3>
+      <p>Characterized by a fluid-filled <strong>synovial cavity</strong> situated between the articulating cartilage-capped bone ends. Enclosed by a fibrous articular capsule lined by a synovial membrane that secretes lubricating <strong>synovial fluid</strong>. Crucial for active locomotion.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Synovial Joint Subtype</th>
+              <th>Anatomical Structural Description</th>
+              <th>High-Yield Anatomical Locations (NEET)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ball and Socket Joint</strong></td>
+              <td>Spherical head of one bone fits into a cup-like depression of another; permits multi-axial rotation.</td>
+              <td>
+                1. Shoulder joint (head of humerus & glenoid cavity of scapula)<br>
+                2. Hip joint (head of femur & acetabulum of pelvic bone)
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Hinge Joint</strong></td>
+              <td>Convex surface fits into a concave surface; permits movement in a single plane (flexion/extension).</td>
+              <td>
+                1. Knee joint<br>
+                2. Elbow joint<br>
+                3. Interphalangeal joints
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pivot Joint</strong></td>
+              <td>Rounded process rotates within a ring of bone and ligament; permits uniaxial rotation.</td>
+              <td>Between <strong>Atlas (\(C_1\)) and Axis (\(C_2\))</strong> vertebrae ("No" motion of head)</td>
+            </tr>
+            <tr>
+              <td><strong>Gliding Joint</strong></td>
+              <td>Flat articulating surfaces slide past one another in simple translational motion.</td>
+              <td>
+                1. Between the <strong>carpals</strong> of the wrist<br>
+                2. Between the <strong>tarsals</strong> of the ankle
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Saddle Joint</strong></td>
+              <td>Opposing surfaces are complementary concave-convex (saddle-shaped); provides greater range than gliding.</td>
+              <td>Between the <strong>carpal and metacarpal of the thumb</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>7. संधियाँ (जोड़): संरचनात्मक एवं कार्यात्मक वर्गीकरण</h2>
+      <p>अस्थियों के मध्य अथवा अस्थि एवं उपास्थि के परस्पर जुड़ने के स्थान को संधि (Joint) कहते हैं। पेशियों द्वारा उत्पन्न बल संधियों के माध्यम से गति में परिवर्तित होता है, जहाँ <strong>संधि एक आलंब (Fulcrum) की भांति कार्य करती है</strong>। संधियों को तीन प्रमुख संरचनात्मक रूपों में वर्गीकृत किया गया है:</p>
+
+      <h3>1. रेशीय संधि (Fibrous Joints - अचल संधि)</h3>
+      <p>ये संधियाँ किसी भी प्रकार की गति की अनुमति नहीं देतीं। इसमें चपटी अस्थियाँ घने रेशेदार संयोजी ऊतक की सहायता से परस्पर सीवनी (Sutures) के रूप में मजबूती से जुड़ी रहती हैं। <em>उदाहरण:</em> <strong>कपाल की चपटी अस्थियों के मध्य सीवनियाँ (Sutures)</strong> जो मस्तिष्क के चारों ओर कपाल का निर्माण करती हैं।</p>
+
+      <h3>2. उपास्थिमय संधि (Cartilaginous Joints - मंद चल संधि)</h3>
+      <p>इसमें अस्थियाँ उपास्थि की गद्दी द्वारा आपस में जुड़ी होती हैं, जो सीमित गति प्रदान करती हैं। <em>उदाहरण:</em></p>
+      <ul>
+        <li>कशेरुक दंड में दो समीपवर्ती कशेरुकों के मध्य स्थित अंतराकशेरुक चक्रिकाएं (Intervertebral discs)।</li>
+        <li>श्रोणि मेखला के अधर भाग में दो प्यूबिक अस्थियों के मध्य <strong>प्यूबिक सिम्फाइसिस</strong> (रेशेदार उपास्थि)।</li>
+      </ul>
+
+      <h3>3. साइनोवियल संधि (Synovial Joints - पूर्ण चल संधि)</h3>
+      <p>इन संधियों की प्रमुख विशेषता दो संधायी अस्थियों के मध्य एक तरल से भरी <strong>साइनोवियल गुहा</strong> की उपस्थिति है। यह व्यवस्था व्यापक एवं स्वतंत्र गतियों की अनुमति देती है, जो गमन में अत्यंत महत्वपूर्ण है।</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>साइनोवियल संधि के प्रकार</th>
+              <th>संरचनात्मक विवरण</th>
+              <th>महत्वपूर्ण शारीरिक उदाहरण (नीट हेतु)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>कंदुक-खल्लिका संधि (Ball and Socket Joint)</strong></td>
+              <td>एक अस्थि का गोल शीर्ष दूसरी अस्थि की प्यालेनुमा गुहा में व्यवस्थित; सभी दिशाओं में घूर्णन संभव।</td>
+              <td>
+                1. कंधे की संधि (ह्यूमरस का शीर्ष एवं स्कैपुला की ग्लिनॉइड गुहा)<br>
+                2. कूल्हे की संधि (फीमर का शीर्ष एवं कॉक्सल अस्थि का ऐसेटाबुलम)
+              </td>
+            </tr>
+            <tr>
+              <td><strong>कब्जा संधि (Hinge Joint)</strong></td>
+              <td>दरवाजे के कब्जे के समान केवल एक ही तल में गति की अनुमति।</td>
+              <td>
+                1. घुटने की संधि (Knee joint)<br>
+                2. कोहनी की संधि (Elbow joint)<br>
+                3. अंगुलास्थियों के मध्य (Interphalangeal joints)
+              </td>
+            </tr>
+            <tr>
+              <td><strong>धुराग्र संधि (Pivot Joint)</strong></td>
+              <td>एक धुरीनुमा प्रवर्ध वलय में घूमता है; एक अक्षीय घूर्णन।</td>
+              <td><strong>एटलस (\(C_1\)) एवं एक्सिस (\(C_2\)) कशेरुकों के मध्य</strong></td>
+            </tr>
+            <tr>
+              <td><strong>विसर्पी संधि (Gliding Joint)</strong></td>
+              <td>सपाट संधायी सतहें एक-दूसरे पर सरकती हैं।</td>
+              <td>
+                1. कलाई की <strong>कार्पल्स</strong> अस्थियों के मध्य<br>
+                2. टखने की <strong>टार्सल्स</strong> अस्थियों के मध्य
+              </td>
+            </tr>
+            <tr>
+              <td><strong>काठी / सैडल संधि (Saddle Joint)</strong></td>
+              <td>एक अस्थि का अवतल सिरा दूसरी के उत्तल सिरे पर व्यवस्थित; काठीनुमा रचना।</td>
+              <td><strong>अंगूठे के कार्पल एवं मेटाकार्पल के मध्य</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: DISORDERS OF MUSCULAR AND SKELETAL SYSTEMS -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>8. Disorders of the Muscular and Skeletal Systems</h2>
+      <p>Pathologies affecting the musculoskeletal framework are frequent testing targets in the NEET examination:</p>
+      <ul>
+        <li><strong>Myasthenia Gravis:</strong> An <strong>autoimmune disorder</strong> where circulating autoantibodies target and destroy nicotinic acetylcholine receptors at the neuromuscular junction. This impairs nerve-to-muscle transmission, leading to progressive muscle weakness, extreme fatigue, and eventual paralysis of skeletal muscles.</li>
+        <li><strong>Muscular Dystrophy:</strong> A progressive degeneration and atrophy of skeletal muscle tissue, primarily due to an inherited <strong>genetic defect</strong> (e.g., mutations in the dystrophin gene).</li>
+        <li><strong>Tetany:</strong> Manifested as violent, rapid involuntary spasms and sustained muscle twitches (wild contractions). Caused by <strong>hypocalcemia</strong> (critically low levels of ionic calcium, \(\mathrm{Ca}^{2+}\), in body fluids), which increases neuronal membrane permeability to sodium, driving spontaneous depolarization.</li>
+        <li><strong>Arthritis:</strong> Generalized inflammatory disease of one or more joints, presenting with joint pain, swelling, and stiffness.</li>
+        <li><strong>Osteoporosis:</strong> An age-related skeletal disorder characterized by progressive demineralization, decreased total bone mass, and microarchitectural deterioration of bone tissue, resulting in heightened bone fragility and elevated risk of fractures. A <strong>decrease in estrogen levels</strong> is the most common predisposing etiology in postmenopausal females.</li>
+        <li><strong>Gout:</strong> A painful form of acute inflammatory arthritis precipitated by hyperuricemia and the resulting deposition of sharp <strong>monosodium urate (uric acid) crystals</strong> within synovial joints and periarticular tissues.</li>
+      </ul>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>8. पेशीय एवं कंकाल तंत्र के विकार</h2>
+      <p>पेशीय तथा कंकाल तंत्र से संबंधित विकार नीट परीक्षा के दृष्टिकोण से अत्यंत महत्वपूर्ण हैं:</p>
+      <ul>
+        <li><strong>मायस्थेनिया ग्रेविस (Myasthenia Gravis):</strong> यह एक <strong>स्वप्रतिरक्षा विकार (Autoimmune disorder)</strong> है जो तंत्रिका-पेशी संगम को प्रभावित करता है। इसमें स्व-प्रतिरक्षी एंटीबॉडीज एसिटिलकोलिन ग्राही स्थलों को नष्ट कर देती हैं, जिससे कंकाल पेशियों में अत्यधिक थकान, कमजोरी और पक्षाघात (लकवा) हो जाता है।</li>
+        <li><strong>पेशीय दुष्पोषण / मस्कुलर डिस्ट्रॉफी (Muscular Dystrophy):</strong> यह मुख्य रूप से एक <strong>आनुवंशिक विकार (Genetic disorder)</strong> है जिसके कारण कंकाल पेशियों का उत्तरोत्तर ह्रास (अपघटन) होता है।</li>
+        <li><strong>टिटैनी (Tetany):</strong> शरीर के तरल में <strong>कैल्शियम (\(\mathrm{Ca}^{2+}\)) की कमी (Hypocalcemia)</strong> के कारण पेशियों में तीव्र ऐंठन (अनियंत्रित संकुचन / Spasms) उत्पन्न होती है।</li>
+        <li><strong>संधिशोथ (Arthritis):</strong> संधियों (जोड़ों) की सूजन व शोथ, जिससे तीव्र पीड़ा और जकड़न होती है।</li>
+        <li><strong>अस्थिसुषिरता / ऑस्टियोपोरोसिस (Osteoporosis):</strong> यह एक उम्र-संबंधी विकार है जिसमें अस्थि मैट्रिक्स तथा अस्थि द्रव्यमान (Bone mass) में भारी कमी आती है, जिससे अस्थि टूटने (फ्रैक्चर) का खतरा बढ़ जाता है। रजोनिवृत्ति के पश्चात <strong>एस्ट्रोजन हार्मोन के स्तर में कमी</strong> इसका प्रमुख कारण है।</li>
+        <li><strong>गाउट / वातरक्त (Gout):</strong> शरीर में यूरिक अम्ल के स्तर में वृद्धि होने से संधियों में <strong>यूरिक अम्ल के क्रिस्टलों (रवों) का जमाव</strong> हो जाता है, जिससे जोड़ों में तीव्र सूजन व असहनीय पीड़ा उत्पन्न होती है।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 9: WORKED EXAMPLES -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>9. Worked Analytical Examples for NEET-UG</h2>
+      
+      <h3>Example 1: Total Bone Count in Both Lower Limbs Including Pelvic Girdle</h3>
+      <p><strong>Problem:</strong> Calculate the total number of bones present in both lower limbs combined with the complete pelvic girdle of an adult human.</p>
+      <p><strong>Solution:</strong></p>
+      <ul>
+        <li>Bones in one hindlimb = 30 (Femur: 1, Patella: 1, Tibia: 1, Fibula: 1, Tarsals: 7, Metatarsals: 5, Phalanges: 14).</li>
+        <li>Bones in both hindlimbs = \(30 \times 2 = 60\).</li>
+        <li>Pelvic girdle = 2 Coxal bones (each formed by fusion of ilium, ischium, pubis).</li>
+        <li>Total bones = \(60 + 2 = 62\).</li>
+      </ul>
+
+      <h3>Example 2: Biochemical Fate of Myosin During Cross-Bridge Cycle</h3>
+      <p><strong>Problem:</strong> At what exact biochemical step does the myosin head physically detach from the actin filament during cross-bridge cycling?</p>
+      <p><strong>Solution:</strong> Cross-bridge detachment occurs when a new molecule of \(\mathrm{ATP}\) binds to the nucleotide-binding site of the myosin globular head. It does <em>not</em> require ATP hydrolysis for detachment; hydrolysis is required subsequently to re-energize (cock) the head into the high-energy configuration.</p>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>9. नीट-यूजी हेतु हल किए गए विश्लेषणात्मक उदाहरण</h2>
+
+      <h3>उदाहरण 1: श्रोणि मेखला सहित दोनों पश्चपादों की कुल अस्थियों की गणना</h3>
+      <p><strong>प्रश्न:</strong> एक वयस्क मानव के दोनों पश्चपादों (पैरों) तथा सम्पूर्ण श्रोणि मेखला में उपस्थित कुल अस्थियों की संख्या की गणना कीजिए।</p>
+      <p><strong>हल:</strong></p>
+      <ul>
+        <li>एक पश्चपाद की अस्थियाँ = 30 (फीमर: 1, पटेला: 1, टिबिया: 1, फिबुला: 1, टार्सल्स: 7, मेटाटार्सल्स: 5, फेलेंजिस: 14)।</li>
+        <li>दोनों पश्चपादों की अस्थियाँ = \(30 \times 2 = 60\)।</li>
+        <li>श्रोणि मेखला = 2 कॉक्सल अस्थियाँ (प्रत्येक इलियम, इश्चियम एवं प्यूबिस के संलयन से निर्मित)।</li>
+        <li>कुल अस्थियाँ = \(60 + 2 = 62\)।</li>
+      </ul>
+
+      <h3>उदाहरण 2: क्रॉस-ब्रिज चक्र के दौरान मायोसिन की जैव-रासायनिक स्थिति</h3>
+      <p><strong>प्रश्न:</strong> क्रॉस-ब्रिज चक्र के दौरान मायोसिन शीर्ष किस विशिष्ट जैव-रासायनिक चरण में एक्टिन तंतु से पृथक (अलग) होता है?</p>
+      <p><strong>हल:</strong> सेतु-बंधन (Cross-bridge) का विखंडन तब होता है जब मायोसिन शीर्ष के एटीपी बंधन स्थल से एक नया \(\mathrm{ATP}\) अणु आकर जुड़ता है। विखंडन हेतु एटीपी जलअपघटन की आवश्यकता नहीं होती; बल्कि जलअपघटन की आवश्यकता शीर्ष को पुनः संकुचन हेतु 'cocked' अवस्था में लाने के लिए होती है।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 10: PRACTICE ASSESSMENT (10 QUESTIONS) -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>10. NEET-UG Practice Assessment (Original Practice Questions)</h2>
+      <p>Test your conceptual understanding and examination readiness with these standard-aligned practice questions.</p>
+    </div>
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>10. नीट-यूजी अभ्यास प्रश्नमाला (मौलिक अभ्यास प्रश्न)</h2>
+      <p>इन परीक्षा-उन्मुख बहुविकल्पीय प्रश्नों द्वारा अपनी अवधारणात्मक समझ एवं तैयारी का मूल्यांकन करें।</p>
+    </div>
+
+    <!-- QUESTION 1 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 1 (Single Correct MCQ)</div>
+        <p>During the contraction of a skeletal muscle fibre, which of the following events correctly describes the behavior of sarcomeric bands and zones?</p>
+        <ul class="options">
+          <li>(A) 'A' band shortens, while 'I' band and 'H' zone maintain constant dimensions</li>
+          <li>(B) 'A' band retains its length, while 'I' band shortens and 'H' zone narrows or disappears</li>
+          <li>(C) Both 'A' band and 'I' band shorten simultaneously, while 'H' zone expands</li>
+          <li>(D) 'Z' lines move outward away from each other while the 'H' zone expands</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (B)</div>
+          <p><strong>Explanation:</strong> According to the Sliding Filament Theory, during contraction, thin filaments slide inward toward the center of the 'A' band. Consequently, the distance between two successive 'Z' lines diminishes (sarcomere shortens), the 'I' band shortens, and the 'H' zone narrows or completely disappears. The 'A' band corresponds to the entire length of thick (myosin) filaments and retains its length throughout.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 1 (एकल सही विकल्प)</div>
+        <p>कंकाल पेशी तंतु के संकुचन के दौरान, सार्कोमियर के विभिन्न बैंडों एवं क्षेत्रों में होने वाले परिवर्तनों का सही विवरण कौन सा है?</p>
+        <ul class="options">
+          <li>(A) 'A' बैंड छोटा हो जाता है, जबकि 'I' बैंड एवं 'H' क्षेत्र की लंबाई अपरिवर्तित रहती है</li>
+          <li>(B) 'A' बैंड अपनी लंबाई बनाए रखता है, जबकि 'I' बैंड छोटा होता है तथा 'H' क्षेत्र घटता या लुप्त हो जाता है</li>
+          <li>(C) 'A' बैंड तथा 'I' बैंड दोनों एक साथ छोटे होते हैं, जबकि 'H' क्षेत्र बढ़ जाता है</li>
+          <li>(D) 'Z' रेखाएं एक-दूसरे से दूर जाती हैं तथा 'H' क्षेत्र का विस्तार होता है</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (B)</div>
+          <p><strong>व्याख्या:</strong> विसर्पी तंतु सिद्धांत के अनुसार संकुचन के समय पतले तंतु 'A' बैंड के केंद्र की ओर फिसलते हैं। इसके परिणामस्वरूप दो 'Z' रेखाएं पास आती हैं (सार्कोमियर छोटा होता है), 'I' बैंड घटता है और 'H' क्षेत्र घटता अथवा पूर्ण संकुचन में लुप्त हो जाता है। 'A' बैंड मायोसिन की संपूर्ण लंबाई को दर्शाता है, अतः इसकी लंबाई सदैव स्थिर रहती है।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 2 (Statement-Based Question)</div>
+        <p>Consider the following two statements regarding human ribs:</p>
+        <p><strong>Statement I:</strong> The 8th, 9th, and 10th pairs of ribs do not articulate directly with the sternum but attach to the costal cartilage of the 7th rib.</p>
+        <p><strong>Statement II:</strong> The 11th and 12th pairs of ribs are connected to the sternum through flexible fibrous cords and are called bicephalic ribs.</p>
+        <p>Choose the correct option:</p>
+        <ul class="options">
+          <li>(A) Both Statement I and Statement II are correct</li>
+          <li>(B) Both Statement I and Statement II are incorrect</li>
+          <li>(C) Statement I is correct but Statement II is incorrect</li>
+          <li>(D) Statement I is incorrect but Statement II is correct</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (C)</div>
+          <p><strong>Explanation:</strong> Statement I is correct: pairs 8, 9, and 10 are vertebrochondral (false) ribs that join the cartilage of the 7th rib. Statement II is incorrect: the 11th and 12th pairs of ribs are <em>floating ribs</em> and have <strong>no ventral connection</strong> to the sternum whatsoever.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 2 (कथन आधारित प्रश्न)</div>
+        <p>मानव पसलियों के संदर्भ में निम्नलिखित दो कथनों पर विचार कीजिए:</p>
+        <p><strong>कथन I:</strong> 8वीं, 9वीं और 10वीं जोड़ी पसलियाँ सीधे उरोस्थि से नहीं जुड़तीं, बल्कि 7वीं पसली की काचाभ उपास्थि से जुड़ती हैं।</p>
+        <p><strong>कथन II:</strong> 11वीं और 12वीं जोड़ी पसलियाँ लचीली रेशेदार रज्जुओं द्वारा उरोस्थि से जुड़ी होती हैं तथा बाइसिफेलिक कहलाती हैं।</p>
+        <p>सही विकल्प का चयन कीजिए:</p>
+        <ul class="options">
+          <li>(A) कथन I और कथन II दोनों सही हैं</li>
+          <li>(B) कथन I और कथन II दोनों गलत हैं</li>
+          <li>(C) कथन I सही है किंतु कथन II गलत है</li>
+          <li>(D) कथन I गलत है किंतु कथन II सही है</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (C)</div>
+          <p><strong>व्याख्या:</strong> कथन I सही है: 8वीं, 9वीं व 10वीं जोड़ी पसलियाँ कूट (वर्टीब्रोकॉन्ड्रल) पसलियाँ हैं जो 7वीं पसली की उपास्थि से जुड़ती हैं। कथन II गलत है: 11वीं व 12वीं जोड़ी पसलियाँ प्लावी (floating) पसलियाँ हैं और इनका अधर भाग में उरोस्थि से कोई जुड़ाव नहीं होता।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 3 (Match the Columns)</div>
+        <p>Match the anatomical joints listed in Column I with their exact clinical locations in Column II:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Column I (Joint Type)</th>
+                <th>Column II (Location)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(a) Pivot Joint</td>
+                <td>(i) Between carpals of the wrist</td>
+              </tr>
+              <tr>
+                <td>(b) Saddle Joint</td>
+                <td>(ii) Between Atlas and Axis vertebrae</td>
+              </tr>
+              <tr>
+                <td>(c) Gliding Joint</td>
+                <td>(iii) Between Humerus and Glenoid cavity</td>
+              </tr>
+              <tr>
+                <td>(d) Ball and Socket Joint</td>
+                <td>(iv) Between Carpal and Metacarpal of thumb</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="options">
+          <li>(A) (a)-(ii), (b)-(iv), (c)-(i), (d)-(iii)</li>
+          <li>(B) (a)-(iv), (b)-(ii), (c)-(i), (d)-(iii)</li>
+          <li>(C) (a)-(ii), (b)-(i), (c)-(iv), (d)-(iii)</li>
+          <li>(D) (a)-(iii), (b)-(iv), (c)-(i), (d)-(ii)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (A)</div>
+          <p><strong>Explanation:</strong> Pivot joint is found between Atlas and Axis (a-ii); Saddle joint is between carpal and metacarpal of thumb (b-iv); Gliding joint is between carpals (c-i); Ball and socket joint is between humerus and glenoid cavity of pectoral girdle (d-iii).</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 3 (कॉलम मिलान)</div>
+        <p>कॉलम I में दिए गए संधियों के प्रकारों को कॉलम II में उनके सही शारीरिक स्थलों से सुमेलित कीजिए:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>कॉलम I (संधि का प्रकार)</th>
+                <th>कॉलम II (शारीरिक स्थल)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(a) धुराग्र संधि (Pivot)</td>
+                <td>(i) कलाई के कार्पल्स के मध्य</td>
+              </tr>
+              <tr>
+                <td>(b) सैडल संधि (Saddle)</td>
+                <td>(ii) एटलस एवं एक्सिस कशेरुकों के मध्य</td>
+              </tr>
+              <tr>
+                <td>(c) विसर्पी संधि (Gliding)</td>
+                <td>(iii) ह्यूमरस एवं ग्लिनॉइड गुहा के मध्य</td>
+              </tr>
+              <tr>
+                <td>(d) कंदुक-खल्लिका संधि (Ball and Socket)</td>
+                <td>(iv) अंगूठे के कार्पल एवं मेटाकार्पल के मध्य</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="options">
+          <li>(A) (a)-(ii), (b)-(iv), (c)-(i), (d)-(iii)</li>
+          <li>(B) (a)-(iv), (b)-(ii), (c)-(i), (d)-(iii)</li>
+          <li>(C) (a)-(ii), (b)-(i), (c)-(iv), (d)-(iii)</li>
+          <li>(D) (a)-(iii), (b)-(iv), (c)-(i), (d)-(ii)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (A)</div>
+          <p><strong>व्याख्या:</strong> धुराग्र संधि एटलस एवं एक्सिस के मध्य होती है (a-ii); सैडल संधि अंगूठे के कार्पल एवं मेटाकार्पल के मध्य होती है (b-iv); विसर्पी संधि कार्पल्स के मध्य होती है (c-i); कंदुक-खल्लिका संधि ह्यूमरस और ग्लिनॉइड गुहा के मध्य कंधे का जोड़ बनाती है (d-iii)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 4 (Assertion-Reason)</div>
+        <p><strong>Assertion (A):</strong> Myasthenia gravis is an autoimmune pathology that causes weakness and paralysis of skeletal muscles.</p>
+        <p><strong>Reason (R):</strong> Circulating antibodies attack and destroy the sarcoplasmic reticulum, preventing \(\mathrm{Ca}^{2+}\) release into the sarcoplasm.</p>
+        <ul class="options">
+          <li>(A) Both (A) and (R) are true and (R) is the correct explanation of (A)</li>
+          <li>(B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)</li>
+          <li>(C) (A) is true but (R) is false</li>
+          <li>(D) (A) is false but (R) is true</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (C)</div>
+          <p><strong>Explanation:</strong> Assertion (A) is true: Myasthenia gravis is indeed an autoimmune disorder characterized by muscle fatigue, weakness, and paralysis. Reason (R) is false: the antibodies target and block the <strong>acetylcholine receptors on the sarcolemma at the neuromuscular junction</strong>, not the sarcoplasmic reticulum.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 4 (अभिकथन-कारण)</div>
+        <p><strong>अभिकथन (A):</strong> मायस्थेनिया ग्रेविस एक स्वप्रतिरक्षा विकार है जो कंकाल पेशियों में दुर्बलता और पक्षाघात उत्पन्न करता है।</p>
+        <p><strong>कारण (R):</strong> रुधिर में उपस्थित प्रतिरक्षी सार्कोप्लाज्मिक रेटिकुलम को नष्ट कर देते हैं, जिससे सार्कोप्लाज्म में \(\mathrm{Ca}^{2+}\) का विमोचन रुक जाता है।</p>
+        <ul class="options">
+          <li>(A) (A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है</li>
+          <li>(B) (A) और (R) दोनों सही हैं परंतु (R), (A) की सही व्याख्या नहीं है</li>
+          <li>(C) (A) सही है परंतु (R) गलत है</li>
+          <li>(D) (A) गलत है परंतु (R) सही है</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (C)</div>
+          <p><strong>व्याख्या:</strong> अभिकथन (A) सही है: मायस्थेनिया ग्रेविस स्वप्रतिरक्षा विकार है जिससे पेशियों में थकान व लकवा होता है। कारण (R) गलत है: इस रोग में एंटीबॉडी तंत्रिका-पेशी संगम (NMJ) पर स्थित <strong>एसिटिलकोलिन ग्राहियों</strong> को नष्ट करती हैं, न कि सार्कोप्लाज्मिक रेटिकुलम को।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 5 (Single Correct MCQ)</div>
+        <p>Which one of the following statements is scientifically CORRECT regarding the structure of troponin and tropomyosin?</p>
+        <ul class="options">
+          <li>(A) Tropomyosin forms the cross-arm of the thick myosin filament</li>
+          <li>(B) In a resting muscle fibre, a subunit of troponin masks the active binding sites for myosin on actin filaments</li>
+          <li>(C) Troponin is an active ATPase enzyme activated by high concentrations of potassium ions</li>
+          <li>(D) Two filaments of troponin run helically along the light meromyosin tail</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (B)</div>
+          <p><strong>Explanation:</strong> In a resting (relaxed) state, a subunit of the trimeric protein troponin physically masks the myosin-binding sites on the actin filament, preventing cross-bridge formation. When \(\mathrm{Ca}^{2+}\) binds to troponin, this masking is removed.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 5 (एकल सही विकल्प)</div>
+        <p>ट्रोपोनिन एवं ट्रोपोमायोसिन की संरचना के संबंध में निम्नलिखित में से कौन सा कथन पूर्णतः सत्य है?</p>
+        <ul class="options">
+          <li>(A) ट्रोपोमायोसिन मोटे मायोसिन तंतु के क्रॉस-आर्म का निर्माण करता है</li>
+          <li>(B) विश्राम अवस्था में, ट्रोपोनिन की एक उप-इकाई एक्टिन तंतुओं पर मायोसिन के सक्रिय बंधन स्थलों को ढके रखती है</li>
+          <li>(C) ट्रोपोनिन एक सक्रिय ATPase एंजाइम है जो पोटेशियम आयनों द्वारा सक्रिय होता है</li>
+          <li>(D) ट्रोपोनिन के दो तंतु हल्के मेरोमायोसिन की पूंछ के चारों ओर सर्पिलाकार लिपटे रहते हैं</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (B)</div>
+          <p><strong>व्याख्या:</strong> विश्राम की अवस्था में ट्रोपोनिन की एक उप-इकाई एक्टिन तंतु पर मायोसिन के बंधने वाले सक्रिय स्थलों को ढककर रखती है। \(\mathrm{Ca}^{2+}\) के ट्रोपोनिन से जुड़ने पर ही यह आवरण हटता है।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 6 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 6 (Numerical / Anatomical Count)</div>
+        <p>An investigator counts the total number of bones constituting the human cranium, the facial skeleton, and both pectoral girdles. What is the combined total?</p>
+        <ul class="options">
+          <li>(A) 22 bones</li>
+          <li>(B) 26 bones</li>
+          <li>(C) 30 bones</li>
+          <li>(D) 32 bones</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (B)</div>
+          <p><strong>Explanation:</strong></p>
+          <ul>
+            <li>Cranial bones = 8</li>
+            <li>Facial bones = 14</li>
+            <li>Both pectoral girdles = \(2 \times 2 = 4\) (2 Scapulae + 2 Clavicles)</li>
+            <li>Combined total = \(8 + 14 + 4 = 26\) bones.</li>
+          </ul>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 6 (संख्यात्मक / शारीरिक गणना)</div>
+        <p>एक अन्वेषक मानव कपाल (Cranium), आननी कंकाल (Facial skeleton) तथा दोनों अंस मेखलाओं (Pectoral girdles) की कुल अस्थियों की गणना करता है। इनका कुल योग कितना होगा?</p>
+        <ul class="options">
+          <li>(A) 22 अस्थियाँ</li>
+          <li>(B) 26 अस्थियाँ</li>
+          <li>(C) 30 अस्थियाँ</li>
+          <li>(D) 32 अस्थियाँ</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (B)</div>
+          <p><strong>व्याख्या:</strong></p>
+          <ul>
+            <li>कपाल अस्थियाँ (Cranium) = 8</li>
+            <li>आननी अस्थियाँ (Facial) = 14</li>
+            <li>दोनों अंस मेखलाएं = \(2 \times 2 = 4\) (2 स्कैपुला + 2 क्लैविकल)</li>
+            <li>कुल योग = \(8 + 14 + 4 = 26\) अस्थियाँ।</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 7 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 7 (Single Correct MCQ)</div>
+        <p>Read the physiological features given below:</p>
+        <ol>
+          <li>High myoglobin pigment concentration</li>
+          <li>Extremely abundant mitochondria</li>
+          <li>High dependence on anaerobic glycolysis</li>
+          <li>Relatively slower contraction speed with high fatigue resistance</li>
+          <li>Extensive and abundant sarcoplasmic reticulum</li>
+        </ol>
+        <p>Which of the above characteristics correctly define <strong>Red Muscle Fibres</strong>?</p>
+        <ul class="options">
+          <li>(A) 1, 2, and 4 only</li>
+          <li>(B) 1, 3, and 5 only</li>
+          <li>(C) 2, 3, and 4 only</li>
+          <li>(D) 1, 2, 4, and 5 only</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (A)</div>
+          <p><strong>Explanation:</strong> Red muscle fibres are characterized by high myoglobin content (1), numerous mitochondria (2), aerobic ATP production, and slow, sustained fatigue-resistant contractions (4). Characteristics 3 (anaerobic glycolysis) and 5 (abundant sarcoplasmic reticulum) are hallmarks of <strong>White Muscle Fibres</strong>.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 7 (एकल सही विकल्प)</div>
+        <p>नीचे दी गई शारीरिक विशेषताओं को पढ़िए:</p>
+        <ol>
+          <li>मायोग्लोबिन वर्णक की उच्च सांद्रता</li>
+          <li>अत्यधिक प्रचुर माइटोकॉन्ड्रिया</li>
+          <li>अनाक्सी (एनारोबिक) ग्लाइकोलिसिस पर उच्च निर्भरता</li>
+          <li>अपेक्षाकृत मंद संकुचन गति एवं थकान के प्रति उच्च प्रतिरोधकता</li>
+          <li>अत्यधिक विकसित एवं प्रचुर सार्कोप्लाज्मिक रेटिकुलम</li>
+        </ol>
+        <p>उपर्युक्त में से कौन से लक्षण <strong>लाल पेशी रेशों (Red Fibres)</strong> को सही रूप से परिभाषित करते हैं?</p>
+        <ul class="options">
+          <li>(A) केवल 1, 2 और 4</li>
+          <li>(B) केवल 1, 3 और 5</li>
+          <li>(C) केवल 2, 3 और 4</li>
+          <li>(D) केवल 1, 2, 4 और 5</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (A)</div>
+          <p><strong>व्याख्या:</strong> लाल पेशी रेशों में मायोग्लोबिन प्रचुर होता है (1), माइटोकॉन्ड्रिया अधिक होते हैं (2), तथा वे बिना थके लंबे समय तक धीमी गति से संकुचित हो सकते हैं (4)। लक्षण 3 (एनारोबिक प्रक्रिया) एवं 5 (प्रचुर सार्कोप्लाज्मिक रेटिकुलम) <strong>श्वेत पेशी रेशों</strong> के विशिष्ट लक्षण हैं।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 8 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 8 (Single Correct MCQ)</div>
+        <p>The acetabulum is an anatomical socket formed by the fusion of which of the following skeletal elements?</p>
+        <ul class="options">
+          <li>(A) Ilium, Ischium, and Pubis</li>
+          <li>(B) Scapula, Clavicle, and Acromion</li>
+          <li>(C) Femur, Patella, and Tibia</li>
+          <li>(D) Sacrum, Coccyx, and Ilium</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (A)</div>
+          <p><strong>Explanation:</strong> Each coxal (hip) bone is formed embryonically by the fusion of three bones: the ilium, ischium, and pubis. At the exact site of their fusion lies the cup-shaped acetabulum, which articulates with the head of the femur.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 8 (एकल सही विकल्प)</div>
+        <p>ऐसेटाबुलम (Acetabulum) गुहा निम्नलिखित में से किन अस्थियों के संलयन से निर्मित होती है?</p>
+        <ul class="options">
+          <li>(A) इलियम, इश्चियम एवं प्यूबिस</li>
+          <li>(B) स्कैपुला, क्लैविकल एवं एक्रोमियन</li>
+          <li>(C) फीमर, पटेला एवं टिबिया</li>
+          <li>(D) सैक्रम, कॉक्सीक्स एवं इलियम</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (A)</div>
+          <p><strong>व्याख्या:</strong> प्रत्येक श्रोणि अस्थि (कॉक्सल अस्थि) तीन अस्थियों के संलयन से बनती है: इलियम, इश्चियम और प्यूबिस। इन तीनों के संलयन बिंदु पर स्थित गुहा को ऐसेटाबुलम कहते हैं, जिससे जांघ की अस्थि (फीमर) जुड़ती है।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 9 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 9 (Statement-Based Question)</div>
+        <p>Evaluate the accuracy of the following two statements:</p>
+        <p><strong>Statement I:</strong> Amoeboid movement shown by human macrophages and leucocytes involves cytoskeletal microfilaments.</p>
+        <p><strong>Statement II:</strong> Ciliary movement in the trachea drives dust particles downward toward the alveoli to prevent bronchial irritation.</p>
+        <p>Choose the correct option:</p>
+        <ul class="options">
+          <li>(A) Both Statement I and Statement II are correct</li>
+          <li>(B) Both Statement I and Statement II are incorrect</li>
+          <li>(C) Statement I is correct but Statement II is incorrect</li>
+          <li>(D) Statement I is incorrect but Statement II is correct</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (C)</div>
+          <p><strong>Explanation:</strong> Statement I is correct: amoeboid movement relies on protoplasmic streaming driven by cytoskeletal microfilaments. Statement II is incorrect: the coordinated ciliary beat in the respiratory tract propels mucus and trapped dust particles <strong>upward toward the throat (pharynx)</strong> to be expelled, not downward toward the alveoli.</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 9 (कथन आधारित प्रश्न)</div>
+        <p>निम्नलिखित दो कथनों की सत्यता का मूल्यांकन कीजिए:</p>
+        <p><strong>कथन I:</strong> मानव महाभक्षकाणुओं (मैक्रोफेज) एवं श्वेताणुओं द्वारा प्रदर्शित अमीबीय गति में कोशिकापंजर सूक्ष्मतंतु (माइक्रोफिलामेंट्स) सम्मिलित होते हैं।</p>
+        <p><strong>कथन II:</strong> श्वासनली में पक्ष्माभी गति धूल के कणों को नीचे कुपिकाओं (Alveoli) की ओर धकेलती है ताकि ब्रोन्कियल उत्तेजना न हो।</p>
+        <p>सही विकल्प का चयन कीजिए:</p>
+        <ul class="options">
+          <li>(A) कथन I और कथन II दोनों सही हैं</li>
+          <li>(B) कथन I और कथन II दोनों गलत हैं</li>
+          <li>(C) कथन I सही है किंतु कथन II गलत है</li>
+          <li>(D) कथन I गलत है किंतु कथन II सही है</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (C)</div>
+          <p><strong>व्याख्या:</strong> कथन I सही है: अमीबीय गति में सूक्ष्मतंतु भाग लेते हैं। कथन II गलत है: श्वासनली के पक्ष्माभ धूल कणों व श्लेष्मा को <strong>ऊपर की ओर ग्रसनी (बाहर)</strong> की दिशा में धकेलते हैं, न कि नीचे कुपिकाओं की ओर।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 10 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="q-number">Practice Question 10 (Single Correct MCQ)</div>
+        <p>Which of the following clinical conditions is correctly paired with its underlying pathophysiological cause?</p>
+        <ul class="options">
+          <li>(A) Tetany &mdash; Critical elevation of serum \(\mathrm{Ca}^{2+}\) levels</li>
+          <li>(B) Osteoporosis &mdash; Decreased levels of estrogen in postmenopausal females</li>
+          <li>(C) Gout &mdash; Accumulation of calcium oxalate crystals in fibrous joints</li>
+          <li>(D) Muscular Dystrophy &mdash; Autoimmune destruction of motor end-plates</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">Correct Answer: (B)</div>
+          <p><strong>Explanation:</strong> Osteoporosis is an age-related loss of bone mass frequently caused by estrogen deficiency in postmenopausal females. Tetany is caused by <em>low</em> (not high) \(\mathrm{Ca}^{2+}\); Gout is caused by <em>uric acid crystals</em> (not calcium oxalate); and Muscular Dystrophy is a <em>genetic defect</em> (Myasthenia gravis is the autoimmune condition affecting motor end-plates).</p>
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-hi">
+        <span class="lang-label label-hi">हिन्दी</span>
+        <div class="q-number">अभ्यास प्रश्न 10 (एकल सही विकल्प)</div>
+        <p>निम्नलिखित में से कौन सा रोग अपने अंतर्निहित विकृति-क्रियात्मक (pathophysiological) कारण के साथ सही सुमेलित है?</p>
+        <ul class="options">
+          <li>(A) टिटैनी &mdash; शरीर में \(\mathrm{Ca}^{2+}\) के स्तर में अत्यधिक वृद्धि</li>
+          <li>(B) ऑस्टियोपोरोसिस &mdash; रजोनिवृत्त महिलाओं में एस्ट्रोजन के स्तर में कमी</li>
+          <li>(C) गाउट &mdash; रेशीय संधियों में कैल्शियम ऑक्सालेट के क्रिस्टलों का जमाव</li>
+          <li>(D) मस्कुलर डिस्ट्रॉफी &mdash; प्रेरक अंत्य पट्टिकाओं का स्वप्रतिरक्षी विनाश</li>
+        </ul>
+        <div class="solution-box">
+          <div class="solution-title">सही उत्तर: (B)</div>
+          <p><strong>व्याख्या:</strong> ऑस्टियोपोरोसिस उम्र-संबंधी विकार है जिसमें अस्थि घनत्व घटता है तथा महिलाओं में एस्ट्रोजन की कमी इसका मुख्य कारण है। टिटैनी \(\mathrm{Ca}^{2+}\) की <em>कमी</em> से होती है; गाउट <em>यूरिक अम्ल क्रिस्टलों</em> के जमाव से होता है; तथा मस्कुलर डिस्ट्रॉफी एक <em>आनुवंशिक रोग</em> है (स्वप्रतिरक्षी रोग मायस्थेनिया ग्रेविस है)।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: COMMON PITFALLS & REVISION CHECKLIST -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>11. Common Pitfalls and High-Yield Revision Checklist</h2>
+      <div class="callout-warning">
+        <div class="callout-title">Frequent Student Traps in NEET Examination</div>
+        <ul>
+          <li><strong>Confusing Tarsals vs. Carpals:</strong> There are <strong>8 carpals</strong> in each wrist, but only <strong>7 tarsals</strong> in each ankle. The "missing" ankle bone is compensated by the <strong>patella</strong> in the knee, keeping the total count at 30 bones per limb.</li>
+          <li><strong>Rib Numbers:</strong> True ribs are pairs 1–7 (7 pairs = 14 bones); False ribs are pairs 8–10 (3 pairs = 6 bones); Floating ribs are pairs 11–12 (2 pairs = 4 bones). Do not confuse pair numbers with total bone counts!</li>
+          <li><strong>Sarcomere Shortening Misconception:</strong> Neither actin nor myosin filaments change in length during contraction. Shortening of the sarcomere is solely due to relative sliding.</li>
+          <li><strong>ATP Binding vs. Hydrolysis:</strong> Remember that ATP <em>binding</em> causes detachment of the cross-bridge. ATP <em>hydrolysis</em> is required to cock the myosin head into the ready state.</li>
+          <li><strong>Bone Matrix Chemistry:</strong> Bone matrix is hard due to <em>calcium salts</em>, whereas cartilage matrix is pliable due to <em>chondroitin salts</em>.</li>
+          <li><strong>Scapula Position:</strong> The scapula is located dorsally between the <strong>second and seventh ribs</strong> (a classic direct NEET question).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>11. सामान्य भ्रांतियाँ एवं उच्च-प्राथमिकता त्वरित दोहराव बिंदु</h2>
+      <div class="callout-warning">
+        <div class="callout-title">नीट परीक्षा में होने वाली सामान्य गलतियाँ</div>
+        <ul>
+          <li><strong>कार्पल्स एवं टार्सल्स में भ्रम:</strong> कलाई में <strong>8 कार्पल्स</strong> होते हैं, जबकि टखने में <strong>7 टार्सल्स</strong> होते हैं। टखने की यह एक कम अस्थि घुटने में <strong>पटेला</strong> की उपस्थिति से संतुलित हो जाती है (प्रत्येक पाद में 30 अस्थियाँ)।</li>
+          <li><strong>पसलियों की संख्या:</strong> वास्तविक पसलियाँ = 1 से 7वीं जोड़ी (14); कूट पसलियाँ = 8वीं से 10वीं जोड़ी (6); प्लावी पसलियाँ = 11वीं व 12वीं जोड़ी (4)। जोड़ी और कुल संख्या में भ्रमित न हों!</li>
+          <li><strong>तंतुओं की लंबाई संबंधी भ्रम:</strong> संकुचन के समय एक्टिन अथवा मायोसिन तंतुओं की अपनी लंबाई में कोई परिवर्तन नहीं होता। केवल उनका परस्पर अतिव्यापन (overlapping) बढ़ता है।</li>
+          <li><strong>एटीपी का जुड़ना बनाम जलअपघटन:</strong> मायोसिन शीर्ष से एटीपी का <em>जुड़ना</em> क्रॉस-ब्रिज को तोड़ता है, जबकि एटीपी का <em>जलअपघटन</em> शीर्ष को सक्रिय (cocked) अवस्था में लाता है।</li>
+          <li><strong>मैट्रिक्स के लवण:</strong> अस्थि का मैट्रिक्स <em>कैल्शियम लवणों</em> के कारण कठोर होता है, जबकि उपास्थि का मैट्रिक्स <em>कॉन्ड्रोइटिन लवणों</em> के कारण लचीला होता है।</li>
+          <li><strong>स्कैपुला की स्थिति:</strong> स्कैपुला वक्ष के पृष्ठ भाग में <strong>दूसरी से सातवीं पसली</strong> के मध्य स्थित होता है (नीट का सीधा प्रश्न)।</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 12: CONCISE FINAL RECAP -->
+  <section>
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <h2>12. Final High-Speed Recap for NEET Aspirants</h2>
+      <p><strong>1. Movements:</strong> Amoeboid (macrophages/leucocytes via microfilaments), Ciliary (trachea, oviducts), Flagellar (spermatozoa), Muscular (limbs, jaws).</p>
+      <p><strong>2. Muscle Types:</strong> Skeletal (striated, voluntary, syncytial), Visceral (smooth, involuntary, fusiform), Cardiac (striated, involuntary, branched, intercalated discs).</p>
+      <p><strong>3. Sarcomere:</strong> Functional unit between two Z-lines. Thin filament = 2 F-actins + 2 Tropomyosins + Troponin trimers. Thick filament = Meromyosins (HMM head/cross-arm + LMM tail). Head possesses active ATPase, ATP site, actin site.</p>
+      <p><strong>4. Contraction Events:</strong> Motor neuron \(\rightarrow\) ACh \(\rightarrow\) Action Potential \(\rightarrow\) Sarcoplasmic Reticulum releases \(\mathrm{Ca}^{2+}\) \(\rightarrow\) \(\mathrm{Ca}^{2+}\) binds Troponin \(\rightarrow\) Tropomyosin shifts \(\rightarrow\) Myosin binds Actin \(\rightarrow\) Power Stroke \(\rightarrow\) Sarcomere shortens (I band shortens, H zone vanishes, A band constant) \(\rightarrow\) ATP binds and detaches cross-bridge \(\rightarrow\) Active \(\mathrm{Ca}^{2+}\) re-uptake causes relaxation.</p>
+      <p><strong>5. Skeleton:</strong> 206 total = 80 Axial + 126 Appendicular.</p>
+      <ul>
+        <li><strong>Axial (80):</strong> Skull (22: Cranium 8, Face 14) + Hyoid (1) + Ear Ossicles (6: Malleus, Incus, Stapes) + Vertebral column (26: \(C_7, T_{12}, L_5, S_1, Co_1\)) + Sternum (1) + Ribs (24: 1–7 True, 8–10 False, 11–12 Floating).</li>
+        <li><strong>Appendicular (126):</strong> Limbs (\(30 \times 4 = 120\)) + Pectoral girdle (4: 2 Scapulae + 2 Clavicles) + Pelvic girdle (2 Coxal bones: Ilium + Ischium + Pubis fused at Acetabulum).</li>
+      </ul>
+      <p><strong>6. Joints:</strong> Fibrous (sutures, immovable), Cartilaginous (intervertebral, pubic symphysis, limited movement), Synovial (fluid-filled cavity, free movement: ball & socket, hinge, pivot, gliding, saddle).</p>
+      <p><strong>7. Key Disorders:</strong> Myasthenia gravis (autoimmune anti-ACh receptors), Muscular dystrophy (genetic), Tetany (hypocalcemia), Osteoporosis (decreased bone mass, estrogen deficiency), Gout (uric acid deposition).</p>
+    </div>
+
+    <div class="lang-hi">
+      <span class="lang-label label-hi">हिन्दी</span>
+      <h2>12. नीट अभ्यर्थियों हेतु त्वरित अंतिम सारांश</h2>
+      <p><strong>1. गतियों के प्रकार:</strong> अमीबीय (मैक्रोफेज/ल्यूकोसाइट्स, सूक्ष्मतंतुओं द्वारा), पक्ष्माभी (ट्रेकिया, अंडवाहिनी), कशाभी (शुक्राणु), पेशीय (जबड़े, पाद)।</p>
+      <p><strong>2. पेशी प्रकार:</strong> कंकाल (रेखित, ऐच्छिक, बहुकेंद्रकी संकोशिका), अंतरांगी (चिकनी, अनैच्छिक, तर्कुरूपी), हृद (रेखित, अनैच्छिक, शाखान्वित, अंतर्विष्ट चक्रिकाएं)।</p>
+      <p><strong>3. सार्कोमियर:</strong> दो Z-रेखाओं के बीच कार्यात्मक इकाई। पतला तंतु = 2 F-एक्टिन + 2 ट्रोपोमायोसिन + ट्रोपोनिन। मोटा तंतु = मेरोमायोसिन (HMM शीर्ष/क्रॉस आर्म + LMM पूंछ)। शीर्ष पर ATPase एंजाइम, ATP बंधन स्थल व एक्टिन बंधन स्थल होते हैं।</p>
+      <p><strong>4. संकुचन चरण:</strong> प्रेरक तंत्रिका \(\rightarrow\) ACh विमोचन \(\rightarrow\) सार्कोलेमा विभव \(\rightarrow\) \(\mathrm{Ca}^{2+}\) विमुक्ति \(\rightarrow\) ट्रोपोनिन से बंधन \(\rightarrow\) एक्टिन सक्रिय स्थल अनावृत \(\rightarrow\) क्रॉस-ब्रिज निर्माण \(\rightarrow\) पावर स्ट्रोक \(\rightarrow\) सार्कोमियर संकुचित ('I' बैंड घटता है, 'H' क्षेत्र लुप्त होता है, 'A' बैंड स्थिर रहता है) \(\rightarrow\) ATP जुड़ने से क्रॉस-ब्रिज टूटना \(\rightarrow\) \(\mathrm{Ca}^{2+}\) की वापसी से विश्रांति।</p>
+      <p><strong>5. कंकाल तंत्र:</strong> कुल 206 = अक्षीय (80) + उपांगी (126)।</p>
+      <ul>
+        <li><strong>अक्षीय (80):</strong> खोपड़ी (22: कपाल 8, चेहरा 14) + कंठिका/हायॉइड (1) + कर्णस्थिकाएँ (6: मैलियस, इन्कस, स्टेप्स) + कशेरुक दंड (26: ग्रीवा 7, वक्षीय 12, कटि 5, त्रिक 1, अनुत्रिक 1) + उरोस्थि (1) + पसलियाँ (24: 1–7 वास्तविक, 8–10 कूट, 11–12 प्लावी)।</li>
+        <li><strong>उपांगी (126):</strong> पाद (\(30 \times 4 = 120\)) + अंस मेखला (4: 2 स्कैपुला + 2 क्लैविकल) + श्रोणि मेखला (2 कॉक्सल अस्थियाँ: इलियम, इश्चियम, प्यूबिस का ऐसेटाबुलम पर संलयन)।</li>
+      </ul>
+      <p><strong>6. संधियाँ:</strong> रेशीय (सीवनियाँ, अचल), उपास्थिमय (कशेरुकों के मध्य, प्यूबिक सिम्फाइसिस, मंद चल), साइनोवियल (साइनोवियल गुहा व तरल युक्त, पूर्ण चल: कंदुक-खल्लिका, कब्जा, धुराग्र, विसर्पी, सैडल)।</p>
+      <p><strong>7. प्रमुख विकार:</strong> मायस्थेनिया ग्रेविस (स्वप्रतिरक्षी, ACh ग्राही नष्ट), मस्कुलर डिस्ट्रॉफी (आनुवंशिक), टिटैनी (हाइपोकैल्सीमिया / \(\mathrm{Ca}^{2+}\) की कमी), ऑस्टियोपोरोसिस (अस्थि द्रव्यमान में कमी, एस्ट्रोजन ह्रास), गाउट (यूरिक अम्ल क्रिस्टलों का जमाव)।</p>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

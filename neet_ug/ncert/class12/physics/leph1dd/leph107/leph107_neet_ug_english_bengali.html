@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEET UG Physics Tutorial: Alternating Current (পরিবর্তী প্রবাহ)</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        renderActions: {
+          addMenu: []
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <style>
+    :root {
+      --primary-color: #1a365d;
+      --secondary-color: #2b6cb0;
+      --accent-color: #c53030;
+      --bn-accent: #1e4e38;
+      --bg-light: #f7fafc;
+      --card-bg: #ffffff;
+      --text-main: #2d3748;
+      --text-muted: #4a5568;
+      --border-color: #e2e8f0;
+      --callout-en-bg: #ebf8ff;
+      --callout-en-border: #3182ce;
+      --callout-bn-bg: #f0fff4;
+      --callout-bn-border: #38a169;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-bn: "Hind Siliguri", "Kalpurush", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      line-height: 1.65;
+      color: var(--text-main);
+      background-color: var(--bg-light);
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 35px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .badge-neet {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      color: var(--primary-color);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-top: 32px;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--secondary-color);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    h4 {
+      font-size: 1.08rem;
+      color: var(--text-main);
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-en {
+      border-left: 4px solid var(--callout-en-border);
+      padding-left: 18px;
+      margin-bottom: 22px;
+      background: transparent;
+    }
+
+    .lang-bn {
+      border-left: 4px solid var(--callout-bn-border);
+      padding-left: 18px;
+      margin-bottom: 28px;
+      background: #fdfbf7;
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      font-family: var(--font-bn);
+    }
+
+    .lang-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .label-en {
+      background-color: var(--callout-en-bg);
+      color: var(--callout-en-border);
+    }
+
+    .label-bn {
+      background-color: var(--callout-bn-bg);
+      color: var(--bn-accent);
+    }
+
+    .callout-box {
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin: 18px 0;
+    }
+
+    .callout-box.tip {
+      background-color: #ebf8ff;
+      border-left: 4px solid #3182ce;
+    }
+
+    .callout-box.warning {
+      background-color: #fffaf0;
+      border-left: 4px solid #dd6b20;
+    }
+
+    .callout-box.summary {
+      background-color: #f7fafc;
+      border: 1px solid var(--border-color);
+    }
+
+    .diagram-container {
+      margin: 22px auto;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .diagram-container svg {
+      max-width: 650px;
+      height: auto;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    .diagram-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background-color: #edf2f7;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    table.data-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .example-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 28px;
+    }
+
+    .question-title {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      margin-left: 0;
+      margin-bottom: 14px;
+    }
+
+    .options-list li {
+      padding: 6px 10px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+      background: #f8fafc;
+      border: 1px solid #edf2f7;
+    }
+
+    .answer-block {
+      background: #f0fff4;
+      border-left: 4px solid #38a169;
+      padding: 12px 16px;
+      margin-top: 14px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .answer-block strong {
+      color: #22543d;
+    }
+
+    hr.bilingual-sep {
+      border: 0;
+      height: 1px;
+      background: #cbd5e0;
+      margin: 20px 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+        color: #000000;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .question-card, .example-card {
+        page-break-inside: avoid;
+        border: 1px solid #999;
+      }
+      h2, h3 {
+        page-break-after: avoid;
+      }
+      .lang-bn {
+        background: transparent;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+  <header class="doc-header">
+    <span class="badge-neet">NEET UG Physics Mastery</span>
+    <h1>Alternating Current / পরিবর্তী প্রবাহ</h1>
+    <div class="subtitle">Complete Bilingual Chapter Tutorial &amp; High-Yield Question Bank (NCERT Class 12 Physics)</div>
+  </header>
+
+  <!-- 1. Learning Objectives and Exam Syllabus -->
+  <section>
+    <h2>1. Exam Syllabus &amp; Learning Objectives</h2>
+    
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>Alternating Current (AC) is a foundational, high-weightage topic in the NEET UG Physics syllabus. Questions consistently test fundamental definitions, graphical phase relationships, reactance calculations, power dissipation in pure and mixed circuits, resonance phenomena, and the operating principles and energy losses of transformers.</p>
+      <h4>Target Objectives:</h4>
+      <ul>
+        <li>Understand peak, instantaneous, and root-mean-square (rms) values of current and voltage, along with the physical meaning of the AC ampere derived from Joule heating.</li>
+        <li>Master the concept of phasors and construct phasor diagrams for pure resistive, inductive, and capacitive circuits.</li>
+        <li>Derive and calculate inductive reactance (\(X_L\)), capacitive reactance (\(X_C\)), impedance (\(Z\)), and phase angle (\(\phi\)) in series \(LCR\) circuits.</li>
+        <li>Analyze electric resonance, natural resonant frequency (\(\omega_0 = 1/\sqrt{LC}\)), current maximization, and the sharpness of resonance.</li>
+        <li>Evaluate active power, power factor (\(\cos\phi\)), wattless current, and power factor correction in inductive loads.</li>
+        <li>Understand transformer relations (\(V_s/V_p = N_s/N_p = I_p/I_s\)), step-up/step-down conversions, and four primary sources of energy loss in practical transformers.</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>পরিবর্তী প্রবাহ (AC) NEET UG পদার্থবিদ্যা পাঠ্যক্রমের একটি অত্যন্ত গুরুত্বপূর্ণ এবং নম্বর-সমৃদ্ধ অধ্যায়। এই অধ্যায় থেকে সাধারণত শীর্ষ মান ও rms মান, ফেজর চিত্রের সাহায্যে দশা সম্পর্ক, আবেশীয় ও ধারকীয় প্রতিঘাত, শ্রেণী \(LCR\) বর্তনীর প্রতিবাধা, অনুনাদের শর্ত, ক্ষমতা গুণক, ওয়াটহীন প্রবাহ এবং রূপান্তরকের (ট্রান্সফরমার) কার্যপ্রণালী সংক্রান্ত প্রশ্ন নিয়মিত আসে।</p>
+      <h4>মূল শিখন উদ্দেশ্য:</h4>
+      <ul>
+        <li>তড়িৎপ্রবাহ ও বিভবের শীর্ষ মান, তাৎক্ষণিক মান এবং মূল-গড়-বর্গ (rms) মান এবং জুল উত্তাপন প্রক্রিয়ার ভিত্তিতে AC অ্যাম্পিয়ারের সংজ্ঞা আয়ত্ত করা।</li>
+        <li>ফেজর ধারণা বোঝা এবং বিশুদ্ধ রোধক, আবেশক ও ধারকের জন্য ফেজর ডায়াগ্রাম অঙ্কন করা।</li>
+        <li>শ্রেণী \(LCR\) বর্তনীর ক্ষেত্রে আবেশীয় প্রতিঘাত (\(X_L\)), ধারকীয় প্রতিঘাত (\(X_C\)), মোট প্রতিবাধা (\(Z\)) এবং দশা কোণ (\(\phi\)) গণনা করা।</li>
+        <li>তড়িৎ অনুনাদ, স্বাভাবিক অনুনাদী কম্পাঙ্ক (\(\omega_0 = 1/\sqrt{LC}\)) এবং অনুনাদের প্রয়োগ বোঝা।</li>
+        <li>গড় ক্ষমতা, ক্ষমতা গুণক (\(\cos\phi\)), ওয়াটহীন প্রবাহ এবং ক্ষমতা গুণক বৃদ্ধির কৌশল বিশ্লেষণ করা।</li>
+        <li>ট্রান্সফরমারের মূলনীতি (\(V_s/V_p = N_s/N_p = I_p/I_s\)), উচ্চধাপী ও নিম্নধাপী রূপান্তরক এবং ট্রান্সফরমারের চার ধরনের শক্তির অপচয় ব্যাখ্যা করা।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Fundamentals of Alternating Current and RMS Values -->
+  <section>
+    <h2>2. Fundamentals of AC &amp; Root Mean Square (RMS) Values</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>Direct current (dc) maintains a fixed direction with time. In contrast, an <strong>alternating voltage</strong> changes direction cyclically and varies harmonically with time, driving an <strong>alternating current (ac)</strong>. Standard domestic mains supply is sinusoidal:</p>
+      \[
+      v = v_m \sin \omega t
+      \]
+      <p>where \(v_m\) is the peak voltage (voltage amplitude), \(\omega = 2\pi\nu = 2\pi/T\) is the angular frequency, and \(\nu\) is the cyclical frequency (50 Hz in India).</p>
+
+      <h3>AC Applied to a Pure Resistor</h3>
+      <p>When an alternating voltage \(v = v_m \sin\omega t\) is applied across a pure resistance \(R\), Kirchhoff's loop rule gives \(v - iR = 0\), leading to:</p>
+      \[
+      i = \frac{v_m}{R}\sin\omega t = i_m \sin\omega t \quad \text{where} \quad i_m = \frac{v_m}{R}
+      \]
+      <p>Both \(v(t)\) and \(i(t)\) reach zero, positive maxima, and negative minima at precisely the same instants. Hence, in a pure resistor, <strong>the voltage and current are strictly in phase</strong> (phase angle \(\phi = 0\)).</p>
+
+      <h3>Average Current vs. Root Mean Square (RMS) Current</h3>
+      <p>Over one complete period \(T\), the algebraic average of sinusoidal current is zero because the positive half-cycle cancels the negative half-cycle:</p>
+      \[
+      \langle i \rangle = \frac{1}{T}\int_0^T i_m \sin\omega t\,\mathrm{d}t = 0
+      \]
+      <p>However, power dissipated by Joule heating depends on \(i^2 R\). Because \(i^2\) is always non-negative, electrical energy is continuously dissipated as heat. The instantaneous power is:</p>
+      \[
+      p = i^2 R = i_m^2 R \sin^2\omega t
+      \]
+      <p>Using the trigonometric identity \(\sin^2\omega t = \frac{1 - \cos 2\omega t}{2}\), and knowing \(\langle \cos 2\omega t \rangle = 0\), the average power over a full cycle is:</p>
+      \[
+      \overline{P} = i_m^2 R \langle \sin^2\omega t \rangle = \frac{1}{2} i_m^2 R
+      \]
+      <p>To express AC power in the familiar DC form \(P = I^2 R\), we define the <strong>root mean square (rms) current</strong> (or effective current):</p>
+      \[
+      I = I_{\mathrm{rms}} = \sqrt{\langle i^2 \rangle} = \sqrt{\frac{i_m^2}{2}} = \frac{i_m}{\sqrt{2}} \approx 0.707\,i_m
+      \]
+      <p>Similarly, the rms voltage (or effective voltage) is defined as:</p>
+      \[
+      V = V_{\mathrm{rms}} = \frac{v_m}{\sqrt{2}} \approx 0.707\,v_m
+      \]
+      <p>Using rms values, Ohm's law and average power take identical algebraic forms to DC circuits:</p>
+      \[
+      V = I R \quad \text{and} \quad P = I^2 R = \frac{V^2}{R} = V I
+      \]
+      <div class="callout-box tip">
+        <strong>NEET Crucial Fact:</strong> Household AC line voltage of \(220\,\mathrm{V}\) represents the <strong>rms value</strong>. Its peak amplitude reaches \(v_m = \sqrt{2} \times 220\,\mathrm{V} \approx 311\,\mathrm{V}\). Thus, a \(220\,\mathrm{V}\) AC line oscillates between \(+311\,\mathrm{V}\) and \(-311\,\mathrm{V}\), making it physiologically more dangerous than a \(220\,\mathrm{V}\) steady DC line.
+      </div>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>একমুখী প্রবাহের (dc) ক্ষেত্রে প্রবাহের অভিমুখ সময়ের সাথে অপরিবর্তিত থাকে। পক্ষান্তরে, <strong>পরিবর্তী বিভব</strong> সময়ের সাথে পর্যাবৃত্ত ও সাইন অপেক্ষক অনুসারে পরিবর্তিত হয় এবং এর ফলে বর্তনীতে <strong>পরিবর্তী প্রবাহ (ac)</strong> সৃষ্টি হয়। গৃহস্থালির সরবরাহ বিভব একটি সাইন তরঙ্গাকার সমীকরণ মেনে চলে:</p>
+      \[
+      v = v_m \sin \omega t
+      \]
+      <p>এখানে \(v_m\) হলো বিভবের শীর্ষ মান (amplitude), \(\omega = 2\pi\nu = 2\pi/T\) হলো কৌণিক কম্পাঙ্ক এবং \(\nu\) হলো কম্পাঙ্ক (ভারতে এর মান 50 Hz)।</p>
+
+      <h3>বিশুদ্ধ রোধকে পরিবর্তী ভোল্টেজ প্রয়োগ</h3>
+      <p>একটি বিশুদ্ধ রোধক \(R\)-এর দুই প্রান্তে পরিবর্তী ভোল্টেজ \(v = v_m \sin\omega t\) প্রয়োগ করলে কার্শফের লুপ সূত্রানুসারে \(v - iR = 0\), যা থেকে পাওয়া যায়:</p>
+      \[
+      i = \frac{v_m}{R}\sin\omega t = i_m \sin\omega t \quad \text{যেখানে} \quad i_m = \frac{v_m}{R}
+      \]
+      <p>লক্ষ্যণীয় যে, \(v(t)\) এবং \(i(t)\) একই সাথে শূন্য, সর্বোচ্চ ধনাত্মক এবং সর্বনিম্ন ঋণাত্মক মানে পৌঁছায়। সুতরাং বিশুদ্ধ রোধকের ক্ষেত্রে <strong>বিভব এবং প্রবাহ সমদশা সম্পন্ন</strong> (দশা পার্থক্য \(\phi = 0\))।</p>
+
+      <h3>গড় প্রবাহ বনাম মূল-গড়-বর্গ (RMS) প্রবাহ</h3>
+      <p>একটি পূর্ণ চক্রে (\(T\)) সাইন তরঙ্গের গড় মান সর্বদা শূন্য হয়, কারণ ধনাত্মক অর্ধ-চক্র ও ঋণাত্মক অর্ধ-চক্র পরস্পরকে প্রশমিত করে:</p>
+      \[
+      \langle i \rangle = \frac{1}{T}\int_0^T i_m \sin\omega t\,\mathrm{d}t = 0
+      \]
+      <p>তবে জুল উত্তাপের ক্ষেত্রে তাপশক্তির ক্ষয় \(i^2 R\)-এর ওপর নির্ভর করে। যেহেতু \(i^2\) সর্বদা ধনাত্মক, তাই AC প্রবাহের ক্ষেত্রে রোধকে অবিচ্ছিন্নভাবে তাপ উৎপন্ন হয়। তাৎক্ষণিক ক্ষমতা:</p>
+      \[
+      p = i^2 R = i_m^2 R \sin^2\omega t
+      \]
+      <p>আমরা জানি \(\sin^2\omega t = \frac{1 - \cos 2\omega t}{2}\) এবং পূর্ণ চক্রে \(\langle \cos 2\omega t \rangle = 0\)। অতএব একটি পূর্ণ চক্রে গড় ক্ষমতা:</p>
+      \[
+      \overline{P} = i_m^2 R \langle \sin^2\omega t \rangle = \frac{1}{2} i_m^2 R
+      \]
+      <p>এই AC ক্ষমতাকে DC ক্ষমতার মতো \(P = I^2 R\) আকারে প্রকাশ করার জন্য <strong>মূল-গড়-বর্গ মান (Root Mean Square বা rms মান)</strong> বা কার্যকরী মান সংজ্ঞায়িত করা হয়:</p>
+      \[
+      I = I_{\mathrm{rms}} = \sqrt{\langle i^2 \rangle} = \sqrt{\frac{i_m^2}{2}} = \frac{i_m}{\sqrt{2}} \approx 0.707\,i_m
+      \]
+      <p>অনুরূপভাবে rms বিভব (কার্যকরী বিভব):</p>
+      \[
+      V = V_{\mathrm{rms}} = \frac{v_m}{\sqrt{2}} \approx 0.707\,v_m
+      \]
+      <p>rms মান ব্যবহারের ফলে ওহমের সূত্র ও ক্ষমতার সমীকরণ DC বর্তনীর মতো সহজ রূপ ধারণ করে:</p>
+      \[
+      V = I R \quad \text{এবং} \quad P = I^2 R = \frac{V^2}{R} = V I
+      \]
+    </div>
+
+    <!-- Diagram 1: AC through Resistor & RMS Waveform -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 600 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Axes -->
+        <line x1="50" y1="120" x2="560" y2="120" stroke="#718096" stroke-width="2" />
+        <line x1="50" y1="20" x2="50" y2="220" stroke="#718096" stroke-width="2" />
+        <polygon points="560,116 570,120 560,124" fill="#718096" />
+        <polygon points="46,20 50,10 54,20" fill="#718096" />
+        <text x="560" y="140" font-size="12" fill="#4a5568" font-family="sans-serif">&#969;t</text>
+        <text x="25" y="25" font-size="12" fill="#4a5568" font-family="sans-serif">v, i</text>
+
+        <!-- Zero, pi, 2pi markings -->
+        <text x="45" y="136" font-size="12" fill="#718096" font-family="sans-serif">0</text>
+        <text x="295" y="136" font-size="12" fill="#718096" font-family="sans-serif">&#960;</text>
+        <text x="535" y="136" font-size="12" fill="#718096" font-family="sans-serif">2&#960;</text>
+        <line x1="300" y1="116" x2="300" y2="124" stroke="#718096" stroke-width="1.5" />
+        <line x1="540" y1="116" x2="540" y2="124" stroke="#718096" stroke-width="1.5" />
+
+        <!-- Sine waves: Voltage (Blue) and Current (Orange-red) -->
+        <!-- Voltage Waveform (Amplitude 80) -->
+        <path d="M 50 120 Q 112.5 20, 175 120 T 300 120 T 425 120 T 540 120" fill="none" stroke="#2b6cb0" stroke-width="2.5" />
+        <!-- Current Waveform (Amplitude 50, strictly in phase) -->
+        <path d="M 50 120 Q 112.5 57.5, 175 120 T 300 120 T 425 120 T 540 120" fill="none" stroke="#c53030" stroke-width="2" stroke-dasharray="4,3" />
+
+        <!-- Peak markings -->
+        <line x1="50" y1="40" x2="175" y2="40" stroke="#2b6cb0" stroke-width="1" stroke-dasharray="2,2" />
+        <text x="15" y="44" font-size="12" fill="#2b6cb0" font-family="sans-serif">v_m</text>
+        <line x1="50" y1="70" x2="175" y2="70" stroke="#c53030" stroke-width="1" stroke-dasharray="2,2" />
+        <text x="20" y="74" font-size="12" fill="#c53030" font-family="sans-serif">i_m</text>
+
+        <!-- RMS Level Line for Current -->
+        <line x1="50" y1="84.6" x2="540" y2="84.6" stroke="#38a169" stroke-width="1.5" stroke-dasharray="5,4" />
+        <text x="430" y="80" font-size="11" fill="#22543d" font-family="sans-serif">I_rms = 0.707 i_m</text>
+
+        <!-- Legend -->
+        <rect x="360" y="25" width="180" height="42" fill="#ffffff" stroke="#cbd5e0" rx="4" />
+        <line x1="370" y1="38" x2="395" y2="38" stroke="#2b6cb0" stroke-width="2.5" />
+        <text x="402" y="42" font-size="11" fill="#2d3748" font-family="sans-serif">Voltage v(t)</text>
+        <line x1="370" y1="54" x2="395" y2="54" stroke="#c53030" stroke-width="2" stroke-dasharray="4,3" />
+        <text x="402" y="58" font-size="11" fill="#2d3748" font-family="sans-serif">Current i(t) (In-Phase)</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 1: In-phase sinusoidal waveforms of voltage and current across a pure resistor, showing the effective RMS level.</div>
+    </div>
+  </section>
+
+  <!-- 3. Phasors and Pure Reactive Elements -->
+  <section>
+    <h2>3. Phasor Representation &amp; Pure Reactive Elements</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>Although AC voltage and current are scalar physical quantities, their harmonic time dependence makes them mathematically identical to the projections of vectors rotating in a plane with angular speed \(\omega\). Such rotating vectors are termed <strong>phasors</strong>:</p>
+      <ul>
+        <li>The length of a phasor represents the peak value (\(v_m\) or \(i_m\)) or rms value.</li>
+        <li>The vertical projection of the phasor represents its instantaneous value at that moment (\(v = v_m \sin\omega t\)).</li>
+        <li>The angle between two phasors represents their phase difference (\(\phi\)).</li>
+      </ul>
+
+      <h3>AC Voltage Applied to a Pure Inductor</h3>
+      <p>Consider an inductor with self-inductance \(L\) and negligible winding resistance connected to \(v = v_m \sin\omega t\). By Faraday-Lenz law, a self-induced back emf \(-L\frac{\mathrm{d}i}{\mathrm{d}t}\) opposes current change. Applying Kirchhoff's loop rule:</p>
+      \[
+      v - L\frac{\mathrm{d}i}{\mathrm{d}t} = 0 \implies \frac{\mathrm{d}i}{\mathrm{d}t} = \frac{v_m}{L}\sin\omega t
+      \]
+      <p>Integrating with respect to time (setting the integration constant to zero because current oscillates symmetrically about zero):</p>
+      \[
+      i = -\frac{v_m}{\omega L}\cos\omega t = i_m \sin\left(\omega t - \frac{\pi}{2}\right)
+      \]
+      <p>where the <strong>inductive reactance</strong> \(X_L\) and current amplitude \(i_m\) are:</p>
+      \[
+      X_L = \omega L = 2\pi\nu L \quad \text{and} \quad i_m = \frac{v_m}{X_L}
+      \]
+      <p><strong>Crucial Conclusion:</strong> In a purely inductive circuit, <strong>current lags the applied voltage by \(\pi/2\) radians (90° or a quarter period \(T/4\))</strong>. The inductive reactance \(X_L\) has the SI unit of ohm (\(\Omega\)) and is directly proportional to frequency \(\nu\). At \(\nu = 0\) (dc), \(X_L = 0\); an inductor behaves as an ideal short circuit to steady dc.</p>
+      <p><strong>Power Dissipation in an Inductor:</strong> Instantaneous power is:</p>
+      \[
+      p_L = v i = \left[v_m \sin\omega t\right] \left[-i_m \cos\omega t\right] = -\frac{v_m i_m}{2}\sin(2\omega t)
+      \]
+      <p>Since \(\langle \sin 2\omega t \rangle = 0\) over a full cycle, the <strong>average power absorbed by a pure inductor over a cycle is exactly zero</strong> (\(P_L = 0\)). During quarter-cycles when current rises, energy is stored in the magnetic field; during subsequent quarter-cycles, this energy is completely returned to the source.</p>
+
+      <h3>AC Voltage Applied to a Pure Capacitor</h3>
+      <p>When an AC source is connected across a capacitor of capacitance \(C\), charge oscillates continuously across the plates. At any instant, \(q = C v = C v_m \sin\omega t\). The current is:</p>
+      \[
+      i = \frac{\mathrm{d}q}{\mathrm{d}t} = \omega C v_m \cos\omega t = i_m \sin\left(\omega t + \frac{\pi}{2}\right)
+      \]
+      <p>Defining the <strong>capacitive reactance</strong> \(X_C\):</p>
+      \[
+      X_C = \frac{1}{\omega C} = \frac{1}{2\pi\nu C} \quad \text{and} \quad i_m = \frac{v_m}{X_C} = \omega C v_m
+      \]
+      <p><strong>Crucial Conclusion:</strong> In a purely capacitive circuit, <strong>current leads the applied voltage by \(\pi/2\) radians (90° or \(T/4\))</strong>. The capacitive reactance \(X_C\) is measured in ohms (\(\Omega\)) and is inversely proportional to frequency \(\nu\). At zero frequency (dc), \(X_C \to \infty\); a capacitor completely blocks steady DC once charged.</p>
+      <p><strong>Power Dissipation in a Capacitor:</strong> Instantaneous power is \(p_C = v i = \frac{v_m i_m}{2}\sin(2\omega t)\). Its cycle-average is strictly zero (\(P_C = 0\)). The capacitor stores electrostatic energy during charging and returns it fully during discharging.</p>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>যদিও AC ভোল্টেজ এবং কারেন্ট স্কেলার রাশি, কিন্তু এদের সরল দোলগতির মতো সময়ের পরিবর্তনশীলতাকে একটি তলে \(\omega\) কৌণিক বেগে ঘূর্ণায়মান ভেক্টরের অভিক্ষেপ হিসেবে সুন্দরভাবে প্রকাশ করা যায়। এই ঘূর্ণনশীল ভেক্টরকে <strong>ফেজর (Phasor)</strong> বলা হয়:</p>
+      <ul>
+        <li>ফেজরের দৈর্ঘ্য রাশিটির শীর্ষ মান (\(v_m\) বা \(i_m\)) অথবা rms মান নির্দেশ করে।</li>
+        <li>উল্লম্ব অক্ষের ওপর ফেজরের অভিক্ষেপ তাৎক্ষণিক মান (\(v = v_m \sin\omega t\)) নির্দেশ করে।</li>
+        <li>দুটি ফেজরের মধ্যবর্তী কোণ তাদের দশা পার্থক্য (\(\phi\)) নির্দেশ করে।</li>
+      </ul>
+
+      <h3>বিশুদ্ধ আবেশকে পরিবর্তী ভোল্টেজ প্রয়োগ</h3>
+      <p>নগণ্য রোধবিশিষ্ট \(L\) স্বাবেশাঙ্কের একটি আবেশকের সাথে \(v = v_m \sin\omega t\) যুক্ত করলে ফ্যারাডে-লেঞ্জের সূত্রানুসারে স্বকীয় আবিষ্ট তড়িচ্চালক বল \(-L\frac{\mathrm{d}i}{\mathrm{d}t}\) প্রযুক্ত হয়। কার্শফের লুপ সূত্র থেকে:</p>
+      \[
+      v - L\frac{\mathrm{d}i}{\mathrm{d}t} = 0 \implies \frac{\mathrm{d}i}{\mathrm{d}t} = \frac{v_m}{L}\sin\omega t
+      \]
+      <p>সময় সাপেক্ষে সমাকলন করে (ধ্রুবকের মান শূন্য কারণ প্রবাহের কোনো স্থির DC অংশ নেই):</p>
+      \[
+      i = -\frac{v_m}{\omega L}\cos\omega t = i_m \sin\left(\omega t - \frac{\pi}{2}\right)
+      \]
+      <p>এখানে <strong>আবেশীয় প্রতিঘাত (Inductive Reactance)</strong> \(X_L\) এবং প্রবাহের শীর্ষ মান \(i_m\) হলো:</p>
+      \[
+      X_L = \omega L = 2\pi\nu L \quad \text{এবং} \quad i_m = \frac{v_m}{X_L}
+      \]
+      <p><strong>গুরুত্বপূর্ণ সিদ্ধান্ত:</strong> একটি বিশুদ্ধ আবেশীয় বর্তনীতে <strong>প্রবাহ বিভবের তুলনায় \(\pi/2\) দশা কোণে (বা 90° বা এক চতুর্থাংশ পর্যায়কাল \(T/4\)) পশ্চাদবর্তী হয় (lags)</strong>। \(X_L\)-এর SI একক ওহম (\(\Omega\)) এবং এটি কম্পাঙ্ক \(\nu\)-এর সমানুপাতিক। DC-এর ক্ষেত্রে (\(\nu = 0\)), \(X_L = 0\); অর্থাৎ একটি আদর্শ আবেশক স্থির DC প্রবাহে কোনো বাধা দেয় না।</p>
+      <p><strong>আবেশকে গড় ক্ষমতা:</strong> তাৎক্ষণিক ক্ষমতা \(p_L = vi = -\frac{v_m i_m}{2}\sin(2\omega t)\)। একটি পূর্ণ চক্রে \(\langle \sin 2\omega t \rangle = 0\) হওয়ায় <strong>বিশুদ্ধ আবেশকে পূর্ণ চক্রে গড় ক্ষমতা শূন্য</strong> (\(P_L = 0\))।</p>
+
+      <h3>বিশুদ্ধ ধারকে পরিবর্তী ভোল্টেজ প্রয়োগ</h3>
+      <p>\(C\) ধারকত্বের ধারকে পরিবর্তী উৎস যুক্ত করলে যে কোনো মুহূর্তে আধান \(q = C v = C v_m \sin\omega t\)। বর্তনীর প্রবাহ:</p>
+      \[
+      i = \frac{\mathrm{d}q}{\mathrm{d}t} = \omega C v_m \cos\omega t = i_m \sin\left(\omega t + \frac{\pi}{2}\right)
+      \]
+      <p>এখানে <strong>ধারকীয় প্রতিঘাত (Capacitive Reactance)</strong> \(X_C\) হলো:</p>
+      \[
+      X_C = \frac{1}{\omega C} = \frac{1}{2\pi\nu C} \quad \text{এবং} \quad i_m = \frac{v_m}{X_C} = \omega C v_m
+      \]
+      <p><strong>গুরুত্বপূর্ণ সিদ্ধান্ত:</strong> একটি বিশুদ্ধ ধারকীয় বর্তনীতে <strong>প্রবাহ বিভবের তুলনায় \(\pi/2\) দশা কোণে (বা 90°) অগ্রবর্তী হয় (leads)</strong>। \(X_C\)-এর SI একক ওহম (\(\Omega\)) এবং এটি কম্পাঙ্কের ব্যস্তানুপাতিক। DC-এর জন্য (\(\nu = 0\)), \(X_C \to \infty\); তাই ধারক স্থির DC প্রবাহকে সম্পূর্ণ অবরুদ্ধ করে।</p>
+      <p><strong>ধারকে গড় ক্ষমতা:</strong> একটি পূর্ণ চক্রে বিশুদ্ধ ধারকে গড় ক্ষমতাও শূন্য (\(P_C = 0\))।</p>
+    </div>
+
+    <!-- Diagram 2: Phasor Diagrams for L and C -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 600 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sub-panel (a): Pure Inductor -->
+        <g transform="translate(40, 20)">
+          <text x="100" y="15" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle" font-family="sans-serif">(a) Pure Inductor (L)</text>
+          <!-- Coordinate Axes -->
+          <line x1="20" y1="110" x2="190" y2="110" stroke="#a0aec0" stroke-width="1.5" />
+          <line x1="105" y1="20" x2="105" y2="190" stroke="#a0aec0" stroke-width="1.5" />
+          <!-- Voltage Phasor (Angle 45 deg) -->
+          <line x1="105" y1="110" x2="158" y2="57" stroke="#2b6cb0" stroke-width="2.5" />
+          <polygon points="158,57 148,61 154,67" fill="#2b6cb0" />
+          <text x="165" y="55" font-size="12" font-weight="bold" fill="#2b6cb0" font-family="sans-serif">V</text>
+          <!-- Current Phasor (Lags by 90 deg -> Angle -45 deg) -->
+          <line x1="105" y1="110" x2="155" y2="160" stroke="#c53030" stroke-width="2.5" />
+          <polygon points="155,160 151,149 145,155" fill="#c53030" />
+          <text x="162" y="170" font-size="12" font-weight="bold" fill="#c53030" font-family="sans-serif">I</text>
+          <!-- Right angle symbol -->
+          <path d="M 119 96 L 133 110 L 119 124" fill="none" stroke="#4a5568" stroke-width="1.2" />
+          <text x="135" y="105" font-size="10" fill="#4a5568" font-family="sans-serif">90&#176;</text>
+          <text x="105" y="205" font-size="11" fill="#718096" text-anchor="middle" font-family="sans-serif">Current lags Voltage by &#960;/2</text>
+        </g>
+
+        <!-- Divider Line -->
+        <line x1="295" y1="20" x2="295" y2="220" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="4,4" />
+
+        <!-- Sub-panel (b): Pure Capacitor -->
+        <g transform="translate(340, 20)">
+          <text x="100" y="15" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle" font-family="sans-serif">(b) Pure Capacitor (C)</text>
+          <!-- Coordinate Axes -->
+          <line x1="20" y1="110" x2="190" y2="110" stroke="#a0aec0" stroke-width="1.5" />
+          <line x1="105" y1="20" x2="105" y2="190" stroke="#a0aec0" stroke-width="1.5" />
+          <!-- Voltage Phasor (Angle 45 deg) -->
+          <line x1="105" y1="110" x2="158" y2="57" stroke="#2b6cb0" stroke-width="2.5" />
+          <polygon points="158,57 148,61 154,67" fill="#2b6cb0" />
+          <text x="165" y="55" font-size="12" font-weight="bold" fill="#2b6cb0" font-family="sans-serif">V</text>
+          <!-- Current Phasor (Leads by 90 deg -> Angle 135 deg) -->
+          <line x1="105" y1="110" x2="52" y2="57" stroke="#c53030" stroke-width="2.5" />
+          <polygon points="52,57 63,61 57,67" fill="#c53030" />
+          <text x="35" y="55" font-size="12" font-weight="bold" fill="#c53030" font-family="sans-serif">I</text>
+          <!-- Right angle symbol -->
+          <path d="M 91 96 L 105 82 L 119 96" fill="none" stroke="#4a5568" stroke-width="1.2" />
+          <text x="98" y="78" font-size="10" fill="#4a5568" font-family="sans-serif">90&#176;</text>
+          <text x="105" y="205" font-size="11" fill="#718096" text-anchor="middle" font-family="sans-serif">Current leads Voltage by &#960;/2</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 2: Phasor relationships showing that current lags voltage by 90° in a pure inductor and leads by 90° in a pure capacitor.</div>
+    </div>
+  </section>
+
+  <!-- 4. Series LCR Circuit and Impedance -->
+  <section>
+    <h2>4. Series LCR Circuit &amp; Impedance Diagram</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>In a series \(LCR\) circuit connected to an alternating source \(v = v_m \sin\omega t\), the current \(i(t)\) is identical across all three components at every instant. Let this common current be:</p>
+      \[
+      i = i_m \sin(\omega t + \phi)
+      \]
+      <p>where \(\phi\) is the phase difference of the current relative to the source voltage.</p>
+
+      <h3>Phasor Addition of Voltages</h3>
+      <p>Let \(\mathbf{V_R}\), \(\mathbf{V_L}\), and \(\mathbf{V_C}\) represent the voltage phasors across \(R\), \(L\), and \(C\):</p>
+      <ul>
+        <li>\(\mathbf{V_R}\) has magnitude \(v_{Rm} = i_m R\) and is in phase with current phasor \(\mathbf{I}\).</li>
+        <li>\(\mathbf{V_L}\) has magnitude \(v_{Lm} = i_m X_L\) and leads \(\mathbf{I}\) by \(\pi/2\).</li>
+        <li>\(\mathbf{V_C}\) has magnitude \(v_{Cm} = i_m X_C\) and lags \(\mathbf{I}\) by \(\pi/2\).</li>
+      </ul>
+      <p>Because \(\mathbf{V_L}\) and \(\mathbf{V_C}\) lie along the exact same line in opposite directions, their vector resultant has magnitude \(|v_{Lm} - v_{Cm}| = i_m |X_L - X_C|\). Combining this with perpendicular phasor \(\mathbf{V_R}\) via the Pythagorean theorem gives:</p>
+      \[
+      v_m^2 = v_{Rm}^2 + (v_{Lm} - v_{Cm})^2 = (i_m R)^2 + \left[i_m (X_L - X_C)\right]^2 = i_m^2 \left[R^2 + (X_L - X_C)^2\right]
+      \]
+      <p>Solving for the current amplitude \(i_m\):</p>
+      \[
+      i_m = \frac{v_m}{\sqrt{R^2 + (X_L - X_C)^2}} = \frac{v_m}{Z}
+      \]
+      <p>where \(Z\) is the <strong>impedance</strong> of the circuit:</p>
+      \[
+      Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{R^2 + \left(\omega L - \frac{1}{\omega C}\right)^2}
+      \]
+      <p>The phase angle \(\phi\) (measured from current phasor to voltage phasor) or \(\tan\phi = \frac{X_L - X_C}{R}\):</p>
+      <ul>
+        <li><strong>Inductive Case (\(X_L > X_C\)):</strong> Voltage leads current by \(\phi\). Current lags voltage.</li>
+        <li><strong>Capacitive Case (\(X_C > X_L\)):</strong> Current leads voltage by angle \(|\phi|\).</li>
+        <li><strong>Resistive Case (\(X_L = X_C\)):</strong> \(\phi = 0\); voltage and current are in phase.</li>
+      </ul>
+      <div class="callout-box warning">
+        <strong>Warning against Scalar Addition:</strong> In AC circuits, individual RMS voltage drops across components cannot be added algebraically! The source voltage is \(V = \sqrt{V_R^2 + (V_L - V_C)^2}\). It is entirely possible for \(V_R + V_C\) or \(V_L + V_C\) to numerically exceed the source voltage \(V\).
+      </div>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>একটি শ্রেণী \(LCR\) বর্তনীতে রোধক \(R\), আবেশক \(L\) এবং ধারক \(C\) একটি পরিবর্তী উৎস \(v = v_m \sin\omega t\)-এর সাথে শ্রেণীতে যুক্ত থাকে। যেহেতু উপাদানগুলি শ্রেণীতে যুক্ত, তাই যে কোনো মুহূর্তে প্রত্যেকের মধ্য দিয়ে একই প্রবাহ \(i(t)\) প্রবাহিত হয়:</p>
+      \[
+      i = i_m \sin(\omega t + \phi)
+      \]
+      <p>এখানে \(\phi\) হলো প্রযুক্ত ভোল্টেজ ও প্রবাহের মধ্যবর্তী দশা কোণ।</p>
+
+      <h3>ফেজরের সাহায্যে বিভবের যোগফল</h3>
+      <p>উপাদানগুলির বিভব ফেজর যথাক্রমে \(\mathbf{V_R}\), \(\mathbf{V_L}\) এবং \(\mathbf{V_C}\):</p>
+      <ul>
+        <li>\(\mathbf{V_R}\) এর মান \(v_{Rm} = i_m R\); এটি প্রবাহ ফেজর \(\mathbf{I}\)-এর সাথে সমদশায় থাকে।</li>
+        <li>\(\mathbf{V_L}\) এর মান \(v_{Lm} = i_m X_L\); এটি \(\mathbf{I}\)-এর থেকে \(\pi/2\) কোণে এগিয়ে থাকে।</li>
+        <li>\(\mathbf{V_C}\) এর মান \(v_{Cm} = i_m X_C\); এটি \(\mathbf{I}\)-এর থেকে \(\pi/2\) কোণে পিছিয়ে থাকে।</li>
+      </ul>
+      <p>যেহেতু \(\mathbf{V_L}\) এবং \(\mathbf{V_C}\) একই সরলরেখায় বিপরীতমুখী, তাই এদের লব্ধির মান \(|v_{Lm} - v_{Cm}|\)। পিথাগোরাসের উপপাদ্য প্রয়োগ করে লব্ধি শীর্ষ ভোল্টেজ \(v_m\):</p>
+      \[
+      v_m = \sqrt{v_{Rm}^2 + (v_{Lm} - v_{Cm})^2} = i_m \sqrt{R^2 + (X_L - X_C)^2}
+      \]
+      <p>অতএব প্রবাহের শীর্ষ মান:</p>
+      \[
+      i_m = \frac{v_m}{Z} \quad \text{যেখানে প্রতিবাধা (Impedance)} \quad Z = \sqrt{R^2 + (X_L - X_C)^2}
+      \]
+      <p>দশা কোণ \(\phi\) নির্ণয়ের সমীকরণ:</p>
+      \[
+      \tan\phi = \frac{X_L - X_C}{R}
+      \]
+      <ul>
+        <li>যদি \(X_L > X_C\) হয়, বর্তনীটি প্রধানত আবেশীয় এবং ভোল্টেজ প্রবাহের চেয়ে এগিয়ে থাকে।</li>
+        <li>যদি \(X_C > X_L\) হয়, বর্তনীটি প্রধানত ধারকীয় এবং প্রবাহ ভোল্টেজের চেয়ে এগিয়ে থাকে।</li>
+      </ul>
+    </div>
+
+    <!-- Diagram 3: LCR Circuit & Impedance Triangle -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 620 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sub-panel (a): Series LCR schematic -->
+        <g transform="translate(20, 20)">
+          <text x="120" y="15" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle" font-family="sans-serif">(a) Series LCR Circuit</text>
+          <!-- Circuit Loop -->
+          <rect x="20" y="35" width="200" height="130" fill="none" stroke="#2d3748" stroke-width="2" rx="4" />
+          <!-- AC Source (Left) -->
+          <circle cx="20" cy="100" r="14" fill="#ffffff" stroke="#2b6cb0" stroke-width="2" />
+          <path d="M 12 100 Q 16 93, 20 100 T 28 100" fill="none" stroke="#2b6cb0" stroke-width="2" />
+          <text x="40" y="104" font-size="11" font-weight="bold" fill="#2b6cb0" font-family="sans-serif">v = v_m sin&#969;t</text>
+          <!-- Resistor R (Top) -->
+          <rect x="85" y="27" width="50" height="16" fill="#ffffff" stroke="#2d3748" stroke-width="1.5" />
+          <text x="110" y="40" font-size="11" font-weight="bold" fill="#2d3748" text-anchor="middle" font-family="sans-serif">R</text>
+          <!-- Inductor L (Right) -->
+          <rect x="210" y="70" width="20" height="60" fill="#ffffff" />
+          <path d="M 220 70 C 235 75, 235 85, 220 85 C 235 90, 235 100, 220 100 C 235 105, 235 115, 220 115 C 235 120, 235 130, 220 130" fill="none" stroke="#2d3748" stroke-width="2" />
+          <text x="245" y="104" font-size="11" font-weight="bold" fill="#2d3748" font-family="sans-serif">L</text>
+          <!-- Capacitor C (Bottom) -->
+          <rect x="95" y="155" width="30" height="20" fill="#ffffff" />
+          <line x1="105" y1="155" x2="105" y2="175" stroke="#2d3748" stroke-width="2.5" />
+          <line x1="115" y1="155" x2="115" y2="175" stroke="#2d3748" stroke-width="2.5" />
+          <text x="110" y="192" font-size="11" font-weight="bold" fill="#2d3748" text-anchor="middle" font-family="sans-serif">C</text>
+        </g>
+
+        <!-- Divider -->
+        <line x1="300" y1="20" x2="300" y2="200" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="4,4" />
+
+        <!-- Sub-panel (b): Impedance Triangle -->
+        <g transform="translate(340, 20)">
+          <text x="120" y="15" font-size="13" font-weight="bold" fill="#1a365d" text-anchor="middle" font-family="sans-serif">(b) Impedance Triangle</text>
+          <!-- Base R -->
+          <line x1="30" y1="160" x2="170" y2="160" stroke="#2d3748" stroke-width="2.5" />
+          <text x="100" y="180" font-size="12" font-weight="bold" fill="#2d3748" font-family="sans-serif">Resistance R</text>
+          <!-- Perpendicular (X_L - X_C) -->
+          <line x1="170" y1="160" x2="170" y2="50" stroke="#c53030" stroke-width="2.5" />
+          <text x="178" y="110" font-size="12" font-weight="bold" fill="#c53030" font-family="sans-serif">X_L - X_C</text>
+          <!-- Hypotenuse Z -->
+          <line x1="30" y1="160" x2="170" y2="50" stroke="#2b6cb0" stroke-width="3" />
+          <text x="75" y="95" font-size="13" font-weight="bold" fill="#2b6cb0" font-family="sans-serif">Z</text>
+          <!-- Angle phi arc -->
+          <path d="M 70 160 A 40 40 0 0 0 62 135" fill="none" stroke="#dd6b20" stroke-width="1.5" />
+          <text x="74" y="148" font-size="12" font-weight="bold" fill="#dd6b20" font-family="sans-serif">&#981;</text>
+          <!-- Right angle marker -->
+          <rect x="155" y="145" width="15" height="15" fill="none" stroke="#718096" stroke-width="1.2" />
+        </g>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 3: (a) Schematic of a series LCR circuit. (b) The impedance triangle showing the geometric relationship between R, net reactance, impedance Z, and phase angle \(\phi\).</div>
+    </div>
+  </section>
+
+  <!-- 5. Electrical Resonance and Quality Factor -->
+  <section>
+    <h2>5. Resonance in Series LCR Circuits &amp; Quality Factor</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>A striking characteristic of the series \(LCR\) circuit is <strong>electrical resonance</strong>. At a particular angular frequency \(\omega_0\), inductive reactance equals capacitive reactance:</p>
+      \[
+      X_L = X_C \implies \omega_0 L = \frac{1}{\omega_0 C} \implies \omega_0 = \frac{1}{\sqrt{LC}} \quad \text{and} \quad \nu_0 = \frac{1}{2\pi\sqrt{LC}}
+      \]
+      <p>At this resonant frequency \(\omega_0\):</p>
+      <ol>
+        <li>Net reactance vanishes: \(X = X_L - X_C = 0\).</li>
+        <li>Impedance reaches its absolute minimum: \(Z = \sqrt{R^2 + 0^2} = R\).</li>
+        <li>Current amplitude reaches its maximum: \(i_{m0} = \frac{v_m}{R}\).</li>
+        <li>Phase difference is zero (\(\phi = 0\)); the circuit behaves purely resistively.</li>
+        <li>The voltages across the inductor and capacitor are equal in magnitude but 180° out of phase, completely cancelling each other: \(V_L + V_C = 0\). The entire applied voltage appears across the resistor: \(V_R = V\).</li>
+      </ol>
+      <div class="callout-box warning">
+        <strong>Mandatory Presence of Both L and C:</strong> Resonance is physically impossible in pure \(RL\) or \(RC\) circuits. Complete voltage cancellation demands two reactive elements whose voltages oppose each other with a phase difference of \(180^\circ\) (\(\pi\) radians).
+      </div>
+
+      <h3>Sharpness of Resonance &amp; Quality Factor (Q)</h3>
+      <p>The sharpness of the resonance curve dictates the selectivity of tuning circuits. Lower resistance \(R\) produces a taller, sharper peak. Quantitatively, the <strong>Quality Factor (\(Q\))</strong> is defined as:</p>
+      \[
+      Q = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 C R} = \frac{1}{R}\sqrt{\frac{L}{C}} = \frac{V_L}{V_R} = \frac{V_C}{V_R} \quad (\text{at resonance})
+      \]
+      <p>A high \(Q\)-value indicates high voltage magnification across \(L\) and \(C\) at resonance, as well as superior frequency selectivity in radio and television receivers.</p>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>শ্রেণী \(LCR\) বর্তনীর একটি অনন্য বৈশিষ্ট্য হলো <strong>তড়িৎ অনুনাদ (Resonance)</strong>। যখন উৎসের কৌণিক কম্পাঙ্ক এমন একটি মানে পৌঁছায় যাতে আবেশীয় প্রতিঘাত ও ধারকীয় প্রতিঘাত সমান হয় (\(X_L = X_C\)):</p>
+      \[
+      \omega_0 L = \frac{1}{\omega_0 C} \implies \omega_0 = \frac{1}{\sqrt{LC}} \quad \text{এবং} \quad \nu_0 = \frac{1}{2\pi\sqrt{LC}}
+      \]
+      <p>এই অনুনাদী কম্পাঙ্কে (\(\omega_0\)):</p>
+      <ol>
+        <li>মোট প্রতিঘাত শূন্য হয়: \(X_L - X_C = 0\)।</li>
+        <li>বর্তনীর প্রতিবাধা সর্বনিম্ন হয়: \(Z_{\min} = R\)।</li>
+        <li>প্রবাহের বিস্তার সর্বোচ্চ হয়: \(i_m = v_m/R\)।</li>
+        <li>বিভব ও প্রবাহের মধ্যবর্তী দশা কোণ শূন্য হয় (\(\phi = 0\))।</li>
+        <li>আবেশক ও ধারকের প্রান্তীয় বিভব সমান কিন্তু বিপরীতমুখী হওয়ায় একে অপরকে সম্পূর্ণ প্রশমিত করে (\(V_L + V_C = 0\))। সমগ্র প্রযুক্ত বিভব রোধকের দুই প্রান্তে প্রতীয়মান হয় (\(V = V_R\))।</li>
+      </ol>
+      <p><strong>গুণক গুণমান বা Q-ফ্যাক্টর (Quality Factor):</strong> অনুনাদ বক্ররেখার তীক্ষ্ণতা নির্দেশ করে Q-ফ্যাক্টর। রোধ \(R\)-এর মান যত কম হবে, অনুনাদ বক্ররেখা তত বেশি তীক্ষ্ণ হবে:</p>
+      \[
+      Q = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 C R} = \frac{1}{R}\sqrt{\frac{L}{C}}
+      \]
+    </div>
+
+    <!-- Diagram 4: Resonance Curves -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 580 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Axes -->
+        <line x1="60" y1="190" x2="520" y2="190" stroke="#718096" stroke-width="2" />
+        <line x1="60" y1="20" x2="60" y2="190" stroke="#718096" stroke-width="2" />
+        <polygon points="520,186 530,190 520,194" fill="#718096" />
+        <polygon points="56,20 60,10 64,20" fill="#718096" />
+        <text x="500" y="210" font-size="12" fill="#4a5568" font-family="sans-serif">&#969; (rad/s)</text>
+        <text x="20" y="25" font-size="12" fill="#4a5568" font-family="sans-serif">i_m (A)</text>
+
+        <!-- Vertical dashed resonant frequency line -->
+        <line x1="280" y1="30" x2="280" y2="190" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4" />
+        <text x="274" y="208" font-size="13" font-weight="bold" fill="#1a365d" font-family="sans-serif">&#969;_0</text>
+
+        <!-- Curve 1: Low Resistance R1 = 100 Ohm (Sharp Resonance) -->
+        <path d="M 80 186 C 180 184, 250 140, 275 45 C 278 35, 282 35, 285 45 C 310 140, 380 184, 480 186" fill="none" stroke="#2b6cb0" stroke-width="2.5" />
+        <text x="290" y="45" font-size="11" font-weight="bold" fill="#2b6cb0" font-family="sans-serif">R = 100 &#937; (Sharper)</text>
+
+        <!-- Curve 2: Higher Resistance R2 = 200 Ohm (Flatter Resonance) -->
+        <path d="M 80 187 C 180 185, 240 160, 275 105 C 278 100, 282 100, 285 105 C 320 160, 380 185, 480 187" fill="none" stroke="#c53030" stroke-width="2" stroke-dasharray="5,3" />
+        <text x="290" y="105" font-size="11" font-weight="bold" fill="#c53030" font-family="sans-serif">R = 200 &#937; (Flatter)</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 4: Current amplitude \(i_m\) as a function of driving frequency \(\omega\), illustrating the sharpening effect of smaller resistance \(R\).</div>
+    </div>
+  </section>
+
+  <!-- 6. Power in AC Circuits and Power Factor -->
+  <section>
+    <h2>6. Power in AC Circuits &amp; The Power Factor</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>For an applied voltage \(v = v_m \sin\omega t\) driving a current \(i = i_m \sin(\omega t + \phi)\), the instantaneous power delivered by the source is:</p>
+      \[
+      p = vi = v_m i_m \sin\omega t \sin(\omega t + \phi) = \frac{v_m i_m}{2}\left[\cos\phi - \cos(2\omega t + \phi)\right]
+      \]
+      <p>Averaging over a complete cycle, the time-dependent term \(\langle \cos(2\omega t + \phi) \rangle = 0\). The average active power dissipated is:</p>
+      \[
+      P = \frac{v_m i_m}{2}\cos\phi = \left(\frac{v_m}{\sqrt{2}}\right)\left(\frac{i_m}{\sqrt{2}}\right)\cos\phi = V I \cos\phi
+      \]
+      <p>Alternatively, since \(V = I Z\) and \(\cos\phi = R/Z\):</p>
+      \[
+      P = I^2 Z \left(\frac{R}{Z}\right) = I^2 R
+      \]
+      <p>The term \(\cos\phi\) is the <strong>Power Factor</strong> of the circuit:</p>
+      \[
+      \text{Power Factor } (\cos\phi) = \frac{R}{Z} = \frac{R}{\sqrt{R^2 + (X_L - X_C)^2}}
+      \]
+
+      <h3>Special Cases of Power Dissipation:</h3>
+      <ul>
+        <li><strong>Purely Resistive Circuit:</strong> \(\phi = 0 \implies \cos\phi = 1\). Maximum power dissipation: \(P = VI = I^2 R\).</li>
+        <li><strong>Pure Inductor or Pure Capacitor:</strong> \(\phi = \pm \pi/2 \implies \cos\phi = 0\). Power dissipation is strictly zero: \(P = 0\). The alternating current flowing without dissipating power is called <strong>wattless current</strong>.</li>
+        <li><strong>Series LCR at Resonance:</strong> \(X_L = X_C \implies Z = R \implies \cos\phi = 1\). Maximum power dissipation occurs entirely across \(R\).</li>
+      </ul>
+
+      <h3>Wattless Current &amp; Power Factor Improvement</h3>
+      <p>Resolving current \(I\) into components: \(I_p = I\cos\phi\) (in-phase with \(V\), active/working component) and \(I_q = I\sin\phi\) (at \(90^\circ\) to \(V\), reactive/wattless component).</p>
+      <p>In power transmission, a low power factor (\(\cos\phi \ll 1\)) requires a disproportionately high current \(I = P / (V \cos\phi)\) to deliver a given power \(P\). This creates catastrophic \(I^2 R_{\mathrm{line}}\) Joule heating losses in distribution cables. To counteract inductive lagging wattless currents, engineers connect a <strong>parallel capacitor of suitable value</strong> to supply an equal leading wattless current, driving \(\cos\phi \to 1\).</p>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>প্রযুক্ত বিভব \(v = v_m \sin\omega t\) এবং উৎপন্ন প্রবাহ \(i = i_m \sin(\omega t + \phi)\) হলে তাৎক্ষণিক ক্ষমতা:</p>
+      \[
+      p = vi = \frac{v_m i_m}{2}\left[\cos\phi - \cos(2\omega t + \phi)\right]
+      \]
+      <p>একটি পূর্ণ চক্রে সময়-নির্ভর দ্বিতীয় পদের গড় মান শূন্য। অতএব গড় ক্ষমতা:</p>
+      \[
+      P = V I \cos\phi = I^2 R
+      \]
+      <p>এখানে \(\cos\phi\)-কে বর্তনীর <strong>ক্ষমতা গুণক (Power Factor)</strong> বলা হয়:</p>
+      \[
+      \cos\phi = \frac{R}{Z}
+      \]
+      <ul>
+        <li><strong>বিশুদ্ধ রোধীয় বর্তনী:</strong> \(\phi = 0 \implies \cos\phi = 1\)। সর্বোচ্চ ক্ষমতা ক্ষয় হয় (\(P = VI\))।</li>
+        <li><strong>বিশুদ্ধ আবেশক বা ধারকীয় বর্তনী:</strong> \(\phi = \pi/2 \implies \cos\phi = 0\)। বর্তনীতে প্রবাহ থাকা সত্ত্বেও কোনো ক্ষমতা ব্যয় হয় না। এই প্রবাহকে <strong>ওয়াটহীন প্রবাহ (Wattless Current)</strong> বলা হয়।</li>
+        <li><strong>অনুনাদের ক্ষেত্রে:</strong> \(\cos\phi = 1\), ক্ষমতা ক্ষয় সর্বোচ্চ হয়।</li>
+      </ul>
+      <p><strong>ক্ষমতা গুণক উন্নতিকরণ:</strong> শিল্পকারখানায় মোটর ও আবেশীয় যন্ত্রপাতির কারণে ক্ষমতা গুণক হ্রাস পায়। ফলে নির্দিষ্ট ক্ষমতা প্রেরণে তারের মধ্যে অতিরিক্ত প্রবাহের জন্য প্রচুর তাপীয় অপচয় (\(I^2 R\)) ঘটে। এই অপচয় কমাতে বর্তনীতে উপযুক্ত মানের ধারক সমান্তরালে যুক্ত করে ক্ষমতা গুণক 1-এর কাছাকাছি নিয়ে আসা হয়।</p>
+    </div>
+  </section>
+
+  <!-- 7. Transformers -->
+  <section>
+    <h2>7. Transformers: Principle, Construction &amp; Losses</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>A <strong>transformer</strong> is a static electrical device used to step-up (increase) or step-down (decrease) alternating voltages with minimal loss of electrical energy. It operates on the principle of <strong>mutual induction</strong>.</p>
+
+      <h3>Theory of an Ideal Transformer</h3>
+      <p>An ideal transformer consists of two coils—the <strong>primary coil</strong> (\(N_p\) turns) and the <strong>secondary coil</strong> (\(N_s\) turns)—wound on a common laminated soft-iron core.</p>
+      <p>Under ideal conditions (zero winding resistance and 100% mutual flux linkage \(\phi\) per turn):</p>
+      \[
+      v_p = -N_p \frac{\mathrm{d}\phi}{\mathrm{d}t} \quad \text{and} \quad v_s = -N_s \frac{\mathrm{d}\phi}{\mathrm{d}t}
+      \]
+      <p>Dividing the secondary induced emf by the primary gives the <strong>transformation ratio</strong>:</p>
+      \[
+      \frac{V_s}{V_p} = \frac{N_s}{N_p}
+      \]
+      <p>For an ideal transformer with 100% efficiency, input power equals output power (\(P_{\mathrm{in}} = P_{\mathrm{out}}\)):</p>
+      \[
+      V_p I_p = V_s I_s \implies \frac{I_p}{I_s} = \frac{V_s}{V_p} = \frac{N_s}{N_p}
+      \]
+      <ul>
+        <li><strong>Step-Up Transformer:</strong> \(N_s > N_p \implies V_s > V_p\) and \(I_s < I_p\). Voltage is increased at the expense of current.</li>
+        <li><strong>Step-Down Transformer:</strong> \(N_s < N_p \implies V_s < V_p\) and \(I_s > I_p\). Voltage is reduced and current is amplified.</li>
+      </ul>
+
+      <h3>Energy Losses in Real Transformers</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Loss Type</th>
+            <th>Physical Cause</th>
+            <th>Minimization Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Flux Leakage</strong></td>
+            <td>Not all magnetic flux from the primary links the secondary.</td>
+            <td>Winding primary and secondary coils coaxially one over the other.</td>
+          </tr>
+          <tr>
+            <td><strong>Copper Loss (\(I^2 R\))</strong></td>
+            <td>Joule heating due to electrical resistance of copper windings.</td>
+            <td>Using thick copper wire with low resistance in high-current windings.</td>
+          </tr>
+          <tr>
+            <td><strong>Eddy Current Loss</strong></td>
+            <td>Changing flux induces circulating eddy currents in the iron core.</td>
+            <td>Constructing the core from thin, varnished insulated iron laminations.</td>
+          </tr>
+          <tr>
+            <td><strong>Hysteresis Loss</strong></td>
+            <td>Repeated magnetic reversal of core domains dissipates energy as heat.</td>
+            <td>Using high-permeability, low-coercivity soft iron / silicon steel.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p><strong>ট্রান্সফরমার (রূপান্তরক)</strong> হলো এমন একটি স্থির বৈদ্যুতিক যন্ত্র যার সাহায্যে পরিবর্তী ভোল্টেজ বৃদ্ধি (উচ্চধাপী) বা হ্রাস (নিম্নধাপী) করা হয়। এটি <strong>পারস্পরিক আবেশ (Mutual Induction)</strong> নীতির ওপর ভিত্তি করে কাজ করে।</p>
+
+      <h3>আদর্শ ট্রান্সফরমারের মূলনীতি</h3>
+      <p>একটি নরম লোহার মজ্জার (Core) ওপর দুটি পৃথক তারের কুন্ডলী থাকে—একটি মুখ্য কুন্ডলী (\(N_p\) পাকসংখ্যা) এবং অপরটি গৌণ কুন্ডলী (\(N_s\) পাকসংখ্যা)। আদর্শ ক্ষেত্রে:</p>
+      \[
+      \frac{V_s}{V_p} = \frac{N_s}{N_p}
+      \]
+      <p>100% কর্মদক্ষতা সম্পন্ন আদর্শ ট্রান্সফরমারে ইনপুট ক্ষমতা = আউটপুট ক্ষমতা (\(V_p I_p = V_s I_s\)):</p>
+      \[
+      \frac{I_p}{I_s} = \frac{V_s}{V_p} = \frac{N_s}{N_p}
+      \]
+      <ul>
+        <li><strong>উচ্চধাপী রূপান্তরক (Step-Up):</strong> \(N_s > N_p \implies V_s > V_p\) এবং \(I_s < I_p\)।</li>
+        <li><strong>নিম্নধাপী রূপান্তরক (Step-Down):</strong> \(N_s < N_p \implies V_s < V_p\) এবং \(I_s > I_p\)।</li>
+      </ul>
+
+      <h3>ব্যবহারিক ট্রান্সফরমারে শক্তির অপচয়</h3>
+      <ul>
+        <li><strong>চৌম্বক ফ্লাক্স ক্ষরণ:</strong> সমস্ত ফ্লাক্স গৌণ কুন্ডলীকে স্পর্শ করে না। প্রতিকার: একটি কুন্ডলীর ওপর অন্য কুন্ডলী জড়ানো।</li>
+        <li><strong>তামার তারের তাপীয় অপচয় (\(I^2 R\)):</strong> কুন্ডলীর রোধের জন্য তাপ সৃষ্টি হয়। প্রতিকার: মোটা তামার তার ব্যবহার করা।</li>
+        <li><strong>ঘূর্ণি প্রবাহ জনিত অপচয় (Eddy Currents):</strong> লোহার মজ্জায় আবিষ্ট ঘূর্ণি প্রবাহের কারণে উত্তাপন ঘটে। প্রতিকার: স্তরিত বা পাতলা ফলকযুক্ত (laminated) মজ্জা ব্যবহার করা।</li>
+        <li><strong>শৈথিল্য অপচয় (Hysteresis Loss):</strong> বারবার চুম্বকিত ও বিচুম্বকিত হওয়ার কারণে শক্তি ক্ষয় হয়। প্রতিকার: কম হিস্টেরিসিস ক্ষয়যুক্ত নরম লোহা ব্যবহার করা।</li>
+      </ul>
+    </div>
+
+    <!-- Diagram 5: Transformer Construction -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 600 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Soft iron core (outer and inner cutouts) -->
+        <rect x="150" y="25" width="300" height="170" fill="#e2e8f0" stroke="#4a5568" stroke-width="3" rx="6" />
+        <rect x="220" y="65" width="160" height="90" fill="#ffffff" stroke="#4a5568" stroke-width="2" rx="4" />
+        <!-- Lamination lines on the core -->
+        <line x1="160" y1="25" x2="160" y2="195" stroke="#cbd5e0" stroke-width="1.5" />
+        <line x1="170" y1="25" x2="170" y2="195" stroke="#cbd5e0" stroke-width="1.5" />
+        <line x1="430" y1="25" x2="430" y2="195" stroke="#cbd5e0" stroke-width="1.5" />
+        <line x1="440" y1="25" x2="440" y2="195" stroke="#cbd5e0" stroke-width="1.5" />
+        <text x="300" y="48" font-size="11" fill="#718096" text-anchor="middle" font-family="sans-serif">Laminated Soft-Iron Core</text>
+
+        <!-- Primary Windings (Left Limb) -->
+        <g stroke="#2b6cb0" stroke-width="3" fill="none">
+          <path d="M 120 70 L 150 70" />
+          <path d="M 150 70 C 140 80, 140 90, 150 90 C 140 100, 140 110, 150 110 C 140 120, 140 130, 150 130 C 140 140, 140 150, 150 150" />
+          <path d="M 150 150 L 120 150" />
+        </g>
+        <circle cx="115" cy="70" r="4" fill="#2b6cb0" />
+        <circle cx="115" cy="150" r="4" fill="#2b6cb0" />
+        <text x="60" y="105" font-size="12" font-weight="bold" fill="#2b6cb0" font-family="sans-serif">Primary (N_p)</text>
+        <text x="75" y="122" font-size="11" fill="#4a5568" font-family="sans-serif">Input V_p</text>
+
+        <!-- Secondary Windings (Right Limb - Step Up: more turns) -->
+        <g stroke="#c53030" stroke-width="3" fill="none">
+          <path d="M 480 60 L 450 60" />
+          <path d="M 450 60 C 460 68, 460 76, 450 76 C 460 84, 460 92, 450 92 C 460 100, 460 108, 450 108 C 460 116, 460 124, 450 124 C 460 132, 460 140, 450 140 C 460 148, 460 156, 450 156 C 460 164, 460 172, 450 172" />
+          <path d="M 450 172 L 480 172" />
+        </g>
+        <circle cx="485" cy="60" r="4" fill="#c53030" />
+        <circle cx="485" cy="172" r="4" fill="#c53030" />
+        <text x="495" y="110" font-size="12" font-weight="bold" fill="#c53030" font-family="sans-serif">Secondary (N_s)</text>
+        <text x="495" y="128" font-size="11" fill="#4a5568" font-family="sans-serif">Output V_s</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 5: Schematic representation of a transformer with laminated soft-iron core and separate windings.</div>
+    </div>
+  </section>
+
+  <!-- 8. Master Summary Table -->
+  <section>
+    <h2>8. Master Formula &amp; Dimensional Formula Reference</h2>
+    
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>Quick-reference dimensional formulas, SI units, and governing equations for NEET UG candidates:</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Physical Quantity</th>
+            <th>Symbol</th>
+            <th>Dimensions</th>
+            <th>SI Unit</th>
+            <th>Core Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RMS Voltage</td>
+            <td>\(V\) or \(V_{\mathrm{rms}}\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-1}}]\)</td>
+            <td>volt (\(\mathrm{V}\))</td>
+            <td>\(V = v_m / \sqrt{2} \approx 0.707\,v_m\)</td>
+          </tr>
+          <tr>
+            <td>RMS Current</td>
+            <td>\(I\) or \(I_{\mathrm{rms}}\)</td>
+            <td>\([\mathrm{A}]\)</td>
+            <td>ampere (\(\mathrm{A}\))</td>
+            <td>\(I = i_m / \sqrt{2} \approx 0.707\,i_m\)</td>
+          </tr>
+          <tr>
+            <td>Inductive Reactance</td>
+            <td>\(X_L\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-2}}]\)</td>
+            <td>ohm (\(\Omega\))</td>
+            <td>\(X_L = \omega L = 2\pi\nu L\)</td>
+          </tr>
+          <tr>
+            <td>Capacitive Reactance</td>
+            <td>\(X_C\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-2}}]\)</td>
+            <td>ohm (\(\Omega\))</td>
+            <td>\(X_C = \frac{1}{\omega C} = \frac{1}{2\pi\nu C}\)</td>
+          </tr>
+          <tr>
+            <td>Impedance</td>
+            <td>\(Z\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-2}}]\)</td>
+            <td>ohm (\(\Omega\))</td>
+            <td>\(Z = \sqrt{R^2 + (X_L - X_C)^2}\)</td>
+          </tr>
+          <tr>
+            <td>Resonant Angular Frequency</td>
+            <td>\(\omega_0\)</td>
+            <td>\([\mathrm{T^{-1}}]\)</td>
+            <td>\(\mathrm{rad/s}\)</td>
+            <td>\(\omega_0 = 1/\sqrt{LC}\)</td>
+          </tr>
+          <tr>
+            <td>Quality Factor</td>
+            <td>\(Q\)</td>
+            <td>\([\mathrm{M^0\,L^0\,T^0}]\quad (\text{Dimensionless})\)</td>
+            <td>Unitless</td>
+            <td>\(Q = \frac{\omega_0 L}{R} = \frac{1}{R}\sqrt{\frac{L}{C}}\)</td>
+          </tr>
+          <tr>
+            <td>Power Factor</td>
+            <td>\(\cos\phi\)</td>
+            <td>\([\mathrm{M^0\,L^0\,T^0}]\quad (\text{Dimensionless})\)</td>
+            <td>Unitless</td>
+            <td>\(\cos\phi = R/Z\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>NEET UG পরীক্ষার জন্য প্রয়োজনীয় সূত্র, মাত্রা এবং SI এককের সার্বিক তালিকা:</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ভৌত রাশি</th>
+            <th>প্রতীক</th>
+            <th>মাত্রা</th>
+            <th>SI একক</th>
+            <th>মূল সমীকরণ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>rms বিভব</td>
+            <td>\(V\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-1}}]\)</td>
+            <td>ভোল্ট (\(\mathrm{V}\))</td>
+            <td>\(V = v_m / \sqrt{2}\)</td>
+          </tr>
+          <tr>
+            <td>rms প্রবাহ</td>
+            <td>\(I\)</td>
+            <td>\([\mathrm{A}]\)</td>
+            <td>অ্যাম্পিয়ার (\(\mathrm{A}\))</td>
+            <td>\(I = i_m / \sqrt{2}\)</td>
+          </tr>
+          <tr>
+            <td>আবেশীয় প্রতিঘাত</td>
+            <td>\(X_L\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-2}}]\)</td>
+            <td>ওহম (\(\Omega\))</td>
+            <td>\(X_L = \omega L = 2\pi\nu L\)</td>
+          </tr>
+          <tr>
+            <td>ধারকীয় প্রতিঘাত</td>
+            <td>\(X_C\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-2}}]\)</td>
+            <td>ওহম (\(\Omega\))</td>
+            <td>\(X_C = 1/(\omega C)\)</td>
+          </tr>
+          <tr>
+            <td>প্রতিবাধা</td>
+            <td>\(Z\)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-2}}]\)</td>
+            <td>ওহম (\(\Omega\))</td>
+            <td>\(Z = \sqrt{R^2 + (X_L - X_C)^2}\)</td>
+          </tr>
+          <tr>
+            <td>অনুনাদী কম্পাঙ্ক</td>
+            <td>\(\omega_0\)</td>
+            <td>\([\mathrm{T^{-1}}]\)</td>
+            <td>\(\mathrm{rad/s}\)</td>
+            <td>\(\omega_0 = 1/\sqrt{LC}\)</td>
+          </tr>
+          <tr>
+            <td>গুণক গুণমান (Q)</td>
+            <td>\(Q\)</td>
+            <td>মাত্রাহীন</td>
+            <td>এককহীন</td>
+            <td>\(Q = \frac{1}{R}\sqrt{\frac{L}{C}}\)</td>
+          </tr>
+          <tr>
+            <td>ক্ষমতা গুণক</td>
+            <td>\(\cos\phi\)</td>
+            <td>মাত্রাহীন</td>
+            <td>এককহীন</td>
+            <td>\(\cos\phi = R/Z\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 9. Worked Tutorial Examples -->
+  <section>
+    <h2>9. Step-by-Step Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <h4>Tutorial Example 1: Household Bulb Analysis</h4>
+        <p><strong>Problem:</strong> An electric bulb is rated at \(100\,\mathrm{W}\) for a \(220\,\mathrm{V}\), \(50\,\mathrm{Hz}\) AC supply. Calculate: (a) resistance of the bulb, (b) peak voltage of the source, and (c) rms current flowing through the bulb.</p>
+        <p><strong>Solution:</strong></p>
+        <p>(a) The power rating is the average active power \(P = 100\,\mathrm{W}\) and line voltage is the rms value \(V = 220\,\mathrm{V}\). The filament resistance is:</p>
+        \[
+        R = \frac{V^2}{P} = \frac{(220\,\mathrm{V})^2}{100\,\mathrm{W}} = \frac{48400}{100} = 484\,\Omega
+        \]
+        <p>(b) Peak voltage of the sinusoidal source is:</p>
+        \[
+        v_m = \sqrt{2} \times V = 1.414 \times 220\,\mathrm{V} \approx 311\,\mathrm{V}
+        \]
+        <p>(c) The rms current is:</p>
+        \[
+        I = \frac{P}{V} = \frac{100\,\mathrm{W}}{220\,\mathrm{V}} \approx 0.455\,\mathrm{A}
+        \]
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <h4>টিউটোরিয়াল উদাহরণ ১: বৈদ্যুতিক বাল্বের হিসাব</h4>
+        <p><strong>সমস্যা:</strong> একটি বৈদ্যুতিক বাল্বে \(220\,\mathrm{V}\), \(100\,\mathrm{W}\) লেখা আছে। (a) বাল্বের রোধ, (b) উৎসের শীর্ষ বিভব এবং (c) বাল্বের মধ্য দিয়ে প্রবাহিত rms প্রবাহ নির্ণয় করো।</p>
+        <p><strong>সমাধান:</strong></p>
+        <p>(a) বাল্বের রোধ \(R = \frac{V^2}{P} = \frac{(220)^2}{100} = 484\,\Omega\)।</p>
+        <p>(b) উৎসের শীর্ষ বিভব \(v_m = \sqrt{2} \times V = 1.414 \times 220 \approx 311\,\mathrm{V}\)।</p>
+        <p>(c) rms প্রবাহ \(I = \frac{P}{V} = \frac{100}{220} \approx 0.455\,\mathrm{A}\)।</p>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <h4>Tutorial Example 2: Series LCR Circuit Complete Analysis</h4>
+        <p><strong>Problem:</strong> A series circuit has \(R = 3\,\Omega\), \(L = 25.48\,\mathrm{mH}\), and \(C = 796\,\mathrm{µF}\) connected to a \(50\,\mathrm{Hz}\) supply of peak voltage \(v_m = 283\,\mathrm{V}\). Find: (a) inductive and capacitive reactances, (b) total circuit impedance, (c) phase angle, (d) power factor, and (e) average power dissipated.</p>
+        <p><strong>Solution:</strong></p>
+        <p>(a) With \(\nu = 50\,\mathrm{Hz}\) and \(\omega = 2\pi\nu = 100\pi \approx 314.16\,\mathrm{rad/s}\):</p>
+        \[
+        X_L = \omega L = 314.16 \times 25.48 \times 10^{-3} \approx 8.0\,\Omega
+        \]
+        \[
+        X_C = \frac{1}{\omega C} = \frac{1}{314.16 \times 796 \times 10^{-6}} \approx 4.0\,\Omega
+        \]
+        <p>(b) Total circuit impedance \(Z\):</p>
+        \[
+        Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{3^2 + (8 - 4)^2} = \sqrt{9 + 16} = 5\,\Omega
+        \]
+        <p>(c) Phase angle \(\phi\):</p>
+        \[
+        \tan\phi = \frac{X_L - X_C}{R} = \frac{8 - 4}{3} = \frac{4}{3} \implies \phi = \tan^{-1}\left(\frac{4}{3}\right) \approx 53.1^\circ
+        \]
+        <p>Since \(X_L > X_C\), the circuit is inductive; current lags voltage by \(53.1^\circ\).</p>
+        <p>(d) Power factor \(\cos\phi\):</p>
+        \[
+        \cos\phi = \frac{R}{Z} = \frac{3}{5} = 0.60
+        \]
+        <p>(e) RMS voltage \(V = \frac{v_m}{\sqrt{2}} = \frac{283}{1.414} \approx 200\,\mathrm{V}\). RMS current \(I = \frac{V}{Z} = \frac{200}{5} = 40\,\mathrm{A}\). Average power:</p>
+        \[
+        P = I^2 R = (40\,\mathrm{A})^2 \times 3\,\Omega = 1600 \times 3 = 4800\,\mathrm{W}
+        \]
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <h4>টিউটোরিয়াল উদাহরণ ২: শ্রেণী LCR বর্তনীর সামগ্রিক বিশ্লেষণ</h4>
+        <p><strong>সমস্যা:</strong> একটি শ্রেণী \(LCR\) বর্তনীতে \(R = 3\,\Omega\), \(L = 25.48\,\mathrm{mH}\), এবং \(C = 796\,\mathrm{µF}\)। উৎসের কম্পাঙ্ক \(50\,\mathrm{Hz}\) এবং শীর্ষ বিভব \(v_m = 283\,\mathrm{V}\)। নির্ণয় করো: (a) \(X_L\) ও \(X_C\), (b) বর্তনীর প্রতিবাধা \(Z\), (c) দশা কোণ \(\phi\), (d) ক্ষমতা গুণক, এবং (e) গড় ক্ষমতা।</p>
+        <p><strong>সমাধান:</strong></p>
+        <p>(a) \(X_L = 2\pi\nu L = 2\times 3.1416 \times 50 \times 25.48\times 10^{-3} = 8\,\Omega\)।<br />
+        \(X_C = \frac{1}{2\pi\nu C} = \frac{1}{2\times 3.1416 \times 50 \times 796\times 10^{-6}} = 4\,\Omega\)।</p>
+        <p>(b) প্রতিবাধা \(Z = \sqrt{R^2 + (X_L - X_C)^2} = \sqrt{3^2 + 4^2} = 5\,\Omega\)।</p>
+        <p>(c) \(\tan\phi = \frac{X_L - X_C}{R} = \frac{4}{3} \implies \phi \approx 53.1^\circ\)। বর্তনী আবেশীয় হওয়ায় প্রবাহ বিভবের চেয়ে পিছিয়ে থাকে।</p>
+        <p>(d) ক্ষমতা গুণক \(\cos\phi = \frac{R}{Z} = \frac{3}{5} = 0.6\)।</p>
+        <p>(e) rms বিভব \(V = 283/\sqrt{2} = 200\,\mathrm{V}\), rms প্রবাহ \(I = 200/5 = 40\,\mathrm{A}\)।<br />
+        গড় ক্ষমতা \(P = I^2 R = (40)^2 \times 3 = 4800\,\mathrm{W}\)।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Exam-Oriented Practice Questions & Solutions -->
+  <section>
+    <h2>10. NEET-Aligned Practice Questions with Complete Solutions</h2>
+
+    <!-- Question 1 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="question-title">Practice Question 1 (Single Correct MCQ)</div>
+        <p>An alternating voltage given by \(v = 141.4 \sin(100\pi t)\,\mathrm{V}\) is applied across a pure resistor of resistance \(20\,\Omega\). The reading of a standard AC ammeter connected in the circuit and the rate of heat dissipation will be respectively:</p>
+        <ul class="options-list">
+          <li>(A) \(7.07\,\mathrm{A}\) and \(1000\,\mathrm{W}\)</li>
+          <li>(B) \(5.0\,\mathrm{A}\) and \(500\,\mathrm{W}\)</li>
+          <li>(C) \(5.0\,\mathrm{A}\) and \(1000\,\mathrm{W}\)</li>
+          <li>(D) \(7.07\,\mathrm{A}\) and \(500\,\mathrm{W}\)</li>
+        </ul>
+        <div class="answer-block">
+          <strong>Correct Answer: (B)</strong>
+          <p><strong>Detailed Explanation:</strong><br />
+          1. Standard AC measuring meters (ammeters and voltmeters) operate on the heating effect of current and always read the <strong>root mean square (rms)</strong> value, not the peak value.<br />
+          2. Peak voltage \(v_m = 141.4\,\mathrm{V}\). The rms voltage is \(V = \frac{v_m}{\sqrt{2}} = \frac{141.4}{1.414} = 100\,\mathrm{V}\).<br />
+          3. The ammeter reading is the rms current: \(I = \frac{V}{R} = \frac{100\,\mathrm{V}}{20\,\Omega} = 5.0\,\mathrm{A}\).<br />
+          4. Rate of heat dissipation is average power: \(P = I^2 R = (5.0\,\mathrm{A})^2 \times 20\,\Omega = 25 \times 20 = 500\,\mathrm{W}\).<br />
+          Thus, the reading is \(5.0\,\mathrm{A}\) and the rate of heat dissipation is \(500\,\mathrm{W}\).</p>
+        </div>
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <div class="question-title">অনুশীলন প্রশ্ন ১ (একক সঠিক উত্তরভিত্তিক MCQ)</div>
+        <p>একটি বিশুদ্ধ \(20\,\Omega\) রোধকের দুই প্রান্তে \(v = 141.4 \sin(100\pi t)\,\mathrm{V}\) পরিবর্তী বিভব প্রয়োগ করা হলো। বর্তনীতে যুক্ত একটি আদর্শ AC অ্যামিটারের পাঠ এবং তাপ উৎপাদনের হার যথাক্রমে কত হবে?</p>
+        <ul class="options-list">
+          <li>(A) \(7.07\,\mathrm{A}\) এবং \(1000\,\mathrm{W}\)</li>
+          <li>(B) \(5.0\,\mathrm{A}\) এবং \(500\,\mathrm{W}\)</li>
+          <li>(C) \(5.0\,\mathrm{A}\) এবং \(1000\,\mathrm{W}\)</li>
+          <li>(D) \(7.07\,\mathrm{A}\) এবং \(500\,\mathrm{W}\)</li>
+        </ul>
+        <div class="answer-block">
+          <strong>সঠিক উত্তর: (B)</strong>
+          <p><strong>বিস্তারিত ব্যাখ্যা:</strong><br />
+          ১. AC অ্যামিটার সর্বদা প্রবাহের <strong>rms মান</strong> পরিমাপ করে।<br />
+          ২. বিভবের শীর্ষ মান \(v_m = 141.4\,\mathrm{V}\)। অতএব rms বিভব \(V = \frac{141.4}{\sqrt{2}} = 100\,\mathrm{V}\)।<br />
+          ৩. অ্যামিটারের পাঠ \(I = \frac{V}{R} = \frac{100}{20} = 5.0\,\mathrm{A}\)।<br />
+          ৪. তাপ উৎপাদনের হার বা গড় ক্ষমতা \(P = I^2 R = (5.0)^2 \times 20 = 500\,\mathrm{W}\)।<br />
+          সুতরাং সঠিক উত্তর (B)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="question-title">Practice Question 2 (Single Correct MCQ)</div>
+        <p>A capacitor of capacitance \(C\) and an inductor of self-inductance \(L\) are connected separately to an AC source of variable frequency \(\nu\). If the frequency of the source is doubled, how do the inductive reactance \(X_L\) and capacitive reactance \(X_C\) change?</p>
+        <ul class="options-list">
+          <li>(A) \(X_L\) is halved, and \(X_C\) is doubled</li>
+          <li>(B) Both \(X_L\) and \(X_C\) are doubled</li>
+          <li>(C) \(X_L\) is doubled, and \(X_C\) is halved</li>
+          <li>(D) Both \(X_L\) and \(X_C\) remain unchanged</li>
+        </ul>
+        <div class="answer-block">
+          <strong>Correct Answer: (C)</strong>
+          <p><strong>Detailed Explanation:</strong><br />
+          1. Inductive reactance is \(X_L = 2\pi\nu L\). Since \(X_L \propto \nu\), doubling the frequency (\(\nu' = 2\nu\)) doubles the inductive reactance: \(X_L' = 2 X_L\).<br />
+          2. Capacitive reactance is \(X_C = \frac{1}{2\pi\nu C}\). Since \(X_C \propto \frac{1}{\nu}\), doubling the frequency halves the capacitive reactance: \(X_C' = \frac{1}{2} X_C\).<br />
+          Hence, \(X_L\) is doubled while \(X_C\) is halved.</p>
+        </div>
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <div class="question-title">অনুশীলন প্রশ্ন ২ (একক সঠিক উত্তরভিত্তিক MCQ)</div>
+        <p>একটি \(C\) ধারকত্বের ধারক এবং একটি \(L\) স্বাবেশাঙ্কের আবেশককে পৃথকভাবে পরিবর্তনশীল কম্পাঙ্কের (\(\nu\)) পরিবর্তী উৎসের সাথে যুক্ত করা হলো। যদি উৎসের কম্পাঙ্ক দ্বিগুণ করা হয়, তবে আবেশীয় প্রতিঘাত \(X_L\) এবং ধারকীয় প্রতিঘাত \(X_C\)-এর কী পরিবর্তন ঘটবে?</p>
+        <ul class="options-list">
+          <li>(A) \(X_L\) অর্ধেক হবে এবং \(X_C\) দ্বিগুণ হবে</li>
+          <li>(B) \(X_L\) এবং \(X_C\) উভয়ই দ্বিগুণ হবে</li>
+          <li>(C) \(X_L\) দ্বিগুণ হবে এবং \(X_C\) অর্ধেক হবে</li>
+          <li>(D) \(X_L\) এবং \(X_C\) উভয়ই অপরিবর্তিত থাকবে</li>
+        </ul>
+        <div class="answer-block">
+          <strong>সঠিক উত্তর: (C)</strong>
+          <p><strong>বিস্তারিত ব্যাখ্যা:</strong><br />
+          ১. আবেশীয় প্রতিঘাত \(X_L = 2\pi\nu L\); অর্থাৎ \(X_L \propto \nu\)। কম্পাঙ্ক দ্বিগুণ হলে \(X_L\) দ্বিগুণ হবে।<br />
+          ২. ধারকীয় প্রতিঘাত \(X_C = \frac{1}{2\pi\nu C}\); অর্থাৎ \(X_C \propto \frac{1}{\nu}\)। কম্পাঙ্ক দ্বিগুণ হলে \(X_C\) অর্ধেক হবে।<br />
+          অতএব সঠিক বিকল্প হলো (C)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="question-title">Practice Question 3 (Single Correct MCQ)</div>
+        <p>In a series \(LCR\) circuit, the measured RMS voltages across the resistor, inductor, and capacitor are \(V_R = 80\,\mathrm{V}\), \(V_L = 100\,\mathrm{V}\), and \(V_C = 40\,\mathrm{V}\) respectively. The RMS voltage of the AC supply driving the circuit is:</p>
+        <ul class="options-list">
+          <li>(A) \(220\,\mathrm{V}\)</li>
+          <li>(B) \(140\,\mathrm{V}\)</li>
+          <li>(C) \(100\,\mathrm{V}\)</li>
+          <li>(D) \(60\,\mathrm{V}\)</li>
+        </ul>
+        <div class="answer-block">
+          <strong>Correct Answer: (C)</strong>
+          <p><strong>Detailed Explanation:</strong><br />
+          1. Voltages across reactive components cannot be added algebraically because of phase differences. \(V_L\) leads current by \(90^\circ\) while \(V_C\) lags current by \(90^\circ\).<br />
+          2. The net reactive voltage is \(V_L - V_C = 100\,\mathrm{V} - 40\,\mathrm{V} = 60\,\mathrm{V}\).<br />
+          3. This reactive voltage is in quadrature (\(90^\circ\)) with \(V_R\). Applying phasor addition:<br />
+          \[
+          V = \sqrt{V_R^2 + (V_L - V_C)^2} = \sqrt{80^2 + 60^2} = \sqrt{6400 + 3600} = \sqrt{10000} = 100\,\mathrm{V}
+          \]
+          Notice that the algebraic sum (\(80 + 100 + 40 = 220\,\mathrm{V}\)) is completely false.</p>
+        </div>
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <div class="question-title">অনুশীলন প্রশ্ন ৩ (একক সঠিক উত্তরভিত্তিক MCQ)</div>
+        <p>একটি শ্রেণী \(LCR\) বর্তনীতে রোধক, আবেশক ও ধারকের প্রান্তীয় rms বিভব যথাক্রমে \(V_R = 80\,\mathrm{V}\), \(V_L = 100\,\mathrm{V}\), এবং \(V_C = 40\,\mathrm{V}\)। বর্তনীতে প্রযুক্ত AC উৎসের rms বিভব কত?</p>
+        <ul class="options-list">
+          <li>(A) \(220\,\mathrm{V}\)</li>
+          <li>(B) \(140\,\mathrm{V}\)</li>
+          <li>(C) \(100\,\mathrm{V}\)</li>
+          <li>(D) \(60\,\mathrm{V}\)</li>
+        </ul>
+        <div class="answer-block">
+          <strong>সঠিক উত্তর: (C)</strong>
+          <p><strong>বিস্তারিত ব্যাখ্যা:</strong><br />
+          ১. বিভিন্ন উপাদানের মধ্যবর্তী দশা পার্থক্যের কারণে সাধারণ বীজগাণিতিক যোগফল প্রযোজ্য নয়।<br />
+          ২. লব্ধি বিভবের সূত্র: \(V = \sqrt{V_R^2 + (V_L - V_C)^2}\)।<br />
+          ৩. মান বসিয়ে পাই:<br />
+          \[
+          V = \sqrt{80^2 + (100 - 40)^2} = \sqrt{80^2 + 60^2} = \sqrt{6400 + 3600} = 100\,\mathrm{V}
+          \]
+          সুতরাং সঠিক উত্তর (C)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="question-title">Practice Question 4 (Assertion-Reason Type)</div>
+        <p><strong>Assertion (A):</strong> Electrical resonance cannot be observed in a circuit containing only a resistor and an inductor (\(RL\) circuit) or only a resistor and a capacitor (\(RC\) circuit).<br />
+        <strong>Reason (R):</strong> Resonance requires the complete cancellation of opposing reactive voltages, which is possible only when both inductive and capacitive elements are present simultaneously.</p>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true and (R) is the correct explanation of (A)</li>
+          <li>(B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)</li>
+          <li>(C) (A) is true but (R) is false</li>
+          <li>(D) (A) is false but (R) is true</li>
+        </ul>
+        <div class="answer-block">
+          <strong>Correct Answer: (A)</strong>
+          <p><strong>Detailed Explanation:</strong><br />
+          At resonance, the net reactive component of impedance must vanish, meaning the impedance becomes minimum and purely resistive (\(Z = R\)). This demands that \(X_L = X_C\), so that \(\mathbf{V_L}\) and \(\mathbf{V_C}\) (which are \(180^\circ\) out of phase) completely cancel each other. In an \(RL\) or \(RC\) circuit, there is only one reactive element; hence, no second opposing reactive voltage exists to cancel it. Thus, both statements are true and Reason (R) correctly explains Assertion (A).</p>
+        </div>
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <div class="question-title">অনুশীলন প্রশ্ন ৪ (বিবৃতি ও যুক্তিভিত্তিক প্রশ্ন)</div>
+        <p><strong>বিবৃতি (A):</strong> শুধুমাত্র রোধক ও আবেশকযুক্ত (\(RL\)) বা শুধুমাত্র রোধক ও ধারকযুক্ত (\(RC\)) বর্তনীতে তড়িৎ অনুনাদ সৃষ্টি করা সম্ভব নয়।<br />
+        <strong>যুক্তি (R):</strong> অনুনাদের জন্য পরস্পরের বিপরীত দশায় থাকা প্রতিঘাত বিভবদ্বয়ের পারস্পরিক প্রশমন প্রয়োজন, যা কেবল আবেশক ও ধারক উভয় উপাদান একসাথে উপস্থিত থাকলেই সম্ভব।</p>
+        <ul class="options-list">
+          <li>(A) (A) এবং (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা</li>
+          <li>(B) (A) এবং (R) উভয়ই সত্য কিন্তু (R), (A)-এর সঠিক ব্যাখ্যা নয়</li>
+          <li>(C) (A) সত্য কিন্তু (R) মিথ্যা</li>
+          <li>(D) (A) মিথ্যা কিন্তু (R) সত্য</li>
+        </ul>
+        <div class="answer-block">
+          <strong>সঠিক উত্তর: (A)</strong>
+          <p><strong>বিস্তারিত ব্যাখ্যা:</strong><br />
+          অনুনাদ তখনই ঘটে যখন \(X_L = X_C\) হয় এবং \(180^\circ\) বিপরীতমুখী দুটি বিভব (\(V_L\) ও \(V_C\)) পরস্পরকে শূন্য করে দেয়। শুধুমাত্র \(RL\) বা \(RC\) বর্তনীতে বিপরীত প্রতিঘাত না থাকায় বিভবের প্রশমন সম্ভব নয়। অতএব বিবৃতি ও যুক্তি উভয়ই সত্য এবং যুক্তিটি বিবৃতির সঠিক ব্যাখ্যা।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-label label-en">English</span>
+        <div class="question-title">Practice Question 5 (Single Correct MCQ)</div>
+        <p>An ideal step-down transformer connected to a \(2200\,\mathrm{V}\) primary line supplies power to a consumer at \(220\,\mathrm{V}\). If the primary winding has \(4000\) turns and the secondary delivers a current of \(20\,\mathrm{A}\), the number of turns in the secondary winding and the current drawn from the primary mains are respectively:</p>
+        <ul class="options-list">
+          <li>(A) \(400\) turns and \(2.0\,\mathrm{A}\)</li>
+          <li>(B) \(400\) turns and \(200\,\mathrm{A}\)</li>
+          <li>(C) \(40000\) turns and \(2.0\,\mathrm{A}\)</li>
+          <li>(D) \(400\) turns and \(0.2\,\mathrm{A}\)</li>
+        </ul>
+        <div class="answer-block">
+          <strong>Correct Answer: (A)</strong>
+          <p><strong>Detailed Explanation:</strong><br />
+          1. Voltage transformation ratio: \(\frac{V_s}{V_p} = \frac{N_s}{N_p}\).<br />
+          Given \(V_p = 2200\,\mathrm{V}\), \(V_s = 220\,\mathrm{V}\), and \(N_p = 4000\):<br />
+          \[
+          N_s = N_p \left(\frac{V_s}{V_p}\right) = 4000 \times \left(\frac{220}{2200}\right) = 4000 \times \frac{1}{10} = 400\text{ turns}
+          \]
+          2. For an ideal transformer with zero power loss, \(V_p I_p = V_s I_s\):<br />
+          \[
+          I_p = I_s \left(\frac{V_s}{V_p}\right) = 20\,\mathrm{A} \times \left(\frac{220}{2200}\right) = 2.0\,\mathrm{A}
+          \]
+          Thus, \(N_s = 400\) turns and \(I_p = 2.0\,\mathrm{A}\).</p>
+        </div>
+      </div>
+      <hr class="bilingual-sep" />
+      <div class="lang-bn">
+        <span class="lang-label label-bn">বাংলা</span>
+        <div class="question-title">অনুশীলন প্রশ্ন ৫ (একক সঠিক উত্তরভিত্তিক MCQ)</div>
+        <p>একটি আদর্শ নিম্নধাপী রূপান্তরক \(2200\,\mathrm{V}\) মেইন লাইনের সাথে যুক্ত এবং গৌণ কুন্ডলী থেকে \(220\,\mathrm{V}\) বিভবে বিদ্যুৎ সরবরাহ করে। যদি মুখ্য কুন্ডলীর পাকসংখ্যা \(4000\) হয় এবং গৌণ কুন্ডলীতে প্রবাহ \(20\,\mathrm{A}\) হয়, তবে গৌণ কুন্ডলীর পাকসংখ্যা এবং মুখ্য কুন্ডলীর প্রবাহ যথাক্রমে কত?</p>
+        <ul class="options-list">
+          <li>(A) \(400\) এবং \(2.0\,\mathrm{A}\)</li>
+          <li>(B) \(400\) এবং \(200\,\mathrm{A}\)</li>
+          <li>(C) \(40000\) এবং \(2.0\,\mathrm{A}\)</li>
+          <li>(D) \(400\) এবং \(0.2\,\mathrm{A}\)</li>
+        </ul>
+        <div class="answer-block">
+          <strong>সঠিক উত্তর: (A)</strong>
+          <p><strong>বিস্তারিত ব্যাখ্যা:</strong><br />
+          ১. পাকসংখ্যা রূপান্তর: \(N_s = N_p \left(\frac{V_s}{V_p}\right) = 4000 \times \frac{220}{2200} = 400\)।<br />
+          ২. প্রবাহের সম্পর্ক: \(I_p = I_s \left(\frac{V_s}{V_p}\right) = 20 \times \frac{220}{2200} = 2.0\,\mathrm{A}\)।<br />
+          অতএব সঠিক উত্তর হলো (A)।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Common Pitfalls and Revision Checklist -->
+  <section>
+    <h2>11. Common Pitfalls &amp; High-Yield Revision Checklist</h2>
+
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <div class="callout-box warning">
+        <h4>NEET Exam Pitfalls to Avoid:</h4>
+        <ul>
+          <li><strong>Confusing Peak vs RMS in Power Calculations:</strong> Average power is \(P = \frac{1}{2}v_m i_m = V_{\mathrm{rms}} I_{\mathrm{rms}}\). Forgetting the factor of \(1/2\) when using peak amplitudes is a frequent error.</li>
+          <li><strong>DC Behavior of Inductors and Capacitors:</strong> At \(\nu = 0\) (dc), an inductor offers zero reactance (\(X_L = 0\)) and acts as a pure conductor. In contrast, a capacitor offers infinite reactance (\(X_C \to \infty\)) and completely blocks dc once charged.</li>
+          <li><strong>Phase Direction in "L" and "C":</strong> Remember the mnemonic <strong>"CIVIL"</strong>: In a <strong>C</strong>apacitor, current <strong>I</strong> leads voltage <strong>V</strong> (\(I\) leads \(V\)); whereas Voltage <strong>V</strong> leads current <strong>I</strong> in an inductor <strong>L</strong> (\(V\) leads \(I\)).</li>
+          <li><strong>Misunderstanding Wattless Current:</strong> Wattless current (\(I\sin\phi\)) does not mean zero electric current; it denotes current flowing \(90^\circ\) out of phase with voltage, resulting in zero net work or thermal dissipation over a cycle.</li>
+          <li><strong>Assuming Transformers Work on DC:</strong> A transformer requires a <em>time-varying</em> magnetic flux (\(\mathrm{d}\phi/\mathrm{d}t \neq 0\)). If connected to steady DC, \(\mathrm{d}\phi/\mathrm{d}t = 0\), so secondary induced voltage is zero, and the primary winding (having very low resistance) burns out due to excessive current!</li>
+        </ul>
+      </div>
+
+      <h4>Quick Revision Checklist:</h4>
+      <ul>
+        <li>&#9745; \(V_{\mathrm{rms}} = v_m / \sqrt{2} \approx 0.707\,v_m\) and \(I_{\mathrm{rms}} = i_m / \sqrt{2} \approx 0.707\,i_m\).</li>
+        <li>&#9745; Pure \(R\): \(\phi = 0\), \(P = V I\).</li>
+        <li>&#9745; Pure \(L\): \(I\) lags \(V\) by \(\pi/2\), \(X_L = 2\pi\nu L\), \(P = 0\).</li>
+        <li>&#9745; Pure \(C\): \(I\) leads \(V\) by \(\pi/2\), \(X_C = \frac{1}{2\pi\nu C}\), \(P = 0\).</li>
+        <li>&#9745; Series \(LCR\): \(Z = \sqrt{R^2 + (X_L - X_C)^2}\), \(\tan\phi = \frac{X_L - X_C}{R}\).</li>
+        <li>&#9745; Resonance: \(\omega_0 = 1/\sqrt{LC}\), \(Z_{\min} = R\), \(I_{\max} = V/R\), \(\cos\phi = 1\), \(Q = \frac{1}{R}\sqrt{\frac{L}{C}}\).</li>
+        <li>&#9745; Power Factor: \(\cos\phi = R/Z\); Power: \(P = V I \cos\phi = I^2 R\).</li>
+        <li>&#9745; Ideal Transformer: \(\frac{V_s}{V_p} = \frac{N_s}{N_p} = \frac{I_p}{I_s}\). Core laminated to curb eddy currents.</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <div class="callout-box warning">
+        <h4>NEET পরীক্ষার সাধারণ ভুলসমূহ (সতর্কতা):</h4>
+        <ul>
+          <li><strong>শীর্ষ মান ও rms মানের বিভ্রান্তি:</strong> গড় ক্ষমতা \(P = V_{\mathrm{rms}} I_{\mathrm{rms}} = \frac{1}{2}v_m i_m\)। শীর্ষ মান ব্যবহারের সময় \(\frac{1}{2}\) বাদ দিলে ভুল উত্তর আসবে।</li>
+          <li><strong>DC বর্তনীতে L এবং C-এর আচরণ:</strong> DC উৎসের জন্য (\(\nu = 0\)), আবেশকের প্রতিঘাত শূন্য (\(X_L = 0\)) কিন্তু ধারকের প্রতিঘাত অসীম (\(X_C \to \infty\))। ফলে ধারক DC-কে সম্পূর্ণ অবরুদ্ধ করে।</li>
+          <li><strong>দশা মনে রাখার সহজ কৌশল:</strong> মনে রাখবে—আবেশকে বিভব এগিয়ে থাকে, ধারকে প্রবাহ এগিয়ে থাকে।</li>
+          <li><strong>ওয়াটহীন প্রবাহ:</strong> যখন ভোল্টেজ ও প্রবাহের মধ্যবর্তী কোণ \(90^\circ\) হয় (\(\cos\phi = 0\)), তখন বর্তনীতে প্রবাহ থাকলেও কোনো গড় ক্ষমতা ক্ষয় হয় না।</li>
+          <li><strong>DC-তে ট্রান্সফরমার কাজ করে না:</strong> স্থির DC-তে সময়ের সাপেক্ষে ফ্লাক্সের পরিবর্তন হয় না (\(\mathrm{d}\phi/\mathrm{d}t = 0\))। ফলে গৌণ কুন্ডলীতে কোনো বিভব আবিষ্ট হয় না এবং মুখ্য কুন্ডলীর অত্যন্ত কম রোধের জন্য অতিরিক্ত প্রবাহে কুন্ডলীটি পুড়ে যেতে পারে।</li>
+        </ul>
+      </div>
+
+      <h4>দ্রুত পুনরাবৃত্তি চেকলিস্ট:</h4>
+      <ul>
+        <li>&#9745; \(V_{\mathrm{rms}} = v_m / \sqrt{2}\) এবং \(I_{\mathrm{rms}} = i_m / \sqrt{2}\)।</li>
+        <li>&#9745; বিশুদ্ধ \(R\): সমদশা সম্পন্ন (\(\phi = 0\)), \(P = V I\)।</li>
+        <li>&#9745; বিশুদ্ধ \(L\): প্রবাহ \(\pi/2\) কোণে পিছিয়ে থাকে, \(X_L = 2\pi\nu L\), \(P = 0\)।</li>
+        <li>&#9745; বিশুদ্ধ \(C\): প্রবাহ \(\pi/2\) কোণে এগিয়ে থাকে, \(X_C = \frac{1}{2\pi\nu C}\), \(P = 0\)।</li>
+        <li>&#9745; শ্রেণী \(LCR\): \(Z = \sqrt{R^2 + (X_L - X_C)^2}\), \(\tan\phi = \frac{X_L - X_C}{R}\)।</li>
+        <li>&#9745; অনুনাদ: \(\omega_0 = 1/\sqrt{LC}\), \(Z = R\), \(I = V/R\), \(\cos\phi = 1\)।</li>
+        <li>&#9745; ক্ষমতা গুণক: \(\cos\phi = R/Z\); গড় ক্ষমতা \(P = VI\cos\phi = I^2 R\)।</li>
+        <li>&#9745; ট্রান্সফরমার: \(\frac{V_s}{V_p} = \frac{N_s}{N_p} = \frac{I_p}{I_s}\)। ঘূর্ণি প্রবাহ রোধে মজ্জা স্তরিত করা হয়।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 12. Final Recap -->
+  <section>
+    <h2>12. Final Summary &amp; Takeaways</h2>
+    
+    <div class="lang-en">
+      <span class="lang-label label-en">English</span>
+      <p>Alternating Current is fundamentally governed by harmonic sinusoidal variations where reactive elements introduce frequency-dependent opposition and phase shifts between voltage and current. While pure inductors and capacitors store and release energy without net cycle dissipation (\(P = 0\)), resistors dissipate real power. In series \(LCR\) circuits, inductive and capacitive behaviors oppose each other, yielding electrical resonance at \(\omega_0 = 1/\sqrt{LC}\) where current peaks and impedance minimizes to pure resistance. In electric power engineering, transformers allow low-loss long-distance transmission by stepping up voltage and reducing current, thereby cutting \(I^2 R\) thermal losses.</p>
+    </div>
+
+    <div class="lang-bn">
+      <span class="lang-label label-bn">বাংলা</span>
+      <p>পরিবর্তী প্রবাহ অধ্যায়ের মূল সারমর্ম হলো সাইন তরঙ্গের পর্যাবৃত্ত পরিবর্তন এবং আবেশক ও ধারকের কম্পাঙ্ক-নির্ভর প্রতিঘাত ও দশা পরিবর্তন। বিশুদ্ধ আবেশক ও ধারকে শক্তি সঞ্চিত ও নির্গত হলেও কোনো কার্যকর ক্ষমতা ক্ষয় হয় না (\(P = 0\)); কেবল রোধকেই ক্ষমতা তাপ হিসেবে ক্ষয়প্রাপ্ত হয়। শ্রেণী \(LCR\) বর্তনীতে আবেশক ও ধারকের প্রতিক্রিয়া পরস্পরের বিপরীত হওয়ায় \(\omega_0 = 1/\sqrt{LC}\) কম্পাঙ্কে তড়িৎ অনুনাদ ঘটে, যেখানে প্রতিবাধা সর্বনিম্ন হয়ে কেবল রোধের সমান হয় এবং প্রবাহ সর্বোচ্চ মানে পৌঁছায়। উচ্চ বিভবে বিদ্যুৎ প্রেরণের মাধ্যমে তারের তাপীয় ক্ষতি (\(I^2 R\)) ব্যাপকভাবে কমানোর জন্যই পরিবর্তী প্রবাহ ও ট্রান্সফরমার আধুনিক বিদ্যুৎ ব্যবস্থার মূল ভিত্তি।</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion in a Plane - NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #172554;
+      --primary-light: #e0e7ff;
+      --secondary: #0d9488;
+      --secondary-light: #f0fdfa;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --text: #1f2937;
+      --text-muted: #4b5563;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+      --card-border: #cbd5e1;
+      --success: #15803d;
+      --success-bg: #dcfce7;
+      --hindi-text: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background-color: var(--bg);
+      padding: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .lang-hi {
+      font-family: "Noto Sans Devanagari", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--hindi-text);
+      line-height: 1.75;
+      margin-top: 0.75rem;
+    }
+
+    header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 9999px;
+      background-color: var(--primary);
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      border-left: 5px solid var(--primary);
+      padding-left: 0.75rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #0f172a;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      margin-bottom: 0.85rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    .card {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-accent {
+      border-left: 4px solid var(--accent);
+      background-color: var(--accent-light);
+    }
+
+    .card-formula {
+      border-left: 4px solid var(--secondary);
+      background-color: var(--secondary-light);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .card-tip {
+      border-left: 4px solid var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .bilingual-pair {
+      margin-bottom: 1.5rem;
+    }
+
+    .hi-block {
+      background-color: #f8fafc;
+      border-left: 3px solid #94a3b8;
+      padding: 0.75rem 1rem;
+      border-radius: 0 6px 6px 0;
+      margin-top: 0.6rem;
+    }
+
+    .svg-container {
+      width: 100%;
+      max-width: 580px;
+      margin: 1.25rem auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .svg-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .practice-question {
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      background-color: #ffffff;
+      page-break-inside: avoid;
+    }
+
+    .question-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      margin: 0.75rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .option-item {
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.92rem;
+    }
+
+    .solution-box {
+      background-color: var(--success-bg);
+      border: 1px solid #86efac;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      margin-top: 0.85rem;
+      font-size: 0.92rem;
+    }
+
+    .solution-box strong {
+      color: var(--success);
+    }
+
+    hr.bilingual-sep {
+      border: none;
+      border-top: 1px dashed #94a3b8;
+      margin: 1rem 0;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        max-width: 100%;
+        color: #000000;
+        background: #ffffff;
+      }
+      .card, .practice-question, .hi-block {
+        box-shadow: none !important;
+        border-color: #cbd5e1 !important;
+      }
+      .practice-question {
+        page-break-inside: avoid;
+      }
+      @page {
+        size: A4;
+        margin: 1.8cm 1.5cm;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+  <header>
+    <div class="badge">NEET UG High-Yield Physics Tutorial</div>
+    <h1>Motion in a Plane</h1>
+    <h1 class="lang-hi" style="font-size: 1.65rem; font-weight: 600;">समतल में गति</h1>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+      Comprehensive Bilingual NEET Study Material &bull; Vectors &bull; Kinematics in Two Dimensions &bull; Projectile Motion &bull; Uniform Circular Motion
+    </p>
+  </header>
+
+  <!-- SECTION 1: OVERVIEW & LEARNING OBJECTIVES -->
+  <section class="card card-tip">
+    <h2>1. Learning Objectives &amp; Exam Context</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">1. अध्ययन के उद्देश्य एवं परीक्षा संदर्भ</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        In NEET UG, kinematics in two dimensions forms a cornerstone for mechanics. Each year, 2 to 3 questions are directly asked from vector operations, trajectory equations, projectile parameters, relative motion, and centripetal acceleration in uniform circular motion. The objective of this tutorial is to master both conceptual nuances and rapid mathematical problem-solving methods without reliance on external textbooks.
+      </p>
+      <div class="hi-block lang-hi">
+        <p>
+          NEET UG परीक्षा में द्विविमीय शुद्धगतिकी (kinematics in two dimensions) यांत्रिकी का एक अत्यंत महत्वपूर्ण आधार स्तंभ है। प्रतिवर्ष सदिश संक्रियाओं, प्रक्षेप्य पथ समीकरण, प्रक्षेप्य के प्राचलों तथा एकसमान वृत्तीय गति में अभिकेन्द्री त्वरण से 2 से 3 प्रश्न पूछे जाते हैं। इस ट्यूटोरियल का उद्देश्य किसी बाह्य संदर्भ के बिना मूल अवधारणाओं और तीव्र गति से हल करने की विधियों में दक्षता प्रदान करना है।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: SCALARS AND VECTORS -->
+  <section>
+    <h2>2. Scalars, Vectors, and Vector Operations</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">2. अदिश, सदिश तथा सदिश संक्रियाएँ</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        Physical quantities are broadly classified into scalars and vectors based on their directional dependence and addition rules:
+      </p>
+      <ul>
+        <li><strong>Scalar:</strong> A quantity specified completely by its magnitude (a single real number) and proper unit. It obeys rules of ordinary algebra. Examples: distance, mass, temperature, time, density, volume, work, electric current.</li>
+        <li><strong>Vector:</strong> A quantity having both magnitude and direction, and which fundamentally obeys the <em>triangle law</em> or <em>parallelogram law</em> of vector addition. Examples: displacement, velocity, acceleration, force, linear momentum.</li>
+      </ul>
+      <div class="hi-block lang-hi">
+        <p>
+          भौतिक राशियों को उनके दिशात्मक गुणधर्मों तथा योग के नियमों के आधार पर अदिश एवं सदिश में वर्गीकृत किया जाता है:
+        </p>
+        <ul>
+          <li><strong>अदिश (Scalar):</strong> वह राशि जो केवल अपने परिमाण (एक संख्या) तथा उपयुक्त मात्रक द्वारा पूर्णतः व्यक्त होती है। यह सामान्य बीजगणित के नियमों का पालन करती है। उदाहरण: दूरी, द्रव्यमान, ताप, समय, घनत्व, आयतन, कार्य, विद्युत धारा।</li>
+          <li><strong>सदिश (Vector):</strong> वह राशि जिसमें परिमाण एवं दिशा दोनों होते हैं तथा जो अनिवार्य रूप से सदिश योग के <em>त्रिभुज नियम</em> अथवा <em>समानांतर चतुर्भुज नियम</em> का पालन करती है। उदाहरण: विस्थापन, वेग, त्वरण, बल, संवेग।</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Position and Displacement Vectors</h3>
+    <div class="hi-block lang-hi">
+      <h3 style="margin: 0; color: #0f172a;">स्थिति एवं विस्थापन सदिश</h3>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        Let \(O\) be the origin of a two-dimensional Cartesian coordinate frame. If a particle is at point \(P\) at time \(t\), the straight directed line segment \(\vec{OP} = \mathbf{r}\) is its <strong>position vector</strong>:
+        \[
+        \mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}}
+        \]
+        If the particle moves to a new position \(P'\) with position vector \(\mathbf{r}' = x'\hat{\mathbf{i}} + y'\hat{\mathbf{j}}\) at time \(t'\), the <strong>displacement vector</strong> \(\Delta\mathbf{r}\) is the directed straight line from initial position \(P\) to final position \(P'\):
+        \[
+        \Delta\mathbf{r} = \mathbf{r}' - \mathbf{r} = (x' - x)\hat{\mathbf{i}} + (y' - y)\hat{\mathbf{j}} = \Delta x\hat{\mathbf{i}} + \Delta y\hat{\mathbf{j}}
+        \]
+        <strong>Key NEET Principle:</strong> Displacement depends solely on the initial and final endpoints and is strictly independent of the actual curved path traversed. The magnitude of displacement is always less than or equal to the actual path length (distance travelled):
+        \[
+        |\Delta\mathbf{r}| \le \text{Path Length}
+        \]
+      </p>
+      <div class="hi-block lang-hi">
+        <p>
+          यदि किसी कार्तीय निर्देशांक तंत्र में मूल बिंदु \(O\) हो तथा समय \(t\) पर कण बिंदु \(P\) पर स्थित हो, तो रेखाखंड \(\vec{OP} = \mathbf{r}\) को कण का <strong>स्थिति सदिश</strong> कहते हैं। जब कण किसी वक्र पथ से होकर समय \(t'\) पर बिंदु \(P'\) (स्थिति सदिश \(\mathbf{r}'\)) पर पहुँचता है, तो प्रारंभिक स्थिति \(P\) से अंतिम स्थिति \(P'\) को मिलाने वाला सीधा सदिश <strong>विस्थापन सदिश</strong> कहलाता है:
+          \[
+          \Delta\mathbf{r} = \mathbf{r}' - \mathbf{r} = \Delta x\hat{\mathbf{i}} + \Delta y\hat{\mathbf{j}}
+          \]
+          विस्थापन केवल प्रारंभिक व अंतिम स्थितियों पर निर्भर करता है, तय किए गए वास्तविक पथ पर नहीं। अतः विस्थापन का परिमाण सदैव तय की गई दूरी (पथ-लंबाई) के बराबर या उससे कम होता है।
+        </p>
+      </div>
+    </div>
+
+    <!-- SVG DIAGRAM 1: Position and Displacement -->
+    <div class="svg-container">
+      <svg viewBox="0 0 420 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#1e3a8a"/>
+          </marker>
+          <marker id="arrow-disp" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#d97706"/>
+          </marker>
+          <marker id="arrow-axis" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#475569"/>
+          </marker>
+        </defs>
+        <!-- Axes -->
+        <line x1="40" y1="220" x2="380" y2="220" stroke="#475569" stroke-width="2" marker-end="url(#arrow-axis)"/>
+        <line x1="40" y1="220" x2="40" y2="30" stroke="#475569" stroke-width="2" marker-end="url(#arrow-axis)"/>
+        <text x="390" y="225" font-size="14" fill="#1f2937" font-weight="bold">x</text>
+        <text x="35" y="20" font-size="14" fill="#1f2937" font-weight="bold">y</text>
+        <text x="25" y="235" font-size="14" fill="#1f2937">O</text>
+
+        <!-- Curved Path -->
+        <path d="M 120 160 Q 150 90, 240 110 T 330 70" fill="none" stroke="#94a3b8" stroke-dasharray="4,4" stroke-width="2"/>
+        <text x="240" y="75" font-size="12" fill="#64748b">Actual curved path</text>
+
+        <!-- Vector r -->
+        <line x1="40" y1="220" x2="120" y2="160" stroke="#1e3a8a" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <circle cx="120" cy="160" r="4" fill="#1e3a8a"/>
+        <text x="125" y="165" font-size="13" font-weight="bold" fill="#1e3a8a">P (t)</text>
+        <text x="65" y="180" font-size="14" font-weight="bold" fill="#1e3a8a">r</text>
+
+        <!-- Vector r' -->
+        <line x1="40" y1="220" x2="280" y2="90" stroke="#1e3a8a" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <circle cx="280" cy="90" r="4" fill="#1e3a8a"/>
+        <text x="285" y="90" font-size="13" font-weight="bold" fill="#1e3a8a">P' (t')</text>
+        <text x="175" y="145" font-size="14" font-weight="bold" fill="#1e3a8a">r'</text>
+
+        <!-- Displacement Vector delta r -->
+        <line x1="120" y1="160" x2="276" y2="92" stroke="#d97706" stroke-width="3" marker-end="url(#arrow-disp)"/>
+        <text x="195" y="110" font-size="14" font-weight="bold" fill="#d97706">&Delta;r = r' - r</text>
+      </svg>
+      <div class="svg-caption">Figure 2.1: Position vectors \(\mathbf{r}\), \(\mathbf{r}'\) and resultant displacement vector \(\Delta\mathbf{r}\) in a 2D plane.</div>
+    </div>
+
+    <h3>Equality and Multiplication by Real Numbers</h3>
+    <div class="hi-block lang-hi">
+      <h3 style="margin: 0; color: #0f172a;">सदिशों की समानता एवं वास्तविक संख्या से गुणन</h3>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        Two vectors \(\mathbf{A}\) and \(\mathbf{B}\) are <strong>equal</strong> (\(\mathbf{A} = \mathbf{B}\)) if and only if they have identical magnitudes and point in the exact same direction. Parallel displacement of a vector in space does not alter it (free vectors).
+      </p>
+      <ul>
+        <li>Multiplying vector \(\mathbf{A}\) by a positive scalar \(\lambda > 0\) yields vector \(\lambda\mathbf{A}\) having magnitude \(\lambda|\mathbf{A}|\) in the <em>same direction</em>.</li>
+        <li>Multiplying by a negative scalar \(-\lambda\) (\(\lambda > 0\)) yields a vector with magnitude \(\lambda|\mathbf{A}|\) pointing in the <em>opposite direction</em>.</li>
+        <li>Multiplying by scalar zero or adding equal and opposite vectors yields the <strong>null vector (zero vector)</strong> \(\mathbf{0}\), having \(|\mathbf{0}| = 0\) and an indeterminate direction.</li>
+      </ul>
+      <div class="hi-block lang-hi">
+        <p>
+          दो सदिश \(\mathbf{A}\) तथा \(\mathbf{B}\) केवल तभी समान कहे जाते हैं जब उनके परिमाण तथा दिशा दोनों परस्पर समान हों। सदिश को उसके समानांतर विस्थापित करने पर वह अपरिवर्तित रहता है (मुक्त सदिश)।
+        </p>
+        <ul>
+          <li>किसी सदिश को धनात्मक संख्या \(\lambda > 0\) से गुणा करने पर नया सदिश प्राप्त होता है जिसका परिमाण \(\lambda|\mathbf{A}|\) होता है और दिशा वही रहती है।</li>
+          <li>ऋणात्मक संख्या \(-\lambda\) से गुणा करने पर परिमाण \(\lambda|\mathbf{A}|\) हो जाता है परंतु दिशा ठीक विपरीत हो जाती है।</li>
+          <li>शून्य से गुणा करने पर <strong>शून्य सदिश (null vector)</strong> प्राप्त होता है जिसका परिमाण शून्य होता है एवं दिशा अनिर्धारित होती है।</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: VECTOR ADDITION AND RESOLUTION -->
+  <section>
+    <h2>3. Vector Addition, Resolution, and Rectangular Components</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">3. सदिश योग, वियोजन तथा समकोणिक घटक</h2>
+    </div>
+
+    <h3>Analytical Addition (Triangle and Parallelogram Laws)</h3>
+    <div class="hi-block lang-hi">
+      <h3 style="margin: 0; color: #0f172a;">विश्लेषणात्मक योग (समानांतर चतुर्भुज एवं त्रिभुज नियम)</h3>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        Let two vectors \(\mathbf{A}\) and \(\mathbf{B}\) have angle \(\theta\) between them. Placing their tails together at origin \(O\), the diagonal of the completed parallelogram represents the resultant \(\mathbf{R} = \mathbf{A} + \mathbf{B}\).
+      </p>
+      <div class="card card-formula">
+        <strong>Resultant Magnitude (Law of Cosines):</strong>
+        \[
+        R = |\mathbf{A} + \mathbf{B}| = \sqrt{A^2 + B^2 + 2AB\cos\theta}
+        \]
+        <strong>Direction of Resultant (\(\alpha\) with vector \(\mathbf{A}\)):</strong>
+        \[
+        \tan\alpha = \frac{B\sin\theta}{A + B\cos\theta} \quad \text{or} \quad \frac{R}{\sin\theta} = \frac{A}{\sin\beta} = \frac{B}{\sin\alpha} \quad \text{(Law of Sines)}
+        \]
+      </div>
+      <p>
+        <strong>Vector Subtraction:</strong> Subtraction is treated as the addition of a negative vector:
+        \[
+        \mathbf{R}_2 = \mathbf{A} - \mathbf{B} = \mathbf{A} + (-\mathbf{B}) \implies |\mathbf{A} - \mathbf{B}| = \sqrt{A^2 + B^2 - 2AB\cos\theta}
+        \]
+      </p>
+      <div class="hi-block lang-hi">
+        <p>
+          यदि दो सदिशों \(\mathbf{A}\) व \(\mathbf{B}\) के मध्य कोण \(\theta\) हो, तो समानांतर चतुर्भुज के नियम अनुसार उनके परिणामी \(\mathbf{R}\) का परिमाण:
+          \[
+          R = \sqrt{A^2 + B^2 + 2AB\cos\theta}
+          \]
+          तथा सदिश \(\mathbf{A}\) से परिणामी का कोण \(\alpha\):
+          \[
+          \tan\alpha = \frac{B\sin\theta}{A + B\cos\theta}
+          \]
+          सदिशों का अंतर \(\mathbf{A} - \mathbf{B}\) वास्तव में \(\mathbf{A}\) तथा \((-\mathbf{B})\) का योग होता है, जिसका परिमाण \(\sqrt{A^2 + B^2 - 2AB\cos\theta}\) होता है।
+        </p>
+      </div>
+    </div>
+
+    <!-- SVG DIAGRAM 2: Parallelogram Law -->
+    <div class="svg-container">
+      <svg viewBox="0 0 460 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow-res" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#0d9488"/>
+          </marker>
+        </defs>
+        <!-- Triangle / Parallelogram base -->
+        <line x1="50" y1="180" x2="250" y2="180" stroke="#1e3a8a" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <line x1="50" y1="180" x2="160" y2="60" stroke="#1e3a8a" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <!-- Dotted sides -->
+        <line x1="250" y1="180" x2="360" y2="60" stroke="#64748b" stroke-dasharray="4,4" stroke-width="1.5"/>
+        <line x1="160" y1="60" x2="360" y2="60" stroke="#64748b" stroke-dasharray="4,4" stroke-width="1.5"/>
+        <!-- Resultant OS -->
+        <line x1="50" y1="180" x2="355" y2="63" stroke="#0d9488" stroke-width="3" marker-end="url(#arrow-res)"/>
+        <!-- Normal SN to extended OP -->
+        <line x1="250" y1="180" x2="360" y2="180" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5"/>
+        <line x1="360" y1="60" x2="360" y2="180" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5"/>
+
+        <!-- Labels -->
+        <text x="35" y="195" font-size="14" font-weight="bold">O</text>
+        <text x="245" y="198" font-size="14" font-weight="bold">P</text>
+        <text x="365" y="198" font-size="14" font-weight="bold">N</text>
+        <text x="145" y="50" font-size="14" font-weight="bold">Q</text>
+        <text x="365" y="55" font-size="14" font-weight="bold">S</text>
+
+        <text x="140" y="200" font-size="14" font-weight="bold" fill="#1e3a8a">A</text>
+        <text x="85" y="110" font-size="14" font-weight="bold" fill="#1e3a8a">B</text>
+        <text x="220" y="110" font-size="15" font-weight="bold" fill="#0d9488">R = A + B</text>
+
+        <!-- Angles -->
+        <path d="M 85 180 A 35 35 0 0 0 74 153" fill="none" stroke="#d97706" stroke-width="1.5"/>
+        <text x="92" y="165" font-size="12" fill="#d97706">&alpha;</text>
+
+        <path d="M 95 180 A 50 50 0 0 0 78 148" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+        <text x="100" y="150" font-size="13">&theta;</text>
+        <text x="295" y="195" font-size="11" fill="#64748b">B cos&theta;</text>
+        <text x="368" y="125" font-size="11" fill="#64748b">B sin&theta;</text>
+      </svg>
+      <div class="svg-caption">Figure 2.2: Analytical vector addition using the parallelogram geometry and right-triangle projection.</div>
+    </div>
+
+    <h3>Resolution and Unit Vectors in 2D and 3D</h3>
+    <div class="hi-block lang-hi">
+      <h3 style="margin: 0; color: #0f172a;">सदिशों का वियोजन एवं एकांक सदिश</h3>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        A unit vector is dimensionless with magnitude unity (\(|\hat{\mathbf{n}}| = 1\)), pointing in a specific direction. Orthogonal unit vectors along the positive \(x\), \(y\), and \(z\) axes are denoted by \(\hat{\mathbf{i}}\), \(\hat{\mathbf{j}}\), and \(\hat{\mathbf{k}}\).
+      </p>
+      <div class="card card-formula">
+        <strong>Component Resolution in a Plane:</strong>
+        \[
+        \mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}}
+        \]
+        where \(A_x = A\cos\theta\) and \(A_y = A\sin\theta\). Conversely:
+        \[
+        A = |\mathbf{A}| = \sqrt{A_x^2 + A_y^2}, \quad \theta = \tan^{-1}\left(\frac{A_y}{A_x}\right)
+        \]
+        In three dimensions, if \(\alpha, \beta, \gamma\) are the direction angles with the \(x\), \(y\), and \(z\) axes:
+        \[
+        \mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}} + A_z\hat{\mathbf{k}}, \quad A = \sqrt{A_x^2 + A_y^2 + A_z^2}
+        \]
+      </div>
+      <div class="hi-block lang-hi">
+        <p>
+          एकांक सदिश वह सदिश है जिसका परिमाण 1 होता है तथा यह केवल दिशा निर्दिष्ट करता है। \(x, y, z\) अक्षों के अनुदिश मानक एकांक सदिश \(\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}\) होते हैं। समतल में किसी सदिश \(\mathbf{A}\) को दो समकोणिक घटकों में वियोजित किया जा सकता है:
+          \[
+          A_x = A\cos\theta, \quad A_y = A\sin\theta \implies A = \sqrt{A_x^2 + A_y^2}
+          \]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: 2D MOTION WITH CONSTANT ACCELERATION -->
+  <section>
+    <h2>4. Motion in a Plane with Constant Acceleration</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">4. एकसमान त्वरण से समतल में गति</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        Instantaneous velocity is the derivative of position, and acceleration is the derivative of velocity:
+        \[
+        \mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = v_x\hat{\mathbf{i}} + v_y\hat{\mathbf{j}}, \quad \mathbf{a} = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}
+        \]
+        <strong>Independence of Perpendicular Motions:</strong> When acceleration \(\mathbf{a} = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}\) is constant in both magnitude and direction, two-dimensional motion decouples into two completely independent one-dimensional motions along perpendicular directions:
+      </p>
+      <div class="card card-formula">
+        <strong>Kinematic Equations in Vector Form:</strong>
+        \[
+        \mathbf{v}(t) = \mathbf{v}_0 + \mathbf{a}t
+        \]
+        \[
+        \mathbf{r}(t) = \mathbf{r}_0 + \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2
+        \]
+        <strong>Scalar Component Equations:</strong>
+        <table style="margin-top: 0.5rem;">
+          <thead>
+            <tr>
+              <th>Horizontal Motion (\(x\)-axis)</th>
+              <th>Vertical Motion (\(y\)-axis)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(v_x = v_{0x} + a_x t\)</td>
+              <td>\(v_y = v_{0y} + a_y t\)</td>
+            </tr>
+            <tr>
+              <td>\(x = x_0 + v_{0x} t + \frac{1}{2}a_x t^2\)</td>
+              <td>\(y = y_0 + v_{0y} t + \frac{1}{2}a_y t^2\)</td>
+            </tr>
+            <tr>
+              <td>\(v_x^2 = v_{0x}^2 + 2a_x(x - x_0)\)</td>
+              <td>\(v_y^2 = v_{0y}^2 + 2a_y(y - y_0)\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hi-block lang-hi">
+        <p>
+          <strong>लंबवत गतियों की स्वतंत्रता:</strong> समतल में नियत त्वरण की स्थिति में, \(x\)-दिशा एवं \(y\)-दिशा की गतियाँ परस्पर पूर्णतः स्वतंत्र होती हैं। द्विविमीय गति को दो परस्पर लंबवत एकविमीय गतियों के अध्यारोपण (superposition) के रूप में हल किया जा सकता है।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PROJECTILE MOTION -->
+  <section>
+    <h2>5. Projectile Motion</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">5. प्रक्षेप्य गति</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        A projectile is an object launched into flight that moves under the sole influence of gravity (neglecting air resistance).
+        Suppose a particle is launched from the origin \((0,0)\) at \(t=0\) with initial velocity \(\mathbf{v}_0\) at an elevation angle \(\theta_0\) above the horizontal:
+        \[
+        v_{0x} = v_0\cos\theta_0, \quad v_{0y} = v_0\sin\theta_0
+        \]
+        The acceleration acts purely vertically downward:
+        \[
+        a_x = 0, \quad a_y = -g
+        \]
+        Consequently:
+        \[
+        v_x(t) = v_0\cos\theta_0 = \text{constant}, \quad v_y(t) = v_0\sin\theta_0 - gt
+        \]
+        \[
+        x(t) = (v_0\cos\theta_0)t, \quad y(t) = (v_0\sin\theta_0)t - \frac{1}{2}gt^2
+        \]
+      </p>
+      <div class="hi-block lang-hi">
+        <p>
+          गुरुत्व के अधीन गतिमान पिंड को प्रक्षेप्य कहते हैं (वायु का घर्षण नगण्य मानते हुए)। यदि इसे प्रारंभिक चाल \(v_0\) से क्षैतिज से \(\theta_0\) कोण पर प्रक्षेपित किया जाए, तो क्षैतिज दिशा में त्वरण शून्य (\(a_x = 0\)) होता है तथा ऊर्ध्वाधर दिशा में नियत त्वरण \(a_y = -g\) होता है। अत: क्षैतिज वेग घटक सदैव नियत रहता है।
+        </p>
+      </div>
+    </div>
+
+    <!-- SVG DIAGRAM 3: Projectile Trajectory -->
+    <div class="svg-container">
+      <svg viewBox="0 0 520 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow-proj" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#1e3a8a"/>
+          </marker>
+          <marker id="arrow-vel" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#0d9488"/>
+          </marker>
+        </defs>
+        <!-- Axes -->
+        <line x1="50" y1="240" x2="490" y2="240" stroke="#475569" stroke-width="2" marker-end="url(#arrow-proj)"/>
+        <line x1="50" y1="240" x2="50" y2="30" stroke="#475569" stroke-width="2" marker-end="url(#arrow-proj)"/>
+        <text x="500" y="245" font-size="14" font-weight="bold">x</text>
+        <text x="45" y="20" font-size="14" font-weight="bold">y</text>
+        <text x="35" y="255" font-size="14">O</text>
+
+        <!-- Parabolic Path: y = 240 - ( -4*160/160000 * (x-50)*(x-450) ) -->
+        <!-- Vertex at x = 250, y = 80 (Height = 160) -->
+        <path d="M 50 240 Q 250 -80, 450 240" fill="none" stroke="#0284c7" stroke-width="3"/>
+
+        <!-- Initial launch vector -->
+        <line x1="50" y1="240" x2="115" y2="140" stroke="#0d9488" stroke-width="2.5" marker-end="url(#arrow-vel)"/>
+        <text x="120" y="145" font-size="14" font-weight="bold" fill="#0d9488">v_0</text>
+        <path d="M 85 240 A 35 35 0 0 0 76 200" fill="none" stroke="#d97706" stroke-width="1.5"/>
+        <text x="92" y="228" font-size="12" fill="#d97706">&theta;_0</text>
+
+        <!-- Velocity at Top (Peak) -->
+        <circle cx="250" cy="80" r="4" fill="#1e3a8a"/>
+        <line x1="250" y1="80" x2="310" y2="80" stroke="#0d9488" stroke-width="2.5" marker-end="url(#arrow-vel)"/>
+        <text x="250" y="65" font-size="13" font-weight="bold" fill="#0d9488">v_x = v_0 cos&theta;_0 (v_y = 0)</text>
+
+        <!-- Max Height line -->
+        <line x1="250" y1="80" x2="250" y2="240" stroke="#ef4444" stroke-dasharray="4,4" stroke-width="1.5"/>
+        <text x="255" y="160" font-size="14" font-weight="bold" fill="#ef4444">h_m</text>
+
+        <!-- Velocity at impact -->
+        <line x1="450" y1="240" x2="505" y2="325" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow-vel)"/>
+
+        <!-- Horizontal Range indicator -->
+        <line x1="50" y1="260" x2="450" y2="260" stroke="#1f2937" stroke-width="1.5"/>
+        <line x1="50" y1="255" x2="50" y2="265" stroke="#1f2937" stroke-width="1.5"/>
+        <line x1="450" y1="255" x2="450" y2="265" stroke="#1f2937" stroke-width="1.5"/>
+        <text x="235" y="275" font-size="14" font-weight="bold">Range (R)</text>
+      </svg>
+      <div class="svg-caption">Figure 2.3: Parabolic trajectory showing launch velocity, components, maximum height \(h_m\), and range \(R\).</div>
+    </div>
+
+    <h3>Fundamental Formula Derivations</h3>
+    <div class="hi-block lang-hi">
+      <h3 style="margin: 0; color: #0f172a;">प्रक्षेप्य गति के महत्वपूर्ण सूत्र</h3>
+    </div>
+
+    <div class="card card-formula">
+      <ol style="margin-left: 1.25rem;">
+        <li>
+          <strong>Equation of Trajectory:</strong> Eliminating \(t = \frac{x}{v_0\cos\theta_0}\) from the \(y(t)\) equation:
+          \[
+          y = (\tan\theta_0)x - \frac{g}{2(v_0\cos\theta_0)^2}x^2 = (\tan\theta_0)x\left(1 - \frac{x}{R}\right)
+          \]
+          This is an inverted parabola of the form \(y = ax - bx^2\).
+        </li>
+        <li>
+          <strong>Time of Maximum Height (\(t_m\)) and Time of Flight (\(T_f\)):</strong>
+          At maximum height, \(v_y = 0 \implies v_0\sin\theta_0 - gt_m = 0\):
+          \[
+          t_m = \frac{v_0\sin\theta_0}{g}, \quad T_f = 2t_m = \frac{2v_0\sin\theta_0}{g}
+          \]
+        </li>
+        <li>
+          <strong>Maximum Height Attained (\(h_m\)):</strong>
+          \[
+          h_m = \frac{(v_0\sin\theta_0)^2}{2g} = \frac{v_{0y}^2}{2g}
+          \]
+        </li>
+        <li>
+          <strong>Horizontal Range (\(R\)):</strong>
+          Distance travelled horizontally during the flight time \(T_f\):
+          \[
+          R = (v_0\cos\theta_0)T_f = \frac{v_0^2(2\sin\theta_0\cos\theta_0)}{g} = \frac{v_0^2\sin 2\theta_0}{g}
+          \]
+        </li>
+        <li>
+          <strong>Maximum Range (\(R_{\max}\)):</strong>
+          \(\sin 2\theta_0\) is maximized at \(\theta_0 = 45^\circ\):
+          \[
+          R_{\max} = \frac{v_0^2}{g} \quad \text{and at } 45^\circ, \quad h_m = \frac{R_{\max}}{4}
+          \]
+        </li>
+        <li>
+          <strong>Complementary Angles:</strong>
+          For complementary angles \(\theta_0\) and \((90^\circ - \theta_0)\) with identical launch speed \(v_0\), the ranges are identical:
+          \[
+          R(\theta) = R(90^\circ - \theta)
+          \]
+        </li>
+      </ol>
+    </div>
+
+    <div class="hi-block lang-hi">
+      <p>
+        <strong>प्रक्षेप्य गति के मुख्य परिणाम:</strong>
+      </p>
+      <ul>
+        <li><strong>पथ का समीकरण:</strong> \(y = (\tan\theta_0)x - \frac{g}{2v_0^2\cos^2\theta_0}x^2 = (\tan\theta_0)x\left(1 - \frac{x}{R}\right)\) (परवलयाकार पथ)।</li>
+        <li><strong>उड्डयन काल:</strong> \(T_f = \frac{2v_0\sin\theta_0}{g}\)</li>
+        <li><strong>महत्तम ऊँचाई:</strong> \(h_m = \frac{v_0^2\sin^2\theta_0}{2g}\)</li>
+        <li><strong>क्षैतिज परास:</strong> \(R = \frac{v_0^2\sin 2\theta_0}{g}\)</li>
+        <li><strong>पूरक कोण:</strong> समान चाल \(v_0\) के लिए \(\theta\) तथा \((90^\circ - \theta)\) पर परास परस्पर बराबर होते हैं।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 6: UNIFORM CIRCULAR MOTION -->
+  <section>
+    <h2>6. Uniform Circular Motion</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">6. एकसमान वृत्तीय गति</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        When a body moves along a circular path of radius \(R\) with constant speed \(v\), the motion is termed <strong>Uniform Circular Motion (UCM)</strong>.
+      </p>
+      <ul>
+        <li>Although the speed \(v\) is uniform, the velocity vector \(\mathbf{v}\) continuously changes its direction (always tangential to the path). Thus, UCM is an accelerated motion.</li>
+        <li>The acceleration is always directed radially inward toward the centre of the circle, hence termed <strong>centripetal acceleration</strong> (\(a_c\)).</li>
+        <li><strong>Warning for NEET:</strong> Centripetal acceleration is <em>not</em> a constant vector because its direction continuously changes, even though its magnitude remains constant!</li>
+      </ul>
+
+      <div class="card card-formula">
+        <strong>Centripetal Acceleration &amp; Angular Relations:</strong>
+        \[
+        \omega = \frac{\Delta\theta}{\Delta t} = \frac{v}{R} \quad \implies \quad v = \omega R
+        \]
+        \[
+        a_c = \frac{v^2}{R} = \omega^2 R = 4\pi^2 \nu^2 R = \frac{4\pi^2 R}{T^2}
+        \]
+        where \(T\) is time period (\(T = \frac{2\pi R}{v} = \frac{2\pi}{\omega}\)) and \(\nu = \frac{1}{T}\) is the frequency of revolution.
+      </div>
+
+      <div class="hi-block lang-hi">
+        <p>
+          जब कोई वस्तु \(R\) त्रिज्या के वृत्तीय पथ पर नियत चाल \(v\) से गति करती है, तो इसे <strong>एकसमान वृत्तीय गति</strong> कहते हैं। यद्यपि चाल नियत रहती है, परंतु वेग की दिशा निरंतर स्पर्शरेखीय बदलते रहने के कारण इसमें त्वरण उपस्थित रहता है।
+        </p>
+        <p>
+          यह त्वरण सदैव वृत्त के केंद्र की ओर निर्देशित होता है, जिसे <strong>अभिकेन्द्री त्वरण</strong> (\(a_c\)) कहते हैं:
+          \[
+          a_c = \frac{v^2}{R} = \omega^2 R = 4\pi^2 \nu^2 R
+          \]
+          <strong>NEET विशेष ध्यान बिंदु:</strong> अभिकेन्द्री त्वरण सदिश नियत नहीं होता, क्योंकि इसकी दिशा लगातार बदलती रहती है (यद्यपि परिमाण नियत रहता है)। एक संपूर्ण आवर्तकाल में इसका औसत त्वरण सदिश शून्य सदिश (\(\mathbf{0}\)) होता है।
+        </p>
+      </div>
+    </div>
+
+    <!-- SVG DIAGRAM 4: UCM & Centripetal Acceleration -->
+    <div class="svg-container">
+      <svg viewBox="0 0 380 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow-ucm-v" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#0d9488"/>
+          </marker>
+          <marker id="arrow-ucm-a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#ef4444"/>
+          </marker>
+        </defs>
+        <!-- Circle -->
+        <circle cx="190" cy="130" r="90" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4"/>
+        <circle cx="190" cy="130" r="4" fill="#1e3a8a"/>
+        <text x="195" y="145" font-size="14" font-weight="bold">C (Centre)</text>
+
+        <!-- Position P -->
+        <circle cx="280" cy="130" r="4" fill="#1e3a8a"/>
+        <text x="285" y="145" font-size="14" font-weight="bold">P</text>
+        <line x1="190" y1="130" x2="280" y2="130" stroke="#1e3a8a" stroke-width="1.5"/>
+        <text x="230" y="122" font-size="13">R</text>
+
+        <!-- Tangential velocity v -->
+        <line x1="280" y1="130" x2="280" y2="50" stroke="#0d9488" stroke-width="2.5" marker-end="url(#arrow-ucm-v)"/>
+        <text x="290" y="70" font-size="14" font-weight="bold" fill="#0d9488">v</text>
+
+        <!-- Centripetal acceleration a_c -->
+        <line x1="280" y1="130" x2="215" y2="130" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrow-ucm-a)"/>
+        <text x="235" y="148" font-size="14" font-weight="bold" fill="#ef4444">a_c</text>
+
+        <!-- Another point on circle for direction comparison -->
+        <circle cx="190" cy="40" r="4" fill="#1e3a8a"/>
+        <line x1="190" y1="40" x2="110" y2="40" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow-ucm-v)"/>
+        <text x="135" y="30" font-size="13" font-weight="bold" fill="#0d9488">v'</text>
+        <line x1="190" y1="40" x2="190" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-ucm-a)"/>
+        <text x="200" y="75" font-size="13" font-weight="bold" fill="#ef4444">a_c'</text>
+      </svg>
+      <div class="svg-caption">Figure 2.4: Tangential velocity \(\mathbf{v}\) and inward radial centripetal acceleration \(\mathbf{a}_c\) in uniform circular motion.</div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SUMMARY OF FORMULAS AND PHYSICAL QUANTITIES -->
+  <section>
+    <h2>7. Formula Quick-Revision Table</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">7. सूत्र सारांश सारणी</h2>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Physical Quantity / Concept</th>
+          <th>Mathematical Formula</th>
+          <th>Dimensions &amp; SI Unit</th>
+          <th>Key NEET Property</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Vector Resultant</strong></td>
+          <td>\(R = \sqrt{A^2 + B^2 + 2AB\cos\theta}\)</td>
+          <td>Same as \(\mathbf{A}, \mathbf{B}\)</td>
+          <td>\(|A-B| \le R \le A+B\)</td>
+        </tr>
+        <tr>
+          <td><strong>2D Position Vector</strong></td>
+          <td>\(\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}}\)</td>
+          <td>\([\mathrm{L}]\), \(\mathrm{m}\)</td>
+          <td>Displacement \(\Delta\mathbf{r} = \mathbf{r}' - \mathbf{r}\)</td>
+        </tr>
+        <tr>
+          <td><strong>Instantaneous Velocity</strong></td>
+          <td>\(\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = v_x\hat{\mathbf{i}} + v_y\hat{\mathbf{j}}\)</td>
+          <td>\([\mathrm{LT^{-1}}]\), \(\mathrm{m\,s^{-1}}\)</td>
+          <td>Always tangential to path</td>
+        </tr>
+        <tr>
+          <td><strong>Projectile Flight Time</strong></td>
+          <td>\(T_f = \frac{2v_0\sin\theta_0}{g}\)</td>
+          <td>\([\mathrm{T}]\), \(\mathrm{s}\)</td>
+          <td>\(T_f = 2t_m\) (symmetric trajectory)</td>
+        </tr>
+        <tr>
+          <td><strong>Projectile Max Height</strong></td>
+          <td>\(h_m = \frac{v_0^2\sin^2\theta_0}{2g}\)</td>
+          <td>\([\mathrm{L}]\), \(\mathrm{m}\)</td>
+          <td>At peak, \(v = v_0\cos\theta_0\) (non-zero!)</td>
+        </tr>
+        <tr>
+          <td><strong>Horizontal Range</strong></td>
+          <td>\(R = \frac{v_0^2\sin 2\theta_0}{g}\)</td>
+          <td>\([\mathrm{L}]\), \(\mathrm{m}\)</td>
+          <td>Maximized at \(45^\circ\); equal for \(\theta, 90^\circ-\theta\)</td>
+        </tr>
+        <tr>
+          <td><strong>Trajectory Relation</strong></td>
+          <td>\(\frac{h_m}{R} = \frac{1}{4}\tan\theta_0\)</td>
+          <td>Dimensionless</td>
+          <td>If \(R = 4h_m\), then \(\theta_0 = 45^\circ\)</td>
+        </tr>
+        <tr>
+          <td><strong>Centripetal Acceleration</strong></td>
+          <td>\(a_c = \frac{v^2}{R} = \omega^2 R\)</td>
+          <td>\([\mathrm{LT^{-2}}]\), \(\mathrm{m\,s^{-2}}\)</td>
+          <td>Points to center; \(\mathbf{a}_c \perp \mathbf{v}\) always</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 8: WORKED EXAMPLES -->
+  <section>
+    <h2>8. Selected Standard Worked Examples</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">8. चयनित मानक हल सहित उदाहरण</h2>
+    </div>
+
+    <!-- Example 1 -->
+    <div class="card">
+      <div class="question-title">Worked Example 1: Rain-Wind Relative Orientation</div>
+      <p>
+        Rain is falling vertically downwards with a speed of \(35\,\mathrm{m\,s^{-1}}\). Wind starts blowing after some time with a speed of \(12\,\mathrm{m\,s^{-1}}\) in the east-to-west direction. In which direction should a person waiting at a bus stop hold their umbrella to protect themselves?
+      </p>
+      <div class="solution-box">
+        <strong>Solution:</strong><br>
+        Let \(\mathbf{v}_r = -35\hat{\mathbf{j}}\,\mathrm{m\,s^{-1}}\) (vertically down) and wind velocity \(\mathbf{v}_w = -12\hat{\mathbf{i}}\,\mathrm{m\,s^{-1}}\) (towards west).<br>
+        The velocity of rain relative to the ground is the vector resultant:
+        \[
+        \mathbf{R} = \mathbf{v}_r + \mathbf{v}_w = -12\hat{\mathbf{i}} - 35\hat{\mathbf{j}}
+        \]
+        Magnitude: \(R = \sqrt{v_r^2 + v_w^2} = \sqrt{35^2 + 12^2} = \sqrt{1225 + 144} = \sqrt{1369} = 37\,\mathrm{m\,s^{-1}}\).<br>
+        The angle \(\theta\) that \(\mathbf{R}\) makes with the vertical:
+        \[
+        \tan\theta = \frac{v_w}{v_r} = \frac{12}{35} \approx 0.343 \implies \theta = \tan^{-1}(0.343) \approx 19^\circ
+        \]
+        The rain approaches from the east (slanted towards west). Therefore, the person should hold the umbrella at an angle of <strong>\(19^\circ\) with the vertical towards the east</strong>.
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">हल सहित उदाहरण 1: वर्षा-पवन आपेक्षिक दिशा</div>
+        <p>
+          वर्षा \(35\,\mathrm{m\,s^{-1}}\) की चाल से ऊर्ध्वाधर नीचे गिर रही है। कुछ समय पश्चात वायु \(12\,\mathrm{m\,s^{-1}}\) की चाल से पूर्व से पश्चिम की ओर चलने लगती है। बस स्टॉप पर खड़े व्यक्ति को छाता किस दिशा में लगाना चाहिए?
+        </p>
+        <div class="solution-box">
+          <strong>हल:</strong><br>
+          परिणामी वेग का परिमाण: \(R = \sqrt{35^2 + 12^2} = 37\,\mathrm{m\,s^{-1}}\)।<br>
+          ऊर्ध्वाधर से कोण: \(\tan\theta = \frac{12}{35} \approx 0.343 \implies \theta \approx 19^\circ\)।<br>
+          अतः व्यक्ति को अपना छाता <strong>ऊर्ध्वाधर से लगभग \(19^\circ\) के कोण पर पूर्व की ओर</strong> रखना चाहिए।
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="card">
+      <div class="question-title">Worked Example 2: Maximum Ceiling Height Clearance</div>
+      <p>
+        The ceiling of a sports hall is \(25\,\mathrm{m}\) high. What is the maximum horizontal distance that a ball thrown with a speed of \(40\,\mathrm{m\,s^{-1}}\) can travel without striking the ceiling? (Take \(g = 9.8\,\mathrm{m\,s^{-2}}\)).
+      </p>
+      <div class="solution-box">
+        <strong>Solution:</strong><br>
+        The maximum height \(h_m\) must not exceed \(25\,\mathrm{m}\):
+        \[
+        h_m = \frac{(v_0\sin\theta_0)^2}{2g} \le 25 \implies (40\sin\theta_0)^2 = 2 \times 9.8 \times 25 = 490
+        \]
+        \[
+        40\sin\theta_0 = \sqrt{490} \approx 22.136\,\mathrm{m\,s^{-1}} \implies \sin\theta_0 = \frac{22.136}{40} \approx 0.5534
+        \]
+        Now, \(\cos^2\theta_0 = 1 - \sin^2\theta_0 = 1 - (0.5534)^2 = 1 - 0.3062 = 0.6938 \implies \cos\theta_0 \approx 0.8330\).<br>
+        The horizontal range is:
+        \[
+        R = \frac{2v_0^2\sin\theta_0\cos\theta_0}{g} = \frac{2 \times (40\sin\theta_0) \times (40\cos\theta_0)}{g} = \frac{2 \times 22.136 \times (40 \times 0.8330)}{9.8} \approx \frac{2 \times 22.136 \times 33.32}{9.8} \approx 150.5\,\mathrm{m}
+        \]
+        Thus, the maximum horizontal distance without hitting the ceiling is approximately <strong>\(150.5\,\mathrm{m}\)</strong>.
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">हल सहित उदाहरण 2: छत से टकराए बिना अधिकतम परास</div>
+        <p>
+          एक बड़े हॉल की छत \(25\,\mathrm{m}\) ऊँची है। \(40\,\mathrm{m\,s^{-1}}\) की चाल से फेंकी गई गेंद छत से टकराए बिना अधिकतम कितनी क्षैतिज दूरी तय कर सकती है? (\(g = 9.8\,\mathrm{m\,s^{-2}}\))
+        </p>
+        <div class="solution-box">
+          <strong>हल:</strong><br>
+          अधिकतम ऊँचाई \(h_m = \frac{(v_0\sin\theta_0)^2}{2g} = 25\,\mathrm{m} \implies v_0\sin\theta_0 = \sqrt{490} \approx 22.14\,\mathrm{m\,s^{-1}}\)।<br>
+          क्षैतिज वेग घटक: \(v_0\cos\theta_0 = \sqrt{40^2 - 490} = \sqrt{1110} \approx 33.32\,\mathrm{m\,s^{-1}}\)।<br>
+          क्षैतिज परास \(R = \frac{2(v_0\sin\theta_0)(v_0\cos\theta_0)}{g} = \frac{2 \times 22.14 \times 33.32}{9.8} \approx \mathbf{150.5\,\mathrm{m}}\)।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: NEET PRACTICE QUESTIONS -->
+  <section>
+    <h2>9. NEET-UG Practice Questions with Worked Solutions</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">9. NEET-UG अभ्यास प्रश्न एवं विस्तृत हल</h2>
+    </div>
+
+    <!-- Question 1 -->
+    <div class="practice-question">
+      <div class="question-title">Practice Question 1 (Vector Algebra &amp; Direction)</div>
+      <p>
+        Two vectors \(\mathbf{A}\) and \(\mathbf{B}\) have equal magnitudes \(|\mathbf{A}| = |\mathbf{B}| = F\). If the magnitude of their resultant is also equal to \(F\), what is the angle \(\theta\) between the two vectors?
+      </p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(60^\circ\)</div>
+        <div class="option-item">(B) \(90^\circ\)</div>
+        <div class="option-item">(C) \(120^\circ\)</div>
+        <div class="option-item">(D) \(150^\circ\)</div>
+      </div>
+      <div class="solution-box">
+        <strong>Correct Answer: (C) \(120^\circ\)</strong><br>
+        <strong>Step-by-step Solution:</strong><br>
+        Using the resultant formula:
+        \[
+        R^2 = A^2 + B^2 + 2AB\cos\theta
+        \]
+        Substitute \(R = F\), \(A = F\), and \(B = F\):
+        \[
+        F^2 = F^2 + F^2 + 2F^2\cos\theta \implies F^2 = 2F^2(1 + \cos\theta)
+        \]
+        \[
+        1 = 2(1 + \cos\theta) \implies 1 + \cos\theta = \frac{1}{2} \implies \cos\theta = -\frac{1}{2}
+        \]
+        Since \(\cos(120^\circ) = -0.5\), we have \(\theta = 120^\circ\).
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">अभ्यास प्रश्न 1 (सदिश बीजगणित)</div>
+        <p>
+          दो सदिशों \(\mathbf{A}\) व \(\mathbf{B}\) के परिमाण समान हैं (\(|\mathbf{A}| = |\mathbf{B}| = F\))। यदि इनके परिणामी सदिश का परिमाण भी \(F\) के बराबर हो, तो दोनों सदिशों के मध्य कोण \(\theta\) का मान क्या होगा?
+        </p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(60^\circ\)</div>
+          <div class="option-item">(B) \(90^\circ\)</div>
+          <div class="option-item">(C) \(120^\circ\)</div>
+          <div class="option-item">(D) \(150^\circ\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>सही उत्तर: (C) \(120^\circ\)</strong><br>
+          <strong>विस्तृत हल:</strong><br>
+          सूत्र: \(R^2 = A^2 + B^2 + 2AB\cos\theta\)<br>
+          \(F^2 = F^2 + F^2 + 2F^2\cos\theta \implies \cos\theta = -\frac{1}{2} \implies \theta = 120^\circ\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="practice-question">
+      <div class="question-title">Practice Question 2 (Kinematics in 2D with Constant Acceleration)</div>
+      <p>
+        A particle starts from the origin at \(t = 0\) with an initial velocity \(\mathbf{v}_0 = 5.0\hat{\mathbf{i}}\,\mathrm{m\,s^{-1}}\) and moves in the \(x-y\) plane with a constant acceleration \(\mathbf{a} = (3.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})\,\mathrm{m\,s^{-2}}\). What is the speed of the particle at the instant its \(x\)-coordinate is \(84\,\mathrm{m}\)?
+      </p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(26\,\mathrm{m\,s^{-1}}\)</div>
+        <div class="option-item">(B) \(36\,\mathrm{m\,s^{-1}}\)</div>
+        <div class="option-item">(C) \(23\,\mathrm{m\,s^{-1}}\)</div>
+        <div class="option-item">(D) \(12\,\mathrm{m\,s^{-1}}\)</div>
+      </div>
+      <div class="solution-box">
+        <strong>Correct Answer: (A) \(26\,\mathrm{m\,s^{-1}}\)</strong><br>
+        <strong>Step-by-step Solution:</strong><br>
+        Along \(x\)-axis: \(x(t) = v_{0x}t + \frac{1}{2}a_x t^2 \implies 84 = 5.0t + 1.5t^2\).<br>
+        Rearranging: \(1.5t^2 + 5t - 84 = 0 \implies 3t^2 + 10t - 168 = 0\).<br>
+        Factoring: \((t - 6)(3t + 28) = 0 \implies t = 6\,\mathrm{s}\) (taking positive time).<br>
+        At \(t = 6\,\mathrm{s}\), velocity components are:
+        \[
+        v_x = v_{0x} + a_x t = 5.0 + (3.0 \times 6) = 23\,\mathrm{m\,s^{-1}}
+        \]
+        \[
+        v_y = v_{0y} + a_y t = 0 + (2.0 \times 6) = 12\,\mathrm{m\,s^{-1}}
+        \]
+        Speed \(v = \sqrt{v_x^2 + v_y^2} = \sqrt{23^2 + 12^2} = \sqrt{529 + 144} = \sqrt{673} \approx 25.94 \approx 26\,\mathrm{m\,s^{-1}}\).
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">अभ्यास प्रश्न 2 (नियत त्वरण से द्विविमीय गति)</div>
+        <p>
+          एक कण \(t = 0\) पर मूल बिंदु से \(5.0\hat{\mathbf{i}}\,\mathrm{m\,s^{-1}}\) के वेग से चलना प्रारंभ करता है तथा \(x-y\) समतल में \((3.0\hat{\mathbf{i}} + 2.0\hat{\mathbf{j}})\,\mathrm{m\,s^{-2}}\) के नियत त्वरण से गति करता है। जिस क्षण इसका \(x\)-निर्देशांक \(84\,\mathrm{m}\) हो, उस समय कण की चाल क्या होगी?
+        </p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(26\,\mathrm{m\,s^{-1}}\)</div>
+          <div class="option-item">(B) \(36\,\mathrm{m\,s^{-1}}\)</div>
+          <div class="option-item">(C) \(23\,\mathrm{m\,s^{-1}}\)</div>
+          <div class="option-item">(D) \(12\,\mathrm{m\,s^{-1}}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>सही उत्तर: (A) \(26\,\mathrm{m\,s^{-1}}\)</strong><br>
+          <strong>विस्तृत हल:</strong><br>
+          \(x\)-अक्ष के अनुदिश: \(84 = 5t + 1.5t^2 \implies t = 6\,\mathrm{s}\)।<br>
+          \(t = 6\,\mathrm{s}\) पर: \(v_x = 5 + 3(6) = 23\,\mathrm{m\,s^{-1}}\), \(v_y = 0 + 2(6) = 12\,\mathrm{m\,s^{-1}}\)।<br>
+          चाल \(v = \sqrt{23^2 + 12^2} \approx 26\,\mathrm{m\,s^{-1}}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="practice-question">
+      <div class="question-title">Practice Question 3 (Projectile Parameters &amp; Angles)</div>
+      <p>
+        A cricketer throws a ball to a maximum horizontal distance of \(100\,\mathrm{m}\). To what maximum vertical height can the cricketer throw the same ball with the same initial speed?
+      </p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(100\,\mathrm{m}\)</div>
+        <div class="option-item">(B) \(50\,\mathrm{m}\)</div>
+        <div class="option-item">(C) \(25\,\mathrm{m}\)</div>
+        <div class="option-item">(D) \(200\,\mathrm{m}\)</div>
+      </div>
+      <div class="solution-box">
+        <strong>Correct Answer: (B) \(50\,\mathrm{m}\)</strong><br>
+        <strong>Step-by-step Solution:</strong><br>
+        The maximum horizontal range occurs at \(\theta_0 = 45^\circ\):
+        \[
+        R_{\max} = \frac{v_0^2}{g} = 100\,\mathrm{m} \implies v_0^2 = 100g
+        \]
+        To throw the ball to the maximum possible height, the cricketer must throw it vertically upwards (\(\theta_0 = 90^\circ\)):
+        \[
+        H_{\max} = \frac{v_0^2}{2g} = \frac{R_{\max}}{2} = \frac{100}{2} = 50\,\mathrm{m}
+        \]
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">अभ्यास प्रश्न 3 (प्रक्षेप्य के प्राचल)</div>
+        <p>
+          एक क्रिकेटर गेंद को अधिकतम \(100\,\mathrm{m}\) की क्षैतिज दूरी तक फेंक सकता है। वही क्रिकेटर उसी गेंद को उसी प्रारंभिक चाल से जमीन से ऊपर अधिकतम कितनी ऊँचाई तक फेंक सकता है?
+        </p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(100\,\mathrm{m}\)</div>
+          <div class="option-item">(B) \(50\,\mathrm{m}\)</div>
+          <div class="option-item">(C) \(25\,\mathrm{m}\)</div>
+          <div class="option-item">(D) \(200\,\mathrm{m}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>सही उत्तर: (B) \(50\,\mathrm{m}\)</strong><br>
+          <strong>विस्तृत हल:</strong><br>
+          अधिकतम क्षैतिज परास: \(R_{\max} = \frac{v_0^2}{g} = 100\,\mathrm{m}\)।<br>
+          अधिकतम ऊर्ध्वाधर ऊँचाई (जब \(\theta = 90^\circ\)): \(H_{\max} = \frac{v_0^2}{2g} = \frac{R_{\max}}{2} = 50\,\mathrm{m}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="practice-question">
+      <div class="question-title">Practice Question 4 (Centripetal Acceleration in UCM)</div>
+      <p>
+        An aircraft executes a horizontal loop of radius \(1.00\,\mathrm{km}\) with a steady speed of \(900\,\mathrm{km\,h^{-1}}\). The ratio of its centripetal acceleration to the acceleration due to gravity \(g\) (\(g = 9.8\,\mathrm{m\,s^{-2}}\)) is approximately:
+      </p>
+      <div class="options-grid">
+        <div class="option-item">(A) \(6.38\)</div>
+        <div class="option-item">(B) \(9.80\)</div>
+        <div class="option-item">(C) \(62.5\)</div>
+        <div class="option-item">(D) \(0.64\)</div>
+      </div>
+      <div class="solution-box">
+        <strong>Correct Answer: (A) \(6.38\)</strong><br>
+        <strong>Step-by-step Solution:</strong><br>
+        Convert speed to SI units:
+        \[
+        v = 900 \times \frac{5}{18} = 250\,\mathrm{m\,s^{-1}}
+        \]
+        Radius \(R = 1.00\,\mathrm{km} = 1000\,\mathrm{m}\).<br>
+        Centripetal acceleration:
+        \[
+        a_c = \frac{v^2}{R} = \frac{(250)^2}{1000} = \frac{62500}{1000} = 62.5\,\mathrm{m\,s^{-2}}
+        \]
+        Ratio to \(g\):
+        \[
+        \frac{a_c}{g} = \frac{62.5}{9.8} \approx 6.38
+        \]
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">अभ्यास प्रश्न 4 (वृत्तीय गति में अभिकेन्द्री त्वरण)</div>
+        <p>
+          एक विमान \(1.00\,\mathrm{km}\) त्रिज्या के क्षैतिज लूप में \(900\,\mathrm{km\,h^{-1}}\) की एकसमान चाल से उड़ रहा है। इसके अभिकेन्द्री त्वरण तथा गुरुत्वीय त्वरण \(g\) (\(g = 9.8\,\mathrm{m\,s^{-2}}\)) का अनुपात लगभग क्या होगा?
+        </p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(6.38\)</div>
+          <div class="option-item">(B) \(9.80\)</div>
+          <div class="option-item">(C) \(62.5\)</div>
+          <div class="option-item">(D) \(0.64\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>सही उत्तर: (A) \(6.38\)</strong><br>
+          <strong>विस्तृत हल:</strong><br>
+          \(v = 900 \times \frac{5}{18} = 250\,\mathrm{m\,s^{-1}}\)।<br>
+          \(a_c = \frac{v^2}{R} = \frac{250^2}{1000} = 62.5\,\mathrm{m\,s^{-2}}\)।<br>
+          अनुपात: \(\frac{a_c}{g} = \frac{62.5}{9.8} \approx 6.38\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="practice-question">
+      <div class="question-title">Practice Question 5 (Conceptual &bull; Circular Motion Vectors)</div>
+      <p>
+        Which of the following statements is <strong>INCORRECT</strong> regarding uniform circular motion?
+      </p>
+      <div class="options-grid">
+        <div class="option-item">(A) The instantaneous velocity vector is always perpendicular to the acceleration vector.</div>
+        <div class="option-item">(B) The acceleration vector is a constant vector because \(v\) and \(R\) are constant.</div>
+        <div class="option-item">(C) The net work done by the centripetal force in any time interval is zero.</div>
+        <div class="option-item">(D) The average acceleration over one full complete cycle is a null vector.</div>
+      </div>
+      <div class="solution-box">
+        <strong>Correct Answer: (B) The acceleration vector is a constant vector because \(v\) and \(R\) are constant.</strong><br>
+        <strong>Reasoning:</strong><br>
+        In uniform circular motion, while the magnitude of centripetal acceleration \(a_c = \frac{v^2}{R}\) is strictly constant, its direction points towards the centre and rotates continuously with the object. A vector whose direction changes with time is NOT a constant vector. Hence statement (B) is false (incorrect).
+      </div>
+
+      <hr class="bilingual-sep">
+
+      <div class="lang-hi">
+        <div class="question-title" style="color: var(--primary);">अभ्यास प्रश्न 5 (अवधारणात्मक &bull; वृत्तीय गति)</div>
+        <p>
+          एकसमान वृत्तीय गति के संदर्भ में निम्नलिखित में से कौन-सा कथन <strong>असत्य</strong> है?
+        </p>
+        <div class="options-grid">
+          <div class="option-item">(A) तात्क्षणिक वेग सदिश सदैव त्वरण सदिश के लंबवत होता है।</div>
+          <div class="option-item">(B) त्वरण सदिश एक नियत सदिश है क्योंकि \(v\) तथा \(R\) नियत हैं।</div>
+          <div class="option-item">(C) अभिकेन्द्री बल द्वारा किसी भी समयांतराल में किया गया कार्य शून्य होता है।</div>
+          <div class="option-item">(D) एक पूर्ण चक्कर में औसत त्वरण सदिश एक शून्य सदिश होता है।</div>
+        </div>
+        <div class="solution-box">
+          <strong>सही उत्तर: (B) त्वरण सदिश एक नियत सदिश है क्योंकि \(v\) तथा \(R\) नियत हैं।</strong><br>
+          <strong>कारण:</strong><br>
+          अभिकेन्द्री त्वरण का परिमाण नियत रहता है, परंतु इसकी दिशा केंद्र की ओर होते हुए निरंतर घूमती रहती है। दिशा में सतत परिवर्तन के कारण यह एक नियत सदिश नहीं है। अतः कथन (B) असत्य है।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: COMMON PITFALLS & REVISION CHECKLIST -->
+  <section class="card card-accent">
+    <h2>10. Common NEET Pitfalls &amp; High-Yield Checklist</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">10. सामान्य भ्रम (Pitfalls) एवं त्वरित पुनरीक्षण सूची</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <ul>
+        <li><strong>Pitfall 1: Assuming Velocity is Zero at the Projectile Peak.</strong> At the highest point, only the vertical component \(v_y = 0\). The horizontal velocity is non-zero (\(v_x = v_0\cos\theta_0\)), so kinetic energy is never zero (unless projected purely vertically).</li>
+        <li><strong>Pitfall 2: Treating Centripetal Acceleration as Constant.</strong> Centripetal acceleration has constant magnitude \(v^2/R\), but continuously variable direction. Thus, kinematic equations for constant acceleration (\(v = u + at\)) CANNOT be applied to circular motion!</li>
+        <li><strong>Pitfall 3: Path Length vs. Displacement.</strong> Distance \(\ge\) \(|\text{Displacement}|\). They are equal only for unidirectional straight-line motion without reversal.</li>
+        <li><strong>Pitfall 4: Relative Velocity vs. Resultant Velocity.</strong> An object subjected to two velocities has resultant \(\mathbf{v} = \mathbf{v}_1 + \mathbf{v}_2\). The velocity of object 1 relative to object 2 is \(\mathbf{v}_{12} = \mathbf{v}_1 - \mathbf{v}_2\).</li>
+      </ul>
+      <div class="hi-block lang-hi">
+        <ul>
+          <li><strong>भ्रम 1: प्रक्षेप्य के उच्चतम बिंदु पर वेग शून्य मानना।</strong> उच्चतम बिंदु पर केवल ऊर्ध्वाधर घटक \(v_y = 0\) होता है, क्षैतिज घटक \(v_0\cos\theta_0\) उपस्थित रहता है। अतः गतिज ऊर्जा कभी शून्य नहीं होती।</li>
+          <li><strong>भ्रम 2: अभिकेन्द्री त्वरण को नियत सदिश मानना।</strong> इसकी दिशा निरंतर बदलती है। अतः वृत्तीय गति में नियत त्वरण वाले समीकरण (\(v = u + at\)) लागू नहीं किए जा सकते।</li>
+          <li><strong>भ्रम 3: विस्थापन एवं दूरी की तुलना।</strong> तय की गई दूरी सदैव विस्थापन के परिमाण के बराबर या उससे बड़ी होती है।</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: CONCISE FINAL RECAP -->
+  <section class="card card-tip" style="margin-bottom: 2rem;">
+    <h2>11. Concise Final Recap</h2>
+    <div class="hi-block lang-hi">
+      <h2 style="border: none; padding: 0; margin: 0 0 0.5rem 0; font-size: 1.3rem; color: var(--primary);">11. संक्षिप्त अंतिम सारांश</h2>
+    </div>
+
+    <div class="bilingual-pair">
+      <p>
+        Mastery over two-dimensional motion hinges on treating orthogonal motions independently. Resolve vectors immediately into \(\hat{\mathbf{i}}\) and \(\hat{\mathbf{j}}\) components. In projectile motion, gravity affects only the vertical direction with \(-g\), while horizontal motion proceeds with zero acceleration. In uniform circular motion, speed is uniform, work done is zero, and acceleration is strictly radial of magnitude \(\frac{v^2}{R}\).
+      </p>
+      <div class="hi-block lang-hi">
+        <p>
+          समतल में गति की सफलता लंबवत घटकों को स्वतंत्र रूप से हल करने में निहित है। सदिशों को \(\hat{\mathbf{i}}\) तथा \(\hat{\mathbf{j}}\) में वियोजित करें। प्रक्षेप्य गति में गुरुत्वाकर्षण केवल ऊर्ध्वाधर दिशा को प्रभावित करता है (\(a_y = -g\)), जबकि क्षैतिज वेग अपरिवर्तित रहता है। एकसमान वृत्तीय गति में चाल अचर रहती है और अभिकेन्द्री त्वरण सदैव केंद्र की ओर \(\frac{v^2}{R}\) होता है।
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systems of Particles and Rotational Motion - NEET UG Physics Tutorial</title>
+  
+  <!-- MathJax Configuration and Script -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    /* CSS Reset and Global Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Bengali", sans-serif;
+      line-height: 1.65;
+      color: #1a202c;
+      background-color: #f8fafc;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 36px 48px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      color: #0f172a;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-top: 1.5em;
+      margin-bottom: 0.6em;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 12px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+      color: #1e3a8a;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: #1e40af;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: #334155;
+    }
+
+    p {
+      margin-bottom: 1.1em;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-bottom: 1.2em;
+      padding-left: 28px;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+
+    /* Bilingual Block System */
+    .lang-en {
+      color: #1e293b;
+      margin-bottom: 12px;
+    }
+
+    .lang-bn {
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 4px solid #0284c7;
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+      font-size: 0.96rem;
+    }
+
+    .section-block {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    /* Callout & Card Boxes */
+    .callout {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 5px solid #2563eb;
+      padding: 16px 20px;
+      border-radius: 6px;
+      margin: 18px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 6px;
+    }
+
+    .formula-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    /* Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* SVG Graphics Container */
+    .svg-diagram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 24px auto;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .svg-diagram svg {
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    /* Practice Questions */
+    .question-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .question-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-item {
+      background: #f8fafc;
+      padding: 8px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .solution-box {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-left: 4px solid #10b981;
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 14px;
+      font-size: 0.94rem;
+    }
+
+    .solution-box strong {
+      color: #065f46;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #cbd5e1;
+      margin: 16px 0;
+    }
+
+    /* Tag Badges */
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 4px;
+      margin-right: 6px;
+      text-transform: uppercase;
+    }
+
+    .badge-neet {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .badge-concept {
+      background-color: #e0f2fe;
+      color: #0369a1;
+    }
+
+    /* Print Styles for A4 Paper */
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+        color: #000000;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      @page {
+        size: A4;
+        margin: 15mm 15mm 15mm 15mm;
+      }
+
+      .section-block {
+        page-break-inside: avoid;
+        border-bottom: 1px solid #cccccc;
+      }
+
+      .question-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #999999;
+      }
+
+      .lang-bn {
+        background-color: #f5f5f5;
+        border-left: 3px solid #666666;
+      }
+
+      .solution-box {
+        background-color: #f0fdf4;
+        border: 1px solid #86efac;
+      }
+
+      .callout {
+        background-color: #f8fafc;
+        border: 1px solid #cbd5e1;
+      }
+
+      h1, h2, h3 {
+        page-break-after: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+<div class="container">
+
+  <!-- Header Banner -->
+  <header style="text-align: center; margin-bottom: 30px;">
+    <div style="margin-bottom: 8px;">
+      <span class="badge badge-neet">NEET UG Physics</span>
+      <span class="badge badge-concept">Class 11 Chapter 6</span>
+      <span class="badge" style="background:#fef3c7; color:#92400e;">Bilingual Study Material</span>
+    </div>
+    <h1>Systems of Particles and Rotational Motion</h1>
+    <p style="text-align: center; color: #475569; font-weight: 500; font-size: 1.15rem; margin-top: 6px;">
+      কণাসমূহের সংস্থা এবং ঘূর্ণন গতি
+    </p>
+  </header>
+
+  <!-- 1. Introduction and Objectives -->
+  <section class="section-block">
+    <h2>1. Syllabus Overview & Learning Objectives (পাঠ্যক্রম ও শিখন উদ্দেশ্য)</h2>
+    
+    <div class="lang-en">
+      <p>In classical translational mechanics, physical bodies are frequently approximated as single point-masses. However, real extended objects undergo complex spatial motions consisting of simultaneous translation and rotation. This tutorial provides a rigorous, exam-aligned treatment of systems of particles and rigid body dynamics specifically structured for NEET UG aspirants.</p>
+      <ul>
+        <li><strong>Key Themes:</strong> Centre of Mass (CM) coordinates, dynamics of CM, conservation of linear momentum, vector cross products, kinematics of rotational motion, torque (\(\boldsymbol{\tau}\)), angular momentum (\(\mathbf{L}\)), rotational equilibrium, moment of inertia (\(I\)), and fixed-axis dynamic principles.</li>
+        <li><strong>Exam Target:</strong> High-speed problem solving, graphical/vector analysis, torque-balance conditions, and moment of inertia calculations.</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn">
+      <p>চিরায়ত রৈখিক গতিবিদ্যায় বস্তুকে সাধারণত একটি বিন্দু-ভর হিসেবে গণ্য করা হয়। কিন্তু বাস্তব জীবনে বিস্তৃত বস্তু একই সাথে রৈখিক চলন ও ঘূর্ণন উভয় প্রকার গতিতেই অংশ নিতে পারে। এই টিউটোরিয়ালটি বিশেষ করে NEET UG পরীক্ষার্থীদের জন্য কণাসমূহের সংস্থা ও দৃঢ় বস্তুর গতিবিদ্যাকে সুস্পষ্ট ও পরীক্ষার উপযোগী করে প্রস্তুত করা হয়েছে।</p>
+      <ul>
+        <li><strong>মূল আলোচ্য বিষয়সমূহ:</strong> ভরকেন্দ্র (CM)-এর স্থানাঙ্ক নির্ণয়, ভরকেন্দ্রের গতি ও রৈখিক ভরবেগের সংরক্ষণ, ভেক্টর গুণন (Cross Product), ঘূর্ণন গতির চলনবিজ্ঞান, টর্ক বা বলের ভ্রামক (\(\boldsymbol{\tau}\)), কৌণিক ভরবেগ (\(\mathbf{L}\)), যান্ত্রিক সাম্যাবস্থা, জড়তার ভ্রামক (\(I\)) এবং স্থির অক্ষ সাপেক্ষে ঘূর্ণনের গতিবিদ্যা।</li>
+        <li><strong>পরীক্ষার লক্ষ্য:</strong> দ্রুত সমস্যা সমাধান, ভেক্টর ও লেখচিত্রীয় বিশ্লেষণ, বলের ভ্রামকের সাম্যাবস্থা এবং বিভিন্ন জ্যামিতিক বস্তুর জড়তার ভ্রামক প্রয়োগ।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. Rigid Body and Types of Motion -->
+  <section class="section-block">
+    <h2>2. Rigid Body and Fundamental Modes of Motion (দৃঢ় বস্তু ও গতির প্রকৃতি)</h2>
+
+    <div class="lang-en">
+      <h3>Definition of an Ideal Rigid Body</h3>
+      <p>A <strong>rigid body</strong> is an idealized physical system of particles in which the distance between any pair of constituent particles remains strictly constant and invariant over time, regardless of the magnitude of external forces applied to it. While practical solid bodies experience microscopic deformations, structural members, wheels, rotors, and planets are modeled as rigid bodies with exceptional precision.</p>
+      
+      <h3>Characteristic Modes of Motion</h3>
+      <ul>
+        <li><strong>Pure Translational Motion:</strong> A body executes pure translation if, at any given instant, every particle composing the body moves with identical linear velocity (both magnitude and direction). A block sliding down an inclined plane is a classic example.</li>
+        <li><strong>Pure Rotational Motion (Fixed Axis):</strong> When a rigid body is constrained along a fixed straight line (the axis of rotation), each constituent particle revolves in a circular path. The plane of each circle is perpendicular to the fixed axis, and the center of every circular path lies strictly on the axis. Particles situated on the rotation axis have zero radius and remain stationary.</li>
+        <li><strong>Combination of Translation and Rotation:</strong> An unconstrained rigid body can shift position while simultaneously rotating. A solid cylinder or sphere rolling down an inclined plane exemplifies this: different particles exhibit different resultant velocities, and the instantaneous velocity of the point of contact with the ground vanishes in pure rolling.</li>
+        <li><strong>Precession (Rotation about a Point):</strong> When only a single point is anchored rather than a full line (such as a spinning toy top anchored at its tip \(O\), or an oscillating pedestal fan), the instantaneous axis of rotation itself sweeps out a conical path around the vertical axis.</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn">
+      <h3>দৃঢ় বস্তুর সংজ্ঞা</h3>
+      <p>একটি <strong>দৃঢ় বস্তু (Rigid Body)</strong> হলো এমন একটি আদর্শ কণা-সংস্থা যাতে বাহ্যিক বল প্রয়োগ করা সত্ত্বেও যেকোনো দুটি কণার মধ্যবর্তী দূরত্ব সর্বদা অপরিবর্তিত থাকে। বাস্তব কঠিন বস্তুর ক্ষেত্রে সামান্য বিকৃতি ঘটলেও চাকা, বিম, ফ্লাইহুইল ও গ্রহসমূহকে অত্যন্ত নির্ভুলভাবে দৃঢ় বস্তু রূপে গণ্য করা যায়।</p>
+      
+      <h3>গতির মৌলিক প্রকারভেদ</h3>
+      <ul>
+        <li><strong>বিশুদ্ধ চলন গতি (Pure Translation):</strong> যদি কোনো গতিশীল বস্তুর প্রতিটি কণার যেকোনো মুহূর্তে রৈখিক বেগ (মান ও অভিমুখ উভয়ই) সমান হয়, তবে সেই গতিকে বিশুদ্ধ চলন গতি বলে। নততল বরাবর পিছলে নামা ব্লকের গতি এর আদর্শ উদাহরণ।</li>
+        <li><strong>স্থির অক্ষের সাপেক্ষে বিশুদ্ধ ঘূর্ণন গতি (Pure Rotation):</strong> যখন একটি দৃঢ় বস্তু একটি স্থির সরলরেখা (ঘূর্ণন অক্ষ) বরাবর আবদ্ধ থাকে, তখন তার প্রতিটি কণা ঘূর্ণন অক্ষকে কেন্দ্র করে বৃত্তাকার পথে ঘোরে। বৃত্তের তলটি অক্ষের সাথে লম্ব হয় এবং অক্ষের উপর অবস্থিত কণাগুলির বেগ শূন্য থাকে।</li>
+        <li><strong>চলন ও ঘূর্ণন গতির সমন্বয় (Rolling Motion):</strong> কোনো অবাধ দৃঢ় বস্তু স্থান পরিবর্তনের সাথে সাথে ঘূর্ণন সম্পন্ন করতে পারে। নততল বেয়ে কোনো চোঙ বা গোলকের গড়িয়ে পড়ার (Rolling) ক্ষেত্রে প্রতিটি বিন্দুর বেগ ভিন্ন হয়; বিশুদ্ধ রোলিং-এর ক্ষেত্রে স্পর্শবিন্দুর তাৎক্ষণিক বেগ শূন্য হয়।</li>
+        <li><strong>পুরঃসরণ বা প্রিসেশন (Precession):</strong> যখন একটি রেখার বদলে কেবল একটি নির্দিষ্ট বিন্দু স্থির থাকে (যেমন ঘূর্ণায়মান লাটিমের অগ্রভাগ \(O\) অথবা চলন্ত পেডেস্টাল ফ্যান), তখন ঘূর্ণন অক্ষটি উল্লম্ব রেখার চারদিকে শঙ্কু আকারে ঘুরে আসে। একে পুরঃসরণ বলে।</li>
+      </ul>
+    </div>
+
+    <!-- SVG Diagram: Types of Motion -->
+    <div class="svg-diagram">
+      <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Subplot 1: Pure Translation -->
+        <g transform="translate(10, 20)">
+          <text x="110" y="20" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Pure Translation (বিশুদ্ধ চলন)</text>
+          <path d="M 20 160 L 200 80 L 200 160 Z" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+          <rect x="70" y="90" width="55" height="35" rx="3" fill="#93c5fd" stroke="#1d4ed8" stroke-width="2" transform="rotate(-24 97 107)"/>
+          <!-- Particle 1 -->
+          <circle cx="85" cy="110" r="3.5" fill="#b91c1c"/>
+          <text x="75" y="105" font-family="sans-serif" font-size="11" fill="#b91c1c" font-weight="bold">P1</text>
+          <line x1="85" y1="110" x2="135" y2="88" stroke="#b91c1c" stroke-width="2.5" marker-end="url(#arrow)"/>
+          <!-- Particle 2 -->
+          <circle cx="105" cy="125" r="3.5" fill="#b91c1c"/>
+          <text x="95" y="120" font-family="sans-serif" font-size="11" fill="#b91c1c" font-weight="bold">P2</text>
+          <line x1="105" y1="125" x2="155" y2="103" stroke="#b91c1c" stroke-width="2.5"/>
+          <text x="110" y="185" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="middle">v(P1) = v(P2)</text>
+        </g>
+
+        <!-- Subplot 2: Pure Rotation about Fixed Axis -->
+        <g transform="translate(265, 20)">
+          <text x="110" y="20" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Pure Rotation (বিশুদ্ধ ঘূর্ণন)</text>
+          <!-- Fixed Axis -->
+          <line x1="110" y1="35" x2="110" y2="175" stroke="#0f172a" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="120" y="45" font-family="sans-serif" font-size="11" fill="#0f172a" font-weight="bold">z-axis</text>
+          <!-- Circular orbits -->
+          <ellipse cx="110" cy="80" rx="60" ry="16" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <circle cx="170" cy="80" r="4" fill="#b91c1c"/>
+          <line x1="110" y1="80" x2="170" y2="80" stroke="#64748b" stroke-width="1.5"/>
+          <text x="135" y="74" font-family="sans-serif" font-size="10" fill="#475569">r1</text>
+          <text x="178" y="84" font-family="sans-serif" font-size="11" fill="#b91c1c">P1</text>
+          <!-- Tangential velocity vector -->
+          <line x1="170" y1="80" x2="170" y2="50" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="175" y="60" font-family="sans-serif" font-size="11" fill="#16a34a" font-weight="bold">v1</text>
+
+          <ellipse cx="110" cy="130" rx="40" ry="12" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <circle cx="150" cy="130" r="4" fill="#b91c1c"/>
+          <line x1="110" y1="130" x2="150" y2="130" stroke="#64748b" stroke-width="1.5"/>
+          <text x="125" y="124" font-family="sans-serif" font-size="10" fill="#475569">r2</text>
+          <text x="156" y="134" font-family="sans-serif" font-size="11" fill="#b91c1c">P2</text>
+          <line x1="150" y1="130" x2="150" y2="108" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="155" y="116" font-family="sans-serif" font-size="11" fill="#16a34a" font-weight="bold">v2</text>
+          <text x="110" y="195" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="middle">v = ω r ; ω is uniform</text>
+        </g>
+
+        <!-- Subplot 3: Rolling (Translation + Rotation) -->
+        <g transform="translate(520, 20)">
+          <text x="110" y="20" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Rolling Motion (রোলিং গতি)</text>
+          <line x1="10" y1="160" x2="210" y2="160" stroke="#475569" stroke-width="2"/>
+          <circle cx="110" cy="110" r="50" fill="#e0e7ff" stroke="#4338ca" stroke-width="2"/>
+          <!-- Centre C -->
+          <circle cx="110" cy="110" r="4" fill="#1e1b4b"/>
+          <text x="96" y="106" font-family="sans-serif" font-size="11" fill="#1e1b4b" font-weight="bold">CM</text>
+          <line x1="110" y1="110" x2="155" y2="110" stroke="#2563eb" stroke-width="2.5"/>
+          <text x="158" y="114" font-family="sans-serif" font-size="11" fill="#2563eb" font-weight="bold">V_cm</text>
+          <!-- Top point -->
+          <circle cx="110" cy="60" r="3.5" fill="#b91c1c"/>
+          <line x1="110" y1="60" x2="190" y2="60" stroke="#b91c1c" stroke-width="2.5"/>
+          <text x="125" y="52" font-family="sans-serif" font-size="11" fill="#b91c1c" font-weight="bold">v_top = 2 V_cm</text>
+          <!-- Contact point -->
+          <circle cx="110" cy="160" r="4" fill="#b91c1c"/>
+          <text x="115" y="176" font-family="sans-serif" font-size="11" fill="#b91c1c" font-weight="bold">v_contact = 0</text>
+          <text x="110" y="198" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="middle">Pure Rolling (v_cm = ω R)</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 1: Distinguishing Pure Translation, Pure Fixed-Axis Rotation, and Rolling Motion.</div>
+    </div>
+  </section>
+
+  <!-- 3. Centre of Mass -->
+  <section class="section-block">
+    <h2>3. Centre of Mass (ভরকেন্দ্র)</h2>
+
+    <div class="lang-en">
+      <h3>Discrete Particle Distributions</h3>
+      <p>The <strong>centre of mass (CM)</strong> of a system of particles represents a unique point whose position vector corresponds to the mass-weighted average of the position vectors of all constituent particles.</p>
+      
+      <p>For a two-particle system of masses \(m_1\) and \(m_2\) positioned along the \(x\)-axis at distances \(x_1\) and \(x_2\) from the origin:</p>
+      <div class="formula-box">
+        \[ X = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} \]
+      </div>
+      <p>If \(m_1 = m_2\), \(X = \frac{x_1 + x_2}{2}\), which lies precisely halfway between the two masses.</p>
+
+      <p>For an \(n\)-particle system distributed in three-dimensional space with position vectors \(\mathbf{r}_i = x_i \hat{\mathbf{i}} + y_i \hat{\mathbf{j}} + z_i \hat{\mathbf{k}}\):</p>
+      <div class="formula-box">
+        \[ \mathbf{R} = \frac{\sum_{i=1}^n m_i \mathbf{r}_i}{\sum_{i=1}^n m_i} = \frac{1}{M}\sum_{i=1}^n m_i \mathbf{r}_i \]
+      </div>
+      <p>Expressed in Cartesian scalar coordinates:</p>
+      <div class="formula-box">
+        \[ X = \frac{\sum m_i x_i}{M}, \quad Y = \frac{\sum m_i y_i}{M}, \quad Z = \frac{\sum m_i z_i}{M} \]
+      </div>
+      <p><strong>Crucial Vector Property:</strong> If the origin of the frame of reference is positioned at the centre of mass itself (\(\mathbf{R} = \mathbf{0}\)), then:</p>
+      <div class="formula-box">
+        \[ \sum_{i=1}^n m_i \mathbf{r}_i = \mathbf{0} \]
+      </div>
+
+      <h3>Continuous Mass Distributions and Symmetry Principles</h3>
+      <p>When considering extended macroscopic bodies with continuous mass densities, the discrete summations pass into volume integrals:</p>
+      <div class="formula-box">
+        \[ X = \frac{1}{M}\int x\,\mathrm{d}m, \quad Y = \frac{1}{M}\int y\,\mathrm{d}m, \quad Z = \frac{1}{M}\int z\,\mathrm{d}m \implies \mathbf{R} = \frac{1}{M}\int \mathbf{r}\,\mathrm{d}m \]
+      </div>
+      <p><strong>Reflection Symmetry Theorem:</strong> For a homogeneous body exhibiting reflectional symmetry (such as a uniform thin rod, ring, disc, sphere, cylinder, or rectangular block), every mass element \(\mathrm{d}m\) located at coordinate \((x, y, z)\) is mirrored by an identical mass element at \((-x, -y, -z)\). Consequently, the integral \(\int \mathbf{r}\,\mathrm{d}m = \mathbf{0}\), establishing that <em>the centre of mass of any uniform, homogeneous symmetric body coincides with its geometric centre.</em></p>
+    </div>
+
+    <div class="lang-bn">
+      <h3>বিচ্ছিন্ন কণা-সংস্থার ভরকেন্দ্র</h3>
+      <p>যেকোনো কণা-সংস্থার <strong>ভরকেন্দ্র (Centre of Mass - CM)</strong> হলো এমন একটি নির্দিষ্ট বিন্দু, যার অবস্থান ভেক্টর সংস্থাটির সকল কণার অবস্থান ভেক্টরের ভর-ভারিত গড় (mass-weighted average) নির্দেশ করে।</p>
+      
+      <p>\(x\)-অক্ষ বরাবর অবস্থিত \(m_1\) ও \(m_2\) ভরের দুটি কণার অবস্থান যথাক্রমে \(x_1\) ও \(x_2\) হলে ভরকেন্দ্রের স্থানাঙ্ক:</p>
+      <div class="formula-box">
+        \[ X = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} \]
+      </div>
+      <p>যদি \(m_1 = m_2\) হয়, তবে \(X = \frac{x_1 + x_2}{2}\); অর্থাৎ ভরকেন্দ্র ঠিক মাঝবিন্দুতে অবস্থান করে।</p>
+
+      <p>ত্রিমাত্রিক স্থানে বিন্যস্ত \(n\)-সংখ্যক কণার ক্ষেত্রে (যেখানে মোট ভর \(M = \sum m_i\)):</p>
+      <div class="formula-box">
+        \[ \mathbf{R} = \frac{\sum m_i \mathbf{r}_i}{M} \implies X = \frac{\sum m_i x_i}{M},\; Y = \frac{\sum m_i y_i}{M},\; Z = \frac{\sum m_i z_i}{M} \]
+      </div>
+      <p><strong>গুরুত্বপূর্ণ ভেক্টর বৈশিষ্ট্য:</strong> যদি নির্দেশতন্ত্রের মূলবিন্দুকে ভরকেন্দ্রে স্থাপন করা হয় (\(\mathbf{R} = \mathbf{0}\)), তবে ভরকেন্দ্র সাপেক্ষে সকল কণার অবস্থানের ভর-ভ্রামকের সমষ্টি সর্বদা শূন্য হয়:</p>
+      <div class="formula-box">
+        \[ \sum m_i \mathbf{r}_i = \mathbf{0} \]
+      </div>
+
+      <h3>নিরবচ্ছিন্ন ভর বণ্টন ও প্রতিসাম্যের নীতি</h3>
+      <p>নিরবচ্ছিন্ন বিস্তারের ক্ষেত্রে যোগফলটি সমাকলনে (integral) রূপান্তরিত হয়:</p>
+      <div class="formula-box">
+        \[ \mathbf{R} = \frac{1}{M}\int \mathbf{r}\,\mathrm{d}m \]
+      </div>
+      <p><strong>প্রতিসাম্য নীতি:</strong> সুষম ও সমসত্ত্ব রিং, ডিস্ক, গোলক, চোঙ বা দণ্ডের ক্ষেত্রে জ্যামিতিক কেন্দ্রের উভয় পাশে সমপরিমাণ ভর প্রতিসমভাবে বিন্যস্ত থাকে। ফলে \(\int \mathbf{r}\,\mathrm{d}m = 0\) হয়। সুতরাং, <em>সুষম সমসত্ত্ব বস্তুর ভরকেন্দ্র সর্বদা তার জ্যামিতিক কেন্দ্রে অবস্থান করে।</em></p>
+    </div>
+
+    <!-- SVG Diagram: Center of Mass -->
+    <div class="svg-diagram">
+      <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Axes -->
+        <line x1="40" y1="160" x2="620" y2="160" stroke="#0f172a" stroke-width="2"/>
+        <line x1="60" y1="180" x2="60" y2="20" stroke="#0f172a" stroke-width="2"/>
+        <text x="625" y="165" font-family="sans-serif" font-size="13" font-weight="bold">x</text>
+        <text x="55" y="16" font-family="sans-serif" font-size="13" font-weight="bold">y</text>
+        <circle cx="60" cy="160" r="3" fill="#000"/>
+        <text x="45" y="175" font-family="sans-serif" font-size="12">O</text>
+
+        <!-- Mass 1 -->
+        <circle cx="200" cy="160" r="10" fill="#3b82f6"/>
+        <text x="190" y="142" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1d4ed8">m1</text>
+        <line x1="60" y1="170" x2="200" y2="170" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="125" y="185" font-family="sans-serif" font-size="11" fill="#3b82f6">x1</text>
+
+        <!-- Mass 2 -->
+        <circle cx="520" cy="160" r="16" fill="#1e40af"/>
+        <text x="510" y="136" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e40af">m2</text>
+        <line x1="60" y1="192" x2="520" y2="192" stroke="#1e40af" stroke-width="1.5"/>
+        <text x="280" y="200" font-family="sans-serif" font-size="11" fill="#1e40af">x2</text>
+
+        <!-- Center of Mass C -->
+        <circle cx="410" cy="160" r="6" fill="#ef4444"/>
+        <line x1="410" y1="160" x2="410" y2="50" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <text x="402" y="42" font-family="sans-serif" font-size="13" font-weight="bold" fill="#b91c1c">C (CM)</text>
+        <text x="418" y="152" font-family="sans-serif" font-size="11" fill="#b91c1c">X_cm</text>
+        <line x1="60" y1="65" x2="410" y2="65" stroke="#ef4444" stroke-width="1.5"/>
+        <text x="210" y="60" font-family="sans-serif" font-size="11" fill="#b91c1c">X = (m1*x1 + m2*x2) / (m1 + m2)</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 2: One-dimensional mass-weighted coordinate of Centre of Mass.</div>
+    </div>
+  </section>
+
+  <!-- 4. Motion of Centre of Mass & Momentum Conservation -->
+  <section class="section-block">
+    <h2>4. Motion of Centre of Mass & Linear Momentum Conservation (ভরকেন্দ্রের গতি ও রৈখিক ভরবেগের সংরক্ষণ)</h2>
+
+    <div class="lang-en">
+      <h3>Kinematics and Dynamics of Centre of Mass</h3>
+      <p>Differentiating the position vector definition \(M\mathbf{R} = \sum m_i \mathbf{r}_i\) with respect to time (assuming constant constituent masses):</p>
+      <div class="formula-box">
+        \[ M \frac{\mathrm{d}\mathbf{R}}{\mathrm{d}t} = \sum m_i \frac{\mathrm{d}\mathbf{r}_i}{\mathrm{d}t} \implies M \mathbf{V} = \sum m_i \mathbf{v}_i = \mathbf{P} \]
+      </div>
+      <p>where \(\mathbf{V}\) is the velocity of the centre of mass and \(\mathbf{P}\) is the total linear momentum of the system. Differentiating again with respect to time:</p>
+      <div class="formula-box">
+        \[ M \frac{\mathrm{d}\mathbf{V}}{\mathrm{d}t} = M \mathbf{A} = \sum m_i \mathbf{a}_i = \sum \mathbf{F}_i \]
+      </div>
+      <p>According to Newton's third law of motion, internal forces between particles occur in collinear, equal and opposite action-reaction pairs (\(\mathbf{F}_{ij} = -\mathbf{F}_{ji}\)). Their vector sum vanishes identically: \(\sum \mathbf{F}_{\text{int}} = \mathbf{0}\). Thus, we arrive at the central theorem of extended body mechanics:</p>
+      <div class="formula-box">
+        \[ M \mathbf{A} = \mathbf{F}_{\text{ext}} = \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} \]
+      </div>
+      <div class="callout">
+        <div class="callout-title">Newton's Second Law for a System of Particles</div>
+        The centre of mass of any system of particles moves precisely as if the entire mass of the system were concentrated at that single point, and all external forces were applied directly to it. Internal forces have zero influence on the acceleration of the centre of mass.
+      </div>
+
+      <h3>Conservation of Total Linear Momentum</h3>
+      <p>When the vector sum of all external forces acting on a system is zero (\(\mathbf{F}_{\text{ext}} = \mathbf{0}\)):</p>
+      <div class="formula-box">
+        \[ \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} = \mathbf{0} \implies \mathbf{P} = M\mathbf{V} = \text{Constant} \]
+      </div>
+      <p><strong>Physical Demonstrations:</strong></p>
+      <ol>
+        <li><strong>Mid-Air Projectile Explosion:</strong> When an unguided shell explodes into multiple fragments in flight, the explosion forces are entirely internal. The external gravitational field remains identical (\(\mathbf{F}_{\text{ext}} = M\mathbf{g}\)). Consequently, the centre of mass of all exploding fragments continues undisturbed along the exact original parabolic trajectory until fragments strike the ground.</li>
+        <li><strong>Radioactive Decay:</strong> When a radium nucleus at rest disintegrates into a radon nucleus and an alpha particle, absence of net external force dictates that the product particles fly apart back-to-back with equal and opposite momenta, preserving \(\mathbf{V}_{\text{cm}} = \mathbf{0}\).</li>
+        <li><strong>Binary Star Orbits:</strong> In an isolated binary star pair bound solely by mutual gravitational attraction, the centre of mass translates linearly through interstellar space with constant velocity, while both stars execute circular/elliptical orbits about their shared CM.</li>
+      </ol>
+    </div>
+
+    <div class="lang-bn">
+      <h3>ভরকেন্দ্রের গতিশীলতা ও নিউটনের সূত্র</h3>
+      <p>\(M\mathbf{R} = \sum m_i \mathbf{r}_i\) সমীকরণটিকে সময়ের সাপেক্ষে অবকলন (differentiation) করলে পাওয়া যায়:</p>
+      <div class="formula-box">
+        \[ M\mathbf{V} = \sum m_i \mathbf{v}_i = \mathbf{P} \]
+      </div>
+      <p>যেখানে \(\mathbf{V}\) হলো ভরকেন্দ্রের বেগ এবং \(\mathbf{P}\) হলো সংস্থার মোট রৈখিক ভরবেগ। পুনরায় সময়ের সাপেক্ষে অবকলন করলে:</p>
+      <div class="formula-box">
+        \[ M\mathbf{A} = \sum m_i \mathbf{a}_i = \sum \mathbf{F}_i = \mathbf{F}_{\text{ext}} + \mathbf{F}_{\text{int}} \]
+      </div>
+      <p>নিউটনের তৃতীয় গতিসূত্র অনুসারে সংস্থার অভ্যন্তরীণ ক্রিয়া ও প্রতিক্রিয়া বল পরস্পর সমান ও বিপরীতমুখী হওয়ায় তাদের ভেক্টর সমষ্টি শূন্য হয় (\(\sum \mathbf{F}_{\text{int}} = \mathbf{0}\))। অতএব:</p>
+      <div class="formula-box">
+        \[ M\mathbf{A} = \mathbf{F}_{\text{ext}} = \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} \]
+      </div>
+      <div class="callout">
+        <div class="callout-title">কণা-সংস্থার ক্ষেত্রে নিউটনের দ্বিতীয় গতিসূত্র</div>
+        একটি কণা-সংস্থার ভরকেন্দ্র এমনভাবে গতিশীল হয় যেন সংস্থাটির সমগ্র ভর ওই ভরকেন্দ্রে কেন্দ্রীভূত রয়েছে এবং সমস্ত বাহ্যিক বল সরাসরি ওই বিন্দুর উপর প্রযুক্ত হচ্ছে। অভ্যন্তরীণ বলসমূহ ভরকেন্দ্রের গতিতে কোনো প্রভাব ফেলে না।
+      </div>
+
+      <h3>রৈখিক ভরবেগের সংরক্ষণ নীতি</h3>
+      <p>যদি সংস্থায় প্রযুক্ত মোট বাহ্যিক বল শূন্য হয় (\(\mathbf{F}_{\text{ext}} = \mathbf{0}\)), তবে:</p>
+      <div class="formula-box">
+        \[ \mathbf{P} = M\mathbf{V} = \text{ধ্রুবক (Constant)} \]
+      </div>
+      <p><strong>বাস্তব উদাহরণ:</strong></p>
+      <ol>
+        <li><strong>প্রাসের বিস্ফোরণ:</strong> বাতাসে গতিশীল কোনো প্রক্ষেপক বিস্ফোরিত হয়ে খণ্ড-বিখণ্ড হলেও বিস্ফোরণের বল অভ্যন্তরীণ হওয়ায় কেবল অভিকর্ষ বলই বাহ্যিক বল হিসেবে থাকে। ফলে টুকরোগুলির যৌথ ভরকেন্দ্র মূল অধিবৃত্তাকার (parabolic) পথেই গতিশীল থাকে।</li>
+        <li><strong>তেজস্ক্রিয় বিঘটন:</strong> স্থির রেডিয়াম নিউক্লিয়াস স্বতঃস্ফূর্তভাবে রেডন ও আলফা কণায় ভেঙে গেলে কোনো বাহ্যিক বল না থাকায় কণা দুটি পরস্পরের ঠিক বিপরীত অভিমুখে সমমানের ভরবেগ নিয়ে ছুটে যায়।</li>
+        <li><strong>যুগ্ম তারা (Binary Stars):</strong> মহাকাশে পরস্পরের মহাকর্ষীয় আকর্ষণে ঘূর্ণায়মান দুটি তারার সাধারণ ভরকেন্দ্র ধ্রুব বেগে সরলরেখায় চলে, আর তারা দুটি ভরকেন্দ্রকে প্রদক্ষিণ করে।</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. Vector Product -->
+  <section class="section-block">
+    <h2>5. Vector Product (Cross Product) of Two Vectors (দুটি ভেক্টরের ভেক্টর গুণন)</h2>
+
+    <div class="lang-en">
+      <h3>Mathematical Definition</h3>
+      <p>The vector (or cross) product of two vectors \(\mathbf{a}\) and \(\mathbf{b}\), written as \(\mathbf{a} \times \mathbf{b}\), yields a third vector \(\mathbf{c}\) defined by:</p>
+      <div class="formula-box">
+        \[ \mathbf{c} = \mathbf{a} \times \mathbf{b} = (a b \sin\theta)\,\hat{\mathbf{n}} \]
+      </div>
+      <p>where \(a\) and \(b\) are vector magnitudes, \(\theta\) is the smaller angle between them (\(0^\circ \le \theta \le 180^\circ\)), and \(\hat{\mathbf{n}}\) is a unit vector perpendicular to the plane formed by \(\mathbf{a}\) and \(\mathbf{b}\) conforming to the <strong>right-hand screw rule</strong>.</p>
+
+      <h3>Fundamental Mathematical Properties</h3>
+      <ul>
+        <li><strong>Anti-commutative:</strong> \(\mathbf{a} \times \mathbf{b} = -(\mathbf{b} \times \mathbf{a})\). Vector direction reverses upon swapping operand order.</li>
+        <li><strong>Reflection Invariance:</strong> Under spatial coordinate inversion (\(\mathbf{a} \to -\mathbf{a}\), \(\mathbf{b} \to -\mathbf{b}\)), the cross product remains invariant: \((-\mathbf{a}) \times (-\mathbf{b}) = \mathbf{a} \times \mathbf{b}\). Hence, cross products yield pseudovectors (axial vectors).</li>
+        <li><strong>Parallel / Collinear Vectors:</strong> \(\mathbf{a} \times \mathbf{a} = \mathbf{0}\) (since \(\sin 0^\circ = 0\)).</li>
+        <li><strong>Orthogonal Cartesian Unit Vectors:</strong>
+          \[ \hat{\mathbf{i}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}} \times \hat{\mathbf{k}} = \mathbf{0} \]
+          \[ \hat{\mathbf{i}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}}, \quad \hat{\mathbf{j}} \times \hat{\mathbf{k}} = \hat{\mathbf{i}}, \quad \hat{\mathbf{k}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}} \]
+          \[ \hat{\mathbf{j}} \times \hat{\mathbf{i}} = -\hat{\mathbf{k}}, \quad \hat{\mathbf{k}} \times \hat{\mathbf{j}} = -\hat{\mathbf{i}}, \quad \hat{\mathbf{i}} \times \hat{\mathbf{k}} = -\hat{\mathbf{j}} \]
+        </li>
+        <li><strong>Determinant Form:</strong> For \(\mathbf{a} = a_x \hat{\mathbf{i}} + a_y \hat{\mathbf{j}} + a_z \hat{\mathbf{k}}\) and \(\mathbf{b} = b_x \hat{\mathbf{i}} + b_y \hat{\mathbf{j}} + b_z \hat{\mathbf{k}}\):
+          <div class="formula-box">
+            \[ \mathbf{a} \times \mathbf{b} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ a_x & a_y & a_z \\ b_x & b_y & b_z \end{vmatrix} = (a_y b_z - a_z b_y)\hat{\mathbf{i}} + (a_z b_x - a_x b_z)\hat{\mathbf{j}} + (a_x b_y - a_y b_x)\hat{\mathbf{k}} \]
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="lang-bn">
+      <h3>সংজ্ঞা ও বৈশিষ্ট্য</h3>
+      <p>দুটি ভেক্টর \(\mathbf{a}\) ও \(\mathbf{b}\)-এর ভেক্টর গুণফল \(\mathbf{c} = \mathbf{a} \times \mathbf{b}\) একটি ভেক্টর রাশি, যার মান \(c = ab\sin\theta\) এবং অভিমুখ \(\mathbf{a}\) ও \(\mathbf{b}\) সমন্বিত তলের ওপর লম্ব। অভিমুখটি <strong>ডানহাতি স্ক্রু নিয়ম (Right-hand screw rule)</strong> দ্বারা নির্ধারিত হয়।</p>
+      <ul>
+        <li><strong>বিনিময় নিয়ম মানে না (Anti-commutative):</strong> \(\mathbf{a} \times \mathbf{b} = -(\mathbf{b} \times \mathbf{a})\)।</li>
+        <li><strong>প্রতিফলনে রূপান্তর:</strong> দর্পণ প্রতিফলনে সব ভেক্টরের দিক উল্টে গেলে \((-\mathbf{a}) \times (-\mathbf{b}) = \mathbf{a} \times \mathbf{b}\) অপরিবর্তিত থাকে। এটি একটি অক্ষীয় ভেক্টর (axial vector)।</li>
+        <li><strong>পরস্পর সমান্তরাল ভেক্টর:</strong> \(\mathbf{a} \times \mathbf{a} = \mathbf{0}\)।</li>
+        <li><strong>একক ভেক্টরসমূহের গুণন:</strong> চক্রীয় ক্রমে \(\hat{\mathbf{i}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}}\), \(\hat{\mathbf{j}} \times \hat{\mathbf{k}} = \hat{\mathbf{i}}\), \(\hat{\mathbf{k}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}}\)। উল্টো ক্রমে ফলাফল ঋণাত্মক।</li>
+        <li><strong>নির্ণায়ক (Determinant) রূপ:</strong> উপাংশের সাহায্যে গুণফল নির্ণয়ে ৩×৩ নির্ণায়ক পদ্ধতি ব্যবহার করা হয়।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Angular Velocity and Kinematics -->
+  <section class="section-block">
+    <h2>6. Angular Velocity, Acceleration & Vector Relationship with Linear Velocity (কৌণিক বেগ ও ত্বরণ)</h2>
+
+    <div class="lang-en">
+      <h3>Vector Relationship: \(\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}\)</h3>
+      <p>When an extended rigid body rotates about a fixed axis with angular velocity \(\boldsymbol{\omega}\), all constituent particles share the exact same angular velocity vector \(\boldsymbol{\omega}\) directed along the axis of rotation in accordance with the right-hand grip rule.</p>
+      <p>For a particle located at position vector \(\mathbf{r} = \mathbf{OP}\) relative to an origin \(O\) on the rotation axis:</p>
+      <div class="formula-box">
+        \[ \mathbf{v} = \boldsymbol{\omega} \times \mathbf{r} \]
+      </div>
+      <p>Resolving \(\mathbf{r} = \mathbf{OC} + \mathbf{CP}\), where \(\mathbf{CP} = \mathbf{r}_\perp\) is the perpendicular radius vector from the rotation axis to the particle:</p>
+      <div class="formula-box">
+        \[ \boldsymbol{\omega} \times \mathbf{r} = \boldsymbol{\omega} \times (\mathbf{OC} + \mathbf{r}_\perp) = \mathbf{0} + \boldsymbol{\omega} \times \mathbf{r}_\perp = \mathbf{v} \]
+      </div>
+      <p>Magnitude: \(v = \omega r_\perp\). Tangential linear velocity is strictly proportional to the perpendicular distance from the axis of rotation.</p>
+
+      <h3>Rotational Kinematics Equations (Constant Angular Acceleration)</h3>
+      <p>Angular acceleration is defined as \(\alpha = \frac{\mathrm{d}\omega}{\mathrm{d}t}\). When \(\alpha\) is uniform, rotational kinematics maps onto linear kinematics:</p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Linear Motion (Uniform \(a\))</th>
+              <th>Rotational Motion (Uniform \(\alpha\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>\(v = v_0 + a t\)</td>
+              <td>\(\omega = \omega_0 + \alpha t\)</td>
+            </tr>
+            <tr>
+              <td>\(x = x_0 + v_0 t + \frac{1}{2} a t^2\)</td>
+              <td>\(\theta = \theta_0 + \omega_0 t + \frac{1}{2} \alpha t^2\)</td>
+            </tr>
+            <tr>
+              <td>\(v^2 = v_0^2 + 2 a (x - x_0)\)</td>
+              <td>\(\omega^2 = \omega_0^2 + 2 \alpha (\theta - \theta_0)\)</td>
+            </tr>
+            <tr>
+              <td>\(x - x_0 = \frac{v_0 + v}{2} t\)</td>
+              <td>\(\theta - \theta_0 = \frac{\omega_0 + \omega}{2} t\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lang-bn">
+      <h3>ভেক্টর সম্পর্ক: \(\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}\)</h3>
+      <p>স্থির অক্ষের সাপেক্ষে আবর্তনরত দৃঢ় বস্তুর প্রতিটি কণার কৌণিক বেগ \(\boldsymbol{\omega}\) একই থাকে। ঘূর্ণন অক্ষের উপর মূলবিন্দু \(O\) সাপেক্ষে কোনো কণার অবস্থান ভেক্টর \(\mathbf{r}\) হলে তার তাৎক্ষণিক রৈখিক বেগ হয়:</p>
+      <div class="formula-box">
+        \[ \mathbf{v} = \boldsymbol{\omega} \times \mathbf{r} \]
+      </div>
+      <p>মানের দিক থেকে, \(v = \omega r_\perp\), যেখানে \(r_\perp\) হলো ঘূর্ণন অক্ষ থেকে কণাটির লম্ব দূরত্ব। অক্ষের কণাগুলির জন্য \(r_\perp = 0\), তাই তাদের রৈখিক বেগ শূন্য।</p>
+
+      <h3>ধ্রুব কৌণিক ত্বরণে ঘূর্ণন গতির সমীকরণ</h3>
+      <p>কৌণিক ত্বরণ \(\alpha = \frac{\mathrm{d}\omega}{\mathrm{d}t}\) ধ্রুবক হলে রৈখিক গতির অনুরূপ সমীকরণসমূহ প্রযোজ্য হয়:</p>
+      <ul>
+        <li>\(\omega = \omega_0 + \alpha t\)</li>
+        <li>\(\theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2\)</li>
+        <li>\(\omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)\)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. Torque and Angular Momentum -->
+  <section class="section-block">
+    <h2>7. Torque and Angular Momentum (টর্ক এবং কৌণিক ভরবেগ)</h2>
+
+    <div class="lang-en">
+      <h3>Moment of Force (Torque, \(\boldsymbol{\tau}\))</h3>
+      <p>Torque is the rotational analogue of force, quantifying the turning efficacy of an applied force about a reference origin \(O\):</p>
+      <div class="formula-box">
+        \[ \boldsymbol{\tau} = \mathbf{r} \times \mathbf{F} \]
+      </div>
+      <p>Scalar magnitude: \(\tau = r F \sin\theta = r_\perp F = r F_\perp\), where \(r_\perp = r\sin\theta\) is the <em>lever arm</em> (perpendicular distance from the origin to the line of action of the force).</p>
+      <ul>
+        <li><strong>SI Unit:</strong> Newton metre (\(\mathrm{N\cdot m}\)).</li>
+        <li><strong>Dimensions:</strong> \([\mathrm{M L^2 T^{-2}}]\) (Identical dimensions to work/energy, but torque is an axial vector, whereas work is a scalar).</li>
+        <li><strong>Vanishing Condition:</strong> \(\tau = 0\) if \(F = 0\), \(r = 0\), or if the line of action passes through the reference point (\(\theta = 0^\circ\) or \(180^\circ\)).</li>
+      </ul>
+
+      <h3>Angular Momentum (\(\mathbf{l}\) and \(\mathbf{L}\))</h3>
+      <p>The angular momentum of a single particle with linear momentum \(\mathbf{p} = m\mathbf{v}\) about an origin \(O\) is defined as:</p>
+      <div class="formula-box">
+        \[ \mathbf{l} = \mathbf{r} \times \mathbf{p} \]
+      </div>
+      <p>Differentiating with respect to time:</p>
+      <div class="formula-box">
+        \[ \frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} \times \mathbf{p} + \mathbf{r} \times \frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t} = (\mathbf{v} \times m\mathbf{v}) + (\mathbf{r} \times \mathbf{F}) = \mathbf{0} + \boldsymbol{\tau} = \boldsymbol{\tau} \]
+      </div>
+      <p>For a system of \(n\) particles, summing internal and external contributions yields:</p>
+      <div class="formula-box">
+        \[ \frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = \boldsymbol{\tau}_{\text{ext}} \quad \left(\text{since } \boldsymbol{\tau}_{\text{int}} = \mathbf{0} \text{ under central collinear interactions}\right) \]
+      </div>
+      <div class="callout">
+        <div class="callout-title">Principle of Conservation of Total Angular Momentum</div>
+        If the net external torque acting on a system of particles about a chosen origin is zero (\(\boldsymbol{\tau}_{\text{ext}} = \mathbf{0}\)), the total angular momentum of the system is strictly conserved:
+        \[ \mathbf{L} = \text{Constant} \iff L_x = K_1, \; L_y = K_2, \; L_z = K_3 \]
+      </div>
+    </div>
+
+    <div class="lang-bn">
+      <h3>বলের ভ্রামক বা টর্ক (\(\boldsymbol{\tau}\))</h3>
+      <p>ঘূর্ণন গতি সৃষ্টি করার জন্য প্রযুক্ত বলের কার্যকারিতাকে টর্ক বলা হয়। মূলবিন্দু \(O\) সাপেক্ষে \(\mathbf{r}\) অবস্থানে ক্রিয়াশীল বল \(\mathbf{F}\)-এর টর্ক:</p>
+      <div class="formula-box">
+        \[ \boldsymbol{\tau} = \mathbf{r} \times \mathbf{F} \]
+      </div>
+      <p>মান: \(\tau = r F \sin\theta = r_\perp F\), যেখানে \(r_\perp\) হলো ঘূর্ণন কেন্দ্র থেকে বলের ক্রিয়া-রেখার লম্ব দূরত্ব (লিভার বাহু)।</p>
+      <ul>
+        <li><strong>SI একক:</strong> নিউটন-মিটার (\(\mathrm{N\cdot m}\))।</li>
+        <li><strong>মাত্রা:</strong> \([\mathrm{M L^2 T^{-2}}]\) (কার্য ও শক্তির সমান মাত্রা হলেও টর্ক একটি ভেক্টর রাশি)।</li>
+        <li><strong>টর্ক শূন্য হওয়ার শর্ত:</strong> বল শূন্য হলে, বলের ক্রিয়া-রেখা মূলবিন্দুগামী হলে বা মূলবিন্দুতে বল প্রযুক্ত হলে টর্ক শূন্য হয়।</li>
+      </ul>
+
+      <h3>কৌণিক ভরবেগ (\(\mathbf{L}\)) ও সংরক্ষণ নীতি</h3>
+      <p>রৈখিক ভরবেগের ভ্রামককে কৌণিক ভরবেগ বলে। একটি কণার জন্য \(\mathbf{l} = \mathbf{r} \times \mathbf{p}\)।</p>
+      <p>সময়ের সাপেক্ষে অবকলন করলে রৈখিক গতির দ্বিতীয় সূত্রের অনুরূপ আবর্তীয় রূপ পাওয়া যায়:</p>
+      <div class="formula-box">
+        \[ \frac{\mathrm{d}\mathbf{l}}{\mathrm{d}t} = \boldsymbol{\tau} \implies \frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = \boldsymbol{\tau}_{\text{ext}} \]
+      </div>
+      <div class="callout">
+        <div class="callout-title">কৌণিক ভরবেগের সংরক্ষণ সূত্র</div>
+        যদি কোনো কণা-সংস্থার ওপর কার্যকর মোট বাহ্যিক টর্ক শূন্য হয় (\(\boldsymbol{\tau}_{\text{ext}} = \mathbf{0}\)), তবে সংস্থাটির মোট কৌণিক ভরবেগ অপরিবর্তিত থাকে:
+        \[ \mathbf{L} = \text{ধ্রুবক (Constant)} \]
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Equilibrium of a Rigid Body -->
+  <section class="section-block">
+    <h2>8. Equilibrium of a Rigid Body, Couples & Centre of Gravity (দৃঢ় বস্তুর যান্ত্রিক সাম্যাবস্থা)</h2>
+
+    <div class="lang-en">
+      <h3>Conditions for Complete Mechanical Equilibrium</h3>
+      <p>A rigid body is in total mechanical equilibrium if and only if both its linear acceleration and angular acceleration are simultaneously zero:</p>
+      <ol>
+        <li><strong>Translational Equilibrium:</strong> Vector sum of all external forces is zero:
+          \[ \sum_{i=1}^n \mathbf{F}_i = \mathbf{0} \iff \sum F_{ix} = 0, \;\sum F_{iy} = 0, \;\sum F_{iz} = 0 \]
+        </li>
+        <li><strong>Rotational Equilibrium:</strong> Vector sum of all external torques about any reference point is zero:
+          \[ \sum_{i=1}^n \boldsymbol{\tau}_i = \mathbf{0} \iff \sum \tau_{ix} = 0, \;\sum \tau_{iy} = 0, \;\sum \tau_{iz} = 0 \]
+        </li>
+      </ol>
+      <p><em>Theorem:</em> If a body is in translational equilibrium (\(\sum \mathbf{F} = \mathbf{0}\)), the net external torque is identical about any arbitrary origin in space.</p>
+
+      <h3>Couples</h3>
+      <p>A <strong>couple</strong> consists of a pair of equal and opposite forces acting along parallel, non-coincident lines of action. While the resultant force of a couple is identically zero (\(\mathbf{F}_{\text{net}} = \mathbf{0}\)), its torque is non-zero and origin-independent:</p>
+      <div class="formula-box">
+        \[ \boldsymbol{\tau}_{\text{couple}} = \mathbf{r}_{\text{rel}} \times \mathbf{F} \]
+      </div>
+      <p>A couple produces pure rotation without causing any translational acceleration.</p>
+
+      <h3>Principle of Moments & Mechanical Advantage</h3>
+      <p>For an ideal lever resting on a fulcrum with load \(F_1\) at distance \(d_1\) and effort \(F_2\) at distance \(d_2\):</p>
+      <div class="formula-box">
+        \[ \text{Load} \times \text{Load Arm} = \text{Effort} \times \text{Effort Arm} \implies F_1 d_1 = F_2 d_2 \]
+        \[ \text{Mechanical Advantage (M.A.)} = \frac{F_1}{F_2} = \frac{d_2}{d_1} \]
+      </div>
+
+      <h3>Centre of Gravity (CG) vs Centre of Mass (CM)</h3>
+      <p>The <strong>Centre of Gravity (CG)</strong> is the unique point at which the resultant gravitational torque vanishes:</p>
+      <div class="formula-box">
+        \[ \boldsymbol{\tau}_g = \sum \mathbf{r}_i \times m_i \mathbf{g} = \left(\sum m_i \mathbf{r}_i\right) \times \mathbf{g} = \mathbf{0} \]
+      </div>
+      <p>If the gravitational field \(\mathbf{g}\) is completely uniform across the extent of the body, \(\sum m_i \mathbf{r}_i = \mathbf{0}\), proving that <strong>CG coincides with CM</strong>. However, for planetary-scale objects in non-uniform gravitational fields, the CG is shifted toward the stronger gravitational region and does not coincide with the CM.</p>
+    </div>
+
+    <div class="lang-bn">
+      <h3>যান্ত্রিক সাম্যাবস্থার শর্তসমূহ</h3>
+      <p>একটি দৃঢ় বস্তু সম্পূর্ণ যান্ত্রিক সাম্যাবস্থায় থাকার জন্য দুটি শর্ত পূরণ হওয়া আবশ্যক:</p>
+      <ol>
+        <li><strong>চলন সাম্যাবস্থা (Translational Equilibrium):</strong> বস্তুর ওপর প্রযুক্ত মোট বাহ্যিক বল শূন্য হবে: \(\sum \mathbf{F}_i = \mathbf{0}\)।</li>
+        <li><strong>আবর্তীয় সাম্যাবস্থা (Rotational Equilibrium):</strong> যেকোনো বিন্দুর সাপেক্ষে মোট বাহ্যিক টর্ক শূন্য হবে: \(\sum \boldsymbol{\tau}_i = \mathbf{0}\)।</li>
+      </ol>
+
+      <h3>দ্বন্দ্ব বা যুগল (Couple)</h3>
+      <p>সমান মানবিশিষ্ট অথচ বিপরীতমুখী দুটি সমান্তরাল বল যদি ভিন্ন ক্রিয়া-রেখায় প্রযুক্ত হয়, তবে তাকে <strong>দ্বন্দ্ব (Couple)</strong> বলে। দ্বন্দ্বের মোট বল শূন্য হলেও টর্ক অশূন্য থাকে এবং তা বস্তুতে কেবল বিশুদ্ধ ঘূর্ণন সৃষ্টি করে।</p>
+
+      <h3>লিভারের নীতি ও যান্ত্রিক সুবিধা</h3>
+      <p>একটি আদর্শ লিভারের ক্ষেত্রে: <strong>ভার \(\times\) ভার বাহু = বল \(\times\) বল বাহু</strong> (\(F_1 d_1 = F_2 d_2\))।</p>
+      <div class="formula-box">
+        \[ \text{যান্ত্রিক সুবিধা (Mechanical Advantage - M.A.)} = \frac{\text{ভার}}{\text{প্রযুক্ত বল}} = \frac{F_1}{F_2} = \frac{d_2}{d_1} \]
+      </div>
+
+      <h3>ভারকেন্দ্র (CG) বনাম ভরকেন্দ্র (CM)</h3>
+      <p>যে বিন্দুর সাপেক্ষে কোনো বস্তুর প্রতিটি কণার ওপর ক্রিয়াশীল মোট মহাকর্ষীয় বলের ভ্রামক (টর্ক) শূন্য হয়, তাকে <strong>ভারকেন্দ্র (Centre of Gravity)</strong> বলে। সুষম অভিকর্ষজ ক্ষেত্রে (\(\mathbf{g}\) ধ্রুবক থাকলে) বস্তুর ভারকেন্দ্র ও ভরকেন্দ্র একই বিন্দুতে অবস্থান করে। কিন্তু মহাকর্ষীয় ক্ষেত্র অসম হলে ভারকেন্দ্র ও ভরকেন্দ্র পৃথক হয়।</p>
+    </div>
+  </section>
+
+  <!-- 9. Moment of Inertia & Table -->
+  <section class="section-block">
+    <h2>9. Moment of Inertia, Radius of Gyration & Flywheel (জড়তার ভ্রামক ও চক্রগতির ব্যাসার্ধ)</h2>
+
+    <div class="lang-en">
+      <h3>Definition and Physical Meaning</h3>
+      <p>The <strong>moment of inertia</strong> (\(I\)) of a rigid body about a specified axis of rotation is the rotational analogue of mass in linear motion, representing the measure of the body's rotational inertia (resistance to change in angular velocity):</p>
+      <div class="formula-box">
+        \[ I = \sum_{i=1}^n m_i r_i^2 \quad \left(\text{or } I = \int r^2\,\mathrm{d}m \text{ for continuous bodies}\right) \]
+      </div>
+      <p>The rotational kinetic energy of a body rotating about a fixed axis with angular speed \(\omega\) is:</p>
+      <div class="formula-box">
+        \[ K = \frac{1}{2} I \omega^2 \]
+      </div>
+      <p><em>Influencing Factors:</em> Unlike total mass, moment of inertia depends strongly on: (1) total mass, (2) spatial shape and size, (3) density distribution, and (4) the exact position and orientation of the axis of rotation.</p>
+
+      <h3>Radius of Gyration (\(k\))</h3>
+      <p>The <strong>radius of gyration</strong> (\(k\)) of a rigid body about a given axis represents the effective radial distance from the axis at which the entire mass \(M\) of the body could be concentrated without altering its moment of inertia:</p>
+      <div class="formula-box">
+        \[ I = M k^2 \implies k = \sqrt{\frac{I}{M}} \]
+      </div>
+
+      <h3>Engineering Application: The Flywheel</h3>
+      <p>Engines delivering cyclic work output incorporate a heavy-rimmed disc with an exceptionally large moment of inertia termed a <strong>flywheel</strong>. By resisting rapid fluctuations in angular speed (\(\tau = I\alpha\)), the flywheel smooths mechanical jerkiness and stores rotational kinetic energy uniformly across cycles.</p>
+    </div>
+
+    <div class="lang-bn">
+      <h3>সংজ্ঞা ও তাৎপর্য</h3>
+      <p>রৈখিক গতিতে ভর যে ভূমিকা পালন করে, ঘূর্ণন গতিতে <strong>জড়তার ভ্রামক (Moment of Inertia - \(I\))</strong> ঠিক সেই ভূমিকাই পালন করে। কোনো নির্দিষ্ট অক্ষের সাপেক্ষে ঘূর্ণায়মান কণা-সংস্থার প্রতিটি কণার ভর এবং অক্ষ থেকে তাদের লম্ব দূরত্বের বর্গের গুণফলের সমষ্টিকে জড়তার ভ্রামক বলে:</p>
+      <div class="formula-box">
+        \[ I = \sum m_i r_i^2 = \int r^2\,\mathrm{d}m \]
+      </div>
+      <p>ঘূর্ণন গতিশক্তি: \(K = \frac{1}{2} I \omega^2\)। এর একক \(\mathrm{kg\cdot m^2}\) এবং মাত্রা \([\mathrm{ML^2}]\)।</p>
+
+      <h3>চক্রগতির ব্যাসার্ধ (Radius of Gyration, \(k\))</h3>
+      <p>ঘূর্ণন অক্ষ থেকে যে লম্ব দূরত্বে বস্তুর সমগ্র ভর কেন্দ্রীভূত কল্পনা করলে সংস্থাটির জড়তার ভ্রামক অপরিবর্তিত থাকে, তাকে চক্রগতির ব্যাসার্ধ বলে: \(I = M k^2 \implies k = \sqrt{I/M}\)।</p>
+
+      <h3>ফ্লাইহুইল (Flywheel)-এর ব্যবহার</h3>
+      <p>ইঞ্জিনে ঘূর্ণন গতির হঠাৎ পরিবর্তন বা ঝাঁকুনি রোধ করতে বৃহৎ জড়তার ভ্রামকযুক্ত ভারী চাকতি (ফ্লাইহুইল) ব্যবহার করা হয়, যা মসৃণ গতি নিশ্চিত করে।</p>
+    </div>
+
+    <!-- Reference Table: Moments of Inertia -->
+    <h3>Standard Moments of Inertia Reference Table (মান্য জড়তার ভ্রামকের তালিকা)</h3>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Body (বস্তু)</th>
+            <th>Axis of Rotation (ঘূর্ণন অক্ষ)</th>
+            <th>Moment of Inertia (\(I\))</th>
+            <th>Radius of Gyration (\(k\))</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Thin Circular Ring</strong> (সুষম পাতলা রিং, ব্যাসার্ধ \(R\))</td>
+            <td>Perpendicular to plane, through centre (কেন্দ্রগামী লম্ব অক্ষ)</td>
+            <td>\(M R^2\)</td>
+            <td>\(R\)</td>
+          </tr>
+          <tr>
+            <td><strong>Thin Circular Ring</strong> (পাতলা রিং)</td>
+            <td>Along diameter (ব্যাস বরাবর)</td>
+            <td>\(\frac{1}{2} M R^2\)</td>
+            <td>\(\frac{R}{\sqrt{2}}\)</td>
+          </tr>
+          <tr>
+            <td><strong>Thin Uniform Rod</strong> (সুষম পাতলা দণ্ড, দৈর্ঘ্য \(L\))</td>
+            <td>Perpendicular to rod, through centre (মধ্যবিন্দুগামী লম্ব অক্ষ)</td>
+            <td>\(\frac{1}{12} M L^2\)</td>
+            <td>\(\frac{L}{\sqrt{12}}\)</td>
+          </tr>
+          <tr>
+            <td><strong>Circular Disc</strong> (বৃত্তাকার চাকতি, ব্যাসার্ধ \(R\))</td>
+            <td>Perpendicular to disc, through centre (কেন্দ্রগামী লম্ব অক্ষ)</td>
+            <td>\(\frac{1}{2} M R^2\)</td>
+            <td>\(\frac{R}{\sqrt{2}}\)</td>
+          </tr>
+          <tr>
+            <td><strong>Circular Disc</strong> (বৃত্তাকার চাকতি)</td>
+            <td>Along diameter (ব্যাস বরাবর)</td>
+            <td>\(\frac{1}{4} M R^2\)</td>
+            <td>\(\frac{R}{2}\)</td>
+          </tr>
+          <tr>
+            <td><strong>Hollow Cylinder</strong> (ফাঁপা চোঙ, ব্যাসার্ধ \(R\))</td>
+            <td>Standard cylinder axis (নিজস্ব অক্ষ)</td>
+            <td>\(M R^2\)</td>
+            <td>\(R\)</td>
+          </tr>
+          <tr>
+            <td><strong>Solid Cylinder</strong> (নিরেট চোঙ, ব্যাসার্ধ \(R\))</td>
+            <td>Standard cylinder axis (নিজস্ব অক্ষ)</td>
+            <td>\(\frac{1}{2} M R^2\)</td>
+            <td>\(\frac{R}{\sqrt{2}}\)</td>
+          </tr>
+          <tr>
+            <td><strong>Solid Sphere</strong> (সুষম নিরেট গোলক, ব্যাসার্ধ \(R\))</td>
+            <td>Along any diameter (যেকোনো ব্যাস বরাবর)</td>
+            <td>\(\frac{2}{5} M R^2\)</td>
+            <td>\(\sqrt{\frac{2}{5}} R\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 10. Dynamics of Rotational Motion -->
+  <section class="section-block">
+    <h2>10. Dynamics of Rotational Motion & Power (ঘূর্ণন গতিবিদ্যা ও ক্ষমতা)</h2>
+
+    <div class="lang-en">
+      <h3>Rotational Work, Power, and \(\tau = I\alpha\)</h3>
+      <p>For a rigid body rotating about a fixed axis under the influence of tangential external forces, work done during an infinitesimal angular displacement \(\mathrm{d}\theta\) is:</p>
+      <div class="formula-box">
+        \[ \mathrm{d}W = \tau\,\mathrm{d}\theta \implies W = \int \tau\,\mathrm{d}\theta \]
+      </div>
+      <p>Dividing by \(\mathrm{d}t\) gives instantaneous rotational power:</p>
+      <div class="formula-box">
+        \[ P = \frac{\mathrm{d}W}{\mathrm{d}t} = \tau \frac{\mathrm{d}\theta}{\mathrm{d}t} = \tau \omega \]
+      </div>
+      <p>Equating external work rate to the rate of change of rotational kinetic energy (\(K = \frac{1}{2}I\omega^2\)):</p>
+      <div class="formula-box">
+        \[ \tau \omega = \frac{\mathrm{d}}{\mathrm{d}t}\left(\frac{1}{2}I\omega^2\right) = I\omega \frac{\mathrm{d}\omega}{\mathrm{d}t} = I\omega \alpha \implies \tau = I \alpha \]
+      </div>
+      <p>This is the fundamental dynamical equation of rotational motion about a fixed axis, serving as the rotational equivalent of Newton's second law (\(F = Ma\)).</p>
+
+      <h3>Fixed-Axis Angular Momentum & Symmetry</h3>
+      <p>In general, for non-symmetric bodies, total angular momentum \(\mathbf{L}\) does not necessarily point parallel to the angular velocity vector \(\boldsymbol{\omega}\). However, <em>when the rotation axis is a symmetry axis of the body</em>, perpendicular components cancel pairwise (\(\mathbf{L}_\perp = \mathbf{0}\)), yielding:</p>
+      <div class="formula-box">
+        \[ \mathbf{L} = I\omega\,\hat{\mathbf{k}} \]
+      </div>
+    </div>
+
+    <div class="lang-bn">
+      <h3>কার্য, ক্ষমতা এবং \(\tau = I\alpha\)</h3>
+      <p>স্থির অক্ষের সাপেক্ষে আবর্তিত কোনো বস্তুর ওপর টর্ক \(\tau\) ক্রিয়া করলে \(\mathrm{d}\theta\) কৌণিক সরণের জন্য কৃতকার্য:</p>
+      <div class="formula-box">
+        \[ \mathrm{d}W = \tau\,\mathrm{d}\theta \implies P = \frac{\mathrm{d}W}{\mathrm{d}t} = \tau\omega \]
+      </div>
+      <p>কার্য-শক্তি উপপাদ্য প্রয়োগ করে পাওয়া যায় ঘূর্ণন গতির মৌলিক সমীকরণ:</p>
+      <div class="formula-box">
+        \[ \tau = I\alpha \]
+      </div>
+      <p>এটি রৈখিক গতির নিউটনের দ্বিতীয় সূত্রের (\(F = Ma\)) ঘূর্ণন রূপ। সুষম প্রতিসম বস্তুর ক্ষেত্রে কৌণিক ভরবেগ ঘূর্ণন অক্ষ বরাবর থাকে এবং এর মান হয় \(L = I\omega\)।</p>
+    </div>
+  </section>
+
+  <!-- 11. Worked Examples -->
+  <section class="section-block">
+    <h2>11. In-Depth Worked Examples (বিস্তারিত সমাধানসহ উদাহরণ)</h2>
+
+    <!-- Example 1 -->
+    <div class="question-card">
+      <div class="question-title">Worked Example 1: Centre of Mass of Three Particles on an Equilateral Triangle</div>
+      <div class="lang-en">
+        <p><strong>Problem:</strong> Three particles of masses \(100\,\mathrm{g}\), \(150\,\mathrm{g}\), and \(200\,\mathrm{g}\) are positioned at the vertices of an equilateral triangle with side length \(0.5\,\mathrm{m}\). Mass \(m_1 = 100\,\mathrm{g}\) is placed at the origin \((0, 0)\), mass \(m_2 = 150\,\mathrm{g}\) at \((0.5\,\mathrm{m}, 0)\), and mass \(m_3 = 200\,\mathrm{g}\) at the apex. Determine the Cartesian coordinates of the centre of mass.</p>
+      </div>
+      <div class="lang-bn">
+        <p><strong>সমস্যা:</strong> \(0.5\,\mathrm{m}\) বাহুবিশিষ্ট একটি সমবাহু ত্রিভুজের তিনটি শীর্ষে \(100\,\mathrm{g}\), \(150\,\mathrm{g}\) এবং \(200\,\mathrm{g}\) ভরের তিনটি কণা রাখা আছে। \(100\,\mathrm{g}\) কণাটি মূলবিন্দুতে \((0, 0)\), \(150\,\mathrm{g}\) কণাটি \((0.5\,\mathrm{m}, 0)\) বিন্দুতে এবং \(200\,\mathrm{g}\) কণাটি শীর্ষবিন্দুতে অবস্থিত। সংস্থাটির ভরকেন্দ্রের স্থানাঙ্ক নির্ণয় করো।</p>
+      </div>
+      <div class="solution-box">
+        <strong>Solution / সমাধান:</strong><br/>
+        Vertex coordinates:<br/>
+        \(O = (0, 0)\)<br/>
+        \(A = (0.5, 0)\)<br/>
+        \(B = (0.5\cos 60^\circ, 0.5\sin 60^\circ) = (0.25, 0.25\sqrt{3})\,\mathrm{m}\)<br/>
+        Total mass \(M = 100 + 150 + 200 = 450\,\mathrm{g}\).
+        \[ X = \frac{100(0) + 150(0.5) + 200(0.25)}{450} = \frac{75 + 50}{450} = \frac{125}{450} = \frac{5}{18}\,\mathrm{m} \approx 0.28\,\mathrm{m} \]
+        \[ Y = \frac{100(0) + 150(0) + 200(0.25\sqrt{3})}{450} = \frac{50\sqrt{3}}{450} = \frac{\sqrt{3}}{9} = \frac{1}{3\sqrt{3}}\,\mathrm{m} \approx 0.192\,\mathrm{m} \]
+        <em>Result:</em> Coordinates of CM = \(\left(\frac{5}{18}\,\mathrm{m}, \frac{1}{3\sqrt{3}}\,\mathrm{m}\right)\). Since masses are unequal, the CM does not coincide with the geometric centroid.
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="question-card">
+      <div class="question-title">Worked Example 2: Centre of Mass of a Uniform L-shaped Lamina</div>
+      <div class="lang-en">
+        <p><strong>Problem:</strong> A uniform thin L-shaped plate has dimensions formed by three adjacent \(1\,\mathrm{m} \times 1\,\mathrm{m}\) squares, each of mass \(1\,\mathrm{kg}\) (total mass = \(3\,\mathrm{kg}\)). The three squares have geometric centres at \(C_1(0.5, 0.5)\), \(C_2(1.5, 0.5)\), and \(C_3(0.5, 1.5)\). Find the centre of mass of the lamina.</p>
+      </div>
+      <div class="lang-bn">
+        <p><strong>সমস্যা:</strong> ৩ কেজি ভরের একটি সুষম পাতলা L-আকৃতির পাত প্রতিটি ১ কেজি ভরের তিনটি \(1\,\mathrm{m} \times 1\,\mathrm{m}\) বর্গাকার অংশ নিয়ে গঠিত। বর্গাকার অংশ তিনটির কেন্দ্র যথাক্রমে \(C_1(0.5, 0.5)\), \(C_2(1.5, 0.5)\), এবং \(C_3(0.5, 1.5)\)। পাতটির ভরকেন্দ্র নির্ণয় করো।</p>
+      </div>
+      <div class="solution-box">
+        <strong>Solution / সমাধান:</strong><br/>
+        Each square is treated as a point mass of \(1\,\mathrm{kg}\) located at its geometric centre:
+        \[ X = \frac{m_1 x_1 + m_2 x_2 + m_3 x_3}{m_1 + m_2 + m_3} = \frac{1(0.5) + 1(1.5) + 1(0.5)}{1 + 1 + 1} = \frac{2.5}{3} = \frac{5}{6}\,\mathrm{m} \]
+        \[ Y = \frac{m_1 y_1 + m_2 y_2 + m_3 y_3}{m_1 + m_2 + m_3} = \frac{1(0.5) + 1(0.5) + 1(1.5)}{3} = \frac{2.5}{3} = \frac{5}{6}\,\mathrm{m} \]
+        <em>Result:</em> The centre of mass is located at \(\left(\frac{5}{6}\,\mathrm{m}, \frac{5}{6}\,\mathrm{m}\right)\), lying directly on the diagonal reflection axis \(y = x\).
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="question-card">
+      <div class="question-title">Worked Example 3: Mechanical Equilibrium of a Horizontal Loaded Rod</div>
+      <div class="lang-en">
+        <p><strong>Problem:</strong> A uniform horizontal steel rod \(70\,\mathrm{cm}\) long weighing \(4.00\,\mathrm{kg}\) is supported on two knife-edges \(K_1\) and \(K_2\) located \(10\,\mathrm{cm}\) from each end. A \(6.00\,\mathrm{kg}\) load is suspended at \(30\,\mathrm{cm}\) from the left end. Taking \(g = 9.8\,\mathrm{m/s^2}\), compute the normal reaction forces at both knife-edges.</p>
+      </div>
+      <div class="lang-bn">
+        <p><strong>সমস্যা:</strong> ৭০ সেমি দীর্ঘ এবং ৪.০০ কেজি ভরের একটি সুষম ধাতব দণ্ড দুই প্রান্ত থেকে ১০ সেমি দূরে অবস্থিত দুটি ছুরির ধার (knife-edge) \(K_1\) ও \(K_2\)-এর ওপর অনুভূমিকভাবে স্থাপিত। বামপ্রান্ত থেকে ৩০ সেমি দূরে ৬.০০ কেজি ভর ঝুলিয়ে দেওয়া হলো। \(g = 9.8\,\mathrm{m/s^2}\) ধরে দুই অবলম্বনে লম্ব প্রতিক্রিয়া বল নির্ণয় করো।</p>
+      </div>
+      <div class="solution-box">
+        <strong>Solution / সমাধান:</strong><br/>
+        Length of rod = \(70\,\mathrm{cm}\). Centre of gravity \(G\) is at \(35\,\mathrm{cm}\) from left end \(A\).<br/>
+        Support \(K_1\) is at \(10\,\mathrm{cm}\) (\(K_1 G = 25\,\mathrm{cm} = 0.25\,\mathrm{m}\)).<br/>
+        Support \(K_2\) is at \(60\,\mathrm{cm}\) (\(K_2 G = 25\,\mathrm{cm} = 0.25\,\mathrm{m}\)).<br/>
+        Suspended load \(W_1 = 6.00 \times 9.8 = 58.8\,\mathrm{N}\) is at \(30\,\mathrm{cm}\) (distance from \(G\), \(PG = 5\,\mathrm{cm} = 0.05\,\mathrm{m}\) to the left).<br/>
+        Rod weight \(W = 4.00 \times 9.8 = 39.2\,\mathrm{N}\) acts at \(G\).<br/>
+        1) <em>Translational Equilibrium:</em> \(R_1 + R_2 = W + W_1 = 39.2 + 58.8 = 98.0\,\mathrm{N}\).<br/>
+        2) <em>Rotational Equilibrium about \(G\):</em><br/>
+        \(-R_1(K_1 G) + W_1(PG) + R_2(K_2 G) = 0\)<br/>
+        \(-0.25 R_1 + 58.8(0.05) + 0.25 R_2 = 0 \implies 0.25(R_1 - R_2) = 2.94 \implies R_1 - R_2 = 11.76\,\mathrm{N}\).<br/>
+        Adding equations: \(2 R_1 = 109.76 \implies R_1 = 54.88\,\mathrm{N} \approx 55\,\mathrm{N}\).<br/>
+        Subtracting: \(R_2 = 98.0 - 54.88 = 43.12\,\mathrm{N} \approx 43\,\mathrm{N}\).
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. NEET UG Exam-Aligned Practice Questions -->
+  <section class="section-block">
+    <h2>12. NEET UG Exam-Style Practice Questions (অনুশীলনী প্রশ্নাবলি)</h2>
+    <p><em>All questions are original practice questions crafted in strict accordance with the NEET UG competitive format. Each problem features single-correct multiple-choice options with thorough bilingual solutions.</em></p>
+
+    <!-- Question 1 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-title">Practice Question 1 (NEET Standard - Single Correct MCQ)</div>
+        <p>In a hydrogen chloride (\(\mathrm{HCl}\)) molecule, the distance between the nuclei of the hydrogen and chlorine atoms is \(1.27\,\text{Å}\) (\(1\,\text{Å} = 10^{-10}\,\mathrm{m}\)). If a chlorine atom is \(35.5\) times as massive as a hydrogen atom, the distance of the centre of mass of the molecule relative to the hydrogen nucleus is approximately:</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(1.235\,\text{Å}\)</div>
+          <div class="option-item">(B) \(0.035\,\text{Å}\)</div>
+          <div class="option-item">(C) \(0.635\,\text{Å}\)</div>
+          <div class="option-item">(D) \(1.125\,\text{Å}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>Correct Answer:</strong> (A)<br/>
+          <strong>Explanation:</strong> Take the hydrogen atom of mass \(m\) at the origin (\(x_1 = 0\)). The chlorine atom of mass \(35.5\,m\) is situated at \(x_2 = d = 1.27\,\text{Å}\).
+          \[ X_{\text{cm}} = \frac{m(0) + 35.5\,m(d)}{m + 35.5\,m} = \frac{35.5}{36.5} d = \frac{35.5}{36.5} \times 1.27\,\text{Å} \approx 1.235\,\text{Å} \]
+          The centre of mass is located extremely close to the heavy chlorine nucleus.
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn">
+        <div class="question-title">অনুশীলন প্রশ্ন ১ (NEET মানক)</div>
+        <p>একটি \(\mathrm{HCl}\) অণুতে হাইড্রোজেন ও ক্লোরিন পরমাণুর নিউক্লিয়াস দুটির মধ্যবর্তী দূরত্ব \(1.27\,\text{Å}\)। ক্লোরিন পরমাণু হাইড্রোজেন অপেক্ষা \(35.5\) গুণ ভারী হলে, হাইড্রোজেন পরমাণুর সাপেক্ষে অণুটির ভরকেন্দ্রের দূরত্ব কত?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(1.235\,\text{Å}\)</div>
+          <div class="option-item">(B) \(0.035\,\text{Å}\)</div>
+          <div class="option-item">(C) \(0.635\,\text{Å}\)</div>
+          <div class="option-item">(D) \(1.125\,\text{Å}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>সঠিক উত্তর:</strong> (A)<br/>
+          <strong>ব্যাখ্যা:</strong> হাইড্রোজেন পরমাণুর অবস্থান মূলবিন্দুতে (\(x_1 = 0\)) ধরলে ক্লোরিনের অবস্থান \(x_2 = 1.27\,\text{Å}\)। ভরকেন্দ্রের দূরত্ব:
+          \[ X = \frac{35.5 \times 1.27}{1 + 35.5} = \frac{35.5}{36.5} \times 1.27 \approx 1.235\,\text{Å} \]
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-title">Practice Question 2 (NEET Standard - Rotational Dynamics)</div>
+        <p>A rope of negligible mass is wound round a hollow cylinder of mass \(3\,\mathrm{kg}\) and radius \(40\,\mathrm{cm}\). If the rope is pulled with a steady force of \(30\,\mathrm{N}\), what are the angular acceleration of the cylinder and the linear acceleration of the unwinding rope (assuming no slipping)?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(25\,\mathrm{rad/s^2},\; 10\,\mathrm{m/s^2}\)</div>
+          <div class="option-item">(B) \(12.5\,\mathrm{rad/s^2},\; 5\,\mathrm{m/s^2}\)</div>
+          <div class="option-item">(C) \(50\,\mathrm{rad/s^2},\; 20\,\mathrm{m/s^2}\)</div>
+          <div class="option-item">(D) \(15\,\mathrm{rad/s^2},\; 6\,\mathrm{m/s^2}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>Correct Answer:</strong> (A)<br/>
+          <strong>Explanation:</strong> Moment of inertia of a hollow cylinder of mass \(M\) and radius \(R\) about its standard axis is \(I = M R^2\).<br/>
+          \(M = 3\,\mathrm{kg}\), \(R = 0.4\,\mathrm{m}\) \(\implies I = 3 \times (0.4)^2 = 0.48\,\mathrm{kg\cdot m^2}\).<br/>
+          Applied torque: \(\tau = F \times R = 30 \times 0.4 = 12\,\mathrm{N\cdot m}\).<br/>
+          Angular acceleration: \(\alpha = \frac{\tau}{I} = \frac{12}{0.48} = 25\,\mathrm{rad/s^2}\).<br/>
+          Linear tangential acceleration of the rope: \(a = \alpha R = 25 \times 0.4 = 10\,\mathrm{m/s^2}\).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn">
+        <div class="question-title">অনুশীলন প্রশ্ন ২ (NEET মানক)</div>
+        <p>\(3\,\mathrm{kg}\) ভর এবং \(40\,\mathrm{cm}\) ব্যাসার্ধের একটি ফাঁপা চোঙের চারদিকে একটি নগণ্য ভরের দড়ি জড়ানো আছে। দড়িটিকে \(30\,\mathrm{N}\) বল দ্বারা টানা হলে চোঙটির কৌণিক ত্বরণ এবং দড়িটির রৈখিক ত্বরণ কত হবে?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(25\,\mathrm{rad/s^2},\; 10\,\mathrm{m/s^2}\)</div>
+          <div class="option-item">(B) \(12.5\,\mathrm{rad/s^2},\; 5\,\mathrm{m/s^2}\)</div>
+          <div class="option-item">(C) \(50\,\mathrm{rad/s^2},\; 20\,\mathrm{m/s^2}\)</div>
+          <div class="option-item">(D) \(15\,\mathrm{rad/s^2},\; 6\,\mathrm{m/s^2}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>সঠিক উত্তর:</strong> (A)<br/>
+          <strong>ব্যাখ্যা:</strong> ফাঁপা চোঙের নিজস্ব অক্ষ সাপেক্ষে জড়তার ভ্রামক \(I = M R^2 = 3 \times (0.4)^2 = 0.48\,\mathrm{kg\cdot m^2}\)।<br/>
+          টর্ক \(\tau = F R = 30 \times 0.4 = 12\,\mathrm{N\cdot m}\)।<br/>
+          কৌণিক ত্বরণ \(\alpha = \frac{\tau}{I} = \frac{12}{0.48} = 25\,\mathrm{rad/s^2}\)।<br/>
+          রৈখিক ত্বরণ \(a = \alpha R = 25 \times 0.4 = 10\,\mathrm{m/s^2}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-title">Practice Question 3 (NEET Standard - Angular Momentum Conservation)</div>
+        <p>A child stands on a frictionless horizontal turntable with outstretched arms, rotating at an angular speed of \(40\,\mathrm{rev/min}\). The child then folds their arms closer to their chest, thereby reducing their moment of inertia to \(\frac{2}{5}\) of its initial value. What is the new angular speed, and how does the rotational kinetic energy change?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(100\,\mathrm{rev/min}\); kinetic energy increases by a factor of \(2.5\)</div>
+          <div class="option-item">(B) \(16\,\mathrm{rev/min}\); kinetic energy decreases to \(0.4\) times</div>
+          <div class="option-item">(C) \(80\,\mathrm{rev/min}\); kinetic energy remains strictly constant</div>
+          <div class="option-item">(D) \(100\,\mathrm{rev/min}\); kinetic energy decreases by a factor of \(2.5\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>Correct Answer:</strong> (A)<br/>
+          <strong>Explanation:</strong> In the absence of external torque, angular momentum is conserved: \(I_1 \omega_1 = I_2 \omega_2\).<br/>
+          Given \(I_2 = \frac{2}{5} I_1\):
+          \[ \omega_2 = \left(\frac{I_1}{I_2}\right) \omega_1 = \left(\frac{5}{2}\right) \times 40 = 100\,\mathrm{rev/min} \]
+          Kinetic energy: \(K = \frac{L^2}{2I}\). Since \(L\) is constant:
+          \[ \frac{K_2}{K_1} = \frac{I_1}{I_2} = \frac{5}{2} = 2.5 \]
+          Kinetic energy increases by \(2.5\) times. The additional kinetic energy is generated by internal muscular work done by the child while pulling their arms inward against centrifugal reaction.
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn">
+        <div class="question-title">অনুশীলন প্রশ্ন ৩ (NEET মানক)</div>
+        <p>একটি ঘর্ষণহীন ঘূর্ণনক্ষম টেবিলের ওপর হাত প্রসারিত করে দাঁড়িয়ে থাকা এক শিশু \(40\,\mathrm{rev/min}\) বেগে ঘুরছে। শিশুটি হাত গুটিয়ে নিলে তার জড়তার ভ্রামক প্রারম্ভিক মানের \(\frac{2}{5}\) গুণ হয়ে যায়। নতুন কৌণিক বেগ কত হবে এবং ঘূর্ণন গতিশক্তির কী রূপ পরিবর্তন ঘটবে?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(100\,\mathrm{rev/min}\); গতিশক্তি \(2.5\) গুণ বৃদ্ধি পাবে</div>
+          <div class="option-item">(B) \(16\,\mathrm{rev/min}\); গতিশক্তি \(0.4\) গুণ হ্রাস পাবে</div>
+          <div class="option-item">(C) \(80\,\mathrm{rev/min}\); গতিশক্তি ধ্রুবক থাকবে</div>
+          <div class="option-item">(D) \(100\,\mathrm{rev/min}\); গতিশক্তি \(2.5\) গুণ হ্রাস পাবে</div>
+        </div>
+        <div class="solution-box">
+          <strong>সঠিক উত্তর:</strong> (A)<br/>
+          <strong>ব্যাখ্যা:</strong> বাহ্যিক টর্ক শূন্য হওয়ায় কৌণিক ভরবেগ সংরক্ষিত থাকবে: \(I_1 \omega_1 = I_2 \omega_2\)।<br/>
+          \(\omega_2 = \frac{I_1}{I_2} \omega_1 = \frac{5}{2} \times 40 = 100\,\mathrm{rev/min}\)।<br/>
+          যেহেতু \(K = \frac{L^2}{2I}\), তাই \(\frac{K_2}{K_1} = \frac{I_1}{I_2} = 2.5\)। শিশুটির পেশি দ্বারা কৃতকার্যের ফলে এই অতিরিক্ত গতিশক্তি সৃষ্টি হয়।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-title">Practice Question 4 (NEET Standard - Rotational Power)</div>
+        <p>To maintain an engine rotor at a uniform angular speed of \(200\,\mathrm{rad/s}\), an external motor transmits a constant torque of \(180\,\mathrm{N\cdot m}\) to overcome bearing friction. Assuming \(100\%\) mechanical transmission efficiency, the power output required by the engine is:</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(36\,\mathrm{kW}\)</div>
+          <div class="option-item">(B) \(18\,\mathrm{kW}\)</div>
+          <div class="option-item">(C) \(72\,\mathrm{kW}\)</div>
+          <div class="option-item">(D) \(9\,\mathrm{kW}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>Correct Answer:</strong> (A)<br/>
+          <strong>Explanation:</strong> Rotational power is given by the product of torque and angular velocity:
+          \[ P = \tau \omega = 180\,\mathrm{N\cdot m} \times 200\,\mathrm{rad/s} = 36000\,\mathrm{W} = 36\,\mathrm{kW} \]
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn">
+        <div class="question-title">অনুশীলন প্রশ্ন ৪ (NEET মানক)</div>
+        <p>একটি মোটরের রটারকে \(200\,\mathrm{rad/s}\) সমকৌণিক দ্রুতিতে বজায় রাখতে ঘর্ষণজনিত বাধার বিরুদ্ধে \(180\,\mathrm{N\cdot m}\) ধ্রুবক টর্ক প্রয়োগ করতে হয়। ইঞ্জিনের প্রয়োজনীয় ক্ষমতা কত?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(36\,\mathrm{kW}\)</div>
+          <div class="option-item">(B) \(18\,\mathrm{kW}\)</div>
+          <div class="option-item">(C) \(72\,\mathrm{kW}\)</div>
+          <div class="option-item">(D) \(9\,\mathrm{kW}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>সঠিক উত্তর:</strong> (A)<br/>
+          <strong>ব্যাখ্যা:</strong> ক্ষমতা \(P = \tau \omega = 180 \times 200 = 36000\,\mathrm{W} = 36\,\mathrm{kW}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-title">Practice Question 5 (NEET Standard - Centre of Mass of a Cut-Out Body)</div>
+        <p>From a uniform circular disc of radius \(R\), a circular hole of radius \(R/2\) is cut out. The edge of the hole touches the circumference of the original disc, so the centre of the circular cavity is situated at a distance \(R/2\) from the original disc's centre \(O\). The centre of mass of the remaining body lies along the line of centers at a distance from \(O\) equal to:</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(R/6\) away from the hole</div>
+          <div class="option-item">(B) \(R/4\) towards the hole</div>
+          <div class="option-item">(C) \(R/3\) away from the hole</div>
+          <div class="option-item">(D) \(R/8\) away from the hole</div>
+        </div>
+        <div class="solution-box">
+          <strong>Correct Answer:</strong> (A)<br/>
+          <strong>Explanation:</strong> Let surface mass density be \(\sigma\).<br/>
+          Original complete disc: Area \(A_1 = \pi R^2\), mass \(M_1 = \sigma \pi R^2\), centre at \(x_1 = 0\).<br/>
+          Removed circular piece: Area \(A_2 = \pi (R/2)^2 = \frac{\pi R^2}{4}\), mass \(M_2 = \frac{M_1}{4}\), centre at \(x_2 = R/2\).<br/>
+          Using the cavity theorem (negative mass method):
+          \[ X_{\text{rem}} = \frac{M_1 x_1 - M_2 x_2}{M_1 - M_2} = \frac{M_1(0) - \left(\frac{M_1}{4}\right)\left(\frac{R}{2}\right)}{M_1 - \frac{M_1}{4}} = \frac{-\frac{M_1 R}{8}}{\frac{3 M_1}{4}} = -\frac{R}{6} \]
+          The negative sign denotes that the new centre of mass shifts by \(R/6\) in the direction diametrically opposite to the excised hole.
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn">
+        <div class="question-title">অনুশীলন প্রশ্ন ৫ (NEET মানক)</div>
+        <p>\(R\) ব্যাসার্ধের একটি সুষম বৃত্তাকার চাকতি থেকে \(R/2\) ব্যাসার্ধের একটি বৃত্তাকার অংশ কেটে সরিয়ে নেওয়া হলো। গর্তটির কেন্দ্র মূল চাকতির কেন্দ্র \(O\) থেকে \(R/2\) দূরত্বে অবস্থিত। অবশিষ্ট চাকতির ভরকেন্দ্র \(O\) বিন্দু থেকে কত দূরত্বে থাকবে?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) গর্তের বিপরীত দিকে \(R/6\)</div>
+          <div class="option-item">(B) গর্তের দিকে \(R/4\)</div>
+          <div class="option-item">(C) গর্তের বিপরীত দিকে \(R/3\)</div>
+          <div class="option-item">(D) গর্তের বিপরীত দিকে \(R/8\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>সঠিক উত্তর:</strong> (A)<br/>
+          <strong>ব্যাখ্যা:</strong> সম্পূর্ণ চাকতির ভর \(M\) হলে কাটা অংশের ভর \(M' = \frac{M}{4}\)। ঋণাত্মক ভর পদ্ধতি ব্যবহার করে:
+          \[ X = \frac{M(0) - (M/4)(R/2)}{M - M/4} = -\frac{MR/8}{3M/4} = -\frac{R}{6} \]
+          অর্থাৎ ভরকেন্দ্র মূল কেন্দ্র থেকে গর্তের বিপরীত দিকে \(R/6\) দূরত্বে সরে যাবে।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-title">Practice Question 6 (NEET Standard - Principle of Moments / Balance)</div>
+        <p>A uniform metre stick is balanced horizontally on a knife edge placed at its \(50.0\,\mathrm{cm}\) mark. When two identical coins, each of mass \(5.0\,\mathrm{g}\), are placed stacked one on top of the other at the \(12.0\,\mathrm{cm}\) mark, the stick is found to balance horizontally when the knife edge is shifted to the \(45.0\,\mathrm{cm}\) mark. The mass of the metre stick is:</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(66.0\,\mathrm{g}\)</div>
+          <div class="option-item">(B) \(56.0\,\mathrm{g}\)</div>
+          <div class="option-item">(C) \(72.0\,\mathrm{g}\)</div>
+          <div class="option-item">(D) \(48.0\,\mathrm{g}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>Correct Answer:</strong> (A)<br/>
+          <strong>Explanation:</strong> Let \(m\) be the mass of the metre stick. Because it is uniform, its weight \(m g\) acts at its geometric centre, the \(50.0\,\mathrm{cm}\) mark.<br/>
+          New fulcrum position: \(45.0\,\mathrm{cm}\).<br/>
+          Distance of metre stick's CG from fulcrum: \(d_1 = 50.0 - 45.0 = 5.0\,\mathrm{cm}\).<br/>
+          Total coin mass placed at \(12.0\,\mathrm{cm}\): \(m_{\text{coin}} = 2 \times 5.0 = 10.0\,\mathrm{g}\).<br/>
+          Distance of coins from fulcrum: \(d_2 = 45.0 - 12.0 = 33.0\,\mathrm{cm}\).<br/>
+          By the principle of moments for rotational equilibrium about the fulcrum:
+          \[ m g \times d_1 = m_{\text{coin}} g \times d_2 \implies m \times 5.0 = 10.0 \times 33.0 \implies m = \frac{330.0}{5.0} = 66.0\,\mathrm{g} \]
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn">
+        <div class="question-title">অনুশীলন প্রশ্ন ৬ (NEET মানক)</div>
+        <p>একটি সুষম মিটার স্কেল তার ঠিক মধ্যবিন্দুতে (\(50.0\,\mathrm{cm}\) দাগে) একটি ছুরির ধারের ওপর অনুভূমিকভাবে ভারসাম্য বজায় রাখে। যদি প্রতিটি \(5.0\,\mathrm{g}\) ভরের দুটি মুদ্রা একের ওপর অপরটি রেখে \(12.0\,\mathrm{cm}\) দাগে বসানো হয়, তবে ছুরিটির ধার \(45.0\,\mathrm{cm}\) দাগে সরালে স্কেলটি পুনরায় ভারসাম্য লাভ করে। মিটার স্কেলটির ভর কত?</p>
+        <div class="options-grid">
+          <div class="option-item">(A) \(66.0\,\mathrm{g}\)</div>
+          <div class="option-item">(B) \(56.0\,\mathrm{g}\)</div>
+          <div class="option-item">(C) \(72.0\,\mathrm{g}\)</div>
+          <div class="option-item">(D) \(48.0\,\mathrm{g}\)</div>
+        </div>
+        <div class="solution-box">
+          <strong>সঠিক উত্তর:</strong> (A)<br/>
+          <strong>ব্যাখ্যা:</strong> মিটার স্কেলের নিজস্ব ভর \(m\) তার মধ্যবিন্দু \(50.0\,\mathrm{cm}\)-এ ক্রিয়া করে।<br/>
+          নতুন ভারসাম্য বিন্দু \(45.0\,\mathrm{cm}\) সাপেক্ষে ঘূর্ণন বলের ভ্রামক সমান করে:<br/>
+          \(m \times (50.0 - 45.0) = (2 \times 5.0) \times (45.0 - 12.0)\)<br/>
+          \(m \times 5.0 = 10.0 \times 33.0 \implies m = \frac{330}{5} = 66.0\,\mathrm{g}\)।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. Common Pitfalls and Revision Checklist -->
+  <section class="section-block">
+    <h2>13. Common Pitfalls and Revision Checklist (সাধারণ ভুল ও রিভিশন তালিকা)</h2>
+
+    <div class="lang-en">
+      <h3>Key Exam Pitfalls to Avoid</h3>
+      <ul>
+        <li><strong>Confusing Centre of Mass with Centre of Gravity:</strong> CM depends exclusively on mass distribution and is invariant of gravity. CG is the point where net gravitational torque vanishes. They coincide only in uniform gravitational fields.</li>
+        <li><strong>Internal Forces & CM Motion:</strong> Internal forces (e.g., explosive blast, spring tension between two sliding blocks) cannot alter the velocity or momentum of the centre of mass. Only external forces produce acceleration of the CM.</li>
+        <li><strong>Torque Reference Origin:</strong> Torque and angular momentum have no absolute values; they are strictly defined with respect to a chosen reference point. Never calculate \(\boldsymbol{\tau}\) or \(\mathbf{L}\) without specifying the origin.</li>
+        <li><strong>Work vs. Torque Units:</strong> While both have dimensions \([\mathrm{M L^2 T^{-2}}]\), work is measured in Joules (\(\mathrm{J}\)) and is a scalar; torque is an axial vector and must always be designated in Newton metres (\(\mathrm{N\cdot m}\)). Never express torque in Joules.</li>
+        <li><strong>Parallel vs. Cross Product Orientation:</strong> In \(\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}\), remember the order of operands. Swapping to \(\mathbf{r} \times \boldsymbol{\omega}\) gives an erroneous negative direction.</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn">
+      <h3>পরীক্ষায় সচরাচর হওয়া ভুলসমূহ</h3>
+      <ul>
+        <li><strong>ভরকেন্দ্র ও ভারকেন্দ্রের বিভ্রান্তি:</strong> ভরকেন্দ্র কেবলমাত্র ভরের বিন্যাসের ওপর নির্ভর করে (মহাকর্ষ বলের উপস্থিতি অপ্রয়োজনীয়)। ভারকেন্দ্র হলো মোট মহাকর্ষীয় টর্কের শূন্য বিন্দু। অসম মহাকর্ষে দুটি ভিন্ন বিন্দুতে থাকে।</li>
+        <li><strong>অভ্যন্তরীণ বল বনাম ভরকেন্দ্রের ত্বরণ:</strong> অভ্যন্তরীণ বল যতই তীব্র হোক না কেন (যেমন গ্রেনেড বিস্ফোরণ), তা কখনোই ভরকেন্দ্রের বেগ বা গতিপথ পরিবর্তন করতে পারে না।</li>
+        <li><strong>টর্ক ও কৌণিক ভরবেগের প্রসঙ্গ বিন্দু:</strong> মূলবিন্দু বা ঘূর্ণন অক্ষ নির্দিষ্ট না করে টর্ক বা কৌণিক ভরবেগের মান অর্থহীন। সর্বদা নির্দিষ্ট বিন্দুর সাপেক্ষে হিসেব করতে হবে।</li>
+        <li><strong>এককের ভুল:</strong> টর্কের একক সর্বদা \(\mathrm{N\cdot m}\); এটিকে কখনোই জুল (\(\mathrm{J}\)) এককে প্রকাশ করা যাবে না।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 14. Concise Final Summary -->
+  <section class="section-block" style="border-bottom: none;">
+    <h2>14. Summary & Essential Formula Sheet (চূড়ান্ত সংক্ষিপ্ত সারসংক্ষেপ)</h2>
+
+    <div class="lang-en">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Physical Quantity</th>
+              <th>Formula</th>
+              <th>SI Unit</th>
+              <th>Dimensional Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Centre of Mass (Discrete)</td>
+              <td>\(\mathbf{R} = \frac{\sum m_i \mathbf{r}_i}{M}\)</td>
+              <td>\(\mathrm{m}\)</td>
+              <td>\([\mathrm{L}]\)</td>
+            </tr>
+            <tr>
+              <td>Linear Momentum of System</td>
+              <td>\(\mathbf{P} = M \mathbf{V}_{\text{cm}}\)</td>
+              <td>\(\mathrm{kg\cdot m/s}\)</td>
+              <td>\([\mathrm{M L T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Tangential Linear Velocity</td>
+              <td>\(\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}\)</td>
+              <td>\(\mathrm{m/s}\)</td>
+              <td>\([\mathrm{L T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Torque (Moment of Force)</td>
+              <td>\(\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}\)</td>
+              <td>\(\mathrm{N\cdot m}\)</td>
+              <td>\([\mathrm{M L^2 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Angular Momentum (Particle)</td>
+              <td>\(\mathbf{l} = \mathbf{r} \times \mathbf{p}\)</td>
+              <td>\(\mathrm{J\cdot s}\) or \(\mathrm{kg\cdot m^2/s}\)</td>
+              <td>\([\mathrm{M L^2 T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Dynamical Law of Rotation</td>
+              <td>\(\boldsymbol{\tau}_{\text{ext}} = \frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = I \boldsymbol{\alpha}\)</td>
+              <td>\(\mathrm{N\cdot m}\)</td>
+              <td>\([\mathrm{M L^2 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Moment of Inertia</td>
+              <td>\(I = \sum m_i r_i^2 = M k^2\)</td>
+              <td>\(\mathrm{kg\cdot m^2}\)</td>
+              <td>\([\mathrm{M L^2}]\)</td>
+            </tr>
+            <tr>
+              <td>Rotational Kinetic Energy</td>
+              <td>\(K = \frac{1}{2} I \omega^2 = \frac{L^2}{2I}\)</td>
+              <td>\(\mathrm{J}\)</td>
+              <td>\([\mathrm{M L^2 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Rotational Power</td>
+              <td>\(P = \tau \omega\)</td>
+              <td>\(\mathrm{W}\)</td>
+              <td>\([\mathrm{M L^2 T^{-3}}]\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lang-bn">
+      <p style="text-align: center; font-weight: bold; color: #1e3a8a;">
+        NEET UG পরীক্ষার সাফল্যের চাবিকাঠি: সূত্রগুলির নিয়মিত অনুশীলন, ভেক্টর গুণনের সঠিক দিক নির্ণয় এবং সাম্যাবস্থার শর্তাবলী সঠিকভাবে প্রয়োগ করা।
+      </p>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEET UG Physics: Wave Optics Tutorial</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --secondary: #0f766e;
+      --secondary-light: #f0fdfa;
+      --text: #1e293b;
+      --border: #cbd5e1;
+      --bg-card: #ffffff;
+      --bg-page: #f8fafc;
+      --accent: #b45309;
+      --accent-light: #fffbeb;
+      --success: #15803d;
+      --success-light: #f0fdf4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Devanagari", sans-serif;
+      line-height: 1.55;
+      color: var(--text);
+      background-color: var(--bg-page);
+      margin: 0;
+      padding: 0;
+      overflow-wrap: break-word;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
+    header.tutorial-header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 100%);
+      color: #ffffff;
+      padding: 24px 20px;
+      border-radius: 10px;
+      margin-bottom: 22px;
+    }
+    header.tutorial-header h1 { margin: 0 0 8px 0; font-size: 1.7rem; line-height: 1.25; }
+    header.tutorial-header p.subtitle { margin: 4px 0 0 0; font-size: 0.98rem; opacity: 0.95; }
+    .badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 6px;
+      text-transform: uppercase;
+    }
+    .section-block {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 22px;
+    }
+    .section-title-en { color: var(--primary); font-size: 1.3rem; margin-top: 0; margin-bottom: 6px; border-bottom: 2px solid var(--primary-light); padding-bottom: 4px; }
+    .section-title-hi { color: var(--secondary); font-size: 1.22rem; margin-top: 18px; margin-bottom: 6px; border-bottom: 2px solid var(--secondary-light); padding-bottom: 4px; }
+    .subsection-title-en { color: #1e40af; font-size: 1.08rem; margin: 14px 0 6px 0; }
+    .subsection-title-hi { color: #0f766e; font-size: 1.05rem; margin: 14px 0 6px 0; }
+    .lang-en { background-color: #ffffff; padding-bottom: 4px; }
+    .lang-hi { background-color: #fbfdfc; padding: 12px 14px; border-left: 3px solid var(--secondary); border-radius: 4px; margin-top: 14px; }
+    .lang-divider { border: 0; height: 1px; background: var(--border); margin: 16px 0; }
+    .callout { padding: 12px 14px; border-radius: 6px; margin: 12px 0; font-size: 0.92rem; }
+    .callout-primary { background-color: var(--primary-light); border-left: 3px solid var(--primary); color: #1e3a8a; }
+    .callout-secondary { background-color: var(--secondary-light); border-left: 3px solid var(--secondary); color: #0f766e; }
+    .callout-accent { background-color: var(--accent-light); border-left: 3px solid var(--accent); color: #92400e; }
+    .callout-success { background-color: var(--success-light); border-left: 3px solid var(--success); color: #166534; }
+    .diagram-card { background-color: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 12px; margin: 14px 0; text-align: center; }
+    .diagram-caption { font-size: 0.85rem; color: #64748b; margin-top: 8px; }
+    .formula-box { background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 12px; margin: 10px 0; text-align: center; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88rem; }
+    .data-table th, .data-table td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    .data-table th { background-color: #f1f5f9; color: #334155; }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+    .question-card { background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; margin-bottom: 18px; page-break-inside: avoid; break-inside: avoid; }
+    .question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e2e8f0; }
+    .question-num { font-weight: 700; color: var(--primary); font-size: 1rem; }
+    .question-tag { font-size: 0.75rem; background-color: #e2e8f0; color: #475569; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+    .options-list { list-style-type: none; padding-left: 0; margin: 10px 0; }
+    .options-list li { padding: 6px 10px; margin-bottom: 4px; border: 1px solid #e2e8f0; border-radius: 4px; background-color: #f8fafc; display: flex; align-items: baseline; font-size: 0.92rem; }
+    .options-list li .opt-key { font-weight: 700; margin-right: 8px; min-width: 20px; }
+    .answer-box { background-color: var(--success-light); border: 1px solid #bbf7d0; border-radius: 4px; padding: 10px 12px; margin-top: 10px; }
+    .answer-box .ans-title { font-weight: 700; color: var(--success); margin-bottom: 4px; font-size: 0.95rem; }
+    .solution-steps { margin-top: 6px; font-size: 0.88rem; color: #1e293b; }
+    @media print {
+      @page { size: A4; margin: 15mm 12mm 15mm 12mm; }
+      body { background-color: #ffffff; color: #000000; font-size: 9.5pt; line-height: 1.4; }
+      .container { max-width: 100%; padding: 0; margin: 0; }
+      header.tutorial-header { background: none; color: #000000; border: 1px solid #000000; padding: 10px; border-radius: 0; }
+      .badge { color: #000000; border: 1px solid #000000; background: transparent; }
+      .section-block, .question-card { border: 1px solid #94a3b8; padding: 12px; margin-bottom: 14px; border-radius: 0; page-break-inside: avoid; break-inside: avoid; }
+      .lang-hi { border-left: 2px solid #000000; background-color: #ffffff; }
+      .callout, .answer-box, .formula-box, .diagram-card { background-color: #ffffff !important; border: 1px solid #000000 !important; }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+  <header class="tutorial-header">
+    <div style="margin-bottom:8px;">
+      <span class="badge">NEET UG Physics</span>
+      <span class="badge">NCERT Class 12 &bull; Chapter 10</span>
+      <span class="badge">Core Tutorial</span>
+    </div>
+    <h1>Wave Optics &bull; तरंग प्रकाशिकी</h1>
+    <p class="subtitle">Comprehensive Bilingual Study Guide &bull; Theory, Huygens&apos; Principle, Interference, Diffraction, Polarisation &amp; NEET-UG Assessment</p>
+  </header>
+
+  <!-- OVERVIEW & SYLLABUS -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">Curriculum Overview &amp; Learning Objectives</h2>
+      <p>Wave optics explores phenomena where the finite wavelength of light (\( \lambda \)) cannot be ignored. In this NEET-UG tutorial, we master: (1) Huygens&apos; wave model and wavefronts; (2) Derivation of laws of reflection and refraction; (3) Principle of superposition and coherence; (4) Young&apos;s Double Slit Experiment (YDSE); (5) Single-slit diffraction; and (6) Polarisation of light as proof of transverse wave nature.</p>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">पाठ्यक्रम अवलोकन एवं अधिगम उद्देश्य</h2>
+      <p>तरंग प्रकाशिकी उन परिघटनाओं का अध्ययन करती है जहाँ प्रकाश की सीमित तरंगदैर्ध्य (\( \lambda \)) की उपेक्षा नहीं की जा सकती। इस NEET-UG ट्यूटोरियल में हम अध्ययन करेंगे: (1) हाइगेन्स का तरंग मॉडल एवं तरंगाग्र; (2) परावर्तन व अपवर्तन के नियमों का निगमन; (3) अध्यारोपण का सिद्धांत व कला-संबद्धता; (4) यंग का द्वि-झिरी प्रयोग (YDSE); (5) एकल-झिरी विवर्तन; तथा (6) प्रकाश का ध्रुवण एवं अनुप्रस्थ प्रकृति।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 1: HISTORICAL PERSPECTIVE & NATURE OF LIGHT -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">1. Historical Perspective &amp; Wave Nature of Light</h2>
+      <p>In 1637, Descartes proposed the corpuscular (particle) model of light, later expanded by Isaac Newton in <em>OPTICKS</em>. The corpuscular model predicted that when light bends <em>towards the normal</em> in a denser medium, its speed must be <strong>greater</strong> (\( v_2 > v_1 \)).</p>
+      <p>In 1678, Christiaan Huygens proposed the <strong>wave model</strong>, which predicted that the speed of light in a denser medium must be <strong>less</strong> (\( v_2 < v_1 \)). In 1850, Foucault experimentally proved that the speed of light in water is less than in air (\( v_{\mathrm{water}} < v_{\mathrm{air}} \)), validating Huygens&apos; wave model.</p>
+      <p>In 1801, <strong>Thomas Young</strong> established the wave theory through his double-slit interference experiment. He measured the wavelength of visible light to be very small (\( \sim 0.6\,\mathrm{µm} \) or \( 6000\,\mathrm{Å} \)). When \( \lambda \to 0 \), light appears to travel in straight lines, which represents the domain of geometrical (ray) optics.</p>
+      <p>In the 1860s, James Clerk Maxwell unified electromagnetism, predicting electromagnetic waves traveling at speed \( c = 1/\sqrt{\mu_0 \varepsilon_0} \approx 3.0 \times 10^8\,\mathrm{m/s} \). Light was thus established as a <strong>transverse electromagnetic wave</strong> capable of propagating through vacuum.</p>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">1. ऐतिहासिक परिप्रेक्ष्य एवं प्रकाश की तरंग प्रकृति</h2>
+      <p>1637 में देकार्त ने प्रकाश का कणिका मॉडल दिया, जिसे न्यूटन ने <em>OPTICKS</em> में विकसित किया। इस मॉडल ने भविष्यवाणी की कि सघन माध्यम में अभिलंब की ओर झुकने पर प्रकाश की चाल <strong>अधिक</strong> होनी चाहिए (\( v_2 > v_1 \))।</p>
+      <p>1678 में क्रिश्चियन हाइगेन्स ने <strong>तरंग मॉडल</strong> प्रस्तुत किया, जिसने भविष्यवाणी की कि सघन माध्यम में प्रकाश की चाल <strong>कम</strong> होनी चाहिए (\( v_2 < v_1 \))। 1850 में फूको (Foucault) ने जल में प्रकाश की चाल मापकर सिद्ध किया कि \( v_{\text{जल}} < v_{\text{वायु}} \), जिससे तरंग मॉडल की पुष्टि हुई।</p>
+      <p>1801 में <strong>थॉमस यंग</strong> ने द्वि-झिरी व्यतिकरण प्रयोग द्वारा तरंग सिद्धांत को सुदृढ़ किया और दृश्य प्रकाश की तरंगदैर्ध्य बहुत सूक्ष्म (\( \approx 0.6\,\mathrm{µm} \) या \( 6000\,\mathrm{Å} \)) मापी। जब \( \lambda \to 0 \) होता है, तो किरण प्रकाशिकी प्राप्त होती है।</p>
+      <p>1860 के दशक में मैक्सवेल ने सिद्ध किया कि प्रकाश एक <strong>अनुप्रस्थ विद्युत-चुंबकीय तरंग</strong> है, जिसकी निर्वात में चाल \( c = 1/\sqrt{\mu_0 \varepsilon_0} \approx 3.0 \times 10^8\,\mathrm{m/s} \) होती है।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: HUYGENS PRINCIPLE & WAVEFRONTS -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">2. Huygens&apos; Principle &amp; Wavefronts</h2>
+      <div class="callout callout-primary">
+        <strong>Wavefront Definition:</strong> A <em>wavefront</em> is the locus of all points in a medium oscillating in the same phase (surface of constant phase). Rays of light are everywhere perpendicular to the wavefront, indicating the direction of energy propagation.
+      </div>
+      <ul>
+        <li><strong>Point Source:</strong> Produces <em>spherical wavefronts</em>; amplitude \( A \propto 1/r \), intensity \( I \propto 1/r^2 \).</li>
+        <li><strong>Line / Slit Source:</strong> Produces <em>cylindrical wavefronts</em>; amplitude \( A \propto 1/\sqrt{r} \), intensity \( I \propto 1/r \).</li>
+        <li><strong>Distant Source:</strong> Produces <em>plane wavefronts</em> with parallel rays; intensity is uniform.</li>
+      </ul>
+      <div class="diagram-card">
+<svg viewBox="0 0 600 120" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="120" fill="#f8fafc" rx="6"/>
+  <g transform="translate(10, 10)">
+    <text x="80" y="15" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Spherical Wavefront</text>
+    <circle cx="80" cy="65" r="4" fill="#d97706"/>
+    <circle cx="80" cy="65" r="22" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+    <circle cx="80" cy="65" r="42" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+    <line x1="80" y1="65" x2="135" y2="65" stroke="#dc2626" stroke-width="1.2"/>
+    <line x1="80" y1="65" x2="41" y2="26" stroke="#dc2626" stroke-width="1.2"/>
+    
+    <text x="280" y="15" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Plane Wavefront</text>
+    <line x1="250" y1="30" x2="250" y2="100" stroke="#0284c7" stroke-width="2"/>
+    <line x1="280" y1="30" x2="280" y2="100" stroke="#0284c7" stroke-width="2"/>
+    <line x1="310" y1="30" x2="310" y2="100" stroke="#0284c7" stroke-width="2"/>
+    <line x1="230" y1="50" x2="330" y2="50" stroke="#dc2626" stroke-width="1.2"/>
+    <polygon points="330,50 324,47 324,53" fill="#dc2626"/>
+    <line x1="230" y1="80" x2="330" y2="80" stroke="#dc2626" stroke-width="1.2"/>
+    <polygon points="330,80 324,77 324,83" fill="#dc2626"/>
+    
+    <text x="480" y="15" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Huygens Wavelet Construction</text>
+    <path d="M 430 35 Q 450 65 430 95" fill="none" stroke="#1e3a8a" stroke-width="2"/>
+    <circle cx="445" cy="50" r="3" fill="#d97706"/>
+    <circle cx="450" cy="65" r="3" fill="#d97706"/>
+    <circle cx="445" cy="80" r="3" fill="#d97706"/>
+    <path d="M 465 40 A 20 20 0 0 1 472 60" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M 470 55 A 20 20 0 0 1 477 75" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M 465 70 A 20 20 0 0 1 472 90" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2,2"/>
+    <path d="M 470 30 Q 495 65 470 100" fill="none" stroke="#059669" stroke-width="2"/>
+    <text x="545" y="68" font-family="sans-serif" font-size="9" fill="#059669">Envelope (t = &#964;)</text>
+  </g>
+</svg>
+        <div class="diagram-caption">Diagram 1: (Left) Spherical wavefront from a point source; (Center) Plane wavefront; (Right) Huygens&apos; forward envelope construction.</div>
+      </div>
+      <p><strong>Huygens&apos; Construction:</strong> (1) Every point on a primary wavefront acts as a source of <em>secondary spherical wavelets</em> that spread out with speed \( v \). (2) After time \( \tau \), each wavelet has radius \( v\tau \). (3) The common forward tangent surface (envelope) touching these wavelets forms the new wavefront at \( t = \tau \). The backward wave is physically absent (explained by rigorous wave theory via the obliquity factor \( 1 + \cos\theta \)).</p>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">2. हाइगेन्स का सिद्धांत एवं तरंगाग्र</h2>
+      <div class="callout callout-primary">
+        <strong>तरंगाग्र की परिभाषा:</strong> समान कला में कंपन करने वाले बिंदुओं का बिंदु-पथ <em>तरंगाग्र (Wavefront)</em> कहलाता है। प्रकाश किरणें सदैव तरंगाग्र के लंबवत होती हैं और ऊर्जा संचरण की दिशा दर्शाती हैं।
+      </div>
+      <ul>
+        <li><strong>बिंदु स्रोत:</strong> <em>गोलीय तरंगाग्र</em> उत्पन्न करता है; आयाम \( A \propto 1/r \), तीव्रता \( I \propto 1/r^2 \)।</li>
+        <li><strong>रैखिक स्रोत:</strong> <em>बेलनाकार तरंगाग्र</em> उत्पन्न करता है; आयाम \( A \propto 1/\sqrt{r} \), तीव्रता \( I \propto 1/r \)।</li>
+        <li><strong>अनंत दूरी पर स्थित स्रोत:</strong> <em>समतल तरंगाग्र</em> उत्पन्न करता है; किरणें परस्पर समांतर होती हैं।</li>
+      </ul>
+      <p><strong>हाइगेन्स की ज्यामितीय रचना:</strong> (1) तरंगाग्र का प्रत्येक बिंदु <em>द्वितीयक तरंगिकाओं</em> का स्रोत बनता है जो चाल \( v \) से फैलती हैं। (2) समय \( \tau \) बाद इनकी त्रिज्या \( v\tau \) होती है। (3) आगे की दिशा में इन तरंगिकाओं का स्पर्श तल (अन्वालोप) नया तरंगाग्र बनाता है। पश्च तरंग भौतिक रूप से अस्तित्वहीन होती है।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: REFRACTION AND REFLECTION OF PLANE WAVES -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">3. Refraction and Reflection of Plane Waves</h2>
+      <p><strong>Snell&apos;s Law Derivation:</strong> Consider a plane wave incident at angle \( i \) on interface \( PP&apos; \) separating medium 1 (\( v_1 \)) and medium 2 (\( v_2 \)). If time taken from \( B \) to \( C \) is \( \tau \), then \( BC = v_1 \tau \). In the same time, the wavelet from \( A \) travels \( AE = v_2 \tau \) in medium 2. Right triangles \( \triangle ABC \) and \( \triangle AEC \) share hypotenuse \( AC \):</p>
+      <div class="formula-box">
+        \[ \sin i = \frac{BC}{AC} = \frac{v_1 \tau}{AC}, \quad \sin r = \frac{AE}{AC} = \frac{v_2 \tau}{AC} \implies \frac{\sin i}{\sin r} = \frac{v_1}{v_2} = \frac{n_2}{n_1} \]
+      </div>
+      <p>Thus, \( n_1 \sin i = n_2 \sin r \). If \( r < i \), then \( v_2 < v_1 \) (speed decreases in denser medium).</p>
+      <div class="diagram-card">
+<svg viewBox="0 0 600 140" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="140" fill="#f8fafc" rx="6"/>
+  <g transform="translate(20, 10)">
+    <text x="140" y="15" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Refraction at Interface PP' (v2 &lt; v1)</text>
+    <line x1="20" y1="65" x2="260" y2="65" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="25" y="58" font-family="sans-serif" font-size="9" fill="#64748b">Medium 1 (v1)</text>
+    <text x="25" y="78" font-family="sans-serif" font-size="9" fill="#64748b">Medium 2 (v2)</text>
+    <line x1="80" y1="65" x2="150" y2="25" stroke="#2563eb" stroke-width="2"/>
+    <text x="75" y="78" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1e3a8a">A</text>
+    <text x="155" y="25" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1e3a8a">B</text>
+    <line x1="150" y1="25" x2="200" y2="65" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="205" y="78" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1e3a8a">C</text>
+    <text x="180" y="42" font-family="sans-serif" font-size="9" fill="#dc2626">v1 &#215; &#964;</text>
+    <line x1="110" y1="95" x2="200" y2="65" stroke="#059669" stroke-width="2"/>
+    <text x="105" y="110" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669">E</text>
+    <line x1="80" y1="65" x2="110" y2="95" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="75" y="92" font-family="sans-serif" font-size="9" fill="#dc2626">v2 &#215; &#964;</text>
+    <text x="140" y="125" font-family="sans-serif" font-size="10" fill="#334155" text-anchor="middle">sin i / sin r = v1 / v2 = n2 / n1</text>
+
+    <text x="440" y="15" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Wavefronts through Lens &amp; Prism</text>
+    <!-- Convex lens -->
+    <path d="M 350 35 Q 365 65 350 95 Q 335 65 350 35" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+    <line x1="320" y1="40" x2="320" y2="90" stroke="#2563eb" stroke-width="1.5"/>
+    <path d="M 370 45 Q 360 65 370 85" fill="none" stroke="#059669" stroke-width="1.5"/>
+    <circle cx="410" cy="65" r="2.5" fill="#dc2626"/>
+    <text x="410" y="78" font-family="sans-serif" font-size="9" font-weight="bold" fill="#dc2626">F</text>
+    <text x="365" y="115" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">Converging to focus</text>
+    <!-- Prism -->
+    <polygon points="510,35 485,95 535,95" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+    <line x1="475" y1="40" x2="475" y2="90" stroke="#2563eb" stroke-width="1.5"/>
+    <line x1="550" y1="42" x2="538" y2="95" stroke="#059669" stroke-width="1.8"/>
+    <text x="510" y="115" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">Tilted towards base</text>
+  </g>
+</svg>
+        <div class="diagram-caption">Diagram 2: (Left) Huygens&apos; refraction geometry yielding Snell&apos;s law; (Right) Modification of plane wavefronts by convex lens and prism.</div>
+      </div>
+      <p><strong>Constancy of Frequency:</strong> Since \( \frac{\lambda_1}{\lambda_2} = \frac{v_1}{v_2} \), we have \( \frac{v_1}{\lambda_1} = \frac{v_2}{\lambda_2} \implies \nu_1 = \nu_2 \). <em>Frequency remains strictly constant across media</em>; wavelength scales as \( \lambda = \lambda_0 / n \).</p>
+      <p><strong>Action of Optical Components:</strong> A thin prism delays the base most, tilting the plane wavefront. A convex lens delays the thick center most, transforming a plane wavefront into a <em>converging spherical wavefront</em> focusing at \( F \). The optical travel time is identical along any ray between object and image.</p>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">3. समतल तरंगों का अपवर्तन एवं परावर्तन</h2>
+      <p><strong>स्नेल के नियम का निगमन:</strong> आपतित तरंगाग्र \( AB \) अंतरापृष्ठ \( PP&apos; \) पर आपतित होता है। \( B \) से \( C \) तक का समय \( \tau \) है, अतः \( BC = v_1 \tau \)। इसी समय में \( A \) से निकली तरंगिका माध्यम 2 में \( AE = v_2 \tau \) दूरी तय करती है। समकोण त्रिभुजों से:</p>
+      <div class="formula-box">
+        \[ \frac{\sin i}{\sin r} = \frac{BC / AC}{AE / AC} = \frac{v_1}{v_2} = \frac{n_2}{n_1} \implies n_1 \sin i = n_2 \sin r \]
+      </div>
+      <p><strong>आवृत्ति की अपरिवर्तनीयता:</strong> अपवर्तन में <em>आवृत्ति \( \nu \) सदैव नियत रहती है</em>। चाल \( v = c/n \) तथा तरंगदैर्ध्य \( \lambda = \lambda_0 / n \) घटती है।</p>
+      <p><strong>प्रकाशीय घटकों का प्रभाव:</strong> प्रिज्म समतल तरंगाग्र को आधार की ओर झुका देता है। उत्तल लेंस आपतित समतल तरंगाग्र को फोकस \( F \) पर अभिसारित होने वाले <em>गोलीय तरंगाग्र</em> में बदल देता है।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SUPERPOSITION & COHERENCE -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">4. Principle of Superposition &amp; Coherent Addition</h2>
+      <p>When two waves \( y_1 = a \cos\omega t \) and \( y_2 = a \cos(\omega t + \phi) \) superpose, the resultant displacement is \( y = 2a \cos(\phi/2) \cos(\omega t + \phi/2) \). The resultant intensity is:</p>
+      <div class="formula-box">
+        \[ I = 4I_0 \cos^2\left(\frac{\phi}{2}\right) \]
+      </div>
+      <ul>
+        <li><strong>Constructive Interference (Bright):</strong> Phase diff \( \phi = 2n\pi \), path diff \( \Delta x = n\lambda \) (\( n = 0, 1, 2, \dots \)), \( I_{\max} = 4I_0 \).</li>
+        <li><strong>Destructive Interference (Dark):</strong> Phase diff \( \phi = (2n + 1)\pi \), path diff \( \Delta x = (n + 1/2)\lambda \), \( I_{\min} = 0 \).</li>
+      </ul>
+      <p><strong>Coherent vs Incoherent Sources:</strong> Coherent sources maintain a constant phase difference over time. Two independent light sources undergo rapid random phase shifts in \( \sim 10^{-10}\,\mathrm{s} \); their time-averaged intensity is simply \( I = I_1 + I_2 = 2I_0 \), producing no interference fringes.</p>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">4. अध्यारोपण का सिद्धांत एवं कला-संबद्धता</h2>
+      <p>समान आयाम \( a \) एवं कलांतर \( \phi \) वाली दो तरंगों के अध्यारोपण से परिणामी तीव्रता प्राप्त होती है:</p>
+      <div class="formula-box">
+        \[ I = 4I_0 \cos^2\left(\frac{\phi}{2}\right) \]
+      </div>
+      <ul>
+        <li><strong>संपोषी व्यतिकरण (दीप्त):</strong> कलांतर \( \phi = 2n\pi \), पथांतर \( \Delta x = n\lambda \), अधिकतम तीव्रता \( I_{\max} = 4I_0 \)।</li>
+        <li><strong>विनाशी व्यतिकरण (अदीप्त):</strong> कलांतर \( \phi = (2n + 1)\pi \), पथांतर \( \Delta x = (n + 1/2)\lambda \), न्यूनतम तीव्रता \( I_{\min} = 0 \)।</li>
+      </ul>
+      <p><strong>कला-संबद्ध बनाम कला-असंबद्ध स्रोत:</strong> कला-संबद्ध स्रोतों में कलांतर समय के साथ नियत रहता है। दो स्वतंत्र स्रोतों में कलांतर \( 10^{-10}\,\mathrm{s} \) में तेजी से बदलता है, अतः औसत तीव्रता \( I = 2I_0 \) रहती है और कोई फ्रिंज नहीं बनती।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 5: YOUNG'S DOUBLE SLIT EXPERIMENT -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">5. Young&apos;s Double Slit Experiment (YDSE)</h2>
+      <p>Thomas Young derived two coherent sources \( S_1 \) and \( S_2 \) from a single primary pinhole \( S \). For slit separation \( d \) and screen distance \( D \) (\( D \gg d \)), the optical path difference at position \( x \) is:</p>
+      <div class="formula-box">
+        \[ \Delta x = S_2 P - S_1 P \approx \frac{xd}{D} \]
+      </div>
+      <div class="diagram-card">
+<svg viewBox="0 0 600 150" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="150" fill="#f8fafc" rx="6"/>
+  <g transform="translate(15, 10)">
+    <text x="300" y="14" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Young&#8217;s Double Slit Experiment (YDSE)</text>
+    <!-- Slits -->
+    <line x1="120" y1="30" x2="120" y2="60" stroke="#0f172a" stroke-width="2.5"/>
+    <line x1="120" y1="70" x2="120" y2="90" stroke="#0f172a" stroke-width="2.5"/>
+    <line x1="120" y1="100" x2="120" y2="130" stroke="#0f172a" stroke-width="2.5"/>
+    <circle cx="120" cy="65" r="2" fill="#d97706"/>
+    <text x="105" y="68" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1e3a8a">S1</text>
+    <circle cx="120" cy="95" r="2" fill="#d97706"/>
+    <text x="105" y="98" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1e3a8a">S2</text>
+    <text x="90" y="83" font-family="sans-serif" font-size="9" fill="#64748b">d</text>
+    
+    <!-- Screen -->
+    <line x1="420" y1="25" x2="420" y2="135" stroke="#0f172a" stroke-width="2"/>
+    <line x1="120" y1="80" x2="420" y2="80" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+    <circle cx="420" cy="80" r="2.5" fill="#0f172a"/>
+    <text x="430" y="83" font-family="sans-serif" font-size="9" font-weight="bold" fill="#0f172a">O (Central Bright)</text>
+    
+    <circle cx="420" cy="45" r="2.5" fill="#dc2626"/>
+    <text x="430" y="48" font-family="sans-serif" font-size="9" font-weight="bold" fill="#dc2626">P (Position x)</text>
+    <line x1="120" y1="65" x2="420" y2="45" stroke="#2563eb" stroke-width="1.2"/>
+    <line x1="120" y1="95" x2="420" y2="45" stroke="#2563eb" stroke-width="1.2"/>
+    
+    <text x="270" y="142" font-family="sans-serif" font-size="10" font-weight="bold" fill="#059669" text-anchor="middle">Path Diff &#916;x = xd / D &#160;|&#160; Fringe Width &#946; = &#955;D / d</text>
+    
+    <!-- Fringe sketch on right -->
+    <g transform="translate(500, 30)">
+      <rect x="0" y="0" width="50" height="12" fill="#0284c7"/>
+      <rect x="0" y="12" width="50" height="12" fill="#0f172a"/>
+      <rect x="0" y="24" width="50" height="12" fill="#0284c7"/>
+      <rect x="0" y="36" width="50" height="12" fill="#0f172a"/>
+      <rect x="0" y="48" width="50" height="14" fill="#0284c7"/>
+      <rect x="0" y="62" width="50" height="12" fill="#0f172a"/>
+      <rect x="0" y="74" width="50" height="12" fill="#0284c7"/>
+      <text x="25" y="98" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Equal Widths</text>
+    </g>
+  </g>
+</svg>
+        <div class="diagram-caption">Diagram 3: Young&apos;s Double Slit Experiment geometry, ray paths, and uniform interference fringe pattern.</div>
+      </div>
+      <ul>
+        <li><strong>Bright Fringe Positions:</strong> \( x_n = \frac{n\lambda D}{d} \quad (n = 0, \pm 1, \pm 2, \dots) \)</li>
+        <li><strong>Dark Fringe Positions:</strong> \( x_n = \left(n + \frac{1}{2}\right)\frac{\lambda D}{d} \quad (n = 0, \pm 1, \pm 2, \dots) \)</li>
+        <li><strong>Fringe Width (\( \beta \)):</strong> Separation between consecutive bright or dark fringes is <em>uniform</em>:
+          \[ \beta = \frac{\lambda D}{d} \]
+        </li>
+        <li><strong>Immersion in Medium:</strong> In a medium of refractive index \( \mu \), \( \beta&apos; = \frac{\beta}{\mu} \) (fringes contract).</li>
+      </ul>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">5. यंग का द्वि-झिरी प्रयोग (YDSE)</h2>
+      <p>यंग ने एकल स्रोत \( S \) द्वारा दो कला-संबद्ध झिरियाँ \( S_1 \) और \( S_2 \) प्राप्त कीं। पर्दे की दूरी \( D \) तथा झिरी पृथक्करण \( d \) (\( D \gg d \)) के लिए पर्दे पर बिंदु \( x \) पर पथांतर:</p>
+      <div class="formula-box">
+        \[ \Delta x = \frac{xd}{D} \]
+      </div>
+      <ul>
+        <li><strong>दीप्त फ्रिंजों की स्थितियाँ:</strong> \( x_n = \frac{n\lambda D}{d} \quad (n = 0, \pm 1, \pm 2, \dots) \)</li>
+        <li><strong>अदीप्त फ्रिंजों की स्थितियाँ:</strong> \( x_n = \left(n + \frac{1}{2}\right)\frac{\lambda D}{d} \quad (n = 0, \pm 1, \pm 2, \dots) \)</li>
+        <li><strong>फ्रिंज चौड़ाई (\( \beta \)):</strong> सभी फ्रिंजें एकसमान चौड़ाई की होती हैं:
+          \[ \beta = \frac{\lambda D}{d} \]
+        </li>
+        <li><strong>माध्यम में प्रभाव:</strong> \( \mu \) अपवर्तनांक के द्रव में फ्रिंज चौड़ाई \( \beta&apos; = \beta/\mu \) हो जाती है।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION 6 & 7: DIFFRACTION & POLARISATION -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">6. Single Slit Diffraction &amp; 7. Polarisation of Light</h2>
+      <h3 class="subsection-title-en">6.1 Single Slit Diffraction (Width \( a \))</h3>
+      <p>Light bends around the edges of a narrow slit of width \( a \). Secondary wavelets from different parts of the wavefront interfere:</p>
+      <ul>
+        <li><strong>Minima Condition:</strong> \( a \sin\theta \approx a\theta = n\lambda \implies \theta_n = \pm \frac{n\lambda}{a} \quad (n = 1, 2, 3, \dots) \).</li>
+        <li><strong>Secondary Maxima:</strong> \( \theta \approx \pm (n + 1/2)\frac{\lambda}{a} \) with rapidly decaying intensities.</li>
+        <li><strong>Central Maximum Width:</strong> Angular width is \( 2\theta_1 = \frac{2\lambda}{a} \); linear width is \( \beta_0 = \frac{2\lambda D}{a} \) (twice as wide as secondary fringes). Total energy is conserved by spatial redistribution.</li>
+      </ul>
+      <div class="diagram-card">
+<svg viewBox="0 0 600 130" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="130" fill="#f8fafc" rx="6"/>
+  <g transform="translate(10, 10)">
+    <!-- Single Slit Diffraction -->
+    <text x="140" y="14" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Single Slit Diffraction</text>
+    <line x1="40" y1="30" x2="40" y2="55" stroke="#0f172a" stroke-width="3"/>
+    <line x1="40" y1="85" x2="40" y2="110" stroke="#0f172a" stroke-width="3"/>
+    <text x="25" y="73" font-family="sans-serif" font-size="9" fill="#64748b">a</text>
+    <!-- Pattern curve -->
+    <path d="M 70 70 Q 100 68 115 65 Q 125 55 130 65 Q 135 70 140 20 Q 145 70 150 65 Q 155 55 165 65 Q 180 68 210 70" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="140" y="90" font-family="sans-serif" font-size="9" fill="#dc2626" text-anchor="middle">Central Max (2&#955; / a)</text>
+    <text x="140" y="105" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Minima: a sin&#952; = n&#955;</text>
+
+    <!-- Polarisation -->
+    <text x="430" y="14" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Polarisation &amp; Malus&#8217;s Law</text>
+    <!-- Unpolarised -->
+    <circle cx="300" cy="65" r="2.5" fill="#dc2626"/>
+    <line x1="300" y1="45" x2="300" y2="85" stroke="#dc2626" stroke-width="1.2"/>
+    <line x1="280" y1="65" x2="320" y2="65" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="300" y="100" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">Unpolarised (I_in)</text>
+    <!-- P1 -->
+    <rect x="345" y="40" width="16" height="50" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2" rx="2"/>
+    <line x1="353" y1="45" x2="353" y2="85" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="353" y="100" font-family="sans-serif" font-size="8" fill="#1e3a8a" text-anchor="middle">P1 (I0=I_in/2)</text>
+    <!-- P2 at theta -->
+    <rect x="440" y="40" width="16" height="50" fill="#fef3c7" stroke="#d97706" stroke-width="1.2" rx="2"/>
+    <line x1="444" y1="80" x2="452" y2="50" stroke="#d97706" stroke-width="1.5"/>
+    <text x="448" y="100" font-family="sans-serif" font-size="8" fill="#d97706" text-anchor="middle">P2 (&#952;)</text>
+    <!-- Transmitted -->
+    <line x1="515" y1="75" x2="525" y2="55" stroke="#d97706" stroke-width="1.5"/>
+    <text x="520" y="100" font-family="sans-serif" font-size="8" font-weight="bold" fill="#059669" text-anchor="middle">I = I0 cos&#178;&#952;</text>
+  </g>
+</svg>
+        <div class="diagram-caption">Diagram 4: (Left) Single slit diffraction intensity profile; (Right) Polarisation of light and Malus&apos;s law.</div>
+      </div>
+      <h3 class="subsection-title-en">7.1 Polarisation &amp; Malus&apos;s Law</h3>
+      <p>Polarisation proves light is a <strong>transverse wave</strong> (longitudinal waves cannot be polarised). Unpolarised light has electric field vectors in all transverse directions. When passed through a polaroid, the transmitted intensity is halved: \( I_0 = I_{\mathrm{in}} / 2 \).</p>
+      <p>When this polarised light passes through an analyser oriented at angle \( \theta \), <strong>Malus&apos;s law</strong> gives:</p>
+      <div class="formula-box">
+        \[ I = I_0 \cos^2\theta \]
+      </div>
+      <p>For an intermediate polaroid rotated by angle \( \theta \) between crossed polaroids (\( 90^\circ \)):</p>
+      <div class="formula-box">
+        \[ I = I_0 \cos^2\theta \sin^2\theta = \frac{I_0}{4} \sin^2(2\theta) \quad (\text{Maximum at } \theta = 45^\circ, I_{\max} = I_0 / 4) \]
+      </div>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">6. एकल झिरी विवर्तन एवं 7. प्रकाश का ध्रुवण</h2>
+      <h3 class="subsection-title-hi">6.1 एकल झिरी विवर्तन (चौड़ाई \( a \))</h3>
+      <p>झिरी के तीक्ष्ण किनारों से मुड़कर प्रकाश तरंगाग्र के विभिन्न भाग परस्पर अध्यारोपित होते हैं:</p>
+      <ul>
+        <li><strong>निम्निष्ठ की शर्त:</strong> \( a \sin\theta = n\lambda \implies \theta_n = \pm \frac{n\lambda}{a} \quad (n = 1, 2, 3, \dots) \)।</li>
+        <li><strong>केंद्रीय उच्चिष्ठ की चौड़ाई:</strong> कोणीय चौड़ाई \( 2\theta_1 = \frac{2\lambda}{a} \); रैखिक चौड़ाई \( \beta_0 = \frac{2\lambda D}{a} \) (द्वितीयक फ्रिंजों से दोगुनी)।</li>
+      </ul>
+      <h3 class="subsection-title-hi">7.1 प्रकाश का ध्रुवण एवं मैलस का नियम</h3>
+      <p>ध्रुवण सिद्ध करता है कि प्रकाश एक <strong>अनुप्रस्थ तरंग</strong> है। प्रथम पोलरॉइड से निकलने पर अध्रुवित प्रकाश की तीव्रता आधी हो जाती है: \( I_0 = I_{\text{आपतित}} / 2 \)।</p>
+      <p>विश्लेषक का अक्ष कोण \( \theta \) पर होने पर <strong>मैलस का नियम</strong>:</p>
+      <div class="formula-box">
+        \[ I = I_0 \cos^2\theta \]
+      </div>
+      <p>दो क्रॉसित पोलरॉइडों के बीच तीसरे पोलरॉइड को \( \theta \) कोण पर घुमाने पर: \( I = \frac{I_0}{4} \sin^2(2\theta) \)। \( \theta = 45^\circ \) पर अधिकतम तीव्रता \( I_0/4 \) प्राप्त होती है।</p>
+    </div>
+  </section>
+
+  <!-- SECTION 8: WORKED EXAMPLES -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">8. Worked Examples</h2>
+      <div class="callout callout-primary">
+        <strong>Example 1 (Fringe Coincidence):</strong> In YDSE, two wavelengths \( \lambda_1 = 650\,\mathrm{nm} \) and \( \lambda_2 = 520\,\mathrm{nm} \) are used with \( d = 2.0\,\mathrm{mm} \) and \( D = 1.2\,\mathrm{m} \). Find the least distance from the center where bright fringes coincide.<br/>
+        <strong>Solution:</strong> Coincidence condition: \( n_1 \lambda_1 = n_2 \lambda_2 \implies \frac{n_1}{n_2} = \frac{520}{650} = \frac{4}{5} \). Thus, \( n_1 = 4 \) coincides with \( n_2 = 5 \).<br/>
+        Distance \( x = \frac{n_1 \lambda_1 D}{d} = \frac{4 \times (650 \times 10^{-9}) \times 1.2}{2.0 \times 10^{-3}} = 1.56 \times 10^{-3}\,\mathrm{m} = 1.56\,\mathrm{mm} \).
+      </div>
+      <div class="callout callout-secondary">
+        <strong>Example 2 (Fractional Path Difference Intensity):</strong> If intensity at path difference \( \lambda \) is \( K \), find intensity at path difference \( \lambda/3 \).<br/>
+        <strong>Solution:</strong> At \( \Delta x = \lambda \), \( \phi = 2\pi \implies I = 4I_0 = K \). At \( \Delta x = \lambda/3 \), \( \phi = 2\pi/3 \).<br/>
+        \( I&apos; = 4I_0 \cos^2(\phi/2) = K \cos^2(\pi/3) = K (1/2)^2 = K/4 \).
+      </div>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">8. हल किए गए उदाहरण</h2>
+      <div class="callout callout-primary">
+        <strong>उदाहरण 1 (फ्रिंज संपातन):</strong> YDSE में \( \lambda_1 = 650\,\mathrm{nm} \) तथा \( \lambda_2 = 520\,\mathrm{nm} \) के लिए \( d = 2.0\,\mathrm{mm} \), \( D = 1.2\,\mathrm{m} \) पर न्यूनतम संपातन दूरी ज्ञात कीजिए।<br/>
+        <strong>हल:</strong> संपातन की शर्त: \( n_1 \lambda_1 = n_2 \lambda_2 \implies \frac{n_1}{n_2} = \frac{520}{650} = \frac{4}{5} \)। अतः \( n_1 = 4 \) तथा \( n_2 = 5 \)।<br/>
+        दूरी \( x = \frac{4 \times (650 \times 10^{-9}) \times 1.2}{2.0 \times 10^{-3}} = 1.56\,\mathrm{mm} \)।
+      </div>
+      <div class="callout callout-secondary">
+        <strong>उदाहरण 2 (भिन्नात्मक पथांतर पर तीव्रता):</strong> पथांतर \( \lambda \) पर तीव्रता \( K \) है, तो पथांतर \( \lambda/3 \) पर तीव्रता ज्ञात कीजिए।<br/>
+        <strong>हल:</strong> \( \Delta x = \lambda \) पर \( \phi = 2\pi \implies 4I_0 = K \)। \( \Delta x = \lambda/3 \) पर \( \phi = 2\pi/3 \)।<br/>
+        \( I&apos; = K \cos^2(\pi/3) = K(1/2)^2 = K/4 \)।
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: NEET-UG EXAM PRACTICE QUESTIONS -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">9. NEET-UG Exam-Style Practice Questions (Bilingual Assessment)</h2>
+      <p>Original practice questions adhering strictly to the NEET-UG examination pattern.</p>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">9. NEET-UG परीक्षा-उन्मुख अभ्यास प्रश्न (द्विभाषी मूल्यांकन)</h2>
+      <p>NEET-UG परीक्षा पैटर्न के पूर्णतः अनुरूप मूल अभ्यास प्रश्न।</p>
+    </div>
+
+    <!-- QUESTION 1 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 1</span>
+        <span class="question-tag">NEET Core &bull; Wavefronts</span>
+      </div>
+      <div class="lang-en">
+        <p>A point source of light is placed at the principal focus of a thin convex lens in air. The shape of the wavefront emerging from the lens is:</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> Spherical converging</li>
+          <li><span class="opt-key">(B)</span> Plane</li>
+          <li><span class="opt-key">(C)</span> Cylindrical</li>
+          <li><span class="opt-key">(D)</span> Spherical diverging</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">Correct Answer: (B) Plane</div>
+          <div class="solution-steps">
+            <strong>Solution:</strong> Light diverging from the focus becomes a parallel ray beam after refraction through a convex lens. The surface perpendicular to parallel rays is a family of parallel planes; hence, the emerging wavefront is a <strong>plane wavefront</strong>.
+          </div>
+        </div>
+      </div>
+      <hr class="lang-divider"/>
+      <div class="lang-hi">
+        <p>वायु में रखे एक पतले उत्तल लेंस के मुख्य फोकस पर प्रकाश का एक बिंदु स्रोत रखा गया है। लेंस से बाहर निकलने वाले तरंगाग्र का आकार होगा:</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> गोलीय अभिसारी</li>
+          <li><span class="opt-key">(B)</span> समतल</li>
+          <li><span class="opt-key">(C)</span> बेलनाकार</li>
+          <li><span class="opt-key">(D)</span> गोलीय अपसारी</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">सही उत्तर: (B) समतल</div>
+          <div class="solution-steps">
+            <strong>हल:</strong> फोकस से निकलने वाली किरणें उत्तल लेंस से अपवर्तन के पश्चात समांतर किरण पुंज बन जाती हैं। समांतर किरणों के लंबवत तरंगाग्र सदैव <strong>समतल तरंगाग्र</strong> होता है।
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 2</span>
+        <span class="question-tag">NEET High-Yield &bull; Refraction of Waves</span>
+      </div>
+      <div class="lang-en">
+        <p>Light of wavelength \( 600\,\mathrm{nm} \) in vacuum enters glass of refractive index \( n = 1.5 \). What are the wavelength and frequency in glass? (\( c = 3.0 \times 10^8\,\mathrm{m/s} \))</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( 400\,\mathrm{nm},\; 5.0 \times 10^{14}\,\mathrm{Hz} \)</li>
+          <li><span class="opt-key">(B)</span> \( 600\,\mathrm{nm},\; 3.33 \times 10^{14}\,\mathrm{Hz} \)</li>
+          <li><span class="opt-key">(C)</span> \( 900\,\mathrm{nm},\; 5.0 \times 10^{14}\,\mathrm{Hz} \)</li>
+          <li><span class="opt-key">(D)</span> \( 400\,\mathrm{nm},\; 3.33 \times 10^{14}\,\mathrm{Hz} \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">Correct Answer: (A) \( 400\,\mathrm{nm},\; 5.0 \times 10^{14}\,\mathrm{Hz} \)</div>
+          <div class="solution-steps">
+            <strong>Solution:</strong> Frequency is invariant: \( \nu = c/\lambda = (3.0 \times 10^8)/(600 \times 10^{-9}) = 5.0 \times 10^{14}\,\mathrm{Hz} \). Wavelength in glass: \( \lambda&apos; = \lambda/n = 600/1.5 = 400\,\mathrm{nm} \).
+          </div>
+        </div>
+      </div>
+      <hr class="lang-divider"/>
+      <div class="lang-hi">
+        <p>निर्वात में \( 600\,\mathrm{nm} \) तरंगदैर्ध्य का प्रकाश \( n = 1.5 \) अपवर्तनांक वाले काँच में प्रवेश करता है। काँच में तरंगदैर्ध्य और आवृत्ति क्या होगी? (\( c = 3.0 \times 10^8\,\mathrm{m/s} \))</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( 400\,\mathrm{nm},\; 5.0 \times 10^{14}\,\mathrm{Hz} \)</li>
+          <li><span class="opt-key">(B)</span> \( 600\,\mathrm{nm},\; 3.33 \times 10^{14}\,\mathrm{Hz} \)</li>
+          <li><span class="opt-key">(C)</span> \( 900\,\mathrm{nm},\; 5.0 \times 10^{14}\,\mathrm{Hz} \)</li>
+          <li><span class="opt-key">(D)</span> \( 400\,\mathrm{nm},\; 3.33 \times 10^{14}\,\mathrm{Hz} \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">सही उत्तर: (A) \( 400\,\mathrm{nm},\; 5.0 \times 10^{14}\,\mathrm{Hz} \)</div>
+          <div class="solution-steps">
+            <strong>हल:</strong> आवृत्ति अपरिवर्तित रहती है: \( \nu = c/\lambda = 5.0 \times 10^{14}\,\mathrm{Hz} \)। काँच में तरंगदैर्ध्य: \( \lambda&apos; = \lambda/n = 600/1.5 = 400\,\mathrm{nm} \)।
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 3</span>
+        <span class="question-tag">NEET Core &bull; YDSE Intensity</span>
+      </div>
+      <div class="lang-en">
+        <p>In Young&apos;s double-slit experiment, the intensity at the central maximum is \( I_0 \). What is the intensity at a point where the path difference is \( \lambda/6 \)?</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( I_0 / 4 \)</li>
+          <li><span class="opt-key">(B)</span> \( I_0 / 2 \)</li>
+          <li><span class="opt-key">(C)</span> \( 3I_0 / 4 \)</li>
+          <li><span class="opt-key">(D)</span> \( I_0 / 3 \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">Correct Answer: (C) \( 3I_0 / 4 \)</div>
+          <div class="solution-steps">
+            <strong>Solution:</strong> Phase difference \( \phi = \frac{2\pi}{\lambda}(\lambda/6) = \pi/3 \). Resultant intensity \( I = I_0 \cos^2(\phi/2) = I_0 \cos^2(\pi/6) = I_0 (\sqrt{3}/2)^2 = 3I_0/4 \).
+          </div>
+        </div>
+      </div>
+      <hr class="lang-divider"/>
+      <div class="lang-hi">
+        <p>यंग के द्वि-झिरी प्रयोग में केंद्रीय उच्चिष्ठ पर तीव्रता \( I_0 \) है। उस बिंदु पर तीव्रता क्या होगी जहाँ पथांतर \( \lambda/6 \) है?</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( I_0 / 4 \)</li>
+          <li><span class="opt-key">(B)</span> \( I_0 / 2 \)</li>
+          <li><span class="opt-key">(C)</span> \( 3I_0 / 4 \)</li>
+          <li><span class="opt-key">(D)</span> \( I_0 / 3 \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">सही उत्तर: (C) \( 3I_0 / 4 \)</div>
+          <div class="solution-steps">
+            <strong>हल:</strong> कलांतर \( \phi = \frac{2\pi}{\lambda}(\lambda/6) = \pi/3 \)। परिणामी तीव्रता \( I = I_0 \cos^2(\pi/6) = I_0 (\sqrt{3}/2)^2 = 3I_0/4 \)।
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 4</span>
+        <span class="question-tag">NEET Core &bull; Single Slit Diffraction</span>
+      </div>
+      <div class="lang-en">
+        <p>In a single-slit Fraunhofer diffraction experiment, light of wavelength \( 600\,\mathrm{nm} \) falls on a slit of width \( 0.30\,\mathrm{mm} \). If the screen is placed at \( 1.5\,\mathrm{m} \), the linear width of the central maximum is:</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( 3.0\,\mathrm{mm} \)</li>
+          <li><span class="opt-key">(B)</span> \( 6.0\,\mathrm{mm} \)</li>
+          <li><span class="opt-key">(C)</span> \( 1.5\,\mathrm{mm} \)</li>
+          <li><span class="opt-key">(D)</span> \( 4.5\,\mathrm{mm} \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">Correct Answer: (B) \( 6.0\,\mathrm{mm} \)</div>
+          <div class="solution-steps">
+            <strong>Solution:</strong> The linear width of the central maximum is \( \beta_0 = \frac{2\lambda D}{a} = \frac{2 \times (600 \times 10^{-9}) \times 1.5}{0.30 \times 10^{-3}} = \frac{1.8 \times 10^{-6}}{0.30 \times 10^{-3}} = 6.0 \times 10^{-3}\,\mathrm{m} = 6.0\,\mathrm{mm} \).
+          </div>
+        </div>
+      </div>
+      <hr class="lang-divider"/>
+      <div class="lang-hi">
+        <p>एकल-झिरी फ्रॉनहॉफर विवर्तन प्रयोग में \( 600\,\mathrm{nm} \) तरंगदैर्ध्य का प्रकाश \( 0.30\,\mathrm{mm} \) चौड़ाई की झिरी पर आपतित होता है। यदि पर्दा \( 1.5\,\mathrm{m} \) दूरी पर रखा हो, तो केंद्रीय उच्चिष्ठ की रैखिक चौड़ाई होगी:</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( 3.0\,\mathrm{mm} \)</li>
+          <li><span class="opt-key">(B)</span> \( 6.0\,\mathrm{mm} \)</li>
+          <li><span class="opt-key">(C)</span> \( 1.5\,\mathrm{mm} \)</li>
+          <li><span class="opt-key">(D)</span> \( 4.5\,\mathrm{mm} \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">सही उत्तर: (B) \( 6.0\,\mathrm{mm} \)</div>
+          <div class="solution-steps">
+            <strong>हल:</strong> केंद्रीय उच्चिष्ठ की रैखिक चौड़ाई \( \beta_0 = \frac{2\lambda D}{a} = \frac{2 \times (600 \times 10^{-9}) \times 1.5}{0.30 \times 10^{-3}} = 6.0\,\mathrm{mm} \)।
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 5</span>
+        <span class="question-tag">NEET High-Yield &bull; Malus&apos;s Law</span>
+      </div>
+      <div class="lang-en">
+        <p>Unpolarised light of intensity \( I_{\mathrm{in}} \) passes through two polaroids \( P_1 \) and \( P_2 \). If the pass-axis of \( P_2 \) makes an angle of \( 60^\circ \) with \( P_1 \), the transmitted intensity is:</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( I_{\mathrm{in}} / 4 \)</li>
+          <li><span class="opt-key">(B)</span> \( I_{\mathrm{in}} / 8 \)</li>
+          <li><span class="opt-key">(C)</span> \( 3I_{\mathrm{in}} / 8 \)</li>
+          <li><span class="opt-key">(D)</span> \( I_{\mathrm{in}} / 2 \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">Correct Answer: (B) \( I_{\mathrm{in}} / 8 \)</div>
+          <div class="solution-steps">
+            <strong>Solution:</strong> Light emerging from \( P_1 \) has intensity \( I_0 = I_{\mathrm{in}} / 2 \). Applying Malus&apos;s law at \( P_2 \): \( I = I_0 \cos^2(60^\circ) = (I_{\mathrm{in}} / 2)(1/2)^2 = I_{\mathrm{in}} / 8 \).
+          </div>
+        </div>
+      </div>
+      <hr class="lang-divider"/>
+      <div class="lang-hi">
+        <p>\( I_{\text{आपतित}} \) तीव्रता का अध्रुवित प्रकाश दो पोलरॉइडों \( P_1 \) और \( P_2 \) से गुजरता है। यदि \( P_2 \) का पारगमन-अक्ष \( P_1 \) से \( 60^\circ \) कोण पर है, तो निर्गत तीव्रता होगी:</p>
+        <ul class="options-list">
+          <li><span class="opt-key">(A)</span> \( I_{\text{आपतित}} / 4 \)</li>
+          <li><span class="opt-key">(B)</span> \( I_{\text{आपतित}} / 8 \)</li>
+          <li><span class="opt-key">(C)</span> \( 3I_{\text{आपतित}} / 8 \)</li>
+          <li><span class="opt-key">(D)</span> \( I_{\text{आपतित}} / 2 \)</li>
+        </ul>
+        <div class="answer-box">
+          <div class="ans-title">सही उत्तर: (B) \( I_{\text{आपतित}} / 8 \)</div>
+          <div class="solution-steps">
+            <strong>हल:</strong> \( P_1 \) से निर्गत तीव्रता \( I_0 = I_{\text{आपतित}} / 2 \)। \( P_2 \) पर मैलस का नियम लगाने पर: \( I = I_0 \cos^2(60^\circ) = (I_{\text{आपतित}}/2)(1/4) = I_{\text{आपतित}} / 8 \)।
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: COMMON PITFALLS & REVISION CHECKLIST -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">10. Common Pitfalls &amp; Revision Checklist</h2>
+      <div class="callout callout-accent">
+        <strong>NEET Exam Watch-Outs:</strong>
+        <ul>
+          <li><strong>Wave vs. Corpuscular speed:</strong> Corpuscular model predicted \( v_{\text{denser}} > v_{\text{rarer}} \); Wave model predicted \( v_{\text{denser}} < v_{\text{rarer}} \) (confirmed by Foucault).</li>
+          <li><strong>Frequency invariance:</strong> Frequency \( \nu \) is invariant across media; speed and wavelength vary as \( v = c/n \) and \( \lambda = \lambda_0/n \).</li>
+          <li><strong>Diffraction vs YDSE widths:</strong> Central maximum in diffraction is \( 2\lambda D/a \) (twice secondary width), while in YDSE all fringes have uniform width \( \lambda D/d \).</li>
+          <li><strong>Polarisation restriction:</strong> Only transverse waves can be polarised. Sound waves in air cannot be polarised.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">10. सामान्य भ्रांतियाँ एवं रिवीजन चेकलिस्ट</h2>
+      <div class="callout callout-accent">
+        <strong>NEET परीक्षा के लिए मुख्य सावधानियाँ:</strong>
+        <ul>
+          <li><strong>तरंग बनाम कणिका चाल:</strong> कणिका मॉडल ने सघन माध्यम में अधिक चाल बताई थी; तरंग मॉडल ने कम चाल बताई (फूको द्वारा सिद्ध)।</li>
+          <li><strong>आवृत्ति की स्थिरता:</strong> अपवर्तन में आवृत्ति \( \nu \) नियत रहती है; केवल चाल व तरंगदैर्ध्य बदलते हैं।</li>
+          <li><strong>विवर्तन बनाम YDSE चौड़ाई:</strong> विवर्तन में केंद्रीय उच्चिष्ठ की चौड़ाई \( 2\lambda D/a \) होती है (द्वितीयक से दोगुनी); YDSE में सभी फ्रिंजें समान चौड़ाई (\( \lambda D/d \)) की होती हैं।</li>
+          <li><strong>ध्रुवण सीमा:</strong> केवल अनुप्रस्थ तरंगों का ध्रुवण संभव है; ध्वनि तरंगों का ध्रुवण नहीं हो सकता।</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11: MASTER FORMULA SHEET -->
+  <section class="section-block">
+    <div class="lang-en">
+      <h2 class="section-title-en">11. Master Formula Sheet</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Concept</th><th>Mathematical Formula</th><th>Key Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Snell&apos;s Law (Wave)</td><td>\( \frac{\sin i}{\sin r} = \frac{v_1}{v_2} = \frac{n_2}{n_1} \)</td><td>\( \nu = \text{constant} \); \( \lambda = \lambda_0/n \)</td></tr>
+          <tr><td>Resultant Intensity</td><td>\( I = 4I_0 \cos^2(\phi/2) \)</td><td>\( \phi = \frac{2\pi}{\lambda}\Delta x \)</td></tr>
+          <tr><td>YDSE Fringe Width</td><td>\( \beta = \frac{\lambda D}{d} \)</td><td>In medium: \( \beta&apos; = \beta/\mu \)</td></tr>
+          <tr><td>Diffraction Minima</td><td>\( a \sin\theta = n\lambda \)</td><td>Central width \( = 2\lambda D/a \)</td></tr>
+          <tr><td>Malus&apos;s Law</td><td>\( I = I_0 \cos^2\theta \)</td><td>Through 1st polaroid: \( I_0 = I_{\mathrm{in}}/2 \)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="lang-hi">
+      <h2 class="section-title-hi">11. प्रमुख सूत्र सारांश</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>संकल्पना</th><th>गणितीय सूत्र</th><th>मुख्य बिंदु</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>स्नेल का नियम</td><td>\( \frac{\sin i}{\sin r} = \frac{v_1}{v_2} = \frac{n_2}{n_1} \)</td><td>\( \nu = \text{नियत} \); \( \lambda = \lambda_0/n \)</td></tr>
+          <tr><td>परिणामी तीव्रता</td><td>\( I = 4I_0 \cos^2(\phi/2) \)</td><td>\( \phi = \frac{2\pi}{\lambda}\Delta x \)</td></tr>
+          <tr><td>YDSE फ्रिंज चौड़ाई</td><td>\( \beta = \frac{\lambda D}{d} \)</td><td>माध्यम में: \( \beta&apos; = \beta/\mu \)</td></tr>
+          <tr><td>विवर्तन निम्निष्ठ</td><td>\( a \sin\theta = n\lambda \)</td><td>केंद्रीय उच्चिष्ठ चौड़ाई \( = 2\lambda D/a \)</td></tr>
+          <tr><td>मैलस का नियम</td><td>\( I = I_0 \cos^2\theta \)</td><td>प्रथम पोलरॉइड से: \( I_0 = I_{\text{आपतित}}/2 \)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

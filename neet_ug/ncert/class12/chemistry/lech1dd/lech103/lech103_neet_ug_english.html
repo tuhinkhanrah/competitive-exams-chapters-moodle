@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemical Kinetics: NEET UG Master Tutorial &amp; Assessment</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root {
+    --primary-color: #1e3a8a;
+    --primary-light: #eff6ff;
+    --secondary-color: #0d9488;
+    --secondary-light: #f0fdfa;
+    --accent-color: #b45309;
+    --accent-light: #fffbeb;
+    --danger-color: #b91c1c;
+    --danger-light: #fef2f2;
+    --text-dark: #1e293b;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+    --card-bg: #f8fafc;
+    --card-border: #e2e8f0;
+    --math-bg: #ffffff;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    line-height: 1.65;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+  }
+
+  header {
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .badge-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+  }
+
+  .badge-neet {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border: 1px solid #bfdbfe;
+  }
+
+  .badge-chem {
+    background-color: var(--secondary-light);
+    color: var(--secondary-color);
+    border: 1px solid #99f6e4;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1.25;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+    font-weight: 800;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.4rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.4rem;
+  }
+
+  strong {
+    color: #0f172a;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .callout-blue {
+    background-color: var(--primary-light);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .callout-amber {
+    background-color: var(--accent-light);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .callout-teal {
+    background-color: var(--secondary-light);
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .callout-blue .callout-title { color: var(--primary-color); }
+  .callout-amber .callout-title { color: var(--accent-color); }
+  .callout-teal .callout-title { color: var(--secondary-color); }
+
+  .formula-box {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    text-align: center;
+  }
+
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+  }
+
+  th {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  .svg-wrapper {
+    margin: 1.5rem auto;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .svg-wrapper svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+  }
+
+  .svg-caption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  .worked-example {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 6px 6px 0;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .worked-example h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+
+  .question-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .question-title {
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .question-type {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.45rem;
+    background: #e2e8f0;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .options-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0.75rem 0;
+  }
+
+  .options-list li {
+    padding: 0.35rem 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
+
+  .solution-box {
+    margin-top: 0.75rem;
+    padding: 0.85rem;
+    background-color: #f8fafc;
+    border-top: 1px dashed #cbd5e1;
+    border-radius: 0 0 4px 4px;
+    font-size: 0.92rem;
+  }
+
+  .solution-box .ans-tag {
+    font-weight: 700;
+    color: #15803d;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 640px) {
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 15mm 12mm;
+    }
+    body {
+      font-size: 10pt;
+      line-height: 1.45;
+      color: #000;
+    }
+    .container {
+      max-width: 100%;
+      padding: 0;
+    }
+    h1 { font-size: 18pt; }
+    h2 { font-size: 14pt; margin-top: 1.5rem; page-break-after: avoid; }
+    h3 { font-size: 12pt; page-break-after: avoid; }
+    .card, .worked-example, .question-card, .callout-blue, .callout-amber, .callout-teal {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      box-shadow: none;
+      border-color: #94a3b8;
+    }
+    .formula-box {
+      background: #f8fafc;
+      border: 1px solid #94a3b8;
+    }
+    table, svg {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+<header>
+  <div class="badge-container">
+    <span class="badge badge-neet">NEET UG Chemistry Complete Guide</span>
+    <span class="badge badge-chem">Class 12 Physical Chemistry</span>
+    <span class="badge badge-neet">High-Yield Exam Focus</span>
+  </div>
+  <h1>Chemical Kinetics</h1>
+  <p class="subtitle">A Comprehensive, Exam-Oriented Master Tutorial with NEET Practice Assessments &amp; Complete Step-by-Step Solutions</p>
+</header>
+
+<!-- SECTION 1: LEARNING OBJECTIVES & OVERVIEW -->
+<section>
+  <h2>1. Syllabus Overview &amp; Learning Objectives</h2>
+  <p>Chemical Kinetics is one of the highest-yielding topics in Physical Chemistry for NEET UG, contributing 2 to 3 questions each year. While chemical thermodynamics establishes whether a transformation is thermodynamically feasible (spontaneous when \(\Delta G &lt; 0\)) and chemical equilibrium predicts the extent to which it proceeds, chemical kinetics governs the <strong>speed (reaction velocity)</strong> of the chemical change, the pathway (mechanism), and the molecular parameters controlling it.</p>
+
+  <div class="callout-blue">
+    <div class="callout-title">NEET Learning Checklist</div>
+    <ul>
+      <li>Differentiate between average and instantaneous rates of chemical reactions using stoichiometric expressions.</li>
+      <li>Formulate differential rate equations and deduce the overall order and individual reactant orders from experimental rate laws.</li>
+      <li>Distinguish sharply between <strong>order</strong> and <strong>molecularity</strong> of elementary and complex reactions.</li>
+      <li>Identify the slowest step as the <strong>rate determining step (RDS)</strong> in multi-step reaction mechanisms.</li>
+      <li>Derive and apply integrated rate equations and half-life formulas for <strong>zero-order</strong> and <strong>first-order</strong> processes.</li>
+      <li>Master gaseous first-order reactions involving total system pressure changes.</li>
+      <li>Understand pseudo-first-order reactions and why abundant solvents lead to apparent first-order kinetics.</li>
+      <li>Analyze the temperature dependence of rate constants using the <strong>Arrhenius equation</strong>, Maxwell-Boltzmann energy distribution curves, and activation energy (\(E_{\mathrm{a}}\)).</li>
+      <li>Understand how a catalyst creates an alternative lower activation energy pathway without altering \(\Delta G\) or equilibrium constant \(K_{\mathrm{eq}}\).</li>
+      <li>Explain the foundational concepts of <strong>Collision Theory</strong>: collision frequency (\(Z\)), threshold energy, steric/probability factor (\(P\)), and criteria for effective collisions.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2: CORE CONCEPTS & EXPLANATIONS -->
+<section>
+  <h2>2. Fundamental Concepts &amp; Theoretical Framework</h2>
+
+  <h3>2.1 Rate of a Chemical Reaction</h3>
+  <p>Reactions vary drastically in speed: from instantaneous ionic reactions (such as precipitation of \(\mathrm{AgCl}\) upon mixing aqueous \(\mathrm{AgNO}_3\) and \(\mathrm{NaCl}\)), to extremely slow transformations (such as diamond converting to graphite, or rusting of iron in air and moisture), to moderate reactions (such as the inversion of cane sugar or hydrolysis of ethyl acetate).</p>
+  <p>The <strong>rate of a reaction</strong> is defined as the change in concentration of a reactant or product per unit time at constant volume. For a simple general reaction \(\mathrm{R} \rightarrow \mathrm{P}\):</p>
+
+  <div class="formula-box">
+    \[\text{Rate of disappearance of R} = -\frac{\Delta[\mathrm{R}]}{\Delta t}\]
+    \[\text{Rate of appearance of P} = +\frac{\Delta[\mathrm{P}]}{\Delta t}\]
+  </div>
+  <p>Because the concentration of reactant \([\mathrm{R}]\) decreases with time, \(\Delta[\mathrm{R}] = [\mathrm{R}]_2 - [\mathrm{R}]_1 &lt; 0\). The negative sign is explicitly prefixed so that the reaction rate remains a strictly positive quantity.</p>
+
+  <h4>Units of Reaction Rate</h4>
+  <p>Rate has dimensions of \(\text{concentration} \times \text{time}^{-1}\). In aqueous or solution systems, units are typically \(\mathrm{mol\,L^{-1}\,s^{-1}}\) (or \(\mathrm{mol\,L^{-1}\,min^{-1}}\)). For gaseous reactions where concentration is tracked via partial pressures, units are \(\mathrm{atm\,s^{-1}}\) or \(\mathrm{bar\,s^{-1}}\).</p>
+
+  <h3>2.2 Average Rate vs. Instantaneous Rate</h3>
+  <ul>
+    <li><strong>Average Rate (\(r_{\mathrm{av}}\)):</strong> Measured over a finite macroscopic time interval \(\Delta t\):
+      \[r_{\mathrm{av}} = -\frac{\Delta[\mathrm{R}]}{\Delta t} = \frac{\Delta[\mathrm{P}]}{\Delta t}\]
+      Graphically, \(r_{\mathrm{av}}\) equals the negative slope of the <em>secant line</em> connecting two distinct time points on a \([\mathrm{R}]\) vs. \(t\) curve.
+    </li>
+    <li><strong>Instantaneous Rate (\(r_{\mathrm{inst}}\)):</strong> The rate at a specific moment in time, obtained in the limit as \(\Delta t \rightarrow 0\):
+      \[r_{\mathrm{inst}} = \lim_{\Delta t \to 0} \left(-\frac{\Delta[\mathrm{R}]}{\Delta t}\right) = -\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = \frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t}\]
+      Graphically, \(r_{\mathrm{inst}}\) is equal to the negative slope of the <em>tangent</em> drawn to the concentration-time curve at that specific instant \(t\).
+    </li>
+  </ul>
+
+  <!-- TUTORIAL DIAGRAM 1: CONCENTRATION VS TIME -->
+  <div class="svg-wrapper">
+    <svg viewBox="0 0 760 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="760" height="320" fill="#ffffff" />
+      
+      <!-- Graph A: Reactant [R] vs Time -->
+      <g transform="translate(60, 20)">
+        <text x="130" y="15" font-size="13" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Reactant Concentration [R] vs Time</text>
+        <!-- Axes -->
+        <line x1="40" y1="240" x2="300" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="40" y1="240" x2="40" y2="25" stroke="#334155" stroke-width="2" />
+        <!-- Axis labels -->
+        <text x="170" y="270" font-size="11" fill="#475569" text-anchor="middle">Time (t) &#8594;</text>
+        <text x="15" y="130" font-size="11" fill="#475569" text-anchor="middle" transform="rotate(-90 15 130)">[R] &#8594;</text>
+        
+        <!-- [R] curve: exponential decay -->
+        <path d="M 40,45 Q 80,180 280,225" fill="none" stroke="#2563eb" stroke-width="2.5" />
+        
+        <!-- Secant line for average rate -->
+        <line x1="70" y1="120" x2="150" y2="185" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4" />
+        <circle cx="70" cy="120" r="3.5" fill="#dc2626" />
+        <circle cx="150" cy="185" r="3.5" fill="#dc2626" />
+        
+        <!-- Drop lines -->
+        <line x1="70" y1="120" x2="70" y2="240" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2" />
+        <line x1="150" y1="185" x2="150" y2="240" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2" />
+        <line x1="40" y1="120" x2="70" y2="120" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2" />
+        <line x1="40" y1="185" x2="150" y2="185" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2" />
+        
+        <text x="70" y="254" font-size="10" fill="#475569" text-anchor="middle">t1</text>
+        <text x="150" y="254" font-size="10" fill="#475569" text-anchor="middle">t2</text>
+        <text x="32" y="124" font-size="10" fill="#475569" text-anchor="end">[R]1</text>
+        <text x="32" y="189" font-size="10" fill="#475569" text-anchor="end">[R]2</text>
+        
+        <!-- Tangent at t -->
+        <circle cx="110" cy="155" r="3.5" fill="#0d9488" />
+        <line x1="60" y1="110" x2="175" y2="210" stroke="#0d9488" stroke-width="1.8" />
+        <text x="180" y="215" font-size="10" fill="#0d9488" font-weight="bold">Tangent (Slope = -r_inst)</text>
+      </g>
+
+      <!-- Graph B: Product [P] vs Time -->
+      <g transform="translate(420, 20)">
+        <text x="130" y="15" font-size="13" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Product Concentration [P] vs Time</text>
+        <!-- Axes -->
+        <line x1="40" y1="240" x2="300" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="40" y1="240" x2="40" y2="25" stroke="#334155" stroke-width="2" />
+        <!-- Axis labels -->
+        <text x="170" y="270" font-size="11" fill="#475569" text-anchor="middle">Time (t) &#8594;</text>
+        <text x="15" y="130" font-size="11" fill="#475569" text-anchor="middle" transform="rotate(-90 15 130)">[P] &#8594;</text>
+        
+        <!-- [P] curve: asymptotic growth -->
+        <path d="M 40,240 Q 80,80 280,55" fill="none" stroke="#059669" stroke-width="2.5" />
+        
+        <!-- Tangent at instant t -->
+        <circle cx="120" cy="120" r="3.5" fill="#0d9488" />
+        <line x1="60" y1="170" x2="190" y2="65" stroke="#0d9488" stroke-width="1.8" />
+        <line x1="120" y1="120" x2="120" y2="240" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="2" />
+        <text x="120" y="254" font-size="10" fill="#475569" text-anchor="middle">t</text>
+        <text x="195" y="65" font-size="10" fill="#0d9488" font-weight="bold">Tangent (Slope = +r_inst)</text>
+      </g>
+    </svg>
+    <div class="svg-caption">Figure 1: Concentration vs. time curves for reactant disappearance and product appearance, illustrating average rate (secant slope) and instantaneous rate (tangent slope).</div>
+  </div>
+
+  <h3>2.3 Stoichiometric Expressions of Reaction Rate</h3>
+  <p>When the stoichiometric coefficients of reactants and products are not all unity, the rate of disappearance of each reactant and the rate of appearance of each product must be divided by its respective stoichiometric coefficient so that the overall reaction rate is uniquely defined.</p>
+  <p>For a general chemical reaction:</p>
+  <div class="formula-box">
+    \[a\,\mathrm{A} + b\,\mathrm{B} \longrightarrow c\,\mathrm{C} + d\,\mathrm{D}\]
+    \[\text{Rate of Reaction} = -\frac{1}{a}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{1}{b}\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{1}{c}\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = +\frac{1}{d}\frac{\mathrm{d}[\mathrm{D}]}{\mathrm{d}t}\]
+  </div>
+
+  <div class="callout-amber">
+    <div class="callout-title">NEET Pitfall Alert: Rate of Reaction vs. Rate of Disappearance/Appearance</div>
+    <p>Always distinguish between:</p>
+    <ul>
+      <li><strong>Rate of disappearance of A:</strong> \(-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\) (does NOT include the stoichiometric coefficient \(1/a\)).</li>
+      <li><strong>Rate of appearance of C:</strong> \(+\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\) (does NOT include \(1/c\)).</li>
+      <li><strong>Rate of the overall reaction:</strong> \(-\frac{1}{a}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = +\frac{1}{c}\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\).</li>
+    </ul>
+  </div>
+
+  <h3>2.4 Rate Law, Order of Reaction, and Rate Constant</h3>
+  <p>The <strong>rate law</strong> is an experimentally determined mathematical expression relating the rate of reaction to the molar concentrations of the reactants. For the reaction \(a\,\mathrm{A} + b\,\mathrm{B} \rightarrow \text{Products}\):</p>
+  <div class="formula-box">
+    \[\text{Rate} = k\,[\mathrm{A}]^x\,[\mathrm{B}]^y\]
+  </div>
+  <ul>
+    <li>\(k\) is the <strong>rate constant</strong> (or specific reaction rate). When \([\mathrm{A}] = [\mathrm{B}] = 1\,\mathrm{mol\,L^{-1}}\), \(\text{Rate} = k\). Thus, \(k\) represents the reaction velocity when all reactants are at unit molar concentration.</li>
+    <li>\(x\) is the order with respect to reactant \(\mathrm{A}\), and \(y\) is the order with respect to \(\mathrm{B}\).</li>
+    <li>The <strong>overall order of reaction</strong> is \(n = x + y\).</li>
+    <li><strong>Crucial Rule:</strong> The powers \(x\) and \(y\) are determined solely by experiment; they may or may not equal the stoichiometric coefficients \(a\) and \(b\). A balanced stoichiometric equation cannot be used to deduce the rate law theoretically!</li>
+  </ul>
+
+  <h4>Units of Rate Constant for an \(n\)-th Order Reaction</h4>
+  <p>From the rate law:</p>
+  <div class="formula-box">
+    \[k = \frac{\text{Rate}}{[\text{Concentration}]^n} = \frac{\mathrm{mol\,L^{-1}\,s^{-1}}}{(\mathrm{mol\,L^{-1}})^n} = \left(\mathrm{mol\,L^{-1}}\right)^{1-n}\,\mathrm{s^{-1}} = \mathrm{mol}^{1-n}\,\mathrm{L}^{n-1}\,\mathrm{s}^{-1}\]
+  </div>
+
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Order (\(n\))</th>
+          <th>Rate Law Format</th>
+          <th>SI / Standard Units of Rate Constant (\(k\))</th>
+          <th>Gaseous Pressure Units</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>0 (Zero Order)</strong></td>
+          <td>\(\text{Rate} = k\)</td>
+          <td>\(\mathrm{mol\,L^{-1}\,s^{-1}}\)</td>
+          <td>\(\mathrm{atm\,s^{-1}}\) or \(\mathrm{bar\,s^{-1}}\)</td>
+        </tr>
+        <tr>
+          <td><strong>1 (First Order)</strong></td>
+          <td>\(\text{Rate} = k[\mathrm{A}]\)</td>
+          <td>\(\mathrm{s^{-1}}\) (or \(\mathrm{min^{-1}}\), \(\mathrm{hr^{-1}}\))</td>
+          <td>\(\mathrm{s^{-1}}\)</td>
+        </tr>
+        <tr>
+          <td><strong>2 (Second Order)</strong></td>
+          <td>\(\text{Rate} = k[\mathrm{A}]^2\)</td>
+          <td>\(\mathrm{mol^{-1}\,L\,s^{-1}}\) or \(\mathrm{L\,mol^{-1}\,s^{-1}}\)</td>
+          <td>\(\mathrm{atm^{-1}\,s^{-1}}\)</td>
+        </tr>
+        <tr>
+          <td><strong>\(3/2\) (Fractional)</strong></td>
+          <td>\(\text{Rate} = k[\mathrm{A}]^{3/2}\)</td>
+          <td>\(\mathrm{mol^{-1/2}\,L^{1/2}\,s^{-1}}\)</td>
+          <td>\(\mathrm{atm^{-1/2}\,s^{-1}}\)</td>
+        </tr>
+        <tr>
+          <td><strong>\(n\) (General Order)</strong></td>
+          <td>\(\text{Rate} = k[\mathrm{A}]^n\)</td>
+          <td>\(\mathrm{mol}^{1-n}\,\mathrm{L}^{n-1}\,\mathrm{s}^{-1}\)</td>
+          <td>\(\mathrm{atm}^{1-n}\,\mathrm{s}^{-1}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.5 Molecularity vs. Order of Reaction</h3>
+  <p>Chemical reactions can be classified into two fundamental categories:</p>
+  <ul>
+    <li><strong>Elementary Reactions:</strong> Chemical reactions that occur in a single collision step without intermediates.</li>
+    <li><strong>Complex Reactions:</strong> Reactions that proceed through a sequence of two or more elementary steps (the <em>reaction mechanism</em>).</li>
+  </ul>
+  <p>The <strong>molecularity</strong> of an elementary reaction is defined as the total number of reacting species (atoms, ions, or molecules) that must collide simultaneously in order to bring about the chemical transformation. Simultaneous collisions of more than three molecules are statistically extremely improbable; hence, elementary reactions with molecularity greater than 3 are practically non-existent.</p>
+
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Order of Reaction</th>
+          <th>Molecularity of Reaction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Definition</strong></td>
+          <td>Sum of the powers of concentration terms in the experimental rate law.</td>
+          <td>Number of reacting species that collide simultaneously in an elementary step.</td>
+        </tr>
+        <tr>
+          <td><strong>Nature</strong></td>
+          <td>Purely an <strong>experimental quantity</strong>.</td>
+          <td>A <strong>theoretical property</strong> derived from the proposed elementary mechanism.</td>
+        </tr>
+        <tr>
+          <td><strong>Permissible Values</strong></td>
+          <td>Can be zero, integer (1, 2, 3), negative, or fractional.</td>
+          <td>Can only be positive integers: 1 (unimolecular), 2 (bimolecular), 3 (termolecular). Never zero or fractional.</td>
+        </tr>
+        <tr>
+          <td><strong>Applicability</strong></td>
+          <td>Applies to both elementary and complex multi-step reactions.</td>
+          <td>Has meaning <strong>only for elementary steps</strong>. For complex reactions, molecularity of the overall reaction is meaningless.</td>
+        </tr>
+        <tr>
+          <td><strong>Slowest Step Relation</strong></td>
+          <td>For a complex reaction, overall order is given by the stoichiometry of the slowest step (Rate Determining Step).</td>
+          <td>Molecularity of the slowest elementary step is identical to the overall order of a simple multi-step sequence without prior equilibria.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Rate Determining Step (RDS) &amp; Reactive Intermediates</h4>
+  <p>In a multi-step complex reaction, the slowest elementary step acts as the <strong>Rate Determining Step (RDS)</strong>, analogous to the slowest runner in a relay race determining the team's total time.</p>
+  <p>Consider the decomposition of hydrogen peroxide catalyzed by iodide ion in alkaline medium:</p>
+  <div class="formula-box">
+    \[2\,\mathrm{H_2O_2} \xrightarrow[\text{alkaline medium}]{\mathrm{I}^-} 2\,\mathrm{H_2O} + \mathrm{O_2}\]
+  </div>
+  <p>The experimentally observed rate law is:</p>
+  <div class="formula-box">
+    \[\text{Rate} = k\,[\mathrm{H_2O_2}][\mathrm{I}^-]\]
+  </div>
+  <p>The accepted two-step mechanism is:</p>
+  <ol>
+    <li>\(\mathrm{H_2O_2} + \mathrm{I}^- \longrightarrow \mathrm{H_2O} + \mathrm{IO}^-\) &nbsp;&nbsp; (Slow, bimolecular, RDS)</li>
+    <li>\(\mathrm{H_2O_2} + \mathrm{IO}^- \longrightarrow \mathrm{H_2O} + \mathrm{I}^- + \mathrm{O_2}\) &nbsp;&nbsp; (Fast, bimolecular)</li>
+  </ol>
+  <p>Here, the hypoiodite ion \(\mathrm{IO}^-\) is an <strong>intermediate</strong>: it is produced in step 1 and consumed in step 2, so it does not appear in the overall balanced equation. The catalyst \(\mathrm{I}^-\) participates in step 1 and is regenerated in step 2.</p>
+</section>
+
+<!-- SECTION 3: INTEGRATED RATE LAWS -->
+<section>
+  <h2>3. Integrated Rate Laws: Derivations, Graphs, and Half-Lives</h2>
+  <p>While differential rate equations express reaction rate as a function of instantaneous concentration, integrating these equations yields direct functional relationships between measurable concentration \([\mathrm{R}]\), elapsed time \(t\), and rate constant \(k\).</p>
+
+  <h3>3.1 Zero-Order Reactions</h3>
+  <p>A reaction is of zero order when the rate of reaction is completely independent of the reactant concentration:</p>
+  <div class="formula-box">
+    \[\text{Rate} = -\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = k\,[\mathrm{R}]^0 = k\]
+    \[\mathrm{d}[\mathrm{R}] = -k\,\mathrm{d}t\]
+  </div>
+  <p>Integrating both sides between limits \(t = 0\) (where \([\mathrm{R}] = [\mathrm{R}]_0\)) and time \(t\) (where \([\mathrm{R}] = [\mathrm{R}]_t\)):</p>
+  <div class="formula-box">
+    \[\int_{[\mathrm{R}]_0}^{[\mathrm{R}]_t} \mathrm{d}[\mathrm{R}] = -k\int_0^t \mathrm{d}t \implies [\mathrm{R}]_t - [\mathrm{R}]_0 = -kt\]
+    \[[\mathrm{R}]_t = [\mathrm{R}]_0 - kt \quad\iff\quad k = \frac{[\mathrm{R}]_0 - [\mathrm{R}]_t}{t}\]
+  </div>
+
+  <h4>Zero-Order Half-Life (\(t_{1/2}\))</h4>
+  <p>The half-life \(t_{1/2}\) is the time required for \([\mathrm{R}]_t\) to drop to \(\frac{1}{2}[\mathrm{R}]_0\):</p>
+  <div class="formula-box">
+    \[\frac{1}{2}[\mathrm{R}]_0 = [\mathrm{R}]_0 - k\,t_{1/2} \implies t_{1/2} = \frac{[\mathrm{R}]_0}{2k}\]
+  </div>
+  <p><strong>Crucial NEET Takeaway:</strong> For a zero-order reaction, \(t_{1/2}\) is <em>directly proportional</em> to initial concentration: \(t_{1/2} \propto [\mathrm{R}]_0\). If initial concentration is doubled, the half-life doubles!</p>
+
+  <h4>Classic Physical Examples of Zero-Order Reactions</h4>
+  <ul>
+    <li>Decomposition of gaseous ammonia on a hot platinum surface at high pressure:
+      \[2\,\mathrm{NH_3}(\mathrm{g}) \xrightarrow[1130\,\mathrm{K}]{\mathrm{Pt}} \mathrm{N_2}(\mathrm{g}) + 3\,\mathrm{H_2}(\mathrm{g}) \quad\quad \text{Rate} = k\,[\mathrm{NH_3}]^0 = k\]
+      <em>Why is it zero-order?</em> At high pressure, all catalytic adsorption sites on the platinum surface become fully saturated. Further increases in \(\mathrm{NH}_3\) gas pressure cannot increase the surface concentration of reacting molecules.
+    </li>
+    <li>Thermal decomposition of gaseous \(\mathrm{HI}\) on a gold (\(\mathrm{Au}\)) surface.</li>
+    <li>Enzyme-catalyzed biochemical reactions at substrate saturation.</li>
+  </ul>
+
+  <h3>3.2 First-Order Reactions</h3>
+  <p>In a first-order reaction, the rate is proportional to the first power of reactant concentration:</p>
+  <div class="formula-box">
+    \[\text{Rate} = -\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = k\,[\mathrm{R}]\]
+    \[\frac{\mathrm{d}[\mathrm{R}]}{[\mathrm{R}]} = -k\,\mathrm{d}t\]
+  </div>
+  <p>Integrating from \(t = 0\) to \(t\):</p>
+  <div class="formula-box">
+    \[\int_{[\mathrm{R}]_0}^{[\mathrm{R}]_t} \frac{\mathrm{d}[\mathrm{R}]}{[\mathrm{R}]} = -k\int_0^t \mathrm{d}t \implies \ln[\mathrm{R}]_t - \ln[\mathrm{R}]_0 = -kt\]
+    \[\ln\frac{[\mathrm{R}]_t}{[\mathrm{R}]_0} = -kt \implies [\mathrm{R}]_t = [\mathrm{R}]_0\,e^{-kt}\]
+  </div>
+  <p>Converting natural log (\(\ln\)) to common base-10 log (\(\log_{10}\)) using \(\ln x = 2.303\,\log_{10} x\):</p>
+  <div class="formula-box">
+    \[k = \frac{2.303}{t}\,\log_{10}\left(\frac{[\mathrm{R}]_0}{[\mathrm{R}]_t}\right) = \frac{2.303}{t}\,\log_{10}\left(\frac{a}{a-x}\right)\]
+  </div>
+  <p>where \(a = [\mathrm{R}]_0\) is the initial concentration and \(x\) is the concentration of reactant consumed after time \(t\).</p>
+
+  <h4>First-Order Half-Life (\(t_{1/2}\))</h4>
+  <p>At \(t = t_{1/2}\), \([\mathrm{R}]_t = \frac{[\mathrm{R}]_0}{2}\):</p>
+  <div class="formula-box">
+    \[k = \frac{2.303}{t_{1/2}}\,\log_{10}(2) = \frac{2.303 \times 0.3010}{t_{1/2}} = \frac{0.693}{t_{1/2}}\]
+    \[t_{1/2} = \frac{0.693}{k}\]
+  </div>
+  <p><strong>Crucial NEET Takeaway:</strong> For a first-order reaction, the half-life is strictly <em>independent</em> of the initial concentration \([\mathrm{R}]_0\). Whether you start with \(10\,\mathrm{M}\) or \(0.01\,\mathrm{M}\), it takes the exact same duration for half of the reactant to decompose!</p>
+
+  <!-- TUTORIAL DIAGRAM 2: KINETIC PLOTS -->
+  <div class="svg-wrapper">
+    <svg viewBox="0 0 760 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <rect width="760" height="320" fill="#ffffff" />
+      
+      <!-- Plot A: Zero Order [R] vs t -->
+      <g transform="translate(40, 20)">
+        <text x="100" y="15" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Zero Order: [R] vs. t</text>
+        <line x1="30" y1="240" x2="200" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="30" y1="240" x2="30" y2="30" stroke="#334155" stroke-width="2" />
+        <text x="115" y="265" font-size="10" fill="#475569" text-anchor="middle">Time (t)</text>
+        <text x="10" y="130" font-size="10" fill="#475569" text-anchor="middle" transform="rotate(-90 10 130)">[R]</text>
+        
+        <line x1="30" y1="50" x2="180" y2="210" stroke="#2563eb" stroke-width="2.5" />
+        <circle cx="30" cy="50" r="3" fill="#1e3a8a" />
+        <text x="35" y="45" font-size="9" fill="#1e3a8a" font-weight="bold">Intercept = [R]0</text>
+        <text x="110" y="125" font-size="10" fill="#2563eb" font-weight="bold">Slope = -k</text>
+      </g>
+
+      <!-- Plot B: First Order ln[R] vs t -->
+      <g transform="translate(285, 20)">
+        <text x="100" y="15" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">First Order: ln[R] vs. t</text>
+        <line x1="30" y1="240" x2="200" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="30" y1="240" x2="30" y2="30" stroke="#334155" stroke-width="2" />
+        <text x="115" y="265" font-size="10" fill="#475569" text-anchor="middle">Time (t)</text>
+        <text x="10" y="130" font-size="10" fill="#475569" text-anchor="middle" transform="rotate(-90 15 130)">ln[R]</text>
+        
+        <line x1="30" y1="50" x2="180" y2="210" stroke="#0d9488" stroke-width="2.5" />
+        <circle cx="30" cy="50" r="3" fill="#0f766e" />
+        <text x="35" y="45" font-size="9" fill="#0f766e" font-weight="bold">Intercept = ln[R]0</text>
+        <text x="110" y="125" font-size="10" fill="#0d9488" font-weight="bold">Slope = -k</text>
+      </g>
+
+      <!-- Plot C: First Order log([R]0/[R]) vs t -->
+      <g transform="translate(530, 20)">
+        <text x="100" y="15" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">First Order: log([R]0/[R]) vs. t</text>
+        <line x1="30" y1="240" x2="200" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="30" y1="240" x2="30" y2="30" stroke="#334155" stroke-width="2" />
+        <text x="115" y="265" font-size="10" fill="#475569" text-anchor="middle">Time (t)</text>
+        <text x="10" y="130" font-size="10" fill="#475569" text-anchor="middle" transform="rotate(-90 15 130)">log([R]0/[R])</text>
+        
+        <!-- Passes through origin -->
+        <line x1="30" y1="240" x2="180" y2="60" stroke="#b45309" stroke-width="2.5" />
+        <circle cx="30" cy="240" r="3" fill="#b45309" />
+        <text x="35" y="235" font-size="9" fill="#b45309">Origin (0,0)</text>
+        <text x="80" y="140" font-size="10" fill="#b45309" font-weight="bold">Slope = +k / 2.303</text>
+      </g>
+    </svg>
+    <div class="svg-caption">Figure 2: Characteristic linear plots: (A) Zero-order \([\mathrm{R}]\) vs. \(t\); (B) First-order \(\ln[\mathrm{R}]\) vs. \(t\); (C) First-order \(\log([\mathrm{R}]_0/[\mathrm{R}])\) vs. \(t\).</div>
+  </div>
+
+  <h4>Key Time Proportions for First-Order Reactions (NEET High-Yield)</h4>
+  <ul>
+    <li>Time for \(75\%\) completion (\(t_{75\%}\)):
+      \[[\mathrm{R}] = 0.25\,[\mathrm{R}]_0 \implies t_{75\%} = \frac{2.303}{k}\log(4) = \frac{2 \times 2.303 \times 0.3010}{k} = 2 \times t_{1/2}\]
+    </li>
+    <li>Time for \(87.5\%\) completion (\(t_{87.5\%}\)): \(t_{87.5\%} = 3 \times t_{1/2}\).</li>
+    <li>Time for \(99.9\%\) completion (\(t_{99.9\%}\)):
+      \[[\mathrm{R}] = 0.001\,[\mathrm{R}]_0 = 10^{-3}\,[\mathrm{R}]_0 \implies t_{99.9\%} = \frac{2.303}{k}\log(10^3) = \frac{3 \times 2.303}{k} = \frac{6.909}{k} \approx 10 \times t_{1/2}\]
+    </li>
+    <li>Time for \(99\%\) vs. \(90\%\) completion:
+      \[t_{99\%} = \frac{2.303}{k}\log(100) = \frac{2 \times 2.303}{k}\]
+      \[t_{90\%} = \frac{2.303}{k}\log(10) = \frac{2.303}{k} \implies t_{99\%} = 2 \times t_{90\%}\]
+    </li>
+  </ul>
+
+  <h3>3.3 First-Order Gas Phase Reactions</h3>
+  <p>Consider a homogeneous gas-phase reaction where reactant and products are all gases:</p>
+  <div class="formula-box">
+    \[\mathrm{A}(\mathrm{g}) \longrightarrow \mathrm{B}(\mathrm{g}) + \mathrm{C}(\mathrm{g})\]
+  </div>
+  <p>Let the initial pressure of pure \(\mathrm{A}\) at \(t = 0\) be \(p_{\mathrm{i}}\). At time \(t\), let \(x\) be the decrease in partial pressure of \(\mathrm{A}\). According to reaction stoichiometry:</p>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Timeline</th>
+          <th>\(p_{\mathrm{A}}\)</th>
+          <th>\(p_{\mathrm{B}}\)</th>
+          <th>\(p_{\mathrm{C}}\)</th>
+          <th>Total Pressure (\(p_t\))</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>At \(t = 0\)</td>
+          <td>\(p_{\mathrm{i}}\)</td>
+          <td>0</td>
+          <td>0</td>
+          <td>\(p_{\mathrm{i}}\)</td>
+        </tr>
+        <tr>
+          <td>At time \(t\)</td>
+          <td>\(p_{\mathrm{i}} - x\)</td>
+          <td>\(x\)</td>
+          <td>\(x\)</td>
+          <td>\((p_{\mathrm{i}} - x) + x + x = p_{\mathrm{i}} + x\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>From total pressure: \(p_t = p_{\mathrm{i}} + x \implies x = p_t - p_{\mathrm{i}}\).</p>
+  <p>Substituting \(x\) back into the partial pressure of \(\mathrm{A}\):</p>
+  <div class="formula-box">
+    \[p_{\mathrm{A}} = p_{\mathrm{i}} - (p_t - p_{\mathrm{i}}) = 2p_{\mathrm{i}} - p_t\]
+    \[k = \frac{2.303}{t}\log_{10}\left(\frac{p_{\mathrm{i}}}{p_{\mathrm{A}}}\right) = \frac{2.303}{t}\log_{10}\left(\frac{p_{\mathrm{i}}}{2p_{\mathrm{i}} - p_t}\right)\]
+  </div>
+
+  <h3>3.4 Pseudo-First-Order Reactions</h3>
+  <p>A reaction is termed <strong>pseudo-first-order</strong> when its true molecularity or intrinsic order is higher (e.g., bimolecular/second order), but under actual experimental conditions, it obeys first-order kinetics because one of the reactants is present in large stoichiometric excess.</p>
+
+  <h4>1. Acid Hydrolysis of Ethyl Acetate</h4>
+  <div class="formula-box">
+    \[\mathrm{CH_3COOC_2H_5} + \mathrm{H_2O} \xrightarrow{\mathrm{H}^+} \mathrm{CH_3COOH} + \mathrm{C_2H_5OH}\]
+  </div>
+  <p>The true rate equation is \(\text{Rate} = k'\,[\mathrm{CH_3COOC_2H_5}][\mathrm{H_2O}]\). When \(0.01\,\mathrm{mol}\) of ethyl acetate is reacted in \(10\,\mathrm{mol}\) of water, the water concentration decreases only from \(10\,\mathrm{mol}\) to \(9.99\,\mathrm{mol}\)—an insignificant change. Hence, \([\mathrm{H_2O}]\) remains effectively constant:</p>
+  <div class="formula-box">
+    \[\text{Rate} = k'\,[\mathrm{H_2O}]\,[\mathrm{CH_3COOC_2H_5}] = k\,[\mathrm{CH_3COOC_2H_5}] \quad\quad (\text{where } k = k'\,[\mathrm{H_2O}])\]
+  </div>
+
+  <h4>2. Inversion of Cane Sugar (Sucrose)</h4>
+  <div class="formula-box">
+    \[\mathrm{C_{12}H_{22}O_{11}} + \mathrm{H_2O} \xrightarrow{\mathrm{H}^+} \underset{\text{D-glucose}}{\mathrm{C_6H_{12}O_6}} + \underset{\text{D-fructose}}{\mathrm{C_6H_{12}O_6}}\]
+    \[\text{Rate} = k\,[\mathrm{C_{12}H_{22}O_{11}}]\]
+  </div>
+</section>
+
+<!-- SECTION 4: TEMPERATURE DEPENDENCE & ARRHENIUS EQUATION -->
+<section>
+  <h2>4. Temperature Dependence, Arrhenius Equation, and Catalysis</h2>
+  
+  <h3>4.1 Temperature Coefficient (\(Q_{10}\))</h3>
+  <p>For most chemical reactions, the rate of reaction increases exponentially with temperature. As a general empirical rule, <strong>a rise in temperature of \(10\,^\circ\mathrm{C}\) (or \(10\,\mathrm{K}\)) nearly doubles or triples the rate constant</strong>:</p>
+  <div class="formula-box">
+    \[\text{Temperature Coefficient } (\mu \text{ or } Q_{10}) = \frac{k_{T+10}}{k_T} \approx 2 \text{ to } 3\]
+  </div>
+
+  <h3>4.2 The Arrhenius Equation</h3>
+  <p>Svante Arrhenius provided the physical interpretation of temperature dependence based on the formation of an energized intermediate known as the <strong>activated complex</strong>:</p>
+  <div class="formula-box">
+    \[k = A\,e^{-E_{\mathrm{a}} / RT}\]
+  </div>
+  <ul>
+    <li>\(A\): Arrhenius factor, frequency factor, or pre-exponential factor (has identical units to \(k\)).</li>
+    <li>\(E_{\mathrm{a}}\): <strong>Activation energy</strong> in \(\mathrm{J\,mol^{-1}}\) or \(\mathrm{kJ\,mol^{-1}}\). It represents the minimum extra energy that reactant molecules must absorb to reach the transition state.</li>
+    <li>\(R\): Universal gas constant (\(8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}\)).</li>
+    <li>\(T\): Absolute temperature in Kelvin (\(\mathrm{K}\)).</li>
+    <li>The Boltzmann factor \(e^{-E_{\mathrm{a}} / RT}\) represents the <strong>fraction of molecules</strong> having kinetic energy equal to or exceeding the activation energy \(E_{\mathrm{a}}\).</li>
+  </ul>
+
+  <h4>Logarithmic and Two-Temperature Forms</h4>
+  <p>Taking natural logarithm:</p>
+  <div class="formula-box">
+    \[\ln k = -\frac{E_{\mathrm{a}}}{R}\left(\frac{1}{T}\right) + \ln A\]
+  </div>
+  <p>Comparing with the equation of a straight line (\(y = mx + c\)), a plot of \(\ln k\) against \(1/T\) yields a straight line with:</p>
+  <ul>
+    <li>\(\text{Slope} = -\frac{E_{\mathrm{a}}}{R}\)</li>
+    <li>\(\text{Intercept} = \ln A\)</li>
+  </ul>
+  <p>In base-10 logarithms between two temperatures \(T_1\) and \(T_2\) (with rate constants \(k_1\) and \(k_2\)):</p>
+  <div class="formula-box">
+    \[\log_{10}\left(\frac{k_2}{k_1}\right) = \frac{E_{\mathrm{a}}}{2.303\,R}\left[\frac{1}{T_1} - \frac{1}{T_2}\right] = \frac{E_{\mathrm{a}}}{2.303\,R}\left[\frac{T_2 - T_1}{T_1 T_2}\right]\]
+  </div>
+
+  <!-- TUTORIAL DIAGRAM 3: MAXWELL-BOLTZMANN & ARRHENIUS PLOT -->
+  <div class="svg-wrapper">
+    <svg viewBox="0 0 760 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <rect width="760" height="320" fill="#ffffff" />
+      
+      <!-- Graph A: Maxwell Boltzmann Distribution at T and T+10 -->
+      <g transform="translate(40, 20)">
+        <text x="160" y="15" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Maxwell-Boltzmann Distribution at T and (T + 10 K)</text>
+        <line x1="40" y1="240" x2="310" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="40" y1="240" x2="40" y2="30" stroke="#334155" stroke-width="2" />
+        <text x="175" y="265" font-size="10" fill="#475569" text-anchor="middle">Kinetic Energy (E) &#8594;</text>
+        <text x="15" y="130" font-size="10" fill="#475569" text-anchor="middle" transform="rotate(-90 15 130)">Fraction of Molecules (N_E / N_T) &#8594;</text>
+        
+        <!-- Shaded areas under curves beyond Ea (x = 210) -->
+        <path d="M 210,165 Q 240,215 290,238 L 290,240 L 210,240 Z" fill="#93c5fd" opacity="0.6" />
+        <path d="M 210,140 Q 245,190 295,232 L 290,238 Q 240,215 210,165 Z" fill="#ef4444" opacity="0.6" />
+        
+        <!-- Curve at T -->
+        <path d="M 40,240 Q 80,40 130,100 T 210,165 T 290,238" fill="none" stroke="#1d4ed8" stroke-width="2.5" />
+        <!-- Curve at T+10 (flatter, shifted right) -->
+        <path d="M 40,240 Q 95,90 150,130 T 210,140 T 295,232" fill="none" stroke="#b91c1c" stroke-width="2" stroke-dasharray="3" />
+        
+        <!-- Ea line -->
+        <line x1="210" y1="240" x2="210" y2="50" stroke="#0f172a" stroke-width="1.8" />
+        <text x="210" y="42" font-size="10" fill="#0f172a" font-weight="bold" text-anchor="middle">Activation Energy (Ea)</text>
+        
+        <text x="120" y="75" font-size="10" fill="#1d4ed8" font-weight="bold">Curve at T</text>
+        <text x="165" y="115" font-size="10" fill="#b91c1c" font-weight="bold">Curve at (T + 10 K)</text>
+        
+        <!-- Explanatory note -->
+        <text x="225" y="180" font-size="8.5" fill="#1e3a8a">Shaded area doubles</text>
+        <text x="225" y="192" font-size="8.5" fill="#1e3a8a">at (T + 10 K) &#8594; Rate doubles</text>
+      </g>
+
+      <!-- Graph B: Arrhenius Plot ln k vs 1/T -->
+      <g transform="translate(430, 20)">
+        <text x="140" y="15" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Arrhenius Plot: ln k vs. 1/T</text>
+        <line x1="40" y1="240" x2="280" y2="240" stroke="#334155" stroke-width="2" />
+        <line x1="40" y1="240" x2="40" y2="30" stroke="#334155" stroke-width="2" />
+        <text x="160" y="265" font-size="10" fill="#475569" text-anchor="middle">Inverse Temperature (1/T) &#8594;</text>
+        <text x="15" y="130" font-size="10" fill="#475569" text-anchor="middle" transform="rotate(-90 15 130)">ln k &#8594;</text>
+        
+        <line x1="40" y1="50" x2="250" y2="220" stroke="#0d9488" stroke-width="2.5" />
+        <circle cx="40" cy="50" r="3.5" fill="#0f766e" />
+        <text x="45" y="45" font-size="9" fill="#0f766e" font-weight="bold">Intercept = ln A</text>
+        
+        <!-- Slope bracket -->
+        <line x1="120" y1="115" x2="180" y2="115" stroke="#64748b" stroke-width="1" stroke-dasharray="2" />
+        <line x1="180" y1="115" x2="180" y2="163" stroke="#64748b" stroke-width="1" stroke-dasharray="2" />
+        <text x="188" y="145" font-size="10" fill="#0d9488" font-weight="bold">Slope = -Ea / R</text>
+      </g>
+    </svg>
+    <div class="svg-caption">Figure 3: (Left) Maxwell-Boltzmann distribution curves showing why a \(10\,\mathrm{K}\) temperature rise roughly doubles the fraction of molecules possessing energy \(\ge E_{\mathrm{a}}\); (Right) Arrhenius plot of \(\ln k\) against \(1/T\).</div>
+  </div>
+
+  <h3>4.3 Effect of Catalyst: Intermediate Complex Theory</h3>
+  <p>A <strong>catalyst</strong> is a substance that accelerates the rate of a chemical reaction without itself undergoing any permanent chemical change. According to the <em>intermediate complex theory</em>, the catalyst combines temporarily with reactant molecules to form an unstable intermediate complex, which then decomposes into products and regenerates the catalyst intact.</p>
+  
+  <!-- TUTORIAL DIAGRAM 4: CATALYZED VS UNCATALYZED POTENTIAL ENERGY DIAGRAM -->
+  <div class="svg-wrapper">
+    <svg viewBox="0 0 650 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <rect width="650" height="320" fill="#ffffff" />
+      <!-- Axes -->
+      <line x1="60" y1="270" x2="580" y2="270" stroke="#334155" stroke-width="2" />
+      <line x1="60" y1="270" x2="60" y2="30" stroke="#334155" stroke-width="2" />
+      <text x="320" y="295" font-size="11" fill="#475569" text-anchor="middle">Reaction Coordinate (Reaction Progress) &#8594;</text>
+      <text x="25" y="150" font-size="11" fill="#475569" text-anchor="middle" transform="rotate(-90 25 150)">Potential Energy &#8594;</text>
+      
+      <!-- Reactant and Product energy levels -->
+      <line x1="60" y1="180" x2="150" y2="180" stroke="#1e3a8a" stroke-width="2.5" />
+      <text x="90" y="172" font-size="11" fill="#1e3a8a" font-weight="bold">Reactants</text>
+      
+      <line x1="460" y1="230" x2="550" y2="230" stroke="#1e3a8a" stroke-width="2.5" />
+      <text x="490" y="222" font-size="11" fill="#1e3a8a" font-weight="bold">Products</text>
+      
+      <!-- Uncatalyzed path -->
+      <path d="M 150,180 C 200,180 240,50 310,50 C 380,50 410,230 460,230" fill="none" stroke="#b91c1c" stroke-width="2.5" />
+      <text x="310" y="42" font-size="10" fill="#b91c1c" font-weight="bold" text-anchor="middle">Uncatalyzed Transition State</text>
+      
+      <!-- Catalyzed path -->
+      <path d="M 150,180 C 200,180 250,110 310,110 C 370,110 410,230 460,230" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4" />
+      <text x="310" y="102" font-size="10" fill="#059669" font-weight="bold" text-anchor="middle">Catalyzed Transition State</text>
+      
+      <!-- Ea uncatalyzed arrow -->
+      <line x1="140" y1="180" x2="140" y2="50" stroke="#b91c1c" stroke-width="1.5" />
+      <line x1="135" y1="50" x2="310" y2="50" stroke="#b91c1c" stroke-width="1" stroke-dasharray="2" />
+      <polyline points="137,56 140,50 143,56" fill="none" stroke="#b91c1c" stroke-width="1.5" />
+      <polyline points="137,174 140,180 143,174" fill="none" stroke="#b91c1c" stroke-width="1.5" />
+      <text x="85" y="115" font-size="10" fill="#b91c1c" font-weight="bold">Ea (uncatalyzed)</text>
+      
+      <!-- Ea catalyzed arrow -->
+      <line x1="220" y1="180" x2="220" y2="110" stroke="#059669" stroke-width="1.5" />
+      <line x1="215" y1="110" x2="310" y2="110" stroke="#059669" stroke-width="1" stroke-dasharray="2" />
+      <polyline points="217,116 220,110 223,116" fill="none" stroke="#059669" stroke-width="1.5" />
+      <polyline points="217,174 220,180 223,174" fill="none" stroke="#059669" stroke-width="1.5" />
+      <text x="228" y="145" font-size="10" fill="#059669" font-weight="bold">Ea (catalyzed)</text>
+      
+      <!-- Delta H bracket -->
+      <line x1="565" y1="180" x2="565" y2="230" stroke="#0f172a" stroke-width="1.5" />
+      <line x1="150" y1="180" x2="570" y2="180" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2" />
+      <polyline points="562,186 565,180 568,186" fill="none" stroke="#0f172a" stroke-width="1.5" />
+      <polyline points="562,224 565,230 568,224" fill="none" stroke="#0f172a" stroke-width="1.5" />
+      <text x="575" y="210" font-size="10" fill="#0f172a" font-weight="bold">&#916;H &lt; 0</text>
+    </svg>
+    <div class="svg-caption">Figure 4: Potential energy profile of an exothermic reaction showing the uncatalyzed pathway versus the lower activation energy pathway provided by a catalyst. Note that reactant energy, product energy, and \(\Delta H\) remain identical.</div>
+  </div>
+
+  <div class="callout-teal">
+    <div class="callout-title">NEET Master Rules: What a Catalyst DOES and DOES NOT Do</div>
+    <ul>
+      <li><strong>Does:</strong> Provides an alternative mechanism with a lower potential energy barrier (lowers \(E_{\mathrm{a}}\) for both forward and reverse reactions by the exact same amount).</li>
+      <li><strong>Does:</strong> Increases both forward rate constant (\(k_{\mathrm{f}}\)) and backward rate constant (\(k_{\mathrm{b}}\)) to the exact same extent, thereby reducing the time taken to attain equilibrium.</li>
+      <li><strong>Does NOT:</strong> Alter the equilibrium constant (\(K_{\mathrm{eq}} = k_{\mathrm{f}} / k_{\mathrm{b}}\) remains unchanged).</li>
+      <li><strong>Does NOT:</strong> Alter standard Gibbs free energy (\(\Delta G^\circ\)) or enthalpy (\(\Delta H\)) of the reaction.</li>
+      <li><strong>Does NOT:</strong> Make a non-spontaneous reaction (\(\Delta G &gt; 0\)) spontaneous; it only accelerates thermodynamically feasible processes.</li>
+    </ul>
+  </div>
+
+  <h3>4.4 Collision Theory of Chemical Reactions</h3>
+  <p>Developed by Max Trautz and William Lewis (1916–18) based on the kinetic theory of gases, Collision Theory treats molecules as hard rigid spheres. A chemical reaction occurs only when reactant molecules physically collide. However, only a tiny fraction of total collisions lead to chemical reaction.</p>
+
+  <h4>The Two Necessary Barriers for an Effective Collision</h4>
+  <ol>
+    <li><strong>Energy Barrier (Threshold Energy):</strong> Colliding molecules must possess a minimum amount of energy called <strong>Threshold Energy</strong>.
+      \[\text{Threshold Energy} = E_{\mathrm{a}} + \text{Initial kinetic energy possessed by reacting molecules}\]
+      Collisions involving kinetic energy below \(E_{\mathrm{a}}\) are elastic: the molecules simply rebound without reacting.
+    </li>
+    <li><strong>Orientation Barrier (Steric Factor \(P\)):</strong> Even if molecules possess sufficient kinetic energy, bond rearrangement cannot occur unless reacting atoms collide in the correct spatial orientation.</li>
+  </ol>
+
+  <!-- TUTORIAL DIAGRAM 5: MOLECULAR ORIENTATION -->
+  <div class="svg-wrapper">
+    <svg viewBox="0 0 700 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <rect width="700" height="240" fill="#ffffff" />
+      
+      <!-- Top: Improper orientation -->
+      <g transform="translate(30, 20)">
+        <text x="0" y="20" font-size="11" font-weight="bold" fill="#b91c1c">Case 1: Improper Orientation (No Reaction)</text>
+        
+        <!-- Reactants approaching from wrong side -->
+        <circle cx="80" cy="55" r="16" fill="#fca5a5" stroke="#b91c1c" stroke-width="1.5" />
+        <text x="80" y="59" font-size="10" fill="#7f1d1d" font-weight="bold" text-anchor="middle">HO&#8315;</text>
+        <line x1="105" y1="55" x2="135" y2="55" stroke="#b91c1c" stroke-width="2" />
+        
+        <!-- CH3Br -->
+        <circle cx="170" cy="55" r="18" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+        <text x="170" y="59" font-size="10" fill="#1e293b" font-weight="bold" text-anchor="middle">Br</text>
+        <circle cx="210" cy="55" r="14" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" />
+        <text x="210" y="59" font-size="10" fill="#1e293b" text-anchor="middle">CH&#8323;</text>
+        
+        <text x="290" y="60" font-size="14" fill="#64748b">&#8594;</text>
+        <text x="330" y="53" font-size="10" fill="#b91c1c" font-weight="bold">Molecules rebound elastically!</text>
+        <text x="330" y="68" font-size="9" fill="#64748b">Electrostatic repulsion between negative Br and OH&#8315; prevents bond formation.</text>
+      </g>
+
+      <!-- Bottom: Proper orientation -->
+      <g transform="translate(30, 130)">
+        <text x="0" y="20" font-size="11" font-weight="bold" fill="#059669">Case 2: Proper Orientation (Effective Collision &#8594; Product Formed)</text>
+        
+        <!-- Backside attack on carbon -->
+        <circle cx="80" cy="55" r="16" fill="#a7f3d0" stroke="#059669" stroke-width="1.5" />
+        <text x="80" y="59" font-size="10" fill="#065f46" font-weight="bold" text-anchor="middle">HO&#8315;</text>
+        <line x1="105" y1="55" x2="135" y2="55" stroke="#059669" stroke-width="2" />
+        
+        <!-- CH3Br facing C towards OH- -->
+        <circle cx="155" cy="55" r="14" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" />
+        <text x="155" y="59" font-size="10" fill="#1e293b" text-anchor="middle">CH&#8323;</text>
+        <circle cx="195" cy="55" r="18" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+        <text x="195" y="59" font-size="10" fill="#1e293b" font-weight="bold" text-anchor="middle">Br</text>
+        
+        <text x="235" y="60" font-size="14" fill="#64748b">&#8594;</text>
+        
+        <!-- Activated Complex -->
+        <rect x="260" y="35" width="130" height="40" rx="4" fill="#f8fafc" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3" />
+        <text x="325" y="58" font-size="9.5" fill="#0f766e" font-weight="bold" text-anchor="middle">[HO &#183;&#183;&#183; CH&#8323; &#183;&#183;&#183; Br]&#8225;</text>
+        
+        <text x="405" y="60" font-size="14" fill="#64748b">&#8594;</text>
+        
+        <!-- Products -->
+        <text x="430" y="58" font-size="11" fill="#059669" font-weight="bold">CH&#8323;OH + Br&#8315;</text>
+      </g>
+    </svg>
+    <div class="svg-caption">Figure 5: Collision theory model of molecular orientation illustrated for the bimolecular nucleophilic substitution of bromomethane with hydroxide ion.</div>
+  </div>
+
+  <p>To incorporate both requirements, the modified collision rate equation is formulated as:</p>
+  <div class="formula-box">
+    \[\text{Rate} = P\,Z_{\mathrm{AB}}\,e^{-E_{\mathrm{a}} / RT}\]
+  </div>
+  <ul>
+    <li>\(Z_{\mathrm{AB}}\): Collision frequency, defined as the number of collisions per second per unit volume of the reaction mixture between species \(\mathrm{A}\) and \(\mathrm{B}\).</li>
+    <li>\(P\): Steric factor or probability factor (\(P \le 1\)), which accounts for the proper orientation of reacting molecules.</li>
+    <li>Arrhenius pre-exponential factor is related as: \(A = P\,Z_{\mathrm{AB}}\).</li>
+    <li><strong>Drawback of Collision Theory:</strong> Treats atoms/molecules as hard structureless spheres and completely ignores their internal degrees of freedom, vibrations, and rotational electron cloud distortions.</li>
+  </ul>
+</section>
+
+<!-- SECTION 5: MASTER SUMMARY TABLE OF MATHEMATICAL FORMULAS -->
+<section>
+  <h2>5. Master Summary of Kinetic Formulations</h2>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Kinetic Property</th>
+          <th>Zero Order (\(n = 0\))</th>
+          <th>First Order (\(n = 1\))</th>
+          <th>\(n\)-th Order (\(n \ne 1\))</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Differential Rate Law</strong></td>
+          <td>\(-\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = k\)</td>
+          <td>\(-\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = k[\mathrm{R}]\)</td>
+          <td>\(-\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = k[\mathrm{R}]^n\)</td>
+        </tr>
+        <tr>
+          <td><strong>Integrated Rate Law</strong></td>
+          <td>\([\mathrm{R}]_t = [\mathrm{R}]_0 - kt\)</td>
+          <td>\([\mathrm{R}]_t = [\mathrm{R}]_0\,e^{-kt}\) or \(k = \frac{2.303}{t}\log\frac{[\mathrm{R}]_0}{[\mathrm{R}]_t}\)</td>
+          <td>\(\frac{1}{[\mathrm{R}]_t^{n-1}} - \frac{1}{[\mathrm{R}]_0^{n-1}} = (n-1)kt\)</td>
+        </tr>
+        <tr>
+          <td><strong>Linear Plot (\(y\) vs \(x\))</strong></td>
+          <td>\([\mathrm{R}]\) vs \(t\) (Slope \(= -k\))</td>
+          <td>\(\ln[\mathrm{R}]\) vs \(t\) (Slope \(= -k\))</td>
+          <td>\(\frac{1}{[\mathrm{R}]^{n-1}}\) vs \(t\) (Slope \(= (n-1)k\))</td>
+        </tr>
+        <tr>
+          <td><strong>Half-Life (\(t_{1/2}\))</strong></td>
+          <td>\(t_{1/2} = \frac{[\mathrm{R}]_0}{2k}\)</td>
+          <td>\(t_{1/2} = \frac{\ln 2}{k} = \frac{0.693}{k}\)</td>
+          <td>\(t_{1/2} \propto \frac{1}{[\mathrm{R}]_0^{n-1}}\)</td>
+        </tr>
+        <tr>
+          <td><strong>Dependence of \(t_{1/2}\) on \([\mathrm{R}]_0\)</strong></td>
+          <td>\(t_{1/2} \propto [\mathrm{R}]_0^1\)</td>
+          <td>Independent of \([\mathrm{R}]_0\) (\(t_{1/2} \propto [\mathrm{R}]_0^0\))</td>
+          <td>\(t_{1/2} \propto [\mathrm{R}]_0^{1-n}\)</td>
+        </tr>
+        <tr>
+          <td><strong>Units of Rate Constant (\(k\))</strong></td>
+          <td>\(\mathrm{mol\,L^{-1}\,s^{-1}}\)</td>
+          <td>\(\mathrm{s^{-1}}\)</td>
+          <td>\(\mathrm{mol}^{1-n}\,\mathrm{L}^{n-1}\,\mathrm{s}^{-1}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 6: REPRESENTATIVE WORKED EXAMPLES -->
+<section>
+  <h2>6. Representative Worked Examples (Step-by-Step)</h2>
+
+  <!-- Example 1 -->
+  <div class="worked-example">
+    <h4>Worked Example 1: Stoichiometric Rates of Reaction and Appearance</h4>
+    <p><strong>Problem:</strong> In the high-temperature decomposition of dinitrogen pentoxide in carbon tetrachloride:</p>
+    \[2\,\mathrm{N_2O_5}(\mathrm{g}) \longrightarrow 4\,\mathrm{NO_2}(\mathrm{g}) + \mathrm{O_2}(\mathrm{g})\]
+    <p>The concentration of \(\mathrm{N_2O_5}\) drops from \(2.33\,\mathrm{mol\,L^{-1}}\) to \(2.08\,\mathrm{mol\,L^{-1}}\) in \(184\,\text{minutes}\). Calculate:</p>
+    <ol>
+      <li>The average rate of the reaction in \(\mathrm{mol\,L^{-1}\,min^{-1}}\) and \(\mathrm{mol\,L^{-1}\,s^{-1}}\).</li>
+      <li>The rate of production of \(\mathrm{NO_2}\) during this period.</li>
+    </ol>
+    <p><strong>Step-by-Step Solution:</strong></p>
+    <p><strong>Step 1:</strong> Express the overall average reaction rate from stoichiometry:</p>
+    \[\text{Rate} = -\frac{1}{2}\frac{\Delta[\mathrm{N_2O_5}]}{\Delta t} = \frac{1}{4}\frac{\Delta[\mathrm{NO_2}]}{\Delta t} = \frac{\Delta[\mathrm{O_2}]}{\Delta t}\]
+    <p><strong>Step 2:</strong> Substitute concentration changes for \(\mathrm{N_2O_5}\):</p>
+    \[\Delta[\mathrm{N_2O_5}] = 2.08 - 2.33 = -0.25\,\mathrm{mol\,L^{-1}}\]
+    \[\Delta t = 184\,\mathrm{min}\]
+    \[\text{Rate} = -\frac{1}{2}\left(\frac{-0.25\,\mathrm{mol\,L^{-1}}}{184\,\mathrm{min}}\right) = \frac{0.25}{368} = 6.79 \times 10^{-4}\,\mathrm{mol\,L^{-1}\,min^{-1}}\]
+    <p>In seconds:</p>
+    \[\text{Rate} = \frac{6.79 \times 10^{-4}\,\mathrm{mol\,L^{-1}\,min^{-1}}}{60\,\mathrm{s\,min^{-1}}} = 1.13 \times 10^{-5}\,\mathrm{mol\,L^{-1}\,s^{-1}}\]
+    <p><strong>Step 3:</strong> Calculate rate of formation of \(\mathrm{NO_2}\):</p>
+    \[\frac{\Delta[\mathrm{NO_2}]}{\Delta t} = 4 \times \text{Rate} = 4 \times (6.79 \times 10^{-4}\,\mathrm{mol\,L^{-1}\,min^{-1}}) = 2.72 \times 10^{-3}\,\mathrm{mol\,L^{-1}\,min^{-1}}\]
+  </div>
+
+  <!-- Example 2 -->
+  <div class="worked-example">
+    <h4>Worked Example 2: Deducing Rate Law from Initial Rate Data</h4>
+    <p><strong>Problem:</strong> For the reaction \(2\,\mathrm{A} + \mathrm{B} \rightarrow \mathrm{C} + \mathrm{D}\), the following initial rates were obtained at \(300\,\mathrm{K}\):</p>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Run</th>
+            <th>\([\mathrm{A}]_0 / \mathrm{mol\,L^{-1}}\)</th>
+            <th>\([\mathrm{B}]_0 / \mathrm{mol\,L^{-1}}\)</th>
+            <th>Initial Rate of Formation of \(\mathrm{D} / \mathrm{mol\,L^{-1}\,min^{-1}}\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>I</td>
+            <td>0.10</td>
+            <td>0.10</td>
+            <td>\(6.0 \times 10^{-3}\)</td>
+          </tr>
+          <tr>
+            <td>II</td>
+            <td>0.30</td>
+            <td>0.20</td>
+            <td>\(7.2 \times 10^{-2}\)</td>
+          </tr>
+          <tr>
+            <td>III</td>
+            <td>0.30</td>
+            <td>0.40</td>
+            <td>\(2.88 \times 10^{-1}\)</td>
+          </tr>
+          <tr>
+            <td>IV</td>
+            <td>0.40</td>
+            <td>0.10</td>
+            <td>\(2.40 \times 10^{-2}\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Determine the order with respect to \(\mathrm{A}\) and \(\mathrm{B}\), write the rate law, and calculate the rate constant \(k\).</p>
+    <p><strong>Step-by-Step Solution:</strong></p>
+    <p>Let the rate law be: \(\text{Rate} = k\,[\mathrm{A}]^x\,[\mathrm{B}]^y\).</p>
+    <p><strong>Step 1: Determine order with respect to \(\mathrm{A}\) (holding \([\mathrm{B}]\) constant):</strong></p>
+    <p>Compare Run IV and Run I (where \([\mathrm{B}] = 0.10\,\mathrm{M}\)):</p>
+    \[\frac{\text{Rate IV}}{\text{Rate I}} = \frac{2.40 \times 10^{-2}}{6.0 \times 10^{-3}} = 4.0\]
+    \[\frac{[\mathrm{A}]_{\text{IV}}^x}{[\mathrm{A}]_{\text{I}}^x} = \left(\frac{0.40}{0.10}\right)^x = (4)^x \implies 4^x = 4 \implies x = 1\]
+    <p>The reaction is <strong>first order with respect to A</strong>.</p>
+    <p><strong>Step 2: Determine order with respect to \(\mathrm{B}\) (holding \([\mathrm{A}]\) constant):</strong></p>
+    <p>Compare Run III and Run II (where \([\mathrm{A}] = 0.30\,\mathrm{M}\)):</p>
+    \[\frac{\text{Rate III}}{\text{Rate II}} = \frac{2.88 \times 10^{-1}}{7.2 \times 10^{-2}} = \frac{0.288}{0.072} = 4.0\]
+    \[\frac{[\mathrm{B}]_{\text{III}}^y}{[\mathrm{B}]_{\text{II}}^y} = \left(\frac{0.40}{0.20}\right)^y = (2)^y \implies 2^y = 4 \implies y = 2\]
+    <p>The reaction is <strong>second order with respect to B</strong>.</p>
+    <p><strong>Step 3: Write overall rate law and calculate \(k\):</strong></p>
+    \[\text{Rate} = k\,[\mathrm{A}]\,[\mathrm{B}]^2 \quad\quad (\text{Overall order } = 1 + 2 = 3)\]
+    <p>Using data from Run I:</p>
+    \[6.0 \times 10^{-3}\,\mathrm{mol\,L^{-1}\,min^{-1}} = k\,(0.10\,\mathrm{mol\,L^{-1}})\,(0.10\,\mathrm{mol\,L^{-1}})^2 = k \times 10^{-3}\,\mathrm{mol^3\,L^{-3}}\]
+    \[k = \frac{6.0 \times 10^{-3}}{1.0 \times 10^{-3}} = 6.0\,\mathrm{mol^{-2}\,L^2\,min^{-1}}\]
+  </div>
+
+  <!-- Example 3 -->
+  <div class="worked-example">
+    <h4>Worked Example 3: Gas-Phase First-Order Decomposition with Pressure Monitoring</h4>
+    <p><strong>Problem:</strong> Thermal decomposition of gaseous \(\mathrm{N_2O_5}\) was monitored at constant volume at \(318\,\mathrm{K}\):</p>
+    \[2\,\mathrm{N_2O_5}(\mathrm{g}) \longrightarrow 2\,\mathrm{N_2O_4}(\mathrm{g}) + \mathrm{O_2}(\mathrm{g})\]
+    <p>The initial total pressure at \(t = 0\) was \(0.500\,\mathrm{atm}\). After \(100\,\mathrm{s}\), the total pressure rose to \(0.512\,\mathrm{atm}\). Calculate the first-order rate constant \(k\).</p>
+    <p><strong>Step-by-Step Solution:</strong></p>
+    <p>Let the initial pressure of \(\mathrm{N_2O_5}\) be \(p_0 = 0.500\,\mathrm{atm}\). Let \(2x\) be the pressure of \(\mathrm{N_2O_5}\) that decomposes in \(100\,\mathrm{s}\):</p>
+    \[p_{\mathrm{N_2O_5}} = 0.500 - 2x\]
+    \[p_{\mathrm{N_2O_4}} = 2x, \quad\quad p_{\mathrm{O_2}} = x\]
+    \[p_t = p_{\mathrm{N_2O_5}} + p_{\mathrm{N_2O_4}} + p_{\mathrm{O_2}} = (0.500 - 2x) + 2x + x = 0.500 + x\]
+    <p>Given \(p_t = 0.512\,\mathrm{atm}\):</p>
+    \[x = 0.512 - 0.500 = 0.012\,\mathrm{atm}\]
+    <p>The remaining partial pressure of \(\mathrm{N_2O_5}\) is:</p>
+    \[p_{\mathrm{N_2O_5}} = 0.500 - 2(0.012) = 0.500 - 0.024 = 0.476\,\mathrm{atm}\]
+    <p>For a first-order reaction:</p>
+    \[k = \frac{2.303}{t}\log_{10}\left(\frac{p_0}{p_{\mathrm{N_2O_5}}}\right) = \frac{2.303}{100}\log_{10}\left(\frac{0.500}{0.476}\right) = \frac{2.303}{100}\log_{10}(1.0504)\]
+    \[\log_{10}(1.0504) \approx 0.02136\]
+    \[k = \frac{2.303}{100} \times 0.02136 = 4.92 \times 10^{-4}\,\mathrm{s^{-1}}\]
+  </div>
+
+  <!-- Example 4 -->
+  <div class="worked-example">
+    <h4>Worked Example 4: Arrhenius Activation Energy and Two-Temperature Calculation</h4>
+    <p><strong>Problem:</strong> The rate constant for the decomposition of ethyl iodide (\(\mathrm{C_2H_5I} \rightarrow \mathrm{C_2H_4} + \mathrm{HI}\)) at \(600\,\mathrm{K}\) is \(1.60 \times 10^{-5}\,\mathrm{s^{-1}}\). Its activation energy is \(209\,\mathrm{kJ\,mol^{-1}}\). Calculate the rate constant at \(700\,\mathrm{K}\) (\(R = 8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}\)).</p>
+    <p><strong>Step-by-Step Solution:</strong></p>
+    <p>Using the Arrhenius two-temperature relation:</p>
+    \[\log_{10}\left(\frac{k_2}{k_1}\right) = \frac{E_{\mathrm{a}}}{2.303\,R}\left[\frac{T_2 - T_1}{T_1 T_2}\right]\]
+    <p>Substitute known values: \(E_{\mathrm{a}} = 209000\,\mathrm{J\,mol^{-1}}\), \(T_1 = 600\,\mathrm{K}\), \(T_2 = 700\,\mathrm{K}\):</p>
+    \[\frac{E_{\mathrm{a}}}{2.303\,R} = \frac{209000}{2.303 \times 8.314} = \frac{209000}{19.147} \approx 10915.5\,\mathrm{K}\]
+    \[\frac{T_2 - T_1}{T_1 T_2} = \frac{700 - 600}{600 \times 700} = \frac{100}{420000} = \frac{1}{4200}\,\mathrm{K^{-1}}\]
+    \[\log_{10}\left(\frac{k_2}{k_1}\right) = \frac{10915.5}{4200} = 2.599\]
+    <p>Taking antilog:</p>
+    \[\frac{k_2}{k_1} = 10^{2.599} = 397.2\]
+    \[k_2 = 397.2 \times k_1 = 397.2 \times (1.60 \times 10^{-5}\,\mathrm{s^{-1}}) = 6.36 \times 10^{-3}\,\mathrm{s^{-1}}\]
+  </div>
+</section>
+
+<!-- SECTION 7: EXAM-STYLE PRACTICE QUESTIONS & FULL SOLUTIONS -->
+<section>
+  <h2>7. NEET UG Practice Assessment (Exam-Aligned Questions &amp; Solutions)</h2>
+  <p>The following original questions are formatted strictly according to the latest NEET UG examination pattern, including Single Correct MCQs, Assertion-Reason pairs, Statement-I / Statement-II analyses, and Matching questions.</p>
+
+  <!-- Question 1 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 1</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>For the gaseous reaction \(2\,\mathrm{A} + \mathrm{B} \longrightarrow 3\,\mathrm{C}\), the rate of formation of \(\mathrm{C}\) is \(0.060\,\mathrm{mol\,L^{-1}\,s^{-1}}\). The rate of disappearance of \(\mathrm{A}\) and the overall rate of reaction are, respectively:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(0.040\,\mathrm{mol\,L^{-1}\,s^{-1}}\) and \(0.020\,\mathrm{mol\,L^{-1}\,s^{-1}}\)</li>
+      <li><strong>(B)</strong> \(0.090\,\mathrm{mol\,L^{-1}\,s^{-1}}\) and \(0.060\,\mathrm{mol\,L^{-1}\,s^{-1}}\)</li>
+      <li><strong>(C)</strong> \(0.040\,\mathrm{mol\,L^{-1}\,s^{-1}}\) and \(0.060\,\mathrm{mol\,L^{-1}\,s^{-1}}\)</li>
+      <li><strong>(D)</strong> \(0.020\,\mathrm{mol\,L^{-1}\,s^{-1}}\) and \(0.040\,\mathrm{mol\,L^{-1}\,s^{-1}}\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (A)</span>
+      <p><strong>Explanation:</strong> According to reaction stoichiometry:</p>
+      \[\text{Overall Rate} = -\frac{1}{2}\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = -\frac{\mathrm{d}[\mathrm{B}]}{\mathrm{d}t} = +\frac{1}{3}\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t}\]
+      <p>Given \(\frac{\mathrm{d}[\mathrm{C}]}{\mathrm{d}t} = 0.060\,\mathrm{mol\,L^{-1}\,s^{-1}}\):</p>
+      \[\text{Overall Rate} = \frac{1}{3}(0.060) = 0.020\,\mathrm{mol\,L^{-1}\,s^{-1}}\]
+      <p>The rate of disappearance of \(\mathrm{A}\) is \(-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t}\):</p>
+      \[-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = 2 \times \text{Overall Rate} = 2 \times 0.020 = 0.040\,\mathrm{mol\,L^{-1}\,s^{-1}}\]
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 2</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>The rate constant of a certain reaction is given as \(k = 4.5 \times 10^{-3}\,\mathrm{mol^{-1/2}\,L^{1/2}\,s^{-1}}\). The overall order of this reaction is:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(1/2\)</li>
+      <li><strong>(B)</strong> \(3/2\)</li>
+      <li><strong>(C)</strong> \(2\)</li>
+      <li><strong>(D)</strong> \(-1/2\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (B)</span>
+      <p><strong>Explanation:</strong> The general dimensional formula for rate constant is:</p>
+      \[\text{Units of } k = \mathrm{mol}^{1-n}\,\mathrm{L}^{n-1}\,\mathrm{s}^{-1}\]
+      <p>Equating exponents of \(\mathrm{L}\):</p>
+      \[n - 1 = \frac{1}{2} \implies n = 1 + \frac{1}{2} = \frac{3}{2}\]
+      <p>Verifying with exponent of \(\mathrm{mol}\): \(1 - n = 1 - 3/2 = -1/2\). Hence, order is \(3/2\).</p>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 3</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>A first-order reaction is \(20\%\) complete in \(10\,\mathrm{minutes}\). How much time will it take to reach \(80\%\) completion? [Given: \(\log_{10}(2) = 0.3010\)]</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(40.0\,\mathrm{min}\)</li>
+      <li><strong>(B)</strong> \(72.1\,\mathrm{min}\)</li>
+      <li><strong>(C)</strong> \(62.2\,\mathrm{min}\)</li>
+      <li><strong>(D)</strong> \(80.0\,\mathrm{min}\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (B)</span>
+      <p><strong>Explanation:</strong> For a first order reaction, \(k = \frac{2.303}{t}\log\left(\frac{a}{a-x}\right)\).</p>
+      <p>At \(20\%\) completion: \(a - x = 0.80\,a\), \(t_1 = 10\,\mathrm{min}\):</p>
+      \[k = \frac{2.303}{10}\log\left(\frac{1}{0.80}\right) = \frac{2.303}{10}\log(1.25)\]
+      \[\log(1.25) = \log(10/8) = 1 - 3\log 2 = 1 - 0.9030 = 0.0970\]
+      <p>At \(80\%\) completion: \(a - x = 0.20\,a\):</p>
+      \[k = \frac{2.303}{t_2}\log\left(\frac{1}{0.20}\right) = \frac{2.303}{t_2}\log(5)\]
+      \[\log(5) = 1 - \log 2 = 1 - 0.3010 = 0.6990\]
+      <p>Dividing the two equations:</p>
+      \[\frac{t_2}{10} = \frac{\log 5}{\log 1.25} = \frac{0.6990}{0.0970} \approx 7.206 \implies t_2 = 72.06 \approx 72.1\,\mathrm{min}\]
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 4</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>A plot of \(t_{1/2}\) versus initial concentration \([\mathrm{R}]_0\) for a chemical reaction yields a horizontal straight line parallel to the concentration axis. When the initial concentration is increased four-fold, the rate of reaction increases by a factor of:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(1\) (remains unchanged)</li>
+      <li><strong>(B)</strong> \(4\)</li>
+      <li><strong>(C)</strong> \(16\)</li>
+      <li><strong>(D)</strong> \(2\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (B)</span>
+      <p><strong>Explanation:</strong> If \(t_{1/2}\) is constant and independent of \([\mathrm{R}]_0\), the reaction is strictly <strong>first order</strong> (\(n = 1\)).</p>
+      <p>For a first-order reaction: \(\text{Rate} = k[\mathrm{R}]^1\). When \([\mathrm{R}]_0\) is increased 4 times, the rate increases by \(4^1 = 4\) times.</p>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 5</span>
+      <span class="question-type">Assertion &amp; Reason (NEET Format)</span>
+    </div>
+    <p>Given below are two statements labeled as Assertion (A) and Reason (R):</p>
+    <p><strong>Assertion (A):</strong> The molecularity of an elementary reaction can never be zero, negative, or fractional.</p>
+    <p><strong>Reason (R):</strong> Molecularity represents the number of reacting molecules participating in simultaneous collisions in an elementary step, and colliding species must be whole physical entities.</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+      <li><strong>(B)</strong> Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</li>
+      <li><strong>(C)</strong> (A) is true but (R) is false.</li>
+      <li><strong>(D)</strong> (A) is false but (R) is true.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (A)</span>
+      <p><strong>Explanation:</strong> Molecularity is defined strictly as the integer count of molecules undergoing simultaneous collision in an elementary step. One cannot have zero molecules colliding to form a product, nor can a fraction of a molecule undergo collision. Hence, molecularity must be a non-zero positive integer (1, 2, or 3). Reason (R) correctly explains Assertion (A).</p>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 6</span>
+      <span class="question-type">Statement I &amp; Statement II (NEET Format)</span>
+    </div>
+    <p>Examine the two statements given below:</p>
+    <p><strong>Statement I:</strong> A positive catalyst increases the rate of both the forward and backward reactions by the same extent without altering \(\Delta G\) or the equilibrium constant \(K_{\mathrm{eq}}\).</p>
+    <p><strong>Statement II:</strong> A catalyst accelerates the rate by lowering the activation energy through the provision of an alternate reaction mechanism involving an intermediate complex.</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> Both Statement I and Statement II are correct.</li>
+      <li><strong>(B)</strong> Both Statement I and Statement II are incorrect.</li>
+      <li><strong>(C)</strong> Statement I is correct but Statement II is incorrect.</li>
+      <li><strong>(D)</strong> Statement I is incorrect but Statement II is correct.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (A)</span>
+      <p><strong>Explanation:</strong> Both statements are completely true scientific facts from the chapter. A catalyst reduces \(E_{\mathrm{a}}\) equally in both directions, so both \(k_{\mathrm{f}}\) and \(k_{\mathrm{b}}\) increase by the same factor, leaving \(K_{\mathrm{eq}} = k_{\mathrm{f}}/k_{\mathrm{b}}\) unchanged. Thermodynamic parameters (\(\Delta G, \Delta H\)) are state functions and do not depend on the catalytic pathway.</p>
+    </div>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 7</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>The rate of a certain chemical reaction doubles when the temperature is raised from \(298\,\mathrm{K}\) to \(308\,\mathrm{K}\). The activation energy (\(E_{\mathrm{a}}\)) of the reaction is approximately: [Take \(R = 8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}\), \(\log_{10}(2) = 0.3010\)]</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(52.9\,\mathrm{kJ\,mol^{-1}}\)</li>
+      <li><strong>(B)</strong> \(105.8\,\mathrm{kJ\,mol^{-1}}\)</li>
+      <li><strong>(C)</strong> \(26.5\,\mathrm{kJ\,mol^{-1}}\)</li>
+      <li><strong>(D)</strong> \(83.1\,\mathrm{kJ\,mol^{-1}}\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (A)</span>
+      <p><strong>Explanation:</strong> Using the Arrhenius equation:</p>
+      \[\log_{10}\left(\frac{k_2}{k_1}\right) = \frac{E_{\mathrm{a}}}{2.303\,R}\left[\frac{T_2 - T_1}{T_1 T_2}\right]\]
+      \[\log(2) = 0.3010 = \frac{E_{\mathrm{a}}}{2.303 \times 8.314}\left[\frac{308 - 298}{298 \times 308}\right]\]
+      \[0.3010 = \frac{E_{\mathrm{a}}}{19.147}\left[\frac{10}{91784}\right]\]
+      \[E_{\mathrm{a}} = \frac{0.3010 \times 19.147 \times 91784}{10} = 52897\,\mathrm{J\,mol^{-1}} \approx 52.9\,\mathrm{kJ\,mol^{-1}}\]
+    </div>
+  </div>
+
+  <!-- Question 8 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 8</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>For a first-order gas-phase decomposition: \(2\,\mathrm{A}(\mathrm{g}) \longrightarrow 2\,\mathrm{B}(\mathrm{g}) + \mathrm{C}(\mathrm{g})\), the initial pressure of \(\mathrm{A}\) is \(p_0\). After time \(t\), the total pressure becomes \(p_t\). The correct expression for the rate constant \(k\) is:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(k = \frac{2.303}{t}\log_{10}\left(\frac{p_0}{2p_0 - p_t}\right)\)</li>
+      <li><strong>(B)</strong> \(k = \frac{2.303}{t}\log_{10}\left(\frac{p_0}{3p_0 - 2p_t}\right)\)</li>
+      <li><strong>(C)</strong> \(k = \frac{2.303}{t}\log_{10}\left(\frac{2p_0}{3p_0 - p_t}\right)\)</li>
+      <li><strong>(D)</strong> \(k = \frac{2.303}{t}\log_{10}\left(\frac{p_0}{p_t - p_0}\right)\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (B)</span>
+      <p><strong>Explanation:</strong> Let the decrease in pressure of \(\mathrm{A}\) be \(2x\):</p>
+      \[p_{\mathrm{A}} = p_0 - 2x, \quad p_{\mathrm{B}} = 2x, \quad p_{\mathrm{C}} = x\]
+      \[p_t = (p_0 - 2x) + 2x + x = p_0 + x \implies x = p_t - p_0\]
+      <p>Substitute \(x\) into \(p_{\mathrm{A}}\):</p>
+      \[p_{\mathrm{A}} = p_0 - 2(p_t - p_0) = 3p_0 - 2p_t\]
+      <p>Therefore, \(k = \frac{2.303}{t}\log_{10}\left(\frac{p_0}{p_{\mathrm{A}}}\right) = \frac{2.303}{t}\log_{10}\left(\frac{p_0}{3p_0 - 2p_t}\right)\).</p>
+    </div>
+  </div>
+
+  <!-- Question 9 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 9</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>A radioactive isotope \({}^{90}\mathrm{Sr}\) has a half-life of \(28.1\,\mathrm{years}\). If \(1.0\,\mathrm{\mu g}\) of this isotope is absorbed in bone tissue, the mass remaining after \(56.2\,\mathrm{years}\) is:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> \(0.50\,\mathrm{\mu g}\)</li>
+      <li><strong>(B)</strong> \(0.25\,\mathrm{\mu g}\)</li>
+      <li><strong>(C)</strong> \(0.125\,\mathrm{\mu g}\)</li>
+      <li><strong>(D)</strong> \(0.75\,\mathrm{\mu g}\)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (B)</span>
+      <p><strong>Explanation:</strong> All radioactive decays follow first-order kinetics. The number of elapsed half-lives is:</p>
+      \[n = \frac{t}{t_{1/2}} = \frac{56.2\,\mathrm{yr}}{28.1\,\mathrm{yr}} = 2\]
+      \[N = N_0 \left(\frac{1}{2}\right)^n = 1.0\,\mathrm{\mu g} \times \left(\frac{1}{2}\right)^2 = 0.25\,\mathrm{\mu g}\]
+    </div>
+  </div>
+
+  <!-- Question 10 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 10</span>
+      <span class="question-type">Match the Column (NEET Format)</span>
+    </div>
+    <p>Match the reaction types in <strong>Column-I</strong> with their characteristic kinetic features in <strong>Column-II</strong>:</p>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Column-I</th>
+            <th>Column-II</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>(P) Zero-order reaction</td>
+            <td>(1) Hydrolysis of ethyl acetate in large excess of water</td>
+          </tr>
+          <tr>
+            <td>(Q) Pseudo-first-order reaction</td>
+            <td>(2) Rate constant has unit \(\mathrm{s^{-1}}\)</td>
+          </tr>
+          <tr>
+            <td>(R) First-order reaction</td>
+            <td>(3) \(t_{1/2}\) is directly proportional to initial concentration</td>
+          </tr>
+          <tr>
+            <td>(S) Second-order reaction</td>
+            <td>(4) Rate constant has unit \(\mathrm{L\,mol^{-1}\,s^{-1}}\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="options-list">
+      <li><strong>(A)</strong> P-(3), Q-(1), R-(2), S-(4)</li>
+      <li><strong>(B)</strong> P-(1), Q-(3), R-(4), S-(2)</li>
+      <li><strong>(C)</strong> P-(3), Q-(2), R-(1), S-(4)</li>
+      <li><strong>(D)</strong> P-(4), Q-(1), R-(2), S-(3)</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (A)</span>
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li>(P) For zero order: \(t_{1/2} = [\mathrm{R}]_0 / (2k) \propto [\mathrm{R}]_0\) &#8594; matches (3).</li>
+        <li>(Q) Hydrolysis of ethyl acetate in excess water is a pseudo-first-order reaction &#8594; matches (1).</li>
+        <li>(R) First-order rate constant has unit \(\mathrm{s^{-1}}\) &#8594; matches (2).</li>
+        <li>(S) Second-order rate constant has unit \(\mathrm{L\,mol^{-1}\,s^{-1}}\) &#8594; matches (4).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 11 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 11</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>The rate equation for the decomposition of a substance is: \(\text{Rate} = k\,[\mathrm{A}]^2\). If the initial concentration of \(\mathrm{A}\) is tripled, the rate of decomposition of \(\mathrm{A}\) will:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> Increase 3 times</li>
+      <li><strong>(B)</strong> Increase 6 times</li>
+      <li><strong>(C)</strong> Increase 9 times</li>
+      <li><strong>(D)</strong> Remain unchanged</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (C)</span>
+      <p><strong>Explanation:</strong> \(\text{Rate}_1 = k[\mathrm{A}]^2\). When \([\mathrm{A}]' = 3[\mathrm{A}]\):</p>
+      \[\text{Rate}_2 = k(3[\mathrm{A}])^2 = 9\,k[\mathrm{A}]^2 = 9 \times \text{Rate}_1\]
+      <p>The rate increases 9-fold.</p>
+    </div>
+  </div>
+
+  <!-- Question 12 -->
+  <div class="question-card">
+    <div class="question-title">
+      <span>Practice Question 12</span>
+      <span class="question-type">Single Correct MCQ</span>
+    </div>
+    <p>According to Collision Theory, the rate of a bimolecular elementary reaction \(\mathrm{A} + \mathrm{B} \rightarrow \text{Products}\) is given by \(\text{Rate} = P\,Z_{\mathrm{AB}}\,e^{-E_{\mathrm{a}}/RT}\). In this expression, the steric factor \(P\) accounts for:</p>
+    <ul class="options-list">
+      <li><strong>(A)</strong> The fraction of molecules having energy greater than threshold energy.</li>
+      <li><strong>(B)</strong> The proper three-dimensional orientation of colliding molecules.</li>
+      <li><strong>(C)</strong> The total number of collisions taking place per second per unit volume.</li>
+      <li><strong>(D)</strong> The mass of the colliding hard spheres.</li>
+    </ul>
+    <div class="solution-box">
+      <span class="ans-tag">Correct Answer: (B)</span>
+      <p><strong>Explanation:</strong> In collision theory, \(Z_{\mathrm{AB}}\) is collision frequency, \(e^{-E_{\mathrm{a}}/RT}\) is the Boltzmann fraction possessing required activation energy, and the steric/probability factor \(P\) accounts for the necessity of <strong>proper molecular orientation</strong> during collision to facilitate bond cleavages and bond formations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: COMMON PITFALLS & REVISION CHECKLIST -->
+<section>
+  <h2>8. Common Pitfalls &amp; NEET High-Yield Revision Checklist</h2>
+  <div class="grid-2">
+    <div class="callout-amber">
+      <div class="callout-title">Frequent Student Mistakes to Avoid</div>
+      <ul>
+        <li><strong>Confusing Rate of Disappearance with Overall Rate:</strong> Remember that in \(2\mathrm{A} \rightarrow \mathrm{Products}\), \(-\frac{\mathrm{d}[\mathrm{A}]}{\mathrm{d}t} = 2 \times \text{Rate of Reaction}\).</li>
+        <li><strong>Predicting Rate Law from Stoichiometry:</strong> Stoichiometric coefficients tell you nothing about the rate law unless you are explicitly told the reaction is <em>elementary</em>.</li>
+        <li><strong>Unit Confusion in Rate Constants:</strong> Always use \(\mathrm{mol}^{1-n}\,\mathrm{L}^{n-1}\,\mathrm{s}^{-1}\) to deduce reaction order from rate constant units.</li>
+        <li><strong>Believing Catalysts Change Equilibrium:</strong> A catalyst speeds up equilibrium attainment; it NEVER shifts equilibrium position or alters \(K_{\mathrm{eq}}\).</li>
+        <li><strong>Forgetting Absolute Temperature in Kelvin:</strong> In Arrhenius equations, temperatures must always be converted to Kelvin (\(\mathrm{K} = \,^\circ\mathrm{C} + 273.15\)).</li>
+      </ul>
+    </div>
+
+    <div class="callout-blue">
+      <div class="callout-title">Rapid Revision Memory Hooks</div>
+      <ul>
+        <li><strong>Zero Order:</strong> \(t_{1/2} = \frac{[\mathrm{R}]_0}{2k}\) &nbsp;&#8594;&nbsp; Linear graph: \([\mathrm{R}]\) vs \(t\) (Slope \(= -k\)).</li>
+        <li><strong>First Order:</strong> \(t_{1/2} = \frac{0.693}{k}\) &nbsp;&#8594;&nbsp; Linear graph: \(\ln[\mathrm{R}]\) vs \(t\) (Slope \(= -k\)).</li>
+        <li><strong>First Order Benchmarks:</strong> \(t_{75\%} = 2 \times t_{50\%}\), \(t_{87.5\%} = 3 \times t_{50\%}\), \(t_{99.9\%} \approx 10 \times t_{50\%}\).</li>
+        <li><strong>Arrhenius Plot:</strong> \(\ln k\) vs \(1/T\) gives a straight line with \(\text{Slope} = -E_{\mathrm{a}} / R\).</li>
+        <li><strong>Effective Collision:</strong> Requires BOTH (1) Energy \(\ge E_{\mathrm{a}}\) AND (2) Proper spatial orientation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: CONCISE FINAL RECAP -->
+<section>
+  <h2>9. Concise Final Recap</h2>
+  <p>Chemical Kinetics provides the indispensable quantitative bridge between molecular dynamics and macroscopic chemical change. In summary:</p>
+  <ul>
+    <li>The <strong>rate of reaction</strong> is defined symmetrically via stoichiometry: \(\text{Rate} = -\frac{1}{\nu_{\mathrm{R}}}\frac{\mathrm{d}[\mathrm{R}]}{\mathrm{d}t} = +\frac{1}{\nu_{\mathrm{P}}}\frac{\mathrm{d}[\mathrm{P}]}{\mathrm{d}t}\).</li>
+    <li>The <strong>order of reaction</strong> is an empirical quantity (zero, integer, or fractional) representing concentration sensitivity; <strong>molecularity</strong> is a theoretical non-zero integer (1, 2, 3) representing colliding species in an elementary step.</li>
+    <li>For complex reactions, the <strong>slowest elementary step</strong> acts as the rate-determining bottleneck.</li>
+    <li><strong>Zero-order</strong> reactions proceed at constant speed until the reactant is exhausted; their half-life is directly proportional to initial concentration.</li>
+    <li><strong>First-order</strong> reactions exhibit exponential decay; their half-life is completely independent of initial reactant concentration. All radioactive decay processes obey first-order kinetics.</li>
+    <li>In <strong>pseudo-first-order</strong> reactions, an abundant reagent (such as a solvent) maintains nearly constant concentration, reducing higher-order rate laws to apparent first-order behavior.</li>
+    <li>The <strong>Arrhenius equation</strong> (\(k = A\,e^{-E_{\mathrm{a}}/RT}\)) mathematically encapsulates the exponential sensitivity of reaction velocity to temperature, explained by the Maxwell-Boltzmann distribution where a \(10\,\mathrm{K}\) rise approximately doubles the population of molecules with energy exceeding \(E_{\mathrm{a}}\).</li>
+    <li>A <strong>catalyst</strong> accelerates reactions purely kinetically by opening an alternative pathway with a lower \(E_{\mathrm{a}}\); it leaves equilibrium state, \(\Delta G\), and \(\Delta H\) strictly unaltered.</li>
+    <li><strong>Collision Theory</strong> links macroscopic rate constants to microscopic molecular collisions through collision frequency (\(Z_{\mathrm{AB}}\)), activation energy (\(E_{\mathrm{a}}\)), and steric orientation probability (\(P\)).</li>
+  </ul>
+</section>
+
+</div>
+</body>
+</html>

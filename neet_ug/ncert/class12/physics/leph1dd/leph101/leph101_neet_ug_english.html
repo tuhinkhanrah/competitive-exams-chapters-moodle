@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEET UG Physics Tutorial: Electric Charges and Fields</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        renderActions: {
+          addMenu: []
+        }
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --primary-color: #0b3b60;
+      --secondary-color: #0275d8;
+      --accent-color: #d9534f;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #cbd5e1;
+      --text-dark: #1e293b;
+      --text-muted: #475569;
+      --success-green: #2e7d32;
+      --warning-amber: #b45309;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+      line-height: 1.65;
+      font-size: 16px;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    header {
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-radius: 4px;
+      background: #e0f2fe;
+      color: #0369a1;
+      margin-bottom: 12px;
+    }
+
+    .badge-neet {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      color: var(--primary-color);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      color: var(--primary-color);
+      border-left: 5px solid var(--secondary-color);
+      padding-left: 14px;
+      margin: 36px 0 16px 0;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #0f172a;
+      margin: 24px 0 12px 0;
+    }
+
+    p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .formula-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .formula-card .title {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .callout {
+      background: #fdf8f6;
+      border-left: 4px solid #ea580c;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #9a3412;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .callout-success {
+      background: #f0fdf4;
+      border-left-color: var(--success-green);
+    }
+    .callout-success .callout-title {
+      color: #166534;
+    }
+
+    .diagram-container {
+      margin: 26px auto;
+      text-align: center;
+      max-width: 100%;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .diagram-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 22px 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .example-box {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-top: 4px solid var(--secondary-color);
+      border-radius: 6px;
+      padding: 20px;
+      margin: 24px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .example-header {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .solution-block {
+      background: #f8fafc;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 12px;
+      margin-top: 14px;
+    }
+
+    .solution-title {
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 8px;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid var(--primary-color);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 24px;
+      page-break-inside: avoid;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .question-num {
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .question-tag {
+      font-size: 0.78rem;
+      background: #e2e8f0;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .mcq-options {
+      margin: 12px 0 16px 0;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .mcq-options li {
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+    }
+
+    .ans-solution {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+
+    .ans-label {
+      font-weight: 700;
+      color: var(--success-green);
+      margin-bottom: 6px;
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 18px 0;
+    }
+
+    @media (max-width: 700px) {
+      .checklist-grid {
+        grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 20px 16px;
+      }
+      body {
+        padding: 8px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .question-card, .example-box, .diagram-container {
+        page-break-inside: avoid;
+      }
+      h2, h3 {
+        page-break-after: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+  <header>
+    <span class="badge badge-neet">NEET UG • High-Yield Physics Tutorial</span>
+    <h1>Electric Charges and Fields</h1>
+    <div class="subtitle">Complete Conceptual Theory, Exact NCERT Derivations, Diagrams & Exam-Aligned Practice Problems</div>
+  </header>
+
+  <section>
+    <h2>1. Learning Objectives & Exam Syllabus Scope</h2>
+    <p>
+      In the NEET UG physics curriculum, <strong>Electrostatics</strong> carries a consistent weighting of 8% to 10% (3 to 4 questions every year across Chapter 1 and Chapter 2). Mastery of fundamentals is critical because questions range from direct formula-based calculations to subtle conceptual traps involving symmetry, vector superposition, and field line properties.
+    </p>
+    <ul>
+      <li><strong>Electric Charge:</strong> Polarity, microscopic origin of electrification, conservation, additivity, and relativistic invariance.</li>
+      <li><strong>Quantisation of Charge:</strong> Scope of \(q = ne\), comparison between macroscopic continuum and microscopic discreteness.</li>
+      <li><strong>Coulomb's Law:</strong> Vector notation, inverse-square dependence, relative permittivity, and principle of superposition for discrete charge arrays.</li>
+      <li><strong>Electric Field:</strong> Physical definition via a vanishing test charge, radial symmetry of point charge fields, and motion of charged particles in uniform electric fields.</li>
+      <li><strong>Electric Field Lines:</strong> Geometric properties, tangent vector representation, flux density correspondence, and non-existence of electrostatic closed loops.</li>
+      <li><strong>Electric Dipole:</strong> Axial and equatorial field derivations, \(1/r^3\) distance dependence, and torque \(\boldsymbol{\tau} = \mathbf{p} \times \mathbf{E}\) in uniform versus non-uniform fields.</li>
+      <li><strong>Continuous Charge Distributions:</strong> Linear (\(\lambda\)), surface (\(\sigma\)), and volume (\(\rho\)) densities.</li>
+      <li><strong>Gauss's Law & Symmetry Applications:</strong> Flux integration over closed Gaussian surfaces, fields of an infinitely long wire, uniformly charged infinite plane sheet, and a spherical shell.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Nature and Fundamental Properties of Electric Charge</h2>
+    <p>
+      <strong>Electrostatics</strong> is the branch of physics dealing with forces, fields, and potentials arising from static (stationary) charges. The ancient Greeks noticed that amber rubbed with wool attracts lightweight objects like dry leaves or bits of straw. The root word <em>elektron</em> in Greek means amber.
+    </p>
+    <p>
+      Careful experiments show that rubbing pairs of insulating bodies results in two distinct states of electrification:
+    </p>
+    <ul>
+      <li>A glass rod rubbed with silk acquires a positive charge; the silk cloth acquires an equal magnitude of negative charge.</li>
+      <li>A plastic (or ebonite) rod rubbed with cat's fur acquires a negative charge; the fur acquires an equal magnitude of positive charge.</li>
+      <li><strong>Fundamental Law of Electrostatics:</strong> Like charges repel each other; unlike charges attract each other.</li>
+    </ul>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 600 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Rod 1 & 2 Repulsion (Like positive) -->
+        <g transform="translate(20, 20)">
+          <rect x="20" y="30" width="80" height="14" rx="4" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+          <text x="60" y="22" font-size="12" text-anchor="middle" fill="#0b3b60" font-weight="bold">Glass (+)</text>
+          <text x="60" y="42" font-size="12" text-anchor="middle" fill="#d9534f" font-weight="bold">+ + + +</text>
+
+          <rect x="130" y="30" width="80" height="14" rx="4" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+          <text x="170" y="22" font-size="12" text-anchor="middle" fill="#0b3b60" font-weight="bold">Glass (+)</text>
+          <text x="170" y="42" font-size="12" text-anchor="middle" fill="#d9534f" font-weight="bold">+ + + +</text>
+
+          <!-- Arrows -->
+          <line x1="20" y1="37" x2="2" y2="37" stroke="#d9534f" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+          <line x1="210" y1="37" x2="228" y2="37" stroke="#d9534f" stroke-width="2.5"/>
+          <polygon points="2,37 8,33 8,41" fill="#d9534f"/>
+          <polygon points="228,37 222,33 222,41" fill="#d9534f"/>
+          <text x="115" y="75" font-size="13" text-anchor="middle" fill="#1e293b" font-weight="600">Like charges repel</text>
+        </g>
+
+        <!-- Rod 3 & 4 Attraction (Unlike charges) -->
+        <g transform="translate(320, 20)">
+          <rect x="20" y="30" width="80" height="14" rx="4" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+          <text x="60" y="22" font-size="12" text-anchor="middle" fill="#0b3b60" font-weight="bold">Glass (+)</text>
+          <text x="60" y="42" font-size="12" text-anchor="middle" fill="#d9534f" font-weight="bold">+ + + +</text>
+
+          <rect x="130" y="30" width="80" height="14" rx="4" fill="#94a3b8" stroke="#334155" stroke-width="2"/>
+          <text x="170" y="22" font-size="12" text-anchor="middle" fill="#0b3b60" font-weight="bold">Plastic (−)</text>
+          <text x="170" y="42" font-size="13" text-anchor="middle" fill="#0275d8" font-weight="bold">− − − −</text>
+
+          <!-- Arrows -->
+          <line x1="100" y1="37" x2="116" y2="37" stroke="#0275d8" stroke-width="2.5"/>
+          <line x1="130" y1="37" x2="114" y2="37" stroke="#0275d8" stroke-width="2.5"/>
+          <polygon points="116,37 110,33 110,41" fill="#0275d8"/>
+          <polygon points="114,37 120,33 120,41" fill="#0275d8"/>
+          <text x="115" y="75" font-size="13" text-anchor="middle" fill="#1e293b" font-weight="600">Unlike charges attract</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 1: Polarity of electric charges showing repulsion between like charges and mutual attraction between unlike charges.</div>
+    </div>
+
+    <h3>Microscopic Origin of Charging</h3>
+    <p>
+      All normal matter consists of neutral atoms comprising positively charged nuclei surrounded by negatively charged electrons. When two neutral bodies are rubbed together, frictional work transfers the most loosely bound valence electrons from the material with lower work function to the material with higher electron affinity.
+    </p>
+    <ul>
+      <li><strong>Deficit of electrons:</strong> Leaves the body with net positive charge.</li>
+      <li><strong>Excess of electrons:</strong> Endows the body with net negative charge.</li>
+      <li>No new charge is created. The total number of protons and electrons across the interacting pair remains absolutely constant.</li>
+      <li>Because electrons possess mass (\(m_e \approx 9.11 \times 10^{-31}\,\text{kg}\)), transfer of negative charge strictly involves a minuscule transfer of mass. A negatively charged body gains a tiny amount of mass, while a positively charged body loses mass.</li>
+    </ul>
+
+    <h3>Conductors, Insulators, and Electroscopes</h3>
+    <p>
+      Materials are categorized electrically by the mobility of their internal charges:
+    </p>
+    <ul>
+      <li><strong>Conductors:</strong> Contain free electrons that roam throughout the bulk material (e.g., metals, aqueous electrolyte solutions, human body, Earth). Added charge spreads immediately over the entire outer boundary surface.</li>
+      <li><strong>Insulators (Dielectrics):</strong> Have tightly bound electrons with virtually no mobility (e.g., glass, porcelain, rubber, dry wood, nylon). Added charge remains confined to the exact region where it was deposited.</li>
+      <li><strong>Semiconductors:</strong> Possess electrical resistance intermediate between conductors and insulators (e.g., silicon, germanium).</li>
+    </ul>
+    <p>
+      A <strong>gold-leaf electroscope</strong> detects electric charge. It comprises a vertical conducting brass rod supported by an insulating rubber stopper inside a glass box, with two thin flexible gold leaves attached at its base. When a charged rod contacts the metal knob at the top, like charges flow down to both gold leaves. The leaves repel each other and diverge; the angular separation of divergence provides a qualitative measure of the amount of charge.
+    </p>
+
+    <h3>Three Invariant Axioms of Electric Charge</h3>
+    <ol>
+      <li>
+        <strong>Additivity of Charge:</strong> Electric charge is a scalar quantity. The total charge of an assembly of discrete point charges is the algebraic sum of individual charges taking proper algebraic signs into account:
+        \[
+          Q_{\text{total}} = \sum_{i=1}^{n} q_i = q_1 + q_2 + q_3 + \dots + q_n
+        \]
+      </li>
+      <li>
+        <strong>Conservation of Charge:</strong> The algebraic sum of all electric charges in an isolated system remains constant over time. Although charged particles can be created or annihilated (such as pair production \(\gamma \to e^- + e^+\), or beta decay of a neutron \(n \to p + e^- + \bar{\nu}_e\)), the algebraic sum of charges before and after the process is invariant.
+      </li>
+      <li>
+        <strong>Quantisation of Charge:</strong> All observable free charges exist exclusively in integral multiples of the elementary fundamental quantum \(e\):
+        \[
+          q = n e, \quad \text{where } n \in \mathbb{Z} \quad (n = 0, \pm 1, \pm 2, \dots)
+        \]
+        where \(e = 1.602192 \times 10^{-19}\,\text{C}\).
+      </li>
+    </ol>
+
+    <div class="callout callout-success">
+      <div class="callout-title">NEET High-Yield Insight: Macroscopic vs. Microscopic Scale</div>
+      <p>
+        At the <em>macroscopic scale</em>, typical charges are on the order of microcoulombs (\(1\,\mathrm{µC} = 10^{-6}\,\text{C}\)). The number of elementary charges in \(1\,\mathrm{µC}\) is:
+        \[
+          n = \frac{10^{-6}\,\text{C}}{1.6 \times 10^{-19}\,\text{C}} \approx 6.25 \times 10^{12}
+        \]
+        Because \(n\) is vast, adding or removing a few thousand electrons produces a fractional change far below experimental detection. Thus, at macroscopic scales, charge appears continuous, and quantisation can be safely ignored. At the <em>atomic or nuclear scale</em> (a few tens or hundreds of \(e\)), discreteness dominates and quantisation cannot be neglected.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Coulomb's Law and Electrostatic Interactions</h2>
+    <p>
+      In 1785, Charles Augustin de Coulomb used a sensitive torsion balance to measure the mechanical force between small charged spheres. He formulated the quantitative fundamental law:
+    </p>
+    <div class="formula-card">
+      <div class="title">Coulomb's Law (Scalar Form)</div>
+      <p>
+        The magnitude of the electrostatic force between two stationary point charges in vacuum is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance separating them:
+      </p>
+      \[
+        F = k \frac{|q_1 q_2|}{r^2} = \frac{1}{4\pi\varepsilon_0} \frac{|q_1 q_2|}{r^2}
+      \]
+    </div>
+    <p>
+      Here, \(\varepsilon_0\) is the <strong>permittivity of free space (vacuum)</strong>. In SI units:
+      \[
+        \varepsilon_0 \approx 8.854 \times 10^{-12}\,\text{C}^2\,\text{N}^{-1}\,\text{m}^{-2} \quad (\text{or }\text{F m}^{-1})
+      \]
+      \[
+        k = \frac{1}{4\pi\varepsilon_0} \approx 8.987 \times 10^9 \approx 9.0 \times 10^9\,\text{N}\,\text{m}^2\,\text{C}^{-2}
+      \]
+    </p>
+
+    <h3>Definition of One Coulomb (SI Unit)</h3>
+    <p>
+      Setting \(q_1 = q_2 = 1\,\text{C}\) and \(r = 1\,\text{m}\) in vacuum:
+      \[
+        F = \frac{1}{4\pi\varepsilon_0} \frac{(1)(1)}{1^2} = 9 \times 10^9\,\text{N}
+      \]
+      <em>One Coulomb</em> is defined as that quantity of static charge which, when placed in vacuum at a distance of \(1\,\text{meter}\) from an identical equal charge, experiences a mutual electrostatic repulsive force of \(9 \times 10^9\,\text{N}\).
+    </p>
+
+    <h3>Vector Form and Newton's Third Law</h3>
+    <p>
+      Let position vectors of charges \(q_1\) and \(q_2\) relative to an origin \(O\) be \(\mathbf{r}_1\) and \(\mathbf{r}_2\). The displacement vector pointing from \(q_1\) to \(q_2\) is \(\mathbf{r}_{21} = \mathbf{r}_2 - \mathbf{r}_1\), with magnitude \(r_{21} = |\mathbf{r}_{21}|\) and unit vector \(\hat{\mathbf{r}}_{21} = \mathbf{r}_{21}/r_{21}\).
+    </p>
+    <p>
+      The electrostatic force \(\mathbf{F}_{21}\) exerted on charge \(q_2\) by charge \(q_1\) is:
+      \[
+        \mathbf{F}_{21} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r_{21}^2} \hat{\mathbf{r}}_{21}
+      \]
+      Similarly, the force \(\mathbf{F}_{12}\) exerted on charge \(q_1\) by charge \(q_2\) is:
+      \[
+        \mathbf{F}_{12} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r_{12}^2} \hat{\mathbf{r}}_{12}
+      \]
+      Since \(\hat{\mathbf{r}}_{12} = -\hat{\mathbf{r}}_{21}\) and \(r_{12} = r_{21}\), we obtain:
+      \[
+        \mathbf{F}_{12} = -\mathbf{F}_{21}
+      \]
+      Coulomb's law is fully consistent with Newton's third law of motion: electrostatic forces between two point charges form an action-reaction pair directed along the mutual line of centers (central forces).
+    </p>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 560 160" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Coordinate Frame & Vectors -->
+        <circle cx="140" cy="80" r="12" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+        <text x="140" y="84" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b3b60">q₁</text>
+
+        <circle cx="420" cy="80" r="12" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+        <text x="420" y="84" font-size="12" text-anchor="middle" font-weight="bold" fill="#0b3b60">q₂</text>
+
+        <!-- Connecting dashed line -->
+        <line x1="152" y1="80" x2="408" y2="80" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+        <!-- Force arrows for like charges -->
+        <line x1="128" y1="80" x2="50" y2="80" stroke="#d9534f" stroke-width="2.5"/>
+        <polygon points="50,80 58,75 58,85" fill="#d9534f"/>
+        <text x="80" y="70" font-size="12" text-anchor="middle" fill="#d9534f" font-weight="bold">F₁₂ (on q₁ by q₂)</text>
+
+        <line x1="432" y1="80" x2="510" y2="80" stroke="#d9534f" stroke-width="2.5"/>
+        <polygon points="510,80 502,75 502,85" fill="#d9534f"/>
+        <text x="480" y="70" font-size="12" text-anchor="middle" fill="#d9534f" font-weight="bold">F₂₁ (on q₂ by q₁)</text>
+
+        <text x="280" y="105" font-size="12" text-anchor="middle" fill="#475569">Separation distance r</text>
+        <line x1="160" y1="115" x2="400" y2="115" stroke="#64748b" stroke-width="1"/>
+        <polygon points="160,115 166,112 166,118" fill="#64748b"/>
+        <polygon points="400,115 394,112 394,118" fill="#64748b"/>
+        <text x="280" y="140" font-size="12" text-anchor="middle" fill="#0b3b60" font-weight="bold">For q₁ q₂ &gt; 0: Repulsive along line of centers</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 2: Action-reaction force vectors between two like point charges.</div>
+    </div>
+
+    <h3>Comparison: Electrostatic Force vs. Gravitational Force</h3>
+    <p>
+      Both Coulomb's law and Newton's law of gravitation are inverse-square central forces depending on distance as \(1/r^2\). However, two vital distinctions exist:
+    </p>
+    <ul>
+      <li><strong>Sign & Polarity:</strong> Gravitational force is strictly attractive, whereas electrostatic force can be attractive or repulsive. Because macroscopic bodies contain almost perfectly balanced quantities of positive and negative charges, bulk electrical forces cancel, permitting the far weaker gravitational force to dominate celestial dynamics.</li>
+      <li><strong>Relative Strength:</strong> For an electron and a proton separated by distance \(r\):
+        \[
+          \frac{F_e}{F_G} = \frac{\frac{e^2}{4\pi\varepsilon_0 r^2}}{\frac{G m_p m_e}{r^2}} = \frac{e^2}{4\pi\varepsilon_0 G m_p m_e} \approx 2.4 \times 10^{39}
+        \]
+        For two protons, \(F_e / F_G \approx 1.3 \times 10^{36}\). Electrostatic interaction is unimaginably stronger than gravity.
+      </li>
+    </ul>
+
+    <h3>Principle of Superposition for Multiple Charges</h3>
+    <p>
+      Coulomb's law describes the pairwise interaction between two point charges. When an assembly of \(n\) stationary point charges \(q_1, q_2, \dots, q_n\) interacts, experiments demonstrate that the presence of third or fourth charges does not modify the mutual pairwise interaction between any two charges.
+    </p>
+    <div class="formula-card">
+      <div class="title">Principle of Superposition</div>
+      <p>
+        The net electrostatic force exerted on any individual charge \(q_1\) is the vector sum of all individual Coulomb forces exerted on it by each of the other charges evaluated independently:
+      </p>
+      \[
+        \mathbf{F}_1 = \mathbf{F}_{12} + \mathbf{F}_{13} + \dots + \mathbf{F}_{1n} = \frac{q_1}{4\pi\varepsilon_0} \sum_{i=2}^{n} \frac{q_i}{r_{1i}^2} \hat{\mathbf{r}}_{1i}
+      \]
+    </div>
+  </section>
+
+  <section>
+    <h2>4. The Electric Field</h2>
+    <p>
+      To eliminate the philosophically challenging concept of "action-at-a-distance," Michael Faraday introduced the concept of the <strong>electric field</strong>. A source charge \(Q\) modifies the physical state of the space around it, creating an electric vector field \(\mathbf{E}\). When another charge \(q\) is placed at a point, it experiences a mechanical force through direct local interaction with the electric field at that position.
+    </p>
+
+    <h3>Operational Definition</h3>
+    <p>
+      The electric field \(\mathbf{E}(\mathbf{r})\) at a spatial point \(\mathbf{r}\) is formally defined as the electrostatic force experienced per unit positive test charge placed at that location:
+    </p>
+    \[
+      \mathbf{E}(\mathbf{r}) = \lim_{q_0 \to 0} \frac{\mathbf{F}}{q_0}
+    \]
+    <p>
+      The limit \(q_0 \to 0\) guarantees that the test charge is infinitesimal, ensuring it does not disturb or redistribute the source charges generating the field.
+    </p>
+    <ul>
+      <li><strong>Field of a Point Charge \(Q\) at the origin:</strong>
+        \[
+          \mathbf{E}(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2} \hat{\mathbf{r}}
+        \]
+      </li>
+      <li>For \(Q > 0\), \(\mathbf{E}\) points radially outward; for \(Q < 0\), \(\mathbf{E}\) points radially inward.</li>
+      <li><strong>SI Unit:</strong> \(\text{N C}^{-1}\) (newtons per coulomb) or equivalently \(\text{V m}^{-1}\) (volts per meter).</li>
+      <li><strong>Dimensions:</strong> \([\text{M L T}^{-3} \text{A}^{-1}]\).</li>
+    </ul>
+
+    <h3>Physical Reality and Finite Propagation Speed</h3>
+    <p>
+      In static situations, the electric field can be viewed as an elegant calculational framework. However, in time-dependent dynamics, if a source charge accelerates, the disturbance does not affect distant charges instantaneously. Information propagates outward as an electromagnetic wave at the finite speed of light \(c\). The electric field is an authentic physical entity with its own independent equations of motion, momentum, and energy density.
+    </p>
+
+    <h3>Motion of a Charged Particle in a Uniform Electric Field</h3>
+    <p>
+      When a particle of mass \(m\) and charge \(q\) enters a uniform electric field \(\mathbf{E}\), it experiences a constant electrostatic force \(\mathbf{F} = q\mathbf{E}\), resulting in an acceleration:
+      \[
+        \mathbf{a} = \frac{q\mathbf{E}}{m}
+      \]
+      Because \(a \propto q/m\) (the specific charge), particles with distinct charge-to-mass ratios follow distinct trajectories.
+    </p>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 540 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Top plate (+) -->
+        <rect x="80" y="25" width="340" height="12" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="250" y="20" font-size="12" text-anchor="middle" fill="#c2410c" font-weight="bold">Positively Charged Plate (+ + + + + + + + + +)</text>
+
+        <!-- Bottom plate (-) -->
+        <rect x="80" y="145" width="340" height="12" fill="#bfdbfe" stroke="#0284c7" stroke-width="1.5"/>
+        <text x="250" y="172" font-size="12" text-anchor="middle" fill="#0369a1" font-weight="bold">Negatively Charged Plate (− − − − − − − − − −)</text>
+
+        <!-- Downward uniform field lines -->
+        <g stroke="#94a3b8" stroke-width="1.5">
+          <line x1="140" y1="37" x2="140" y2="145"/>
+          <polygon points="140,145 137,137 143,137" fill="#94a3b8"/>
+          <line x1="220" y1="37" x2="220" y2="145"/>
+          <polygon points="220,145 217,137 223,137" fill="#94a3b8"/>
+          <line x1="300" y1="37" x2="300" y2="145"/>
+          <polygon points="300,145 297,137 303,137" fill="#94a3b8"/>
+          <line x1="380" y1="37" x2="380" y2="145"/>
+          <polygon points="380,145 377,137 383,137" fill="#94a3b8"/>
+        </g>
+        <text x="395" y="95" font-size="13" fill="#64748b" font-weight="bold">E</text>
+
+        <!-- Electron trajectory deflecting upward -->
+        <path d="M 40,90 Q 200,90 380,45" fill="none" stroke="#d9534f" stroke-width="2.5"/>
+        <circle cx="380" cy="45" r="5" fill="#d9534f"/>
+        <text x="430" y="50" font-size="12" fill="#d9534f" font-weight="bold">Electron (−e)</text>
+
+        <!-- Proton trajectory deflecting downward -->
+        <path d="M 40,90 Q 200,90 380,130" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+        <circle cx="380" cy="130" r="5" fill="#0284c7"/>
+        <text x="425" y="135" font-size="12" fill="#0284c7" font-weight="bold">Proton (+e)</text>
+
+        <text x="35" y="85" font-size="11" text-anchor="middle" fill="#334155">Entry v₀</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 3: Deflection of charged particles in a uniform transverse electric field. The vertical deflection is proportional to specific charge \(|q|/m\).</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Electric Field Lines</h2>
+    <p>
+      An <strong>electric field line</strong> is an imaginary continuous path or curve drawn through a region of space such that the tangent drawn at any point gives the direction of the net electric field vector \(\mathbf{E}\) at that point.
+    </p>
+
+    <h3>Fundamental Rules Governing Electric Field Lines</h3>
+    <ol>
+      <li>
+        <strong>Origin and Termination:</strong> Field lines start from positive charges and terminate on negative charges. If there is an isolated single charge, field lines start from the positive charge and extend to infinity, or start from infinity and terminate on the negative charge.
+      </li>
+      <li>
+        <strong>Continuity:</strong> In any charge-free region of space, field lines are smooth, continuous curves without sudden breaks or gaps.
+      </li>
+      <li>
+        <strong>Non-Intersection Property:</strong> Two field lines can <em>never</em> intersect or cross each other. If they crossed at a point, two distinct tangents could be drawn at that single geometric location, which would imply two contradictory directions for the net electric field—a physical impossibility.
+      </li>
+      <li>
+        <strong>No Electrostatic Closed Loops:</strong> Electrostatic field lines can never form closed loops. This property is a direct consequence of the <strong>conservative nature</strong> of static electric forces (the round-trip line integral \(\oint \mathbf{E} \cdot \mathrm{d}\mathbf{l} = 0\)). Closed loops would permit net work to be extracted from a static field in violation of energy conservation.
+      </li>
+      <li>
+        <strong>Field Density and Solid Angle:</strong> The relative crowding (density) of field lines per unit cross-sectional area perpendicular to the lines is directly proportional to the magnitude of \(\mathbf{E}\). Near a point charge, the area of a sphere subtending solid angle \(\Delta \Omega\) grows as \(r^2 \Delta \Omega\). Because the total number of radial lines within \(\Delta \Omega\) is constant, the number of lines per unit area scales as \(1/r^2\), matching the inverse-square law.
+      </li>
+    </ol>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 620 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Single isolated positive -->
+        <g transform="translate(10, 10)">
+          <circle cx="80" cy="100" r="14" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+          <text x="80" y="105" font-size="14" text-anchor="middle" fill="#dc2626" font-weight="bold">+</text>
+          <!-- 8 radial arrows -->
+          <line x1="80" y1="80" x2="80" y2="40" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="80,40 76,48 84,48" fill="#dc2626"/>
+          <line x1="80" y1="120" x2="80" y2="160" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="80,160 76,152 84,152" fill="#dc2626"/>
+          <line x1="60" y1="100" x2="20" y2="100" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="20,100 28,96 28,104" fill="#dc2626"/>
+          <line x1="100" y1="100" x2="140" y2="100" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="140,100 132,96 132,104" fill="#dc2626"/>
+          <text x="80" y="195" font-size="12" text-anchor="middle" fill="#1e293b" font-weight="600">Isolated +q</text>
+        </g>
+
+        <!-- Electric dipole (+q and -q) -->
+        <g transform="translate(200, 10)">
+          <circle cx="70" cy="100" r="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+          <text x="70" y="104" font-size="12" text-anchor="middle" fill="#dc2626" font-weight="bold">+</text>
+          <circle cx="170" cy="100" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+          <text x="170" y="104" font-size="14" text-anchor="middle" fill="#0284c7" font-weight="bold">−</text>
+
+          <!-- Central line -->
+          <line x1="82" y1="100" x2="158" y2="100" stroke="#2563eb" stroke-width="1.8"/>
+          <polygon points="125,100 119,96 119,104" fill="#2563eb"/>
+
+          <!-- Curved lines top -->
+          <path d="M 76,89 C 90,50 150,50 164,89" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+          <polygon points="123,59 117,55 117,63" fill="#2563eb"/>
+
+          <path d="M 72,88 C 80,20 160,20 168,88" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+          <polygon points="123,26 117,22 117,30" fill="#2563eb"/>
+
+          <!-- Curved lines bottom -->
+          <path d="M 76,111 C 90,150 150,150 164,111" fill="none" stroke="#2563eb" stroke-width="1.8"/>
+          <polygon points="123,141 117,137 117,145" fill="#2563eb"/>
+
+          <text x="120" y="195" font-size="12" text-anchor="middle" fill="#1e293b" font-weight="600">Electric Dipole (+q, −q)</text>
+        </g>
+
+        <!-- Two like positive charges -->
+        <g transform="translate(420, 10)">
+          <circle cx="50" cy="100" r="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+          <text x="50" y="104" font-size="12" text-anchor="middle" fill="#dc2626" font-weight="bold">+</text>
+          <circle cx="150" cy="100" r="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+          <text x="150" y="104" font-size="12" text-anchor="middle" fill="#dc2626" font-weight="bold">+</text>
+
+          <!-- Deflecting paths -->
+          <path d="M 58,92 C 80,75 90,40 90,20" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="90,20 86,28 94,28" fill="#dc2626"/>
+
+          <path d="M 142,92 C 120,75 110,40 110,20" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="110,20 106,28 114,28" fill="#dc2626"/>
+
+          <path d="M 58,108 C 80,125 90,160 90,180" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="90,180 86,172 94,172" fill="#dc2626"/>
+
+          <path d="M 142,108 C 120,125 110,160 110,180" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+          <polygon points="110,180 106,172 114,172" fill="#dc2626"/>
+
+          <!-- Neutral point marker -->
+          <circle cx="100" cy="100" r="3" fill="#64748b"/>
+          <text x="100" y="115" font-size="11" text-anchor="middle" fill="#64748b">N</text>
+
+          <text x="100" y="195" font-size="12" text-anchor="middle" fill="#1e293b" font-weight="600">Two Like Charges (+q, +q)</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 4: Field line configurations for an isolated positive charge, an electric dipole, and two equal positive charges showing mutual repulsion and central neutral point N.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>6. Electric Flux</h2>
+    <p>
+      By analogy to the volumetric rate of fluid flow through a boundary surface, <strong>electric flux</strong> measures the total number of electric field lines penetrating through a given area.
+    </p>
+
+    <h3>Area Vector Convention</h3>
+    <p>
+      A planar surface area element of magnitude \(\Delta S\) is treated mathematically as a vector \(\Delta \mathbf{S} = \Delta S\,\hat{\mathbf{n}}\), where \(\hat{\mathbf{n}}\) is a unit normal vector perpendicular to the surface.
+    </p>
+    <ul>
+      <li><strong>Open Surfaces:</strong> The unit normal \(\hat{\mathbf{n}}\) can be chosen along either side of the surface, provided the choice is maintained consistently throughout the calculation.</li>
+      <li><strong>Closed Surfaces (Gauss's Surfaces):</strong> By international physical convention, \(\hat{\mathbf{n}}\) is always directed along the <em>outward-drawn normal</em>.</li>
+    </ul>
+
+    <div class="formula-card">
+      <div class="title">Mathematical Formulation of Electric Flux</div>
+      <p>The electric flux \(\Delta \phi\) crossing a planar area element \(\Delta \mathbf{S}\) immersed in electric field \(\mathbf{E}\) is:</p>
+      \[
+        \Delta \phi = \mathbf{E} \cdot \Delta \mathbf{S} = E\,\Delta S \cos\theta
+      \]
+      <p>where \(\theta\) is the angle between the electric field \(\mathbf{E}\) and the area normal \(\hat{\mathbf{n}}\).</p>
+      <p>For an arbitrary extended surface \(S\), the total flux is obtained by surface integration:</p>
+      \[
+        \phi = \int_S \mathbf{E} \cdot \mathrm{d}\mathbf{S}
+      \]
+    </div>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 540 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Uniform Field Background Lines -->
+        <g stroke="#cbd5e1" stroke-width="1.5">
+          <line x1="30" y1="30" x2="510" y2="30"/>
+          <line x1="30" y1="65" x2="510" y2="65"/>
+          <line x1="30" y1="100" x2="510" y2="100"/>
+          <line x1="30" y1="135" x2="510" y2="135"/>
+        </g>
+        <text x="500" y="24" font-size="13" font-weight="bold" fill="#0284c7">E</text>
+
+        <!-- Tilted Area Element -->
+        <polygon points="210,35 270,50 250,145 190,130" fill="rgba(56, 189, 248, 0.35)" stroke="#0284c7" stroke-width="2"/>
+        <circle cx="230" cy="90" r="3" fill="#0b3b60"/>
+
+        <!-- Normal vector n_hat -->
+        <line x1="230" y1="90" x2="330" y2="65" stroke="#d9534f" stroke-width="2.5"/>
+        <polygon points="330,65 320,62 322,70" fill="#d9534f"/>
+        <text x="338" y="65" font-size="13" font-weight="bold" fill="#d9534f">n̂ (or ΔS)</text>
+
+        <!-- E vector parallel to horizontal -->
+        <line x1="230" y1="90" x2="340" y2="90" stroke="#0284c7" stroke-width="2.5"/>
+        <polygon points="340,90 332,86 332,94" fill="#0284c7"/>
+        <text x="345" y="95" font-size="13" font-weight="bold" fill="#0284c7">E</text>
+
+        <!-- Arc showing theta -->
+        <path d="M 280,90 A 50 50 0 0 0 278,78" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+        <text x="290" y="82" font-size="13" font-weight="bold" fill="#1e293b">θ</text>
+
+        <text x="230" y="165" font-size="12" text-anchor="middle" fill="#334155" font-weight="600">Planar Area ΔS</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 5: Electric flux geometry showing the angle \(\theta\) between electric field \(\mathbf{E}\) and outward unit normal \(\hat{\mathbf{n}}\).</div>
+    </div>
+
+    <ul>
+      <li>If \(\theta < 90^\circ\): \(\cos\theta > 0 \implies \phi > 0\) (outward, emerging flux).</li>
+      <li>If \(\theta = 90^\circ\): \(\cos\theta = 0 \implies \phi = 0\) (field is parallel to the surface; no lines penetrate).</li>
+      <li>If \(\theta > 90^\circ\): \(\cos\theta < 0 \implies \phi < 0\) (inward, entering flux).</li>
+      <li><strong>SI Unit of Flux:</strong> \(\text{N m}^2\,\text{C}^{-1}\) or equivalently \(\text{V m}\) (volt-meters).</li>
+      <li><strong>Dimensions of Flux:</strong> \([\text{M L}^3 \text{T}^{-3} \text{A}^{-1}]\).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>7. The Electric Dipole</h2>
+    <p>
+      An <strong>electric dipole</strong> is a system consisting of two equal and opposite point charges \(q\) and \(-q\) separated by a finite small distance \(2a\).
+    </p>
+    <div class="formula-card">
+      <div class="title">Electric Dipole Moment Vector</div>
+      <p>
+        The <strong>dipole moment</strong> \(\mathbf{p}\) is mathematically defined as:
+      </p>
+      \[
+        \mathbf{p} = q(2\mathbf{a})
+      \]
+      <p>
+        <strong>Magnitude:</strong> \(p = q \times 2a\).<br>
+        <strong>Direction:</strong> By strict convention, \(\mathbf{p}\) points along the dipole axis from the <strong>negative charge \(-q\) to the positive charge \(+q\)</strong>.<br>
+        <strong>SI Unit:</strong> \(\text{C m}\) (coulomb-meter); <strong>Dimensions:</strong> \([\text{L T A}]\).
+      </p>
+    </div>
+
+    <h3>Field of an Electric Dipole</h3>
+    <p>
+      Although the net charge of an electric dipole is zero (\(q - q = 0\)), its electric field is not identically zero because the two charges are spatially separated. At large distances (\(r \gg a\)), the opposing fields nearly, but not completely, cancel, resulting in an inverse-cube falloff (\(E \propto 1/r^3\)).
+    </p>
+
+    <h4>Case 1: Axial Field (End-on Position)</h4>
+    <p>
+      Consider point \(P\) along the dipole axis at distance \(r\) from the dipole center \(O\) on the side of \(+q\):
+      \[
+        E_{+q} = \frac{1}{4\pi\varepsilon_0} \frac{q}{(r - a)^2}, \quad E_{-q} = \frac{1}{4\pi\varepsilon_0} \frac{q}{(r + a)^2}
+      \]
+      Taking the vector difference along \(\hat{\mathbf{p}}\):
+      \[
+        \mathbf{E}_{\text{axial}} = \frac{q}{4\pi\varepsilon_0} \left[ \frac{1}{(r - a)^2} - \frac{1}{(r + a)^2} \right] \hat{\mathbf{p}} = \frac{q}{4\pi\varepsilon_0} \frac{4 a r}{(r^2 - a^2)^2} \hat{\mathbf{p}}
+      \]
+      For a short dipole or far-field limit (\(r \gg a\)), neglecting \(a^2\) compared to \(r^2\):
+      \[
+        \mathbf{E}_{\text{axial}} = \frac{1}{4\pi\varepsilon_0} \frac{2\mathbf{p}}{r^3} \quad (r \gg a)
+      \]
+      <em>Direction:</em> Along the dipole moment vector \(\mathbf{p}\).
+
+    <h4>Case 2: Equatorial Field (Broadside-on Position)</h4>
+    <p>
+      Consider point \(Q\) on the equatorial plane (perpendicular bisector of the dipole axis) at distance \(r\) from center \(O\):
+      \[
+        E_{+q} = E_{-q} = \frac{1}{4\pi\varepsilon_0} \frac{q}{r^2 + a^2}
+      \]
+      The components perpendicular to the dipole axis cancel each other by symmetry. The components parallel to the dipole axis reinforce each other in the direction opposite to \(\mathbf{p}\):
+      \[
+        E_{\text{eq}} = 2 E_{+q} \cos\theta = 2 \left( \frac{1}{4\pi\varepsilon_0} \frac{q}{r^2 + a^2} \right) \left( \frac{a}{\sqrt{r^2 + a^2}} \right) = \frac{2qa}{4\pi\varepsilon_0 (r^2 + a^2)^{3/2}}
+      \]
+      For \(r \gg a\):
+      \[
+        \mathbf{E}_{\text{eq}} = -\frac{1}{4\pi\varepsilon_0} \frac{\mathbf{p}}{r^3} \quad (r \gg a)
+      \]
+      <em>Direction:</em> Antiparallel to the dipole moment vector \(\mathbf{p}\).
+    </p>
+
+    <div class="callout callout-success">
+      <div class="callout-title">NEET High-Yield Comparison: Axial vs. Equatorial</div>
+      <p>
+        For identical large distances \(r \gg a\) from a short dipole:
+        \[
+          |\mathbf{E}_{\text{axial}}| = 2 |\mathbf{E}_{\text{eq}}|
+        \]
+        The axial field has <strong>twice</strong> the magnitude of the equatorial field, and their vector directions are exactly <strong>antiparallel</strong> to each other!
+      </p>
+    </div>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 580 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dipole on horizontal axis -->
+        <line x1="80" y1="120" x2="360" y2="120" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+        <!-- Charges -->
+        <circle cx="160" cy="120" r="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+        <text x="160" y="124" font-size="11" text-anchor="middle" fill="#0284c7" font-weight="bold">−q</text>
+
+        <circle cx="280" cy="120" r="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+        <text x="280" y="124" font-size="11" text-anchor="middle" fill="#dc2626" font-weight="bold">+q</text>
+
+        <!-- Center O -->
+        <circle cx="220" cy="120" r="3" fill="#1e293b"/>
+        <text x="220" y="138" font-size="11" text-anchor="middle" fill="#1e293b">O</text>
+
+        <!-- p vector arrow -->
+        <line x1="180" y1="108" x2="260" y2="108" stroke="#0284c7" stroke-width="2.5"/>
+        <polygon points="260,108 252,104 252,112" fill="#0284c7"/>
+        <text x="220" y="102" font-size="12" text-anchor="middle" fill="#0284c7" font-weight="bold">p</text>
+
+        <!-- Axial Point P -->
+        <circle cx="420" cy="120" r="4" fill="#1e293b"/>
+        <text x="420" y="140" font-size="12" text-anchor="middle" fill="#1e293b" font-weight="bold">P (Axial)</text>
+        <line x1="420" y1="120" x2="500" y2="120" stroke="#dc2626" stroke-width="2.5"/>
+        <polygon points="500,120 492,116 492,124" fill="#dc2626"/>
+        <text x="460" y="112" font-size="12" text-anchor="middle" fill="#dc2626" font-weight="bold">E_axial</text>
+
+        <!-- Equatorial Point Q -->
+        <line x1="220" y1="120" x2="220" y2="30" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <circle cx="220" cy="40" r="4" fill="#1e293b"/>
+        <text x="250" y="42" font-size="12" fill="#1e293b" font-weight="bold">Q (Equatorial)</text>
+        <line x1="220" y1="40" x2="160" y2="40" stroke="#dc2626" stroke-width="2.5"/>
+        <polygon points="160,40 168,36 168,44" fill="#dc2626"/>
+        <text x="185" y="30" font-size="12" text-anchor="middle" fill="#dc2626" font-weight="bold">E_eq</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 6: Electric dipole vector fields at axial point \(P\) (collinear with \(\mathbf{p}\)) and equatorial point \(Q\) (antiparallel to \(\mathbf{p}\)).</div>
+    </div>
+
+    <h3>Electric Dipole in an External Field</h3>
+    <p>
+      Consider an electric dipole of moment \(\mathbf{p}\) placed in a <strong>uniform electric field</strong> \(\mathbf{E}\) making an angle \(\theta\) with the field vectors:
+    </p>
+    <ul>
+      <li><strong>Net Force:</strong>
+        \[
+          \mathbf{F}_{\text{net}} = \mathbf{F}_+ + \mathbf{F}_- = q\mathbf{E} + (-q\mathbf{E}) = \mathbf{0}
+        \]
+        In a uniform electric field, the translational net force on any electric dipole is strictly zero.
+      </li>
+      <li><strong>Net Torque:</strong> Because the two equal and opposite forces act along distinct lines of action separated by lever arm \(2a\sin\theta\), they form a mechanical couple:
+        \[
+          \tau = (qE)(2a\sin\theta) = (q \times 2a)E\sin\theta = pE\sin\theta
+        \]
+        Vectorially:
+        \[
+          \boldsymbol{\tau} = \mathbf{p} \times \mathbf{E}
+        \]
+        This torque acts to align the dipole moment \(\mathbf{p}\) parallel to the external field \(\mathbf{E}\).
+      </li>
+      <li><strong>Equilibrium States:</strong>
+        <ul>
+          <li>\(\theta = 0^\circ\) (\(\mathbf{p} \parallel \mathbf{E}\)): \(\tau = 0\). This is <em>stable equilibrium</em>.</li>
+          <li>\(\theta = 180^\circ\) (\(\mathbf{p} \parallel -\mathbf{E}\)): \(\tau = 0\). This is <em>unstable equilibrium</em>.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Dipole in a Non-Uniform Electric Field</h3>
+    <p>
+      If the electric field is non-uniform, \(|\mathbf{E}_+| \neq |\mathbf{E}_-|\), so the net force is non-zero:
+    </p>
+    <ul>
+      <li>When \(\mathbf{p}\) is parallel to \(\mathbf{E}\), the dipole experiences a net attractive force toward the region of <em>stronger</em> electric field.</li>
+      <li>When \(\mathbf{p}\) is antiparallel to \(\mathbf{E}\), the dipole experiences a net repulsive force toward the region of <em>weaker</em> electric field.</li>
+      <li><strong>Physical Phenomenon:</strong> A plastic comb run through dry hair acquires static charge by friction. When brought near neutral bits of paper, the non-uniform field of the comb polarizes the paper molecules (inducing \(\mathbf{p}\) aligned with \(\mathbf{E}\)). Because the field is non-uniform, the paper experiences a net attractive force toward the comb.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>8. Continuous Charge Distributions</h2>
+    <p>
+      When dealing with macroscopic charged bodies containing billions of electrons, specifying discrete point locations becomes intractable. We define smooth continuous charge density functions:
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Distribution Type</th>
+          <th>Definition</th>
+          <th>Formula</th>
+          <th>SI Unit</th>
+          <th>Dimensional Formula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Linear Charge Density (\(\lambda\))</strong></td>
+          <td>Charge per unit length along a thin wire or linear line</td>
+          <td>\(\lambda = \frac{\Delta q}{\Delta l}\)</td>
+          <td>\(\text{C m}^{-1}\)</td>
+          <td>\([\text{L}^{-1}\text{T A}]\)</td>
+        </tr>
+        <tr>
+          <td><strong>Surface Charge Density (\(\sigma\))</strong></td>
+          <td>Charge per unit area over a 2D surface or conducting sheet</td>
+          <td>\(\sigma = \frac{\Delta q}{\Delta S}\)</td>
+          <td>\(\text{C m}^{-2}\)</td>
+          <td>\([\text{L}^{-2}\text{T A}]\)</td>
+        </tr>
+        <tr>
+          <td><strong>Volume Charge Density (\(\rho\))</strong></td>
+          <td>Charge per unit volume throughout a 3D dielectric body</td>
+          <td>\(\rho = \frac{\Delta q}{\Delta V}\)</td>
+          <td>\(\text{C m}^{-3}\)</td>
+          <td>\([\text{L}^{-3}\text{T A}]\)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      The total electric field at observation point \(P\) is evaluated by integrating over all volume elements \(\mathrm{d}V\):
+      \[
+        \mathbf{E} = \frac{1}{4\pi\varepsilon_0} \int_V \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|^2} \hat{\mathbf{r}}' \, \mathrm{d}V
+      \]
+    </p>
+  </section>
+
+  <section>
+    <h2>9. Gauss's Law</h2>
+    <p>
+      Gauss's law is one of the four fundamental Maxwell equations governing classical electromagnetism. It establishes a profound connection between the net electric flux through any closed geometric surface and the enclosed algebraic charge.
+    </p>
+    <div class="formula-card">
+      <div class="title">Gauss's Law</div>
+      <p>
+        The total electric flux \(\phi\) through any closed surface \(S\) in vacuum is equal to \(1/\varepsilon_0\) times the total net charge \(q_{\text{enclosed}}\) contained within the interior of that surface:
+      </p>
+      \[
+        \Phi_E = \oint_S \mathbf{E} \cdot \mathrm{d}\mathbf{S} = \frac{q_{\text{enclosed}}}{\varepsilon_0}
+      \]
+    </div>
+
+    <h3>Essential Tenets of Gauss's Law</h3>
+    <ol>
+      <li><strong>Arbitrary Shape & Size:</strong> Gauss's law holds true for any closed surface (called a <strong>Gaussian surface</strong>), regardless of its shape, geometric curvature, or size.</li>
+      <li><strong>Enclosed Charge Only:</strong> The term \(q_{\text{enclosed}}\) represents exclusively the net algebraic sum of charges located <em>inside</em> the boundary surface. Charges outside do not contribute to \(q_{\text{enclosed}}\).</li>
+      <li><strong>Origin of Field \(\mathbf{E}\):</strong> On the left side of Gauss's law, the electric field \(\mathbf{E}\) evaluated in the dot product \(\mathbf{E} \cdot \mathrm{d}\mathbf{S}\) is the <strong>total resultant electric field produced by ALL charges</strong>—both those inside and those outside the Gaussian surface.</li>
+      <li><strong>No Discrete Charges on Surface:</strong> A Gaussian surface must not pass directly through a discrete point charge, because the electric field of a point charge is mathematically singular (\(\mathbf{E} \to \infty\)) at its exact location. However, it can pass smoothly through continuous line, surface, or volume charge distributions.</li>
+      <li><strong>Inverse-Square Dependence:</strong> Gauss's law is a mathematical consequence of the inverse-square law (\(1/r^2\)) of Coulomb's law. Any experimental departure from Gauss's law would indicate a violation of the inverse-square law.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>10. Applications of Gauss's Law</h2>
+    <p>
+      Gauss's law is universally valid for all charge configurations. However, it serves as a powerful practical tool for computing \(\mathbf{E}\) specifically when the charge distribution possesses a high degree of coordinate symmetry (spherical, cylindrical, or planar).
+    </p>
+
+    <h3>Application 1: Field Due to an Infinitely Long Uniformly Charged Wire</h3>
+    <p>
+      Consider a thin, straight, infinitely long wire carrying uniform linear charge density \(\lambda\).
+    </p>
+    <ul>
+      <li><strong>Symmetry:</strong> The wire has cylindrical symmetry. The electric field must be directed radially outward perpendicular to the wire, and its magnitude can depend only on radial distance \(r\).</li>
+      <li><strong>Gaussian Surface:</strong> A coaxial circular cylinder of radius \(r\) and length \(l\), closed by two flat circular end caps.</li>
+    </ul>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 520 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Infinite Wire -->
+        <line x1="260" y1="10" x2="260" y2="210" stroke="#0284c7" stroke-width="4"/>
+        <text x="275" y="25" font-size="12" fill="#0284c7" font-weight="bold">+λ (Linear wire)</text>
+
+        <!-- Plus signs on wire -->
+        <text x="256" y="50" font-size="12" fill="#ffffff" font-weight="bold">+</text>
+        <text x="256" y="90" font-size="12" fill="#ffffff" font-weight="bold">+</text>
+        <text x="256" y="130" font-size="12" fill="#ffffff" font-weight="bold">+</text>
+        <text x="256" y="170" font-size="12" fill="#ffffff" font-weight="bold">+</text>
+
+        <!-- Cylindrical Gaussian Surface -->
+        <g stroke="#64748b" stroke-width="1.5" fill="none">
+          <!-- Top Cap -->
+          <ellipse cx="260" cy="50" rx="90" ry="18" stroke="#475569" stroke-dasharray="3,3" fill="rgba(224, 242, 254, 0.3)"/>
+          <!-- Curved sides -->
+          <line x1="170" y1="50" x2="170" y2="170"/>
+          <line x1="350" y1="50" x2="350" y2="170"/>
+          <!-- Bottom Cap -->
+          <ellipse cx="260" cy="170" rx="90" ry="18" stroke="#475569" fill="rgba(224, 242, 254, 0.4)"/>
+        </g>
+
+        <!-- Radius r -->
+        <line x1="260" y1="110" x2="350" y2="110" stroke="#d9534f" stroke-width="2"/>
+        <text x="305" y="104" font-size="12" fill="#d9534f" font-weight="bold">r</text>
+
+        <!-- Length l -->
+        <line x1="150" y1="50" x2="150" y2="170" stroke="#334155" stroke-width="1.5"/>
+        <polyline points="146,55 150,50 154,55" fill="none" stroke="#334155" stroke-width="1.5"/>
+        <polyline points="146,165 150,170 154,165" fill="none" stroke="#334155" stroke-width="1.5"/>
+        <text x="135" y="115" font-size="12" fill="#334155" font-weight="bold">l</text>
+
+        <!-- Radial field arrows -->
+        <line x1="350" y1="110" x2="420" y2="110" stroke="#0284c7" stroke-width="2.5"/>
+        <polygon points="420,110 412,106 412,114" fill="#0284c7"/>
+        <text x="430" y="114" font-size="13" fill="#0284c7" font-weight="bold">E</text>
+
+        <!-- Flat end normal vs E -->
+        <line x1="260" y1="50" x2="260" y2="20" stroke="#64748b" stroke-width="2"/>
+        <text x="270" y="38" font-size="11" fill="#64748b">n̂ (Top: E ⊥ n̂ ⇒ φ = 0)</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 7: Cylindrical Gaussian surface surrounding an infinite uniformly charged wire.</div>
+    </div>
+
+    <ul>
+      <li><strong>Flux through Flat End Caps:</strong> At the flat circular caps, \(\hat{\mathbf{n}}\) is parallel to the wire, so \(\mathbf{E} \perp \hat{\mathbf{n}} \implies \mathbf{E} \cdot \mathrm{d}\mathbf{S} = 0\). The flux through both flat caps is zero.</li>
+      <li><strong>Flux through Curved Surface:</strong> At every point on the curved cylinder, \(\mathbf{E}\) is perpendicular to the surface (\(\mathbf{E} \parallel \hat{\mathbf{n}}\)), and \(|\mathbf{E}|\) is constant:
+        \[
+          \Phi_E = E \times (2\pi r l)
+        \]
+      </li>
+      <li><strong>Enclosed Charge:</strong> \(q_{\text{enclosed}} = \lambda l\).</li>
+      <li><strong>Applying Gauss's Law:</strong>
+        \[
+          E (2\pi r l) = \frac{\lambda l}{\varepsilon_0} \implies E = \frac{\lambda}{2\pi\varepsilon_0 r}
+        \]
+        Vectorially: \(\mathbf{E} = \frac{\lambda}{2\pi\varepsilon_0 r} \hat{\mathbf{n}}\) where \(\hat{\mathbf{n}}\) is the radial unit vector.
+      </li>
+    </ul>
+
+    <h3>Application 2: Field Due to a Uniformly Charged Infinite Plane Sheet</h3>
+    <p>
+      Let an infinite plane non-conducting sheet carry a uniform surface charge density \(\sigma\).
+    </p>
+    <ul>
+      <li><strong>Symmetry:</strong> By planar symmetry, \(\mathbf{E}\) must be perpendicular to the sheet, pointing away from it on both sides if \(\sigma > 0\), and its magnitude cannot depend on coordinates parallel to the sheet.</li>
+      <li><strong>Gaussian Surface:</strong> A pillbox (cylinder or rectangular parallelepiped) of cross-sectional area \(A\) penetrating symmetrically through the plane with faces parallel to the sheet at distance \(x\).</li>
+    </ul>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 540 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Infinite Sheet in Perspective -->
+        <polygon points="270,15 290,30 290,175 270,160" fill="rgba(56, 189, 248, 0.4)" stroke="#0284c7" stroke-width="2"/>
+        <text x="280" y="185" font-size="12" text-anchor="middle" fill="#0369a1" font-weight="bold">Charge Sheet (+σ)</text>
+
+        <!-- Pillbox passing through -->
+        <!-- Left half cylinder -->
+        <g stroke="#475569" stroke-width="1.5" fill="none">
+          <line x1="140" y1="70" x2="270" y2="70"/>
+          <line x1="140" y1="120" x2="270" y2="120"/>
+          <ellipse cx="140" cy="95" rx="15" ry="25" fill="#f1f5f9"/>
+          <!-- Right half cylinder -->
+          <line x1="290" y1="70" x2="420" y2="70"/>
+          <line x1="290" y1="120" x2="420" y2="120"/>
+          <ellipse cx="420" cy="95" rx="15" ry="25" fill="#f1f5f9"/>
+        </g>
+
+        <!-- E vector left -->
+        <line x1="140" y1="95" x2="70" y2="95" stroke="#dc2626" stroke-width="2.5"/>
+        <polygon points="70,95 78,91 78,99" fill="#dc2626"/>
+        <text x="85" y="85" font-size="13" fill="#dc2626" font-weight="bold">E</text>
+        <text x="140" y="135" font-size="11" text-anchor="middle" fill="#475569">Face 1 (Area A)</text>
+
+        <!-- E vector right -->
+        <line x1="420" y1="95" x2="490" y2="95" stroke="#dc2626" stroke-width="2.5"/>
+        <polygon points="490,95 482,91 482,99" fill="#dc2626"/>
+        <text x="475" y="85" font-size="13" fill="#dc2626" font-weight="bold">E</text>
+        <text x="420" y="135" font-size="11" text-anchor="middle" fill="#475569">Face 2 (Area A)</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 8: Cylindrical pillbox Gaussian surface crossing an infinite charged plane sheet.</div>
+    </div>
+
+    <ul>
+      <li><strong>Flux Calculation:</strong> Field lines are parallel to the curved cylinder wall, so flux through the curved side is zero. At both flat end caps, \(\mathbf{E} \parallel \hat{\mathbf{n}}\), each contributing flux \(EA\).
+        \[
+          \Phi_{\text{net}} = EA + EA = 2EA
+        \]
+      </li>
+      <li><strong>Enclosed Charge:</strong> \(q_{\text{enclosed}} = \sigma A\).</li>
+      <li><strong>Applying Gauss's Law:</strong>
+        \[
+          2EA = \frac{\sigma A}{\varepsilon_0} \implies E = \frac{\sigma}{2\varepsilon_0}
+        \]
+      </li>
+      <li><strong>Key Insight:</strong> The electric field produced by an infinite sheet is completely independent of the distance \(x\) from the sheet!</li>
+    </ul>
+
+    <h3>Application 3: Field Due to a Uniformly Charged Thin Spherical Shell</h3>
+    <p>
+      Consider a thin spherical shell of radius \(R\) holding a total charge \(q = 4\pi R^2 \sigma\) distributed uniformly over its surface.
+    </p>
+
+    <h4>(i) Outside the Shell (\(r > R\))</h4>
+    <p>
+      Choose a concentric spherical Gaussian surface of radius \(r > R\). By spherical symmetry, \(\mathbf{E}\) is directed radially outward, with constant magnitude over the entire Gaussian sphere:
+      \[
+        \Phi_E = \oint \mathbf{E} \cdot \mathrm{d}\mathbf{S} = E \times (4\pi r^2)
+      \]
+      The enclosed charge is the total charge on the shell, \(q_{\text{enclosed}} = q\):
+      \[
+        E (4\pi r^2) = \frac{q}{\varepsilon_0} \implies E = \frac{1}{4\pi\varepsilon_0} \frac{q}{r^2} \quad (r \ge R)
+      \]
+      <em>Conclusion:</em> For all external points, a uniformly charged spherical shell behaves electrostatically as if its entire charge were concentrated as a point charge at its center!
+
+    <h4>(ii) Inside the Shell (\(r < R\))</h4>
+    <p>
+      Choose a concentric spherical Gaussian surface of radius \(r < R\).
+      \[
+        \Phi_E = E \times (4\pi r^2)
+      \]
+      Because all charges reside on the shell at radius \(R\), the interior contains no charge: \(q_{\text{enclosed}} = 0\).
+      \[
+        E (4\pi r^2) = 0 \implies E = 0 \quad (r < R)
+      \]
+      <em>Conclusion:</em> The electrostatic field is identically zero everywhere inside a uniformly charged thin spherical shell (electrostatic shielding).
+    </p>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 520 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- Axes -->
+        <line x1="60" y1="150" x2="480" y2="150" stroke="#1e293b" stroke-width="2"/>
+        <polygon points="480,150 472,146 472,154" fill="#1e293b"/>
+        <text x="475" y="168" font-size="12" fill="#1e293b" font-weight="bold">r</text>
+
+        <line x1="60" y1="150" x2="60" y2="20" stroke="#1e293b" stroke-width="2"/>
+        <polygon points="60,20 56,28 64,28" fill="#1e293b"/>
+        <text x="40" y="25" font-size="12" fill="#1e293b" font-weight="bold">E(r)</text>
+
+        <!-- Position R -->
+        <line x1="180" y1="150" x2="180" y2="155" stroke="#1e293b" stroke-width="1.5"/>
+        <text x="180" y="170" font-size="12" text-anchor="middle" fill="#1e293b" font-weight="bold">r = R</text>
+
+        <!-- Zero field inside (from 60 to 180) -->
+        <line x1="60" y1="149" x2="180" y2="149" stroke="#dc2626" stroke-width="3.5"/>
+        <circle cx="180" cy="149" r="4" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+
+        <!-- Maximum at r = R -->
+        <line x1="180" y1="150" x2="180" y2="45" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <circle cx="180" cy="45" r="4" fill="#dc2626"/>
+        <text x="135" y="48" font-size="11" fill="#dc2626" font-weight="bold">E_max = σ/ε₀</text>
+
+        <!-- 1/r^2 falloff curve outside -->
+        <path d="M 180,45 Q 240,115 450,142" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+        <text x="310" y="90" font-size="12" fill="#dc2626" font-weight="bold">E ∝ 1/r²</text>
+        <text x="110" y="135" font-size="12" fill="#64748b" font-weight="bold">E = 0</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Figure 9: Graph of electric field \(E(r)\) versus radial distance \(r\) for a uniformly charged thin spherical shell of radius \(R\).</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>11. Master Formula & Quantitative Summary</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Physical Quantity / Law</th>
+          <th>Standard Symbol</th>
+          <th>SI Unit</th>
+          <th>Key Mathematical Formula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quantisation of Charge</td>
+          <td>\(q\)</td>
+          <td>\(\text{C}\)</td>
+          <td>\(q = ne \quad (e \approx 1.602 \times 10^{-19}\,\text{C})\)</td>
+        </tr>
+        <tr>
+          <td>Coulomb's Law (Vacuum)</td>
+          <td>\(\mathbf{F}\)</td>
+          <td>\(\text{N}\)</td>
+          <td>\(F = \frac{1}{4\pi\varepsilon_0}\frac{|q_1 q_2|}{r^2}, \quad \frac{1}{4\pi\varepsilon_0} \approx 9 \times 10^9\,\text{N m}^2\,\text{C}^{-2}\)</td>
+        </tr>
+        <tr>
+          <td>Electric Field of Point Charge</td>
+          <td>\(\mathbf{E}\)</td>
+          <td>\(\text{N C}^{-1}\text{ or }\text{V m}^{-1}\)</td>
+          <td>\(\mathbf{E} = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\hat{\mathbf{r}}\)</td>
+        </tr>
+        <tr>
+          <td>Electric Dipole Moment</td>
+          <td>\(\mathbf{p}\)</td>
+          <td>\(\text{C m}\)</td>
+          <td>\(\mathbf{p} = q(2\mathbf{a}) \quad (\text{directed from }-q\text{ to }+q)\)</td>
+        </tr>
+        <tr>
+          <td>Dipole Axial Field (\(r \gg a\))</td>
+          <td>\(\mathbf{E}_{\text{axial}}\)</td>
+          <td>\(\text{N C}^{-1}\)</td>
+          <td>\(\mathbf{E}_{\text{axial}} = \frac{1}{4\pi\varepsilon_0}\frac{2\mathbf{p}}{r^3}\)</td>
+        </tr>
+        <tr>
+          <td>Dipole Equatorial Field (\(r \gg a\))</td>
+          <td>\(\mathbf{E}_{\text{eq}}\)</td>
+          <td>\(\text{N C}^{-1}\)</td>
+          <td>\(\mathbf{E}_{\text{eq}} = -\frac{1}{4\pi\varepsilon_0}\frac{\mathbf{p}}{r^3}\)</td>
+        </tr>
+        <tr>
+          <td>Torque on Dipole in Uniform Field</td>
+          <td>\(\boldsymbol{\tau}\)</td>
+          <td>\(\text{N m}\)</td>
+          <td>\(\boldsymbol{\tau} = \mathbf{p} \times \mathbf{E}, \quad \tau = pE\sin\theta\)</td>
+        </tr>
+        <tr>
+          <td>Electric Flux</td>
+          <td>\(\phi\)</td>
+          <td>\(\text{N m}^2\,\text{C}^{-1}\text{ or }\text{V m}\)</td>
+          <td>\(\phi = \int \mathbf{E} \cdot \mathrm{d}\mathbf{S} = E S \cos\theta\)</td>
+        </tr>
+        <tr>
+          <td>Gauss's Law</td>
+          <td>\(\Phi_E\)</td>
+          <td>\(\text{V m}\)</td>
+          <td>\(\oint \mathbf{E} \cdot \mathrm{d}\mathbf{S} = \frac{q_{\text{enclosed}}}{\varepsilon_0}\)</td>
+        </tr>
+        <tr>
+          <td>Field of Infinite Wire</td>
+          <td>\(E\)</td>
+          <td>\(\text{N C}^{-1}\)</td>
+          <td>\(E = \frac{\lambda}{2\pi\varepsilon_0 r}\)</td>
+        </tr>
+        <tr>
+          <td>Field of Infinite Plane Sheet</td>
+          <td>\(E\)</td>
+          <td>\(\text{N C}^{-1}\)</td>
+          <td>\(E = \frac{\sigma}{2\varepsilon_0}\)</td>
+        </tr>
+        <tr>
+          <td>Field of Spherical Shell (\(r \ge R\))</td>
+          <td>\(E\)</td>
+          <td>\(\text{N C}^{-1}\)</td>
+          <td>\(E = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2} \quad (E = 0 \text{ for } r < R)\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>12. Step-by-Step Worked Representative Examples</h2>
+
+    <div class="example-box">
+      <div class="example-header">Worked Example 1: Charge Transfer and Quantisation Time Scale</div>
+      <p>
+        If \(10^9\) electrons transfer from a neutral body \(A\) to another neutral body \(B\) every second, calculate the time required for body \(B\) to accumulate a net negative charge of \(1.0\,\text{C}\).
+      </p>
+      <div class="solution-block">
+        <div class="solution-title">Solution:</div>
+        <p><strong>Step 1:</strong> Calculate charge transferred per unit time (\(\mathrm{d}q/\mathrm{d}t\)):</p>
+        \[
+          \frac{\Delta q}{\Delta t} = n_e \times e = 10^9\,\text{s}^{-1} \times 1.602 \times 10^{-19}\,\text{C} = 1.602 \times 10^{-10}\,\text{C s}^{-1}
+        \]
+        <p><strong>Step 2:</strong> Calculate the time \(t\) to accumulate \(Q = 1.0\,\text{C}\):</p>
+        \[
+          t = \frac{Q}{\Delta q/\Delta t} = \frac{1.0\,\text{C}}{1.602 \times 10^{-10}\,\text{C s}^{-1}} \approx 6.242 \times 10^9\,\text{s}
+        \]
+        <p><strong>Step 3:</strong> Convert seconds into years:</p>
+        \[
+          t = \frac{6.242 \times 10^9}{365.25 \times 24 \times 3600} \approx 197.8\,\text{years} \approx 198\,\text{years}
+        \]
+        <p><strong>NEET Takeaway:</strong> One coulomb is an enormous unit of charge in electrostatics. Even at the immense transfer rate of one billion electrons per second, nearly 200 years are needed to accumulate \(1\,\text{C}\).</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header">Worked Example 2: Vector Superposition on an Equilateral Triangle</div>
+      <p>
+        Three identical positive point charges \(q_1 = q_2 = q_3 = +q\) are fixed at the vertices of an equilateral triangle of side length \(l\). A point charge \(Q\) having the same sign as \(q\) is placed at the centroid \(O\) of the triangle. What is the net electrostatic force acting on charge \(Q\)?
+      </p>
+      <div class="solution-block">
+        <div class="solution-title">Solution:</div>
+        <p><strong>Step 1:</strong> Determine the distance \(r\) from each vertex to centroid \(O\):</p>
+        <p>In an equilateral triangle of side \(l\), altitude \(h = l\cos 30^\circ = \frac{\sqrt{3}}{2}l\). The centroid divides each median in a \(2:1\) ratio, so the distance from any vertex to \(O\) is:</p>
+        \[
+          r = \frac{2}{3}h = \frac{2}{3}\left(\frac{\sqrt{3}}{2}l\right) = \frac{l}{\sqrt{3}}
+        \]
+        <p><strong>Step 2:</strong> Evaluate force magnitudes from each vertex on \(Q\):</p>
+        \[
+          F_A = F_B = F_C = \frac{1}{4\pi\varepsilon_0}\frac{Qq}{r^2} = \frac{1}{4\pi\varepsilon_0}\frac{3Qq}{l^2} = F_0
+        \]
+        <p><strong>Step 3:</strong> Vector addition using planar symmetry:</p>
+        <p>The three force vectors \(\mathbf{F}_A, \mathbf{F}_B, \mathbf{F}_C\) point radially away from vertices \(A, B, C\) toward centroid \(O\). The angle between any adjacent pair of vectors is \(120^\circ\).</p>
+        <p>The resultant of \(\mathbf{F}_B\) and \(\mathbf{F}_C\) has magnitude:</p>
+        \[
+          F_{BC} = \sqrt{F_0^2 + F_0^2 + 2F_0^2\cos 120^\circ} = \sqrt{2F_0^2 + 2F_0^2(-1/2)} = F_0
+        \]
+        <p>By the parallelogram law, \(\mathbf{F}_{BC}\) is directed along the angle bisector directly opposite to \(\mathbf{F}_A\). Therefore:</p>
+        \[
+          \mathbf{F}_{\text{net}} = \mathbf{F}_A + (\mathbf{F}_B + \mathbf{F}_C) = F_0\,\hat{\mathbf{r}}_A - F_0\,\hat{\mathbf{r}}_A = \mathbf{0}
+        \]
+        <p><strong>NEET Takeaway:</strong> By rotational symmetry, any test charge placed at the geometric centroid of a regular planar polygon with identical charges at all vertices experiences zero net electrostatic force.</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header">Worked Example 3: Non-Uniform Field and Gauss's Law through a Cube</div>
+      <p>
+        The electric field in a region is given by \(\mathbf{E} = (\alpha x^{1/2})\,\hat{\mathbf{i}}\), with \(E_y = E_z = 0\), where constant \(\alpha = 800\,\text{N C}^{-1}\,\text{m}^{-1/2}\). A cube with edge length \(a = 0.1\,\text{m}\) is situated with its faces parallel to the coordinate planes, its left face located at \(x = a\) and its right face located at \(x = 2a\). Determine (a) the net electric flux through the cube, and (b) the total charge enclosed within the cube.
+      </p>
+      <div class="solution-block">
+        <div class="solution-title">Solution:</div>
+        <p><strong>(a) Net Electric Flux:</strong></p>
+        <p>Because \(\mathbf{E}\) points strictly along \(\hat{\mathbf{i}}\), \(\mathbf{E} \cdot \hat{\mathbf{n}} = 0\) for the top, bottom, front, and back faces. Only the left and right faces perpendicular to the \(x\)-axis contribute flux:</p>
+        <ul>
+          <li><strong>Left face (\(x = a\)):</strong> Normal vector \(\hat{\mathbf{n}}_L = -\hat{\mathbf{i}}\), Area \(S = a^2\):
+            \[
+              \phi_L = \mathbf{E}_L \cdot \hat{\mathbf{n}}_L\,a^2 = -E_L a^2 = -(\alpha a^{1/2}) a^2 = -\alpha a^{5/2}
+            \]
+          </li>
+          <li><strong>Right face (\(x = 2a\)):</strong> Normal vector \(\hat{\mathbf{n}}_R = +\hat{\mathbf{i}}\), Area \(S = a^2\):
+            \[
+              \phi_R = \mathbf{E}_R \cdot \hat{\mathbf{n}}_R\,a^2 = +E_R a^2 = +[\alpha (2a)^{1/2}] a^2 = +\sqrt{2}\alpha a^{5/2}
+            \]
+          </li>
+        </ul>
+        <p>The total net outward flux is:</p>
+        \[
+          \phi_{\text{net}} = \phi_R + \phi_L = \alpha a^{5/2} (\sqrt{2} - 1)
+        \]
+        <p>Substitute the given numerical parameters (\(\alpha = 800\), \(a = 0.1\,\text{m}\)):</p>
+        \[
+          a^{5/2} = (10^{-1})^{5/2} = 10^{-2.5} = 10^{-2}\sqrt{0.1} \approx 3.162 \times 10^{-3}\,\text{m}^{5/2}
+        \]
+        \[
+          \phi_{\text{net}} = 800 \times (3.162 \times 10^{-3}) \times (1.4142 - 1) \approx 2.53 \times 0.4142 \approx 1.05\,\text{N m}^2\,\text{C}^{-1}
+        \]
+        <p><strong>(b) Enclosed Charge via Gauss's Law:</strong></p>
+        \[
+          q_{\text{enclosed}} = \varepsilon_0 \phi_{\text{net}} = (8.854 \times 10^{-12}\,\text{C}^2\,\text{N}^{-1}\,\text{m}^{-2}) \times (1.05\,\text{N m}^2\,\text{C}^{-1}) \approx 9.27 \times 10^{-12}\,\text{C} = 9.27\,\text{pC}
+        \]
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="example-header">Worked Example 4: Electric Field of Opposite Uniformly Charged Parallel Plates</div>
+      <p>
+        Two large, thin, conducting metal plates are held parallel and close to each other. On their inner faces, the plates carry surface charge densities of opposite signs and equal magnitude \(\sigma = 17.7 \times 10^{-12}\,\text{C m}^{-2}\). Calculate the magnitude of the electric field: (a) in the outer region to the left of the plates, (b) in the outer region to the right of the plates, and (c) in the region between the plates.
+      </p>
+      <div class="solution-block">
+        <div class="solution-title">Solution:</div>
+        <p>Let Plate 1 have \(+\sigma\) and Plate 2 have \(-\sigma\). The electric field produced by an infinite plane sheet of charge is \(E = \frac{\sigma}{2\varepsilon_0}\), directed away from the positive sheet and toward the negative sheet.</p>
+        <ul>
+          <li><strong>(a) Outer Region I (Left of Plate 1):</strong>
+            \(\mathbf{E}_+\) points to the left, and \(\mathbf{E}_-\) points to the right:
+            \[
+              E_I = E_+ - E_- = \frac{\sigma}{2\varepsilon_0} - \frac{\sigma}{2\varepsilon_0} = 0
+            \]
+          </li>
+          <li><strong>(b) Outer Region III (Right of Plate 2):</strong>
+            \(\mathbf{E}_+\) points to the right, and \(\mathbf{E}_-\) points to the left:
+            \[
+              E_{III} = E_+ - E_- = \frac{\sigma}{2\varepsilon_0} - \frac{\sigma}{2\varepsilon_0} = 0
+            \]
+          </li>
+          <li><strong>(c) Interior Region II (Between the Plates):</strong>
+            Both \(\mathbf{E}_+\) and \(\mathbf{E}_-\) point in the same direction (from positive plate toward negative plate):
+            \[
+              E_{II} = E_+ + E_- = \frac{\sigma}{2\varepsilon_0} + \frac{\sigma}{2\varepsilon_0} = \frac{\sigma}{\varepsilon_0}
+            \]
+            Substituting values:
+            \[
+              E_{II} = \frac{17.7 \times 10^{-12}\,\text{C m}^{-2}}{8.85 \times 10^{-12}\,\text{C}^2\,\text{N}^{-1}\,\text{m}^{-2}} = 2.0\,\text{N C}^{-1}
+            \]
+          </li>
+        </ul>
+        <p><strong>NEET Takeaway:</strong> This configuration forms the foundation of a parallel-plate capacitor, where the external field vanishes while a uniform field \(E = \sigma/\varepsilon_0\) is confined between the plates.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>13. NEET Exam-Aligned Original Practice Questions</h2>
+    <p class="subtitle" style="margin-bottom: 20px;">Strictly modeled on the NTA NEET UG pattern: Conceptual MCQs, Assertion-Reason, and Numerical Value Questions with full step-by-step explanations.</p>
+
+    <!-- Question 1 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 1</span>
+        <span class="question-tag">Single Option Correct • Charge Properties</span>
+      </div>
+      <p>
+        A polythene piece rubbed with wool is found to have acquired a negative charge of \(3.2 \times 10^{-7}\,\text{C}\). Which of the following statements is physically correct? (Take \(e = 1.6 \times 10^{-19}\,\text{C}\), \(m_e = 9.1 \times 10^{-31}\,\text{kg}\))
+      </p>
+      <ul class="mcq-options">
+        <li>(A) \(2 \times 10^{12}\) electrons are transferred from wool to polythene, with a negligible mass gain of \(1.82 \times 10^{-18}\,\text{kg}\).</li>
+        <li>(B) \(2 \times 10^{12}\) electrons are transferred from polythene to wool, with a mass decrease of polythene.</li>
+        <li>(C) \(5 \times 10^{11}\) protons are transferred from wool to polythene.</li>
+        <li>(D) \(2 \times 10^{14}\) electrons are transferred from wool to polythene with no change in mass.</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (A)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>By quantisation of charge, \(q = ne\). The number of electrons transferred is:</p>
+        \[
+          n = \frac{|q|}{e} = \frac{3.2 \times 10^{-7}\,\text{C}}{1.6 \times 10^{-19}\,\text{C}} = 2.0 \times 10^{12}
+        \]
+        <p>Because polythene acquires a <em>negative</em> charge, it has gained electrons transferred from the wool. The mass transferred to the polythene is:</p>
+        \[
+          \Delta m = n \times m_e = (2.0 \times 10^{12}) \times (9.11 \times 10^{-31}\,\text{kg}) = 1.82 \times 10^{-18}\,\text{kg}
+        \]
+        <p>Protons reside tightly within atomic nuclei and are never transferred during triboelectric rubbing.</p>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 2</span>
+        <span class="question-tag">Single Option Correct • Coulomb's Law & Conduction</span>
+      </div>
+      <p>
+        Two identical small conducting spheres \(A\) and \(B\) carry charges \(+q\) and \(-3q\) and are separated by distance \(r\) (\(r \gg\) radius of spheres), experiencing a mutual electrostatic force \(F_1\). The spheres are brought into direct physical contact and then returned to their original positions. The new electrostatic force between them is \(F_2\). What is the ratio \(F_1 / F_2\), and what is the nature of \(F_2\)?
+      </p>
+      <ul class="mcq-options">
+        <li>(A) \(3 : 1\), attractive</li>
+        <li>(B) \(3 : 1\), repulsive</li>
+        <li>(C) \(12 : 1\), repulsive</li>
+        <li>(D) \(4 : 3\), repulsive</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (B)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p><strong>Initial State:</strong> Magnitude of attractive force is:</p>
+        \[
+          F_1 = \frac{1}{4\pi\varepsilon_0}\frac{|(+q)(-3q)|}{r^2} = \frac{1}{4\pi\varepsilon_0}\frac{3q^2}{r^2}
+        \]
+        <p><strong>After Contact:</strong> By conservation of charge, total charge \(Q_{\text{net}} = (+q) + (-3q) = -2q\). Because the spheres are identical, charge redistributes equally by symmetry:</p>
+        \[
+          q_A' = q_B' = \frac{Q_{\text{net}}}{2} = \frac{-2q}{2} = -q
+        \]
+        <p><strong>New Force:</strong> Both spheres now have like charges of \(-q\), so the force is repulsive:</p>
+        \[
+          F_2 = \frac{1}{4\pi\varepsilon_0}\frac{|(-q)(-q)|}{r^2} = \frac{1}{4\pi\varepsilon_0}\frac{q^2}{r^2}
+        \]
+        <p>Taking the ratio:</p>
+        \[
+          \frac{F_1}{F_2} = \frac{3q^2/r^2}{q^2/r^2} = \frac{3}{1}
+        \]
+        <p>Thus, the ratio is \(3:1\) and the force is repulsive.</p>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 3</span>
+        <span class="question-tag">Single Option Correct • Dipole Field & Distance Scaling</span>
+      </div>
+      <p>
+        An electric dipole of moment \(\mathbf{p}\) produces an electric field of magnitude \(E\) at a far-away point on its axis at distance \(d\) from its center (\(d \gg 2a\)). If the distance from the center along the axis is doubled to \(2d\), the new electric field magnitude will be:
+      </p>
+      <ul class="mcq-options">
+        <li>(A) \(E/2\)</li>
+        <li>(B) \(E/4\)</li>
+        <li>(C) \(E/8\)</li>
+        <li>(D) \(E/16\)</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (C)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>The electric field at a far-away axial point of a short dipole is inversely proportional to the cube of the distance:</p>
+        \[
+          E \propto \frac{1}{r^3}
+        \]
+        <p>When the distance increases from \(d\) to \(2d\):</p>
+        \[
+          E' = \frac{1}{4\pi\varepsilon_0}\frac{2p}{(2d)^3} = \frac{1}{4\pi\varepsilon_0}\frac{2p}{8d^3} = \frac{E}{8}
+        \]
+        <p>Unlike a point charge field which falls off as \(1/r^2\), an electric dipole field falls off as \(1/r^3\).</p>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 4</span>
+        <span class="question-tag">Single Option Correct • Gauss's Law & Symmetry</span>
+      </div>
+      <p>
+        A point charge \(+q\) is placed at a distance \(a/2\) directly above the center of a horizontal square surface of side length \(a\). The total electric flux passing through the square surface is:
+      </p>
+      <ul class="mcq-options">
+        <li>(A) \(\frac{q}{\varepsilon_0}\)</li>
+        <li>(B) \(\frac{q}{4\varepsilon_0}\)</li>
+        <li>(C) \(\frac{q}{6\varepsilon_0}\)</li>
+        <li>(D) \(\frac{q}{8\varepsilon_0}\)</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (C)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>Construct a fictitious symmetrical closed Gaussian cube of edge length \(a\) enclosing the charge. If the given square is placed as the bottom face of this cube, a distance \(a/2\) above its center is precisely the <em>geometric center</em> of the cube.</p>
+        <p>By Gauss's law, the total flux emerging through all 6 faces of the cube is:</p>
+        \[
+          \Phi_{\text{total}} = \frac{q_{\text{enclosed}}}{\varepsilon_0} = \frac{q}{\varepsilon_0}
+        \]
+        <p>Since the charge is at the exact center, the flux is distributed equally across all 6 identical square faces by spherical symmetry:</p>
+        \[
+          \Phi_{\text{one face}} = \frac{1}{6}\Phi_{\text{total}} = \frac{q}{6\varepsilon_0}
+        \]
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 5</span>
+        <span class="question-tag">Single Option Correct • Torque and Potential Work</span>
+      </div>
+      <p>
+        An electric dipole of moment \(\mathbf{p} = (4 \times 10^{-9}\,\text{C m})\,\hat{\mathbf{i}}\) is placed in a uniform electric field \(\mathbf{E} = (3 \times 10^4\,\hat{\mathbf{i}} + 4 \times 10^4\,\hat{\mathbf{j}})\,\text{N C}^{-1}\). The magnitude of the torque acting on the dipole is:
+      </p>
+      <ul class="mcq-options">
+        <li>(A) \(1.2 \times 10^{-4}\,\text{N m}\)</li>
+        <li>(B) \(1.6 \times 10^{-4}\,\text{N m}\)</li>
+        <li>(C) \(2.0 \times 10^{-4}\,\text{N m}\)</li>
+        <li>(D) \(2.8 \times 10^{-4}\,\text{N m}\)</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (B)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>The torque vector is evaluated via the vector cross-product:</p>
+        \[
+          \boldsymbol{\tau} = \mathbf{p} \times \mathbf{E} = (4 \times 10^{-9}\,\hat{\mathbf{i}}) \times (3 \times 10^4\,\hat{\mathbf{i}} + 4 \times 10^4\,\hat{\mathbf{j}})
+        \]
+        <p>Using unit vector cross products (\(\hat{\mathbf{i}} \times \hat{\mathbf{i}} = \mathbf{0}\) and \(\hat{\mathbf{i}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}}\)):</p>
+        \[
+          \boldsymbol{\tau} = \mathbf{0} + (4 \times 10^{-9})(4 \times 10^4)\,\hat{\mathbf{k}} = (1.6 \times 10^{-4}\,\hat{\mathbf{k}})\,\text{N m}
+        \]
+        <p>The magnitude is \(|\boldsymbol{\tau}| = 1.6 \times 10^{-4}\,\text{N m}\).</p>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 6</span>
+        <span class="question-tag">Assertion-Reason • Field Lines & Loops</span>
+      </div>
+      <p>
+        <strong>Assertion (A):</strong> Electrostatic field lines never form closed continuous loops.<br>
+        <strong>Reason (R):</strong> The electrostatic field is a conservative vector field, meaning the line integral of electric field around any closed loop is identically zero.
+      </p>
+      <ul class="mcq-options">
+        <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+        <li>(B) Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).</li>
+        <li>(C) (A) is true, but (R) is false.</li>
+        <li>(D) (A) is false, but (R) is true.</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (A)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>If an electrostatic field line formed a closed loop, a test charge moving along the loop in the direction of \(\mathbf{E}\) would experience a tangential force \(q\mathbf{E}\) at every point. The work done over one full cycle would be \(\oint q\mathbf{E} \cdot \mathrm{d}\mathbf{l} > 0\), violating the conservative nature of static electric fields. Because the electrostatic force is conservative (\(\oint \mathbf{E} \cdot \mathrm{d}\mathbf{l} = 0\)), static field lines cannot form closed loops.</p>
+      </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 7</span>
+        <span class="question-tag">Assertion-Reason • Gauss's Law Validity</span>
+      </div>
+      <p>
+        <strong>Assertion (A):</strong> If the net electric flux through an imaginary closed Gaussian surface is zero, there can be no discrete charges residing anywhere inside that surface.<br>
+        <strong>Reason (R):</strong> Gauss's law states that \(\oint \mathbf{E} \cdot \mathrm{d}\mathbf{S} = q_{\text{enclosed}}/\varepsilon_0\).
+      </p>
+      <ul class="mcq-options">
+        <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+        <li>(B) Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).</li>
+        <li>(C) (A) is true, but (R) is false.</li>
+        <li>(D) (A) is false, but (R) is true.</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (D)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>By Gauss's law, \(\Phi = q_{\text{enclosed}}/\varepsilon_0\). If \(\Phi = 0\), it implies only that the <em>algebraic sum</em> of the enclosed charges is zero: \(q_{\text{enclosed}} = \sum q_i = 0\). For instance, an electric dipole (\(+q\) and \(-q\)) inside the surface has \(q_{\text{enclosed}} = +q - q = 0\), producing zero net flux despite charges being present inside. Thus, Assertion (A) is false, while Reason (R) is a correct statement of Gauss's law.</p>
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-num">Practice Question 8</span>
+        <span class="question-tag">Single Option Correct • Spherical Shell Electrostatics</span>
+      </div>
+      <p>
+        A hollow spherical conducting shell of inner radius \(r_1\) and outer radius \(r_2\) carries a net charge \(+Q\). A point charge \(+q\) is placed at the center of the cavity. What are the surface charge densities on the inner surface and outer surface of the shell, respectively?
+      </p>
+      <ul class="mcq-options">
+        <li>(A) \(\sigma_{\text{in}} = -\frac{q}{4\pi r_1^2}\), \quad \sigma_{\text{out}} = +\frac{Q + q}{4\pi r_2^2}\)</li>
+        <li>(B) \(\sigma_{\text{in}} = +\frac{q}{4\pi r_1^2}\), \quad \sigma_{\text{out}} = +\frac{Q - q}{4\pi r_2^2}\)</li>
+        <li>(C) \(\sigma_{\text{in}} = 0\), \quad \sigma_{\text{out}} = +\frac{Q}{4\pi r_2^2}\)</li>
+        <li>(D) \(\sigma_{\text{in}} = -\frac{q}{4\pi r_1^2}\), \quad \sigma_{\text{out}} = +\frac{Q}{4\pi r_2^2}\)</li>
+      </ul>
+      <div class="ans-solution">
+        <div class="ans-label">Correct Answer: (A)</div>
+        <p><strong>Detailed Explanation:</strong></p>
+        <p>Inside the conducting material (\(r_1 < r < r_2\)), the static electric field must be zero (\(\mathbf{E} = \mathbf{0}\)). Consider a spherical Gaussian surface within the conducting shell:</p>
+        \[
+          \oint \mathbf{E} \cdot \mathrm{d}\mathbf{S} = 0 \implies q_{\text{enclosed}} = 0
+        \]
+        <p>Since the central charge is \(+q\), an induced charge \(q_{\text{inner}} = -q\) must reside on the inner surface. Therefore, the inner surface charge density is:</p>
+        \[
+          \sigma_{\text{in}} = \frac{-q}{4\pi r_1^2}
+        \]
+        <p>By conservation of charge, because the shell had an initial charge \(+Q\), the charge on its outer surface becomes \(q_{\text{outer}} = Q - q_{\text{inner}} = Q - (-q) = Q + q\). Thus, the outer surface charge density is:</p>
+        \[
+          \sigma_{\text{out}} = \frac{Q + q}{4\pi r_2^2}
+        \]
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>14. Common Traps, Pitfalls & Revision Checklist</h2>
+
+    <div class="checklist-grid">
+      <div class="callout callout-success" style="margin:0;">
+        <div class="callout-title">Frequent Conceptual Misconceptions</div>
+        <ul>
+          <li><strong>Trap:</strong> Confusing \(\mathbf{E}\) in Gauss's law with the field of enclosed charges only. <em>Correction:</em> \(\mathbf{E}\) is the total field from all charges, but \(\Phi\) depends only on \(q_{\text{enclosed}}\).</li>
+          <li><strong>Trap:</strong> Forgetting the vector sign of dipole moment \(\mathbf{p}\). <em>Correction:</em> In physics, \(\mathbf{p}\) points from negative to positive (\(-q \to +q\)), opposite to the chemistry convention.</li>
+          <li><strong>Trap:</strong> Assuming electric field inside any charged body is zero. <em>Correction:</em> Field is zero inside a <em>conductor</em> in electrostatic equilibrium or inside a <em>hollow shell</em>, but is non-zero inside a uniformly charged non-conducting sphere.</li>
+          <li><strong>Trap:</strong> Missing the \(1/r^3\) dependence for dipoles. <em>Correction:</em> For a point charge, \(E \propto 1/r^2\); for a dipole, \(E \propto 1/r^3\).</li>
+        </ul>
+      </div>
+
+      <div class="callout" style="margin:0;">
+        <div class="callout-title">Quick Revision Checklist</div>
+        <ul>
+          <li><input type="checkbox" checked disabled> \(q = ne\) where \(e = 1.602 \times 10^{-19}\,\text{C}\).</li>
+          <li><input type="checkbox" checked disabled> \(\varepsilon_0 = 8.854 \times 10^{-12}\,\text{C}^2\,\text{N}^{-1}\,\text{m}^{-2}\).</li>
+          <li><input type="checkbox" checked disabled> \(k = \frac{1}{4\pi\varepsilon_0} \approx 9 \times 10^9\,\text{N m}^2\,\text{C}^{-2}\).</li>
+          <li><input type="checkbox" checked disabled> \(\mathbf{F}_{12} = -\mathbf{F}_{21}\) (Newton's 3rd law).</li>
+          <li><input type="checkbox" checked disabled> \(E_{\text{axial}} = 2 E_{\text{eq}} = \frac{2p}{4\pi\varepsilon_0 r^3}\).</li>
+          <li><input type="checkbox" checked disabled> \(\boldsymbol{\tau} = \mathbf{p} \times \mathbf{E}\) and \(\mathbf{F}_{\text{net}} = \mathbf{0}\) in uniform \(\mathbf{E}\).</li>
+          <li><input type="checkbox" checked disabled> Line charge: \(E = \frac{\lambda}{2\pi\varepsilon_0 r}\).</li>
+          <li><input type="checkbox" checked disabled> Infinite sheet: \(E = \frac{\sigma}{2\varepsilon_0}\).</li>
+          <li><input type="checkbox" checked disabled> Shell: \(E_{\text{in}} = 0\), \(E_{\text{out}} = \frac{q}{4\pi\varepsilon_0 r^2}\).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>15. Final Exam Recap</h2>
+    <p>
+      In summary, <strong>Electric Charges and Fields</strong> establishes the foundation for all electromagnetism:
+    </p>
+    <ul>
+      <li>Charge is conserved, additive, quantised, and relativistically invariant (unaffected by motion, unlike mass).</li>
+      <li>Coulomb's law governs static pairwise interactions via an inverse-square relationship; the superposition principle allows vector addition for any number of charges.</li>
+      <li>The electric field represents force per unit test charge, mapped visually by continuous non-intersecting field lines that start on positive charges, end on negative charges, and never form closed loops.</li>
+      <li>An electric dipole consists of charges \(\pm q\) separated by \(2a\). Its far-field falls off as \(1/r^3\), with \(E_{\text{axial}} = 2E_{\text{eq}}\). In a uniform field, a dipole experiences zero net force but a restoring torque \(\boldsymbol{\tau} = \mathbf{p} \times \mathbf{E}\).</li>
+      <li>Gauss's law equates closed surface flux to \(q_{\text{enclosed}}/\varepsilon_0\), providing direct analytic solutions for symmetric systems: \(E \propto 1/r\) for infinite lines, \(E = \text{constant}\) for infinite sheets, and \(E = 0\) inside hollow spherical shells.</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

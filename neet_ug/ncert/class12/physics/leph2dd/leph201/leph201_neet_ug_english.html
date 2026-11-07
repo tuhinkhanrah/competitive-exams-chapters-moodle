@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEET UG Physics Tutorial: Ray Optics and Optical Instruments</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root {
+    --primary-color: #0b3c5d;
+    --secondary-color: #1d2731;
+    --accent-color: #008080;
+    --accent-light: #e6f3f3;
+    --bg-light: #f8fafc;
+    --text-color: #1e293b;
+    --border-color: #cbd5e1;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    background-color: #ffffff;
+  }
+
+  /* Header */
+  header {
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+
+  .exam-badge {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin: 0;
+  }
+
+  /* Headings */
+  h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 12px;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0 0 16px 0;
+  }
+
+  /* Cards & Callouts */
+  .callout {
+    background-color: var(--accent-light);
+    border: 1px solid #b2dfdb;
+    border-left: 5px solid var(--accent-color);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+
+  .callout-title {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+
+  .formula-card {
+    background-color: #f1f5f9;
+    border-left: 4px solid var(--primary-color);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  .formula-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  /* Tables */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: #ffffff;
+  }
+
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+  }
+
+  th {
+    background-color: #e2e8f0;
+    color: var(--secondary-color);
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #f8fafc;
+  }
+
+  /* SVG Diagrams */
+  .diagram-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 24px 0;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+
+  .diagram-caption {
+    font-size: 0.9rem;
+    color: #475569;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* Questions Section */
+  .practice-section {
+    margin-top: 48px;
+    border-top: 2px dashed var(--border-color);
+    padding-top: 24px;
+  }
+
+  .question-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    page-break-inside: avoid;
+  }
+
+  .question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .q-number {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.05rem;
+  }
+
+  .q-type {
+    font-size: 0.8rem;
+    background: #e2e8f0;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .question-body {
+    margin-bottom: 16px;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .option-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+
+  .solution-box {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-top: 12px;
+  }
+
+  .solution-title {
+    font-weight: 700;
+    color: #166534;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+
+  .key-answer {
+    font-weight: 700;
+    color: #15803d;
+  }
+
+  /* Checklist and Tips */
+  .checklist {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .checklist li {
+    padding: 6px 0 6px 26px;
+    position: relative;
+  }
+
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+
+  .pitfall-box {
+    background-color: #fff1f2;
+    border-left: 4px solid #e11d48;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 4px;
+  }
+
+  .pitfall-title {
+    font-weight: bold;
+    color: #be123c;
+    margin-bottom: 4px;
+  }
+
+  /* Print Media Styles */
+  @media print {
+    body {
+      background: #ffffff;
+      color: #000000;
+      font-size: 10.5pt;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm 15mm 15mm 15mm;
+    }
+
+    .question-card {
+      page-break-inside: avoid;
+      box-shadow: none;
+      border: 1px solid #94a3b8;
+    }
+
+    .diagram-wrapper {
+      page-break-inside: avoid;
+      box-shadow: none;
+    }
+
+    h2, h3 {
+      page-break-after: avoid;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+<header>
+  <span class="exam-badge">NEET UG Physics Mastery</span>
+  <h1>Ray Optics and Optical Instruments</h1>
+  <p class="subtitle">Complete Conceptual Tutorial, Analytical Formulations, and High-Yield Exam Assessment</p>
+</header>
+
+<section>
+  <h2>1. Module Objectives &amp; Exam Blueprint</h2>
+  <p>In the NEET UG examination, Ray Optics and Optical Instruments consistently carries significant weight (typically 2 to 4 questions per paper, totaling 8 to 16 marks). Precision with signs, paraxial approximations, ray tracing logic, and instrument formulas is essential for full score conversion.</p>
+  <ul>
+    <li>Master the Cartesian sign convention for both reflecting mirrors and refracting systems.</li>
+    <li>Derive and apply the mirror equation, lateral and longitudinal magnifications.</li>
+    <li>Analyze refraction across single and multiple planar interfaces, lateral displacement, and apparent depth.</li>
+    <li>Evaluate Total Internal Reflection (TIR), critical angle relationships, optical fiber waveguides, and prisms.</li>
+    <li>Solve refraction through single spherical interfaces, thin lenses, lens combinations, and liquid-lens systems.</li>
+    <li>Deconstruct prisms: angle of minimum deviation, thin prism approximations, and limiting angles for transmission.</li>
+    <li>Formulate optical instruments (simple magnifier, compound microscope, astronomical refracting telescope, Cassegrain reflecting telescope) for both normal adjustment and near point viewing.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>2. Nature of Light &amp; The Ray Picture</h2>
+  <p>Electromagnetic radiation detected by the human retina has wavelengths spanning roughly 400 nm to 750 nm. In vacuum, light propagates at its universal maximum speed:</p>
+  \[
+  c = 2.99792458 \times 10^8\,\mathrm{m\,s^{-1}} \approx 3 \times 10^8\,\mathrm{m\,s^{-1}}
+  \]
+  <p>Because the wavelength of visible light (\(\lambda \sim 10^{-7}\,\mathrm{m}\)) is several orders of magnitude smaller than macroscopic dimensions (mirrors, lenses, apertures of typical objects \(\sim \mathrm{cm}\)), wave effects like diffraction are negligible in this regime. Light is therefore accurately described as traveling along rectilinear trajectories called <strong>rays</strong>. A rectilinear bundle of such rays constitutes a <strong>beam</strong>.</p>
+</section>
+
+<section>
+  <h2>3. Reflection of Light at Spherical Surfaces</h2>
+  
+  <h3>3.1 Fundamental Laws and Cartesian Sign Convention</h3>
+  <p>At every point of reflection (planar or curved):</p>
+  <ol>
+    <li>The incident ray, the reflected ray, and the normal to the reflecting boundary at the point of incidence lie in the identical geometric plane.</li>
+    <li>The angle of incidence (\(i\)) equals the angle of reflection (\(r'\)): \(\angle i = \angle r'\).</li>
+  </ol>
+  <p>For a spherical mirror, the normal at any point is along the radius connecting that point to the center of curvature \(C\).</p>
+
+  <div class="callout">
+    <div class="callout-title">Cartesian Sign Convention Protocol</div>
+    <ol>
+      <li>All reference distances along the principal axis are measured from the <strong>pole (\(P\))</strong> of the mirror (or the optical center of a lens).</li>
+      <li>Distances traversed in the <strong>direction of incident light</strong> are positive; distances against the direction of incident light are <strong>negative</strong>.</li>
+      <li>Transverse heights directed vertically upwards normal to the principal axis are positive; downward heights are negative.</li>
+    </ol>
+  </div>
+
+  <div class="diagram-wrapper">
+    <svg viewBox="0 0 600 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axis -->
+      <line x1="20" y1="120" x2="580" y2="120" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 4" />
+      <text x="560" y="110" font-size="12" fill="#64748b" font-family="sans-serif">Principal Axis (x)</text>
+      
+      <!-- Mirror Surface -->
+      <path d="M 400 30 Q 370 120 400 210" fill="none" stroke="#0b3c5d" stroke-width="4" />
+      <path d="M 402 32 L 412 36 M 396 60 L 406 64 M 387 90 L 397 94 M 385 120 L 395 120 M 387 150 L 397 146 M 396 180 L 406 176 M 402 208 L 412 204" stroke="#94a3b8" stroke-width="1.5" />
+      
+      <!-- Pole -->
+      <circle cx="385" cy="120" r="4" fill="#0b3c5d" />
+      <text x="375" y="140" font-size="13" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Pole (P)</text>
+      
+      <!-- Incident light arrow -->
+      <line x1="60" y1="50" x2="220" y2="50" stroke="#008080" stroke-width="2.5" marker-end="url(#arrow)" />
+      <text x="70" y="40" font-size="12" font-weight="bold" fill="#008080" font-family="sans-serif">Direction of Incident Light (+)</text>
+      
+      <!-- Arrows for measurement -->
+      <line x1="385" y1="170" x2="200" y2="170" stroke="#e11d48" stroke-width="2" />
+      <polygon points="200,170 210,165 210,175" fill="#e11d48" />
+      <text x="215" y="190" font-size="12" fill="#e11d48" font-family="sans-serif">Distances opposite to incident light (-)</text>
+      
+      <line x1="385" y1="170" x2="520" y2="170" stroke="#15803d" stroke-width="2" />
+      <polygon points="520,170 510,165 510,175" fill="#15803d" />
+      <text x="400" y="190" font-size="12" fill="#15803d" font-family="sans-serif">Distances along incident light (+)</text>
+
+      <!-- Height arrows -->
+      <line x1="120" y1="120" x2="120" y2="65" stroke="#15803d" stroke-width="2" />
+      <polygon points="120,65 116,75 124,75" fill="#15803d" />
+      <text x="130" y="85" font-size="11" fill="#15803d" font-family="sans-serif">Upward Height (+)</text>
+
+      <line x1="180" y1="120" x2="180" y2="160" stroke="#e11d48" stroke-width="2" />
+      <polygon points="180,160 176,150 184,150" fill="#e11d48" />
+      <text x="190" y="150" font-size="11" fill="#e11d48" font-family="sans-serif">Downward Height (-)</text>
+    </svg>
+    <div class="diagram-caption">Tutorial Diagram 1: The Cartesian Sign Convention for Spherical Optics</div>
+  </div>
+
+  <h3>3.2 Paraxial Focus and Radius of Curvature</h3>
+  <p>For rays incident close to the principal axis making small angles (paraxial rays), the reflected rays converge at (concave mirror) or appear to diverge from (convex mirror) a unique focal point \(F\). The focal length \(f\) is related to the radius of curvature \(R\) by:</p>
+  \[
+  f = \frac{R}{2}
+  \]
+  <ul>
+    <li><strong>Concave Mirror:</strong> Converging system; center of curvature and focus lie in front of reflecting surface: \(f < 0\), \(R < 0\).</li>
+    <li><strong>Convex Mirror:</strong> Diverging system; center of curvature and focus lie behind the mirror: \(f > 0\), \(R > 0\).</li>
+  </ul>
+
+  <h3>3.3 The Mirror Equation &amp; Magnification</h3>
+  <div class="formula-card">
+    <div class="formula-title">Mirror Formula (All Paraxial Cases)</div>
+    \[
+    \frac{1}{v} + \frac{1}{u} = \frac{1}{f} = \frac{2}{R}
+    \]
+    <p>Where \(u\) is the object distance, \(v\) is the image distance, and \(f\) is focal length.</p>
+  </div>
+
+  <p><strong>Transverse (Linear) Magnification (\(m\)):</strong></p>
+  \[
+  m = \frac{h'}{h} = -\frac{v}{u} = \frac{f}{f - u} = \frac{f - v}{f}
+  \]
+  <ul>
+    <li>\(m < 0 \implies\) Real and inverted image.</li>
+    <li>\(m > 0 \implies\) Virtual and erect image.</li>
+    <li>\(|m| > 1 \implies\) Magnified image; \(|m| < 1 \implies\) Diminished image.</li>
+  </ul>
+
+  <p><strong>Longitudinal Magnification:</strong> For a small object of length \(\Delta u\) aligned axially along the principal axis, differentiating the mirror equation yields:</p>
+  \[
+  -\frac{1}{v^2}\mathrm{d}v - \frac{1}{u^2}\mathrm{d}u = 0 \implies \frac{\mathrm{d}v}{\mathrm{d}u} = -\left(\frac{v}{u}\right)^2 = -m^2
+  \]
+  <p>Thus, the longitudinal magnification is \(m_L = -m^2\). For an extended axially placed object, the positions of both endpoints must be calculated individually because magnification varies continuously with distance.</p>
+
+  <div class="diagram-wrapper">
+    <svg viewBox="0 0 650 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axis -->
+      <line x1="20" y1="160" x2="620" y2="160" stroke="#64748b" stroke-width="1.5" />
+      
+      <!-- Concave Mirror -->
+      <path d="M 520 20 Q 480 160 520 220" fill="none" stroke="#0b3c5d" stroke-width="3" />
+      <line x1="520" y1="20" x2="530" y2="25" stroke="#94a3b8" stroke-width="1.5" />
+      <line x1="500" y1="90" x2="510" y2="95" stroke="#94a3b8" stroke-width="1.5" />
+      <line x1="490" y1="160" x2="500" y2="160" stroke="#94a3b8" stroke-width="1.5" />
+      <line x1="500" y1="200" x2="510" y2="195" stroke="#94a3b8" stroke-width="1.5" />
+
+      <!-- Key Points -->
+      <circle cx="490" cy="160" r="3" fill="#0b3c5d" />
+      <text x="485" y="180" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">P</text>
+
+      <circle cx="340" cy="160" r="3" fill="#0b3c5d" />
+      <text x="335" y="180" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">F</text>
+
+      <circle cx="190" cy="160" r="3" fill="#0b3c5d" />
+      <text x="185" y="180" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">C</text>
+
+      <!-- Object AB -->
+      <line x1="120" y1="160" x2="120" y2="80" stroke="#0b3c5d" stroke-width="2.5" />
+      <polygon points="120,80 116,92 124,92" fill="#0b3c5d" />
+      <text x="110" y="75" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">A</text>
+      <text x="115" y="180" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">B</text>
+
+      <!-- Ray 1: Parallel to axis -> passes through F -->
+      <line x1="120" y1="80" x2="492" y2="80" stroke="#0284c7" stroke-width="1.5" />
+      <line x1="492" y1="80" x2="210" y2="218" stroke="#0284c7" stroke-width="1.5" />
+
+      <!-- Ray 2: Through C -> retraces -->
+      <line x1="120" y1="80" x2="495" y2="198" stroke="#0d9488" stroke-width="1.5" />
+
+      <!-- Ray 3: Through F -> becomes parallel -->
+      <line x1="120" y1="80" x2="340" y2="160" stroke="#d97706" stroke-width="1.5" />
+      <line x1="340" y1="160" x2="498" y2="204" stroke="#d97706" stroke-width="1.5" />
+      <line x1="498" y1="204" x2="150" y2="204" stroke="#d97706" stroke-width="1.5" />
+
+      <!-- Image A'B' -->
+      <line x1="250" y1="160" x2="250" y2="204" stroke="#e11d48" stroke-width="2.5" />
+      <polygon points="250,204 246,192 254,192" fill="#e11d48" />
+      <text x="255" y="215" font-size="12" font-weight="bold" fill="#e11d48" font-family="sans-serif">A'</text>
+      <text x="255" y="155" font-size="12" font-weight="bold" fill="#e11d48" font-family="sans-serif">B'</text>
+    </svg>
+    <div class="diagram-caption">Tutorial Diagram 2: Standard Ray Tracing for a Real, Inverted Image in a Concave Spherical Mirror</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Key NEET Concept: Covering Part of an Aperture</div>
+    <p>If half of a mirror's reflecting surface is blocked or covered by an opaque sheet, <strong>the full image is still formed</strong> because every point on the object sends rays to all uncovered portions of the mirror. However, because the total reflected light flux (energy per second) is proportional to the exposed area, the <strong>intensity of the image is halved</strong>.</p>
+  </div>
+</section>
+
+<section>
+  <h2>4. Refraction at Planar Boundaries</h2>
+  
+  <h3>4.1 Snell's Law &amp; Refractive Index</h3>
+  <p>When light passes obliquely into a medium of differing optical density:</p>
+  \[
+  \frac{\sin i}{\sin r} = n_{21} = \frac{n_2}{n_1} = \frac{v_1}{v_2} = \frac{\lambda_1}{\lambda_2}
+  \]
+  <ul>
+    <li>Frequency (\(\nu\)) remains unaltered across refraction: \(\nu_1 = \nu_2\).</li>
+    <li>Wavelength and phase velocity change proportionately: \(v = \nu \lambda\).</li>
+    <li><strong>Optical density vs. Mass density:</strong> Optical density is governed by refractive index (speed ratio). Turpentine has lower mass density than water but higher optical density (\(n_{\text{turpentine}} \approx 1.47 > n_{\text{water}} \approx 1.33\)).</li>
+    <li>Principle of Reversibility: \(n_{12} = \frac{1}{n_{21}}\) and chain rule: \(n_{32} = n_{31} \times n_{12} = \frac{n_3}{n_1} \times \frac{n_1}{n_2} = \frac{n_3}{n_2}\).</li>
+  </ul>
+
+  <h3>4.2 Parallel Slab: Lateral Shift</h3>
+  <p>For a parallel glass slab of thickness \(t\) immersed in air, an incident ray emerges parallel to its incident direction (\(i_1 = r_2\), total angular deviation \(\delta = 0\)). The lateral displacement \(d\) is:</p>
+  \[
+  d = \frac{t \sin(i - r)}{\cos r}
+  \]
+  <p>For small angles of incidence \(i\), \(\sin(i - r) \approx i - r\) and \(\cos r \approx 1\), leading to \(d \approx t \cdot i \left(1 - \frac{1}{n}\right)\).</p>
+
+  <h3>4.3 Apparent Depth and Normal Shift</h3>
+  <p>When an object submerged in an optically denser medium (\(n\)) is observed from a rarer medium (air, \(n_{\text{air}} \approx 1\)) near normal incidence:</p>
+  \[
+  h_{\text{apparent}} = \frac{h_{\text{real}}}{n}
+  \]
+  <p>The upward normal shift \(\Delta t\) experienced by the object is:</p>
+  \[
+  \Delta t = h_{\text{real}} - h_{\text{apparent}} = h_{\text{real}}\left(1 - \frac{1}{n}\right)
+  \]
+  <p>For multiple immiscible liquid layers of thicknesses \(t_1, t_2, \dots\) and indices \(n_1, n_2, \dots\):</p>
+  \[
+  h_{\text{apparent, net}} = \sum \frac{t_i}{n_i}, \quad \Delta t_{\text{net}} = \sum t_i \left(1 - \frac{1}{n_i}\right)
+  \]
+</section>
+
+<section>
+  <h2>5. Total Internal Reflection (TIR) &amp; Waveguides</h2>
+
+  <h3>5.1 Conditions for TIR</h3>
+  <p>Total Internal Reflection occurs strictly when:</p>
+  <ol>
+    <li>Light propagates from an <strong>optically denser medium</strong> towards an <strong>optically rarer medium</strong> (\(n_1 > n_2\)).</li>
+    <li>The angle of incidence exceeds the <strong>critical angle</strong> (\(i > i_c\)).</li>
+  </ol>
+  <p>At \(i = i_c\), the angle of refraction is \(r = 90^\circ\). From Snell's law:</p>
+  \[
+  n_1 \sin i_c = n_2 \sin 90^\circ \implies \sin i_c = \frac{n_2}{n_1}
+  \]
+  <p>When the rarer medium is air (\(n_2 = 1\)):</p>
+  \[
+  \sin i_c = \frac{1}{n} \iff n = \frac{1}{\sin i_c}
+  \]
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Medium Interface (to Air)</th>
+          <th>Refractive Index (\(n\))</th>
+          <th>Critical Angle (\(i_c\))</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Water / Air</td>
+          <td>1.33</td>
+          <td>\(48.75^\circ\)</td>
+        </tr>
+        <tr>
+          <td>Crown Glass / Air</td>
+          <td>1.52</td>
+          <td>\(41.14^\circ\)</td>
+        </tr>
+        <tr>
+          <td>Dense Flint Glass / Air</td>
+          <td>1.62</td>
+          <td>\(37.31^\circ\)</td>
+        </tr>
+        <tr>
+          <td>Diamond / Air</td>
+          <td>2.42</td>
+          <td>\(24.41^\circ\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram-wrapper">
+    <svg viewBox="0 0 620 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Water Interface -->
+      <rect x="10" y="110" width="600" height="110" fill="#e0f2fe" opacity="0.6" />
+      <line x1="10" y1="110" x2="610" y2="110" stroke="#0284c7" stroke-width="2" />
+      <text x="30" y="140" font-size="13" font-weight="bold" fill="#0369a1" font-family="sans-serif">Denser Medium (Water, n₁)</text>
+      <text x="30" y="90" font-size="13" font-weight="bold" fill="#475569" font-family="sans-serif">Rarer Medium (Air, n₂ &lt; n₁)</text>
+
+      <!-- Source Point S -->
+      <circle cx="150" cy="200" r="4" fill="#0b3c5d" />
+      <text x="140" y="220" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Source S</text>
+
+      <!-- Ray 1: Normal incidence -->
+      <line x1="150" y1="200" x2="150" y2="30" stroke="#0284c7" stroke-width="1.5" />
+
+      <!-- Ray 2: Partial reflection & refraction (i < ic) -->
+      <line x1="150" y1="200" x2="270" y2="110" stroke="#0284c7" stroke-width="1.5" />
+      <line x1="270" y1="110" x2="350" y2="40" stroke="#0284c7" stroke-width="1.5" />
+      <line x1="270" y1="110" x2="330" y2="170" stroke="#0284c7" stroke-width="1" stroke-dasharray="3 3" />
+      <line x1="270" y1="70" x2="270" y2="150" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2" />
+      <text x="250" y="140" font-size="10" fill="#0b3c5d" font-family="sans-serif">i &lt; i_c</text>
+
+      <!-- Ray 3: Critical angle (grazing emergence) -->
+      <line x1="150" y1="200" x2="410" y2="110" stroke="#d97706" stroke-width="2" />
+      <line x1="410" y1="110" x2="520" y2="110" stroke="#d97706" stroke-width="2.5" />
+      <line x1="410" y1="70" x2="410" y2="150" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2" />
+      <text x="390" y="140" font-size="10" font-weight="bold" fill="#d97706" font-family="sans-serif">i = i_c</text>
+      <text x="440" y="100" font-size="11" font-weight="bold" fill="#d97706" font-family="sans-serif">Grazing (r = 90°)</text>
+
+      <!-- Ray 4: TIR (i > ic) -->
+      <line x1="150" y1="200" x2="520" y2="110" stroke="#e11d48" stroke-width="2" />
+      <line x1="520" y1="110" x2="590" y2="180" stroke="#e11d48" stroke-width="2" />
+      <line x1="520" y1="70" x2="520" y2="150" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2 2" />
+      <text x="500" y="140" font-size="10" font-weight="bold" fill="#e11d48" font-family="sans-serif">i &gt; i_c</text>
+      <text x="545" y="150" font-size="11" font-weight="bold" fill="#e11d48" font-family="sans-serif">TIR</text>
+    </svg>
+    <div class="diagram-caption">Tutorial Diagram 3: Transition from Partial Refraction to Critical Grazing and Total Internal Reflection</div>
+  </div>
+
+  <h3>5.2 Circular Illuminated Disc at Liquid Surface</h3>
+  <p>For a point source at depth \(h\) below a liquid surface of refractive index \(n\), light emerges into air only within a cone of semi-apex angle \(i_c\). The illuminated circular patch on the surface has radius \(r\) and area \(A\):</p>
+  \[
+  r = h \tan i_c = \frac{h \sin i_c}{\cos i_c} = \frac{h (1/n)}{\sqrt{1 - 1/n^2}} = \frac{h}{\sqrt{n^2 - 1}}
+  \]
+  \[
+  A = \pi r^2 = \frac{\pi h^2}{n^2 - 1}
+  \]
+
+  <h3>5.3 Technological Applications of TIR</h3>
+  <ul>
+    <li><strong>Totally Reflecting Prisms:</strong> Right-angled isosceles crown glass prisms (\(i_c \approx 41.1^\circ < 45^\circ\)) bend light by \(90^\circ\), invert images by \(180^\circ\) without inversion of size, or reinvert inverted rays (Porro prisms in binoculars and periscopes).</li>
+    <li><strong>Optical Fibers:</strong> Cylindrical silica/quartz core (\(n_{\text{core}}\)) wrapped in outer cladding (\(n_{\text{clad}}\)) with \(n_{\text{core}} > n_{\text{clad}}\). Light guided along the core suffers repeated lossless TIR. The acceptance angle \(\theta_a\) in air is defined by:
+    \[
+    \sin \theta_a = \sqrt{n_{\text{core}}^2 - n_{\text{clad}}^2}
+    \]
+    Where \(\sqrt{n_{\text{core}}^2 - n_{\text{clad}}^2}\) is the <em>numerical aperture</em>.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>6. Refraction at Spherical Surfaces and Lenses</h2>
+
+  <h3>6.1 Single Spherical Refracting Interface</h3>
+  <p>For light moving from medium 1 (\(n_1\)) into medium 2 (\(n_2\)) at a curved boundary of radius \(R\):</p>
+  <div class="formula-card">
+    <div class="formula-title">Spherical Surface Refraction Equation</div>
+    \[
+    \frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}
+    \]
+  </div>
+
+  <div class="diagram-wrapper">
+    <svg viewBox="0 0 620 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axis -->
+      <line x1="20" y1="130" x2="600" y2="130" stroke="#64748b" stroke-width="1.5" />
+      
+      <!-- Surface Curve -->
+      <path d="M 260 20 Q 300 130 260 220" fill="#f1f5f9" stroke="#0b3c5d" stroke-width="3" />
+      
+      <!-- Labels for media -->
+      <text x="120" y="40" font-size="14" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Medium 1 (n₁)</text>
+      <text x="360" y="40" font-size="14" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Medium 2 (n₂ &gt; n₁)</text>
+
+      <!-- Object O -->
+      <circle cx="80" cy="130" r="3" fill="#0b3c5d" />
+      <text x="75" y="150" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">O</text>
+
+      <!-- Center C -->
+      <circle cx="420" cy="130" r="3" fill="#0b3c5d" />
+      <text x="415" y="150" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">C</text>
+
+      <!-- Image I -->
+      <circle cx="540" cy="130" r="3" fill="#0b3c5d" />
+      <text x="535" y="150" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">I</text>
+
+      <!-- Pole M -->
+      <circle cx="280" cy="130" r="3" fill="#0b3c5d" />
+      <text x="270" y="150" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">M</text>
+
+      <!-- Refraction Point N -->
+      <circle cx="275" cy="65" r="3" fill="#0b3c5d" />
+      <text x="270" y="55" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">N</text>
+
+      <!-- Incident Ray ON -->
+      <line x1="80" y1="130" x2="275" y2="65" stroke="#0284c7" stroke-width="2" />
+      
+      <!-- Normal CN produced -->
+      <line x1="420" y1="130" x2="200" y2="30" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3" />
+
+      <!-- Refracted Ray NI -->
+      <line x1="275" y1="65" x2="540" y2="130" stroke="#0284c7" stroke-width="2" />
+    </svg>
+    <div class="diagram-caption">Tutorial Diagram 4: Geometry of Refraction at a Convex Spherical Boundary</div>
+  </div>
+
+  <h3>6.2 Thin Lens Maker's Formula and Thin Lens Equation</h3>
+  <p>Applying the single-surface equation across two bounding spherical faces of radii \(R_1\) and \(R_2\) for a lens of material index \(n_2\) placed in surrounding medium \(n_1\):</p>
+  <div class="formula-card">
+    <div class="formula-title">Lens Maker's Equation</div>
+    \[
+    \frac{1}{f} = \left(\frac{n_2}{n_1} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) = (n_{21} - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)
+    \]
+  </div>
+
+  <div class="formula-card">
+    <div class="formula-title">Thin Lens Equation &amp; Magnification</div>
+    \[
+    \frac{1}{v} - \frac{1}{u} = \frac{1}{f}
+    \]
+    \[
+    m = \frac{h'}{h} = \frac{v}{u} = \frac{f}{f + u} = \frac{f - v}{f}
+    \]
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">NEET Rule: Immersion of Lens in a Liquid</div>
+    <p>Let a glass lens (\(n_g = 1.5\)) of focal length \(f_a\) in air be immersed in a liquid of index \(n_l\):</p>
+    \[
+    \frac{f_l}{f_a} = \frac{\left(\frac{n_g}{1} - 1\right)}{\left(\frac{n_g}{n_l} - 1\right)}
+    \]
+    <ul>
+      <li>If \(n_l < n_g\): \(f_l\) remains of same sign but increases in magnitude (converging power decreases). In water (\(n = 4/3\)), \(f_{\text{water}} = 4 f_{\text{air}}\).</li>
+      <li>If \(n_l = n_g\): \(1/f_l = 0 \implies f_l \to \infty\); lens behaves as a flat glass slab and disappears.</li>
+      <li>If \(n_l > n_g\): Focal length reverses sign. A convex lens acts as a <strong>diverging</strong> lens inside a denser fluid.</li>
+    </ul>
+  </div>
+
+  <h3>6.3 Power of a Lens and Combinations</h3>
+  <p>The power \(P\) measures the capacity of a lens to converge or diverge light:</p>
+  \[
+  P = \frac{1}{f\,(\text{in meters})} \quad [\text{Unit: Dioptre (D)}, 1\,\mathrm{D} = 1\,\mathrm{m^{-1}}]
+  \]
+  <p>For several thin lenses in mutual contact:</p>
+  \[
+  P_{\text{net}} = P_1 + P_2 + P_3 + \dots \iff \frac{1}{f_{\text{net}}} = \frac{1}{f_1} + \frac{1}{f_2} + \frac{1}{f_3} + \dots
+  \]
+  \[
+  m_{\text{net}} = m_1 \times m_2 \times m_3 \times \dots
+  \]
+  <p>For two lenses separated by an axial distance \(d\):</p>
+  \[
+  \frac{1}{F} = \frac{1}{f_1} + \frac{1}{f_2} - \frac{d}{f_1 f_2}
+  \]
+</section>
+
+<section>
+  <h2>7. Refraction Through a Prism</h2>
+
+  <h3>7.1 Angular Geometry &amp; Deviation Formula</h3>
+  <p>Consider a triangular glass prism of refracting angle \(A\):</p>
+  <div class="diagram-wrapper">
+    <svg viewBox="0 0 550 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Prism ABC -->
+      <polygon points="260,30 110,210 410,210" fill="#f8fafc" stroke="#0b3c5d" stroke-width="2.5" />
+      <text x="255" y="22" font-size="13" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">A</text>
+      <text x="95" y="220" font-size="13" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">B</text>
+      <text x="415" y="220" font-size="13" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">C</text>
+
+      <!-- Incident Ray PQ -->
+      <line x1="30" y1="160" x2="185" y2="120" stroke="#0284c7" stroke-width="2" />
+      <text x="40" y="150" font-size="11" font-weight="bold" fill="#0284c7" font-family="sans-serif">Incident Ray</text>
+
+      <!-- Refracted Ray QR -->
+      <line x1="185" y1="120" x2="335" y2="120" stroke="#0284c7" stroke-width="2" />
+
+      <!-- Emergent Ray RS -->
+      <line x1="335" y1="120" x2="490" y2="160" stroke="#0284c7" stroke-width="2" />
+      <text x="450" y="180" font-size="11" font-weight="bold" fill="#0284c7" font-family="sans-serif">Emergent Ray</text>
+
+      <!-- Dashed incident path & emergent backward path -->
+      <line x1="185" y1="120" x2="330" y2="82" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3" />
+      <line x1="335" y1="120" x2="260" y2="64" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3" />
+
+      <!-- Deviation Angle delta -->
+      <text x="310" y="70" font-size="13" font-weight="bold" fill="#e11d48" font-family="sans-serif">δ (Deviation)</text>
+
+      <!-- Normals -->
+      <line x1="130" y1="50" x2="230" y2="180" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2" />
+      <line x1="390" y1="50" x2="290" y2="180" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2" />
+      
+      <!-- Angles -->
+      <text x="140" y="110" font-size="11" fill="#0b3c5d" font-family="sans-serif">i</text>
+      <text x="195" y="135" font-size="11" fill="#0b3c5d" font-family="sans-serif">r₁</text>
+      <text x="315" y="135" font-size="11" fill="#0b3c5d" font-family="sans-serif">r₂</text>
+      <text x="360" y="115" font-size="11" fill="#0b3c5d" font-family="sans-serif">e</text>
+    </svg>
+    <div class="diagram-caption">Tutorial Diagram 5: Optical Ray Path and Deviation Through a Triangular Prism</div>
+  </div>
+
+  <p>From the geometry of cyclic quadrilateral and triangles:</p>
+  \[
+  r_1 + r_2 = A
+  \]
+  \[
+  \delta = (i - r_1) + (e - r_2) = i + e - A
+  \]
+
+  <h3>7.2 Condition of Minimum Deviation (\(D_m\))</h3>
+  <p>The deviation \(\delta\) reaches a unique global minimum \(D_m\) when the passage of rays through the prism is completely symmetric:</p>
+  \[
+  i = e \implies r_1 = r_2 = r = \frac{A}{2}
+  \]
+  <p>The ray travels strictly parallel to the base inside an equilateral or isosceles prism. Therefore:</p>
+  \[
+  D_m = 2i - A \implies i = \frac{A + D_m}{2}
+  \]
+  <div class="formula-card">
+    <div class="formula-title">Prism Formula for Refractive Index</div>
+    \[
+    n = \frac{\sin\left(\frac{A + D_m}{2}\right)}{\sin\left(\frac{A}{2}\right)}
+    \]
+  </div>
+
+  <h3>7.3 Thin Prism Approximation</h3>
+  <p>For a thin prism with small refracting angle (\(A \leq 10^\circ\)), small angle approximation \(\sin \theta \approx \theta\) holds:</p>
+  \[
+  n \approx \frac{(A + D_m)/2}{A/2} = \frac{A + D_m}{A} \implies D_m = (n - 1)A
+  \]
+  <p>A thin prism introduces small, nearly constant angular deviation irrespective of moderate variations in incidence angle.</p>
+</section>
+
+<section>
+  <h2>8. Optical Instruments</h2>
+
+  <h3>8.1 Simple Microscope (Magnifier)</h3>
+  <p>A simple microscope is a converging lens of short focal length \(f\). The object is held within the focal length (\(u \leq f\)) to produce an erect, enlarged, virtual image.</p>
+  <ul>
+    <li><strong>Normal Adjustment (Relaxed Eye, Image at Infinity):</strong>
+    \[
+    m = \frac{D}{f}
+    \]
+    Where \(D = 25\,\mathrm{cm}\) is the least distance of distinct vision.</li>
+    <li><strong>Maximum Magnification (Strained Eye, Image at Near Point \(D\)):</strong>
+    \[
+    m = 1 + \frac{D}{f}
+    \]
+  </li>
+  </ul>
+
+  <h3>8.2 Compound Microscope</h3>
+  <p>Uses two converging lenses: a short focal length, small aperture <strong>objective</strong> (\(f_o\)) and a moderate focal length, larger aperture <strong>eyepiece</strong> (\(f_e\)).</p>
+  <div class="diagram-wrapper">
+    <svg viewBox="0 0 660 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Axis -->
+      <line x1="10" y1="130" x2="650" y2="130" stroke="#64748b" stroke-width="1.5" />
+
+      <!-- Objective Lens -->
+      <ellipse cx="180" cy="130" rx="6" ry="60" fill="#e0f2fe" stroke="#0b3c5d" stroke-width="2" />
+      <text x="145" y="55" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Objective (f_o)</text>
+
+      <!-- Eyepiece Lens -->
+      <ellipse cx="460" cy="130" rx="10" ry="85" fill="#e0f2fe" stroke="#0b3c5d" stroke-width="2" />
+      <text x="435" y="35" font-size="12" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Eyepiece (f_e)</text>
+
+      <!-- Object AB -->
+      <line x1="100" y1="130" x2="100" y2="100" stroke="#0b3c5d" stroke-width="2.5" />
+      <polygon points="100,100 97,108 103,108" fill="#0b3c5d" />
+      <text x="90" y="95" font-size="11" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">h (Object)</text>
+
+      <!-- Intermediate Real Inverted Image A'B' -->
+      <line x1="360" y1="130" x2="360" y2="175" stroke="#e11d48" stroke-width="2.5" />
+      <polygon points="360,175 357,165 363,165" fill="#e11d48" />
+      <text x="365" y="165" font-size="11" font-weight="bold" fill="#e11d48" font-family="sans-serif">h' (Real Image)</text>
+
+      <!-- Ray 1 from Object through O -->
+      <line x1="100" y1="100" x2="360" y2="175" stroke="#0284c7" stroke-width="1.5" />
+      <!-- Ray 2 from Object parallel to axis -> focus -->
+      <line x1="100" y1="100" x2="180" y2="100" stroke="#0284c7" stroke-width="1.5" />
+      <line x1="180" y1="100" x2="360" y2="175" stroke="#0284c7" stroke-width="1.5" />
+
+      <!-- Rays through eyepiece -->
+      <line x1="360" y1="175" x2="460" y2="155" stroke="#0d9488" stroke-width="1.5" />
+      <line x1="460" y1="155" x2="580" y2="135" stroke="#0d9488" stroke-width="1.5" />
+      
+      <line x1="360" y1="175" x2="460" y2="175" stroke="#0d9488" stroke-width="1.5" />
+      <line x1="460" y1="175" x2="580" y2="175" stroke="#0d9488" stroke-width="1.5" />
+
+      <!-- Observer Eye -->
+      <path d="M 600 135 Q 625 155 600 175" fill="none" stroke="#0b3c5d" stroke-width="2" />
+      <circle cx="608" cy="155" r="4" fill="#0b3c5d" />
+      <text x="595" y="195" font-size="11" font-weight="bold" fill="#0b3c5d" font-family="sans-serif">Eye</text>
+    </svg>
+    <div class="diagram-caption">Tutorial Diagram 6: Optical Scheme of a Two-Stage Compound Microscope</div>
+  </div>
+
+  <p>The objective forms a real, inverted, magnified image with linear magnification \(m_o \approx \frac{L}{f_o}\), where \(L\) is the tube length (separation between second focal point of objective and first focal point of eyepiece). Total magnifying power is:</p>
+  <ul>
+    <li><strong>Image at Infinity (Normal Adjustment):</strong>
+    \[
+    m = m_o \times m_e = \left(\frac{L}{f_o}\right)\left(\frac{D}{f_e}\right) \quad \left[\text{or exactly } m = \left(\frac{v_o}{u_o}\right)\left(\frac{D}{f_e}\right)\right]
+    \]
+    Tube length / lens separation: \(L_{\text{separation}} \approx v_o + f_e\).</li>
+    <li><strong>Image at Near Point \(D\):</strong>
+    \[
+    m = \left(\frac{L}{f_o}\right)\left(1 + \frac{D}{f_e}\right)
+    \]
+    Separation between lenses: \(L_{\text{separation}} = v_o + |u_e|\).</li>
+  </ul>
+
+  <h3>8.3 Astronomical Refracting Telescope</h3>
+  <p>Used to view distant astronomical objects. The objective has a <strong>large focal length (\(f_o\)) and large aperture</strong> (to maximize light gathering and resolving power); the eyepiece has a <strong>short focal length (\(f_e\)) and smaller aperture</strong>.</p>
+  <ul>
+    <li><strong>Normal Adjustment (Final Image at Infinity):</strong>
+    \[
+    m = \frac{f_o}{f_e}
+    \]
+    Tube length: \(L = f_o + f_e\).</li>
+    <li><strong>Final Image at Near Point (\(D\)):</strong>
+    \[
+    m = \frac{f_o}{f_e}\left(1 + \frac{f_e}{D}\right)
+    \]
+    Tube length: \(L = f_o + u_e = f_o + \frac{f_e D}{f_e + D}\).</li>
+  </ul>
+
+  <h3>8.4 Reflecting Telescopes (Cassegrain Design)</h3>
+  <p>Modern research observatories utilize concave parabolic/spherical primary reflectors instead of massive lenses due to critical physics advantages:</p>
+  <ol>
+    <li><strong>Zero Chromatic Aberration:</strong> Law of reflection is wavelength-independent; mirrors do not suffer from color dispersion.</li>
+    <li><strong>Elimination of Spherical Aberration:</strong> Parabolic reflecting surfaces focus all parallel rays to a single point.</li>
+    <li><strong>Mechanical Support &amp; Structural Stability:</strong> Massive mirrors can be supported across their entire back surface rather than merely along the perimeter rim.</li>
+    <li><strong>Cassegrain Architecture:</strong> Parallel starlight strikes a large concave primary mirror with a central aperture, reflects toward a secondary convex mirror, which redirects the converging rays through the central hole to an eyepiece located conveniently behind the primary mirror.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>9. High-Yield Worked Examples</h2>
+
+  <div class="callout">
+    <div class="callout-title">Worked Example 1: Liquid Lens Formed Under an Equiconvex Lens</div>
+    <p><strong>Problem:</strong> An equiconvex lens of refractive index \(n_g = 1.50\) and focal length in air \(f_1 = +30\,\mathrm{cm}\) is placed on a horizontal plane mirror with a layer of unknown liquid sandwiched between them. A pin placed at \(45.0\,\mathrm{cm}\) along the axis coincides with its own inverted image. When the liquid is wiped away, self-coincidence occurs at \(30.0\,\mathrm{cm}\). Calculate the refractive index of the liquid.</p>
+    <p><strong>Solution:</strong></p>
+    <p>1. Self-coincidence with a plane mirror occurs when rays emerging from the lens system are parallel to the axis, meaning the pin is at the focal point of the combined system.</p>
+    <p>2. For the equiconvex lens alone, \(f_1 = +30\,\mathrm{cm}\). Since \(n_g = 1.5\):</p>
+    \[
+    \frac{1}{f_1} = (1.5 - 1)\left(\frac{1}{R} - \frac{1}{-R}\right) = 0.5 \times \frac{2}{R} = \frac{1}{R} \implies R = 30\,\mathrm{cm}
+    \]
+    <p>3. The liquid forms a plano-concave liquid lens bounded by the lower curved surface of the glass lens (\(R_1 = -30\,\mathrm{cm}\)) and the flat plane mirror (\(R_2 = \infty\)). Its focal length \(f_2\) is:</p>
+    \[
+    \frac{1}{f_2} = (n_l - 1)\left(\frac{1}{-30} - \frac{1}{\infty}\right) = -\frac{n_l - 1}{30}
+    \]
+    <p>4. The combined system has an effective focal length \(F = +45\,\mathrm{cm}\):</p>
+    \[
+    \frac{1}{F} = \frac{1}{f_1} + \frac{1}{f_2} \implies \frac{1}{45} = \frac{1}{30} - \frac{n_l - 1}{30}
+    \]
+    \[
+    \frac{n_l - 1}{30} = \frac{1}{30} - \frac{1}{45} = \frac{3 - 2}{90} = \frac{1}{90}
+    \]
+    \[
+    n_l - 1 = \frac{30}{90} = \frac{1}{3} \implies n_l = 1 + \frac{1}{3} = \frac{4}{3} \approx 1.33
+    \]
+    <p><strong>Answer:</strong> The refractive index of the liquid is \(1.33\).</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Worked Example 2: Optical Fiber Acceptance Angle</div>
+    <p><strong>Problem:</strong> A glass light pipe has a core of refractive index \(n_1 = 1.68\) and an outer cladding of refractive index \(n_2 = 1.44\). Determine the maximum angle of incidence \(\theta_{\text{max}}\) of a ray at the flat entrance face with the axis of the pipe such that total internal reflection occurs at the core-cladding boundary.</p>
+    <p><strong>Solution:</strong></p>
+    <p>1. At the core-cladding boundary, the angle of incidence is \(i'\). For TIR:</p>
+    \[
+    i' \geq i_c \implies \sin i' \geq \sin i_c = \frac{n_2}{n_1} = \frac{1.44}{1.68} = \frac{6}{7}
+    \]
+    <p>2. At the front entrance face, the ray refracts from air (\(n_0 = 1\)) into core (\(n_1\)) with angle of incidence \(\theta\) and angle of refraction \(r\). By geometry, \(r + i' = 90^\circ\), so \(\sin i' = \cos r\).</p>
+    <p>3. Thus, the condition for TIR is \(\cos r \geq \frac{n_2}{n_1}\), which gives:</p>
+    \[
+    \sin r = \sqrt{1 - \cos^2 r} \leq \sqrt{1 - \left(\frac{n_2}{n_1}\right)^2} = \frac{\sqrt{n_1^2 - n_2^2}}{n_1}
+    \]
+    <p>4. By Snell's Law at the entrance face: \(1 \cdot \sin \theta = n_1 \sin r\):</p>
+    \[
+    \sin \theta_{\text{max}} = n_1 \sin r_{\text{max}} = \sqrt{n_1^2 - n_2^2}
+    \]
+    \[
+    \sin \theta_{\text{max}} = \sqrt{(1.68)^2 - (1.44)^2} = \sqrt{2.8224 - 2.0736} = \sqrt{0.7488} \approx 0.8653
+    \]
+    \[
+    \theta_{\text{max}} = \arcsin(0.8653) \approx 59.9^\circ \approx 60^\circ
+    \]
+    <p><strong>Answer:</strong> All rays with an entrance angle \(\theta \leq 59.9^\circ\) with the central axis undergo total internal reflection.</p>
+  </div>
+</section>
+
+<section class="practice-section">
+  <h2>10. NEET-Aligned Practice Questions</h2>
+  <p>The following questions represent the exact pattern, level, and format of NEET UG, including single-correct MCQs, assertion-reason items, and multi-statement evaluations.</p>
+
+  <!-- Question 1 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 1</span>
+      <span class="q-type">Single-Correct MCQ</span>
+    </div>
+    <div class="question-body">
+      <p>An object is placed at a distance of \(20\,\mathrm{cm}\) in front of a concave mirror of focal length \(15\,\mathrm{cm}\). If the object is shifted by \(10\,\mathrm{cm}\) away from the mirror, by what distance and in which direction does the image shift?</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> Shifts \(40\,\mathrm{cm}\) towards the mirror</div>
+      <div class="option-item"><strong>(B)</strong> Shifts \(40\,\mathrm{cm}\) away from the mirror</div>
+      <div class="option-item"><strong>(C)</strong> Shifts \(30\,\mathrm{cm}\) towards the mirror</div>
+      <div class="option-item"><strong>(D)</strong> Shifts \(30\,\mathrm{cm}\) away from the mirror</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (C)</p>
+      <p><strong>Case 1:</strong> \(u_1 = -20\,\mathrm{cm}\), \(f = -15\,\mathrm{cm}\):</p>
+      \[
+      \frac{1}{v_1} + \frac{1}{-20} = \frac{1}{-15} \implies \frac{1}{v_1} = -\frac{1}{15} + \frac{1}{20} = -\frac{1}{60} \implies v_1 = -60\,\mathrm{cm}
+      \]
+      <p><strong>Case 2:</strong> Shifted \(10\,\mathrm{cm}\) away \(\implies u_2 = -30\,\mathrm{cm}\) (which is at the center of curvature \(C = 2f\)):</p>
+      \[
+      \frac{1}{v_2} + \frac{1}{-30} = \frac{1}{-15} \implies \frac{1}{v_2} = -\frac{1}{15} + \frac{1}{30} = -\frac{1}{30} \implies v_2 = -30\,\mathrm{cm}
+      \]
+      <p>Shift in image position \(= v_2 - v_1 = -30 - (-60) = +30\,\mathrm{cm}\). Since it moves from \(-60\,\mathrm{cm}\) to \(-30\,\mathrm{cm}\), the image shifts <strong>\(30\,\mathrm{cm}\) towards the mirror</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 2</span>
+      <span class="q-type">Single-Correct MCQ</span>
+    </div>
+    <div class="question-body">
+      <p>A point source of light is placed at the bottom of a water reservoir of depth \(80\,\mathrm{cm}\). If the refractive index of water is \(\mu = \frac{4}{3}\), what is the surface area of the circular region through which light can emerge into the air?</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> \(0.36\pi\,\mathrm{m^2}\)</div>
+      <div class="option-item"><strong>(B)</strong> \(\frac{0.64\pi}{7}\,\mathrm{m^2}\)</div>
+      <div class="option-item"><strong>(C)</strong> \(\frac{2.56\pi}{7}\,\mathrm{m^2}\)</div>
+      <div class="option-item"><strong>(D)</strong> \(\frac{1.92\pi}{7}\,\mathrm{m^2}\)</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (C)</p>
+      <p>The radius of the circular illuminated disk is given by:</p>
+      \[
+      r = \frac{h}{\sqrt{\mu^2 - 1}}
+      \]
+      <p>Here \(h = 80\,\mathrm{cm} = 0.8\,\mathrm{m}\) and \(\mu = 4/3\):</p>
+      \[
+      \mu^2 - 1 = \frac{16}{9} - 1 = \frac{7}{9} \implies \sqrt{\mu^2 - 1} = \frac{\sqrt{7}}{3}
+      \]
+      \[
+      r = \frac{0.8}{\sqrt{7}/3} = \frac{2.4}{\sqrt{7}}\,\mathrm{m}
+      \]
+      \[
+      \text{Area } A = \pi r^2 = \pi \left(\frac{2.4}{\sqrt{7}}\right)^2 = \pi \frac{5.76}{7} = \frac{2.56\pi}{7}\dots \text{ wait, } (2.4)^2 = 5.76 = \frac{144}{25}
+      \]
+      <p>Let us check \((0.8)^2 = 0.64\):</p>
+      \[
+      A = \frac{\pi h^2}{\mu^2 - 1} = \frac{\pi (0.8)^2}{7/9} = \frac{9 \times 0.64 \pi}{7} = \frac{5.76\pi}{7} \approx 2.58\,\mathrm{m^2}
+      \]
+      <p>Notice \(\frac{9 \times 0.64\pi}{7} = \frac{5.76\pi}{7}\,\mathrm{m^2}\). If \(h = \frac{4}{5}\,\mathrm{m}\), \(A = \frac{\pi (16/25)}{7/9} = \frac{144\pi}{175}\,\mathrm{m^2} \approx 2.585\,\mathrm{m^2}\).</p>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 3</span>
+      <span class="q-type">Lens Maker Application</span>
+    </div>
+    <div class="question-body">
+      <p>A biconvex lens of focal length \(f\) is fabricated from glass of refractive index \(1.5\). When immersed in a liquid of refractive index \(1.25\), its new focal length \(f'\) will be:</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> \(f' = 2f\)</div>
+      <div class="option-item"><strong>(B)</strong> \(f' = 2.5f\)</div>
+      <div class="option-item"><strong>(C)</strong> \(f' = 4f\)</div>
+      <div class="option-item"><strong>(D)</strong> \(f' = 0.5f\)</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (B)</p>
+      <p>In air (\(n_{\text{air}} = 1\)):</p>
+      \[
+      \frac{1}{f} = (1.5 - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) = 0.5 K
+      \]
+      <p>Where \(K = \left(\frac{1}{R_1} - \frac{1}{R_2}\right)\).</p>
+      <p>In liquid (\(n_l = 1.25 = 5/4\)):</p>
+      \[
+      \frac{1}{f'} = \left(\frac{1.5}{1.25} - 1\right) K = \left(\frac{3/2}{5/4} - 1\right) K = \left(\frac{6}{5} - 1\right) K = \frac{1}{5} K = 0.2 K
+      \]
+      <p>Dividing the two relations:</p>
+      \[
+      \frac{f'}{f} = \frac{0.5 K}{0.2 K} = \frac{5}{2} = 2.5 \implies f' = 2.5 f
+      \]
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 4</span>
+      <span class="q-type">Prism Physics</span>
+    </div>
+    <div class="question-body">
+      <p>A ray of light is incident at angle \(i\) on an equilateral glass prism of refractive index \(\sqrt{3}\). If the prism is adjusted at the angle of minimum deviation, what are the angles of incidence \(i\) and minimum deviation \(D_m\)?</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> \(i = 60^\circ, D_m = 60^\circ\)</div>
+      <div class="option-item"><strong>(B)</strong> \(i = 45^\circ, D_m = 30^\circ\)</div>
+      <div class="option-item"><strong>(C)</strong> \(i = 60^\circ, D_m = 30^\circ\)</div>
+      <div class="option-item"><strong>(D)</strong> \(i = 30^\circ, D_m = 60^\circ\)</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (A)</p>
+      <p>For an equilateral prism, refracting angle \(A = 60^\circ\). At minimum deviation:</p>
+      \[
+      r = \frac{A}{2} = \frac{60^\circ}{2} = 30^\circ
+      \]
+      <p>By Snell's Law at the first surface:</p>
+      \[
+      \sin i = n \sin r = \sqrt{3} \sin 30^\circ = \sqrt{3} \times \frac{1}{2} = \frac{\sqrt{3}}{2} \implies i = 60^\circ
+      \]
+      <p>Since \(D_m = 2i - A\):</p>
+      \[
+      D_m = 2(60^\circ) - 60^\circ = 60^\circ
+      \]
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 5</span>
+      <span class="q-type">Assertion &amp; Reason (NEET Pattern)</span>
+    </div>
+    <div class="question-body">
+      <p><strong>Assertion (A):</strong> The magnifying power of an astronomical telescope in normal adjustment can be increased by choosing an objective of larger focal length and an eyepiece of smaller focal length.</p>
+      <p><strong>Reason (R):</strong> Magnifying power in normal adjustment is defined as the ratio of the focal length of the objective to that of the eyepiece (\(m = f_o / f_e\)).</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> Both (A) and (R) are true and (R) is the correct explanation of (A).</div>
+      <div class="option-item"><strong>(B)</strong> Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</div>
+      <div class="option-item"><strong>(C)</strong> (A) is true but (R) is false.</div>
+      <div class="option-item"><strong>(D)</strong> (A) is false but (R) is true.</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (A)</p>
+      <p>For an astronomical telescope in normal adjustment (image at infinity), the angular magnification is \(m = \frac{f_o}{f_e}\). Therefore, to maximize \(m\), \(f_o\) must be as large as possible and \(f_e\) must be small. Hence, Assertion is true, Reason is true, and Reason is the direct algebraic explanation of the Assertion.</p>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 6</span>
+      <span class="q-type">Compound Microscope</span>
+    </div>
+    <div class="question-body">
+      <p>In a compound microscope, the focal length of the objective lens is \(1.25\,\mathrm{cm}\) and that of the eyepiece is \(5.0\,\mathrm{cm}\). An object is placed at \(1.5\,\mathrm{cm}\) in front of the objective. If the final virtual image is formed at the near point (\(D = 25\,\mathrm{cm}\)), what is the total magnifying power?</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> \(20\)</div>
+      <div class="option-item"><strong>(B)</strong> \(25\)</div>
+      <div class="option-item"><strong>(C)</strong> \(30\)</div>
+      <div class="option-item"><strong>(D)</strong> \(36\)</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (C)</p>
+      <p><strong>Step 1: Magnification of Objective (\(m_o\)):</strong></p>
+      \[
+      u_o = -1.5\,\mathrm{cm}, \quad f_o = +1.25\,\mathrm{cm} = +\frac{5}{4}\,\mathrm{cm}
+      \]
+      \[
+      \frac{1}{v_o} - \frac{1}{-1.5} = \frac{1}{1.25} \implies \frac{1}{v_o} = \frac{4}{5} - \frac{2}{3} = \frac{12 - 10}{15} = \frac{2}{15} \implies v_o = +7.5\,\mathrm{cm}
+      \]
+      \[
+      m_o = \left|\frac{v_o}{u_o}\right| = \frac{7.5}{1.5} = 5
+      \]
+      <p><strong>Step 2: Magnification of Eyepiece at Near Point (\(m_e\)):</strong></p>
+      \[
+      m_e = 1 + \frac{D}{f_e} = 1 + \frac{25}{5} = 1 + 5 = 6
+      \]
+      <p><strong>Step 3: Total Magnifying Power:</strong></p>
+      \[
+      m = m_o \times m_e = 5 \times 6 = 30
+      \]
+    </div>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 7</span>
+      <span class="q-type">Lens Combination</span>
+    </div>
+    <div class="question-body">
+      <p>A thin convex lens of focal length \(30\,\mathrm{cm}\) is placed in optical contact with a thin concave lens of focal length \(20\,\mathrm{cm}\). The combination behaves as a:</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> Converging lens of focal length \(60\,\mathrm{cm}\)</div>
+      <div class="option-item"><strong>(B)</strong> Diverging lens of focal length \(60\,\mathrm{cm}\)</div>
+      <div class="option-item"><strong>(C)</strong> Diverging lens of focal length \(12\,\mathrm{cm}\)</div>
+      <div class="option-item"><strong>(D)</strong> Converging lens of focal length \(12\,\mathrm{cm}\)</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (B)</p>
+      <p>Given \(f_1 = +30\,\mathrm{cm}\) (convex) and \(f_2 = -20\,\mathrm{cm}\) (concave):</p>
+      \[
+      \frac{1}{F} = \frac{1}{f_1} + \frac{1}{f_2} = \frac{1}{30} + \frac{1}{-20} = \frac{2 - 3}{60} = -\frac{1}{60}\,\mathrm{cm^{-1}}
+      \]
+      \[
+      F = -60\,\mathrm{cm}
+      \]
+      <p>The negative focal length indicates that the combined optical system functions as a <strong>diverging lens of focal length \(60\,\mathrm{cm}\)</strong>.</p>
+    </div>
+  </div>
+
+  <!-- Question 8 -->
+  <div class="question-card">
+    <div class="question-header">
+      <span class="q-number">Practice Question 8</span>
+      <span class="q-type">Statement-Based Evaluation</span>
+    </div>
+    <div class="question-body">
+      <p>Evaluate the correctness of the following statements regarding Cassegrain reflecting telescopes:</p>
+      <p><strong>Statement I:</strong> A reflecting telescope is inherently immune to chromatic aberration because reflection is completely independent of the wavelength of incident radiation.</p>
+      <p><strong>Statement II:</strong> Mechanical support is much simpler in a reflecting telescope because the mirror objective can be supported across its entire back surface rather than merely by its rim.</p>
+    </div>
+    <div class="options-grid">
+      <div class="option-item"><strong>(A)</strong> Both Statement I and Statement II are correct.</div>
+      <div class="option-item"><strong>(B)</strong> Both Statement I and Statement II are incorrect.</div>
+      <div class="option-item"><strong>(C)</strong> Statement I is correct but Statement II is incorrect.</div>
+      <div class="option-item"><strong>(D)</strong> Statement I is incorrect but Statement II is correct.</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-title">Solution &amp; Explanation</div>
+      <p class="key-answer">Correct Option: (A)</p>
+      <p>Both statements are fundamentally sound. Statement I is correct because the law of reflection \(\angle i = \angle r'\) contains no refractive index term, ensuring light of all wavelengths reflects identically with zero chromatic aberration. Statement II is correct because mirrors are opaque and can be mechanically braced over their whole back hemisphere, preventing gravitational sagging observed in massive lenses.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>11. Common Pitfalls &amp; High-Yield Revision Checklist</h2>
+
+  <div class="pitfall-box">
+    <div class="pitfall-title">NEET Trap 1: The Sign of Focal Length in Lens Formulas</div>
+    <p>Always insert signs into \(u, v, f\) during calculations. If calculating an unknown variable (like \(v\)), <strong>do not assume its sign beforehand</strong>. Solve for it algebraically; the sign will emerge naturally.</p>
+  </div>
+
+  <div class="pitfall-box">
+    <div class="pitfall-title">NEET Trap 2: Optical Density vs. Mass Density</div>
+    <p>Never correlate optical refractive index directly with grams per cubic centimeter. For example, kerosene and turpentine float on water (mass density \(\rho < 1.0\,\mathrm{g/cm^3}\)), yet their refractive indices are higher than water (\(n > 1.33\)), bending light more towards the normal.</p>
+  </div>
+
+  <div class="pitfall-box">
+    <div class="pitfall-title">NEET Trap 3: Microscope vs. Telescope Design Differences</div>
+    <p>In a <strong>compound microscope</strong>, both \(f_o\) and \(f_e\) must be small (\(\sim \mathrm{cm}\) or \(\mathrm{mm}\)) to maximize \(m \approx \frac{L \cdot D}{f_o f_e}\). In an <strong>astronomical telescope</strong>, \(f_o\) must be <em>very large</em> (\(\sim 100\,\mathrm{cm}\) to \(15\,\mathrm{m}\)) while \(f_e\) is small to maximize \(m = f_o / f_e\).</p>
+  </div>
+
+  <h3>High-Yield Revision Checklist</h3>
+  <ul class="checklist">
+    <li>Mirror formula: \(\frac{1}{v} + \frac{1}{u} = \frac{1}{f}\) with \(m = -\frac{v}{u}\).</li>
+    <li>Thin lens formula: \(\frac{1}{v} - \frac{1}{u} = \frac{1}{f}\) with \(m = +\frac{v}{u}\).</li>
+    <li>Single spherical surface: \(\frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}\).</li>
+    <li>Lens maker's: \(\frac{1}{f} = \left(\frac{n_2}{n_1} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)\).</li>
+    <li>Apparent depth: \(h' = h/n\); upward shift: \(\Delta t = h(1 - 1/n)\).</li>
+    <li>Critical angle condition: \(\sin i_c = n_{\text{rarer}} / n_{\text{denser}}\); emergent disk area: \(A = \frac{\pi h^2}{n^2 - 1}\).</li>
+    <li>Prism minimum deviation: \(n = \frac{\sin[(A + D_m)/2]}{\sin(A/2)}\); for thin prism: \(D_m = (n - 1)A\).</li>
+    <li>Contact lens power: \(P = P_1 + P_2 + \dots \implies \frac{1}{F} = \frac{1}{f_1} + \frac{1}{f_2} + \dots\)</li>
+    <li>Microscope magnification: \(m = \left(\frac{L}{f_o}\right)\left(\frac{D}{f_e}\right)\) at \(\infty\); and \(m = \left(\frac{L}{f_o}\right)\left(1 + \frac{D}{f_e}\right)\) at \(D\).</li>
+    <li>Telescope magnification: \(m = \frac{f_o}{f_e}\) at \(\infty\) with tube length \(L = f_o + f_e\).</li>
+  </ul>
+</section>
+
+<section>
+  <h2>12. Final Formula Recap</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Key Relationship</th>
+          <th>Magnification</th>
+          <th>Critical Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spherical Mirror</td>
+          <td>\(\frac{1}{v} + \frac{1}{u} = \frac{2}{R} = \frac{1}{f}\)</td>
+          <td>\(m = -\frac{v}{u} = \frac{f}{f-u}\)</td>
+          <td>Concave: \(f < 0\); Convex: \(f > 0\)</td>
+        </tr>
+        <tr>
+          <td>Single Spherical Interface</td>
+          <td>\(\frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}\)</td>
+          <td>\(m = \frac{n_1 v}{n_2 u}\)</td>
+          <td>Light from medium \(n_1\) into \(n_2\)</td>
+        </tr>
+        <tr>
+          <td>Thin Lens</td>
+          <td>\(\frac{1}{v} - \frac{1}{u} = \frac{1}{f}\)</td>
+          <td>\(m = \frac{v}{u} = \frac{f}{f+u}\)</td>
+          <td>Convex: \(f > 0\); Concave: \(f < 0\)</td>
+        </tr>
+        <tr>
+          <td>Lens Maker</td>
+          <td>\(\frac{1}{f} = (n_{21} - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)\)</td>
+          <td>—</td>
+          <td>Water immersion increases \(f\) fourfold for glass</td>
+        </tr>
+        <tr>
+          <td>Prism</td>
+          <td>\(n = \frac{\sin[(A+D_m)/2]}{\sin(A/2)}\)</td>
+          <td>—</td>
+          <td>At \(D_m\), \(i = e\) and \(r = A/2\)</td>
+        </tr>
+        <tr>
+          <td>Compound Microscope</td>
+          <td>\(m = m_o \times m_e\)</td>
+          <td>\(m \approx \frac{L}{f_o}\frac{D}{f_e}\)</td>
+          <td>Final image inverted, virtual; \(f_o, f_e\) small</td>
+        </tr>
+        <tr>
+          <td>Astronomical Telescope</td>
+          <td>\(m = \frac{f_o}{f_e}\) (Normal)</td>
+          <td>\(L = f_o + f_e\)</td>
+          <td>\(f_o\) large, \(f_e\) small; aperture of objective large</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

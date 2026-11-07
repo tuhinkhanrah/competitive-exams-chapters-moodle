@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEET UG Chemistry: Thermodynamics | তাপগতিবিদ্যা</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --accent: #b45309;
+      --text: #1f2937;
+      --bg-bn: #f0fdf4;
+      --border: #cbd5e1;
+      --font-en: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-bn: "Hind Siliguri", "Kalpurush", -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 16px; font-family: var(--font-en);
+      color: var(--text); background: #f8fafc; line-height: 1.6; font-size: 15px;
+    }
+    .wrapper {
+      max-width: 900px; margin: 0 auto; background: #ffffff;
+      padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06);
+    }
+    header { border-bottom: 3px solid var(--primary); padding-bottom: 16px; margin-bottom: 24px; }
+    .badge-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .badge {
+      padding: 3px 8px; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase;
+    }
+    .badge-neet { background: #fee2e2; color: #991b1b; }
+    .badge-chem { background: #e0f2fe; color: #0369a1; }
+    .badge-lang { background: #dcfce7; color: #166534; }
+    h1 { color: var(--primary); font-size: 24px; margin: 6px 0; }
+    .h1-bn { font-family: var(--font-bn); color: var(--secondary); font-size: 20px; font-weight: 600; }
+    h2.sec-en { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 28px; margin-bottom: 4px; font-size: 19px; }
+    h2.sec-bn { font-family: var(--font-bn); color: var(--secondary); border-left: 4px solid var(--secondary); padding-left: 10px; margin-top: 2px; margin-bottom: 14px; font-size: 17px; }
+    h3.sub-en { color: #1e40af; margin-top: 18px; margin-bottom: 4px; font-size: 16px; }
+    h3.sub-bn { font-family: var(--font-bn); color: #065f46; margin-top: 2px; margin-bottom: 8px; font-size: 15px; }
+    .en-box { background: #ffffff; padding: 12px 16px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 10px; }
+    .bn-box { font-family: var(--font-bn); background: var(--bg-bn); padding: 12px 16px; border: 1px solid #bbf7d0; border-left: 3px solid var(--secondary); border-radius: 6px; margin-bottom: 20px; color: #0f3e2e; }
+    .formula { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 10px 14px; margin: 12px 0; border-radius: 4px; }
+    .note { background: #fffbeb; border-left: 4px solid var(--accent); padding: 10px 14px; margin: 12px 0; border-radius: 4px; font-size: 14px; }
+    table.data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+    table.data-table th, table.data-table td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
+    table.data-table th { background: #f1f5f9; color: #0f172a; font-weight: 600; }
+    .svg-container { width: 100%; margin: 16px 0; background: #ffffff; padding: 12px; border: 1px solid var(--border); border-radius: 6px; text-align: center; }
+    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 16px; margin-bottom: 22px; page-break-inside: avoid; }
+    .q-title { font-weight: bold; color: var(--primary); margin-bottom: 6px; }
+    .q-options { margin: 8px 0 12px 20px; }
+    .q-options li { margin-bottom: 4px; }
+    .sol-en { background: #f8fafc; border-left: 3px solid var(--primary); padding: 10px 14px; border-radius: 4px; margin-top: 10px; font-size: 14px; }
+    .sol-bn { font-family: var(--font-bn); background: var(--bg-bn); border-left: 3px solid var(--secondary); padding: 10px 14px; border-radius: 4px; margin-top: 10px; font-size: 14px; color: #0f3e2e; }
+    .ans-tag { font-weight: bold; color: #15803d; margin-bottom: 4px; }
+    hr.q-sep { border: 0; height: 1px; background: #cbd5e1; margin: 16px 0; }
+    .pitfall { background: #fff1f2; border-left: 4px solid #e11d48; padding: 12px 14px; margin: 14px 0; border-radius: 4px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 10px; }
+    @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    .grid-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-size: 13px; }
+    @media print {
+      body { background: #ffffff; font-size: 12pt; }
+      .wrapper { box-shadow: none; padding: 0; max-width: 100%; }
+      .q-card, .svg-container { page-break-inside: avoid; }
+      @page { size: A4; margin: 15mm; }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-neet">NEET UG Focus</span>
+      <span class="badge badge-chem">Class 11 Chemistry | Unit 5</span>
+      <span class="badge badge-lang">Bilingual English &amp; বাংলা</span>
+    </div>
+    <h1>Thermodynamics: Exam-Oriented Master Tutorial &amp; Assessment</h1>
+    <div class="h1-bn">তাপগতিবিদ্যা: সম্পূর্ণ টিউটোরিয়াল এবং মূল্যায়ন</div>
+  </header>
+
+  <!-- Section 1: Overview -->
+  <section>
+    <h2 class="sec-en">1. Chapter Overview and NEET UG Syllabus Mapping</h2>
+    <h2 class="sec-bn">১. অধ্যায় পর্যালোচনা এবং NEET UG সিলেবাস কাঠামো</h2>
+    
+    <div class="en-box">
+      <p>Thermodynamics is the study of energy transformations accompanying physical and chemical processes. In NEET UG, this topic carries 1 to 3 direct questions focusing on: (i) Work done in isothermal and adiabatic processes, (ii) First Law of Thermodynamics (\(\Delta U = q + w\)), (iii) \(\Delta H\) vs \(\Delta U\) relations, (iv) Hess's Law and Bond Enthalpy calculations, (v) Born-Haber cycle, (vi) Entropy and spontaneity criteria (\(\Delta S_{\text{total}} > 0\)), (vii) Gibbs Free Energy (\(\Delta G = \Delta H - T\Delta S\)) and equilibrium constant (\(\Delta_r G^\ominus = -2.303 RT \log K\)).</p>
+    </div>
+
+    <div class="bn-box">
+      <p>তাপগতিবিদ্যা হল ভৌত ও রাসায়নিক প্রক্রিয়ায় শক্তির রূপান্তরের বিজ্ঞান। NEET UG পরীক্ষায় প্রতি বছর এই অধ্যায় থেকে ১ থেকে ৩টি প্রশ্ন আসে। মূল প্রশ্নক্ষেত্রগুলি হল: (১) সমোষ্ণ ও রুদ্ধতাপীয় প্রসারণ কার্য, (২) প্রথম সূত্র (\(\Delta U = q + w\)), (৩) \(\Delta H\) এবং \(\Delta U\)-এর সম্পর্ক, (৪) হেসের সূত্র ও বন্ধন এনথ্যালপি, (৫) বোর্ন-হেবার চক্র, (৬) এন্ট্রপি এবং স্বতঃস্ফূর্ততার শর্ত (\(\Delta S_{\text{total}} > 0\)), (৭) গিবস মুক্ত শক্তি (\(\Delta G = \Delta H - T\Delta S\)) এবং সাম্যধ্রুবক (\(\Delta_r G^\ominus = -2.303 RT \log K\))।</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Thermodynamic Terms -->
+  <section>
+    <h2 class="sec-en">2. Thermodynamic Terms: System, Surroundings, and State Functions</h2>
+    <h2 class="sec-bn">২. তাপগতিবিদ্যার পরিভাষা: সংস্থা, পরিবেশ এবং অবস্থা অপেক্ষক</h2>
+
+    <div class="en-box">
+      <h3 class="sub-en">System, Surroundings, and Classification</h3>
+      <p>A <strong>system</strong> is that part of the universe under thermodynamic study. The rest of the universe which interacts with it is the <strong>surroundings</strong>. Their separating boundary can be real or imaginary.</p>
+      <ul>
+        <li><strong>Open System:</strong> Exchanges both matter and energy with surroundings (e.g., reactants in an open beaker).</li>
+        <li><strong>Closed System:</strong> Exchanges energy but NOT matter (e.g., reactants in a sealed metallic vessel).</li>
+        <li><strong>Isolated System:</strong> Exchanges neither matter nor energy (e.g., liquid in a sealed, perfectly insulated thermos flask).</li>
+      </ul>
+      <h3 class="sub-en">State Functions vs Path Functions</h3>
+      <p><strong>State Functions:</strong> Properties whose values depend solely on the current state of the system, not on the path taken (\(p, V, T, U, H, S, G\)). For any cyclic process: \(\oint dX = 0\).</p>
+      <p><strong>Path Functions:</strong> Properties that depend on the specific path followed (\(q, w\)).</p>
+      <h3 class="sub-en">Extensive vs Intensive Properties</h3>
+      <ul>
+        <li><strong>Extensive:</strong> Depend on size/mass (\(m, V, U, H, S, G, C\)). They are additive.</li>
+        <li><strong>Intensive:</strong> Independent of size/mass (\(T, p, d\), refractive index, molar heat capacity \(C_m\), specific heat \(c\)). The ratio of two extensive properties is always intensive (e.g., density = mass/volume).</li>
+      </ul>
+    </div>
+
+    <div class="bn-box">
+      <h3 class="sub-bn">সংস্থা, পরিবেশ এবং শ্রেণিবিভাগ</h3>
+      <p>মহাবিশ্বের যে নির্দিষ্ট অংশটিকে তাপগতীয় পরীক্ষার জন্য বেছে নেওয়া হয়, তাকে <strong>সংস্থা (System)</strong> বলে। অবশিষ্ট অংশকে <strong>পরিবেশ (Surroundings)</strong> বলে।</p>
+      <ul>
+        <li><strong>মুক্ত সংস্থা (Open System):</strong> পরিবেশের সাথে পদার্থ ও শক্তি উভয়েরই বিনিময় ঘটে (যেমন খোলা বিকারে বিক্রিয়া)।</li>
+        <li><strong>বদ্ধ সংস্থা (Closed System):</strong> পরিবেশের সাথে শক্তির বিনিময় ঘটে কিন্তু পদার্থের বিনিময় ঘটে না (যেমন মুখবন্ধ ধাতব পাত্র)।</li>
+        <li><strong>বিচ্ছিন্ন সংস্থা (Isolated System):</strong> পরিবেশের সাথে পদার্থ বা শক্তি কোনোটিরই বিনিময় ঘটে না (যেমন আদর্শ থার্মোফ্লাস্ক)।</li>
+      </ul>
+      <h3 class="sub-bn">অবস্থা অপেক্ষক বনাম পথ অপেক্ষক</h3>
+      <p><strong>অবস্থা অপেক্ষক (State Function):</strong> যে সমস্ত ধর্মের মান কেবলমাত্র বর্তমান অবস্থার ওপর নির্ভর করে, পথের ওপর নয় (\(p, V, T, U, H, S, G\))। চক্রীয় প্রক্রিয়ায়: \(\oint dX = 0\)।</p>
+      <p><strong>পথ অপেক্ষক (Path Function):</strong> যে সমস্ত রাশির মান অনুসৃত পথের ওপর নির্ভর করে (\(q, w\))।</p>
+      <h3 class="sub-bn">পরিমাণগত বনাম অভ্যন্তরীণ ধর্ম</h3>
+      <ul>
+        <li><strong>পরিমাণগত ধর্ম (Extensive):</strong> পদার্থের ভর বা আকারের ওপর নির্ভর করে (\(m, V, U, H, S, G, C\))।</li>
+        <li><strong>অভ্যন্তরীণ ধর্ম (Intensive):</strong> পদার্থের পরিমাণের ওপর নির্ভর করে না (\(T, p, d\), মোলার তাপগ্রাহিতা \(C_m\), আপেক্ষিক তাপ \(c\))। দুটি পরিমাণগত ধর্মের অনুপাত সর্বদা অভ্যন্তরীণ ধর্ম হয়।</li>
+      </ul>
+    </div>
+
+    <!-- SVG 1: Types of Systems -->
+    <div class="svg-container">
+      <svg viewBox="0 0 680 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="#f8fafc" rx="6"/>
+        <!-- Open -->
+        <g transform="translate(30, 20)">
+          <rect x="0" y="0" width="180" height="140" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+          <text x="90" y="24" font-size="14" font-weight="bold" fill="#0369a1" text-anchor="middle">Open System</text>
+          <text x="90" y="40" font-size="12" fill="#0284c7" text-anchor="middle">(মুক্ত সংস্থা)</text>
+          <path d="M 50 65 L 50 120 Q 50 128 60 128 L 120 128 Q 130 128 130 120 L 130 65" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+          <text x="90" y="80" font-size="11" fill="#0369a1" text-anchor="middle">Matter: YES</text>
+          <text x="90" y="100" font-size="11" fill="#ea580c" text-anchor="middle">Energy: YES</text>
+        </g>
+        <!-- Closed -->
+        <g transform="translate(250, 20)">
+          <rect x="0" y="0" width="180" height="140" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+          <text x="90" y="24" font-size="14" font-weight="bold" fill="#0f766e" text-anchor="middle">Closed System</text>
+          <text x="90" y="40" font-size="12" fill="#0d9488" text-anchor="middle">(বদ্ধ সংস্থা)</text>
+          <rect x="48" y="60" width="84" height="68" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+          <text x="90" y="82" font-size="11" fill="#dc2626" text-anchor="middle">Matter: NO</text>
+          <text x="90" y="102" font-size="11" fill="#ea580c" text-anchor="middle">Energy: YES</text>
+        </g>
+        <!-- Isolated -->
+        <g transform="translate(470, 20)">
+          <rect x="0" y="0" width="180" height="140" rx="6" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+          <text x="90" y="24" font-size="14" font-weight="bold" fill="#334155" text-anchor="middle">Isolated System</text>
+          <text x="90" y="40" font-size="12" fill="#475569" text-anchor="middle">(বিচ্ছিন্ন সংস্থা)</text>
+          <rect x="44" y="56" width="92" height="74" rx="4" fill="#f1f5f9" stroke="#475569" stroke-width="2.5" stroke-dasharray="4 2"/>
+          <rect x="52" y="64" width="76" height="58" fill="#cbd5e1"/>
+          <text x="90" y="86" font-size="11" fill="#dc2626" text-anchor="middle">Matter: NO</text>
+          <text x="90" y="104" font-size="11" fill="#dc2626" text-anchor="middle">Energy: NO</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Section 3: First Law & Work -->
+  <section>
+    <h2 class="sec-en">3. Internal Energy, First Law, and Pressure-Volume Work</h2>
+    <h2 class="sec-bn">৩. অভ্যন্তরীণ শক্তি, প্রথম সূত্র এবং চাপ-আয়তনগত কার্য</h2>
+
+    <div class="en-box">
+      <h3 class="sub-en">First Law of Thermodynamics and Sign Conventions</h3>
+      <p>The First Law is the conservation of energy: \(\Delta U = q + w\).</p>
+      <ul>
+        <li>\(q > 0\): heat absorbed by system; \(q < 0\): heat evolved by system.</li>
+        <li>\(w > 0\): work done on system (compression); \(w < 0\): work done by system (expansion).</li>
+      </ul>
+      <h3 class="sub-en">Pressure-Volume Work Formulas</h3>
+      <ol>
+        <li><strong>Irreversible expansion against constant \(p_{\text{ex}}\):</strong>
+          \[ w_{\text{irrev}} = -p_{\text{ex}} (V_f - V_i) = -p_{\text{ex}} \Delta V \]
+        </li>
+        <li><strong>Reversible isothermal expansion of an ideal gas:</strong>
+          <div class="formula">
+            \[ w_{\text{rev}} = -\int_{V_i}^{V_f} p \, dV = -nRT \ln\left(\frac{V_f}{V_i}\right) = -2.303 \, nRT \log_{10}\left(\frac{V_f}{V_i}\right) = -2.303 \, nRT \log_{10}\left(\frac{p_i}{p_f}\right) \]
+          </div>
+        </li>
+        <li><strong>Free expansion (expansion in vacuum, \(p_{\text{ex}} = 0\)):</strong>
+          <p>\(w = 0\). For an ideal gas undergoing isothermal free expansion: \(\Delta T = 0 \implies \Delta U = 0 \implies q = 0\).</p>
+        </li>
+        <li><strong>Comparison:</strong> For a given expansion, maximum work is obtained reversibly: \(|w_{\text{rev}}| > |w_{\text{irrev}}|\).</li>
+      </ol>
+    </div>
+
+    <div class="bn-box">
+      <h3 class="sub-bn">তাপগতিবিদ্যার প্রথম সূত্র এবং চিহ্ন রীতি</h3>
+      <p>প্রথম সূত্রটি শক্তির সংরক্ষণ নিয়ম: \(\Delta U = q + w\)।</p>
+      <ul>
+        <li>\(q > 0\): সংস্থায় শোষিত তাপ; \(q < 0\): সংস্থা দ্বারা বর্জিত তাপ।</li>
+        <li>\(w > 0\): সংস্থার ওপর কৃতকার্য (সংকোচন); \(w < 0\): সংস্থা দ্বারা কৃতকার্য (প্রসারণ)।</li>
+      </ul>
+      <h3 class="sub-bn">চাপ-আয়তনগত কার্যের সূত্রসমূহ</h3>
+      <ol>
+        <li><strong>ধ্রুবক বাহ্যিক চাপের বিরুদ্ধে অপরাবর্ত প্রসারণ:</strong>
+          \[ w_{\text{irrev}} = -p_{\text{ex}} \Delta V = -p_{\text{ex}} (V_f - V_i) \]
+        </li>
+        <li><strong>আদর্শ গ্যাসের সমোষ্ণ পরাবর্ত প্রসারণ:</strong>
+          <div class="formula">
+            \[ w_{\text{rev}} = -2.303 \, nRT \log_{10}\left(\frac{V_f}{V_i}\right) = -2.303 \, nRT \log_{10}\left(\frac{p_i}{p_f}\right) \]
+          </div>
+        </li>
+        <li><strong>মুক্ত প্রসারণ (শূন্যস্থানে প্রসারণ, \(p_{\text{ex}} = 0\)):</strong>
+          <p>\(w = 0\)। আদর্শ গ্যাসের সমোষ্ণ মুক্ত প্রসারণে: \(\Delta T = 0 \implies \Delta U = 0 \implies q = 0\)।</p>
+        </li>
+        <li><strong>তুলনা:</strong> প্রসারণ কার্যের ক্ষেত্রে পরাবর্ত প্রক্রিয়ায় সর্বাধিক কার্য পাওয়া যায়: \(|w_{\text{rev}}| > |w_{\text{irrev}}|\)।</li>
+      </ol>
+    </div>
+
+    <!-- SVG 2: pV Curve -->
+    <div class="svg-container">
+      <svg viewBox="0 0 680 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="#f8fafc" rx="6"/>
+        <!-- Graph 1: Irrev -->
+        <g transform="translate(60, 20)">
+          <text x="110" y="0" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">Irreversible Work (একধাপের অপরাবর্ত)</text>
+          <line x1="30" y1="130" x2="220" y2="130" stroke="#334155" stroke-width="1.5"/>
+          <line x1="30" y1="130" x2="30" y2="20" stroke="#334155" stroke-width="1.5"/>
+          <text x="220" y="145" font-size="11" fill="#334155">V</text>
+          <text x="15" y="25" font-size="11" fill="#334155">p</text>
+          <rect x="70" y="80" width="110" height="50" fill="#bae6fd" stroke="#0284c7" stroke-dasharray="2 2"/>
+          <text x="125" y="110" font-size="11" fill="#0369a1" text-anchor="middle">Area = p_ex ΔV</text>
+          <circle cx="70" cy="40" r="3" fill="#dc2626"/>
+          <circle cx="180" cy="80" r="3" fill="#16a34a"/>
+        </g>
+        <!-- Graph 2: Rev -->
+        <g transform="translate(380, 20)">
+          <text x="110" y="0" font-size="13" font-weight="bold" fill="#0f766e" text-anchor="middle">Reversible Work (পরাবর্ত সর্বোচ্চ কার্য)</text>
+          <line x1="30" y1="130" x2="220" y2="130" stroke="#334155" stroke-width="1.5"/>
+          <line x1="30" y1="130" x2="30" y2="20" stroke="#334155" stroke-width="1.5"/>
+          <text x="220" y="145" font-size="11" fill="#334155">V</text>
+          <text x="15" y="25" font-size="11" fill="#334155">p</text>
+          <path d="M 70 40 Q 100 80 180 95 L 180 130 L 70 130 Z" fill="#99f6e4"/>
+          <path d="M 70 40 Q 100 80 180 95" fill="none" stroke="#0d9488" stroke-width="2.5"/>
+          <text x="125" y="115" font-size="11" fill="#0f766e" text-anchor="middle">Area = ∫ p dV (Max)</text>
+          <circle cx="70" cy="40" r="3" fill="#dc2626"/>
+          <circle cx="180" cy="95" r="3" fill="#16a34a"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Section 4: Heat Capacity & Enthalpy -->
+  <section>
+    <h2 class="sec-en">4. Heat Capacity, Enthalpy (\(H\)), and Calorimetry</h2>
+    <h2 class="sec-bn">৪. তাপগ্রাহিতা, এনথ্যালপি (\(H\)) এবং ক্যালোরিমিতি</h2>
+
+    <div class="en-box">
+      <h3 class="sub-en">Heat Capacities and Mayer's Relation</h3>
+      <p>Heat capacity \(C = q/\Delta T\). At constant volume, \(q_V = C_v \Delta T = \Delta U\). At constant pressure, \(q_p = C_p \Delta T = \Delta H\).</p>
+      <div class="formula">
+        \[ C_p - C_v = R \quad (\text{for 1 mole of ideal gas}) \]
+      </div>
+      <h3 class="sub-en">Enthalpy Definition and Relation to \(\Delta U\)</h3>
+      <p>Enthalpy is defined as \(H = U + pV\). For reactions involving gases at constant \(T\):</p>
+      <div class="formula">
+        \[ \Delta H = \Delta U + \Delta n_g RT \]
+        <p>where \(\Delta n_g = \sum n_{g,\text{products}} - \sum n_{g,\text{reactants}}\) (only gaseous species are counted).</p>
+      </div>
+      <ul>
+        <li>\(\Delta n_g = 0 \implies \Delta H = \Delta U\) (e.g., \(\mathrm{H_2(g) + I_2(g) \rightarrow 2HI(g)}\)).</li>
+        <li>\(\Delta n_g > 0 \implies \Delta H > \Delta U\) (e.g., \(\mathrm{PCl_5(g) \rightarrow PCl_3(g) + Cl_2(g)}\)).</li>
+        <li>\(\Delta n_g < 0 \implies \Delta H < \Delta U\) (e.g., \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\)).</li>
+      </ul>
+      <h3 class="sub-en">Calorimetry</h3>
+      <ul>
+        <li><strong>Bomb Calorimeter:</strong> Constant volume (\(\Delta V = 0 \implies w = 0\)). Measures \(\Delta U\): \(q_V = -C_{\text{cal}} \Delta T\).</li>
+        <li><strong>Coffee-Cup Calorimeter:</strong> Constant atmospheric pressure. Measures \(\Delta H\): \(q_p = -m c \Delta T\).</li>
+      </ul>
+    </div>
+
+    <div class="bn-box">
+      <h3 class="sub-bn">তাপগ্রাহিতা এবং মেয়ারের সম্পর্ক</h3>
+      <p>তাপগ্রাহিতা \(C = q/\Delta T\)। স্থির আয়তনে, \(q_V = C_v \Delta T = \Delta U\)। স্থির চাপে, \(q_p = C_p \Delta T = \Delta H\)।</p>
+      <div class="formula">
+        <p>১ মোল আদর্শ গ্যাসের জন্য মেয়ারের সম্পর্ক:<br/>\[ C_p - C_v = R \]</p>
+      </div>
+      <h3 class="sub-bn">এনথ্যালপির সংজ্ঞা এবং \(\Delta U\)-এর সাথে সম্পর্ক</h3>
+      <p>এনথ্যালপি \(H = U + pV\)। স্থির তাপমাত্রায় গ্যাসীয় বিক্রিয়ার ক্ষেত্রে:</p>
+      <div class="formula">
+        \[ \Delta H = \Delta U + \Delta n_g RT \]
+        <p>যেখানে \(\Delta n_g = \sum n_{g,\text{products}} - \sum n_{g,\text{reactants}}\) (কেবল গ্যাসীয় উপাদান গণ্য হয়)।</p>
+      </div>
+      <ul>
+        <li>\(\Delta n_g = 0 \implies \Delta H = \Delta U\); \(\Delta n_g > 0 \implies \Delta H > \Delta U\); \(\Delta n_g < 0 \implies \Delta H < \Delta U\)।</li>
+      </ul>
+      <h3 class="sub-bn">ক্যালোরিমিতি</h3>
+      <ul>
+        <li><strong>বোম্ব ক্যালোরিমিতার:</strong> স্থির আয়তন (\(\Delta V = 0 \implies w = 0\))। \(\Delta U\) নির্ণয় করে: \(q_V = -C_{\text{cal}} \Delta T\)।</li>
+        <li><strong>স্থির চাপ ক্যালোরিমিতার:</strong> স্থির বায়ুমণ্ডলীয় চাপ। \(\Delta H\) নির্ণয় করে: \(q_p = -m c \Delta T\)।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 5: Thermochemistry -->
+  <section>
+    <h2 class="sec-en">5. Thermochemistry: Enthalpy Changes, Hess's Law, and Born-Haber Cycle</h2>
+    <h2 class="sec-bn">৫. তাপ-রসায়ন: এনথ্যালপি পরিবর্তন, হেসের সূত্র এবং বোর্ন-হেবার চক্র</h2>
+
+    <div class="en-box">
+      <h3 class="sub-en">Standard Enthalpies</h3>
+      <ul>
+        <li><strong>Standard State:</strong> Pure substance at \(1\,\mathrm{bar}\) and specified \(T\) (usually \(298.15\,\mathrm{K}\)).</li>
+        <li><strong>Standard Formation Enthalpy (\(\Delta_f H^\ominus\)):</strong> Enthalpy to form 1 mole of compound from elements in reference states. By convention, \(\Delta_f H^\ominus = 0\) for elements in their reference state (\(\mathrm{O_2(g), H_2(g), C(graphite), S(rhombic), Cl_2(g), Br_2(l), I_2(s), Na(s)}\)). Note: \(\Delta_f H^\ominus[\mathrm{C(diamond)}] = +1.89\,\mathrm{kJ\,mol^{-1}} \neq 0\).</li>
+        <li><strong>Reaction Enthalpy:</strong>
+          \[ \Delta_r H^\ominus = \sum a_i \Delta_f H^\ominus(\text{products}) - \sum b_i \Delta_f H^\ominus(\text{reactants}) \]
+        </li>
+        <li><strong>Bond Enthalpies (Gas phase only):</strong>
+          \[ \Delta_r H^\ominus = \sum \text{B.E.}_{\text{broken (reactants)}} - \sum \text{B.E.}_{\text{formed (products)}} \]
+        </li>
+      </ul>
+      <h3 class="sub-en">Hess's Law and Born-Haber Cycle</h3>
+      <p><strong>Hess's Law:</strong> Total enthalpy change is path-independent: \(\Delta_r H = \Delta H_1 + \Delta H_2 + \Delta H_3 + \dots\)</p>
+      <p><strong>Born-Haber Cycle for \(\mathrm{NaCl(s)}\):</strong></p>
+      \[ \Delta_f H^\ominus = \Delta_{\text{sub}} H^\ominus + \Delta_i H^\ominus + \frac{1}{2}\Delta_{\text{bond}} H^\ominus + \Delta_{\text{eg}} H^\ominus - \Delta_{\text{lattice}} H^\ominus \]
+      <p><strong>Enthalpy of Solution:</strong> \(\Delta_{\text{sol}} H^\ominus = \Delta_{\text{lattice}} H^\ominus + \Delta_{\text{hyd}} H^\ominus\).</p>
+    </div>
+
+    <div class="bn-box">
+      <h3 class="sub-bn">প্রমাণ এনথ্যালপিসমূহ</h3>
+      <ul>
+        <li><strong>প্রমাণ গঠন এনথ্যালপি (\(\Delta_f H^\ominus\)):</strong> প্রমাণ অবস্থায় উপাদান মৌলিক পদার্থ থেকে ১ মোল যৌগ তৈরিতে এনথ্যালপি পরিবর্তন। প্রমাণ অবস্থায় মৌলিক পদার্থের সর্বাধিক স্থায়ী বহুরূপের \(\Delta_f H^\ominus = 0\) (যেমন গ্রাফাইট, রম্বিক সালফার, গ্যাসীয় অক্সিজেন)। হীরক বা ওজোনের ক্ষেত্রে এটি শূন্য নয়।</li>
+        <li><strong>বিক্রিয়া এনথ্যালপি:</strong> \(\Delta_r H^\ominus = \sum a_i \Delta_f H^\ominus(\text{products}) - \sum b_i \Delta_f H^\ominus(\text{reactants})\)।</li>
+        <li><strong>বন্ধন এনথ্যালপি (কেবল গ্যাসীয় দশায়):</strong> \(\Delta_r H^\ominus = \sum \text{B.E.}_{\text{reactants}} - \sum \text{B.E.}_{\text{products}}\)।</li>
+      </ul>
+      <h3 class="sub-bn">হেসের সূত্র এবং বোর্ন-হেবার চক্র</h3>
+      <p><strong>হেসের সূত্র:</strong> সামগ্রিক বিক্রিয়ার এনথ্যালপি পরিবর্তন পথের ওপর নির্ভর করে না: \(\Delta_r H = \Delta H_1 + \Delta H_2 + \dots\)</p>
+      <p><strong>\(\mathrm{NaCl}\)-এর বোর্ন-হেবার চক্র:</strong> \(\Delta_f H^\ominus = \Delta_{\text{sub}} H + \Delta_i H + \frac{1}{2}\Delta_{\text{bond}} H + \Delta_{\text{eg}} H - \Delta_{\text{lattice}} H\)।</p>
+      <p><strong>দ্রবণ এনথ্যালপি:</strong> \(\Delta_{\text{sol}} H^\ominus = \Delta_{\text{lattice}} H^\ominus + \Delta_{\text{hyd}} H^\ominus\)।</p>
+    </div>
+
+    <!-- SVG 3: Born Haber Cycle -->
+    <div class="svg-container">
+      <svg viewBox="0 0 680 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="#f8fafc" rx="6"/>
+        <text x="340" y="20" font-size="13" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Born-Haber Cycle for NaCl(s) [বোর্ন-হেবার চক্র]</text>
+        <!-- Standard state -->
+        <line x1="80" y1="130" x2="200" y2="130" stroke="#0284c7" stroke-width="2.5"/>
+        <text x="140" y="124" font-size="11" font-weight="bold" fill="#0369a1" text-anchor="middle">Na(s) + 1/2 Cl2(g)</text>
+        <!-- Steps up -->
+        <path d="M 170 130 L 170 80" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="165" y="105" font-size="9" fill="#15803d" text-anchor="end">Sub + Ion + Diss</text>
+        <line x1="150" y1="75" x2="350" y2="75" stroke="#9333ea" stroke-width="2"/>
+        <text x="250" y="68" font-size="11" font-weight="bold" fill="#7e22ce" text-anchor="middle">Na+(g) + Cl(g) + e-</text>
+        <!-- Step down to ions -->
+        <path d="M 330 75 L 330 100" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="335" y="90" font-size="9" fill="#c2410c">Electron Gain</text>
+        <line x1="300" y1="105" x2="480" y2="105" stroke="#0d9488" stroke-width="2"/>
+        <text x="390" y="100" font-size="11" font-weight="bold" fill="#0f766e" text-anchor="middle">Na+(g) + Cl-(g)</text>
+        <!-- Lattice down to solid -->
+        <path d="M 450 105 L 450 170" stroke="#dc2626" stroke-width="2"/>
+        <text x="455" y="140" font-size="10" font-weight="bold" fill="#dc2626">-Δ_lattice H°</text>
+        <line x1="80" y1="175" x2="520" y2="175" stroke="#1e293b" stroke-width="3"/>
+        <text x="300" y="192" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">NaCl(s) Solid Crystal</text>
+        <!-- Direct formation -->
+        <path d="M 100 130 L 100 170" stroke="#b45309" stroke-width="2" stroke-dasharray="3 2"/>
+        <text x="95" y="155" font-size="10" font-weight="bold" fill="#b45309" text-anchor="end">Δ_f H°</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Section 6: Spontaneity, Entropy & Gibbs Free Energy -->
+  <section>
+    <h2 class="sec-en">6. Spontaneity, Entropy (\(S\)), and Gibbs Free Energy (\(G\))</h2>
+    <h2 class="sec-bn">৬. স্বতঃস্ফূর্ততা, এন্ট্রপি (\(S\)) এবং গিবস মুক্ত শক্তি (\(G\))</h2>
+
+    <div class="en-box">
+      <h3 class="sub-en">Entropy and Second Law</h3>
+      <p>Entropy (\(S\)) measures molecular randomness. \(\Delta S = q_{\text{rev}}/T\). Phase transition: \(\Delta_{\text{fus}}S = \Delta_{\text{fus}}H/T_f\), \(\Delta_{\text{vap}}S = \Delta_{\text{vap}}H/T_b\).</p>
+      <div class="formula">
+        \[ \Delta S_{\text{total}} = \Delta S_{\text{sys}} + \Delta S_{\text{surr}} > 0 \quad (\text{Spontaneous Process}) \]
+      </div>
+      <p>Since \(q_{\text{surr}} = -\Delta H_{\text{sys}}\), \(\Delta S_{\text{surr}} = -\Delta H_{\text{sys}}/T\).</p>
+      <h3 class="sub-en">Gibbs Free Energy and Equilibrium</h3>
+      <p>At constant \(T\) and \(p\): \(\Delta G = \Delta H - T\Delta S\).</p>
+      <ul>
+        <li>\(\Delta G < 0\): Spontaneous; \(\Delta G = 0\): Equilibrium (\(T_{\text{eq}} = \Delta H/\Delta S\)); \(\Delta G > 0\): Non-spontaneous.</li>
+        <li>Standard Gibbs Energy and Equilibrium Constant:
+          <div class="formula">
+            \[ \Delta_r G^\ominus = -RT \ln K = -2.303 \, RT \log_{10} K \]
+          </div>
+        </li>
+      </ul>
+      <table class="data-table">
+        <thead>
+          <tr><th>\(\Delta H\)</th><th>\(\Delta S\)</th><th>\(\Delta G = \Delta H - T\Delta S\)</th><th>Spontaneity Condition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>\(-\)</td><td>\(+\)</td><td>Always \(-\)</td><td>Spontaneous at all temperatures</td></tr>
+          <tr><td>\(-\)</td><td>\(-\)</td><td>\(-\) at low \(T\); \(+\) at high \(T\)</td><td>Spontaneous only at low \(T\) (\(T < \Delta H/\Delta S\))</td></tr>
+          <tr><td>\(+\)</td><td>\(+\)</td><td>\(+\) at low \(T\); \(-\) at high \(T\)</td><td>Spontaneous only at high \(T\) (\(T > \Delta H/\Delta S\))</td></tr>
+          <tr><td>\(+\)</td><td>\(-\)</td><td>Always \(+\)</td><td>Non-spontaneous at all temperatures</td></tr>
+        </tbody>
+      </table>
+      <h3 class="sub-en">Third Law of Thermodynamics</h3>
+      <p>At absolute zero (\(0\,\mathrm{K}\)), the entropy of any pure, perfectly crystalline substance is zero: \(\lim_{T \rightarrow 0\,\mathrm{K}} S = 0\).</p>
+    </div>
+
+    <div class="bn-box">
+      <h3 class="sub-bn">এন্ট্রপি এবং দ্বিতীয় সূত্র</h3>
+      <p>এন্ট্রপি (\(S\)) আণবিক বিশৃঙ্খলা নির্দেশ করে। \(\Delta S = q_{\text{rev}}/T\)। দ্বিতীয় সূত্রানুযায়ী স্বতঃস্ফূর্ত প্রক্রিয়ায়:</p>
+      <div class="formula">
+        \[ \Delta S_{\text{total}} = \Delta S_{\text{sys}} + \Delta S_{\text{surr}} > 0 \]
+      </div>
+      <p>পরিবেশের এন্ট্রপি: \(\Delta S_{\text{surr}} = -\Delta H_{\text{sys}}/T\)।</p>
+      <h3 class="sub-bn">গিবস মুক্ত শক্তি এবং সাম্যাবস্থা</h3>
+      <p>স্থির \(T\) ও \(p\)-তে গিবস সমীকরণ: \(\Delta G = \Delta H - T\Delta S\)।</p>
+      <ul>
+        <li>\(\Delta G < 0\): স্বতঃস্ফূর্ত; \(\Delta G = 0\): সাম্যাবস্থা (\(T_{\text{equilibrium}} = \Delta H/\Delta S\)); \(\Delta G > 0\): অস্বতঃস্ফূর্ত।</li>
+        <li>সাম্যধ্রুবকের সাথে সম্পর্ক:
+          <div class="formula">
+            \[ \Delta_r G^\ominus = -2.303 \, RT \log_{10} K \]
+          </div>
+        </li>
+      </ul>
+      <h3 class="sub-bn">তৃতীয় সূত্র</h3>
+      <p>পরম শূন্য তাপমাত্রায় (\(0\,\mathrm{K}\)) নিখুঁত কেলাসাকার বিশুদ্ধ পদার্থের এন্ট্রপি শূন্য হয়: \(\lim_{T \rightarrow 0\,\mathrm{K}} S = 0\)।</p>
+    </div>
+  </section>
+
+  <!-- Section 7: Worked Examples -->
+  <section>
+    <h2 class="sec-en">7. Worked Numerical Examples</h2>
+    <h2 class="sec-bn">৭. সম্পূর্ণ সমাধানসহ গাণিতিক উদাহরণ</h2>
+
+    <div class="en-box">
+      <p><strong>Example 1:</strong> One mole of an ideal gas expands isothermally at \(300\,\mathrm{K}\) from \(2.0\,\mathrm{L}\) to \(10.0\,\mathrm{L}\). Calculate work done (a) against constant \(p_{\text{ex}} = 1\,\mathrm{atm}\), and (b) reversibly. (\(R = 8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}, 1\,\mathrm{L\,atm} = 101.3\,\mathrm{J}\)).</p>
+      <div class="sol-en">
+        <p><strong>Solution:</strong></p>
+        <p>(a) \(w_{\text{irrev}} = -p_{\text{ex}} \Delta V = -1.0\,\mathrm{atm} \times (10.0 - 2.0)\,\mathrm{L} = -8.0\,\mathrm{L\,atm} = -8.0 \times 101.3\,\mathrm{J} = -810.4\,\mathrm{J}\).</p>
+        <p>(b) \(w_{\text{rev}} = -2.303 nRT \log_{10}(V_f/V_i) = -2.303 \times 1 \times 8.314 \times 300 \times \log_{10}(5) = -2.303 \times 8.314 \times 300 \times 0.6990 = -4012\,\mathrm{J} = -4.01\,\mathrm{kJ}\).</p>
+      </div>
+    </div>
+    <div class="bn-box">
+      <p><strong>উদাহরণ ১:</strong> \(300\,\mathrm{K}\) উষ্ণতায় এক মোল আদর্শ গ্যাস \(2.0\,\mathrm{L}\) থেকে \(10.0\,\mathrm{L}\) আয়তনে প্রসারিত হয়। কৃতকার্য নির্ণয় করো (ক) \(1\,\mathrm{atm}\) ধ্রুবক বাহ্যিক চাপের বিরুদ্ধে, এবং (খ) পরাবর্ত উপায়ে।</p>
+      <div class="sol-bn">
+        <p><strong>সমাধান:</strong></p>
+        <p>(ক) \(w_{\text{irrev}} = -p_{\text{ex}} \Delta V = -1.0 \times (10 - 2) = -8\,\mathrm{L\,atm} = -8 \times 101.3\,\mathrm{J} = -810.4\,\mathrm{J}\)।</p>
+        <p>(খ) \(w_{\text{rev}} = -2.303 nRT \log_{10}(V_f/V_i) = -2.303 \times 1 \times 8.314 \times 300 \times 0.6990 = -4012\,\mathrm{J} = -4.01\,\mathrm{kJ}\)।</p>
+      </div>
+    </div>
+
+    <div class="en-box">
+      <p><strong>Example 2:</strong> For \(\mathrm{2A(g) + B(g) \rightarrow 2D(g)}\), \(\Delta U^\ominus = -10.5\,\mathrm{kJ}\) and \(\Delta S^\ominus = -44.1\,\mathrm{J\,K^{-1}}\) at \(298\,\mathrm{K}\). Calculate \(\Delta G^\ominus\) and predict spontaneity.</p>
+      <div class="sol-en">
+        <p><strong>Solution:</strong></p>
+        <p>\(\Delta n_g = 2 - (2 + 1) = -1\,\mathrm{mol}\).</p>
+        <p>\(\Delta H^\ominus = \Delta U^\ominus + \Delta n_g RT = -10.5\,\mathrm{kJ} + (-1 \times 8.314 \times 10^{-3}\,\mathrm{kJ\,K^{-1}} \times 298\,\mathrm{K}) = -10.5 - 2.48 = -12.98\,\mathrm{kJ}\).</p>
+        <p>\(\Delta G^\ominus = \Delta H^\ominus - T\Delta S^\ominus = -12.98\,\mathrm{kJ} - [298\,\mathrm{K} \times (-44.1 \times 10^{-3}\,\mathrm{kJ\,K^{-1}})] = -12.98 + 13.14 = +0.16\,\mathrm{kJ}\).</p>
+        <p>Since \(\Delta G^\ominus > 0\), the reaction is non-spontaneous at standard conditions.</p>
+      </div>
+    </div>
+    <div class="bn-box">
+      <p><strong>উদাহরণ ২:</strong> \(298\,\mathrm{K}\) উষ্ণতায় \(\mathrm{2A(g) + B(g) \rightarrow 2D(g)}\) বিক্রিয়াটিতে \(\Delta U^\ominus = -10.5\,\mathrm{kJ}\) এবং \(\Delta S^\ominus = -44.1\,\mathrm{J\,K^{-1}}\)। \(\Delta G^\ominus\) গণনা করো এবং স্বতঃস্ফূর্ততা পূর্বাভাস করো।</p>
+      <div class="sol-bn">
+        <p><strong>সমাধান:</strong></p>
+        <p>\(\Delta n_g = 2 - 3 = -1\,\mathrm{mol}\)।</p>
+        <p>\(\Delta H^\ominus = \Delta U^\ominus + \Delta n_g RT = -10.5 + (-1 \times 8.314 \times 10^{-3} \times 298) = -12.98\,\mathrm{kJ}\)।</p>
+        <p>\(\Delta G^\ominus = \Delta H^\ominus - T\Delta S^\ominus = -12.98 - [298 \times (-0.0441)] = -12.98 + 13.14 = +0.16\,\mathrm{kJ}\)।</p>
+        <p>যেহেতু \(\Delta G^\ominus > 0\), বিক্রিয়াটি প্রমাণ অবস্থায় অস্বতঃস্ফূর্ত।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: NEET Practice Questions -->
+  <section>
+    <h2 class="sec-en">8. NEET UG Practice Questions with Worked Solutions</h2>
+    <h2 class="sec-bn">৮. NEET UG অনুশীলনমূলক প্রশ্নপত্র ও সম্পূর্ণ সমাধান</h2>
+
+    <!-- Q1 -->
+    <div class="q-card">
+      <div class="q-en">
+        <div class="q-title">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>An ideal gas expands isothermally from \(2\,\mathrm{dm^3}\) to \(20\,\mathrm{dm^3}\) at \(300\,\mathrm{K}\) into a vacuum (\(p_{\text{ex}} = 0\)). The work done (\(w\)) and internal energy change (\(\Delta U\)) are:</p>
+        <ol class="q-options" type="A">
+          <li>\(w = -5.74\,\mathrm{kJ}\), \(\Delta U = 0\)</li>
+          <li>\(w = 0\), \(\Delta U = 0\)</li>
+          <li>\(w = 0\), \(\Delta U = +5.74\,\mathrm{kJ}\)</li>
+          <li>\(w = +5.74\,\mathrm{kJ}\), \(\Delta U = -5.74\,\mathrm{kJ}\)</li>
+        </ol>
+        <div class="sol-en">
+          <div class="ans-tag">Correct Answer: Option B (\(w = 0, \Delta U = 0\))</div>
+          <p><strong>Reasoning:</strong> Against vacuum, \(p_{\text{ex}} = 0 \implies w = -p_{\text{ex}}\Delta V = 0\). For an isothermal process of an ideal gas, temperature is constant, so \(\Delta U = 0\). From First Law, \(q = \Delta U - w = 0\).</p>
+        </div>
+      </div>
+      <hr class="q-sep"/>
+      <div class="q-bn">
+        <div class="q-title">অনুশীলনমূলক প্রশ্ন ১ (একক সঠিক বিকল্প ভিত্তিক MCQ)</div>
+        <p>\(300\,\mathrm{K}\) উষ্ণতায় একটি আদর্শ গ্যাস শূন্যস্থানে (\(p_{\text{ex}} = 0\)) সমোষ্ণভাবে \(2\,\mathrm{dm^3}\) থেকে \(20\,\mathrm{dm^3}\) আয়তনে প্রসারিত হয়। কৃতকার্য (\(w\)) এবং অভ্যন্তরীণ শক্তির পরিবর্তন (\(\Delta U\))-এর মান কত?</p>
+        <ol class="q-options" type="A">
+          <li>\(w = -5.74\,\mathrm{kJ}\), \(\Delta U = 0\)</li>
+          <li>\(w = 0\), \(\Delta U = 0\)</li>
+          <li>\(w = 0\), \(\Delta U = +5.74\,\mathrm{kJ}\)</li>
+          <li>\(w = +5.74\,\mathrm{kJ}\), \(\Delta U = -5.74\,\mathrm{kJ}\)</li>
+        </ol>
+        <div class="sol-bn">
+          <div class="ans-tag">সঠিক উত্তর: বিকল্প B (\(w = 0, \Delta U = 0\))</div>
+          <p><strong>ব্যাখ্যা:</strong> শূন্যস্থানে মুক্ত প্রসারণে \(p_{\text{ex}} = 0 \implies w = -p_{\text{ex}}\Delta V = 0\)। সমোষ্ণ প্রক্রিয়ায় আদর্শ গ্যাসের \(\Delta T = 0 \implies \Delta U = 0\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card">
+      <div class="q-en">
+        <div class="q-title">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>The combustion of cyanamide in a bomb calorimeter gave \(\Delta U = -742.7\,\mathrm{kJ\,mol^{-1}}\) at \(298\,\mathrm{K}\):</p>
+        \[ \mathrm{NH_2CN(s) + \frac{3}{2}O_2(g) \rightarrow N_2(g) + CO_2(g) + H_2O(l)} \]
+        <p>The enthalpy change (\(\Delta H\)) for the reaction at \(298\,\mathrm{K}\) is (\(R = 8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}\)):</p>
+        <ol class="q-options" type="A">
+          <li>\(-743.9\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-741.5\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-745.2\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-740.2\,\mathrm{kJ\,mol^{-1}}\)</li>
+        </ol>
+        <div class="sol-en">
+          <div class="ans-tag">Correct Answer: Option B (\(-741.5\,\mathrm{kJ\,mol^{-1}}\))</div>
+          <p><strong>Reasoning:</strong> \(\Delta n_g = n_{g,\text{products}} - n_{g,\text{reactants}} = (1 + 1) - 1.5 = +0.5\,\mathrm{mol}\). Then \(\Delta n_g RT = 0.5 \times (8.314 \times 10^{-3}) \times 298 = +1.24\,\mathrm{kJ\,mol^{-1}}\). \(\Delta H = \Delta U + \Delta n_g RT = -742.7 + 1.24 = -741.46\,\mathrm{kJ\,mol^{-1}} \approx -741.5\,\mathrm{kJ\,mol^{-1}}\).</p>
+        </div>
+      </div>
+      <hr class="q-sep"/>
+      <div class="q-bn">
+        <div class="q-title">অনুশীলনমূলক প্রশ্ন ২ (একক সঠিক বিকল্প ভিত্তিক MCQ)</div>
+        <p>\(298\,\mathrm{K}\) উষ্ণতায় বোম্ব ক্যালোরিমিতারে সায়ানামাইডের দহন বিক্রিয়ায় \(\Delta U = -742.7\,\mathrm{kJ\,mol^{-1}}\) পাওয়া গেল:</p>
+        \[ \mathrm{NH_2CN(s) + \frac{3}{2}O_2(g) \rightarrow N_2(g) + CO_2(g) + H_2O(l)} \]
+        <p>\(298\,\mathrm{K}\)-এ বিক্রিয়াটির এনথ্যালপি পরিবর্তন (\(\Delta H\)) কত? (\(R = 8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}\))</p>
+        <ol class="q-options" type="A">
+          <li>\(-743.9\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-741.5\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-745.2\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-740.2\,\mathrm{kJ\,mol^{-1}}\)</li>
+        </ol>
+        <div class="sol-bn">
+          <div class="ans-tag">সঠিক উত্তর: বিকল্প B (\(-741.5\,\mathrm{kJ\,mol^{-1}}\))</div>
+          <p><strong>ব্যাখ্যা:</strong> \(\Delta n_g = (1 + 1) - 1.5 = +0.5\,\mathrm{mol}\)। \(\Delta n_g RT = 0.5 \times 8.314 \times 10^{-3} \times 298 = +1.24\,\mathrm{kJ\,mol^{-1}}\)। \(\Delta H = \Delta U + \Delta n_g RT = -742.7 + 1.24 = -741.5\,\mathrm{kJ\,mol^{-1}}\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card">
+      <div class="q-en">
+        <div class="q-title">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>The standard enthalpies of combustion of \(\mathrm{CH_4(g)}\), \(\mathrm{C(graphite)}\), and \(\mathrm{H_2(g)}\) at \(298\,\mathrm{K}\) are \(-890.3\), \(-393.5\), and \(-285.8\,\mathrm{kJ\,mol^{-1}}\), respectively. The standard enthalpy of formation of \(\mathrm{CH_4(g)}\) is:</p>
+        <ol class="q-options" type="A">
+          <li>\(+74.8\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-74.8\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-52.3\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(+52.3\,\mathrm{kJ\,mol^{-1}}\)</li>
+        </ol>
+        <div class="sol-en">
+          <div class="ans-tag">Correct Answer: Option B (\(-74.8\,\mathrm{kJ\,mol^{-1}}\))</div>
+          <p><strong>Reasoning:</strong> Target: \(\mathrm{C(graphite) + 2H_2(g) \rightarrow CH_4(g)}\). Using Hess's Law: \(\Delta_f H^\ominus = \Delta_c H^\ominus[\mathrm{C}] + 2\Delta_c H^\ominus[\mathrm{H_2}] - \Delta_c H^\ominus[\mathrm{CH_4}] = (-393.5) + 2(-285.8) - (-890.3) = -965.1 + 890.3 = -74.8\,\mathrm{kJ\,mol^{-1}}\).</p>
+        </div>
+      </div>
+      <hr class="q-sep"/>
+      <div class="q-bn">
+        <div class="q-title">অনুশীলনমূলক প্রশ্ন ৩ (একক সঠিক বিকল্প ভিত্তিক MCQ)</div>
+        <p>\(298\,\mathrm{K}\)-এ মিথেন, গ্রাফাইট ও হাইড্রোজেনের প্রমাণ দহন এনথ্যালপি যথাক্রমে \(-890.3\), \(-393.5\) এবং \(-285.8\,\mathrm{kJ\,mol^{-1}}\)। মিথেনের প্রমাণ গঠন এনথ্যালপি কত?</p>
+        <ol class="q-options" type="A">
+          <li>\(+74.8\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-74.8\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(-52.3\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>\(+52.3\,\mathrm{kJ\,mol^{-1}}\)</li>
+        </ol>
+        <div class="sol-bn">
+          <div class="ans-tag">সঠিক উত্তর: বিকল্প B (\(-74.8\,\mathrm{kJ\,mol^{-1}}\))</div>
+          <p><strong>ব্যাখ্যা:</strong> হেসের সূত্রানুসারে: \(\Delta_f H^\ominus = \Delta_c H^\ominus[\mathrm{C}] + 2\Delta_c H^\ominus[\mathrm{H_2}] - \Delta_c H^\ominus[\mathrm{CH_4}] = -393.5 - 571.6 - (-890.3) = -74.8\,\mathrm{kJ\,mol^{-1}}\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card">
+      <div class="q-en">
+        <div class="q-title">Practice Question 4 (Single-Correct MCQ)</div>
+        <p>For the gas-phase reaction \(\mathrm{2Cl(g) \rightarrow Cl_2(g)}\), the signs of \(\Delta H\) and \(\Delta S\) are:</p>
+        <ol class="q-options" type="A">
+          <li>\(\Delta H > 0, \Delta S > 0\)</li>
+          <li>\(\Delta H < 0, \Delta S < 0\)</li>
+          <li>\(\Delta H < 0, \Delta S > 0\)</li>
+          <li>\(\Delta H > 0, \Delta S < 0\)</li>
+        </ol>
+        <div class="sol-en">
+          <div class="ans-tag">Correct Answer: Option B (\(\Delta H < 0, \Delta S < 0\))</div>
+          <p><strong>Reasoning:</strong> Bond formation releases energy, so \(\Delta H < 0\) (exothermic). Two independent atoms combine into one molecule, decreasing randomness, so \(\Delta S < 0\).</p>
+        </div>
+      </div>
+      <hr class="q-sep"/>
+      <div class="q-bn">
+        <div class="q-title">অনুশীলনমূলক প্রশ্ন ৪ (একক সঠিক বিকল্প ভিত্তিক MCQ)</div>
+        <p>\(\mathrm{2Cl(g) \rightarrow Cl_2(g)}\) বিক্রিয়াটির ক্ষেত্রে \(\Delta H\) এবং \(\Delta S\)-এর চিহ্ন কী?</p>
+        <ol class="q-options" type="A">
+          <li>\(\Delta H > 0, \Delta S > 0\)</li>
+          <li>\(\Delta H < 0, \Delta S < 0\)</li>
+          <li>\(\Delta H < 0, \Delta S > 0\)</li>
+          <li>\(\Delta H > 0, \Delta S < 0\)</li>
+        </ol>
+        <div class="sol-bn">
+          <div class="ans-tag">সঠিক উত্তর: বিকল্প B (\(\Delta H < 0, \Delta S < 0\))</div>
+          <p><strong>ব্যাখ্যা:</strong> রাসায়নিক বন্ধন গঠনে শক্তি নির্গত হয়, তাই \(\Delta H < 0\) (তাপমোচী)। কণার সংখ্যা হ্রাস পেয়ে বিশৃঙ্খলা হ্রাস পাওয়ায় \(\Delta S < 0\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card">
+      <div class="q-en">
+        <div class="q-title">Practice Question 5 (Single-Correct MCQ)</div>
+        <p>A reaction has \(\Delta H = +400\,\mathrm{kJ\,mol^{-1}}\) and \(\Delta S = +200\,\mathrm{J\,K^{-1}\,mol^{-1}}\). Assuming \(\Delta H\) and \(\Delta S\) are constant with temperature, at what minimum temperature does it become spontaneous?</p>
+        <ol class="q-options" type="A">
+          <li>\(2000\,\mathrm{K}\)</li>
+          <li>\(1500\,\mathrm{K}\)</li>
+          <li>\(200\,\mathrm{K}\)</li>
+          <li>\(2000^\circ\mathrm{C}\)</li>
+        </ol>
+        <div class="sol-en">
+          <div class="ans-tag">Correct Answer: Option A (\(2000\,\mathrm{K}\))</div>
+          <p><strong>Reasoning:</strong> Spontaneity condition is \(\Delta G = \Delta H - T\Delta S < 0 \implies T > \Delta H/\Delta S\). \(T = \frac{400 \times 10^3\,\mathrm{J\,mol^{-1}}}{200\,\mathrm{J\,K^{-1}\,mol^{-1}}} = 2000\,\mathrm{K}\).</p>
+        </div>
+      </div>
+      <hr class="q-sep"/>
+      <div class="q-bn">
+        <div class="q-title">অনুশীলনমূলক প্রশ্ন ৫ (একক সঠিক বিকল্প ভিত্তিক MCQ)</div>
+        <p>একটি বিক্রিয়ায় \(\Delta H = +400\,\mathrm{kJ\,mol^{-1}}\) এবং \(\Delta S = +200\,\mathrm{J\,K^{-1}\,mol^{-1}}\)। সর্বনিম্ন কত তাপমাত্রায় বিক্রিয়াটি স্বতঃস্ফূর্ত হবে?</p>
+        <ol class="q-options" type="A">
+          <li>\(2000\,\mathrm{K}\)</li>
+          <li>\(1500\,\mathrm{K}\)</li>
+          <li>\(200\,\mathrm{K}\)</li>
+          <li>\(2000^\circ\mathrm{C}\)</li>
+        </ol>
+        <div class="sol-bn">
+          <div class="ans-tag">সঠিক উত্তর: বিকল্প A (\(2000\,\mathrm{K}\))</div>
+          <p><strong>ব্যাখ্যা:</strong> স্বতঃস্ফূর্ততার শর্ত: \(\Delta G < 0 \implies T > \Delta H/\Delta S\)। \(T = \frac{400 \times 10^3}{200} = 2000\,\mathrm{K}\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card">
+      <div class="q-en">
+        <div class="q-title">Practice Question 6 (Assertion-Reasoning NEET Format)</div>
+        <p><strong>Assertion (A):</strong> Enthalpy (\(H\)) is an extensive property, while molar enthalpy (\(H_m\)) is an intensive property.</p>
+        <p><strong>Reason (R):</strong> The ratio of any two extensive properties of a system is an intensive property.</p>
+        <ol class="q-options" type="A">
+          <li>Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+          <li>Both (A) and (R) are true but (R) is NOT the correct explanation of (A).</li>
+          <li>(A) is true but (R) is false.</li>
+          <li>(A) is false but (R) is true.</li>
+        </ol>
+        <div class="sol-en">
+          <div class="ans-tag">Correct Answer: Option A (Both true, (R) is correct explanation)</div>
+          <p><strong>Reasoning:</strong> Enthalpy \(H\) depends on the amount of matter (extensive). Molar enthalpy is \(H_m = H/n\). Since both \(H\) and \(n\) are extensive, their ratio is independent of size, making \(H_m\) an intensive property. Thus (R) correctly explains (A).</p>
+        </div>
+      </div>
+      <hr class="q-sep"/>
+      <div class="q-bn">
+        <div class="q-title">অনুশীলনমূলক প্রশ্ন ৬ (Assertion-Reasoning NEET মানসম্মত)</div>
+        <p><strong>বিবৃতি (A):</strong> এনথ্যালপি (\(H\)) একটি পরিমাণগত (extensive) ধর্ম, কিন্তু মোলার এনথ্যালপি (\(H_m\)) একটি অভ্যন্তরীণ (intensive) ধর্ম।</p>
+        <p><strong>কারণ (R):</strong> যেকোনো দুটি পরিমাণগত ধর্মের অনুপাত সর্বদা একটি অভ্যন্তরীণ ধর্ম নির্দেশ করে।</p>
+        <ol class="q-options" type="A">
+          <li>(A) এবং (R) উভয়ই সত্য এবং (R) হল (A)-এর সঠিক ব্যাখ্যা।</li>
+          <li>(A) এবং (R) উভয়ই সত্য কিন্তু (R) হল (A)-এর সঠিক ব্যাখ্যা নয়।</li>
+          <li>(A) সত্য কিন্তু (R) মিথ্যা।</li>
+          <li>(A) মিথ্যা কিন্তু (R) সত্য।</li>
+        </ol>
+        <div class="sol-bn">
+          <div class="ans-tag">সঠিক উত্তর: বিকল্প A (উভয়ই সত্য এবং (R) হল (A)-এর সঠিক ব্যাখ্যা)</div>
+          <p><strong>ব্যাখ্যা:</strong> \(H\) ভরের ওপর নির্ভরশীল হওয়ায় পরিমাণগত। মোলার এনথ্যালপি \(H_m = H/n\)। দুটি পরিমাণগত ধর্মের অনুপাত নিলে আকারের প্রভাব বিলুপ্ত হয়, ফলে \(H_m\) অভ্যন্তরীণ ধর্মে পরিণত হয়।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Common Pitfalls & Master Checklist -->
+  <section>
+    <h2 class="sec-en">9. High-Yield Pitfalls and Revision Checklist</h2>
+    <h2 class="sec-bn">৯. সতর্কতা এবং দ্রুত পুনরাবৃত্তি চেকলিস্ট</h2>
+
+    <div class="pitfall">
+      <div class="en-box">
+        <h3 class="sub-en" style="color: #be123c;">NEET Exam Traps</h3>
+        <ul>
+          <li><strong>Unit Inconsistency in \(\Delta G = \Delta H - T\Delta S\):</strong> \(\Delta H\) is almost always given in \(\mathrm{kJ}\) and \(\Delta S\) in \(\mathrm{J\,K^{-1}}\). Multiply \(\Delta H\) by \(10^3\) or divide \(\Delta S\) by \(10^3\) before subtracting!</li>
+          <li><strong>Counting \(\Delta n_g\):</strong> Strictly count gaseous moles only! Solids (\(\mathrm{s}\)) and liquids (\(\mathrm{l}\)) must be counted as 0.</li>
+          <li><strong>Zero Formation Enthalpy:</strong> \(\Delta_f H^\ominus = 0\) only for reference states (\(\mathrm{C(graphite)} = 0\), but \(\mathrm{C(diamond)} = +1.89\,\mathrm{kJ\,mol^{-1}}\); \(\mathrm{Br_2(l)} = 0\), but \(\mathrm{Br_2(g)} \neq 0\)).</li>
+          <li><strong>Isothermal Free Expansion:</strong> \(w = 0, q = 0, \Delta U = 0\), but \(\Delta S_{\text{total}} > 0\) (irreversible spontaneous process).</li>
+        </ul>
+      </div>
+
+      <div class="bn-box">
+        <h3 class="sub-bn" style="color: #9f1239;">NEET পরীক্ষার জন্য সতর্কতা</h3>
+        <ul>
+          <li><strong>\(\Delta G = \Delta H - T\Delta S\) সমীকরণে এককের গরমিল:</strong> \(\Delta H\) সাধারণত \(\mathrm{kJ}\)-এ এবং \(\Delta S\) \(\mathrm{J\,K^{-1}}\)-এ থাকে। বিয়োগের পূর্বে একক একজাতীয় করে নিন।</li>
+          <li><strong>\(\Delta n_g\) গণনা:</strong> শুধুমাত্র গ্যাসীয় পদার্থের মোল সংখ্যা হিসাব করুন; কঠিন ও তরল পদার্থের মোল সংখ্যা ০ ধরুন।</li>
+          <li><strong>প্রমাণ গঠন তাপ শূন্য:</strong> কেবল প্রমাণ বহুরূপের জন্যই \(\Delta_f H^\ominus = 0\)। গ্রাফাইটের জন্য ০ হলেও হীরকের ক্ষেত্রে \(+1.89\,\mathrm{kJ\,mol^{-1}}\)।</li>
+          <li><strong>সমোষ্ণ মুক্ত প্রসারণ:</strong> \(w = 0, q = 0, \Delta U = 0\) হলেও \(\Delta S_{\text{total}} > 0\) হয়।</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 10: Final Master Recap -->
+  <section>
+    <h2 class="sec-en">10. Concise Master Formula Summary</h2>
+    <h2 class="sec-bn">১০. সংক্ষিপ্ত মাস্টার ফর্মুলা সারাংশ</h2>
+
+    <div class="grid-2">
+      <div class="grid-card">
+        <h4 style="margin: 0 0 4px 0; color: #1e3a8a;">First Law &amp; Work</h4>
+        <p>• First Law: \(\Delta U = q + w\)<br/>
+        • Irrev Work: \(w = -p_{\text{ex}} \Delta V\)<br/>
+        • Rev Work: \(w = -2.303 nRT \log_{10}(V_f/V_i)\)<br/>
+        • Free Expansion: \(p_{\text{ex}} = 0 \implies w = 0\)<br/>
+        • Mayer's Relation: \(C_p - C_v = R\)</p>
+      </div>
+
+      <div class="grid-card" style="font-family: var(--font-bn); color: #065f46;">
+        <h4 style="margin: 0 0 4px 0; color: #0d9488;">প্রথম সূত্র ও কার্য</h4>
+        <p>• প্রথম সূত্র: \(\Delta U = q + w\)<br/>
+        • অপরাবর্ত কার্য: \(w = -p_{\text{ex}} \Delta V\)<br/>
+        • পরাবর্ত কার্য: \(w = -2.303 nRT \log_{10}(V_f/V_i)\)<br/>
+        • মুক্ত প্রসারণ: \(p_{\text{ex}} = 0 \implies w = 0\)<br/>
+        • মেয়ারের সমীকরণ: \(C_p - C_v = R\)</p>
+      </div>
+
+      <div class="grid-card">
+        <h4 style="margin: 0 0 4px 0; color: #1e3a8a;">Enthalpy &amp; Reactions</h4>
+        <p>• Enthalpy: \(H = U + pV \implies q_p = \Delta H\)<br/>
+        • Gas Reactions: \(\Delta H = \Delta U + \Delta n_g RT\)<br/>
+        • Hess's Law: \(\Delta_r H = \sum \Delta H_{\text{steps}}\)<br/>
+        • Reaction: \(\Delta_r H^\ominus = \sum a \Delta_f H^\ominus_{\text{prod}} - \sum b \Delta_f H^\ominus_{\text{react}}\)<br/>
+        • Bonds: \(\Delta_r H^\ominus = \sum \text{B.E.}_{\text{react}} - \sum \text{B.E.}_{\text{prod}}\)</p>
+      </div>
+
+      <div class="grid-card" style="font-family: var(--font-bn); color: #065f46;">
+        <h4 style="margin: 0 0 4px 0; color: #0d9488;">এনথ্যালপি ও বিক্রিয়া</h4>
+        <p>• এনথ্যালপি: \(H = U + pV \implies q_p = \Delta H\)<br/>
+        • গ্যাসীয় বিক্রিয়ায়: \(\Delta H = \Delta U + \Delta n_g RT\)<br/>
+        • হেসের সূত্র: \(\Delta_r H = \sum \Delta H_{\text{steps}}\)<br/>
+        • বিক্রিয়া এনথ্যালপি: \(\Delta_r H^\ominus = \sum a \Delta_f H^\ominus_{\text{products}} - \sum b \Delta_f H^\ominus_{\text{reactants}}\)<br/>
+        • বন্ধন শক্তি: \(\Delta_r H^\ominus = \sum \text{B.E.}_{\text{reactants}} - \sum \text{B.E.}_{\text{products}}\)</p>
+      </div>
+
+      <div class="grid-card">
+        <h4 style="margin: 0 0 4px 0; color: #1e3a8a;">Entropy &amp; Spontaneity</h4>
+        <p>• Entropy: \(\Delta S = q_{\text{rev}}/T\)<br/>
+        • Second Law: \(\Delta S_{\text{total}} = \Delta S_{\text{sys}} + \Delta S_{\text{surr}} > 0\)<br/>
+        • Surroundings: \(\Delta S_{\text{surr}} = -\Delta H_{\text{sys}}/T\)<br/>
+        • Phase: \(\Delta_{\text{vap}}S = \Delta_{\text{vap}}H/T_b\)</p>
+      </div>
+
+      <div class="grid-card" style="font-family: var(--font-bn); color: #065f46;">
+        <h4 style="margin: 0 0 4px 0; color: #0d9488;">এন্ট্রপি ও স্বতঃস্ফূর্ততা</h4>
+        <p>• এন্ট্রপি: \(\Delta S = q_{\text{rev}}/T\)<br/>
+        • দ্বিতীয় সূত্র: \(\Delta S_{\text{total}} = \Delta S_{\text{sys}} + \Delta S_{\text{surr}} > 0\)<br/>
+        • পরিবেশ: \(\Delta S_{\text{surr}} = -\Delta H_{\text{sys}}/T\)<br/>
+        • দশা রূপান্তর: \(\Delta_{\text{vap}}S = \Delta_{\text{vap}}H/T_b\)</p>
+      </div>
+
+      <div class="grid-card">
+        <h4 style="margin: 0 0 4px 0; color: #1e3a8a;">Gibbs Energy &amp; Equilibrium</h4>
+        <p>• Gibbs: \(\Delta G = \Delta H - T\Delta S\)<br/>
+        • Spontaneous: \(\Delta G < 0\) (at const \(T, p\))<br/>
+        • Equilibrium: \(\Delta G = 0 \implies T_{\text{eq}} = \Delta H/\Delta S\)<br/>
+        • Equilibrium Constant: \(\Delta_r G^\ominus = -2.303 RT \log_{10} K\)<br/>
+        • Third Law: \(\lim_{T \rightarrow 0\,\mathrm{K}} S = 0\)</p>
+      </div>
+
+      <div class="grid-card" style="font-family: var(--font-bn); color: #065f46;">
+        <h4 style="margin: 0 0 4px 0; color: #0d9488;">গিবস শক্তি ও সাম্যাবস্থা</h4>
+        <p>• গিবস সমীকরণ: \(\Delta G = \Delta H - T\Delta S\)<br/>
+        • স্বতঃস্ফূর্ত: \(\Delta G < 0\) (স্থির \(T, p\)-তে)<br/>
+        • সাম্যাবস্থা: \(\Delta G = 0 \implies T_{\text{equilibrium}} = \Delta H/\Delta S\)<br/>
+        • সাম্যধ্রুবক: \(\Delta_r G^\ominus = -2.303 RT \log_{10} K\)<br/>
+        • তৃতীয় সূত্র: \(\lim_{T \rightarrow 0\,\mathrm{K}} S = 0\)</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equilibrium (সাম্যাবস্থা) - NEET UG Comprehensive Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --secondary: #0284c7;
+      --accent: #dc2626;
+      --text: #1e293b;
+      --muted: #475569;
+      --border: #cbd5e1;
+      --en-bg: #ffffff;
+      --bn-bg: #f0fdf4;
+      --card-bg: #f8fafc;
+      --tip-bg: #eff6ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif, "Kalpurush", "Bangla";
+      line-height: 1.65;
+      color: var(--text);
+      background-color: #f1f5f9;
+      padding: 1.25rem 0.75rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .badge-bar { text-align: center; margin-bottom: 0.5rem; }
+    .badge {
+      display: inline-block;
+      background: #fee2e2;
+      color: #991b1b;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid #f87171;
+      text-transform: uppercase;
+    }
+    h1.title { color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 0.2rem; }
+    h1.title-bn { color: #047857; font-size: 1.6rem; text-align: center; margin-bottom: 0.5rem; }
+    .sub { text-align: center; color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); }
+    h2.sec-en { color: var(--primary); font-size: 1.35rem; margin-top: 2rem; margin-bottom: 0.25rem; border-bottom: 2px solid var(--secondary); padding-bottom: 0.25rem; }
+    h2.sec-bn { color: #065f46; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+    h3.sub-en { color: #1e3a8a; font-size: 1.1rem; margin-top: 1rem; margin-bottom: 0.25rem; }
+    h3.sub-bn { color: #047857; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .en-box { background: var(--en-bg); border-left: 4px solid var(--secondary); padding: 0.85rem 1.1rem; margin-bottom: 0.75rem; border-radius: 0 6px 6px 0; border: 1px solid #e2e8f0; border-left-width: 4px; }
+    .bn-box { background: var(--bn-bg); border-left: 4px solid #10b981; padding: 0.85rem 1.1rem; margin-bottom: 1.5rem; border-radius: 0 6px 6px 0; font-size: 0.96rem; border: 1px solid #d1fae5; border-left-width: 4px; }
+    .tag { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.15rem 0.45rem; border-radius: 3px; margin-bottom: 0.4rem; }
+    .tag-en { background: #e0f2fe; color: #0369a1; }
+    .tag-bn { background: #d1fae5; color: #065f46; }
+    p { margin-bottom: 0.65rem; }
+    ul, ol { margin-left: 1.35rem; margin-bottom: 0.65rem; }
+    li { margin-bottom: 0.25rem; }
+    .formula { background: #f8fafc; border: 1px solid #cbd5e1; border-left: 3px solid var(--primary); padding: 0.6rem 1rem; margin: 0.65rem 0; text-align: center; border-radius: 4px; overflow-x: auto; }
+    .tip { background: var(--tip-bg); border-left: 3px solid #3b82f6; padding: 0.65rem 0.95rem; margin: 0.65rem 0; font-size: 0.9rem; border-radius: 0 4px 4px 0; }
+    .table-box { width: 100%; overflow-x: auto; margin: 1rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: #fff; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+    th { background: #f1f5f9; color: var(--primary); font-weight: 600; }
+    .diagram-wrap { margin: 1.25rem 0; padding: 0.85rem; background: #fff; border: 1px solid var(--border); border-radius: 6px; text-align: center; }
+    .caption { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; font-style: italic; }
+    .q-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem; margin: 1.25rem 0; page-break-inside: avoid; }
+    .q-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.35rem; margin-bottom: 0.65rem; }
+    .q-num { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+    .q-tag { font-size: 0.7rem; background: #f1f5f9; color: var(--muted); padding: 0.15rem 0.45rem; border-radius: 3px; font-weight: 600; }
+    .opts { display: grid; grid-template-columns: 1fr; gap: 0.35rem; margin: 0.65rem 0; }
+    .opt { padding: 0.35rem 0.65rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 0.9rem; }
+    .sol { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 0.65rem 0.85rem; margin-top: 0.65rem; font-size: 0.88rem; border-radius: 0 4px 4px 0; }
+    hr.div { border: 0; height: 1px; background: #cbd5e1; margin: 0.85rem 0; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .container { max-width: 100%; box-shadow: none; padding: 0; }
+      .q-card, .diagram-wrap, .table-box { page-break-inside: avoid; }
+      @page { size: A4; margin: 1.2cm; }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | Engineering | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+  <div class="badge-bar"><span class="badge">NEET UG Chemistry • Core Concept & Assessment Module</span></div>
+  <h1 class="title">UNIT 6: EQUILIBRIUM</h1>
+  <h1 class="title-bn">অধ্যায় ৬: সাম্যাবস্থা</h1>
+  <div class="sub">Comprehensive Bilingual NCERT Tutorial &amp; High-Yield Assessment for NEET UG Aspirants</div>
+
+  <!-- SECTION 1 -->
+  <h2 class="sec-en">1. Equilibrium in Physical Processes & Dynamic Nature</h2>
+  <h2 class="sec-bn">১. ভৌত প্রক্রিয়ায় সাম্যাবস্থা এবং এর গতিশীল প্রকৃতি</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p>Equilibrium represents the state of a process in which opposing forces or competing forward and reverse reactions occur at identical rates. It is not static; molecular exchange continues uninterrupted across phase boundaries.</p>
+    <ul>
+      <li><strong>Solid–Liquid Equilibrium:</strong> At melting point (\(273\,\mathrm{K}\) for pure water at \(1.013\,\mathrm{bar}\)), the rate of melting of ice equals the rate of freezing of water:
+        <div class="formula">\[\mathrm{H_2O\,(s)} \rightleftharpoons \mathrm{H_2O\,(l)}, \quad \text{Rate of melting} = \text{Rate of freezing}\]</div>
+      </li>
+      <li><strong>Liquid–Vapour Equilibrium:</strong> In a closed container at constant temperature, the rate of evaporation of liquid molecules equals the rate of condensation of vapour molecules. The pressure exerted by vapours at equilibrium is the <em>equilibrium vapour pressure</em>.
+        <div class="formula">\[\mathrm{H_2O\,(l)} \rightleftharpoons \mathrm{H_2O\,(g)}, \quad \text{Rate of evaporation} = \text{Rate of condensation}\]</div>
+      </li>
+      <li><strong>Solid–Vapour Equilibrium:</strong> Observed in volatile substances like iodine, camphor, and ammonium chloride in closed vessels:
+        <div class="formula">\[\mathrm{I_2\,(s)} \rightleftharpoons \mathrm{I_2\,(vapour)}\]</div>
+      </li>
+      <li><strong>Equilibrium Involving Dissolution of Solids/Gases:</strong>
+        <br/>• <em>Solid in liquid:</em> Saturated solution achieves equilibrium between dissolved solute and undissolved solid: \(\text{Solute (solid)} \rightleftharpoons \text{Solute (in solution)}\). Rate of dissolution = Rate of crystallization.
+        <br/>• <em>Gas in liquid (Henry's Law):</em> Mass of gas dissolved is proportional to its pressure above the solvent: \(m \propto p \implies m = k_H\,p\).
+      </li>
+    </ul>
+    <div class="tip"><strong>NEET Rule:</strong> Physical equilibria can be achieved <em>only in closed systems</em> at constant temperature, characterized by constant macroscopic properties (pressure, concentration, colour).</div>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p>সাম্যাবস্থা হলো এমন একটি অবস্থা যেখানে দুটি বিপরীতমুখী প্রক্রিয়া একই হারে সম্পন্ন হয়। এটি স্থিতিশীল নয় বরং সম্পূর্ণ <strong>গতিশীল (dynamic)</strong>; আণবিক স্তরে পরিবর্তন প্রতিনিয়ত ঘটে চলেছে।</p>
+    <ul>
+      <li><strong>কঠিন–তরল সাম্যাবস্থা:</strong> স্বাভাবিক গলনাঙ্কে বরফ গলার হার এবং জল জমার হার সমান হয় (\(\mathrm{H_2O\,(s) \rightleftharpoons H_2O\,(l)}\))।</li>
+      <li><strong>তরল–বাষ্প সাম্যাবস্থা:</strong> বদ্ধ পাত্রে নির্দিষ্ট তাপমাত্রায় বাষ্পায়নের হার ঘনীভবনের হারের সমান হয়। এই অবস্থায় উৎপন্ন চাপ হলো সাম্য বাষ্পচাপ।</li>
+      <li><strong>কঠিন–বাষ্প সাম্যাবস্থা:</strong> কর্পূর, আয়োডিন বা অ্যামোনিয়াম ক্লোরাইডের ক্ষেত্রে কঠিন পদার্থ সরাসরি বাষ্পের সাথে সাম্যাবস্থায় থাকে (\(\mathrm{I_2\,(s) \rightleftharpoons I_2\,(বাষ্প)}\))।</li>
+      <li><strong>দ্রবীভবন সাম্যাবস্থা ও হেনরির সূত্র:</strong> সম্পৃক্ত দ্রবণে দ্রবীভবনের হার কেলাসনের হারের সমান হয়। তরলে গ্যাসের দ্রাব্যতা গ্যাসটির আংশিক চাপের সমানুপাতিক (\(m = k_H\,p\))।</li>
+    </ul>
+  </div>
+
+  <!-- SVG DIAGRAM 1: U-Tube Manometer -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 760 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Box 1 -->
+      <rect x="40" y="20" width="280" height="135" fill="#f8fafc" stroke="#334155" stroke-width="1.8" rx="4"/>
+      <text x="180" y="40" font-size="12" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Initial: Anhydrous CaCl2 (Drying)</text>
+      <circle cx="180" cy="120" r="14" fill="#94a3b8"/>
+      <text x="180" y="124" font-size="9" fill="#ffffff" text-anchor="middle">CaCl2</text>
+      <!-- Manometer 1 -->
+      <path d="M 320 65 L 340 65 L 340 135 Q 345 145 350 135 L 350 50" fill="none" stroke="#475569" stroke-width="2.5"/>
+      <path d="M 340 110 L 340 135 Q 345 145 350 135 L 350 110" fill="none" stroke="#475569" stroke-width="6"/>
+      <text x="340" y="165" font-size="10" fill="#334155" text-anchor="middle">Δh = 0</text>
+
+      <!-- Box 2 -->
+      <rect x="410" y="20" width="280" height="135" fill="#f8fafc" stroke="#334155" stroke-width="1.8" rx="4"/>
+      <text x="550" y="40" font-size="12" font-weight="bold" fill="#065f46" text-anchor="middle">Equilibrium: Vapour Pressure Attained</text>
+      <path d="M 500 128 Q 550 142 600 128 Z" fill="#60a5fa" stroke="#1e40af" stroke-width="1.2"/>
+      <path d="M 530 115 L 530 90" stroke="#2563eb" stroke-width="1.5"/>
+      <path d="M 545 90 L 545 115" stroke="#dc2626" stroke-width="1.5"/>
+      <path d="M 560 115 L 560 90" stroke="#2563eb" stroke-width="1.5"/>
+      <path d="M 575 90 L 575 115" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="550" y="75" font-size="10" font-weight="bold" fill="#047857" text-anchor="middle">Rate(evap) = Rate(cond)</text>
+      <!-- Manometer 2 -->
+      <path d="M 690 65 L 710 65 L 710 135 Q 715 145 720 135 L 720 50" fill="none" stroke="#475569" stroke-width="2.5"/>
+      <path d="M 710 125 L 710 135 Q 715 145 720 135 L 720 100" fill="none" stroke="#475569" stroke-width="6"/>
+      <text x="715" y="165" font-size="10" font-weight="bold" fill="#dc2626" text-anchor="middle">Δh = p(vap)</text>
+    </svg>
+    <div class="caption">Tutorial Diagram 1: Liquid–vapour dynamic equilibrium measured via U-tube manometer. (টিউটোরিয়াল চিত্র ১: ম্যানোমিটারের সাহায্যে তরল–বাষ্প গতিশীল সাম্যাবস্থা পরিমাপ।)</div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2 class="sec-en">2. Chemical Equilibrium & Law of Mass Action</h2>
+  <h2 class="sec-bn">২. রাসায়নিক সাম্যাবস্থা এবং ভরক্রিয়া সূত্র</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p>A reversible reaction \(a\mathrm{A} + b\mathrm{B} \rightleftharpoons c\mathrm{C} + d\mathrm{D}\) achieves dynamic equilibrium when forward and reverse rates become equal (\(r_f = r_b\)).</p>
+    <p><strong>Deuterium Tracer Proof of Dynamic State:</strong> In Haber's ammonia synthesis, mixing an equilibrium system of \(\mathrm{N_2 + H_2 \rightleftharpoons NH_3}\) with \(\mathrm{N_2 + D_2 \rightleftharpoons ND_3}\) yields mixed molecules \(\mathrm{NH_2D, NHD_2, HD}\) detected via mass spectrometry. Forward and reverse reactions continue microscopically at identical rates.</p>
+    <p><strong>Law of Chemical Equilibrium (Guldberg & Waage, 1864):</strong></p>
+    <div class="formula">
+      \[K_c = \frac{[\mathrm{C}]^c [\mathrm{D}]^d}{[\mathrm{A}]^a [\mathrm{B}]^b}\]
+    </div>
+    <p><strong>Mathematical Properties of Equilibrium Constants:</strong></p>
+    <ul>
+      <li>Reversing reaction: \(K' = \frac{1}{K}\)</li>
+      <li>Multiplying coefficients by \(n\): \(K'' = K^n\)</li>
+      <li>Summing two reactions: \(K_{\text{net}} = K_1 \times K_2\)</li>
+    </ul>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p>একটি উভমুখী বিক্রিয়ায় যখন সম্মুখ ও বিপরীতমুখী বিক্রিয়ার হার সমান হয় (\(r_f = r_b\)), তখন রাসায়নিক সাম্যাবস্থা অর্জিত হয়।</p>
+    <p><strong>গতিশীলতার আইসোটোপীয় প্রমাণ:</strong> হেবার পদ্ধতিতে সাম্যাবস্থায় থাকা \(\mathrm{N_2, H_2, NH_3}\) এবং \(\mathrm{N_2, D_2, ND_3}\) মিশ্রিত করলে ভর বর্ণালীবীক্ষণে \(\mathrm{NH_2D, NHD_2, HD}\) অণুসমূহ পাওয়া যায়, যা প্রমাণ করে সাম্যাবস্থায় বিক্রিয়া উভয় দিকেই সমান হারে চলতে থাকে।</p>
+    <p><strong>ভরক্রিয়া সূত্র (১৮৬৪):</strong> নির্দিষ্ট তাপমাত্রায় সাম্যধ্রুবক \(K_c = \frac{[\mathrm{C}]^c [\mathrm{D}]^d}{[\mathrm{A}]^a [\mathrm{B}]^b}\)।</p>
+    <p><strong>সাম্যধ্রুবকের গাণিতিক রূপান্তর:</strong> বিক্রিয়া বিপরীত করলে \(K' = 1/K\); সমীকরণকে \(n\) দ্বারা গুণ করলে \(K'' = K^n\); দুটি বিক্রিয়া যোগ করলে \(K_{\text{net}} = K_1 \times K_2\)।</p>
+  </div>
+
+  <!-- SVG DIAGRAM 2: Rates vs Time -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 720 170" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <!-- Rates plot -->
+      <g transform="translate(60, 15)">
+        <line x1="30" y1="130" x2="280" y2="130" stroke="#334155" stroke-width="1.8"/>
+        <line x1="30" y1="130" x2="30" y2="10" stroke="#334155" stroke-width="1.8"/>
+        <text x="160" y="148" font-size="11" fill="#334155" text-anchor="middle">Time (t) →</text>
+        <text x="10" y="70" font-size="11" fill="#334155" transform="rotate(-90 10,70)" text-anchor="middle">Rate →</text>
+        <path d="M 30 25 Q 120 85 180 85 L 270 85" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+        <text x="100" y="45" font-size="10.5" font-weight="bold" fill="#dc2626">Forward Rate</text>
+        <path d="M 30 130 Q 120 85 180 85 L 270 85" fill="none" stroke="#2563eb" stroke-width="2.2"/>
+        <text x="100" y="120" font-size="10.5" font-weight="bold" fill="#2563eb">Reverse Rate</text>
+        <line x1="180" y1="130" x2="180" y2="20" stroke="#64748b" stroke-dasharray="2,2"/>
+        <text x="180" y="142" font-size="9" fill="#64748b" text-anchor="middle">t(eq)</text>
+        <text x="225" y="78" font-size="10" font-weight="bold" fill="#059669">r(f) = r(b)</text>
+      </g>
+      <!-- Concentrations plot -->
+      <g transform="translate(410, 15)">
+        <line x1="30" y1="130" x2="280" y2="130" stroke="#334155" stroke-width="1.8"/>
+        <line x1="30" y1="130" x2="30" y2="10" stroke="#334155" stroke-width="1.8"/>
+        <text x="160" y="148" font-size="11" fill="#334155" text-anchor="middle">Time (t) →</text>
+        <text x="10" y="70" font-size="11" fill="#334155" transform="rotate(-90 10,70)" text-anchor="middle">Concentration →</text>
+        <path d="M 30 30 Q 120 95 170 95 L 270 95" fill="none" stroke="#9333ea" stroke-width="2.2"/>
+        <text x="95" y="65" font-size="10.5" font-weight="bold" fill="#9333ea">[Reactants]</text>
+        <path d="M 30 130 Q 120 60 170 60 L 270 60" fill="none" stroke="#059669" stroke-width="2.2"/>
+        <text x="95" y="110" font-size="10.5" font-weight="bold" fill="#059669">[Products]</text>
+        <line x1="170" y1="130" x2="170" y2="20" stroke="#64748b" stroke-dasharray="2,2"/>
+        <text x="220" y="52" font-size="9.5" fill="#475569">Concentrations become constant</text>
+      </g>
+    </svg>
+    <div class="caption">Tutorial Diagram 2: Attainment of dynamic equilibrium: equality of rates and constancy of concentrations. (টিউটোরিয়াল চিত্র ২: সাম্যাবস্থায় বিক্রিয়ার হারের সমতা এবং গাঢ়ত্ব স্থির হওয়া।)</div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2 class="sec-en">3. Homogeneous & Heterogeneous Equilibria: \(K_p\) and \(K_c\)</h2>
+  <h2 class="sec-bn">৩. সমসত্ত্ব ও অসমসত্ত্ব সাম্যাবস্থা: \(K_p\) এবং \(K_c\)</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p>For gaseous systems, partial pressure \(p_i = c_i RT = [\mathrm{i}]RT\). For \(a\mathrm{A\,(g)} + b\mathrm{B\,(g)} \rightleftharpoons c\mathrm{C\,(g)} + d\mathrm{D\,(g)}\):</p>
+    <div class="formula">
+      \[K_p = \frac{(p_{\mathrm{C}})^c (p_{\mathrm{D}})^d}{(p_{\mathrm{A}})^a (p_{\mathrm{B}})^b} \implies \mathbf{K_p = K_c(RT)^{\Delta n_g}}\]
+    </div>
+    <p>where \(\Delta n_g = (c+d) - (a+b)\) (gaseous moles only). \(R = 0.0831\,\mathrm{bar\,L\,mol^{-1}\,K^{-1}}\).</p>
+    <ul>
+      <li>\(\Delta n_g = 0 \implies K_p = K_c\) (e.g., \(\mathrm{H_2 + I_2 \rightleftharpoons 2HI}\))</li>
+      <li>\(\Delta n_g > 0 \implies K_p > K_c\) (\(RT > 1\)) (e.g., \(\mathrm{PCl_5 \rightleftharpoons PCl_3 + Cl_2}\))</li>
+      <li>\(\Delta n_g < 0 \implies K_p < K_c\) (\(RT > 1\)) (e.g., \(\mathrm{N_2 + 3H_2 \rightleftharpoons 2NH_3}\))</li>
+    </ul>
+    <p><strong>Heterogeneous Systems (Pure Solids & Pure Liquids):</strong> Pure solids and liquids have constant density and molar concentration. Their terms are incorporated into the constant and omitted from \(K_c\) and \(K_p\):</p>
+    <div class="formula">
+      \[\mathrm{CaCO_3\,(s)} \rightleftharpoons \mathrm{CaO\,(s)} + \mathrm{CO_2\,(g)} \implies K_p = p_{\mathrm{CO_2}}, \quad K_c = [\mathrm{CO_2}]\]
+    </div>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p>আদর্শ গ্যাস সমীকরণ \(p = cRT\) প্রয়োগ করে \(K_p\) ও \(K_c\)-এর মধ্যকার সম্পর্কটি পাওয়া যায়:</p>
+    <div class="formula">
+      \[\mathbf{K_p = K_c(RT)^{\Delta n_g}}\]
+    </div>
+    <p>যেখানে \(\Delta n_g = \text{গ্যাসীয় উৎপাদ মোল} - \text{গ্যাসীয় বিক্রিয়ক মোল}\)।</p>
+    <p><strong>অসমসত্ত্ব সাম্যাবস্থা (বিশুদ্ধ কঠিন ও তরল):</strong> নির্দিষ্ট তাপমাত্রায় বিশুদ্ধ কঠিন ও তরলের ঘনত্ব ও মোলার গাঢ়ত্ব ধ্রুবক থাকে, তাই সাম্যধ্রুবকের রাশিমালয় তাদের পদ লেখা হয় না (যেমন \(\mathrm{CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)}\) বিক্রিয়ায় \(K_p = p_{\mathrm{CO_2}}\))।</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2 class="sec-en">4. Applications of Equilibrium Constant & Thermodynamics</h2>
+  <h2 class="sec-bn">৪. সাম্যধ্রুবকের প্রয়োগ এবং তাপগতিবিদ্যা</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p><strong>1. Extent of Reaction:</strong></p>
+    <ul>
+      <li>\(K_c > 10^3\): Products predominate; reaction goes virtually to completion (e.g., \(\mathrm{H_2 + Cl_2 \rightleftharpoons 2HCl}, K_c = 4.0 \times 10^{31}\)).</li>
+      <li>\(K_c < 10^{-3}\): Reactants predominate; reaction hardly proceeds (e.g., \(\mathrm{N_2 + O_2 \rightleftharpoons 2NO}, K_c = 4.8 \times 10^{-31}\)).</li>
+      <li>\(10^{-3} \le K_c \le 10^3\): Appreciable amounts of both reactants and products present (e.g., \(\mathrm{H_2 + I_2 \rightleftharpoons 2HI}, K_c = 57.0\) at \(700\,\mathrm{K}\)).</li>
+    </ul>
+    <p><strong>2. Reaction Quotient (\(Q_c\)) & Spontaneous Direction:</strong></p>
+    <div class="formula">
+      \[Q_c = \frac{[\mathrm{C}]_t^c [\mathrm{D}]_t^d}{[\mathrm{A}]_t^a [\mathrm{B}]_t^b}\]
+      \[Q_c < K_c \implies \text{Forward (}\rightarrow\text{)}; \quad Q_c = K_c \implies \text{Equilibrium}; \quad Q_c > K_c \implies \text{Reverse (}\leftarrow\text{)}\]
+    </div>
+    <p><strong>3. Thermodynamic Connection:</strong></p>
+    <div class="formula">
+      \[\Delta G = \Delta G^\circ + RT \ln Q \implies \mathbf{\Delta G^\circ = -RT \ln K = -2.303\,RT \log_{10} K}\]
+    </div>
+    <p>If \(\Delta G^\circ < 0 \implies K > 1\) (spontaneous toward products); if \(\Delta G^\circ > 0 \implies K < 1\).</p>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p><strong>১. বিক্রিয়ার বিস্তার:</strong> \(K_c > 10^3\) হলে বিক্রিয়া প্রায় সম্পূর্ণ হয়; \(K_c < 10^{-3}\) হলে বিক্রিয়া প্রায় ঘটে না; \(10^{-3} \le K_c \le 10^3\) হলে উভয়েই উল্লেখযোগ্য পরিমাণে থাকে।</p>
+    <p><strong>২. বিক্রিয়া কোশেন্ট (\(Q\)) ও গতির দিক:</strong> \(Q < K\) হলে বিক্রিয়া <strong>সম্মুখমুখী</strong>; \(Q = K\) হলে <strong>সাম্যাবস্থা</strong>; \(Q > K\) হলে বিক্রিয়া <strong>বিপরীতমুখী</strong> হয়।</p>
+    <p><strong>৩. তাপগতীয় সম্পর্ক:</strong> \(\mathbf{\Delta G^\circ = -2.303\,RT \log_{10} K}\)। \(\Delta G^\circ\) ঋণাত্মক হলে \(K > 1\) হয়।</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <h2 class="sec-en">5. Le Chatelier's Principle & Control of Equilibria</h2>
+  <h2 class="sec-bn">৫. লা শাতেলীয়ের নীতি ও সাম্যাবস্থা নিয়ন্ত্রণ</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p><strong>Le Chatelier's Principle:</strong> When a constraint (change in concentration, pressure, volume, or temperature) is imposed on a system at equilibrium, the system shifts to oppose and minimize the constraint.</p>
+    <ul>
+      <li><strong>Concentration:</strong> Adding reactant or removing product shifts <strong>forward</strong>. Adding product or removing reactant shifts <strong>reverse</strong>.</li>
+      <li><strong>Pressure / Volume:</strong> Increasing pressure (decreasing volume) shifts toward <strong>fewer gaseous moles</strong>. If \(\Delta n_g = 0\), pressure has no effect.</li>
+      <li><strong>Inert Gas Addition:</strong>
+        <br/>• <em>At constant volume:</em> No change in partial pressures \(\implies\) <strong>No shift</strong>.
+        <br/>• <em>At constant pressure:</em> Volume expands \(\implies\) partial pressures drop \(\implies\) shifts toward <strong>more gaseous moles</strong>.
+      </li>
+      <li><strong>Temperature:</strong>
+        <br/>• <em>Exothermic (\(\Delta H < 0\)):</em> Increasing \(T\) lowers \(K\) (shifts reverse). Low \(T\) favors yield (e.g., Haber process: \(N_2 + 3H_2 \rightleftharpoons 2NH_3, \Delta H = -92.4\,\mathrm{kJ}\)).
+        <br/>• <em>Endothermic (\(\Delta H > 0\)):</em> Increasing \(T\) increases \(K\) (shifts forward).
+      </li>
+      <li><strong>Catalyst:</strong> Lowers activation energy equally for both forward and reverse reactions. Reaches equilibrium faster, but does <strong>not alter</strong> equilibrium composition or \(K\).</li>
+    </ul>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p><strong>লা শাতেলীয়ের নীতি:</strong> সাম্যাবস্থায় থাকা সিস্টেমের কোনো শর্ত পরিবর্তিত হলে সাম্যাবস্থা এমন দিকে স্থানান্তরিত হয় যাতে পরিবর্তনের প্রভাব প্রশমিত হয়।</p>
+    <ul>
+      <li><strong>গাঢ়ত্ব:</strong> বিক্রিয়ক যোগ বা উৎপাদ অপসারণ \(\implies\) <strong>সম্মুখ সরণ</strong>।</li>
+      <li><strong>চাপ:</strong> চাপ বৃদ্ধি \(\implies\) <strong>কম গ্যাসীয় মোলের দিকে সরণ</strong>।</li>
+      <li><strong>নিষ্ক্রিয় গ্যাস:</strong> স্থির আয়তনে \(\implies\) <strong>কোনো প্রভাব নেই</strong>; স্থির চাপে \(\implies\) <strong>অধিক গ্যাসীয় মোলের দিকে সরণ</strong>।</li>
+      <li><strong>তাপমাত্রা:</strong> তাপমোচী বিক্রিয়ায় তাপমাত্রা বাড়ালে \(K\) কমে; তাপগ্রাহী বিক্রিয়ায় তাপমাত্রা বাড়ালে \(K\) বাড়ে।</li>
+      <li><strong>অনুঘটক:</strong> সাম্যাবস্থা দ্রুত আনতে সাহায্য করে, কিন্তু \(K\) বা সাম্য মিশ্রণের সংযুতি পরিবর্তন করে না।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <h2 class="sec-en">6. Ionic Equilibrium: Acids, Bases & Their Strengths</h2>
+  <h2 class="sec-bn">৬. আয়নিক সাম্যাবস্থা: অ্যাসিড, ক্ষারক ও তীব্রতা</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p>Water has a high dielectric constant (\(\varepsilon = 80\)), reducing electrostatic lattice attraction 80-fold and facilitating ion hydration.</p>
+    <p><strong>Acid-Base Concepts:</strong></p>
+    <ul>
+      <li><strong>Arrhenius:</strong> Acid yields \(\mathrm{H^+\,(aq)}\) (hydrated as \(\mathrm{H_3O^+}\)); Base yields \(\mathrm{OH^-\,(aq)}\).</li>
+      <li><strong>Brønsted–Lowry:</strong> Acid is a proton (\(\mathrm{H^+}\)) donor; Base is a proton acceptor.
+        <br/>A <em>conjugate pair</em> differs by exactly one \(\mathrm{H^+}\). Strong acids have weak conjugate bases; weak acids have strong conjugate bases.
+        <br/><em>Amphiprotic species</em> (can donate or accept \(\mathrm{H^+}\)): \(\mathrm{H_2O, HCO_3^-, HSO_4^-}\).
+      </li>
+      <li><strong>Lewis:</strong> Acid is an electron-pair acceptor (e.g., \(\mathrm{BF_3, AlCl_3, H^+}\)); Base is an electron-pair donor (e.g., \(\mathrm{:NH_3, H_2O, OH^-}\)).</li>
+      <li><strong>Trends in Acid Strength:</strong>
+        <br/>• Down a group: H–A bond strength dominates \(\implies \mathrm{HF \ll HCl \ll HBr \ll HI}\) and \(\mathrm{H_2O < H_2S < H_2Se < H_2Te}\).
+        <br/>• Across a period: Bond polarity dominates \(\implies \mathrm{CH_4 < NH_3 < H_2O < HF}\).
+      </li>
+    </ul>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p>জলের উচ্চ পরাবৈদ্যুতিক ধ্রুবকের (\(\varepsilon = 80\)) কারণে আয়নিক লবণের ল্যাটিস ভেঙে আয়নগুলি হাইড্রেটেড হয়।</p>
+    <p><strong>অ্যাসিড ও ক্ষারক মতবাদ:</strong></p>
+    <ul>
+      <li><strong>আরহেনিয়াস:</strong> অ্যাসিড জলীয় দ্রবণে \(\mathrm{H^+}\) (\(\mathrm{H_3O^+}\)) দেয়; ক্ষারক \(\mathrm{OH^-}\) দেয়।</li>
+      <li><strong>ব্রনস্টেড–লাউরি:</strong> অ্যাসিড প্রোটন দাতা; ক্ষারক প্রোটন গ্রহীতা। অনুবন্ধী জোড়ে কেবল একটি \(\mathrm{H^+}\)-এর পার্থক্য থাকে। উভধর্মী: \(\mathrm{H_2O, HCO_3^-}\)।</li>
+      <li><strong>লুইস:</strong> অ্যাসিড ইলেকট্রন জোড় গ্রহীতা (\(\mathrm{BF_3}\)); ক্ষারক ইলেকট্রন জোড় দাতা (\(\mathrm{:NH_3}\))।</li>
+      <li><strong>তীব্রতার পর্যায়বৃত্ত প্রবণতা:</strong> শ্রেণি বরাবর বন্ধন শক্তি হ্রাস পাওয়ায় অ্যাসিড তীব্রতা বাড়ে (\(\mathrm{HF \ll HCl \ll HBr \ll HI}\)); পর্যায় বরাবর তড়িৎঋণাত্মকতা বাড়ায় অ্যাসিড তীব্রতা বাড়ে (\(\mathrm{CH_4 < NH_3 < H_2O < HF}\))।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 7 -->
+  <h2 class="sec-en">7. Ionization of Water, pH Scale & Weak Electrolytes</h2>
+  <h2 class="sec-bn">৭. জলের স্বতঃআয়নন, pH স্কেল ও মৃদু তড়িৎ-বিশ্লেষ্য</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p><strong>Ionic Product of Water:</strong> \(\mathrm{H_2O + H_2O \rightleftharpoons H_3O^+ + OH^-}\)</p>
+    <div class="formula">
+      \[K_w = [\mathrm{H^+}][\mathrm{OH^-}] = 1.0 \times 10^{-14}\,\mathrm{M^2} \quad (\text{at } 298\,\mathrm{K}, \quad pK_w = 14)\]
+      \[\mathrm{pH} + \mathrm{pOH} = pK_w = 14\]
+    </div>
+    <p>As autoionization is endothermic, \(K_w\) increases with \(T\). At \(310\,\mathrm{K}\) (\(37\,^\circ\mathrm{C}\)), \(K_w \approx 2.7 \times 10^{-14}\) and neutral \(\mathrm{pH} \approx 6.78\).</p>
+    <p><strong>Ostwald's Dilution Law (Weak Acid \(\mathrm{HA}\)):</strong></p>
+    <div class="formula">
+      \[K_a = \frac{c\alpha^2}{1-\alpha} \approx c\alpha^2 \implies \mathbf{\alpha = \sqrt{\frac{K_a}{c}}}, \quad [\mathrm{H^+}] = \sqrt{K_a c}, \quad \mathbf{\mathrm{pH} = \frac{1}{2}(pK_a - \log_{10} c)}\]
+    </div>
+    <p>For conjugate pairs: \(\mathbf{K_a \times K_b = K_w} \implies pK_a + pK_b = 14\).</p>
+    <p>Polyprotic acids ionize stepwise with \(\mathbf{K_{a1} \gg K_{a2} \gg K_{a3}}\) due to electrostatic attraction against removing \(\mathrm{H^+}\) from negative anions.</p>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p><strong>জলের আয়নিক গুণফল:</strong> \(K_w = [\mathrm{H^+}][\mathrm{OH^-}] = 1.0 \times 10^{-14}\) (\(298\,\mathrm{K}\)-এ)। তাপমাত্রা বৃদ্ধিতে \(K_w\) বাড়ে।</p>
+    <p><strong>অসওয়াল্ডের লঘুকরণ সূত্র:</strong> \(\alpha = \sqrt{K_a / c}\), \([\mathrm{H^+}] = \sqrt{K_a c}\), এবং \(\mathrm{pH} = \frac{1}{2}(pK_a - \log_{10} c)\)।</p>
+    <p>অনুবন্ধী জোড়ের জন্য: \(K_a \times K_b = K_w \implies pK_a + pK_b = 14\)। বহুপ্রোটিক অ্যাসিডে স্থির-তড়িৎ বাধার কারণে \(K_{a1} \gg K_{a2} \gg K_{a3}\) হয়।</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <h2 class="sec-en">8. Common Ion Effect, Salt Hydrolysis & Buffer Solutions</h2>
+  <h2 class="sec-bn">৮. সম-আয়ন প্রভাব, লবণের আর্দ্রবিশ্লেষণ ও বাফার দ্রবণ</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p><strong>Common Ion Effect:</strong> Suppression of weak electrolyte dissociation by adding a strong electrolyte providing a common ion (e.g., adding \(\mathrm{CH_3COONa}\) lowers \([\mathrm{H^+}]\) in \(\mathrm{CH_3COOH}\)). Applied in Group II qualitative precipitation (\(\mathrm{HCl + H_2S}\)) and Group III (\(\mathrm{NH_4Cl + NH_4OH}\)).</p>
+    <p><strong>Salt Hydrolysis Equations:</strong></p>
+    <ul>
+      <li>Strong Acid + Strong Base (\(\mathrm{NaCl}\)): No hydrolysis \(\implies \mathbf{\mathrm{pH} = 7.0}\).</li>
+      <li>Weak Acid + Strong Base (\(\mathrm{CH_3COONa}\)): Anion hydrolyzes \(\implies \mathbf{\mathrm{pH} = 7 + \frac{1}{2}pK_a + \frac{1}{2}\log_{10} c}\).</li>
+      <li>Strong Acid + Weak Base (\(\mathrm{NH_4Cl}\)): Cation hydrolyzes \(\implies \mathbf{\mathrm{pH} = 7 - \frac{1}{2}pK_b - \frac{1}{2}\log_{10} c}\).</li>
+      <li>Weak Acid + Weak Base (\(\mathrm{CH_3COONH_4}\)): Concentration-independent \(\implies \mathbf{\mathrm{pH} = 7 + \frac{1}{2}(pK_a - pK_b)}\).</li>
+    </ul>
+    <p><strong>Buffer Solutions (Henderson–Hasselbalch Equation):</strong></p>
+    <div class="formula">
+      \[\text{Acidic Buffer: } \mathbf{\mathrm{pH} = pK_a + \log_{10}\left(\frac{[\mathrm{Salt}]}{[\mathrm{Acid}]}\right)}; \quad \text{Basic Buffer: } \mathbf{\mathrm{pOH} = pK_b + \log_{10}\left(\frac{[\mathrm{Salt}]}{[\mathrm{Base}]}\right)}\]
+    </div>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p><strong>সম-আয়ন প্রভাব:</strong> সাধারণ আয়নের উপস্থিতিতে মৃদু তড়িৎ-বিশ্লেষ্যের বিয়োজন হ্রাস পাওয়া (গ্রুপ II ও গ্রুপ III ক্যাটায়ন অধঃক্ষেপণে ব্যবহৃত)।</p>
+    <p><strong>লবণের আর্দ্রবিশ্লেষণ:</strong></p>
+    <ul>
+      <li>তীব্র অ্যাসিড + তীব্র ক্ষারক (\(\mathrm{NaCl}\)): নিরপেক্ষ, \(\mathrm{pH} = 7\)।</li>
+      <li>মৃদু অ্যাসিড + তীব্র ক্ষারক (\(\mathrm{CH_3COONa}\)): ক্ষারীয়, \(\mathrm{pH} = 7 + \frac{1}{2}pK_a + \frac{1}{2}\log_{10} c\)।</li>
+      <li>তীব্র অ্যাসিড + মৃদু ক্ষারক (\(\mathrm{NH_4Cl}\)): অম্লীয়, \(\mathrm{pH} = 7 - \frac{1}{2}pK_b - \frac{1}{2}\log_{10} c\)।</li>
+      <li>মৃদু অ্যাসিড + মৃদু ক্ষারক (\(\mathrm{CH_3COONH_4}\)): গাঢ়ত্ব নিরপেক্ষ, \(\mathrm{pH} = 7 + \frac{1}{2}(pK_a - pK_b)\)।</li>
+    </ul>
+    <p><strong>বাফার দ্রবণ:</strong> অম্লীয় বাফারে \(\mathrm{pH} = pK_a + \log_{10}([\mathrm{লবণ}]/[\mathrm{অ্যাসিড}])\); ক্ষারীয় বাফারে \(\mathrm{pOH} = pK_b + \log_{10}([\mathrm{লবণ}]/[\mathrm{ক্ষারক}])\)।</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <h2 class="sec-en">9. Solubility Equilibria of Sparingly Soluble Salts</h2>
+  <h2 class="sec-bn">৯. স্বল্পদ্রাব্য লবণের দ্রাব্যতা সাম্যাবস্থা</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <p>For salt \(\mathrm{M}_x\mathrm{X}_y\,(\mathrm{s}) \rightleftharpoons x\,\mathrm{M}^{p+} + y\,\mathrm{X}^{q-}\), with molar solubility \(S\):</p>
+    <div class="formula">
+      \[K_{sp} = [\mathrm{M}^{p+}]^x [\mathrm{X}^{q-}]^y = (xS)^x (yS)^y = \mathbf{x^x y^y S^{x+y}}\]
+    </div>
+    <ul>
+      <li>\(\mathrm{AB}\) salt (\(\mathrm{AgCl, BaSO_4}\)): \(K_{sp} = S^2 \implies \mathbf{S = \sqrt{K_{sp}}}\)</li>
+      <li>\(\mathrm{AB_2}\) salt (\(\mathrm{CaF_2, Ni(OH)_2}\)): \(K_{sp} = 4S^3 \implies \mathbf{S = (K_{sp}/4)^{1/3}}\)</li>
+      <li>\(\mathrm{AB_3}\) salt (\(\mathrm{Al(OH)_3}\)): \(K_{sp} = 27S^4 \implies \mathbf{S = (K_{sp}/27)^{1/4}}\)</li>
+      <li>\(\mathrm{A_2B_3}\) salt (\(\mathrm{As_2S_3}\)): \(K_{sp} = 108S^5 \implies \mathbf{S = (K_{sp}/108)^{1/5}}\)</li>
+    </ul>
+    <p><strong>Precipitation Criteria:</strong> \(Q_{sp} < K_{sp} \implies\) unsaturated; \(Q_{sp} = K_{sp} \implies\) saturated; \(Q_{sp} > K_{sp} \implies\) <strong>precipitation occurs</strong>.</p>
+    <p><strong>pH Effect:</strong> Basic salts (e.g., phosphates, fluorides) dissolve more readily in acidic media (\(S\) increases as pH decreases) because \(\mathrm{H^+}\) protonates the anion.</p>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <p>স্বল্পদ্রাব্য লবণ \(\mathrm{M}_x\mathrm{X}_y\)-এর জন্য দ্রাব্যতা গুণফল: \(\mathbf{K_{sp} = x^x y^y S^{x+y}}\)।</p>
+    <p>\(\mathrm{AB}\) লবণে \(S = \sqrt{K_{sp}}\); \(\mathrm{AB_2}\) লবণে \(S = (K_{sp}/4)^{1/3}\); \(\mathrm{AB_3}\) লবণে \(S = (K_{sp}/27)^{1/4}\)।</p>
+    <p><strong>অধঃক্ষেপণের শর্ত:</strong> \(Q_{sp} > K_{sp}\) হলে অধঃক্ষেপণ ঘটে। অম্লীয় মাধ্যমে (কম pH-এ) ক্ষারকীয় লবণের দ্রাব্যতা বৃদ্ধি পায়।</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <h2 class="sec-en">10. Comprehensive Worked Examples</h2>
+  <h2 class="sec-bn">১০. বিশদ সমাধানসহ উদাহরণ</h2>
+
+  <!-- Example 1 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Worked Example 1: \(K_p - K_c\) Relation</span><span class="q-tag">NEET Numerical</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Problem:</strong> For \(2\mathrm{NOCl\,(g)} \rightleftharpoons 2\mathrm{NO\,(g)} + \mathrm{Cl_2\,(g)}\), \(K_c = 3.75 \times 10^{-6}\) at \(1069\,\mathrm{K}\). Calculate \(K_p\) (\(R = 0.0831\,\mathrm{bar\,L\,mol^{-1}\,K^{-1}}\)).</p>
+      <div class="sol">
+        <strong>Solution:</strong> \(\Delta n_g = (2+1) - 2 = +1\).<br/>
+        \(K_p = K_c(RT)^{\Delta n_g} = (3.75 \times 10^{-6}) \times (0.0831 \times 1069)^1 = 3.75 \times 10^{-6} \times 88.834 = \mathbf{3.33 \times 10^{-4}}\).
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>সমস্যা:</strong> \(1069\,\mathrm{K}\)-এ \(2\mathrm{NOCl\,(g)} \rightleftharpoons 2\mathrm{NO\,(g)} + \mathrm{Cl_2\,(g)}\) বিক্রিয়ায় \(K_c = 3.75 \times 10^{-6}\) হলে \(K_p\) গণনা করো।</p>
+      <div class="sol">
+        <strong>সমাধান:</strong> \(\Delta n_g = ৩ - ২ = +১\)।<br/>
+        \(K_p = K_c(RT)^1 = 3.75 \times 10^{-6} \times (0.0831 \times 1069) = \mathbf{3.33 \times 10^{-4}}\)।
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 2 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Worked Example 2: Common Ion & Buffer pH</span><span class="q-tag">NEET Core</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Problem:</strong> Calculate the pH of a solution containing \(0.10\,\mathrm{M}\) \(\mathrm{NH_3}\) and \(0.20\,\mathrm{M}\) \(\mathrm{NH_4Cl}\) (\(pK_b\) of \(\mathrm{NH_3} = 4.75\)).</p>
+      <div class="sol">
+        <strong>Solution:</strong> Basic buffer: \(\mathrm{pOH} = pK_b + \log_{10}\frac{[\mathrm{NH_4^+}]}{[\mathrm{NH_3}]} = 4.75 + \log_{10}\left(\frac{0.20}{0.10}\right) = 4.75 + 0.301 = 5.05\).<br/>
+        \(\mathrm{pH} = 14 - \mathrm{pOH} = 14 - 5.05 = \mathbf{8.95}\).
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>সমস্যা:</strong> \(0.10\,\mathrm{M}\) \(\mathrm{NH_3}\) এবং \(0.20\,\mathrm{M}\) \(\mathrm{NH_4Cl}\) মিশ্রিত দ্রবণের pH কত? (\(pK_b = 4.75\))</p>
+      <div class="sol">
+        <strong>সমাধান:</strong> ক্ষারীয় বাফার: \(\mathrm{pOH} = 4.75 + \log_{10}(0.20/0.10) = 4.75 + 0.301 = 5.05\)।<br/>
+        \(\mathrm{pH} = 14 - 5.05 = \mathbf{8.95}\)।
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11: PRACTICE QUESTIONS -->
+  <h2 class="sec-en">11. NEET UG Exam-Style Practice Questions</h2>
+  <h2 class="sec-bn">১১. NEET UG পরীক্ষার আদলে অনুশীলন প্রশ্নপত্র</h2>
+
+  <!-- Question 1 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Practice Question 1</span><span class="q-tag">Chemical Equilibrium • Single Choice</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Question:</strong> For the synthesis of ammonia \(\mathrm{N_2\,(g)} + 3\mathrm{H_2\,(g)} \rightleftharpoons 2\mathrm{NH_3\,(g)}\), the ratio \(\frac{K_p}{K_c}\) is equal to:</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> \((RT)^2\)</div>
+        <div class="opt"><strong>(B)</strong> \((RT)^{-2}\)</div>
+        <div class="opt"><strong>(C)</strong> \((RT)^{-1}\)</div>
+        <div class="opt"><strong>(D)</strong> \(1\)</div>
+      </div>
+      <div class="sol">
+        <strong>Correct Answer: (B)</strong><br/>
+        <strong>Reasoning:</strong> \(\Delta n_g = 2 - (1 + 3) = -2\). Since \(K_p = K_c(RT)^{\Delta n_g}\), \(\frac{K_p}{K_c} = (RT)^{-2}\).
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>প্রশ্ন:</strong> \(\mathrm{N_2\,(g)} + 3\mathrm{H_2\,(g)} \rightleftharpoons 2\mathrm{NH_3\,(g)}\) বিক্রিয়ায় \(\frac{K_p}{K_c}\)-এর মান কত?</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> \((RT)^2\)</div>
+        <div class="opt"><strong>(B)</strong> \((RT)^{-2}\)</div>
+        <div class="opt"><strong>(C)</strong> \((RT)^{-1}\)</div>
+        <div class="opt"><strong>(D)</strong> \(1\)</div>
+      </div>
+      <div class="sol">
+        <strong>সঠিক উত্তর: (B)</strong><br/>
+        <strong>ব্যাখ্যা:</strong> \(\Delta n_g = ২ - ৪ = -২\)। সুতরাং \(\frac{K_p}{K_c} = (RT)^{-2}\)।
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Practice Question 2</span><span class="q-tag">Le Chatelier's Principle • Concept MCQ</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Question:</strong> For the reaction \(\mathrm{CO\,(g)} + 3\mathrm{H_2\,(g)} \rightleftharpoons \mathrm{CH_4\,(g)} + \mathrm{H_2O\,(g)}\) at equilibrium, if the volume of the container is suddenly halved at constant temperature, the system will:</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> Shift in reverse direction because pressure increases</div>
+        <div class="opt"><strong>(B)</strong> Shift in forward direction because \(Q_c < K_c\)</div>
+        <div class="opt"><strong>(C)</strong> Remain unchanged because temperature is constant</div>
+        <div class="opt"><strong>(D)</strong> Increase the numerical value of \(K_c\)</div>
+      </div>
+      <div class="sol">
+        <strong>Correct Answer: (B)</strong><br/>
+        <strong>Reasoning:</strong> Halving volume doubles all concentrations. \(Q_c = \frac{(2)(2)}{(2)(2)^3} K_c = \frac{4}{16}K_c = \frac{1}{4}K_c\). Since \(Q_c < K_c\), the reaction shifts <strong>forward</strong> (toward fewer gas moles).
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>প্রশ্ন:</strong> \(\mathrm{CO\,(g)} + 3\mathrm{H_2\,(g)} \rightleftharpoons \mathrm{CH_4\,(g)} + \mathrm{H_2O\,(g)}\) সাম্যাবস্থায় স্থির তাপমাত্রায় পাত্রের আয়তন অর্ধেক করলে কী ঘটবে?</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> চাপ বৃদ্ধির দরুন বিপরীত দিকে যাবে</div>
+        <div class="opt"><strong>(B)</strong> \(Q_c < K_c\) হওয়ায় সম্মুখের দিকে যাবে</div>
+        <div class="opt"><strong>(C)</strong> কোনো পরিবর্তন হবে না</div>
+        <div class="opt"><strong>(D)</strong> \(K_c\)-এর মান বৃদ্ধি পাবে</div>
+      </div>
+      <div class="sol">
+        <strong>সঠিক উত্তর: (B)</strong><br/>
+        <strong>ব্যাখ্যা:</strong> আয়তন অর্ধেক করলে গাঢ়ত্ব দ্বিগুণ হয় এবং \(Q_c = \frac{1}{4}K_c\) হয়। \(Q_c < K_c\) হওয়ায় বিক্রিয়াটি <strong>সম্মুখের দিকে</strong> স্থানান্তরিত হবে।
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Practice Question 3</span><span class="q-tag">pH Calculation • Extreme Dilution</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Question:</strong> The pH of a \(1.0 \times 10^{-8}\,\mathrm{M}\) aqueous solution of \(\mathrm{HCl}\) at \(298\,\mathrm{K}\) is:</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> Exactly 8.00</div>
+        <div class="opt"><strong>(B)</strong> Exactly 7.00</div>
+        <div class="opt"><strong>(C)</strong> Approximately 6.98</div>
+        <div class="opt"><strong>(D)</strong> Approximately 7.02</div>
+      </div>
+      <div class="sol">
+        <strong>Correct Answer: (C)</strong><br/>
+        <strong>Reasoning:</strong> Considering water autoionization: \([\mathrm{H^+}] = 10^{-8} + x\), where \((10^{-8} + x)(x) = 10^{-14} \implies x = 9.5 \times 10^{-8}\,\mathrm{M}\). Total \([\mathrm{H^+}] = 1.05 \times 10^{-7}\,\mathrm{M} \implies \mathrm{pH} = \mathbf{6.98}\).
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>প্রশ্ন:</strong> \(298\,\mathrm{K}\)-এ \(1.0 \times 10^{-8}\,\mathrm{M}\) \(\mathrm{HCl}\) দ্রবণের pH কত?</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> 8.00</div>
+        <div class="opt"><strong>(B)</strong> 7.00</div>
+        <div class="opt"><strong>(C)</strong> প্রায় 6.98</div>
+        <div class="opt"><strong>(D)</strong> প্রায় 7.02</div>
+      </div>
+      <div class="sol">
+        <strong>সঠিক উত্তর: (C)</strong><br/>
+        <strong>ব্যাখ্যা:</strong> জলের স্বতঃআয়নন যোগ করলে \([\mathrm{H^+}]_{\text{total}} = 1.05 \times 10^{-7}\,\mathrm{M} \implies \mathrm{pH} = \mathbf{6.98}\)।
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Practice Question 4</span><span class="q-tag">Buffer Solutions • Calculation</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Question:</strong> When \(50\,\mathrm{mL}\) of \(0.10\,\mathrm{M}\) \(\mathrm{NH_3}\) is mixed with \(25\,\mathrm{mL}\) of \(0.10\,\mathrm{M}\) \(\mathrm{HCl}\) (\(pK_b = 4.75\)), the pH of the resulting solution is:</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> 4.75</div>
+        <div class="opt"><strong>(B)</strong> 9.25</div>
+        <div class="opt"><strong>(C)</strong> 8.95</div>
+        <div class="opt"><strong>(D)</strong> 5.25</div>
+      </div>
+      <div class="sol">
+        <strong>Correct Answer: (B)</strong><br/>
+        <strong>Reasoning:</strong> \(5.0\,\mathrm{mmol}\) \(\mathrm{NH_3} + 2.5\,\mathrm{mmol}\) \(\mathrm{HCl} \rightarrow 2.5\,\mathrm{mmol}\) \(\mathrm{NH_4^+} + 2.5\,\mathrm{mmol}\) unreacted \(\mathrm{NH_3}\). \([\mathrm{Salt}] = [\mathrm{Base}]\). \(\mathrm{pOH} = pK_b + \log(1) = 4.75 \implies \mathrm{pH} = 14 - 4.75 = \mathbf{9.25}\).
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>প্রশ্ন:</strong> \(50\,\mathrm{mL}\) \(0.10\,\mathrm{M}\) \(\mathrm{NH_3}\)-এর সাথে \(25\,\mathrm{mL}\) \(0.10\,\mathrm{M}\) \(\mathrm{HCl}\) মেশালে উৎপন্ন বাফারের pH কত? (\(pK_b = 4.75\))</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> 4.75</div>
+        <div class="opt"><strong>(B)</strong> 9.25</div>
+        <div class="opt"><strong>(C)</strong> 8.95</div>
+        <div class="opt"><strong>(D)</strong> 5.25</div>
+      </div>
+      <div class="sol">
+        <strong>সঠিক উত্তর: (B)</strong><br/>
+        <strong>ব্যাখ্যা:</strong> প্রশমনের পর দ্রবণে সমপরিমাণ \(\mathrm{NH_3}\) ও \(\mathrm{NH_4^+}\) থাকে। \(\mathrm{pOH} = 4.75 \implies \mathrm{pH} = 14 - 4.75 = \mathbf{9.25}\)।
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="q-card">
+    <div class="q-header"><span class="q-num">Practice Question 5</span><span class="q-tag">Solubility & Precipitation • Assertion-Reason</span></div>
+    <div class="en-box">
+      <span class="tag tag-en">English</span>
+      <p><strong>Question:</strong> Given:
+      <br/><strong>Assertion (A):</strong> Equal volumes of \(0.002\,\mathrm{M}\) \(\mathrm{CaCl_2}\) and \(0.002\,\mathrm{M}\) \(\mathrm{Na_2SO_4}\) do not form a precipitate of \(\mathrm{CaSO_4}\) (\(K_{sp} = 9.1 \times 10^{-6}\)).
+      <br/><strong>Reason (R):</strong> Precipitation occurs only when the ionic product \(Q_{sp}\) exceeds \(K_{sp}\), and here \(Q_{sp} = 1.0 \times 10^{-6}\).</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> Both (A) and (R) are true and (R) is the correct explanation of (A).</div>
+        <div class="opt"><strong>(B)</strong> Both (A) and (R) are true but (R) is NOT the correct explanation.</div>
+        <div class="opt"><strong>(C)</strong> (A) is true, (R) is false.</div>
+        <div class="opt"><strong>(D)</strong> (A) is false, (R) is true.</div>
+      </div>
+      <div class="sol">
+        <strong>Correct Answer: (A)</strong><br/>
+        <strong>Reasoning:</strong> Mixing equal volumes halves concentrations to \(1.0 \times 10^{-3}\,\mathrm{M}\). \(Q_{sp} = (10^{-3})^2 = 1.0 \times 10^{-6} < K_{sp} = 9.1 \times 10^{-6}\). The solution is unsaturated; no precipitation occurs.
+      </div>
+    </div>
+    <hr class="div"/>
+    <div class="bn-box">
+      <span class="tag tag-bn">বাংলা</span>
+      <p><strong>প্রশ্ন:</strong> 
+      <br/><strong>বিবৃতি (A):</strong> সম-আয়তনের \(0.002\,\mathrm{M}\) \(\mathrm{CaCl_2}\) ও \(0.002\,\mathrm{M}\) \(\mathrm{Na_2SO_4}\) মেশালে \(\mathrm{CaSO_4}\)-এর অধঃক্ষেপ পড়ে না (\(K_{sp} = 9.1 \times 10^{-6}\))।
+      <br/><strong>কারণ (R):</strong> অধঃক্ষেপণের জন্য \(Q_{sp} > K_{sp}\) হওয়া আবশ্যক, কিন্তু এখানে \(Q_{sp} = 1.0 \times 10^{-6}\)।</p>
+      <div class="opts">
+        <div class="opt"><strong>(A)</strong> (A) ও (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা।</div>
+        <div class="opt"><strong>(B)</strong> উভয়ই সত্য কিন্তু (R) সঠিক ব্যাখ্যা নয়।</div>
+        <div class="opt"><strong>(C)</strong> (A) সত্য, (R) মিথ্যা।</div>
+        <div class="opt"><strong>(D)</strong> (A) মিথ্যা, (R) সত্য।</div>
+      </div>
+      <div class="sol">
+        <strong>সঠিক উত্তর: (A)</strong><br/>
+        <strong>ব্যাখ্যা:</strong> মেশানোর পর গাঢ়ত্ব অর্ধেক হয়ে \(10^{-3}\,\mathrm{M}\) হয়। \(Q_{sp} = 10^{-6} < K_{sp}\) হওয়ায় অধঃক্ষেপ পড়ে না।
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 12: PITFALLS -->
+  <h2 class="sec-en">12. Common Pitfalls & Revision Checklist</h2>
+  <h2 class="sec-bn">১২. সাধারণ ভুলের ফাঁদ ও রিভিশন চেকলিস্ট</h2>
+
+  <div class="en-box">
+    <span class="tag tag-en">English</span>
+    <ul>
+      <li><strong>Catalyst Trap:</strong> A catalyst lowers \(E_a\) for both directions equally; it accelerates reaching equilibrium but <strong>never</strong> shifts the position or alters \(K\).</li>
+      <li><strong>Inert Gas Trap:</strong> Adding inert gas at <strong>constant volume</strong> has <em>zero effect</em> on equilibrium. A shift occurs <em>only</em> at constant pressure.</li>
+      <li><strong>Ultra-Dilute pH:</strong> For \(10^{-8}\,\mathrm{M}\) \(\mathrm{HCl}\), \(\mathrm{pH} = 6.98\) (not 8). Never forget water autoionization in dilute solutions (\(\le 10^{-6}\,\mathrm{M}\)).</li>
+      <li><strong>Comparing \(K_{sp}\):</strong> Salts with different stoichiometries (e.g., \(\mathrm{AgCN}\) vs \(\mathrm{Ni(OH)_2}\)) cannot be compared by \(K_{sp}\) directly; molar solubility \(S\) must be computed!</li>
+    </ul>
+  </div>
+
+  <div class="bn-box">
+    <span class="tag tag-bn">বাংলা</span>
+    <ul>
+      <li><strong>অনুঘটকের ফাঁদ:</strong> অনুঘটক সাম্যধ্রুবক \(K\)-এর মান বা সাম্য মিশ্রণের সংযুতি পরিবর্তন করে না।</li>
+      <li><strong>নিষ্ক্রিয় গ্যাসের ফাঁদ:</strong> স্থির আয়তনে নিষ্ক্রিয় গ্যাস যোগ করলে সাম্যাবস্থার কোনো পরিবর্তন হয় না।</li>
+      <li><strong>অতি লঘু দ্রবণের pH:</strong> \(10^{-8}\,\mathrm{M}\) \(\mathrm{HCl}\)-এর pH কখনো 8 নয়, সঠিক মান 6.98।</li>
+      <li><strong>\(K_{sp}\) তুলনা:</strong> ভিন্ন সংকেতের লবণের ক্ষেত্রে কেবল \(K_{sp}\) দেখে দ্রাব্যতা তুলনা করা ভুল; \(S\) নির্ণয় করতে হবে।</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 13: SUMMARY TABLE -->
+  <h2 class="sec-en">13. Master Summary & Formula Sheet</h2>
+  <h2 class="sec-bn">১৩. চূড়ান্ত সারসংক্ষেপ ও সূত্রাবলি</h2>
+
+  <div class="table-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Topic (বিষয়)</th>
+          <th>Master Formula (মূল সূত্র)</th>
+          <th>Key NEET Condition (পরীক্ষার মূল শর্ত)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(K_p - K_c\) Relation</td>
+          <td>\(K_p = K_c(RT)^{\Delta n_g}\)</td>
+          <td>\(\Delta n_g\) counts gaseous species only; \(R = 0.0831\,\mathrm{bar\,L\,mol^{-1}\,K^{-1}}\).</td>
+        </tr>
+        <tr>
+          <td>Reaction Quotient</td>
+          <td>\(Q_c = \frac{[\mathrm{Products}]_t}{[\mathrm{Reactants}]_t}\)</td>
+          <td>\(Q < K \implies \rightarrow\); \(Q = K \implies \text{eq}\); \(Q > K \implies \leftarrow\).</td>
+        </tr>
+        <tr>
+          <td>Thermodynamics</td>
+          <td>\(\Delta G^\circ = -2.303\,RT \log_{10} K\)</td>
+          <td>\(\Delta G^\circ < 0 \iff K > 1\) (spontaneous in standard state).</td>
+        </tr>
+        <tr>
+          <td>Weak Acid Ionization</td>
+          <td>\(\alpha = \sqrt{K_a / c}, \quad [\mathrm{H^+}] = \sqrt{K_a c}\)</td>
+          <td>Valid for weak electrolytes when \(\alpha \le 0.05\).</td>
+        </tr>
+        <tr>
+          <td>Conjugate Pair</td>
+          <td>\(K_a \times K_b = K_w = 1.0 \times 10^{-14}\)</td>
+          <td>\(pK_a + pK_b = 14\) at \(298\,\mathrm{K}\).</td>
+        </tr>
+        <tr>
+          <td>Acidic Buffer</td>
+          <td>\(\mathrm{pH} = pK_a + \log_{10}\frac{[\mathrm{Salt}]}{[\mathrm{Acid}]}\)</td>
+          <td>Max buffer capacity when \([\mathrm{Salt}] = [\mathrm{Acid}] \implies \mathrm{pH} = pK_a\).</td>
+        </tr>
+        <tr>
+          <td>Salt Hydrolysis (WA-SB)</td>
+          <td>\(\mathrm{pH} = 7 + \frac{1}{2}pK_a + \frac{1}{2}\log_{10} c\)</td>
+          <td>Basic solution (\(\mathrm{pH} > 7\)); anion hydrolyzes.</td>
+        </tr>
+        <tr>
+          <td>Salt Hydrolysis (SA-WB)</td>
+          <td>\(\mathrm{pH} = 7 - \frac{1}{2}pK_b - \frac{1}{2}\log_{10} c\)</td>
+          <td>Acidic solution (\(\mathrm{pH} < 7\)); cation hydrolyzes.</td>
+        </tr>
+        <tr>
+          <td>Salt Hydrolysis (WA-WB)</td>
+          <td>\(\mathrm{pH} = 7 + \frac{1}{2}(pK_a - pK_b)\)</td>
+          <td>Independent of concentration \(c\).</td>
+        </tr>
+        <tr>
+          <td>Solubility Product</td>
+          <td>\(K_{sp} = x^x y^y S^{x+y}\)</td>
+          <td>Precipitation occurs only if \(Q_{sp} > K_{sp}\).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem;">
+    <p>NEET UG Comprehensive Academic Learning Module • Chapter: Equilibrium (সাম্যাবস্থা)</p>
+  </div>
+
+</div>
+</body>
+</html>
