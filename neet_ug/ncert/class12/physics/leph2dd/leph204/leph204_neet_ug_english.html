@@ -3,305 +3,310 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEET UG Physics Tutorial: Atomic Structure and Spectra</title>
+  <title>Atoms: Rutherford Scattering, Atomic Spectra &amp; Bohr's Model — NEET UG Physics Tutorial</title>
   <script>
     window.MathJax = {
       tex: {
         inlineMath: [['\\(', '\\)']],
         displayMath: [['\\[', '\\]']],
-        processEscapes: true
+        processEscapes: false
       },
       options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg']
       }
     };
   </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-    :root {
-      --primary-color: #1a365d;
-      --secondary-color: #2b6cb0;
-      --accent-color: #c53030;
-      --highlight-bg: #ebf8ff;
-      --card-bg: #ffffff;
-      --border-color: #cbd5e0;
-      --text-main: #2d3748;
-      --text-muted: #4a5568;
-      --success-color: #22543d;
-      --success-bg: #f0fff4;
-      --warning-bg: #fffaf0;
-      --warning-border: #dd6b20;
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --text-main: #1E293B;
+      --text-muted: #475569;
+      --bg-page: #FFFFFF;
+      --bg-surface: #F8FAFC;
+      --bg-accent: #EFF6FF;
+      --bg-teal: #F0FDFA;
+      --bg-warn: #FFFBEB;
+      --primary: #2563EB;
+      --teal: #0D9488;
+      --amber: #B45309;
+      --border: #CBD5E1;
+      --border-light: #E2E8F0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
+      margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.65;
       color: var(--text-main);
-      background-color: #f7fafc;
-      padding: 24px;
+      background-color: var(--bg-page);
     }
 
     .container {
-      max-width: 960px;
+      width: 100%;
+      max-width: 900px;
       margin: 0 auto;
-      background: var(--card-bg);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 24px 20px 48px 20px;
     }
 
-    header {
-      border-bottom: 3px solid var(--primary-color);
-      padding-bottom: 20px;
-      margin-bottom: 32px;
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
     }
 
-    .badge-neet {
+    .exam-badge {
       display: inline-block;
-      background-color: var(--primary-color);
-      color: #ffffff;
-      padding: 4px 12px;
-      font-size: 0.85rem;
+      background-color: var(--primary);
+      color: #FFFFFF;
+      font-size: 0.8rem;
       font-weight: 700;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 2.2rem;
-      color: var(--primary-color);
+      font-size: 1.85rem;
       line-height: 1.25;
-      margin-bottom: 12px;
+      margin: 0 0 8px 0;
+      color: var(--text-main);
     }
 
     .subtitle {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      font-weight: 500;
+      margin: 0;
     }
 
     h2 {
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      margin-top: 36px;
-      margin-bottom: 16px;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 8px;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin: 32px 0 14px 0;
     }
 
     h3 {
-      font-size: 1.25rem;
-      color: var(--secondary-color);
-      margin-top: 24px;
-      margin-bottom: 12px;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: var(--text-main);
+      margin: 22px 0 10px 0;
     }
 
     p {
-      margin-bottom: 14px;
-      text-align: justify;
+      margin: 0 0 12px 0;
+      overflow-wrap: break-word;
     }
 
     ul, ol {
-      margin-bottom: 16px;
-      padding-left: 24px;
+      margin: 0 0 14px 0;
+      padding-left: 22px;
     }
 
     li {
       margin-bottom: 6px;
     }
 
-    .callout {
-      background-color: var(--highlight-bg);
-      border-left: 4px solid var(--secondary-color);
-      padding: 16px;
-      border-radius: 0 6px 6px 0;
-      margin: 20px 0;
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      max-width: 100%;
     }
 
-    .callout.warning {
-      background-color: var(--warning-bg);
-      border-left-color: var(--warning-border);
+    .card.teal {
+      background-color: var(--bg-teal);
+      border-left-color: var(--teal);
     }
 
-    .callout.success {
-      background-color: var(--success-bg);
-      border-left-color: var(--success-color);
+    .card.warn {
+      background-color: var(--bg-warn);
+      border-left-color: var(--amber);
     }
 
-    .callout-title {
+    .card-title {
       font-weight: 700;
-      color: var(--primary-color);
+      font-size: 0.98rem;
+      color: var(--text-main);
       margin-bottom: 6px;
     }
 
-    .formula-card {
-      background: #edf2f7;
-      border: 1px solid var(--border-color);
+    .formula-box {
+      background-color: var(--bg-accent);
+      border: 1px solid #BFDBFE;
       border-radius: 6px;
-      padding: 16px;
-      margin: 20px 0;
+      padding: 12px 16px;
+      margin: 14px 0;
       text-align: center;
-      overflow-x: auto;
+      max-width: 100%;
+      overflow-wrap: break-word;
     }
 
-    .diagram-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 24px 0;
+    .diagram-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      margin: 18px 0;
       text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .diagram-box svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
     }
 
     .diagram-caption {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       margin-top: 10px;
-      font-weight: 600;
+      text-align: left;
     }
 
     table {
       width: 100%;
+      max-width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 0.95rem;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      table-layout: fixed;
     }
 
     th, td {
-      border: 1px solid var(--border-color);
-      padding: 10px 14px;
+      border: 1px solid var(--border);
+      padding: 9px 11px;
       text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     th {
-      background-color: #edf2f7;
-      color: var(--primary-color);
+      background-color: var(--bg-surface);
       font-weight: 700;
+      color: var(--text-main);
     }
 
-    tr:nth-child(even) {
-      background-color: #f7fafc;
-    }
-
-    .example-box {
-      background-color: #ffffff;
-      border: 1px solid #bbeeeb;
-      border-left: 5px solid #319795;
-      padding: 18px;
-      margin: 22px 0;
-      border-radius: 4px;
-    }
-
-    .example-title {
-      font-weight: bold;
-      color: #234e52;
-      margin-bottom: 8px;
-      font-size: 1.05rem;
-    }
-
-    .question-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 24px 0;
+    .example-block {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
       page-break-inside: avoid;
     }
 
-    .question-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      border-bottom: 1px solid #edf2f7;
-      padding-bottom: 8px;
-    }
-
-    .question-number {
+    .example-header {
       font-weight: 700;
-      color: var(--primary-color);
-      font-size: 1.05rem;
+      color: var(--teal);
+      font-size: 1.02rem;
+      margin-bottom: 8px;
     }
 
-    .question-tag {
-      font-size: 0.75rem;
+    .question-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-stem {
       font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: #e2e8f0;
-      color: #4a5568;
-    }
-
-    .options-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin: 14px 0;
-    }
-
-    @media (min-width: 600px) {
-      .options-grid.two-col {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .option-item {
-      background: #f7fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-size: 0.95rem;
-    }
-
-    .solution-box {
-      margin-top: 14px;
-      padding: 14px;
-      background-color: var(--success-bg);
-      border-radius: 6px;
-      border: 1px solid #c6f6d5;
-      font-size: 0.95rem;
-    }
-
-    .solution-box strong.ans-title {
-      color: var(--success-color);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
       margin-bottom: 10px;
     }
 
-    .checklist-icon {
-      color: #38a169;
-      font-weight: bold;
-      margin-right: 10px;
+    .q-num {
+      color: var(--primary);
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 8px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 4px 8px;
+      margin-bottom: 4px;
+      background-color: var(--bg-surface);
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .ans-tag {
+      display: inline-block;
+      background-color: var(--teal);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
     }
 
     @media print {
-      body {
-        background-color: #ffffff;
-        padding: 0;
+      @page {
+        size: A4;
+        margin: 15mm;
       }
+
+      body {
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: #000000;
+      }
+
       .container {
         max-width: 100%;
-        box-shadow: none;
         padding: 0;
       }
-      .question-card {
-        page-break-inside: avoid;
+
+      h2 {
+        margin-top: 20px;
+        break-after: avoid;
+        page-break-after: avoid;
       }
-      .diagram-card {
+
+      h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .card, .formula-box, .diagram-box, .example-block, .question-card, table {
+        break-inside: avoid;
         page-break-inside: avoid;
       }
     }
@@ -445,1373 +450,622 @@ table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math
     </style>
     </head>
 <body>
+  <div class="container">
+    <header class="doc-header">
+      <span class="exam-badge">NEET UG Physics</span>
+      <h1>Atoms: Nuclear Scattering, Atomic Spectra &amp; Bohr's Quantum Model</h1>
+      <p class="subtitle">A complete, exam-focused tutorial covering atomic models, α-particle scattering, energy quantisation, hydrogen spectral series, and de Broglie standing waves.</p>
+    </header>
 
-<div class="container">
-  <header>
-    <span class="badge-neet">NEET UG High-Yield Physics</span>
-    <h1>Atomic Structure and Hydrogen Spectra</h1>
-    <div class="subtitle">Complete Chapter Master Tutorial: From Thomson and Rutherford Models to Bohr's Quantum Postulates and de Broglie Verification</div>
-  </header>
+    <section id="overview">
+      <h2>1. Learning Objectives &amp; Exam Roadmap</h2>
+      <p>Understanding the internal structure of the atom bridges classical electromagnetism and quantum physics. For NEET UG, questions from this topic frequently test proportionalities (how radius, speed, time period, and energy scale with principal quantum number \(n\)), distance of closest approach, energy level transitions, and conceptual limitations of classical and Bohr models.</p>
+      <div class="card">
+        <div class="card-title">By the end of this tutorial, you will be able to:</div>
+        <ul>
+          <li>Contrast Thomson's plum-pudding model with Rutherford's nuclear model and explain why classical electrodynamics fails to explain atomic stability.</li>
+          <li>Calculate the distance of closest approach and relate impact parameter to scattering angle in α-particle scattering.</li>
+          <li>Apply Bohr's three postulates to derive orbital radii, speeds, and quantised energy levels of hydrogen and hydrogenic ions.</li>
+          <li>Identify spectral series (Lyman, Balmer, Paschen, etc.) and compute photon frequencies and wavelengths for electronic transitions.</li>
+          <li>Explain angular momentum quantisation using de Broglie's circular standing-wave condition.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section>
-    <h2>1. Syllabus Overview and Learning Objectives</h2>
-    <p>
-      In NEET UG, the topic of <strong>Atoms</strong> consistently contributes 1 to 2 high-scoring questions every year. Modern Physics questions are formula-driven, conceptually rigorous, and calculation-sensitive. Mastering this module requires not only memorizing expressions for radii, orbital speeds, and energy states, but also appreciating the historical progression, Coulomb scattering mechanics, and quantum orbital transitions.
-    </p>
-    <div class="callout">
-      <div class="callout-title">Core Learning Goals for NEET UG:</div>
+    <section id="early-models">
+      <h2>2. Early Atomic Models &amp; Alpha-Particle Scattering</h2>
+      <h3>2.1 Thomson's Model vs. the Need for a Nuclear Picture</h3>
+      <p>Following the discovery of the electron in 1897, it became clear that electrically neutral atoms contain identical negatively charged electrons balanced by positive charge. J. J. Thomson proposed in 1898 that the positive charge is spread uniformly throughout the atomic volume (a sphere of radius roughly \(10^{-10}\,\mathrm{m}\)), with electrons embedded inside like seeds in a watermelon. Although this "plum-pudding" model kept electrons in electrostatic equilibrium in the ground state, it could not account for large-angle scattering of energetic α-particles or discrete atomic emission spectra.</p>
+
+      <h3>2.2 The Geiger–Marsden Alpha-Particle Scattering Experiment</h3>
+      <p>Acting on Ernest Rutherford's proposal, Hans Geiger and Ernest Marsden (1911) directed a narrow, collimated beam of \(5.5\,\mathrm{MeV}\) α-particles (helium nuclei, charge \(+2e\)) from a radioactive \(^{214}_{83}\mathrm{Bi}\) source onto an ultra-thin gold foil (thickness \(\approx 2.1 \times 10^{-7}\,\mathrm{m}\)) inside an evacuated chamber. A rotatable zinc sulphide (\(\mathrm{ZnS}\)) screen paired with a microscope detected tiny light flashes (scintillations) at various scattering angles \(\theta\).</p>
+
+      <div class="card teal">
+        <div class="card-title">Key Experimental Observations &amp; Nuclear Deductions</div>
+        <ul>
+          <li><strong>Most α-particles pass straight through</strong> without noticeable deflection: the atom is overwhelmingly empty space, and lightweight atomic electrons cannot appreciably deflect heavy α-particles.</li>
+          <li><strong>Small-angle deflection is rare:</strong> only about \(0.14\%\) of incident α-particles scatter by more than \(1°\).</li>
+          <li><strong>Large-angle backscattering occurs:</strong> roughly \(1\) in \(8000\) α-particles deflects by more than \(90°\) (some nearly \(180°\)). Because an α-particle experiences an intense repulsive Coulomb force to reverse direction, almost the entire mass and all positive charge of the atom must be concentrated in a tiny, dense central core—the <strong>nucleus</strong>.</li>
+          <li><strong>Scale comparison:</strong> Nuclear radius is about \(10^{-15}\,\mathrm{m}\) to \(10^{-14}\,\mathrm{m}\), whereas atomic radius is about \(10^{-10}\,\mathrm{m}\)—roughly \(10^4\) to \(10^5\) times larger.</li>
+        </ul>
+      </div>
+
+      <h3>2.3 Impact Parameter and Scattering Trajectory</h3>
+      <p>Because the gold foil is extremely thin, each α-particle undergoes at most a single elastic Coulomb encounter with a stationary gold nucleus (\(Z = 79\), which is about \(50\) times more massive than an α-particle). The repulsive electrostatic force at separation \(r\) is:</p>
+      <div class="formula-box">
+        \[F = \frac{1}{4\pi\varepsilon_0}\frac{(2e)(Ze)}{r^2}\]
+      </div>
+      <p>The path of an α-particle is governed by its <strong>impact parameter</strong> \(b\)—the perpendicular distance between the nucleus and the initial velocity line of the incoming α-particle:</p>
       <ul>
-        <li>Understand the qualitative and quantitative features of the <strong>Geiger-Marsden α-particle scattering experiment</strong>.</li>
-        <li>Derive and calculate the <strong>distance of closest approach</strong> (\(d\)) and relate the <strong>impact parameter</strong> (\(b\)) to scattering angle (\(\theta\)).</li>
-        <li>Examine the classical <strong>Rutherford planetary model</strong> and recognize its mechanical and electrodynamic failures (the spiraling electron catastrophe and continuous spectra).</li>
-        <li>Master <strong>Bohr's three postulates</strong> and derive the proportionality relations for orbital radius (\(r_n \propto n^2/Z\)), velocity (\(v_n \propto Z/n\)), and energy (\(E_n \propto -Z^2/n^2\)).</li>
-        <li>Calculate photon frequencies, wavelengths, excitation potentials, and ionization energies across the <strong>Lyman, Balmer, Paschen, Brackett, and Pfund</strong> spectral series.</li>
-        <li>Explain Bohr's second postulate of angular momentum quantization using <strong>de Broglie's standing matter waves</strong>.</li>
+        <li><strong>Large \(b\):</strong> The α-particle passes far from the nucleus and suffers negligible deflection (\(\theta \approx 0°\)).</li>
+        <li><strong>Small \(b\):</strong> The α-particle approaches close to the nucleus, experiences strong repulsion, and deflects through a large angle.</li>
+        <li><strong>Head-on collision (\(b = 0\)):</strong> The α-particle slows down along the line joining the centres, comes momentarily to rest at the <strong>distance of closest approach</strong> \(d\), and rebounds straight back (\(\theta = 180°\)).</li>
       </ul>
-    </div>
-  </section>
 
-  <section>
-    <h2>2. Early Atomic Models and Rutherford's Scattering Experiment</h2>
-    
-    <h3>2.1 Thomson's Model and Its Limitations</h3>
-    <p>
-      Following J. J. Thomson's 1897 discovery of the electron, he proposed in 1898 the <em>plum pudding model</em> (or watermelon model). The atom was pictured as a uniform spherical cloud of positive charge of diameter approximately \(10^{-10}\;\mathrm{m}\), within which negatively charged electrons were embedded in stable electrostatic equilibrium.
-    </p>
-    <p>
-      However, Thomson's model could not account for large-angle particle deflections, nor could it explain the sharp, discrete emission line spectra observed in rarefied atomic gases.
-    </p>
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alpha-particle scattering trajectories showing impact parameter and scattering angle">
+          <rect x="0" y="0" width="640" height="280" fill="#F8FAFC" rx="6"/>
+          <!-- Central axis -->
+          <line x1="30" y1="200" x2="590" y2="200" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,5"/>
+          <!-- Target Nucleus -->
+          <circle cx="360" cy="200" r="10" fill="#2563EB" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="378" y="216" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Target Nucleus (+Ze)</text>
 
-    <h3>2.2 The Geiger-Marsden α-Particle Scattering Experiment (1911)</h3>
-    <p>
-      At the suggestion of Ernst Rutherford, Hans Geiger and Ernst Marsden directed a collimated beam of \(5.5\;\mathrm{MeV}\) \(\alpha\)-particles (helium nuclei, \(q = +2e\), mass \(m_\alpha \approx 4\,u\)) emitted from a radioactive bismuth source (\(^{214}_{\phantom{0}83}\mathrm{Bi}\)) onto an extremely thin gold foil of thickness \(2.1 \times 10^{-7}\;\mathrm{m}\).
-    </p>
+          <!-- Trajectory 1: Head-on (b = 0) -->
+          <line x1="40" y1="200" x2="318" y2="200" stroke="#0D9488" stroke-width="2.2"/>
+          <polygon points="180,195 192,200 180,205" fill="#0D9488"/>
+          <path d="M 318 200 C 330 200, 330 192, 318 192 L 100 192" fill="none" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <polygon points="130,187 118,192 130,197" fill="#0D9488"/>
+          <text x="45" y="182" font-family="sans-serif" font-size="11" fill="#0D9488">b = 0 (rebounds, 180°)</text>
 
-    <div class="diagram-card">
-      <svg viewBox="0 0 760 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background -->
-        <rect width="760" height="360" fill="#fcfdfd"/>
-        
-        <!-- Lead Collimator -->
-        <rect x="40" y="140" width="60" height="80" fill="#718096" stroke="#2d3748" stroke-width="2"/>
-        <line x1="40" y1="180" x2="100" y2="180" stroke="#f7fafc" stroke-width="6"/>
-        <text x="70" y="130" font-size="12" text-anchor="middle" font-family="sans-serif" fill="#2d3748" font-weight="bold">Lead Box</text>
-        <circle cx="55" cy="180" r="5" fill="#e53e3e"/>
-        <text x="55" y="240" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">Source (Bi-214)</text>
+          <!-- Trajectory 2: Small b (large deflection) -->
+          <path d="M 40 162 L 260 162 Q 335 162 295 85 L 250 25" fill="none" stroke="#2563EB" stroke-width="2.2"/>
+          <polygon points="160,157 172,162 160,167" fill="#2563EB"/>
+          <polygon points="262,46 250,25 270,38" fill="#2563EB"/>
+          <!-- Dashed extension for scattering angle -->
+          <line x1="260" y1="162" x2="430" y2="162" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,4"/>
+          <path d="M 332 162 A 28 28 0 0 0 315 138" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="336" y="148" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">θ</text>
 
-        <!-- Collimating Lead Slits -->
-        <rect x="150" y="110" width="16" height="55" fill="#a0aec0" stroke="#4a5568" stroke-width="1.5"/>
-        <rect x="150" y="195" width="16" height="55" fill="#a0aec0" stroke="#4a5568" stroke-width="1.5"/>
-        <text x="158" y="95" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">Lead Slits</text>
+          <!-- Impact parameter b marker -->
+          <line x1="85" y1="162" x2="85" y2="200" stroke="#1E293B" stroke-width="1.4"/>
+          <line x1="79" y1="162" x2="91" y2="162" stroke="#1E293B" stroke-width="1.4"/>
+          <line x1="79" y1="200" x2="91" y2="200" stroke="#1E293B" stroke-width="1.4"/>
+          <text x="68" y="184" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">b</text>
 
-        <!-- Alpha Beam -->
-        <line x1="60" y1="180" x2="310" y2="180" stroke="#dd6b20" stroke-width="2.5" stroke-dasharray="6,3"/>
-        <polygon points="305,176 315,180 305,184" fill="#dd6b20"/>
+          <!-- Trajectory 3: Moderate b -->
+          <path d="M 40 112 L 280 112 Q 365 112 430 70 L 540 24" fill="none" stroke="#1E293B" stroke-width="1.8"/>
+          <polygon points="160,107 172,112 160,117" fill="#1E293B"/>
+          <polygon points="525,25 540,24 530,35" fill="#1E293B"/>
 
-        <!-- Gold Foil -->
-        <line x1="320" y1="90" x2="320" y2="270" stroke="#d69e2e" stroke-width="6"/>
-        <text x="320" y="75" font-size="13" text-anchor="middle" font-family="sans-serif" fill="#b7791f" font-weight="bold">Gold Foil (thickness ≈ 210 nm)</text>
+          <!-- Trajectory 4: Large b (nearly undeviated) -->
+          <path d="M 40 54 L 350 54 Q 440 54 580 42" fill="none" stroke="#64748B" stroke-width="1.8"/>
+          <polygon points="160,49 172,54 160,59" fill="#64748B"/>
+          <polygon points="568,38 580,42 569,48" fill="#64748B"/>
+          <text x="410" y="34" font-family="sans-serif" font-size="11" fill="#475569">Large b → small deflection</text>
 
-        <!-- Undeviated Beam -->
-        <line x1="325" y1="180" x2="560" y2="180" stroke="#dd6b20" stroke-width="2" stroke-dasharray="4,4"/>
-        <text x="580" y="184" font-size="12" font-family="sans-serif" fill="#718096">Most pass undeviated (θ ≈ 0°)</text>
+          <!-- Distance of closest approach label -->
+          <line x1="318" y1="226" x2="360" y2="226" stroke="#0D9488" stroke-width="1.5"/>
+          <line x1="318" y1="204" x2="318" y2="232" stroke="#0D9488" stroke-width="1" stroke-dasharray="2,2"/>
+          <line x1="360" y1="210" x2="360" y2="232" stroke="#0D9488" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="333" y="244" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">d</text>
+          <text x="275" y="262" font-family="sans-serif" font-size="11" fill="#0D9488">(Distance of closest approach for b = 0)</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 1:</strong> Coulomb scattering of α-particles by a stationary target nucleus. Smaller impact parameters \(b\) yield larger deflection angles \(\theta\), while a head-on encounter (\(b = 0\)) stops at distance \(d\) before reversing.</div>
+      </div>
 
-        <!-- Scattered Tracks -->
-        <!-- Small angle -->
-        <path d="M 325 180 Q 370 178 520 120" fill="none" stroke="#e53e3e" stroke-width="1.8"/>
-        <!-- Moderate angle -->
-        <path d="M 325 180 Q 350 175 480 60" fill="none" stroke="#e53e3e" stroke-width="1.8"/>
-        <!-- Large angle (>90°) -->
-        <path d="M 325 180 Q 315 160 220 80" fill="none" stroke="#e53e3e" stroke-width="2"/>
-        <text x="170" y="70" font-size="11" font-family="sans-serif" fill="#c53030" font-weight="bold">Large deflection (> 90°)</text>
+      <h3>2.4 Distance of Closest Approach</h3>
+      <p>For a head-on collision, the α-particle's initial kinetic energy \(K\) converts entirely into electrostatic potential energy at the turning point \(r = d\). By conservation of mechanical energy:</p>
+      <div class="formula-box">
+        \[K = \frac{1}{4\pi\varepsilon_0}\frac{(2e)(Ze)}{d} \implies d = \frac{2Ze^2}{4\pi\varepsilon_0 K}\]
+      </div>
+      <p>Because \(d\) gives the closest distance reached before repulsion reverses the particle, \(d\) sets an <strong>upper bound</strong> on the nuclear radius (for example, \(7.7\,\mathrm{MeV}\) α-particles on gold give \(d \approx 30\,\mathrm{fm}\), whereas the actual gold nuclear radius is \(\approx 6\,\mathrm{fm}\)).</p>
+    </section>
 
-        <!-- Rebound -->
-        <path d="M 325 180 Q 320 185 140 220" fill="none" stroke="#9b2c2c" stroke-width="1.5" stroke-dasharray="4,2"/>
-        <text x="135" y="238" font-size="11" font-family="sans-serif" fill="#9b2c2c">Rebound (1 in 8000)</text>
+    <section id="classical-failure">
+      <h2>3. Classical Electron Orbits &amp; Why Rutherford's Model Fails</h2>
+      <p>In Rutherford's planetary picture of the hydrogen atom, an electron (mass \(m\), charge \(-e\)) revolves around a stationary proton (charge \(+e\)) in a circular orbit of radius \(r\) at speed \(v\). The electrostatic attraction provides the centripetal force:</p>
+      <div class="formula-box">
+        \[\frac{1}{4\pi\varepsilon_0}\frac{e^2}{r^2} = \frac{mv^2}{r} \implies mv^2 = \frac{e^2}{4\pi\varepsilon_0 r}\]
+      </div>
+      <p>From this force balance, the kinetic energy \(K\), electrostatic potential energy \(U\), and total mechanical energy \(E\) of the bound electron are:</p>
+      <div class="formula-box">
+        \[K = \frac{1}{2}mv^2 = \frac{e^2}{8\pi\varepsilon_0 r}, \qquad U = -\frac{e^2}{4\pi\varepsilon_0 r}, \qquad E = K + U = -\frac{e^2}{8\pi\varepsilon_0 r}\]
+      </div>
+      <p>Notice the fundamental energy relation for any inverse-square bound orbit: \(E = -K = \frac{U}{2}\). The negative total energy confirms that the electron is bound to the nucleus.</p>
 
-        <!-- Circular Detector Screen -->
-        <path d="M 450 40 A 240 240 0 0 1 540 310" fill="none" stroke="#4a5568" stroke-width="8" stroke-linecap="round"/>
-        <text x="575" y="280" font-size="12" font-family="sans-serif" fill="#2d3748" font-weight="bold">Rotatable ZnS Screen</text>
-        <text x="575" y="296" font-size="11" font-family="sans-serif" fill="#718096">+ Microscope Detector</text>
+      <div class="card warn">
+        <div class="card-title">Two Fatal Flaws of the Classical Nuclear Model</div>
+        <ol>
+          <li><strong>Atomic Instability:</strong> An electron moving in a circle undergoes continuous centripetal acceleration. According to classical electromagnetic theory, an accelerating charged particle radiates energy continuously as electromagnetic waves. Consequently, the electron would lose energy, spiral inward, and collapse into the nucleus within a fraction of a second—contradicting the observed stability of matter.</li>
+          <li><strong>Continuous vs. Line Spectrum:</strong> As the electron spirals inward, its orbital frequency increases continuously, so classical theory predicts a continuous smear of emitted frequencies. Experimentally, however, isolated atoms emit only sharp, discrete wavelengths.</li>
+        </ol>
+      </div>
 
-        <!-- Angle Indicator -->
-        <path d="M 390 180 A 70 70 0 0 0 380 144" fill="none" stroke="#2b6cb0" stroke-width="1.5"/>
-        <text x="400" y="165" font-size="14" font-family="sans-serif" fill="#2b6cb0" font-weight="bold">θ</text>
-      </svg>
-      <div class="diagram-caption">Tutorial Diagram 1: Schematic of the Geiger-Marsden α-particle scattering apparatus inside an evacuated chamber.</div>
-    </div>
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of classical radiative spiral collapse versus Bohr stationary quantised orbits">
+          <rect x="0" y="0" width="640" height="230" fill="#F8FAFC" rx="6"/>
+          <!-- Divider -->
+          <line x1="320" y1="16" x2="320" y2="214" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4,4"/>
 
-    <h3>2.3 Experimental Observations</h3>
-    <ol>
-      <li><strong>Dominant Transmission:</strong> More than \(99.8\%\) of the incident \(\alpha\)-particles passed directly through the gold foil with little or no deflection (\(\theta < 1^\circ\)).</li>
-      <li><strong>Small-Angle Deflection:</strong> Only about \(0.14\%\) of the incident \(\alpha\)-particles scattered by an angle greater than \(1^\circ\).</li>
-      <li><strong>Extreme Backward Scattering:</strong> Only about 1 in 8000 \(\alpha\)-particles deflected by more than \(90^\circ\), and a minuscule fraction suffered head-on rebound (\(\theta \approx 180^\circ\)).</li>
-    </ol>
+          <!-- Left: Classical instability -->
+          <text x="160" y="28" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Classical Prediction (Unstable)</text>
+          <circle cx="160" cy="122" r="9" fill="#2563EB"/>
+          <text x="160" y="145" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Nucleus</text>
+          <!-- Spiral path -->
+          <path d="M 245 122 A 85 85 0 1 1 160 37 A 72 72 0 1 1 95 122 A 54 54 0 1 1 160 74 A 36 36 0 1 1 128 122 A 20 20 0 0 1 160 112" fill="none" stroke="#B45309" stroke-width="2"/>
+          <circle cx="245" cy="122" r="4.5" fill="#1E293B"/>
+          <text x="256" y="126" font-family="sans-serif" font-size="11" fill="#1E293B">e⁻</text>
+          <!-- Radiation wavy arrows -->
+          <path d="M 225 65 Q 235 55 245 65 T 265 65" fill="none" stroke="#0D9488" stroke-width="1.6"/>
+          <text x="245" y="50" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0D9488">Continuous radiation</text>
+          <text x="160" y="212" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#B45309">Spirals into nucleus</text>
 
-    <div class="callout warning">
-      <div class="callout-title">Rutherford's Famous Deduction:</div>
-      <p>
-        Rutherford remarked: <em>"It was quite the most incredible event that has ever happened to me in my life. It was almost as incredible as if you fired a 15-inch shell at a piece of tissue paper and it came back and hit you."</em>
-      </p>
-      <p>
-        Because electrons are extremely light (\(m_e \approx m_\alpha / 7300\)), they cannot significantly deflect a fast-moving, massive \(\alpha\)-particle. Deflection through large angles requires a concentrated, massive, positively charged core: the <strong>atomic nucleus</strong>.
-      </p>
-    </div>
+          <!-- Right: Bohr stable orbits -->
+          <text x="480" y="28" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Bohr Quantum Model (Stable)</text>
+          <circle cx="480" cy="122" r="9" fill="#2563EB"/>
+          <circle cx="480" cy="122" r="36" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+          <circle cx="480" cy="122" r="68" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="5,3"/>
+          <circle cx="516" cy="122" r="4.5" fill="#1E293B"/>
+          <circle cx="480" cy="54" r="4.5" fill="#1E293B"/>
+          <text x="524" y="126" font-family="sans-serif" font-size="11" fill="#1E293B">n = 1</text>
+          <text x="488" y="48" font-family="sans-serif" font-size="11" fill="#1E293B">n = 2</text>
+          <text x="480" y="212" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">No radiation in stationary states</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 2:</strong> Classical electromagnetism predicts radiative spiral collapse, whereas Bohr's stationary-state postulate permits stable, non-radiating quantised orbits.</div>
+      </div>
+    </section>
 
-    <h3>2.4 Theoretical Distribution of Scattered Particles</h3>
-    <p>
-      Assuming single-event elastic scattering governed by Coulomb's repulsive law between the target nucleus (charge \(+Ze\)) and the \(\alpha\)-particle (charge \(+2e\)):
-    </p>
-    \[
-    F = \frac{1}{4\pi\varepsilon_0} \frac{(2e)(Ze)}{r^2}
-    \]
-    <p>
-      Rutherford derived the relationship for the number of scattered particles \(N(\theta)\) detected per unit area at scattering angle \(\theta\):
-    </p>
-    <div class="formula-card">
-      \[
-      N(\theta) \propto \frac{1}{\sin^4(\theta/2)}
-      \]
-    </div>
-    <p>
-      This inverse fourth-power dependence was verified precisely by Geiger and Marsden's experimental data points, proving that the Coulomb inverse-square law holds true down to nuclear distances.
-    </p>
+    <section id="spectra-bohr">
+      <h2>4. Atomic Line Spectra &amp; Bohr's Model of Hydrogen</h2>
+      <h3>4.1 Emission and Absorption Line Spectra</h3>
+      <p>Dense solids, liquids, and high-pressure gases emit a continuous spectrum because closely packed atoms interact strongly. In contrast, a rarefied gas excited electrically or thermally emits light only at specific discrete wavelengths, forming an <strong>emission line spectrum</strong> (bright lines on a dark background). Conversely, when white light passes through a cool, rarefied gas, dark <strong>absorption lines</strong> appear at the exact same wavelengths that the gas emits. These discrete lines act as an elemental fingerprint.</p>
 
-    <div class="diagram-card">
-      <svg viewBox="0 0 650 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <!-- Axes -->
-        <line x1="80" y1="270" x2="590" y2="270" stroke="#2d3748" stroke-width="2"/>
-        <line x1="80" y1="270" x2="80" y2="30" stroke="#2d3748" stroke-width="2"/>
-        
-        <!-- Ticks on X -->
-        <line x1="140" y1="270" x2="140" y2="275" stroke="#2d3748" stroke-width="1.5"/>
-        <line x1="220" y1="270" x2="220" y2="275" stroke="#2d3748" stroke-width="1.5"/>
-        <line x1="310" y1="270" x2="310" y2="275" stroke="#2d3748" stroke-width="1.5"/>
-        <line x1="400" y1="270" x2="400" y2="275" stroke="#2d3748" stroke-width="1.5"/>
-        <line x1="490" y1="270" x2="490" y2="275" stroke="#2d3748" stroke-width="1.5"/>
-        <line x1="570" y1="270" x2="570" y2="275" stroke="#2d3748" stroke-width="1.5"/>
+      <h3>4.2 Bohr's Three Postulates (1913)</h3>
+      <p>To reconcile Rutherford's nuclear atom with discrete line spectra, Niels Bohr proposed three postulates for single-electron (hydrogenic) atoms:</p>
+      <ol>
+        <li><strong>Stationary Orbits:</strong> An electron can revolve around the nucleus in certain allowed circular orbits without emitting electromagnetic radiation. Each stationary orbit has a fixed total energy.</li>
+        <li><strong>Angular Momentum Quantisation:</strong> Only those orbits are allowed in which the orbital angular momentum \(L\) of the electron is an integral multiple of \(\frac{h}{2\pi}\):
+          \[L = mvr = \frac{nh}{2\pi}, \qquad n = 1, 2, 3, \dots\]
+          where \(n\) is the principal quantum number and \(h \approx 6.63 \times 10^{-34}\,\mathrm{J\cdot s}\) is Planck's constant.
+        </li>
+        <li><strong>Frequency Condition for Transitions:</strong> An atom radiates or absorbs a photon only when an electron jumps between two stationary states of energies \(E_i\) and \(E_f\) (\(E_i > E_f\)):
+          \[h\nu = E_i - E_f\]
+        </li>
+      </ol>
 
-        <text x="140" y="292" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">20°</text>
-        <text x="220" y="292" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">40°</text>
-        <text x="310" y="292" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">60°</text>
-        <text x="400" y="292" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">90°</text>
-        <text x="490" y="292" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">135°</text>
-        <text x="570" y="292" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#4a5568">180°</text>
-        <text x="340" y="315" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif" fill="#2d3748">Scattering Angle θ</text>
-
-        <!-- Y Axis Labels (Logarithmic scale) -->
-        <text x="70" y="270" font-size="11" text-anchor="end" font-family="sans-serif" fill="#4a5568">10¹</text>
-        <text x="70" y="215" font-size="11" text-anchor="end" font-family="sans-serif" fill="#4a5568">10³</text>
-        <text x="70" y="155" font-size="11" text-anchor="end" font-family="sans-serif" fill="#4a5568">10⁵</text>
-        <text x="70" y="95" font-size="11" text-anchor="end" font-family="sans-serif" fill="#4a5568">10⁷</text>
-        <text x="30" y="150" font-size="13" font-weight="bold" font-family="sans-serif" fill="#2d3748" transform="rotate(-90 30 150)">Number of Scattered Particles N(θ)</text>
-
-        <!-- Theoretical Curve -->
-        <path d="M 95 45 Q 120 180 180 230 T 350 260 T 570 268" fill="none" stroke="#2b6cb0" stroke-width="2.5"/>
-
-        <!-- Experimental Data Dots -->
-        <circle cx="100" cy="55" r="3.5" fill="#e53e3e"/>
-        <circle cx="120" cy="115" r="3.5" fill="#e53e3e"/>
-        <circle cx="150" cy="190" r="3.5" fill="#e53e3e"/>
-        <circle cx="200" cy="235" r="3.5" fill="#e53e3e"/>
-        <circle cx="260" cy="250" r="3.5" fill="#e53e3e"/>
-        <circle cx="340" cy="260" r="3.5" fill="#e53e3e"/>
-        <circle cx="430" cy="264" r="3.5" fill="#e53e3e"/>
-        <circle cx="510" cy="267" r="3.5" fill="#e53e3e"/>
-        <circle cx="565" cy="268" r="3.5" fill="#e53e3e"/>
-
-        <!-- Legend -->
-        <rect x="420" y="45" width="180" height="55" fill="#ffffff" stroke="#cbd5e0" rx="4"/>
-        <line x1="430" y1="62" x2="455" y2="62" stroke="#2b6cb0" stroke-width="2.5"/>
-        <text x="465" y="66" font-size="11" font-family="sans-serif" fill="#2d3748">Theoretical Curve</text>
-        <circle cx="442" cy="83" r="3.5" fill="#e53e3e"/>
-        <text x="465" y="87" font-size="11" font-family="sans-serif" fill="#2d3748">Geiger-Marsden Data</text>
-      </svg>
-      <div class="diagram-caption">Tutorial Diagram 2: Number of scattered \(\alpha\)-particles versus scattering angle \(\theta\). Experimental data strictly follows the theoretical curve \(N \propto \csc^4(\theta/2)\).</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>3. Impact Parameter and Distance of Closest Approach</h2>
-    
-    <h3>3.1 Impact Parameter (\(b\))</h3>
-    <p>
-      The <strong>impact parameter</strong> \(b\) is defined as the perpendicular distance of the initial velocity vector of the incident \(\alpha\)-particle from the center of the target nucleus.
-    </p>
-
-    <div class="diagram-card">
-      <svg viewBox="0 0 700 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <!-- Target Nucleus -->
-        <circle cx="350" cy="180" r="14" fill="#d69e2e" stroke="#744210" stroke-width="2"/>
-        <text x="350" y="184" font-size="12" text-anchor="middle" font-family="sans-serif" fill="#744210" font-weight="bold">+Ze</text>
-        <text x="350" y="215" font-size="12" text-anchor="middle" font-family="sans-serif" fill="#2d3748">Target Nucleus</text>
-
-        <!-- Center Line (Axis) -->
-        <line x1="40" y1="180" x2="660" y2="180" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="6,4"/>
-
-        <!-- Head-on trajectory (b = 0) -->
-        <path d="M 60 180 L 290 180" stroke="#e53e3e" stroke-width="2"/>
-        <polygon points="180,176 195,180 180,184" fill="#e53e3e"/>
-        <path d="M 290 180 Q 285 180 270 170" fill="none" stroke="#e53e3e" stroke-width="2"/>
-        <line x1="270" y1="170" x2="60" y2="155" stroke="#e53e3e" stroke-width="2"/>
-        <polygon points="160,165 145,161 160,157" fill="#e53e3e"/>
-        <text x="120" y="145" font-size="11" font-family="sans-serif" fill="#e53e3e">Head-on: b = 0, θ ≈ 180°</text>
-
-        <!-- Distance d label -->
-        <line x1="290" y1="195" x2="336" y2="195" stroke="#2b6cb0" stroke-width="1.5"/>
-        <line x1="290" y1="190" x2="290" y2="200" stroke="#2b6cb0" stroke-width="1.5"/>
-        <line x1="336" y1="190" x2="336" y2="200" stroke="#2b6cb0" stroke-width="1.5"/>
-        <text x="313" y="210" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#2b6cb0" font-weight="bold">d</text>
-
-        <!-- Trajectory with small b -->
-        <path d="M 60 140 L 280 140 Q 340 140 460 70" fill="none" stroke="#3182ce" stroke-width="2"/>
-        <line x1="40" y1="140" x2="60" y2="140" stroke="#a0aec0" stroke-width="1" stroke-dasharray="3,3"/>
-        <line x1="120" y1="140" x2="120" y2="180" stroke="#2d3748" stroke-width="1.5"/>
-        <polygon points="117,143 120,137 123,143" fill="#2d3748"/>
-        <polygon points="117,177 120,183 123,177" fill="#2d3748"/>
-        <text x="130" y="165" font-size="12" font-family="sans-serif" fill="#2d3748" font-weight="bold">b₁ (small)</text>
-        <text x="480" y="75" font-size="11" font-family="sans-serif" fill="#3182ce">Large deflection (θ₁)</text>
-
-        <!-- Trajectory with large b -->
-        <path d="M 60 80 L 320 80 Q 420 80 580 60" fill="none" stroke="#38a169" stroke-width="2"/>
-        <line x1="200" y1="80" x2="200" y2="180" stroke="#2d3748" stroke-width="1.5"/>
-        <polygon points="197,83 200,77 203,83" fill="#2d3748"/>
-        <polygon points="197,177 200,183 203,177" fill="#2d3748"/>
-        <text x="210" y="130" font-size="12" font-family="sans-serif" fill="#2d3748" font-weight="bold">b₂ (large)</text>
-        <text x="590" y="65" font-size="11" font-family="sans-serif" fill="#38a169">Small deflection (θ₂ ≈ 0)</text>
-      </svg>
-      <div class="diagram-caption">Tutorial Diagram 3: Trajectories of \(\alpha\)-particles in the Coulomb field of a gold nucleus for various impact parameters \(b\).</div>
-    </div>
-
-    <div class="formula-card">
-      \[
-      b = \frac{1}{4\pi\varepsilon_0} \frac{Z e^2 \cot(\theta/2)}{K}
-      \]
-      <p style="margin-top: 8px; font-size: 0.95rem; color: var(--text-muted);">
-        where \(K = \frac{1}{2}m_\alpha v^2\) is the kinetic energy of the incoming \(\alpha\)-particle and \(\theta\) is the scattering angle.
-      </p>
-    </div>
-
-    <p><strong>Physical Deductions:</strong></p>
-    <ul>
-      <li>For <strong>large impact parameters (\(b \to \infty\))</strong>: \(\cot(\theta/2) \to \infty \implies \theta \to 0\). The particle feels negligible force and passes undeviated.</li>
-      <li>For <strong>head-on collision (\(b = 0\))</strong>: \(\cot(\theta/2) = 0 \implies \theta = 180^\circ\) (\(\pi\)). The particle momentarily halts and rebounds along its incident line.</li>
-    </ul>
-
-    <h3>3.2 Distance of Closest Approach (\(d\))</h3>
-    <p>
-      In a direct head-on collision (\(b = 0\)), the \(\alpha\)-particle travels straight toward the nucleus. As it approaches, its initial kinetic energy \(K\) converts entirely into electrostatic potential energy \(U\). At distance \(d\), the particle momentarily comes to rest (\(v = 0\)) before reversing its velocity.
-    </p>
-    \[
-    K = U(d) = \frac{1}{4\pi\varepsilon_0} \frac{(2e)(Ze)}{d} = \frac{2Ze^2}{4\pi\varepsilon_0 d}
-    \]
-    <div class="formula-card">
-      \[
-      d = \frac{1}{4\pi\varepsilon_0} \frac{2Ze^2}{K}
-      \]
-    </div>
-    <p>
-      This simple formula provides an upper limit for the size of the atomic nucleus.
-    </p>
-
-    <div class="example-box">
-      <div class="example-title">Worked Example 1: Upper Limit to Gold Nucleus Radius</div>
-      <p>
-        <strong>Problem:</strong> Calculate the distance of closest approach for a \(7.7\;\mathrm{MeV}\) \(\alpha\)-particle directed head-on toward a gold nucleus (\(Z = 79\)). Given \(\frac{1}{4\pi\varepsilon_0} = 9.0 \times 10^9\;\mathrm{N\cdot m^2/C^2}\) and \(e = 1.6 \times 10^{-19}\;\mathrm{C}\).
-      </p>
-      <p><strong>Solution:</strong></p>
-      <p>Convert the kinetic energy into Joules:</p>
-      \[
-      K = 7.7 \times 10^6 \times 1.6 \times 10^{-19}\;\mathrm{J} \approx 1.23 \times 10^{-12}\;\mathrm{J}
-      \]
-      <p>Substitute into the closest approach equation:</p>
-      \[
-      d = \frac{(9.0 \times 10^9) \times 2 \times 79 \times (1.6 \times 10^{-19})^2}{1.23 \times 10^{-12}}
-      \]
-      \[
-      d = \frac{(9.0 \times 10^9) \times 158 \times 2.56 \times 10^{-38}}{1.23 \times 10^{-12}} \approx 2.96 \times 10^{-14}\;\mathrm{m} \approx 30\;\mathrm{fm}
-      \]
-      <p>
-        <strong>Conclusion:</strong> The actual physical radius of a gold nucleus determined by high-energy electron scattering is approximately \(6\;\mathrm{fm}\). Because \(d \approx 30\;\mathrm{fm} > 6\;\mathrm{fm}\), the \(\alpha\)-particle turns back purely under electrostatic repulsion without ever coming into contact with the nuclear surface.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <h2>4. Rutherford's Planetary Model and Its Inherent Failure</h2>
-    
-    <h3>4.1 Mechanical Equilibrium of Electron Orbits</h3>
-    <p>
-      Rutherford envisioned an atom with a central positive nucleus surrounded by orbiting electrons, balanced by the electrostatic Coulomb attractive force acting as the centripetal force:
-    </p>
-    \[
-    F_e = F_c \implies \frac{1}{4\pi\varepsilon_0}\frac{e^2}{r^2} = \frac{m v^2}{r}
-    \]
-    <p>Hence, the orbital radius is related to electron speed by:</p>
-    \[
-    r = \frac{e^2}{4\pi\varepsilon_0 m v^2}
-    \]
-
-    <h3>4.2 Orbital Energy Relations</h3>
-    <ul>
-      <li><strong>Kinetic Energy (\(K\)):</strong>
-        \[
-        K = \frac{1}{2}m v^2 = \frac{e^2}{8\pi\varepsilon_0 r}
-        \]
-      </li>
-      <li><strong>Electrostatic Potential Energy (\(U\)):</strong>
-        \[
-        U = -\frac{e^2}{4\pi\varepsilon_0 r}
-        \]
-      </li>
-      <li><strong>Total Mechanical Energy (\(E\)):</strong>
-        \[
-        E = K + U = \frac{e^2}{8\pi\varepsilon_0 r} - \frac{e^2}{4\pi\varepsilon_0 r} = -\frac{e^2}{8\pi\varepsilon_0 r}
-        \]
-      </li>
-    </ul>
-
-    <div class="callout success">
-      <div class="callout-title">Vital NEET Energy Relation:</div>
-      \[
-      E = -K = \frac{U}{2} \quad \Longleftrightarrow \quad U = 2E = -2K
-      \]
-      <p style="margin-top: 6px;">
-        The negative sign of \(E\) confirms that the electron forms a <em>bound system</em> with the nucleus.
-      </p>
-    </div>
-
-    <h3>4.3 Classical Electrodynamic Collapse and Spectrum Contradiction</h3>
-    <p>
-      Classical physics (Maxwell's electrodynamics) makes two clear predictions that directly contradict experimental observations of real atoms:
-    </p>
-    <ol>
-      <li>
-        <strong>Atomic Instability (Spiraling Electron):</strong> An orbiting electron experiences continuous centripetal acceleration (\(a = v^2/r\)). Classical electromagnetic theory dictates that any accelerating charged particle must continuously radiate energy as electromagnetic waves. As it loses energy, its total energy becomes more negative, reducing its orbit radius. Calculations show the electron would spiral into the nucleus in approximately \(10^{-8}\;\mathrm{s}\), making stable matter impossible.
-      </li>
-      <li>
-        <strong>Continuous Emission Spectrum:</strong> In classical theory, the frequency of radiation emitted by a revolving electron equals its orbital frequency of revolution (\(\nu_{\mathrm{rev}} = v / 2\pi r\)). As the electron spirals inward and \(r\) shrinks, \(\nu_{\mathrm{rev}}\) would increase continuously, producing a continuous rainbow spectrum instead of the discrete, isolated bright spectral lines actually observed.
-      </li>
-    </ol>
-
-    <div class="diagram-card">
-      <svg viewBox="0 0 600 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <!-- Rutherford Catastrophic Collapse -->
-        <g transform="translate(150, 120)">
-          <circle cx="0" cy="0" r="12" fill="#3182ce"/>
-          <text x="0" y="4" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#ffffff" font-weight="bold">+Ze</text>
-          
-          <!-- Inward Spiral -->
-          <path d="M 90,0 
-                   A 90,90 0 0,0 -80,0 
-                   A 75,75 0 0,0 65,0 
-                   A 55,55 0 0,0 -45,0 
-                   A 35,35 0 0,0 25,0 
-                   A 18,18 0 0,0 0,0" 
-                fill="none" stroke="#e53e3e" stroke-width="1.8" stroke-dasharray="3,2"/>
-          
-          <circle cx="90" cy="0" r="5" fill="#4a5568"/>
-          <text x="98" y="-5" font-size="11" font-family="sans-serif" fill="#4a5568">Electron (e⁻)</text>
-          
-          <!-- Radiated wave -->
-          <path d="M 60,-50 Q 75,-65 90,-50 T 120,-50" fill="none" stroke="#dd6b20" stroke-width="1.5"/>
-          <text x="125" y="-50" font-size="10" font-family="sans-serif" fill="#dd6b20">EM Radiation emitted</text>
-          <text x="0" y="105" font-size="12" text-anchor="middle" font-family="sans-serif" fill="#c53030" font-weight="bold">Classical Prediction: Collapse in ~10⁻⁸ s</text>
-        </g>
-
-        <!-- Bohr Quantized Stable Orbits -->
-        <g transform="translate(450, 120)">
-          <circle cx="0" cy="0" r="12" fill="#3182ce"/>
-          <text x="0" y="4" font-size="11" text-anchor="middle" font-family="sans-serif" fill="#ffffff" font-weight="bold">+Ze</text>
-          
-          <circle cx="0" cy="0" r="40" fill="none" stroke="#2b6cb0" stroke-width="1.5"/>
-          <circle cx="0" cy="0" r="75" fill="none" stroke="#2b6cb0" stroke-width="1.5"/>
-          
-          <circle cx="40" cy="0" r="4.5" fill="#2d3748"/>
-          <text x="40" y="-10" font-size="10" font-family="sans-serif" fill="#2d3748">n = 1</text>
-          
-          <circle cx="0" cy="75" r="4.5" fill="#2d3748"/>
-          <text x="12" y="78" font-size="10" font-family="sans-serif" fill="#2d3748">n = 2</text>
-          
-          <text x="0" y="105" font-size="12" text-anchor="middle" font-family="sans-serif" fill="#2b6cb0" font-weight="bold">Bohr's Postulate: Non-Radiating Stable States</text>
-        </g>
-      </svg>
-      <div class="diagram-caption">Tutorial Diagram 4: Contrast between Rutherford's classical radiative orbital collapse and Bohr's non-radiating discrete stationary orbits.</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>5. The Bohr Model of the Hydrogen Atom</h2>
-    <p>
-      In 1913, Niels Bohr resolved the stability and spectral paradoxes by combining classical Coulomb mechanics with early quantum principles (Planck and Einstein). His model rests on three fundamental postulates.
-    </p>
-
-    <h3>5.1 Bohr's Three Postulates</h3>
-    <div class="callout">
-      <div class="callout-title">Postulate 1: Stationary Non-Radiating States</div>
-      <p>
-        An electron in an atom can revolve in certain specific circular orbits without radiating electromagnetic energy, contrary to classical electrodynamics. Each allowed orbit has a fixed, discrete energy value and is called a <strong>stationary state</strong>.
-      </p>
-    </div>
-
-    <div class="callout">
-      <div class="callout-title">Postulate 2: Angular Momentum Quantization</div>
-      <p>
-        The orbital angular momentum (\(L\)) of an electron revolving around the nucleus is an integral multiple of \(h / 2\pi\):
-      </p>
-      \[
-      L = m v r = \frac{n h}{2\pi}, \quad \text{where } n = 1, 2, 3, \dots \text{ (principal quantum number)}
-      \]
-    </div>
-
-    <div class="callout">
-      <div class="callout-title">Postulate 3: Frequency Condition (Photon Transition)</div>
-      <p>
-        Radiation is emitted or absorbed only when an electron jumps from one non-radiating orbit to another. A single photon is emitted when dropping from higher state \(E_i\) to lower state \(E_f\):
-      </p>
-      \[
-      h\nu = E_i - E_f \implies \nu = \frac{E_i - E_f}{h}
-      \]
-    </div>
-
-    <h3>5.2 Mathematical Derivations for Hydrogen-Like Species (\(Z\))</h3>
-    <p>
-      Consider a single electron of mass \(m\) and charge \(-e\) revolving at speed \(v\) in an orbit of radius \(r\) around a nucleus of positive charge \(+Ze\).
-    </p>
-    
-    <p><strong>1. Radius of the \(n^{\mathrm{th}}\) Orbit:</strong></p>
-    <p>From the dynamic balance:</p>
-    \[
-    \frac{m v^2}{r} = \frac{1}{4\pi\varepsilon_0}\frac{Z e^2}{r^2} \implies v^2 = \frac{Z e^2}{4\pi\varepsilon_0 m r}
-    \]
-    <p>From the quantization condition: \(v = \frac{n h}{2\pi m r}\). Squaring this gives:</p>
-    \[
-    \frac{n^2 h^2}{4\pi^2 m^2 r^2} = \frac{Z e^2}{4\pi\varepsilon_0 m r}
-    \]
-    <p>Solving for \(r_n\):</p>
-    <div class="formula-card">
-      \[
-      r_n = \frac{\varepsilon_0 h^2}{\pi m e^2} \cdot \frac{n^2}{Z} = a_0 \frac{n^2}{Z}
-      \]
-      <p style="margin-top: 6px; font-size: 0.95rem;">
-        For hydrogen (\(Z=1\), \(n=1\)), the Bohr radius is \(a_0 = \frac{\varepsilon_0 h^2}{\pi m e^2} \approx 0.529 \times 10^{-10}\;\mathrm{m} = 0.529\;\mathrm{Å}\).
-      </p>
-    </div>
-
-    <p><strong>2. Orbital Speed in the \(n^{\mathrm{th}}\) Orbit:</strong></p>
-    <p>Substituting \(r_n\) into \(v = n h / (2\pi m r)\):</p>
-    <div class="formula-card">
-      \[
-      v_n = \frac{e^2}{2\varepsilon_0 h} \cdot \frac{Z}{n} = v_1 \frac{Z}{n}
-      \]
-      <p style="margin-top: 6px; font-size: 0.95rem;">
-        For hydrogen (\(Z=1, n=1\)), \(v_1 \approx 2.18 \times 10^6\;\mathrm{m/s} \approx \frac{c}{137}\).
-      </p>
-    </div>
-
-    <p><strong>3. Orbital Period (\(T\)) and Revolution Frequency (\(f\)):</strong></p>
-    \[
-    T_n = \frac{2\pi r_n}{v_n} \propto \frac{n^2 / Z}{Z / n} \propto \frac{n^3}{Z^2}
-    \]
-    \[
-    f_n = \frac{1}{T_n} \propto \frac{Z^2}{n^3}
-    \]
-
-    <p><strong>4. Total Energy of the Stationary State:</strong></p>
-    \[
-    E_n = -\frac{Z e^2}{8\pi\varepsilon_0 r_n} = -\left(\frac{m e^4}{8\varepsilon_0^2 h^2}\right) \frac{Z^2}{n^2}
-    \]
-    <p>Substituting the values of fundamental constants (\(m, e, \varepsilon_0, h\)):</p>
-    <div class="formula-card">
-      \[
-      E_n = -\frac{2.18 \times 10^{-18}\;\mathrm{J}}{n^2} \cdot Z^2 = -13.6 \frac{Z^2}{n^2}\;\mathrm{eV}
-      \]
-    </div>
-
-    <h3>5.3 Hydrogen Energy Levels and State Terminology</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Principal Quantum No. (\(n\))</th>
-          <th>State Designation</th>
-          <th>Energy (\(E_n\))</th>
-          <th>Excitation Energy from Ground State</th>
-          <th>Binding / Ionization Energy</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>\(n = 1\)</td>
-          <td>Ground State</td>
-          <td>\(-13.60\;\mathrm{eV}\)</td>
-          <td>\(0.00\;\mathrm{eV}\)</td>
-          <td>\(13.60\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>\(n = 2\)</td>
-          <td>1st Excited State</td>
-          <td>\(-3.40\;\mathrm{eV}\)</td>
-          <td>\(10.20\;\mathrm{eV}\)</td>
-          <td>\(3.40\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>\(n = 3\)</td>
-          <td>2nd Excited State</td>
-          <td>\(-1.51\;\mathrm{eV}\)</td>
-          <td>\(12.09\;\mathrm{eV}\)</td>
-          <td>\(1.51\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>\(n = 4\)</td>
-          <td>3rd Excited State</td>
-          <td>\(-0.85\;\mathrm{eV}\)</td>
-          <td>\(12.75\;\mathrm{eV}\)</td>
-          <td>\(0.85\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>\(n = \infty\)</td>
-          <td>Ionized Atom / Free Electron</td>
-          <td>\(0.00\;\mathrm{eV}\)</td>
-          <td>\(13.60\;\mathrm{eV}\)</td>
-          <td>\(0.00\;\mathrm{eV}\)</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="callout warning">
-      <div class="callout-title">NEET Traps in Terminology:</div>
+      <h3>4.3 Quantised Radii, Speeds, and Energy Levels</h3>
+      <p>Combining the centripetal force condition \(mv^2 = \frac{Ze^2}{4\pi\varepsilon_0 r}\) with Bohr's angular momentum quantisation \(mvr = \frac{nh}{2\pi}\) yields the radius and speed of the \(n^{\text{th}}\) orbit for a hydrogenic atom (nuclear charge \(+Ze\)):</p>
+      <div class="formula-box">
+        \[r_n = \frac{n^2 h^2 \varepsilon_0}{\pi m Z e^2} = a_0 \frac{n^2}{Z}, \qquad v_n = \frac{Z e^2}{2\varepsilon_0 n h} \propto \frac{Z}{n}\]
+      </div>
+      <p>For hydrogen (\(Z = 1\)), the smallest orbit (\(n = 1\)) has the <strong>Bohr radius</strong>:</p>
+      <div class="formula-box">
+        \[a_0 = r_1 = 5.29 \times 10^{-11}\,\mathrm{m} \approx 0.53\,\mathrm{Å}\]
+      </div>
+      <p>Substituting \(r_n\) into the total energy expression \(E = -\frac{Ze^2}{8\pi\varepsilon_0 r}\) gives the quantised energy levels:</p>
+      <div class="formula-box">
+        \[E_n = -\frac{m Z^2 e^4}{8 n^2 \varepsilon_0^2 h^2} = -13.6\,\frac{Z^2}{n^2}\,\mathrm{eV}\]
+      </div>
+      <p>For hydrogen (\(Z = 1\)):</p>
       <ul>
-        <li><strong>"First excited state"</strong> means \(n = 2\), NOT \(n = 1\).</li>
-        <li><strong>"\(m^{\mathrm{th}}\) excited state"</strong> corresponds to quantum number \(n = m + 1\).</li>
-        <li><strong>Ionization Potential</strong> of ground-state hydrogen is \(13.6\;\mathrm{V}\).</li>
+        <li><strong>Ground state (\(n = 1\)):</strong> \(E_1 = -13.6\,\mathrm{eV}\). The minimum energy needed to completely free the electron (\(r \to \infty, E_\infty = 0\,\mathrm{eV}\)) is the <strong>ionisation energy</strong>, \(13.6\,\mathrm{eV}\).</li>
+        <li><strong>First excited state (\(n = 2\)):</strong> \(E_2 = -3.40\,\mathrm{eV}\). Excitation from \(n = 1\) to \(n = 2\) requires \(10.2\,\mathrm{eV}\).</li>
+        <li><strong>Second excited state (\(n = 3\)):</strong> \(E_3 = -1.51\,\mathrm{eV}\). Excitation from \(n = 1\) to \(n = 3\) requires \(12.09\,\mathrm{eV}\).</li>
+        <li><strong>Higher states:</strong> \(E_4 = -0.85\,\mathrm{eV}\), \(E_5 = -0.54\,\mathrm{eV}\), converging toward \(0\,\mathrm{eV}\) as \(n \to \infty\). Above \(E = 0\,\mathrm{eV}\), the electron is unbound and energies form a continuum.</li>
       </ul>
-    </div>
-  </section>
 
-  <section>
-    <h2>6. Spectral Series of Hydrogen and Rydberg Formula</h2>
-    <p>
-      When an electron makes a transition from an outer orbit \(n_i\) to an inner orbit \(n_f\) (\(n_i > n_f\)), a photon is emitted. The wavenumber \(\bar{\nu}\) (reciprocal of wavelength \(\lambda\)) is given by the <strong>Rydberg-Ritz formula</strong>:
-    </p>
-    <div class="formula-card">
-      \[
-      \frac{1}{\lambda} = \bar{\nu} = R Z^2 \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right)
-      \]
-      <p style="margin-top: 8px; font-size: 0.95rem;">
-        where \(R = \frac{m e^4}{8\varepsilon_0^2 c h^3} \approx 1.097 \times 10^7\;\mathrm{m^{-1}}\). For rapid calculations in NEET: \(\frac{1}{R} \approx 912\;\mathrm{Å}\).
-      </p>
-    </div>
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 310" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hydrogen atom energy level diagram showing Lyman, Balmer, and Paschen spectral transitions">
+          <rect x="0" y="0" width="640" height="310" fill="#F8FAFC" rx="6"/>
+          <!-- Continuum shading -->
+          <rect x="115" y="18" width="440" height="24" fill="#DBEAFE"/>
+          <text x="335" y="34" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Continuum (Unbound / Ionised Electron, E &gt; 0)</text>
 
-    <div class="diagram-card">
-      <svg viewBox="0 0 760 440" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <!-- Energy level lines -->
-        <!-- Continuum / n=inf -->
-        <line x1="80" y1="40" x2="680" y2="40" stroke="#718096" stroke-width="2"/>
-        <text x="690" y="44" font-size="12" font-family="sans-serif" fill="#4a5568">n = ∞ (0.00 eV)</text>
+          <!-- Energy axis -->
+          <line x1="115" y1="18" x2="115" y2="288" stroke="#1E293B" stroke-width="1.6"/>
+          <text x="58" y="25" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">E (eV)</text>
 
-        <!-- n=5 -->
-        <line x1="80" y1="80" x2="680" y2="80" stroke="#a0aec0" stroke-width="1.5"/>
-        <text x="690" y="84" font-size="12" font-family="sans-serif" fill="#4a5568">n = 5 (−0.54 eV)</text>
+          <!-- Energy levels -->
+          <!-- n = inf (0 eV) -->
+          <line x1="115" y1="42" x2="555" y2="42" stroke="#1E293B" stroke-width="1.8"/>
+          <text x="108" y="46" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1E293B">0</text>
+          <text x="562" y="46" font-family="sans-serif" font-size="11" fill="#1E293B">n = ∞</text>
 
-        <!-- n=4 -->
-        <line x1="80" y1="110" x2="680" y2="110" stroke="#a0aec0" stroke-width="1.5"/>
-        <text x="690" y="114" font-size="12" font-family="sans-serif" fill="#4a5568">n = 4 (−0.85 eV)</text>
+          <!-- n = 4 (-0.85 eV) -->
+          <line x1="115" y1="68" x2="555" y2="68" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="108" y="72" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1E293B">−0.85</text>
+          <text x="562" y="72" font-family="sans-serif" font-size="11" fill="#1E293B">n = 4</text>
 
-        <!-- n=3 -->
-        <line x1="80" y1="160" x2="680" y2="160" stroke="#a0aec0" stroke-width="1.5"/>
-        <text x="690" y="164" font-size="12" font-family="sans-serif" fill="#4a5568">n = 3 (−1.51 eV)</text>
+          <!-- n = 3 (-1.51 eV) -->
+          <line x1="115" y1="98" x2="555" y2="98" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="108" y="102" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1E293B">−1.51</text>
+          <text x="562" y="102" font-family="sans-serif" font-size="11" fill="#1E293B">n = 3</text>
 
-        <!-- n=2 -->
-        <line x1="80" y1="240" x2="680" y2="240" stroke="#a0aec0" stroke-width="1.5"/>
-        <text x="690" y="244" font-size="12" font-family="sans-serif" fill="#4a5568">n = 2 (−3.40 eV)</text>
+          <!-- n = 2 (-3.40 eV) -->
+          <line x1="115" y1="152" x2="555" y2="152" stroke="#2563EB" stroke-width="1.6"/>
+          <text x="108" y="156" text-anchor="end" font-family="sans-serif" font-size="11" fill="#1E293B">−3.40</text>
+          <text x="562" y="156" font-family="sans-serif" font-size="11" fill="#1E293B">n = 2 (1st excited)</text>
 
-        <!-- n=1 -->
-        <line x1="80" y1="390" x2="680" y2="390" stroke="#2b6cb0" stroke-width="2.5"/>
-        <text x="690" y="394" font-size="12" font-family="sans-serif" fill="#2b6cb0" font-weight="bold">n = 1 (−13.60 eV)</text>
+          <!-- n = 1 (-13.6 eV) -->
+          <line x1="115" y1="274" x2="555" y2="274" stroke="#1E293B" stroke-width="2.2"/>
+          <text x="108" y="278" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">−13.6</text>
+          <text x="562" y="278" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">n = 1 (Ground)</text>
 
-        <!-- Lyman Series Arrows (to n=1) -->
-        <g stroke="#805ad5" stroke-width="2">
-          <!-- 2 to 1 -->
-          <line x1="130" y1="240" x2="130" y2="385"/>
-          <polygon points="126,380 130,390 134,380" fill="#805ad5"/>
-          <!-- 3 to 1 -->
-          <line x1="155" y1="160" x2="155" y2="385"/>
-          <polygon points="151,380 155,390 159,380" fill="#805ad5"/>
-          <!-- 4 to 1 -->
-          <line x1="180" y1="110" x2="180" y2="385"/>
-          <polygon points="176,380 180,390 184,380" fill="#805ad5"/>
-          <!-- inf to 1 -->
-          <line x1="205" y1="40" x2="205" y2="385"/>
-          <polygon points="201,380 205,390 209,380" fill="#805ad5"/>
-        </g>
-        <text x="165" y="420" font-size="13" font-family="sans-serif" text-anchor="middle" fill="#805ad5" font-weight="bold">Lyman (UV)</text>
+          <!-- Lyman transitions (to n=1) -->
+          <line x1="165" y1="152" x2="165" y2="269" stroke="#0D9488" stroke-width="1.8"/>
+          <polygon points="161,264 165,273 169,264" fill="#0D9488"/>
+          <line x1="195" y1="98" x2="195" y2="269" stroke="#0D9488" stroke-width="1.8"/>
+          <polygon points="191,264 195,273 199,264" fill="#0D9488"/>
+          <line x1="225" y1="68" x2="225" y2="269" stroke="#0D9488" stroke-width="1.8"/>
+          <polygon points="221,264 225,273 229,264" fill="#0D9488"/>
+          <text x="195" y="296" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">Lyman (UV)</text>
 
-        <!-- Balmer Series Arrows (to n=2) -->
-        <g stroke="#3182ce" stroke-width="2">
-          <!-- 3 to 2 -->
-          <line x1="280" y1="160" x2="280" y2="235"/>
-          <polygon points="276,230 280,240 284,230" fill="#3182ce"/>
-          <!-- 4 to 2 -->
-          <line x1="310" y1="110" x2="310" y2="235"/>
-          <polygon points="306,230 310,240 314,230" fill="#3182ce"/>
-          <!-- 5 to 2 -->
-          <line x1="340" y1="80" x2="340" y2="235"/>
-          <polygon points="336,230 340,240 344,230" fill="#3182ce"/>
-          <!-- inf to 2 -->
-          <line x1="370" y1="40" x2="370" y2="235"/>
-          <polygon points="366,230 370,240 374,230" fill="#3182ce"/>
-        </g>
-        <text x="325" y="270" font-size="13" font-family="sans-serif" text-anchor="middle" fill="#3182ce" font-weight="bold">Balmer (Visible)</text>
+          <!-- Balmer transitions (to n=2) -->
+          <line x1="310" y1="98" x2="310" y2="147" stroke="#2563EB" stroke-width="1.8"/>
+          <polygon points="306,142 310,151 314,142" fill="#2563EB"/>
+          <line x1="340" y1="68" x2="340" y2="147" stroke="#2563EB" stroke-width="1.8"/>
+          <polygon points="336,142 340,151 344,142" fill="#2563EB"/>
+          <line x1="370" y1="42" x2="370" y2="147" stroke="#2563EB" stroke-width="1.8"/>
+          <polygon points="366,142 370,151 374,142" fill="#2563EB"/>
+          <text x="340" y="170" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">Balmer (Visible)</text>
 
-        <!-- Paschen Series Arrows (to n=3) -->
-        <g stroke="#38a169" stroke-width="2">
-          <!-- 4 to 3 -->
-          <line x1="440" y1="110" x2="440" y2="155"/>
-          <polygon points="436,150 440,160 444,150" fill="#38a169"/>
-          <!-- 5 to 3 -->
-          <line x1="470" y1="80" x2="470" y2="155"/>
-          <polygon points="466,150 470,160 474,150" fill="#38a169"/>
-          <!-- inf to 3 -->
-          <line x1="500" y1="40" x2="500" y2="155"/>
-          <polygon points="496,150 500,160 504,150" fill="#38a169"/>
-        </g>
-        <text x="470" y="190" font-size="13" font-family="sans-serif" text-anchor="middle" fill="#38a169" font-weight="bold">Paschen (IR)</text>
+          <!-- Paschen transitions (to n=3) -->
+          <line x1="465" y1="68" x2="465" y2="93" stroke="#1E293B" stroke-width="1.8"/>
+          <polygon points="461,88 465,97 469,88" fill="#1E293B"/>
+          <line x1="495" y1="42" x2="495" y2="93" stroke="#1E293B" stroke-width="1.8"/>
+          <polygon points="491,88 495,97 499,88" fill="#1E293B"/>
+          <text x="480" y="116" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Paschen (IR)</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 3:</strong> Quantised energy levels of the hydrogen atom showing emission transitions for the Lyman (ultraviolet), Balmer (visible), and Paschen (infrared) series.</div>
+      </div>
 
-        <!-- Brackett Series Arrows (to n=4) -->
-        <g stroke="#dd6b20" stroke-width="2">
-          <line x1="560" y1="80" x2="560" y2="105"/>
-          <polygon points="556,100 560,110 564,100" fill="#dd6b20"/>
-          <line x1="590" y1="40" x2="590" y2="105"/>
-          <polygon points="586,100 590,110 594,100" fill="#dd6b20"/>
-        </g>
-        <text x="575" y="135" font-size="12" font-family="sans-serif" text-anchor="middle" fill="#dd6b20" font-weight="bold">Brackett (IR)</text>
-
-        <!-- Pfund Series Arrow (to n=5) -->
-        <g stroke="#e53e3e" stroke-width="2">
-          <line x1="640" y1="40" x2="640" y2="75"/>
-          <polygon points="636,70 640,80 644,70" fill="#e53e3e"/>
-        </g>
-        <text x="640" y="100" font-size="11" font-family="sans-serif" text-anchor="middle" fill="#e53e3e" font-weight="bold">Pfund (Far-IR)</text>
-      </svg>
-      <div class="diagram-caption">Tutorial Diagram 5: Energy level diagram of atomic hydrogen showing radiative transitions for each spectral series.</div>
-    </div>
-
-    <h3>6.1 Summary of Hydrogen Spectral Series</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Series</th>
-          <th>\(n_f\)</th>
-          <th>\(n_i\)</th>
-          <th>Spectral Region</th>
-          <th>Longest Wavelength (\(\lambda_{\max}\))</th>
-          <th>Shortest Wavelength (Series Limit \(\lambda_{\min}\))</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Lyman</strong></td>
-          <td>1</td>
-          <td>\(2, 3, 4, \dots\)</td>
-          <td>Ultraviolet (UV)</td>
-          <td>\(n_i=2 \implies \frac{4}{3R} \approx 1216\;\mathrm{Å}\)</td>
-          <td>\(n_i=\infty \implies \frac{1}{R} \approx 912\;\mathrm{Å}\)</td>
-        </tr>
-        <tr>
-          <td><strong>Balmer</strong></td>
-          <td>2</td>
-          <td>\(3, 4, 5, \dots\)</td>
-          <td>Visible &amp; Near-UV</td>
-          <td>\(n_i=3 \implies \frac{36}{5R} \approx 6563\;\mathrm{Å}\) (\(H_\alpha\))</td>
-          <td>\(n_i=\infty \implies \frac{4}{R} \approx 3646\;\mathrm{Å}\)</td>
-        </tr>
-        <tr>
-          <td><strong>Paschen</strong></td>
-          <td>3</td>
-          <td>\(4, 5, 6, \dots\)</td>
-          <td>Infrared (Near-IR)</td>
-          <td>\(n_i=4 \implies \frac{144}{7R} \approx 18751\;\mathrm{Å}\)</td>
-          <td>\(n_i=\infty \implies \frac{9}{R} \approx 8205\;\mathrm{Å}\)</td>
-        </tr>
-        <tr>
-          <td><strong>Brackett</strong></td>
-          <td>4</td>
-          <td>\(5, 6, 7, \dots\)</td>
-          <td>Infrared (Mid-IR)</td>
-          <td>\(n_i=5 \implies \frac{400}{9R} \approx 40510\;\mathrm{Å}\)</td>
-          <td>\(n_i=\infty \implies \frac{16}{R} \approx 14585\;\mathrm{Å}\)</td>
-        </tr>
-        <tr>
-          <td><strong>Pfund</strong></td>
-          <td>5</td>
-          <td>\(6, 7, 8, \dots\)</td>
-          <td>Far Infrared</td>
-          <td>\(n_i=6 \implies \frac{900}{11R} \approx 74580\;\mathrm{Å}\)</td>
-          <td>\(n_i=\infty \implies \frac{25}{R} \approx 22790\;\mathrm{Å}\)</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <div class="callout-title">Maximum Spectral Lines Emitted:</div>
-      <p>
-        When an electron in an excited state \(n\) drops toward the ground state (\(n=1\)), the total number of distinct spectral emission lines emitted by a sample of gas is:
-      </p>
-      \[
-      N = \frac{n(n - 1)}{2}
-      \]
-      <p style="margin-top: 6px;">
-        For de-excitation between arbitrary levels \(n_2 \to n_1\):
-      </p>
-      \[
-      N = \frac{(n_2 - n_1)(n_2 - n_1 + 1)}{2}
-      \]
-    </div>
-  </section>
-
-  <section>
-    <h2>7. De Broglie's Explanation of Bohr's Quantization Condition</h2>
-    <p>
-      Bohr's second postulate (\(m v r = n h / 2\pi\)) appeared as an ad-hoc rule until Louis de Broglie provided its physical foundation in 1923 using wave-particle duality.
-    </p>
-    <p>
-      De Broglie postulated that a moving electron behaves as a matter wave with de Broglie wavelength:
-    </p>
-    \[
-    \lambda = \frac{h}{p} = \frac{h}{m v}
-    \]
-    <p>
-      For an electron to form a stable, non-radiating standing wave on a circular orbit of radius \(r_n\), the total perimeter of the orbit must fit an integral number of complete de Broglie wavelengths without destructive self-interference:
-    </p>
-    <div class="formula-card">
-      \[
-      2\pi r_n = n \lambda = n \left(\frac{h}{m v_n}\right), \quad n = 1, 2, 3, \dots
-      \]
-      <p style="margin-top: 6px;">
-        Rearranging immediately yields Bohr's quantization condition:
-      </p>
-      \[
-      m v_n r_n = \frac{n h}{2\pi}
-      \]
-    </div>
-
-    <div class="diagram-card">
-      <svg viewBox="0 0 500 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <!-- Target Center Nucleus -->
-        <circle cx="250" cy="160" r="14" fill="#3182ce"/>
-        <text x="250" y="165" font-size="12" text-anchor="middle" font-family="sans-serif" fill="#ffffff" font-weight="bold">+Ze</text>
-
-        <!-- Dashed Bohr Orbit circle r -->
-        <circle cx="250" cy="160" r="90" fill="none" stroke="#a0aec0" stroke-width="1.5" stroke-dasharray="4,4"/>
-        
-        <!-- Standing Wave Loop (4 wavelengths: n = 4) -->
-        <!-- R(theta) = 90 + 20 * sin(4*theta) -->
-        <!-- Plotted parametrically -->
-        <path d="
-          M 360, 160 
-          C 360, 190 310, 240 280, 245
-          C 250, 250 200, 230 180, 220
-          C 140, 200 130, 150 140, 130
-          C 150, 100 190, 80 220, 75
-          C 260, 70 300, 90 325, 110
-          C 350, 130 360, 145 360, 160 Z" 
-          fill="none" stroke="#e53e3e" stroke-width="2.5"/>
-
-        <!-- Smoother 4-node standing wave -->
-        <path d="M 360 160 
-          C 360 175 320 215 313.6 223.6 
-          C 300 240 260 270 250 270 
-          C 240 270 200 240 186.4 223.6 
-          C 180 215 140 175 140 160 
-          C 140 145 180 105 186.4 96.4 
-          C 200 80 240 50 250 50 
-          C 260 50 300 80 313.6 96.4 
-          C 320 105 360 145 360 160 Z"
-          fill="#fed7d7" fill-opacity="0.3" stroke="#c53030" stroke-width="2"/>
-
-        <!-- Radius indicator -->
-        <line x1="250" y1="160" x2="315" y2="97" stroke="#2b6cb0" stroke-width="1.5"/>
-        <text x="275" y="120" font-size="12" font-family="sans-serif" fill="#2b6cb0" font-weight="bold">r₄</text>
-
-        <!-- Wavelength bracket label -->
-        <path d="M 314 96 A 110 110 0 0 1 360 160" fill="none" stroke="#2d3748" stroke-width="1.5"/>
-        <text x="355" y="115" font-size="13" font-family="sans-serif" fill="#2d3748" font-weight="bold">λ</text>
-
-        <!-- Label below -->
-        <text x="250" y="300" font-size="13" text-anchor="middle" font-family="sans-serif" fill="#2d3748" font-weight="bold">
-          Standing Wave on Orbit: 2πr₄ = 4λ (n = 4)
-        </text>
-      </svg>
-      <div class="diagram-caption">Tutorial Diagram 6: Standing de Broglie matter wave on a circular orbit for \(n = 4\). The circumference holds exactly 4 wavelengths.</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>8. Limitations of the Bohr Model</h2>
-    <p>
-      While Bohr's model achieved great success for hydrogen, it has distinct limitations that necessitated modern quantum mechanics:
-    </p>
-    <ul>
-      <li><strong>Limited to Hydrogenic Species:</strong> It applies only to single-electron systems (\(\mathrm{H}, \mathrm{He}^+, \mathrm{Li}^{2+}, \mathrm{Be}^{3+}\)). It fails for two-electron helium (\(\mathrm{He}\)) or multi-electron atoms because it neglects electron-electron electrostatic repulsion.</li>
-      <li><strong>Relative Intensities:</strong> It cannot explain why certain spectral lines appear brighter (stronger intensity) than others (some transitions have higher quantum transition probabilities).</li>
-      <li><strong>Fine Structure:</strong> High-resolution spectrometers show that individual spectral lines are actually closely spaced doublets or triplets, which Bohr's simple model cannot predict.</li>
-      <li><strong>Zeeman and Stark Effects:</strong> It fails to explain the splitting of spectral lines in an external magnetic field (<strong>Zeeman effect</strong>) or an external electric field (<strong>Stark effect</strong>).</li>
-      <li><strong>Violation of Uncertainty Principle:</strong> Bohr assumes a well-defined circular orbit with simultaneous exact knowledge of the electron's position and momentum, which contradicts the <strong>Heisenberg Uncertainty Principle</strong>.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>9. Master Formula Sheet for NEET UG</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Physical Parameter</th>
-          <th>General Formula (Hydrogenic Species \(Z\))</th>
-          <th>Dependence on \(n\) and \(Z\)</th>
-          <th>Value for Hydrogen (\(n=1, Z=1\))</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Orbital Radius (\(r_n\))</td>
-          <td>\(r_n = \frac{\varepsilon_0 h^2 n^2}{\pi m Z e^2}\)</td>
-          <td>\(r_n \propto \frac{n^2}{Z}\)</td>
-          <td>\(a_0 = 0.529\;\mathrm{Å}\)</td>
-        </tr>
-        <tr>
-          <td>Orbital Speed (\(v_n\))</td>
-          <td>\(v_n = \frac{Z e^2}{2\varepsilon_0 n h}\)</td>
-          <td>\(v_n \propto \frac{Z}{n}\)</td>
-          <td>\(v_1 = 2.18 \times 10^6\;\mathrm{m/s}\)</td>
-        </tr>
-        <tr>
-          <td>Time Period (\(T_n\))</td>
-          <td>\(T_n = \frac{2\pi r_n}{v_n}\)</td>
-          <td>\(T_n \propto \frac{n^3}{Z^2}\)</td>
-          <td>\(T_1 \approx 1.52 \times 10^{-16}\;\mathrm{s}\)</td>
-        </tr>
-        <tr>
-          <td>Orbital Frequency (\(f_n\))</td>
-          <td>\(f_n = \frac{1}{T_n}\)</td>
-          <td>\(f_n \propto \frac{Z^2}{n^3}\)</td>
-          <td>\(f_1 \approx 6.6 \times 10^{15}\;\mathrm{Hz}\)</td>
-        </tr>
-        <tr>
-          <td>Kinetic Energy (\(K_n\))</td>
-          <td>\(K_n = \frac{m e^4 Z^2}{8\varepsilon_0^2 h^2 n^2}\)</td>
-          <td>\(K_n \propto \frac{Z^2}{n^2}\)</td>
-          <td>\(+13.6\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>Potential Energy (\(U_n\))</td>
-          <td>\(U_n = -2 K_n = -\frac{m e^4 Z^2}{4\varepsilon_0^2 h^2 n^2}\)</td>
-          <td>\(U_n \propto -\frac{Z^2}{n^2}\)</td>
-          <td>\(-27.2\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>Total Energy (\(E_n\))</td>
-          <td>\(E_n = -K_n = -\frac{13.6 Z^2}{n^2}\;\mathrm{eV}\)</td>
-          <td>\(E_n \propto -\frac{Z^2}{n^2}\)</td>
-          <td>\(-13.6\;\mathrm{eV}\)</td>
-        </tr>
-        <tr>
-          <td>Angular Momentum (\(L_n\))</td>
-          <td>\(L_n = \frac{n h}{2\pi}\)</td>
-          <td>\(L_n \propto n\) (independent of \(Z\))</td>
-          <td>\(\hbar = 1.055 \times 10^{-34}\;\mathrm{J\cdot s}\)</td>
-        </tr>
-        <tr>
-          <td>Closest Approach (\(d\))</td>
-          <td>\(d = \frac{2 Z e^2}{4\pi\varepsilon_0 K}\)</td>
-          <td>\(d \propto \frac{Z}{K}\)</td>
-          <td>\(\approx 30\;\mathrm{fm}\) (for \(7.7\;\mathrm{MeV}\) on \(\mathrm{Au}\))</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2>10. Step-by-Step Solved Textbook Examples</h2>
-
-    <div class="example-box">
-      <div class="example-title">Worked Example 2: Solar System vs. Atomic Empty Space Proportion</div>
-      <p>
-        <strong>Problem:</strong> In the nuclear atom model, the nucleus has radius \(\approx 10^{-15}\;\mathrm{m}\) while the atom has radius \(\approx 10^{-10}\;\mathrm{m}\). If the solar system had the same proportions as an atom, calculate whether Earth would be closer to or farther from the Sun than it actually is. The Sun's radius is \(7 \times 10^8\;\mathrm{m}\) and Earth's actual orbit radius is \(1.5 \times 10^{11}\;\mathrm{m}\).
-      </p>
-      <p><strong>Solution:</strong></p>
-      <p>1. Ratio of atomic radius to nuclear radius:</p>
-      \[
-      \frac{R_{\mathrm{atom}}}{R_{\mathrm{nucleus}}} = \frac{10^{-10}\;\mathrm{m}}{10^{-15}\;\mathrm{m}} = 10^5
-      \]
-      <p>2. Scaled orbit radius of Earth:</p>
-      \[
-      R_{\mathrm{scaled}} = 10^5 \times R_{\mathrm{Sun}} = 10^5 \times (7 \times 10^8\;\mathrm{m}) = 7 \times 10^{13}\;\mathrm{m}
-      \]
-      <p>3. Compare with actual orbital radius (\(1.5 \times 10^{11}\;\mathrm{m}\)):</p>
-      \[
-      \frac{R_{\mathrm{scaled}}}{R_{\mathrm{actual}}} = \frac{7 \times 10^{13}}{1.5 \times 10^{11}} \approx 467
-      \]
-      <p>
-        <strong>Answer:</strong> Earth would be over 400 times farther away from the Sun than it currently is. This demonstrates that an atom contains a vastly larger fraction of empty space than our solar system.
-      </p>
-    </div>
-
-    <div class="example-box">
-      <div class="example-title">Worked Example 3: Classical Initial Frequency of Radiation</div>
-      <p>
-        <strong>Problem:</strong> According to classical electromagnetic theory, calculate the initial frequency of light emitted by an electron revolving around a proton in a hydrogen atom in an orbit of radius \(5.3 \times 10^{-11}\;\mathrm{m}\) at a speed of \(2.2 \times 10^6\;\mathrm{m/s}\).
-      </p>
-      <p><strong>Solution:</strong></p>
-      <p>In classical electrodynamics, the radiated wave frequency equals the orbital revolution frequency:</p>
-      \[
-      \nu_{\mathrm{classical}} = f_{\mathrm{rev}} = \frac{v}{2\pi r} = \frac{2.2 \times 10^6}{2 \times 3.1416 \times (5.3 \times 10^{-11})}
-      \]
-      \[
-      \nu_{\mathrm{classical}} = \frac{2.2 \times 10^6}{3.33 \times 10^{-10}} \approx 6.6 \times 10^{15}\;\mathrm{Hz}
-      \]
-      <p>
-        <strong>Answer:</strong> The initial frequency of classically predicted emitted radiation is \(6.6 \times 10^{15}\;\mathrm{Hz}\) (which falls in the ultraviolet region).
-      </p>
-    </div>
-
-    <div class="example-box">
-      <div class="example-title">Worked Example 4: Photon Emission upon Inelastic Electron Bombardment</div>
-      <p>
-        <strong>Problem:</strong> A beam of \(12.5\;\mathrm{eV}\) electrons bombards gaseous hydrogen at room temperature (initially in the ground state). Which spectral series and lines will be emitted when the atoms de-excite?
-      </p>
-      <p><strong>Solution:</strong></p>
-      <p>1. Energy required to excite from \(n=1\) (\(-13.6\;\mathrm{eV}\)) to higher states:</p>
+      <h3>4.4 Spectral Series of Hydrogen</h3>
+      <p>When an electron transitions from an upper state \(n_i\) to a lower state \(n_f\) (\(n_i &gt; n_f\)), the emitted photon energy is \(h\nu = \frac{hc}{\lambda} = 13.6\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right)\,\mathrm{eV}\). Grouping transitions by their final state \(n_f\) produces the spectral series:</p>
       <ul>
-        <li>To \(n = 2\): \(\Delta E_{1\to 2} = -3.4 - (-13.6) = 10.2\;\mathrm{eV}\)</li>
-        <li>To \(n = 3\): \(\Delta E_{1\to 3} = -1.51 - (-13.6) = 12.09\;\mathrm{eV}\)</li>
-        <li>To \(n = 4\): \(\Delta E_{1\to 4} = -0.85 - (-13.6) = 12.75\;\mathrm{eV}\)</li>
+        <li><strong>Lyman series (\(n_f = 1\)):</strong> Ultraviolet region (\(91\,\mathrm{nm}\) to \(122\,\mathrm{nm}\)).</li>
+        <li><strong>Balmer series (\(n_f = 2\)):</strong> Visible region (\(365\,\mathrm{nm}\) to \(656\,\mathrm{nm}\)).</li>
+        <li><strong>Paschen series (\(n_f = 3\)):</strong> Near-infrared region (\(820\,\mathrm{nm}\) to \(1875\,\mathrm{nm}\)).</li>
       </ul>
-      <p>
-        2. Because the incident beam energy is \(12.5\;\mathrm{eV}\), it is sufficient to excite electrons to \(n = 3\) (\(12.09\;\mathrm{eV} < 12.5\;\mathrm{eV}\)), but insufficient to reach \(n = 4\) (\(12.75\;\mathrm{eV} > 12.5\;\mathrm{eV}\)).
-      </p>
-      <p>3. Possible de-excitation pathways from \(n = 3\):</p>
+    </section>
+
+    <section id="de-broglie">
+      <h2>5. de Broglie's Explanation of Quantisation &amp; Bohr's Limitations</h2>
+      <h3>5.1 Standing Matter Waves on Circular Orbits</h3>
+      <p>In 1923, Louis de Broglie explained why angular momentum must be quantised. Treating the orbiting electron as a matter wave of wavelength \(\lambda = \frac{h}{mv_n}\), only those orbits persist in which the electron wave forms a closed <strong>standing wave</strong> without destructive interference. This requires the orbit circumference \(2\pi r_n\) to accommodate an exact integer number \(n\) of de Broglie wavelengths:</p>
+      <div class="formula-box">
+        \[2\pi r_n = n\lambda = n\frac{h}{mv_n} \implies m v_n r_n = \frac{nh}{2\pi}\]
+      </div>
+      <p>Thus, Bohr's quantisation rule emerges naturally from wave-particle duality.</p>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circular standing matter wave for n = 4 showing four wavelengths around the orbit">
+          <rect x="0" y="0" width="640" height="230" fill="#F8FAFC" rx="6"/>
+          <!-- Reference circle -->
+          <circle cx="320" cy="115" r="78" fill="none" stroke="#64748B" stroke-width="1.4" stroke-dasharray="4,4"/>
+          <!-- Standing wave (n = 4: 8 lobes = 4 wavelengths) -->
+          <path d="M 398 115
+                   Q 396 146 375 170
+                   Q 352 174 320 193
+                   Q 288 174 265 170
+                   Q 244 146 242 115
+                   Q 244 84 265 60
+                   Q 288 56 320 37
+                   Q 352 56 375 60
+                   Q 396 84 398 115 Z"
+                fill="#DBEAFE" fill-opacity="0.45" stroke="#2563EB" stroke-width="2"/>
+          <!-- Alternate phase curve -->
+          <path d="M 398 115
+                   Q 375 135 375 170
+                   Q 350 193 320 193
+                   Q 290 193 265 170
+                   Q 265 135 242 115
+                   Q 265 95 265 60
+                   Q 290 37 320 37
+                   Q 350 37 375 60
+                   Q 375 95 398 115"
+                fill="none" stroke="#0D9488" stroke-width="1.6" stroke-dasharray="3,2"/>
+          <!-- Nucleus -->
+          <circle cx="320" cy="115" r="9" fill="#1E293B"/>
+          <text x="320" y="138" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Nucleus</text>
+          <!-- Radius r -->
+          <line x1="320" y1="115" x2="398" y2="115" stroke="#1E293B" stroke-width="1.4"/>
+          <text x="362" y="109" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">r</text>
+          <!-- Wavelength arc -->
+          <path d="M 320 26 A 89 89 0 0 1 409 115" fill="none" stroke="#0D9488" stroke-width="1.6"/>
+          <text x="394" y="45" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">λ</text>
+          <text x="120" y="115" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">n = 4</text>
+          <text x="120" y="134" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Circumference = 4λ</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 4:</strong> A resonant standing matter wave for \(n = 4\), where exactly four de Broglie wavelengths fit around the circular orbit (\(2\pi r_4 = 4\lambda\)).</div>
+      </div>
+
+      <h3>5.2 Limitations of Bohr's Model</h3>
       <ul>
-        <li>\(n = 3 \to n = 1\): Lyman series (\(L_\beta\) line, \(\lambda \approx 102.6\;\mathrm{nm}\))</li>
-        <li>\(n = 2 \to n = 1\): Lyman series (\(L_\alpha\) line, \(\lambda \approx 121.6\;\mathrm{nm}\))</li>
-        <li>\(n = 3 \to n = 2\): Balmer series (\(H_\alpha\) line, \(\lambda \approx 656.3\;\mathrm{nm}\))</li>
+        <li><strong>Only valid for single-electron (hydrogenic) atoms:</strong> It fails even for two-electron helium (\(\mathrm{He}\)) because it ignores electron–electron electrostatic repulsion, which is comparable in strength to electron–nucleus attraction.</li>
+        <li><strong>Cannot explain spectral line intensities:</strong> Some transitions are bright and others faint; Bohr's model predicts frequencies accurately but cannot explain transition probabilities.</li>
+        <li><strong>Classical trajectory conflict:</strong> Precise circular orbits contradict the Heisenberg uncertainty principle; modern quantum mechanics replaces fixed orbits with three-dimensional probability distributions described by four quantum numbers.</li>
       </ul>
-      <p>
-        <strong>Answer:</strong> The emitted radiation consists of 3 distinct lines: two lines in the Lyman series (ultraviolet) and one line in the Balmer series (visible red).
-      </p>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>11. Original NEET UG Practice Questions</h2>
+    <section id="formula-summary">
+      <h2>6. High-Yield Formula &amp; Proportionality Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Physical Quantity</th>
+            <th>Expression (Hydrogenic Atom)</th>
+            <th>Scaling with \(n\) and \(Z\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Distance of closest approach (\(b=0\))</td>
+            <td>\(d = \dfrac{2Ze^2}{4\pi\varepsilon_0 K}\)</td>
+            <td>\(d \propto \dfrac{Z}{K}\)</td>
+          </tr>
+          <tr>
+            <td>Orbital angular momentum</td>
+            <td>\(L_n = \dfrac{nh}{2\pi}\)</td>
+            <td>\(L_n \propto n\) (independent of \(Z\))</td>
+          </tr>
+          <tr>
+            <td>Orbit radius</td>
+            <td>\(r_n = 0.53\,\dfrac{n^2}{Z}\,\mathrm{Å}\)</td>
+            <td>\(r_n \propto \dfrac{n^2}{Z}\)</td>
+          </tr>
+          <tr>
+            <td>Orbital speed</td>
+            <td>\(v_n \approx 2.2 \times 10^6\,\dfrac{Z}{n}\,\mathrm{m/s}\)</td>
+            <td>\(v_n \propto \dfrac{Z}{n}\)</td>
+          </tr>
+          <tr>
+            <td>Orbital time period</td>
+            <td>\(T_n = \dfrac{2\pi r_n}{v_n}\)</td>
+            <td>\(T_n \propto \dfrac{n^3}{Z^2}\)</td>
+          </tr>
+          <tr>
+            <td>Kinetic, Potential &amp; Total Energy</td>
+            <td>\(E_n = -13.6\,\dfrac{Z^2}{n^2}\,\mathrm{eV}\)<br>\(K_n = -E_n,\quad U_n = 2E_n\)</td>
+            <td>\(|E_n| \propto \dfrac{Z^2}{n^2}\)</td>
+          </tr>
+          <tr>
+            <td>de Broglie wavelength in \(n^{\text{th}}\) orbit</td>
+            <td>\(\lambda_n = \dfrac{2\pi r_n}{n}\)</td>
+            <td>\(\lambda_n \propto \dfrac{n}{Z}\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-    <!-- Question 1 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 1</span>
-        <span class="question-tag">Single Option Correct (NEET Standard)</span>
-      </div>
-      <p>
-        In a Geiger-Marsden scattering experiment, an \(\alpha\)-particle of kinetic energy \(K\) collides head-on with a gold nucleus (\(Z=79\)) and stops momentarily at a distance of closest approach \(d\). If the kinetic energy of the incident \(\alpha\)-particle is doubled, the new distance of closest approach will become:
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(2d\)</div>
-        <div class="option-item"><strong>(B)</strong> \(\sqrt{2}d\)</div>
-        <div class="option-item"><strong>(C)</strong> \(\frac{d}{2}\)</div>
-        <div class="option-item"><strong>(D)</strong> \(\frac{d}{4}\)</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (C)</strong>
-        <p>
-          <strong>Explanation:</strong> In a head-on collision, initial kinetic energy converts entirely into electrostatic potential energy:
-        </p>
-        \[
-        K = \frac{1}{4\pi\varepsilon_0}\frac{2Ze^2}{d} \implies d \propto \frac{1}{K}
-        \]
-        <p>
-          When kinetic energy is doubled (\(K' = 2K\)), the distance of closest approach halves: \(d' = \frac{d}{2}\).
-        </p>
-      </div>
-    </div>
+    <section id="worked-examples">
+      <h2>7. Original Worked Examples</h2>
 
-    <!-- Question 2 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 2</span>
-        <span class="question-tag">Scattering Angle Dependence</span>
+      <div class="example-block">
+        <div class="example-header">Worked Example 1: Distance of Closest Approach</div>
+        <p><strong>Problem:</strong> Suppose a beam of α-particles, each having a kinetic energy of \(6.4\,\mathrm{MeV}\) (assumed value), is directed head-on toward a stationary silver nucleus (\(Z = 47\)). Calculate the distance of closest approach \(d\). (Take \(\frac{1}{4\pi\varepsilon_0} = 9.0 \times 10^9\,\mathrm{N\cdot m^2/C^2}\) and \(e = 1.6 \times 10^{-19}\,\mathrm{C}\)).</p>
+        <p><strong>Solution:</strong></p>
+        <p>Convert kinetic energy to joules:</p>
+        \[K = 6.4 \times 10^6\,\mathrm{eV} \times 1.6 \times 10^{-19}\,\mathrm{J/eV} = 1.024 \times 10^{-12}\,\mathrm{J}\]
+        <p>At the distance of closest approach \(d\), total kinetic energy converts to electrostatic potential energy:</p>
+        \[d = \frac{2Ze^2}{4\pi\varepsilon_0 K} = \frac{2 \times 9.0 \times 10^9 \times 47 \times (1.6 \times 10^{-19})^2}{1.024 \times 10^{-12}}\]
+        \[d = \frac{18 \times 47 \times 2.56 \times 10^{-29}}{1.024 \times 10^{-12}} = 2115 \times 10^{-17}\,\mathrm{m} \approx 2.12 \times 10^{-14}\,\mathrm{m} = 21.2\,\mathrm{fm}\]
       </div>
-      <p>
-        At a scattering angle of \(\theta = 60^\circ\), the number of \(\alpha\)-particles scattered per unit area is observed to be \(N\). According to Rutherford's scattering formula, what will be the number of \(\alpha\)-particles scattered per unit area at an angle of \(\theta = 90^\circ\)?
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(\frac{N}{4}\)</div>
-        <div class="option-item"><strong>(B)</strong> \(\frac{N}{2}\)</div>
-        <div class="option-item"><strong>(C)</strong> \(2N\)</div>
-        <div class="option-item"><strong>(D)</strong> \(4N\)</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (A)</strong>
-        <p>
-          <strong>Explanation:</strong> The Rutherford scattering law states:
-        </p>
-        \[
-        N(\theta) \propto \frac{1}{\sin^4(\theta/2)}
-        \]
-        <p>For \(\theta_1 = 60^\circ\): \(\sin(\theta_1/2) = \sin(30^\circ) = \frac{1}{2} \implies \sin^4(30^\circ) = \left(\frac{1}{2}\right)^4 = \frac{1}{16}\).</p>
-        <p>For \(\theta_2 = 90^\circ\): \(\sin(\theta_2/2) = \sin(45^\circ) = \frac{1}{\sqrt{2}} \implies \sin^4(45^\circ) = \left(\frac{1}{\sqrt{2}}\right)^4 = \frac{1}{4}\).</p>
-        <p>Taking the ratio:</p>
-        \[
-        \frac{N(90^\circ)}{N(60^\circ)} = \frac{\sin^4(30^\circ)}{\sin^4(45^\circ)} = \frac{1/16}{1/4} = \frac{1}{4} \implies N(90^\circ) = \frac{N}{4}
-        \]
-      </div>
-    </div>
 
-    <!-- Question 3 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 3</span>
-        <span class="question-tag">Bohr Orbit Proportionalities</span>
+      <div class="example-block">
+        <div class="example-header">Worked Example 2: Energy &amp; Radius in an Excited State</div>
+        <p><strong>Problem:</strong> An electron in a hydrogen atom occupies the \(n = 3\) stationary state. Using \(a_0 = 0.53\,\mathrm{Å}\) and \(E_1 = -13.6\,\mathrm{eV}\), determine its orbital radius, kinetic energy, and electrostatic potential energy.</p>
+        <p><strong>Solution:</strong></p>
+        <ul>
+          <li><strong>Orbital radius:</strong> \(r_3 = n^2 a_0 = 3^2 \times 0.53\,\mathrm{Å} = 4.77\,\mathrm{Å} = 4.77 \times 10^{-10}\,\mathrm{m}\).</li>
+          <li><strong>Total energy:</strong> \(E_3 = -\dfrac{13.6}{3^2}\,\mathrm{eV} = -1.51\,\mathrm{eV}\).</li>
+          <li><strong>Kinetic energy:</strong> \(K_3 = -E_3 = +1.51\,\mathrm{eV}\).</li>
+          <li><strong>Potential energy:</strong> \(U_3 = 2E_3 = -3.02\,\mathrm{eV}\).</li>
+        </ul>
       </div>
-      <p>
-        If the radius of the first orbit of a hydrogen atom (\(n=1\)) is \(a_0\), then the radius of the second orbit of a singly ionized helium atom (\(\mathrm{He}^+, Z=2\)) is:
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(a_0\)</div>
-        <div class="option-item"><strong>(B)</strong> \(2a_0\)</div>
-        <div class="option-item"><strong>(C)</strong> \(4a_0\)</div>
-        <div class="option-item"><strong>(D)</strong> \(0.5a_0\)</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (B)</strong>
-        <p>
-          <strong>Explanation:</strong> The radius of the \(n^{\mathrm{th}}\) orbit in a hydrogen-like atom is:
-        </p>
-        \[
-        r_n = a_0 \frac{n^2}{Z}
-        \]
-        <p>For \(\mathrm{He}^+\), \(Z = 2\). For the second orbit, \(n = 2\):</p>
-        \[
-        r_2 = a_0 \frac{(2)^2}{2} = a_0 \frac{4}{2} = 2a_0
-        \]
-      </div>
-    </div>
 
-    <!-- Question 4 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 4</span>
-        <span class="question-tag">Orbital Period Scaling</span>
+      <div class="example-block">
+        <div class="example-header">Worked Example 3: Photon Frequency &amp; Wavelength of a Balmer Transition</div>
+        <p><strong>Problem:</strong> A hydrogen atom transitions from the \(n_i = 4\) state to the \(n_f = 2\) state. Calculate the frequency and wavelength of the emitted photon. (Assume \(h = 6.63 \times 10^{-34}\,\mathrm{J\cdot s}\), \(c = 3.0 \times 10^8\,\mathrm{m/s}\), \(1\,\mathrm{eV} = 1.6 \times 10^{-19}\,\mathrm{J}\)).</p>
+        <p><strong>Solution:</strong></p>
+        <p>The energies of the initial and final states are:</p>
+        \[E_4 = -\frac{13.6}{4^2} = -0.85\,\mathrm{eV}, \qquad E_2 = -\frac{13.6}{2^2} = -3.40\,\mathrm{eV}\]
+        <p>Photon energy:</p>
+        \[\Delta E = E_4 - E_2 = -0.85 - (-3.40) = 2.55\,\mathrm{eV} = 2.55 \times 1.6 \times 10^{-19}\,\mathrm{J} = 4.08 \times 10^{-19}\,\mathrm{J}\]
+        <p>Frequency of emitted light:</p>
+        \[\nu = \frac{\Delta E}{h} = \frac{4.08 \times 10^{-19}}{6.63 \times 10^{-34}} \approx 6.15 \times 10^{14}\,\mathrm{Hz}\]
+        <p>Wavelength of emitted light:</p>
+        \[\lambda = \frac{c}{\nu} = \frac{3.0 \times 10^8}{6.15 \times 10^{14}} \approx 4.88 \times 10^{-7}\,\mathrm{m} = 488\,\mathrm{nm}\]
       </div>
-      <p>
-        The period of revolution of an electron in the ground state of a hydrogen atom is \(T\). The period of revolution of the electron in the first excited state (\(n=2\)) will be:
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(2T\)</div>
-        <div class="option-item"><strong>(B)</strong> \(4T\)</div>
-        <div class="option-item"><strong>(C)</strong> \(8T\)</div>
-        <div class="option-item"><strong>(D)</strong> \(16T\)</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (C)</strong>
-        <p>
-          <strong>Explanation:</strong> Orbital period is related to principal quantum number by:
-        </p>
-        \[
-        T \propto \frac{r}{v} \propto \frac{n^2}{1/n} = n^3
-        \]
-        <p>
-          For the first excited state, \(n = 2\). Hence:
-        </p>
-        \[
-        T_2 = T_1 \times (2)^3 = 8T
-        \]
-      </div>
-    </div>
 
-    <!-- Question 5 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 5</span>
-        <span class="question-tag">Potential vs Total Energy</span>
+      <div class="example-block">
+        <div class="example-header">Worked Example 4: Excitation by Electron Bombardment</div>
+        <p><strong>Problem:</strong> Gaseous hydrogen at room temperature is bombarded with a beam of \(12.8\,\mathrm{eV}\) electrons (assumed energy). Which spectral series and how many distinct spectral lines can be emitted during de-excitation?</p>
+        <p><strong>Solution:</strong></p>
+        <p>At room temperature, hydrogen atoms are in the ground state (\(E_1 = -13.6\,\mathrm{eV}\)). After absorbing up to \(12.8\,\mathrm{eV}\), the highest reachable energy is \(-13.6 + 12.8 = -0.80\,\mathrm{eV}\).</p>
+        <p>Comparing with allowed levels: \(E_4 = -0.85\,\mathrm{eV}\) (requires \(12.75\,\mathrm{eV}\)) and \(E_5 = -0.54\,\mathrm{eV}\) (requires \(13.06\,\mathrm{eV}\)). Thus, electrons can be excited up to \(n = 4\), but not \(n = 5\).</p>
+        <p>From \(n = 4\), downward transitions can end at \(n_f = 1\) (<strong>Lyman series</strong>), \(n_f = 2\) (<strong>Balmer series</strong>), and \(n_f = 3\) (<strong>Paschen series</strong>). The total number of distinct spectral lines possible is:</p>
+        \[N = \frac{n(n-1)}{2} = \frac{4 \times 3}{2} = 6\text{ lines}\]
       </div>
-      <p>
-        The total energy of an electron in a specific stationary orbit of a hydrogen atom is \(-3.4\;\mathrm{eV}\). Its kinetic energy (\(K\)) and electrostatic potential energy (\(U\)) in this orbit are respectively:
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(+3.4\;\mathrm{eV}\) and \(-6.8\;\mathrm{eV}\)</div>
-        <div class="option-item"><strong>(B)</strong> \(-3.4\;\mathrm{eV}\) and \(-6.8\;\mathrm{eV}\)</div>
-        <div class="option-item"><strong>(C)</strong> \(+6.8\;\mathrm{eV}\) and \(-3.4\;\mathrm{eV}\)</div>
-        <div class="option-item"><strong>(D)</strong> \(+3.4\;\mathrm{eV}\) and \(+6.8\;\mathrm{eV}\)</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (A)</strong>
-        <p>
-          <strong>Explanation:</strong> In Bohr's orbit:
-        </p>
-        \[
-        K = -E = -(-3.4\;\mathrm{eV}) = +3.4\;\mathrm{eV}
-        \]
-        \[
-        U = 2E = 2 \times (-3.4\;\mathrm{eV}) = -6.8\;\mathrm{eV}
-        \]
-      </div>
-    </div>
+    </section>
 
-    <!-- Question 6 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 6</span>
-        <span class="question-tag">Spectral Series Wavelength Ratio</span>
-      </div>
-      <p>
-        The ratio of the longest wavelength in the Lyman series to the longest wavelength in the Balmer series of the hydrogen spectrum is:
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(\frac{5}{27}\)</div>
-        <div class="option-item"><strong>(B)</strong> \(\frac{27}{5}\)</div>
-        <div class="option-item"><strong>(C)</strong> \(\frac{4}{9}\)</div>
-        <div class="option-item"><strong>(D)</strong> \(\frac{5}{36}\)</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (A)</strong>
-        <p>
-          <strong>Explanation:</strong> Longest wavelength corresponds to the minimum energy jump between adjacent levels:
-        </p>
-        <p>1. Lyman longest wavelength (\(2 \to 1\)):</p>
-        \[
-        \frac{1}{\lambda_{L,\max}} = R \left( \frac{1}{1^2} - \frac{1}{2^2} \right) = R \left( 1 - \frac{1}{4} \right) = \frac{3R}{4} \implies \lambda_{L,\max} = \frac{4}{3R}
-        \]
-        <p>2. Balmer longest wavelength (\(3 \to 2\)):</p>
-        \[
-        \frac{1}{\lambda_{B,\max}} = R \left( \frac{1}{2^2} - \frac{1}{3^2} \right) = R \left( \frac{1}{4} - \frac{1}{9} \right) = \frac{5R}{36} \implies \lambda_{B,\max} = \frac{36}{5R}
-        \]
-        <p>3. Ratio:</p>
-        \[
-        \frac{\lambda_{L,\max}}{\lambda_{B,\max}} = \frac{4 / (3R)}{36 / (5R)} = \frac{4}{3} \times \frac{5}{36} = \frac{20}{108} = \frac{5}{27}
-        \]
-      </div>
-    </div>
+    <section id="practice-questions">
+      <h2>8. NEET UG Practice Questions</h2>
+      <p>The following are original practice questions designed in the NEET UG format. Attempt each question before reviewing its answer and worked solution.</p>
 
-    <!-- Question 7 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 7</span>
-        <span class="question-tag">Number of Spectral Lines</span>
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 1.</span> In Rutherford's α-particle scattering experiment, if the impact parameter \(b\) of an incident α-particle is gradually reduced toward zero, how does its scattering angle \(\theta\) change?</div>
+        <ul class="options-list">
+          <li>(A) It decreases toward \(0°\)</li>
+          <li>(B) It remains constant at \(90°\)</li>
+          <li>(C) It increases toward \(180°\)</li>
+          <li>(D) It drops abruptly to zero at the nuclear boundary</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (C)</span>
+          <p><strong>Solution:</strong> A smaller impact parameter \(b\) means the α-particle passes closer to the positively charged nucleus, experiencing a stronger Coulomb repulsion and hence a larger deflection \(\theta\). In the limit \(b \to 0\) (head-on collision), the particle rebounds straight back (\(\theta = 180°\)).</p>
+        </div>
       </div>
-      <p>
-        A sample of hydrogen atoms in their ground state absorbs photons such that the electrons are excited to the state with principal quantum number \(n = 5\). How many different spectral emission lines can potentially be observed as the atoms return to the ground state?
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> 4</div>
-        <div class="option-item"><strong>(B)</strong> 6</div>
-        <div class="option-item"><strong>(C)</strong> 10</div>
-        <div class="option-item"><strong>(D)</strong> 15</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (C)</strong>
-        <p>
-          <strong>Explanation:</strong> The maximum number of spectral lines emitted during de-excitation from level \(n\) to ground state is:
-        </p>
-        \[
-        N = \frac{n(n - 1)}{2} = \frac{5(5 - 1)}{2} = \frac{5 \times 4}{2} = 10
-        \]
-      </div>
-    </div>
 
-    <!-- Question 8 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 8</span>
-        <span class="question-tag">De Broglie Standing Waves</span>
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 2.</span> An α-particle of kinetic energy \(K\) approaches a stationary nucleus of atomic number \(Z\) head-on and stops at a distance of closest approach \(d\). If both the kinetic energy of the α-particle and the atomic number of the target nucleus are doubled (to \(2K\) and \(2Z\), respectively), what is the new distance of closest approach?</div>
+        <ul class="options-list">
+          <li>(A) \(d/2\)</li>
+          <li>(B) \(d\)</li>
+          <li>(C) \(2d\)</li>
+          <li>(D) \(4d\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (B)</span>
+          <p><strong>Solution:</strong> The distance of closest approach is \(d = \dfrac{2Ze^2}{4\pi\varepsilon_0 K}\), so \(d \propto \dfrac{Z}{K}\). When \(Z \to 2Z\) and \(K \to 2K\), the factor of \(2\) cancels: \(d' = \dfrac{2Z}{2K}\left(\dfrac{2e^2}{4\pi\varepsilon_0}\right) = d\).</p>
+        </div>
       </div>
-      <p>
-        According to de Broglie's hypothesis, the circumference of the third orbit (\(n=3\)) of a hydrogen atom is:
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> Equal to 3 de Broglie wavelengths of the electron in that orbit</div>
-        <div class="option-item"><strong>(B)</strong> Equal to 1.5 de Broglie wavelengths of the electron in that orbit</div>
-        <div class="option-item"><strong>(C)</strong> Equal to 9 de Broglie wavelengths of the electron in that orbit</div>
-        <div class="option-item"><strong>(D)</strong> Independent of the de Broglie wavelength</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (A)</strong>
-        <p>
-          <strong>Explanation:</strong> The condition for resonant standing matter waves in an allowed circular orbit is:
-        </p>
-        \[
-        2\pi r_n = n\lambda
-        \]
-        <p>
-          For \(n = 3\), the circumference \(2\pi r_3 = 3\lambda\), meaning precisely 3 complete de Broglie wavelengths fit around the orbit.
-        </p>
-      </div>
-    </div>
 
-    <!-- Question 9 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 9</span>
-        <span class="question-tag">Assertion and Reason (NEET Pattern)</span>
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 3.</span> In a hydrogen atom, an electron revolves in a stationary orbit where its total energy is \(-3.40\,\mathrm{eV}\). What are its kinetic energy \(K\) and electrostatic potential energy \(U\) in this orbit?</div>
+        <ul class="options-list">
+          <li>(A) \(K = +3.40\,\mathrm{eV},\; U = -6.80\,\mathrm{eV}\)</li>
+          <li>(B) \(K = -3.40\,\mathrm{eV},\; U = +6.80\,\mathrm{eV}\)</li>
+          <li>(C) \(K = +1.70\,\mathrm{eV},\; U = -5.10\,\mathrm{eV}\)</li>
+          <li>(D) \(K = +6.80\,\mathrm{eV},\; U = -10.20\,\mathrm{eV}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (A)</span>
+          <p><strong>Solution:</strong> For a bound circular Coulomb orbit, \(K = -E\) and \(U = 2E\). Given \(E = -3.40\,\mathrm{eV}\), we obtain \(K = +3.40\,\mathrm{eV}\) and \(U = 2(-3.40\,\mathrm{eV}) = -6.80\,\mathrm{eV}\).</p>
+        </div>
       </div>
-      <p>
-        <strong>Assertion (A):</strong> Thomson's atomic model could not explain the large-angle scattering of \(\alpha\)-particles observed in the Geiger-Marsden experiment.<br>
-        <strong>Reason (R):</strong> In Thomson's model, the positive charge and mass are uniformly distributed over the entire volume of the atom, resulting in weak electric fields that cannot produce large deflections.
-      </p>
-      <div class="options-grid">
-        <div class="option-item"><strong>(A)</strong> Both (A) and (R) are true, and (R) is the correct explanation of (A).</div>
-        <div class="option-item"><strong>(B)</strong> Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).</div>
-        <div class="option-item"><strong>(C)</strong> (A) is true, but (R) is false.</div>
-        <div class="option-item"><strong>(D)</strong> (A) is false, but (R) is true.</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (A)</strong>
-        <p>
-          <strong>Explanation:</strong> In Thomson's model, the positive charge is diffuse over a sphere of radius \(\sim 10^{-10}\;\mathrm{m}\). The maximum electric field produced by such a charge distribution is far too small to reverse or deflect a high-energy, massive \(\alpha\)-particle. Only a concentrated nuclear core creates an electric field intense enough to cause large-angle deflections.
-        </p>
-      </div>
-    </div>
 
-    <!-- Question 10 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 10</span>
-        <span class="question-tag">Statement-Based Question (NEET Pattern)</span>
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 4.</span> According to Bohr's model of the hydrogen atom, what is the ratio of the orbital time period of an electron in the \(n = 2\) state to that in the \(n = 1\) state?</div>
+        <ul class="options-list">
+          <li>(A) \(2 : 1\)</li>
+          <li>(B) \(4 : 1\)</li>
+          <li>(C) \(8 : 1\)</li>
+          <li>(D) \(16 : 1\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (C)</span>
+          <p><strong>Solution:</strong> The orbital time period is \(T_n = \dfrac{2\pi r_n}{v_n}\). Since \(r_n \propto n^2\) and \(v_n \propto \dfrac{1}{n}\), it follows that \(T_n \propto n^3\). Therefore, \(\dfrac{T_2}{T_1} = \left(\dfrac{2}{1}\right)^3 = \dfrac{8}{1}\).</p>
+        </div>
       </div>
-      <p>
-        Evaluate the following two statements regarding atomic models:<br>
-        <strong>Statement I:</strong> According to classical electromagnetic theory, an electron in Rutherford's planetary model must continuously emit radiation and spiral into the nucleus.<br>
-        <strong>Statement II:</strong> Bohr's model is applicable to multi-electron systems such as neutral helium without any modifications.
-      </p>
-      <div class="options-grid">
-        <div class="option-item"><strong>(A)</strong> Both Statement I and Statement II are correct.</div>
-        <div class="option-item"><strong>(B)</strong> Both Statement I and Statement II are incorrect.</div>
-        <div class="option-item"><strong>(C)</strong> Statement I is correct, but Statement II is incorrect.</div>
-        <div class="option-item"><strong>(D)</strong> Statement I is incorrect, but Statement II is correct.</div>
-      </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (C)</strong>
-        <p>
-          <strong>Explanation:</strong> Statement I is correct: Maxwell's classical electrodynamics predicts that an accelerated charge continuously emits electromagnetic radiation, causing an orbital spiral. Statement II is incorrect: Bohr's model applies strictly to single-electron (hydrogenic) systems; it fails for neutral helium because it does not include electron-electron repulsion.
-        </p>
-      </div>
-    </div>
 
-    <!-- Question 11 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 11</span>
-        <span class="question-tag">De-excitation and Transition Limits</span>
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 5.</span> If the de Broglie wavelength of an electron in the ground state (\(n = 1\)) of a hydrogen atom is \(\lambda_0\), what is its de Broglie wavelength in the second excited state (\(n = 3\))?</div>
+        <ul class="options-list">
+          <li>(A) \(\lambda_0 / 3\)</li>
+          <li>(B) \(\lambda_0\)</li>
+          <li>(C) \(3\lambda_0\)</li>
+          <li>(D) \(9\lambda_0\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (C)</span>
+          <p><strong>Solution:</strong> By de Broglie's standing-wave condition, \(n\lambda_n = 2\pi r_n\). Since \(r_n = n^2 a_0\), we get \(\lambda_n = \dfrac{2\pi n^2 a_0}{n} = 2\pi a_0 n = n\lambda_0\). For the second excited state (\(n = 3\)), \(\lambda_3 = 3\lambda_0\).</p>
+        </div>
       </div>
-      <p>
-        The series limit wavelength for the Balmer series of hydrogen is \(\lambda_0\). What is the series limit wavelength for the Lyman series of a singly ionized helium atom (\(\mathrm{He}^+\))?
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(\lambda_0\)</div>
-        <div class="option-item"><strong>(B)</strong> \(\frac{\lambda_0}{4}\)</div>
-        <div class="option-item"><strong>(C)</strong> \(\frac{\lambda_0}{16}\)</div>
-        <div class="option-item"><strong>(D)</strong> \(4\lambda_0\)</div>
+
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 6.</span> Which of the following electronic transitions in a hydrogen atom emits a photon of the shortest wavelength?</div>
+        <ul class="options-list">
+          <li>(A) \(n = 2 \to n = 1\)</li>
+          <li>(B) \(n = 3 \to n = 2\)</li>
+          <li>(C) \(n = 4 \to n = 3\)</li>
+          <li>(D) \(n = 5 \to n = 2\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (A)</span>
+          <p><strong>Solution:</strong> The shortest wavelength corresponds to the largest emitted photon energy \(\Delta E = E_i - E_f\). Computing each: (A) \(13.6(1 - 1/4) = 10.2\,\mathrm{eV}\); (B) \(13.6(1/4 - 1/9) \approx 1.89\,\mathrm{eV}\); (C) \(13.6(1/9 - 1/16) \approx 0.66\,\mathrm{eV}\); (D) \(13.6(1/4 - 1/25) \approx 2.86\,\mathrm{eV}\). Transition \(n = 2 \to n = 1\) releases the greatest energy and hence the shortest wavelength.</p>
+        </div>
       </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (C)</strong>
-        <p>
-          <strong>Explanation:</strong> The series limit corresponds to a transition from \(n_i = \infty\):
-        </p>
-        <p>1. Balmer series limit of hydrogen (\(Z=1, n_f=2\)):</p>
-        \[
-        \frac{1}{\lambda_0} = R (1)^2 \left(\frac{1}{2^2} - 0\right) = \frac{R}{4} \implies \lambda_0 = \frac{4}{R}
-        \]
-        <p>2. Lyman series limit of \(\mathrm{He}^+\) (\(Z=2, n_f=1\)):</p>
-        \[
-        \frac{1}{\lambda_{\mathrm{He}^+}} = R (2)^2 \left(\frac{1}{1^2} - 0\right) = 4R \implies \lambda_{\mathrm{He}^+} = \frac{1}{4R}
-        \]
-        <p>3. Express \(\lambda_{\mathrm{He}^+}\) in terms of \(\lambda_0\):</p>
-        \[
-        \lambda_{\mathrm{He}^+} = \frac{1}{4R} = \frac{1}{16} \left(\frac{4}{R}\right) = \frac{\lambda_0}{16}
-        \]
+
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 7 (Assertion–Reason).</span><br>
+        <strong>Assertion (A):</strong> In the Geiger–Marsden α-particle scattering experiment, nearly all α-particles pass through the gold foil with negligible deflection, while only about \(1\) in \(8000\) deflects by more than \(90°\).<br>
+        <strong>Reason (R):</strong> Most of the atom's volume is empty space, whereas its entire positive charge and almost all of its mass are concentrated in a tiny central nucleus.</div>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+          <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+          <li>(C) (A) is true, but (R) is false.</li>
+          <li>(D) (A) is false, but (R) is true.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (A)</span>
+          <p><strong>Solution:</strong> Because the nucleus occupies a tiny fraction of the atomic volume (radius \(\sim 10^{-15}\,\mathrm{m}\) compared to atomic radius \(\sim 10^{-10}\,\mathrm{m}\)), most α-particles miss the nucleus and pass straight through. Only the rare α-particles that pass very close to the dense positive nucleus experience sufficient Coulomb repulsion to scatter beyond \(90°\).</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Question 12 -->
-    <div class="question-card">
-      <div class="question-header">
-        <span class="question-number">Practice Question 12</span>
-        <span class="question-tag">Angular Momentum Quantization</span>
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 8 (Statement-Based).</span><br>
+        <strong>Statement I:</strong> Bohr's atomic model is applicable to single-electron hydrogenic species such as \(\mathrm{H}\), \(\mathrm{He}^+\), and \(\mathrm{Li}^{2+}\).<br>
+        <strong>Statement II:</strong> Bohr's model accurately predicts the relative intensities of spectral lines emitted by hydrogen atoms.</div>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct.</li>
+          <li>(B) Both Statement I and Statement II are incorrect.</li>
+          <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+          <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (C)</span>
+          <p><strong>Solution:</strong> Bohr's model works for any single-electron atom or ion (where electron–electron repulsion is absent), so Statement I is correct. However, Bohr's model cannot account for why some spectral lines are brighter than others (relative intensities), making Statement II incorrect.</p>
+        </div>
       </div>
-      <p>
-        What is the change in orbital angular momentum of an electron when it makes a transition from the third excited state to the ground state in a hydrogen atom?
-      </p>
-      <div class="options-grid two-col">
-        <div class="option-item"><strong>(A)</strong> \(\frac{h}{2\pi}\)</div>
-        <div class="option-item"><strong>(B)</strong> \(\frac{2h}{\pi}\)</div>
-        <div class="option-item"><strong>(C)</strong> \(\frac{3h}{2\pi}\)</div>
-        <div class="option-item"><strong>(D)</strong> \(\frac{3h}{\pi}\)</div>
+
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 9.</span> A hydrogen atom is initially in its first excited state (\(n = 2\)). What is the minimum energy required to ionise the atom from this state?</div>
+        <ul class="options-list">
+          <li>(A) \(13.6\,\mathrm{eV}\)</li>
+          <li>(B) \(10.2\,\mathrm{eV}\)</li>
+          <li>(C) \(3.40\,\mathrm{eV}\)</li>
+          <li>(D) \(1.51\,\mathrm{eV}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (C)</span>
+          <p><strong>Solution:</strong> In the \(n = 2\) state, the electron's energy is \(E_2 = -\dfrac{13.6}{2^2} = -3.40\,\mathrm{eV}\). To ionise the atom (\(E_\infty = 0\,\mathrm{eV}\)), the minimum energy needed is \(0 - (-3.40\,\mathrm{eV}) = 3.40\,\mathrm{eV}\).</p>
+        </div>
       </div>
-      <div class="solution-box">
-        <strong class="ans-title">Correct Answer: (C)</strong>
-        <p>
-          <strong>Explanation:</strong> "Third excited state" corresponds to \(n = 3 + 1 = 4\). The ground state is \(n = 1\).
-        </p>
-        \[
-        \Delta L = L_4 - L_1 = \frac{4h}{2\pi} - \frac{1h}{2\pi} = \frac{3h}{2\pi}
-        \]
+
+      <div class="question-card">
+        <div class="question-stem"><span class="q-num">Practice Question 10.</span> An electron in a hydrogen atom jumps from an orbit of angular momentum \(\dfrac{3h}{2\pi}\) to an orbit of angular momentum \(\dfrac{h}{2\pi}\). What is the ratio of its orbital speed in the initial orbit to that in the final orbit?</div>
+        <ul class="options-list">
+          <li>(A) \(1 : 3\)</li>
+          <li>(B) \(3 : 1\)</li>
+          <li>(C) \(1 : 9\)</li>
+          <li>(D) \(9 : 1\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-tag">Answer: (A)</span>
+          <p><strong>Solution:</strong> From \(L = \dfrac{nh}{2\pi}\), the initial and final quantum numbers are \(n_i = 3\) and \(n_f = 1\). Since orbital speed scales as \(v_n \propto \dfrac{1}{n}\), the speed ratio is \(\dfrac{v_i}{v_f} = \dfrac{n_f}{n_i} = \dfrac{1}{3}\).</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>12. Common Student Traps and High-Yield Revision Checklist</h2>
+    <section id="pitfalls-checklist">
+      <h2>9. Common Pitfalls &amp; Revision Checklist</h2>
+      <div class="card warn">
+        <div class="card-title">Common Mistakes to Avoid in NEET UG</div>
+        <ul>
+          <li><strong>Confusing "first excited state" with \(n = 1\):</strong> \(n = 1\) is the <em>ground state</em>; the <em>first excited state</em> is \(n = 2\), and the <em>second excited state</em> is \(n = 3\).</li>
+          <li><strong>Sign errors in \(K\), \(U\), and \(E\):</strong> Kinetic energy \(K\) is always positive (\(K = -E\)), while potential energy \(U\) and total energy \(E\) are negative for bound states (\(U = 2E\)).</li>
+          <li><strong>Assuming \(d\) equals the nuclear radius:</strong> The distance of closest approach \(d\) is always greater than or equal to the sum of the α-particle and target nuclear radii if no nuclear contact occurs; it provides an upper limit on nuclear size.</li>
+          <li><strong>Applying Bohr's formula to multi-electron atoms:</strong> Never use \(E_n = -13.6\,Z^2/n^2\,\mathrm{eV}\) for neutral helium (\(\mathrm{He}\)) or lithium (\(\mathrm{Li}\)); it applies only to single-electron species (\(\mathrm{H}\), \(\mathrm{He}^+\), \(\mathrm{Li}^{2+}\)).</li>
+        </ul>
+      </div>
 
-    <div class="callout warning">
-      <div class="callout-title">Frequent Conceptual and Numerical Errors in NEET:</div>
-      <ul>
-        <li>
-          <strong>State Numbering Confusion:</strong> Ground state is \(n=1\). The \(n^{\mathrm{th}}\) excited state corresponds to principal quantum number \((n+1)\). For example, the <em>second excited state</em> has \(n=3\).
-        </li>
-        <li>
-          <strong>Sign Conventions for Atomic Energy:</strong> Total mechanical energy \(E\) and potential energy \(U\) are strictly negative for bound states; kinetic energy \(K\) is always positive. Remember: \(K = -E\), \(U = 2E\), and \(K = -U/2\).
-        </li>
-        <li>
-          <strong>Target Atomic Number (\(Z\)) Dependency:</strong> Closest approach distance \(d \propto Z\), but radius of orbit \(r \propto 1/Z\), velocity \(v \propto Z\), and energy \(E \propto Z^2\).
-        </li>
-        <li>
-          <strong>Spectral Series Wavelength Limits:</strong> The longest wavelength (\(\lambda_{\max}\)) occurs for transition between adjacent levels (\(\Delta n = 1\)). The shortest wavelength (\(\lambda_{\min}\), series limit) occurs for transition from \(n_i = \infty\).
-        </li>
-        <li>
-          <strong>De Broglie Wavelength:</strong> The de Broglie wavelength of an orbital electron in state \(n\) is \(\lambda = \frac{2\pi r_n}{n}\). Since \(r_n \propto n^2\), the de Broglie wavelength scales linearly with \(n\): \(\lambda \propto n\).
-        </li>
-      </ul>
-    </div>
+      <div class="card teal">
+        <div class="card-title">Quick Revision Checklist</div>
+        <ul>
+          <li>Nuclear radius \(\sim 10^{-15}\,\mathrm{m}\) to \(10^{-14}\,\mathrm{m}\); atomic radius \(\sim 10^{-10}\,\mathrm{m}\).</li>
+          <li>\(r_n \propto n^2/Z\), \(v_n \propto Z/n\), \(T_n \propto n^3/Z^2\), \(E_n \propto -Z^2/n^2\).</li>
+          <li>Hydrogen ground state energy \(= -13.6\,\mathrm{eV}\); ionisation energy \(= 13.6\,\mathrm{eV}\).</li>
+          <li>Lyman (\(n_f = 1\), UV), Balmer (\(n_f = 2\), Visible), Paschen (\(n_f = 3\), IR).</li>
+          <li>de Broglie standing-wave condition: \(2\pi r_n = n\lambda \iff mvr = nh/2\pi\).</li>
+        </ul>
+      </div>
+    </section>
 
-    <h3>Final Exam-Day Checklist</h3>
-    <div class="checklist-item">
-      <span class="checklist-icon">✓</span>
-      <div><strong>Geiger-Marsden Law:</strong> \(N(\theta) \propto \frac{1}{\sin^4(\theta/2)}\) and \(b \propto \cot(\theta/2)\).</div>
-    </div>
-    <div class="checklist-item">
-      <span class="checklist-icon">✓</span>
-      <div><strong>Closest Approach:</strong> \(d = \frac{2Ze^2}{4\pi\varepsilon_0 K} \propto \frac{Z}{K}\).</div>
-    </div>
-    <div class="checklist-item">
-      <span class="checklist-icon">✓</span>
-      <div><strong>Bohr Scalings:</strong> \(r_n = 0.529 \frac{n^2}{Z}\;\mathrm{Å}\), \(v_n = 2.18 \times 10^6 \frac{Z}{n}\;\mathrm{m/s}\), \(E_n = -13.6 \frac{Z^2}{n^2}\;\mathrm{eV}\).</div>
-    </div>
-    <div class="checklist-item">
-      <span class="checklist-icon">✓</span>
-      <div><strong>Frequency and Period:</strong> \(f_n \propto \frac{Z^2}{n^3}\) and \(T_n \propto \frac{n^3}{Z^2}\).</div>
-    </div>
-    <div class="checklist-item">
-      <span class="checklist-icon">✓</span>
-      <div><strong>De Broglie Standing Wave:</strong> \(2\pi r_n = n\lambda \implies m v r = \frac{nh}{2\pi}\).</div>
-    </div>
-    <div class="checklist-item">
-      <span class="checklist-icon">✓</span>
-      <div><strong>Rydberg Formula:</strong> \(\frac{1}{\lambda} = R Z^2 \left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right)\) with \(\frac{1}{R} \approx 912\;\mathrm{Å}\).</div>
-    </div>
-  </section>
-
-  <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem;">
-    Comprehensive NEET UG Physics Tutorial &bull; Modern Physics: Atoms &bull; Self-Contained Study Resource
-  </footer>
-</div>
-
+    <section id="recap">
+      <h2>10. Concise Final Recap</h2>
+      <p>Rutherford's α-particle scattering experiment established that an atom consists of a tiny, massive, positively charged nucleus surrounded by mostly empty space, but classical electrodynamics predicted that orbiting electrons would spiral into the nucleus and emit continuous radiation. Bohr resolved this paradox for hydrogenic atoms by postulating non-radiating stationary states with quantised angular momentum \(L = nh/2\pi\) and photon emission/absorption governed by \(h\nu = E_i - E_f\). This yielded quantised radii (\(r_n \propto n^2\)) and energies (\(E_n = -13.6/n^2\,\mathrm{eV}\) for hydrogen) that accurately explained the Lyman, Balmer, and Paschen series, while de Broglie's matter-wave hypothesis (\(2\pi r_n = n\lambda\)) later provided the physical basis for angular momentum quantisation.</p>
+    </section>
+  </div>
 </body>
 </html>

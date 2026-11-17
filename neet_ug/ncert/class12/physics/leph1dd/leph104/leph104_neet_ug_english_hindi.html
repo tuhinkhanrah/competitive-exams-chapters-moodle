@@ -1,65 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moving Charges and Magnetism - NEET UG Physics Master Tutorial</title>
-<script>
-window.MathJax = {
-  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true },
-  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
-};
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<style>
-:root {
-  --primary: #1e3a8a; --primary-dark: #172554; --secondary: #0d9488;
-  --text: #1e293b; --muted: #475569; --border: #cbd5e1;
-  --bg: #f8fafc; --hi-bg: #fdfbf7; --hi-border: #f59e0b;
-  --formula-bg: #f1f5f9; --tip-bg: #f0fdf4; --warn-bg: #fff1f2;
-}
-* { box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif; line-height: 1.55; color: var(--text); background: var(--bg); margin: 0; padding: 0; }
-.container { max-width: 900px; margin: 0 auto; padding: 20px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-header { border-bottom: 3px solid var(--primary); padding-bottom: 12px; margin-bottom: 20px; }
-.badge { display: inline-block; background: var(--primary); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
-h1 { font-size: 1.75rem; color: var(--primary-dark); margin: 6px 0; }
-h2 { font-size: 1.3rem; color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 4px; margin-top: 24px; margin-bottom: 12px; }
-h3 { font-size: 1.08rem; color: #0f172a; margin-top: 16px; margin-bottom: 6px; }
-p { margin: 6px 0; text-align: justify; }
-ul, ol { margin: 6px 0 10px 18px; padding: 0; }
-li { margin-bottom: 3px; }
-.sec-block { margin-bottom: 22px; border-bottom: 1px solid #e2e8f0; padding-bottom: 16px; }
-.lang-en { margin-bottom: 12px; }
-.lang-hi { background: var(--hi-bg); border-left: 4px solid var(--hi-border); padding: 10px 14px; border-radius: 0 6px 6px 0; margin-top: 8px; margin-bottom: 12px; }
-.l-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; padding: 1px 6px; border-radius: 3px; margin-bottom: 4px; }
-.l-en { background: #dbeafe; color: #1e40af; }
-.l-hi { background: #fef3c7; color: #92400e; }
-.formula-box { background: var(--formula-bg); border-left: 4px solid var(--primary); padding: 8px 12px; margin: 10px 0; border-radius: 0 6px 6px 0; }
-.tip-box { background: var(--tip-bg); border-left: 4px solid #16a34a; padding: 8px 12px; margin: 10px 0; border-radius: 0 6px 6px 0; }
-.pitfall-box { background: var(--warn-bg); border-left: 4px solid #e11d48; padding: 8px 12px; margin: 10px 0; border-radius: 0 6px 6px 0; }
-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.88rem; }
-th, td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
-th { background: #f1f5f9; color: var(--primary-dark); }
-tr:nth-child(even) td { background: #fafafa; }
-.svg-box { width: 100%; max-width: 580px; margin: 14px auto; text-align: center; background: #fff; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px; }
-.svg-cap { font-size: 0.82rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
-.q-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); page-break-inside: avoid; }
-.q-head { display: flex; justify-content: space-between; font-weight: 700; color: var(--primary); margin-bottom: 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; font-size: 0.95rem; }
-.opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; }
-@media (max-width: 600px) { .opt-grid { grid-template-columns: 1fr; } }
-.opt-item { background: #f8fafc; border: 1px solid #e2e8f0; padding: 5px 8px; border-radius: 4px; font-size: 0.88rem; }
-.sol-box { background: #f8fafc; border-top: 1px dashed var(--border); padding: 8px 10px; margin-top: 8px; font-size: 0.86rem; }
-.ans-tag { background: #16a34a; color: #fff; font-weight: 700; padding: 1px 5px; border-radius: 3px; font-size: 0.78rem; }
-hr.sep { border: 0; height: 1px; background: #cbd5e1; margin: 12px 0; }
-@media print {
-  @page { size: A4; margin: 12mm 10mm; }
-  body { background: #fff; font-size: 9pt; line-height: 1.3; }
-  .container { max-width: 100%; box-shadow: none; padding: 0; }
-  .q-card { page-break-inside: avoid; border: 1px solid #94a3b8; margin: 10px 0; }
-  .svg-box { page-break-inside: avoid; }
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moving Charges and Magnetism — NEET UG Bilingual Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F8FAFC;
+      color: #1E293B;
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', 'Segoe UI', 'Mangal', 'Kohinoor Devanagari', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 40px 20px;
+      background-color: #FFFFFF;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-right: 8px;
+      margin-bottom: 4px;
+    }
+
+    .badge-teal {
+      background-color: #F0FDFA;
+      color: #0F766E;
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.3;
+      color: #0F172A;
+      margin: 6px 0 8px 0;
+    }
+
+    h2 {
+      font-size: 1.38rem;
+      line-height: 1.35;
+      color: #1E293B;
+      border-left: 4px solid #2563EB;
+      padding-left: 12px;
+      margin: 28px 0 14px 0;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.4;
+      color: #0F766E;
+      margin: 18px 0 8px 0;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-en {
+      background-color: #FFFFFF;
+      padding: 12px 14px;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .lang-hi {
+      background-color: #F8FAFC;
+      padding: 12px 14px;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #0D9488;
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+
+    .tag-en {
+      background-color: #DBEAFE;
+      color: #1E40AF;
+    }
+
+    .tag-hi {
+      background-color: #CCFBF1;
+      color: #115E59;
+    }
+
+    .formula-box {
+      background-color: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #2563EB;
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin: 10px 0 14px 0;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .callout-tip {
+      background-color: #F0FDFA;
+      border: 1px solid #99F6E4;
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin: 12px 0;
+    }
+
+    .callout-warn {
+      background-color: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin: 12px 0;
+    }
+
+    .svg-card {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 12px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .svg-caption {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: #EFF6FF;
+      color: #1E3A8A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .example-card, .question-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 16px 0 20px 0;
+      background-color: #FFFFFF;
+    }
+
+    .example-title, .question-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #1D4ED8;
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 6px 10px;
+      margin-bottom: 6px;
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .answer-box {
+      background-color: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 5px;
+      padding: 8px 12px;
+      margin: 10px 0;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    .solution-box {
+      background-color: #F8FAFC;
+      border-left: 3px solid #0D9488;
+      padding: 10px 12px;
+      margin-top: 8px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed #94A3B8;
+      margin: 14px 0;
+    }
+
+    mjx-container {
+      max-width: 100%;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      html, body {
+        background-color: #FFFFFF;
+        font-size: 11pt;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .example-card, .question-card, .svg-card, .formula-box, .callout-tip, .callout-warn {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+    }
+  
 @page {
   size: A4 portrait;
   margin: 8mm 10mm 8mm 10mm !important;
@@ -188,7 +431,7 @@ table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math
         margin: 8mm 10mm 16mm 10mm !important;
         
         @bottom-center {
-          content: "Medical | Engineering | Foundations - bosonance.com";
+          content: "Medical | JEE | Foundations - bosonance.com";
           font: 9pt Arial, sans-serif;
           color: #555;
           text-align: center;
@@ -199,661 +442,1157 @@ table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math
     </style>
     </head>
 <body>
-<div class="container">
-<header>
-  <span class="badge">NEET UG Physics • Master Tutorial</span>
-  <h1>Moving Charges and Magnetism<br><span style="font-size: 1.2rem; color: #b45309;">गतिमान आवेश और चुंबकत्व</span></h1>
-</header>
+  <div class="container">
+    <!-- 1. Title and Exam/Syllabus Context -->
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">Exam Standard: NEET UG</span>
+        <span class="badge badge-teal">Bilingual: English + हिन्दी (Hindi)</span>
+        <span class="badge">Physics: Electromagnetism</span>
+      </div>
+      <h1>Moving Charges and Magnetism | गतिमान आवेश और चुंबकत्व</h1>
+      <p><strong>Syllabus Scope:</strong> Magnetic force, Lorentz force, motion of charged particles in uniform magnetic fields, Biot-Savart law, circular current loops, Ampere's circuital law, straight wires and solenoids, force between parallel currents, torque on a current loop, magnetic dipole, and moving coil galvanometer.</p>
+    </header>
 
-<!-- 1. Learning Objectives -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>1. Learning Objectives & NEET Overview</h2>
-    <p>This chapter bridges electrostatics and electromagnetism. In NEET UG, 2 to 3 direct questions (8–12 marks) consistently appear from this unit. Key focal areas include:</p>
-    <ul>
-      <li>Lorentz Force and the zero-work property of pure magnetic forces.</li>
-      <li>Helical and circular trajectory parameters (\(r\), \(T\), frequency, pitch) in uniform \(\mathbf{B}\).</li>
-      <li>Biot-Savart Law for circular coils (center vs. axis) and straight conductors.</li>
-      <li>Ampere’s Circuital Law applied to thick cylindrical conductors and ideal solenoids.</li>
-      <li>Force between parallel currents and the formal definition of 1 Ampere.</li>
-      <li>Torque on current loops and Moving Coil Galvanometer (MCG) conversion to Ammeter/Voltmeter.</li>
-    </ul>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>1. शिक्षण उद्देश्य एवं NEET अवलोकन</h2>
-    <p>यह अध्याय स्थिरविद्युतिकी और विद्युतचुंबकत्व को जोड़ता है। NEET UG परीक्षा में प्रतिवर्ष इस अध्याय से 2 से 3 प्रश्न (8–12 अंक) पूछे जाते हैं। प्रमुख अध्ययन बिंदु:</p>
-    <ul>
-      <li>लॉरेंत्ज़ बल एवं चुंबकीय बल द्वारा शून्य कार्य का सिद्धांत।</li>
-      <li>एकसमान चुंबकीय क्षेत्र में आवेश की वृत्तीय व कुंडलिनी गति (\(r\), \(T\), आवृत्ति, पिच)।</li>
-      <li>बायो-सावर्ट नियम (वृत्ताकार कुंडली के केंद्र व अक्ष पर क्षेत्र)।</li>
-      <li>ऐम्पियर का परिपथीय नियम (ठोस बेलनाकार तार एवं लंबी परिनालिका)।</li>
-      <li>समांतर धारावाही तारों के मध्य बल एवं 1 ऐम्पियर की मानक परिभाषा।</li>
-      <li>धारा लूप पर बल आघूर्ण तथा चल कुंडली धारामापी (MCG) का अमीटर व वोल्टमीटर में रूपांतरण।</li>
-    </ul>
-  </div>
-</section>
+    <!-- 2. Learning Objectives and Overview -->
+    <section id="sec-objectives">
+      <h2>1. Learning Objectives &amp; Chapter Overview | अधिगम उद्देश्य एवं अध्याय अवलोकन</h2>
 
-<!-- 2. Oersted's Discovery & Vector Conventions -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>2. Oersted's Experiment & Field Conventions</h2>
-    <p>In 1820, H.C. Oersted discovered that an electric current in a straight wire deflects a nearby compass needle. The needle aligns <strong>tangentially</strong> to concentric circles centered on the wire.</p>
-    <ul>
-      <li><strong>Dot (\(\odot\)):</strong> Current or magnetic field directed <em>out of the plane</em> of the paper.</li>
-      <li><strong>Cross (\(\otimes\)):</strong> Current or magnetic field directed <em>into the plane</em> of the paper.</li>
-    </ul>
-  </div>
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <p>Moving electric charges (and steady electric currents) generate a magnetic field in the surrounding space, and an external magnetic field exerts a sideways deflecting force on moving charges and current-carrying conductors. This tutorial builds complete NEET UG readiness on this theme.</p>
+        <ul>
+          <li>Apply the Lorentz force equation to find the magnitude and direction of force on moving charges and straight current-carrying conductors.</li>
+          <li>Analyze circular and helical trajectories of charges in uniform magnetic fields, including radius, time period, cyclotron frequency, and pitch.</li>
+          <li>Use the Biot-Savart law and Ampere's circuital law to compute magnetic fields of straight wires, circular arcs, axial loops, thick cylindrical conductors, and long solenoids.</li>
+          <li>Calculate the magnetic force per unit length between parallel currents and the torque acting on a current-carrying magnetic dipole.</li>
+          <li>Understand the working principle, sensitivity, and conversion of a moving coil galvanometer into an ammeter and a voltmeter.</li>
+        </ul>
+      </div>
 
-  <!-- SVG 1: Field lines & Vector Cross Product -->
-  <div class="svg-box">
-    <svg viewBox="0 0 540 130" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(30, 5)">
-        <text x="80" y="14" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Current Out (⊙)</text>
-        <circle cx="80" cy="70" r="40" fill="none" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5"/>
-        <circle cx="80" cy="70" r="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
-        <circle cx="80" cy="70" r="3" fill="#1e3a8a"/>
-        <polygon points="80,26 75,31 85,31" fill="#dc2626"/>
-        <polygon points="36,70 41,65 41,75" fill="#dc2626"/>
-        <polygon points="80,114 85,109 75,109" fill="#dc2626"/>
-        <polygon points="124,70 119,75 119,65" fill="#dc2626"/>
-        <text x="80" y="124" font-size="9" fill="#334155" text-anchor="middle">Anti-clockwise B</text>
-      </g>
-      <g transform="translate(200, 5)">
-        <text x="80" y="14" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Current In (⊗)</text>
-        <circle cx="80" cy="70" r="40" fill="none" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5"/>
-        <circle cx="80" cy="70" r="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
-        <line x1="74" y1="64" x2="86" y2="76" stroke="#b91c1c" stroke-width="2"/>
-        <line x1="86" y1="64" x2="74" y2="76" stroke="#b91c1c" stroke-width="2"/>
-        <polygon points="80,34 85,29 75,29" fill="#dc2626"/>
-        <polygon points="116,70 121,65 121,75" fill="#dc2626"/>
-        <polygon points="80,106 75,111 85,111" fill="#dc2626"/>
-        <polygon points="44,70 39,75 39,65" fill="#dc2626"/>
-        <text x="80" y="124" font-size="9" fill="#334155" text-anchor="middle">Clockwise B</text>
-      </g>
-      <g transform="translate(370, 5)">
-        <text x="80" y="14" font-size="11" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Right-Hand Rule: F_m</text>
-        <line x1="40" y1="90" x2="110" y2="90" stroke="#0284c7" stroke-width="2.5"/>
-        <text x="115" y="93" font-size="10" font-weight="bold" fill="#0284c7">v</text>
-        <line x1="40" y1="90" x2="95" y2="55" stroke="#0d9488" stroke-width="2.5"/>
-        <text x="100" y="55" font-size="10" font-weight="bold" fill="#0d9488">B</text>
-        <line x1="40" y1="90" x2="40" y2="25" stroke="#dc2626" stroke-width="2.5"/>
-        <text x="46" y="30" font-size="10" font-weight="bold" fill="#dc2626">F = q(v × B)</text>
-        <circle cx="40" cy="90" r="5" fill="#3b82f6"/>
-      </g>
-    </svg>
-    <div class="svg-cap"><strong>Tutorial Diagram 1:</strong> Circular magnetic field lines around straight wires, and the right-hand vector cross product.</div>
-  </div>
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <p>गतिमान विद्युत आवेश (तथा स्थायी विद्युत धाराएँ) अपने चारों ओर के स्थान में एक चुंबकीय क्षेत्र उत्पन्न करते हैं, और कोई बाह्य चुंबकीय क्षेत्र गतिमान आवेशों तथा धारावाही चालकों पर एक पार्श्व विक्षेपक बल लगाता है। यह ट्यूटोरियल इस विषय पर NEET UG परीक्षा की संपूर्ण तैयारी कराता है।</p>
+        <ul>
+          <li>गतिमान आवेशों और सीधे धारावाही चालकों पर लगने वाले बल का परिमाण व दिशा ज्ञात करने के लिए लॉरेंज बल समीकरण का उपयोग करना।</li>
+          <li>एकसमान चुंबकीय क्षेत्र में आवेशों के वृत्ताकार तथा कुंडलिनी (हेलिकल) पथों का विश्लेषण करना, जिसमें त्रिज्या, आवर्तकाल, साइक्लोट्रॉन आवृत्ति और पिच शामिल हैं।</li>
+          <li>सीधे तारों, वृत्ताकार चापों, अक्षीय लूपों, मोटे बेलनाकार चालकों और लंबी परिनालिकाओं के चुंबकीय क्षेत्र की गणना हेतु बायो-सावर्ट नियम और ऐम्पियर के परिपथीय नियम का प्रयोग करना।</li>
+          <li>समानांतर धाराओं के बीच प्रति एकांक लंबाई चुंबकीय बल तथा धारावाही चुंबकीय द्विध्रुव पर लगने वाले बल-आघूर्ण की गणना करना।</li>
+          <li>चल कुंडली धारामापी (गैल्वनोमीटर) के सिद्धांत, सुग्राहिता और इसे अमीटर तथा वोल्टमीटर में रूपांतरित करने की विधि को समझना।</li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h3>ओरस्टेड का प्रयोग एवं संकेत परिपाटी</h3>
-    <p>धारावाही तार के चारों ओर चुंबकीय सुई स्पर्श रेखा के अनुदिश संरेखित होती है। तल के लंबवत बाहर आने वाली धारा/क्षेत्र को बिंदु (\(\odot\)) तथा अंदर जाने वाले को क्रॉस (\(\otimes\)) द्वारा निरूपित किया जाता है।</p>
-  </div>
-</section>
+    <!-- 3. Magnetic Force & Motion in Magnetic Fields -->
+    <section id="sec-force-motion">
+      <h2>2. Magnetic Force &amp; Motion of Charged Particles | चुंबकीय बल एवं आवेशित कणों की गति</h2>
 
-<!-- 3. Magnetic Force & Lorentz Force -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>3. Lorentz Force & Magnetic Work</h2>
-    <p>A charge \(q\) moving with velocity \(\mathbf{v}\) in simultaneous electric \(\mathbf{E}\) and magnetic \(\mathbf{B}\) fields experiences the total <strong>Lorentz Force</strong>:</p>
-    <div class="formula-box">
-      \[\mathbf{F} = \mathbf{F}_e + \mathbf{F}_m = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})\]
-    </div>
-    <p>The magnetic component magnitude is \(F_m = |q| v B \sin\theta\). Critical characteristics:</p>
-    <ul>
-      <li>If \(v = 0\) (stationary charge), \(F_m = 0\). Static charges experience no magnetic force.</li>
-      <li>If \(\theta = 0^\circ\) or \(180^\circ\) (\(\mathbf{v} \parallel \mathbf{B}\)), \(F_m = 0\).</li>
-      <li>\(F_m\) is maximum when \(\mathbf{v} \perp \mathbf{B}\) (\(\theta = 90^\circ\)), with \(F_{m,\max} = q v B\).</li>
-      <li><strong>Crucial NEET Concept:</strong> Because \(\mathbf{F}_m \perp \mathbf{v}\), instantaneous power \(P = \mathbf{F}_m \cdot \mathbf{v} = 0\). Hence, <strong>the work done by a magnetic force on a charged particle is ALWAYS ZERO</strong>. A magnetic field changes direction of motion, never speed or kinetic energy!</li>
-    </ul>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>3. लॉरेंत्ज़ बल एवं चुंबकीय कार्य</h2>
-    <p>लॉरेंत्ज़ बल: \(\mathbf{F} = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})\)। चुंबकीय बल का परिमाण \(F_m = q v B \sin\theta\)।</p>
-    <ul>
-      <li>स्थिर आवेश (\(v = 0\)) पर चुंबकीय बल शून्य होता है।</li>
-      <li>यदि कण क्षेत्र के समांतर या प्रति-समांतर गति करे (\(\theta = 0^\circ, 180^\circ\)), तो \(F_m = 0\)।</li>
-      <li><strong>महत्वपूर्ण बिंदु:</strong> चूंकि \(\mathbf{F}_m \perp \mathbf{v}\), चुंबकीय बल द्वारा किया गया कार्य <strong>सदैव शून्य</strong> होता है (\(W = 0\))। यह कण की चाल या गतिज ऊर्जा को कभी नहीं बदलता।</li>
-    </ul>
-  </div>
-</section>
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <h3>2.1 Oersted's Discovery &amp; Directional Conventions</h3>
+        <p>When a steady current flows through a conductor, a nearby magnetic compass needle deflects tangentially along concentric circles centered on the wire. Reversing the current reverses the deflection. To represent vectors perpendicular to the page:</p>
+        <ul>
+          <li><strong>Dot (⊙):</strong> Vector emerging out of the plane of the paper toward the observer.</li>
+          <li><strong>Cross (⊗):</strong> Vector going into the plane of the paper away from the observer.</li>
+        </ul>
 
-<!-- 4. Force on Current-Carrying Conductor -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>4. Magnetic Force on a Current-Carrying Conductor</h2>
-    <p>For a straight conductor carrying steady current \(I\) with length vector \(\mathbf{L}\) in uniform \(\mathbf{B}\):</p>
-    <div class="formula-box">
-      \[\mathbf{F} = I(\mathbf{L} \times \mathbf{B}) \implies F = I L B \sin\theta\]
-    </div>
-    <p>For an arbitrarily shaped wire, \(\mathbf{F} = I \int (d\mathbf{l} \times \mathbf{B})\). In a uniform magnetic field, this simplifies to \(\mathbf{F} = I(\mathbf{L}_{\text{net}} \times \mathbf{B})\), where \(\mathbf{L}_{\text{net}}\) is the straight vector connecting the initial and final endpoints. Consequently, <strong>any closed current loop in a uniform magnetic field experiences zero net translational force</strong> (\(\oint d\mathbf{l} = 0 \implies \mathbf{F}_{\text{net}} = 0\)).</p>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>4. धारावाही चालक पर चुंबकीय बल</h2>
-    <p>चालक तार पर बल: \(\mathbf{F} = I(\mathbf{L} \times \mathbf{B})\)। यादृच्छिक आकृति के तार के लिए \(\mathbf{L}_{\text{net}}\) प्रारंभिक व अंतिम सिरों के बीच का सीधा सदिश विस्थापन होता है (\(F = I L_{\text{net}} B\))। एकसमान क्षेत्र में किसी बंद लूप पर नेट बल सदैव शून्य होता है। हवा में संतुलन: \(I L B = m g\)।</p>
-  </div>
-</section>
+        <h3>2.2 Lorentz Force &amp; Unit of Magnetic Field</h3>
+        <p>A point charge \(q\) moving with velocity \(\mathbf{v}\) in a region having both an electric field \(\mathbf{E}\) and a magnetic field \(\mathbf{B}\) experiences a combined force called the <strong>Lorentz force</strong>:</p>
+        <div class="formula-box">
+          \[ \mathbf{F} = q\left(\mathbf{E} + \mathbf{v} \times \mathbf{B}\right) \]
+        </div>
+        <p>The magnetic part, \(\mathbf{F}_m = q(\mathbf{v} \times \mathbf{B})\), has magnitude \(F_m = |q| v B \sin\theta\), where \(\theta\) is the angle between \(\mathbf{v}\) and \(\mathbf{B}\). Key properties:</p>
+        <ul>
+          <li><strong>Zero force on stationary or parallel charges:</strong> If \(v = 0\), or \(\theta = 0^\circ\) or \(180^\circ\), then \(F_m = 0\).</li>
+          <li><strong>Always perpendicular to velocity:</strong> \(\mathbf{F}_m \perp \mathbf{v}\) and \(\mathbf{F}_m \perp \mathbf{B}\). Consequently, a pure magnetic field does <strong>zero work</strong> on a moving charge; it changes the direction of momentum but never changes speed or kinetic energy.</li>
+          <li><strong>Sign dependence:</strong> A negative charge experiences force opposite to \(\mathbf{v} \times \mathbf{B}\).</li>
+          <li><strong>Units:</strong> The SI unit of \(\mathbf{B}\) is the <strong>tesla (T)</strong>, where \(1\,\mathrm{T} = 1\,\mathrm{N/(A\cdot m)}\). A common smaller unit is the <strong>gauss (G)</strong>: \(1\,\mathrm{G} = 10^{-4}\,\mathrm{T}\).</li>
+        </ul>
 
-<!-- 5. Motion in Magnetic Field -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>5. Motion of Charged Particle in Uniform B Field</h2>
-    <p>When \(\mathbf{v} \perp \mathbf{B}\) (\(\theta = 90^\circ\)), \(\mathbf{F}_m\) provides the necessary centripetal force:</p>
-    <div class="formula-box">
-      \[\frac{m v^2}{r} = q v B \implies r = \frac{m v}{q B} = \frac{p}{q B} = \frac{\sqrt{2 m K}}{q B} = \frac{\sqrt{2 m q V}}{q B}\]
-      \[T = \frac{2\pi r}{v} = \frac{2\pi m}{q B}, \quad f_c = \frac{q B}{2\pi m}, \quad \omega = \frac{q B}{m}\]
-    </div>
-    <div class="tip-box">
-      <strong>Key NEET Takeaway:</strong> The orbital period \(T\) and cyclotron frequency \(f_c\) are completely <strong>independent of velocity \(v\) and radius \(r\)</strong>. Energetic particles take wider circles but finish each turn in the identical time!
-    </div>
-    <p>When \(\mathbf{v}\) makes an angle \(\theta\) (\(0 < \theta < 90^\circ\)) with \(\mathbf{B}\):</p>
-    <ul>
-      <li>Component \(v_\parallel = v \cos\theta\) is parallel to \(\mathbf{B}\) and remains unaltered (no force).</li>
-      <li>Component \(v_\perp = v \sin\theta\) produces circular motion of radius \(r = \frac{m v_\perp}{q B} = \frac{m v \sin\theta}{q B}\).</li>
-      <li>The resultant path is a <strong>helix</strong>. The <em>pitch</em> \(p\) (linear distance per turn) is:
-        \[p = v_\parallel T = (v \cos\theta) \left(\frac{2\pi m}{q B}\right)\]
-      </li>
-    </ul>
-  </div>
+        <h3>2.3 Magnetic Force on a Current-Carrying Conductor</h3>
+        <p>Summing the magnetic force over all mobile charge carriers (drift velocity \(\mathbf{v}_d\), number density \(n\)) in a straight conductor of length \(l\) carrying steady current \(I\) gives:</p>
+        <div class="formula-box">
+          \[ \mathbf{F} = I\left(\mathbf{l} \times \mathbf{B}\right), \quad |\mathbf{F}| = I l B \sin\theta \]
+        </div>
+        <p>Here \(\mathbf{l}\) has magnitude \(l\) and points in the direction of conventional current \(I\). For a curved wire in a uniform magnetic field, \(\mathbf{l}\) can be replaced by the straight displacement vector \(\mathbf{l}_{\text{eff}}\) connecting the two ends.</p>
 
-  <!-- SVG 2: Circular and Helical Motion -->
-  <div class="svg-box">
-    <svg viewBox="0 0 540 120" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(30, 5)">
-        <text x="75" y="12" font-size="10" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Circular Orbit (v ⊥ B)</text>
-        <circle cx="75" cy="65" r="38" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="3,3"/>
-        <circle cx="75" cy="103" r="6" fill="#3b82f6"/>
-        <line x1="75" y1="103" x2="105" y2="103" stroke="#0284c7" stroke-width="2"/>
-        <line x1="75" y1="103" x2="75" y2="78" stroke="#dc2626" stroke-width="2"/>
-        <text x="75" y="118" font-size="9" fill="#334155" text-anchor="middle">r = mv / qB</text>
-      </g>
-      <g transform="translate(230, 5)">
-        <text x="140" y="12" font-size="10" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Helical Motion (Oblique v)</text>
-        <line x1="10" y1="65" x2="270" y2="65" stroke="#0d9488" stroke-width="1.5"/>
-        <text x="275" y="68" font-size="10" font-weight="bold" fill="#0d9488">B</text>
-        <path d="M 30,65 C 30,30 60,30 60,65 C 60,100 90,100 90,65 C 90,30 120,30 120,65 C 120,100 150,100 150,65 C 150,30 180,30 180,65" fill="none" stroke="#2563eb" stroke-width="2"/>
-        <line x1="60" y1="105" x2="120" y2="105" stroke="#475569" stroke-width="1.2"/>
-        <text x="90" y="117" font-size="9" fill="#475569" text-anchor="middle">Pitch p = v_|| T</text>
-      </g>
-    </svg>
-    <div class="svg-cap"><strong>Tutorial Diagram 2:</strong> Particle trajectories in uniform magnetic fields: circular orbit (\(\mathbf{v} \perp \mathbf{B}\)) and helical path (oblique \(\mathbf{v}\)).</div>
-  </div>
+        <h3>2.4 Circular and Helical Motion in a Uniform Magnetic Field</h3>
+        <p><strong>Case 1: \(\mathbf{v} \perp \mathbf{B}\) (Circular Path):</strong> The magnetic force \(qvB\) acts as a centripetal force \(mv^2/r\), producing uniform circular motion in a plane perpendicular to \(\mathbf{B}\).</p>
+        <div class="formula-box">
+          \[ r = \frac{mv}{qB} = \frac{p}{qB} = \frac{\sqrt{2mK}}{qB}, \qquad \omega = \frac{qB}{m}, \qquad T = \frac{2\pi m}{qB}, \qquad \nu_c = \frac{qB}{2\pi m} \]
+        </div>
+        <p>Notice that the angular frequency \(\omega\), time period \(T\), and cyclotron frequency \(\nu_c\) are completely <strong>independent of the particle's speed, radius, and kinetic energy</strong>.</p>
+        <p><strong>Case 2: \(\mathbf{v}\) at an arbitrary angle \(\theta\) to \(\mathbf{B}\) (Helical Path):</strong> Resolve velocity into \(v_\parallel = v\cos\theta\) (along \(\mathbf{B}\)) and \(v_\perp = v\sin\theta\) (perpendicular to \(\mathbf{B}\)). The parallel component remains unchanged, while the perpendicular component drives circular motion of radius \(r = mv_\perp / (qB)\). The resulting path is a helix of <strong>pitch</strong> \(p\) (distance advanced along \(\mathbf{B}\) in one revolution):</p>
+        <div class="formula-box">
+          \[ p = v_\parallel T = \frac{2\pi m v \cos\theta}{qB} \]
+        </div>
 
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h3>आवेशित कण की गति</h3>
-    <p>लंबवत प्रवेश पर वृत्ताकार गति: \(r = \frac{m v}{q B} = \frac{\sqrt{2 m q V}}{q B}\)। आवर्तकाल \(T = \frac{2\pi m}{q B}\) (चाल व ऊर्जा पर अनिर्भर)।<br>
-    तिर्यक प्रवेश पर कुंडलिनी (हेलिक्स) पथ: त्रिज्या \(r = \frac{m v \sin\theta}{q B}\), पिच \(p = v \cos\theta \times T\)।</p>
-  </div>
-</section>
+        <div class="svg-card">
+          <svg viewBox="0 0 640 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" aria-label="Circular and Helical Motion in Uniform Magnetic Field">
+            <rect x="0" y="0" width="640" height="240" fill="#F8FAFC" rx="6" />
+            <!-- Left Panel: Circular Motion -->
+            <rect x="14" y="14" width="296" height="212" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="162" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Circular Motion (v ⊥ B, B into page ⊗)</text>
+            <!-- B field crosses -->
+            <text x="40" y="70" font-family="sans-serif" font-size="14" fill="#64748B">⊗</text>
+            <text x="270" y="70" font-family="sans-serif" font-size="14" fill="#64748B">⊗</text>
+            <text x="40" y="195" font-family="sans-serif" font-size="14" fill="#64748B">⊗</text>
+            <text x="270" y="195" font-family="sans-serif" font-size="14" fill="#64748B">⊗</text>
+            <!-- Circle -->
+            <circle cx="162" cy="128" r="64" fill="none" stroke="#2563EB" stroke-width="2" />
+            <circle cx="162" cy="128" r="3" fill="#1E293B" />
+            <!-- Radius line -->
+            <line x1="162" y1="128" x2="207" y2="83" stroke="#1E293B" stroke-width="1.5" stroke-dasharray="4,3" />
+            <text x="190" y="114" font-family="sans-serif" font-size="12" font-weight="600" fill="#1E293B">r</text>
+            <!-- Particle at bottom -->
+            <circle cx="162" cy="192" r="9" fill="#0D9488" />
+            <text x="162" y="196" font-family="sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">+q</text>
+            <!-- Velocity arrow -->
+            <line x1="171" y1="192" x2="225" y2="192" stroke="#2563EB" stroke-width="2.2" />
+            <polygon points="225,188 234,192 225,196" fill="#2563EB" />
+            <text x="230" y="206" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">v</text>
+            <!-- Force arrow -->
+            <line x1="162" y1="183" x2="162" y2="146" stroke="#DC2626" stroke-width="2.2" />
+            <polygon points="158,146 162,137 166,146" fill="#DC2626" />
+            <text x="148" y="156" font-family="sans-serif" font-size="12" font-weight="700" fill="#DC2626">F</text>
 
-<!-- 6. Biot-Savart Law & Circular Loop -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>6. Biot-Savart Law & Circular Current Loop</h2>
-    <p>The magnetic field \(d\mathbf{B}\) produced by a current element \(I d\mathbf{l}\) at distance \(r\) is:</p>
-    <div class="formula-box">
-      \[d\mathbf{B} = \frac{\mu_0}{4\pi} \frac{I (d\mathbf{l} \times \hat{\mathbf{r}})}{r^2} \implies dB = \frac{\mu_0}{4\pi} \frac{I dl \sin\theta}{r^2}\]
-      where \(\frac{\mu_0}{4\pi} = 10^{-7}\,\mathrm{T\cdot m/A}\), and \(\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T\cdot m/A}\).
-    </div>
-    <h3>Circular Loop of Radius \(R\) with \(N\) Turns:</h3>
-    <ul>
-      <li><strong>At Center (\(x = 0\)):</strong>
-        \[B_{\text{center}} = \frac{\mu_0 N I}{2 R}\]
-      </li>
-      <li><strong>On Axial Point at distance \(x\):</strong>
-        \[B_{\text{axis}} = \frac{\mu_0 N I R^2}{2 (R^2 + x^2)^{3/2}}\]
-      </li>
-      <li>When \(x = R\): \(B_{\text{axis}} = \frac{\mu_0 N I R^2}{2(2R^2)^{3/2}} = \frac{\mu_0 N I}{2^{5/2} R} = \frac{B_{\text{center}}}{2\sqrt{2}} \approx 0.3535\, B_{\text{center}}\).</li>
-      <li>For far axial distances (\(x \gg R\)): \(B_{\text{axis}} \approx \frac{\mu_0 (N I \pi R^2)}{2\pi x^3} = \frac{\mu_0}{4\pi}\frac{2 M}{x^3}\), identical to an electric dipole!</li>
-    </ul>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>6. बायो-सावर्ट नियम एवं वृत्ताकार लूप</h2>
-    <p>बायो-सावर्ट नियम: \(dB = \frac{\mu_0}{4\pi} \frac{I dl \sin\theta}{r^2}\)।<br>
-    \(N\) फेरों वाली कुंडली के <strong>केंद्र पर</strong>: \(B = \frac{\mu_0 N I}{2 R}\)।<br>
-    <strong>अक्ष पर \(x\) दूरी पर</strong>: \(B = \frac{\mu_0 N I R^2}{2(R^2 + x^2)^{3/2}}\)। दूरस्थ अक्षीय बिंदु पर (\(x \gg R\)): \(B = \frac{\mu_0}{4\pi} \frac{2M}{x^3}\)।</p>
-  </div>
-</section>
+            <!-- Right Panel: Helical Motion -->
+            <rect x="330" y="14" width="296" height="212" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="478" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Helical Motion (v oblique to B)</text>
+            <!-- B field lines -->
+            <line x1="350" y1="128" x2="606" y2="128" stroke="#64748B" stroke-width="1.5" />
+            <polygon points="606,124 615,128 606,132" fill="#64748B" />
+            <text x="602" y="118" font-family="sans-serif" font-size="12" font-weight="700" fill="#475569">B</text>
+            <!-- Helix loops -->
+            <path d="M 370 128 C 370 72, 415 72, 415 128 C 415 184, 445 184, 445 128 C 445 72, 490 72, 490 128 C 490 184, 520 184, 520 128 C 520 72, 565 72, 565 128" fill="none" stroke="#2563EB" stroke-width="2.5" />
+            <!-- Pitch marker -->
+            <line x1="392" y1="196" x2="467" y2="196" stroke="#0D9488" stroke-width="2" />
+            <line x1="392" y1="190" x2="392" y2="202" stroke="#0D9488" stroke-width="1.5" />
+            <line x1="467" y1="190" x2="467" y2="202" stroke="#0D9488" stroke-width="1.5" />
+            <text x="430" y="213" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488" text-anchor="middle">Pitch p = v∥ T</text>
+            <!-- Radius marker -->
+            <line x1="467" y1="128" x2="467" y2="85" stroke="#1E293B" stroke-width="1.5" stroke-dasharray="3,2" />
+            <text x="474" y="106" font-family="sans-serif" font-size="12" font-weight="600" fill="#1E293B">r</text>
+          </svg>
+          <div class="svg-caption">Diagram 1: Circular trajectory when velocity is perpendicular to magnetic field (left) and helical trajectory when velocity has a parallel component (right).</div>
+        </div>
+      </div>
 
-<!-- 7. Ampere's Law & Solenoid -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>7. Ampere's Circuital Law, Thick Wire & Solenoid</h2>
-    <p><strong>Ampere's Circuital Law:</strong> The line integral of \(\mathbf{B}\) around any closed loop equals \(\mu_0\) times total enclosed current:</p>
-    <div class="formula-box">
-      \[\oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{\text{enclosed}}\]
-    </div>
-    <h3>1. Solid Cylindrical Wire of Radius \(a\) Carrying Uniform Current \(I\):</h3>
-    <ul>
-      <li><strong>Inside (\(r \le a\)):</strong> \(I_{\text{encl}} = I \frac{\pi r^2}{\pi a^2} = I \frac{r^2}{a^2} \implies B_{\text{in}} = \frac{\mu_0 I r}{2\pi a^2}\) (Linear: \(B \propto r\)).</li>
-      <li><strong>On Surface (\(r = a\)):</strong> \(B_{\text{surface}} = \frac{\mu_0 I}{2\pi a}\) (Maximum field).</li>
-      <li><strong>Outside (\(r \ge a\)):</strong> \(B_{\text{out}} = \frac{\mu_0 I}{2\pi r}\) (Hyperbolic: \(B \propto 1/r\)).</li>
-    </ul>
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <h3>2.1 ऑर्स्टेड की खोज एवं दिशा परिपाटी</h3>
+        <p>जब किसी चालक में स्थायी धारा प्रवाहित होती है, तो पास रखी चुंबकीय सुई तार को केंद्र मानकर बने संकेंद्री वृत्तों की स्पर्शज्या दिशा में विक्षेपित होती है। धारा की दिशा उलटने पर विक्षेप भी उलट जाता है। पृष्ठ के लंबवत सदिशों को दर्शाने के लिए:</p>
+        <ul>
+          <li><strong>बिंदु (⊙):</strong> कागज के तल से बाहर प्रेक्षक की ओर आता हुआ सदिश।</li>
+          <li><strong>क्रॉस (⊗):</strong> कागज के तल के भीतर प्रेक्षक से दूर जाता हुआ सदिश।</li>
+        </ul>
 
-    <h3>2. Long Solenoid and Toroid:</h3>
-    <ul>
-      <li>Inside an ideal long solenoid: \(B = \mu_0 n I\), where \(n = \frac{N}{L}\) is turns per unit length.</li>
-      <li>At the extreme ends of a semi-infinite solenoid: \(B_{\text{end}} = \frac{1}{2}\mu_0 n I\).</li>
-    </ul>
+        <h3>2.2 लॉरेंज बल एवं चुंबकीय क्षेत्र का मात्रक</h3>
+        <p>विद्युत क्षेत्र \(\mathbf{E}\) तथा चुंबकीय क्षेत्र \(\mathbf{B}\) दोनों की उपस्थिति में \(\mathbf{v}\) वेग से गतिमान बिंदु आवेश \(q\) पर लगने वाला कुल बल <strong>लॉरेंज बल</strong> कहलाता है:</p>
+        <div class="formula-box">
+          \[ \mathbf{F} = q\left(\mathbf{E} + \mathbf{v} \times \mathbf{B}\right) \]
+        </div>
+        <p>चुंबकीय बल \(\mathbf{F}_m = q(\mathbf{v} \times \mathbf{B})\) का परिमाण \(F_m = |q| v B \sin\theta\) होता है, जहाँ \(\theta\), \(\mathbf{v}\) और \(\mathbf{B}\) के बीच का कोण है। मुख्य गुण:</p>
+        <ul>
+          <li><strong>स्थिर या समानांतर आवेश पर शून्य बल:</strong> यदि \(v = 0\), अथवा \(\theta = 0^\circ\) या \(180^\circ\) हो, तो \(F_m = 0\) होगा।</li>
+          <li><strong>वेग के सदैव लंबवत:</strong> \(\mathbf{F}_m \perp \mathbf{v}\) तथा \(\mathbf{F}_m \perp \mathbf{B}\)। अतः शुद्ध चुंबकीय क्षेत्र गतिमान आवेश पर <strong>शून्य कार्य</strong> करता है; यह संवेग की दिशा बदलता है, परंतु चाल या गतिज ऊर्जा नहीं बदलता।</li>
+          <li><strong>चिह्न पर निर्भरता:</strong> ऋणात्मक आवेश पर बल \(\mathbf{v} \times \mathbf{B}\) की विपरीत दिशा में लगता है।</li>
+          <li><strong>मात्रक:</strong> \(\mathbf{B}\) का SI मात्रक <strong>टेस्ला (T)</strong> है, जहाँ \(1\,\mathrm{T} = 1\,\mathrm{N/(A\cdot m)}\)। एक छोटा मात्रक <strong>गॉस (G)</strong> है: \(1\,\mathrm{G} = 10^{-4}\,\mathrm{T}\)।</li>
+        </ul>
 
-    <h3>3. Force Between Two Parallel Current-Carrying Conductors:</h3>
-    <div class="formula-box">
-      \[f = \frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d}\]
-    </div>
-    <p><strong>Rule:</strong> Parallel currents in the <strong>same direction ATTRACT</strong>; currents in <strong>opposite directions REPEL</strong> (opposite of electrostatic charges!).</p>
-    <div class="tip-box">
-      <strong>Definition of Ampere:</strong> 1 Ampere is the steady current which, when maintained in two straight, parallel conductors of infinite length and negligible cross-section placed 1 meter apart in vacuum, produces between them a force of \(2 \times 10^{-7}\,\mathrm{N/m}\).
-    </div>
-  </div>
+        <h3>2.3 धारावाही चालक पर चुंबकीय बल</h3>
+        <p>\(l\) लंबाई और \(I\) स्थायी धारा वाले सीधे चालक में सभी गतिमान आवेश वाहकों पर लगने वाले चुंबकीय बलों का योग करने पर प्राप्त होता है:</p>
+        <div class="formula-box">
+          \[ \mathbf{F} = I\left(\mathbf{l} \times \mathbf{B}\right), \quad |\mathbf{F}| = I l B \sin\theta \]
+        </div>
+        <p>यहाँ \(\mathbf{l}\) का परिमाण \(l\) है तथा दिशा पारंपरिक धारा \(I\) की दिशा में है। एकसमान चुंबकीय क्षेत्र में मुड़े हुए तार के लिए \(\mathbf{l}\) को दोनों सिरों को जोड़ने वाले सीधे विस्थापन सदिश \(\mathbf{l}_{\text{eff}}\) से प्रतिस्थापित किया जा सकता है।</p>
 
-  <!-- SVG 3: Thick Wire Plot and Parallel Wires -->
-  <div class="svg-box">
-    <svg viewBox="0 0 540 120" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(20, 5)">
-        <text x="110" y="12" font-size="10" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Thick Wire: B vs r</text>
-        <line x1="20" y1="95" x2="210" y2="95" stroke="#334155" stroke-width="1.2"/>
-        <text x="215" y="98" font-size="9" fill="#334155">r</text>
-        <line x1="20" y1="95" x2="20" y2="20" stroke="#334155" stroke-width="1.2"/>
-        <text x="15" y="15" font-size="9" fill="#334155">B</text>
-        <line x1="90" y1="95" x2="90" y2="35" stroke="#94a3b8" stroke-dasharray="2,2"/>
-        <text x="90" y="108" font-size="9" font-weight="bold" fill="#1e3a8a" text-anchor="middle">r = a</text>
-        <line x1="20" y1="95" x2="90" y2="35" stroke="#2563eb" stroke-width="2"/>
-        <text x="45" y="60" font-size="9" font-weight="bold" fill="#2563eb">B ∝ r</text>
-        <path d="M 90,35 Q 130,70 200,88" fill="none" stroke="#0d9488" stroke-width="2"/>
-        <text x="150" y="58" font-size="9" font-weight="bold" fill="#0d9488">B ∝ 1/r</text>
-      </g>
-      <g transform="translate(280, 5)">
-        <text x="120" y="12" font-size="10" font-weight="bold" fill="#1e3a8a" text-anchor="middle">Parallel Wires: Mutual Force</text>
-        <line x1="20" y1="45" x2="220" y2="45" stroke="#0284c7" stroke-width="2.5"/>
-        <text x="225" y="48" font-size="10" font-weight="bold" fill="#0284c7">I_a</text>
-        <line x1="20" y1="85" x2="220" y2="85" stroke="#0284c7" stroke-width="2.5"/>
-        <text x="225" y="88" font-size="10" font-weight="bold" fill="#0284c7">I_b</text>
-        <line x1="120" y1="85" x2="120" y2="60" stroke="#dc2626" stroke-width="2"/>
-        <line x1="120" y1="45" x2="120" y2="70" stroke="#dc2626" stroke-width="2"/>
-        <text x="135" y="68" font-size="9" font-weight="bold" fill="#dc2626">Attract</text>
-        <text x="120" y="108" font-size="9" fill="#475569" text-anchor="middle">f = μ₀ I_a I_b / (2πd)</text>
-      </g>
-    </svg>
-    <div class="svg-cap"><strong>Tutorial Diagram 3:</strong> Variation of \(B\) with distance \(r\) for a thick cylindrical wire, and magnetic attraction between parallel currents.</div>
-  </div>
+        <h3>2.4 एकसमान चुंबकीय क्षेत्र में वृत्ताकार एवं कुंडलिनी (हेलिकल) गति</h3>
+        <p><strong>स्थिति 1: \(\mathbf{v} \perp \mathbf{B}\) (वृत्ताकार पथ):</strong> चुंबकीय बल \(qvB\) अभिकेंद्री बल \(mv^2/r\) की तरह कार्य करता है और \(\mathbf{B}\) के लंबवत तल में एकसमान वृत्ताकार गति उत्पन्न करता है।</p>
+        <div class="formula-box">
+          \[ r = \frac{mv}{qB} = \frac{p}{qB} = \frac{\sqrt{2mK}}{qB}, \qquad \omega = \frac{qB}{m}, \qquad T = \frac{2\pi m}{qB}, \qquad \nu_c = \frac{qB}{2\pi m} \]
+        </div>
+        <p>ध्यान दें कि कोणीय आवृत्ति \(\omega\), आवर्तकाल \(T\) और साइक्लोट्रॉन आवृत्ति \(\nu_c\) कण की <strong>चाल, त्रिज्या और गतिज ऊर्जा से पूर्णतः स्वतंत्र</strong> होती हैं।</p>
+        <p><strong>स्थिति 2: \(\mathbf{v}\), \(\mathbf{B}\) से \(\theta\) कोण पर (कुंडलिनी पथ):</strong> वेग को \(v_\parallel = v\cos\theta\) (\(\mathbf{B}\) के अनुदिश) और \(v_\perp = v\sin\theta\) (\(\mathbf{B}\) के लंबवत) में वियोजित करें। समानांतर घटक अपरिवर्तित रहता है, जबकि लंबवत घटक \(r = mv_\perp / (qB)\) त्रिज्या की वृत्ताकार गति कराता है। इससे एक कुंडलिनी (हेलिक्स) पथ बनता है जिसकी <strong>पिच</strong> \(p\) (एक चक्कर में \(\mathbf{B}\) के अनुदिश तय दूरी) है:</p>
+        <div class="formula-box">
+          \[ p = v_\parallel T = \frac{2\pi m v \cos\theta}{qB} \]
+        </div>
+      </div>
+    </section>
 
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h3>ऐम्पियर का नियम, ठोस तार एवं परिनालिका</h3>
-    <p>ठोस तार में: अंदर \(B \propto r\) (\(B = \frac{\mu_0 I r}{2\pi a^2}\)) तथा बाहर \(B \propto \frac{1}{r}\) (\(B = \frac{\mu_0 I}{2\pi r}\))।<br>
-    आदर्श परिनालिका: अंदर \(B = \mu_0 n I\) तथा सिरों पर \(B = \frac{1}{2}\mu_0 n I\)।<br>
-    समांतर तारों के बीच प्रति एकांक लंबाई बल \(f = \frac{\mu_0 I_1 I_2}{2\pi d}\)। समान दिशा वाली धाराएं परस्पर आकर्षित होती हैं।</p>
-  </div>
-</section>
+    <!-- 4. Biot-Savart Law & Circular Loops -->
+    <section id="sec-biot-savart">
+      <h2>3. Biot-Savart Law &amp; Circular Current Loops | बायो-सावर्ट नियम एवं वृत्ताकार धारा लूप</h2>
 
-<!-- 8. Torque on Current Loop & MCG -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>8. Torque on Current Loop & Moving Coil Galvanometer (MCG)</h2>
-    <p>A planar coil carrying current \(I\) with area vector \(\mathbf{A}\) has magnetic moment \(\mathbf{M} = N I \mathbf{A}\). In uniform \(\mathbf{B}\), it experiences net torque:</p>
-    <div class="formula-box">
-      \[\boldsymbol{\tau} = \mathbf{M} \times \mathbf{B} \implies \tau = M B \sin\theta = N I A B \sin\theta\]
-      \[U = -\mathbf{M} \cdot \mathbf{B} = -M B \cos\theta\]
-    </div>
-    <h3>Moving Coil Galvanometer (MCG)</h3>
-    <p>Using concave magnetic poles and a soft-iron cylindrical core, a <strong>radial magnetic field</strong> is established, ensuring the coil plane is always parallel to \(\mathbf{B}\) (\(\theta = 90^\circ\)). Restoring torque \(\tau_r = k \phi\) balances deflecting torque:</p>
-    <div class="formula-box">
-      \[N I A B = k \phi \implies \phi = \left(\frac{N A B}{k}\right) I\]
-    </div>
-    <ul>
-      <li><strong>Current Sensitivity:</strong> \(S_i = \frac{\phi}{I} = \frac{N A B}{k}\).</li>
-      <li><strong>Voltage Sensitivity:</strong> \(S_v = \frac{\phi}{V} = \frac{\phi}{I R_G} = \frac{N A B}{k R_G}\).</li>
-    </ul>
-    <div class="tip-box">
-      <strong>Vital NEET Rule:</strong> Increasing turns \(N \to 2N\) doubles current sensitivity (\(S_i' = 2S_i\)). However, wire length and therefore resistance also double (\(R_G' = 2R_G\)), leaving <strong>voltage sensitivity unchanged</strong> (\(S_v' = S_v\))!
-    </div>
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <h3>3.1 The Biot-Savart Law</h3>
+        <p>An infinitesimal current element \(I\,d\mathbf{l}\) produces a magnetic field \(d\mathbf{B}\) at a displacement \(\mathbf{r}\) from the element given by:</p>
+        <div class="formula-box">
+          \[ d\mathbf{B} = \frac{\mu_0}{4\pi} \frac{I\left(d\mathbf{l} \times \mathbf{r}\right)}{r^3}, \qquad |d\mathbf{B}| = \frac{\mu_0}{4\pi} \frac{I\,dl \sin\theta}{r^2} \]
+        </div>
+        <p>Here \(\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T\cdot m/A}\) is the permeability of free space, so \(\frac{\mu_0}{4\pi} = 10^{-7}\,\mathrm{T\cdot m/A}\). Also, permeability and permittivity are linked to the speed of light \(c\) in vacuum by \(\varepsilon_0 \mu_0 = \frac{1}{c^2}\).</p>
+        <ul>
+          <li><strong>Comparison with Coulomb's Law:</strong> Both follow the inverse-square law (\(1/r^2\)) and superposition principle. However, electrostatic field is produced by a scalar source (\(q\)) and points along \(\mathbf{r}\), whereas magnetic field is produced by a vector source (\(I\,d\mathbf{l}\)), depends on \(\sin\theta\), and points perpendicular to both \(d\mathbf{l}\) and \(\mathbf{r}\). Along the line of the element (\(\theta = 0^\circ\) or \(180^\circ\)), \(d\mathbf{B} = 0\).</li>
+        </ul>
 
-    <h3>Conversions:</h3>
-    <ul>
-      <li><strong>Ammeter (Measure current up to \(I\)):</strong> Connect a small shunt resistance \(S\) in <em>parallel</em>:
-        \[S = \frac{I_g R_G}{I - I_g}\]
-      </li>
-      <li><strong>Voltmeter (Measure voltage up to \(V\)):</strong> Connect a large resistance \(R\) in <em>series</em>:
-        \[R = \frac{V}{I_g} - R_G\]
-      </li>
-    </ul>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>8. धारा लूप पर बल आघूर्ण एवं चल कुंडली धारामापी</h2>
-    <p>चुंबकीय आघूर्ण \(\mathbf{M} = N I \mathbf{A}\), बल आघूर्ण \(\boldsymbol{\tau} = \mathbf{M} \times \mathbf{B}\), स्थितिज ऊर्जा \(U = -\mathbf{M} \cdot \mathbf{B}\)।<br>
-    धारामापी में त्रिज्य चुंबकीय क्षेत्र के कारण विक्षेप धारा के समानुपाती होता है (\(\phi \propto I\))।<br>
-    धारा सुग्राहिता: \(S_i = \frac{NAB}{k}\), वोल्टता सुग्राहिता: \(S_v = \frac{NAB}{k R_G}\)। फेरे दोगुने करने पर धारा सुग्राहिता दोगुनी होती है परंतु प्रतिरोध भी दोगुना होने से वोल्टता सुग्राहिता <strong>अपरिवर्तित</strong> रहती है।<br>
-    अमीटर रूपांतरण (शंट समांतर): \(S = \frac{I_g R_G}{I - I_g}\)।<br>
-    वोल्टमीटर रूपांतरण (उच्च प्रतिरोध श्रेणी): \(R = \frac{V}{I_g} - R_G\)।</p>
-  </div>
-</section>
+        <h3>3.2 Magnetic Field of a Circular Loop &amp; Circular Arc</h3>
+        <p>For a circular coil of radius \(R\), \(N\) closely wound turns, and steady current \(I\):</p>
+        <div class="formula-box">
+          \[ B_{\text{axis}} = \frac{\mu_0 N I R^2}{2\left(x^2 + R^2\right)^{3/2}}, \qquad B_{\text{centre}} = \frac{\mu_0 N I}{2R} \]
+        </div>
+        <p>If a wire forms only a circular arc subtending an angle \(\alpha\) (in radians) at its centre, the field at the centre is:</p>
+        <div class="formula-box">
+          \[ B_{\text{arc}} = \frac{\mu_0 I}{4\pi R}\,\alpha \]
+        </div>
+        <p><strong>Right-Hand Thumb Rule for Loops:</strong> Curl the fingers of your right hand along the current around the loop; your extended thumb points in the direction of \(\mathbf{B}\) along the axis.</p>
 
-<!-- 9. Physical Quantities & Dimensions Table -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>9. Summary of Quantities & Dimensions</h2>
-    <table>
-      <thead><tr><th>Quantity</th><th>Symbol</th><th>Dimensions</th><th>SI Unit</th><th>Standard Value / Formula</th></tr></thead>
-      <tbody>
-        <tr><td>Permeability of Free Space</td><td>\(\mu_0\)</td><td>\([\mathrm{M\,L\,T^{-2}\,A^{-2}}]\)</td><td>\(\mathrm{T\cdot m/A}\) or \(\mathrm{H/m}\)</td><td>\(4\pi \times 10^{-7}\,\mathrm{T\cdot m/A}\)</td></tr>
-        <tr><td>Magnetic Field (Flux Density)</td><td>\(B\)</td><td>\([\mathrm{M\,T^{-2}\,A^{-1}}]\)</td><td>Tesla (\(\mathrm{T}\)) or \(\mathrm{Wb/m^2}\)</td><td>\(1\,\mathrm{T} = 10^4\,\mathrm{Gauss}\)</td></tr>
-        <tr><td>Magnetic Dipole Moment</td><td>\(M\)</td><td>\([\mathrm{L^2\,A}]\)</td><td>\(\mathrm{A\cdot m^2}\) or \(\mathrm{J/T}\)</td><td>\(M = N I A\)</td></tr>
-        <tr><td>Bohr Magneton</td><td>\(\mu_B\)</td><td>\([\mathrm{L^2\,A}]\)</td><td>\(\mathrm{A\cdot m^2}\) or \(\mathrm{J/T}\)</td><td>\(\frac{e\hbar}{2m_e} = 9.27 \times 10^{-24}\,\mathrm{J/T}\)</td></tr>
-        <tr><td>Gyromagnetic Ratio</td><td>\(\gamma\)</td><td>\([\mathrm{M^{-1}\,T\,A}]\)</td><td>\(\mathrm{C/kg}\)</td><td>\(\frac{e}{2m_e} = 8.8 \times 10^{10}\,\mathrm{C/kg}\)</td></tr>
-        <tr><td>Torsional Constant</td><td>\(k\)</td><td>\([\mathrm{M\,L^2\,T^{-2}}]\)</td><td>\(\mathrm{N\cdot m/rad}\)</td><td>\(\tau = k\phi\)</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>9. भौतिक राशियां एवं विमाएं सारणी</h2>
-    <p>चुंबकीय क्षेत्र \([\mathrm{M\,T^{-2}\,A^{-1}}]\), निर्वात की चुंबकशीलता \([\mathrm{M\,L\,T^{-2}\,A^{-2}}]\), चुंबकीय आघूर्ण \([\mathrm{L^2\,A}]\), बोर मैग्नेटॉन \(\mu_B = 9.27 \times 10^{-24}\,\mathrm{A\cdot m^2}\)।</p>
-  </div>
-</section>
+        <div class="svg-card">
+          <svg viewBox="0 0 640 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" aria-label="Biot-Savart Law and Axial Field of Circular Loop">
+            <rect x="0" y="0" width="640" height="220" fill="#F8FAFC" rx="6" />
+            <!-- Left: Biot-Savart -->
+            <rect x="14" y="14" width="296" height="192" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="162" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Biot-Savart Law (Current Element)</text>
+            <path d="M 55 180 Q 90 120 75 55" fill="none" stroke="#1E293B" stroke-width="2.5" />
+            <!-- Tangent line -->
+            <line x1="78" y1="120" x2="108" y2="62" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <!-- Element vector -->
+            <line x1="78" y1="120" x2="91" y2="95" stroke="#0D9488" stroke-width="3" />
+            <text x="48" y="116" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">I dl</text>
+            <!-- r vector -->
+            <line x1="78" y1="120" x2="235" y2="120" stroke="#2563EB" stroke-width="2" />
+            <polygon points="235,116 244,120 235,124" fill="#2563EB" />
+            <text x="160" y="136" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">r</text>
+            <!-- Angle theta -->
+            <path d="M 96 120 A 18 18 0 0 0 87 104" fill="none" stroke="#1E293B" stroke-width="1.5" />
+            <text x="103" y="106" font-family="sans-serif" font-size="12" fill="#1E293B">θ</text>
+            <!-- Point P -->
+            <circle cx="255" cy="120" r="8" fill="none" stroke="#DC2626" stroke-width="1.8" />
+            <line x1="250" y1="115" x2="260" y2="125" stroke="#DC2626" stroke-width="1.8" />
+            <line x1="260" y1="115" x2="250" y2="125" stroke="#DC2626" stroke-width="1.8" />
+            <text x="255" y="144" font-family="sans-serif" font-size="12" font-weight="700" fill="#DC2626" text-anchor="middle">dB (⊗)</text>
 
-<!-- 10. Worked Examples -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>10. Key Worked Examples</h2>
-    <div class="q-card">
-      <div class="q-head"><span>Worked Example 1: Wire Suspended in Mid-Air</span><span>Mechanical & Magnetic Equilibrium</span></div>
-      <p>A straight horizontal wire of mass \(200\,\mathrm{g}\) and length \(1.5\,\mathrm{m}\) carries a current of \(2\,\mathrm{A}\). Find the magnitude and direction of the minimum uniform horizontal magnetic field required to suspend the wire in mid-air (\(g = 9.8\,\mathrm{m/s^2}\)).</p>
-      <div class="sol-box">
-        <p><strong>Step-by-Step Solution:</strong></p>
-        <ol>
-          <li>For equilibrium, the upward magnetic force must precisely cancel gravity: \(F_m = F_g \implies I L B \sin\theta = m g\).</li>
-          <li>For minimum field \(B\), choose \(\theta = 90^\circ\) (\(\sin\theta = 1\)):
-            \[B = \frac{m g}{I L} = \frac{0.200\,\mathrm{kg} \times 9.8\,\mathrm{m/s^2}}{2\,\mathrm{A} \times 1.5\,\mathrm{m}} = \frac{1.96}{3.0} \approx 0.653\,\mathrm{T}\]
+            <!-- Right: Circular Loop Axis -->
+            <rect x="330" y="14" width="296" height="192" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="478" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Axial Field of Circular Loop</text>
+            <!-- Loop ellipse -->
+            <ellipse cx="400" cy="122" rx="18" ry="54" fill="none" stroke="#1E293B" stroke-width="2.5" />
+            <line x1="400" y1="122" x2="400" y2="68" stroke="#1E293B" stroke-width="1.5" />
+            <text x="385" y="96" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">R</text>
+            <!-- Axis -->
+            <line x1="400" y1="122" x2="590" y2="122" stroke="#64748B" stroke-width="1.5" />
+            <text x="480" y="138" font-family="sans-serif" font-size="12" font-weight="700" fill="#475569">x</text>
+            <!-- Distance r -->
+            <line x1="400" y1="68" x2="555" y2="122" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4,3" />
+            <text x="485" y="88" font-family="sans-serif" font-size="12" font-weight="600" fill="#2563EB">√(x²+R²)</text>
+            <!-- Net B vector -->
+            <circle cx="555" cy="122" r="3.5" fill="#0D9488" />
+            <line x1="555" y1="122" x2="602" y2="122" stroke="#0D9488" stroke-width="2.5" />
+            <polygon points="602,118 611,122 602,126" fill="#0D9488" />
+            <text x="585" y="112" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">B_net</text>
+          </svg>
+          <div class="svg-caption">Diagram 2: Biot-Savart geometry for a current element (left) and net axial magnetic field of a circular current loop (right).</div>
+        </div>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <h3>3.1 बायो-सावर्ट नियम</h3>
+        <p>एक अतिसूक्ष्म धारा अल्पांश \(I\,d\mathbf{l}\) से \(\mathbf{r}\) विस्थापन पर स्थित बिंदु पर उत्पन्न चुंबकीय क्षेत्र \(d\mathbf{B}\) इस प्रकार दिया जाता है:</p>
+        <div class="formula-box">
+          \[ d\mathbf{B} = \frac{\mu_0}{4\pi} \frac{I\left(d\mathbf{l} \times \mathbf{r}\right)}{r^3}, \qquad |d\mathbf{B}| = \frac{\mu_0}{4\pi} \frac{I\,dl \sin\theta}{r^2} \]
+        </div>
+        <p>यहाँ \(\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T\cdot m/A}\) निर्वात की चुंबकशीलता है, अतः \(\frac{\mu_0}{4\pi} = 10^{-7}\,\mathrm{T\cdot m/A}\)। साथ ही, निर्वात में प्रकाश की चाल \(c\) से संबंध \(\varepsilon_0 \mu_0 = \frac{1}{c^2}\) होता है।</p>
+        <ul>
+          <li><strong>कूलॉम के नियम से तुलना:</strong> दोनों व्युत्क्रम-वर्ग नियम (\(1/r^2\)) और अध्यारोपण सिद्धांत का पालन करते हैं। अंतर यह है कि स्थिरवैद्युत क्षेत्र अदिश स्रोत (\(q\)) से उत्पन्न होता है और \(\mathbf{r}\) के अनुदिश होता है, जबकि चुंबकीय क्षेत्र सदिश स्रोत (\(I\,d\mathbf{l}\)) से उत्पन्न होता है, \(\sin\theta\) पर निर्भर करता है, तथा \(d\mathbf{l}\) और \(\mathbf{r}\) दोनों के लंबवत होता है। अल्पांश की अक्षीय रेखा पर (\(\theta = 0^\circ\) या \(180^\circ\)), \(d\mathbf{B} = 0\) होता है।</li>
+        </ul>
+
+        <h3>3.2 वृत्ताकार लूप एवं चाप का चुंबकीय क्षेत्र</h3>
+        <p>\(R\) त्रिज्या, \(N\) सटे हुए फेरों और \(I\) स्थायी धारा वाली वृत्ताकार कुंडली के लिए:</p>
+        <div class="formula-box">
+          \[ B_{\text{axis}} = \frac{\mu_0 N I R^2}{2\left(x^2 + R^2\right)^{3/2}}, \qquad B_{\text{centre}} = \frac{\mu_0 N I}{2R} \]
+        </div>
+        <p>यदि कोई तार केवल केंद्र पर \(\alpha\) कोण (रेडियन में) अंतरित करने वाला वृत्ताकार चाप बनाता है, तो केंद्र पर चुंबकीय क्षेत्र होगा:</p>
+        <div class="formula-box">
+          \[ B_{\text{arc}} = \frac{\mu_0 I}{4\pi R}\,\alpha \]
+        </div>
+        <p><strong>लूप के लिए दाहिने हाथ के अंगूठे का नियम:</strong> अपने दाहिने हाथ की उंगलियों को लूप में धारा की दिशा में मोड़ें; फैला हुआ अंगूठा अक्ष के अनुदिश \(\mathbf{B}\) की दिशा दर्शाता है।</p>
+      </div>
+    </section>
+
+    <!-- 5. Ampere's Circuital Law, Thick Wire & Solenoid -->
+    <section id="sec-ampere-solenoid">
+      <h2>4. Ampere's Circuital Law, Thick Wire &amp; Solenoid | ऐम्पियर का परिपथीय नियम, मोटा तार एवं परिनालिका</h2>
+
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <h3>4.1 Ampere's Circuital Law</h3>
+        <p>The line integral of the magnetic field \(\mathbf{B}\) around any closed Amperian loop \(C\) equals \(\mu_0\) times the net steady current \(I_e\) threading the surface bounded by the loop:</p>
+        <div class="formula-box">
+          \[ \oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_e \]
+        </div>
+        <p>When \(\mathbf{B}\) is uniform in magnitude and tangential along a loop segment of length \(L\), this simplifies to \(B L = \mu_0 I_e\).</p>
+
+        <h3>4.2 Long Straight Wire &amp; Solid Cylindrical Conductor</h3>
+        <ul>
+          <li><strong>Thin infinitely long straight wire</strong> at radial distance \(r\): \(B = \frac{\mu_0 I}{2\pi r}\).</li>
+          <li><strong>Solid cylindrical wire of radius \(a\)</strong> carrying uniform current \(I\):
+            <div class="formula-box">
+              \[ B_{\text{inside}} = \frac{\mu_0 I r}{2\pi a^2} \propto r \quad (r &lt; a), \qquad B_{\text{surface}} = \frac{\mu_0 I}{2\pi a} \quad (r = a), \qquad B_{\text{outside}} = \frac{\mu_0 I}{2\pi r} \propto \frac{1}{r} \quad (r &gt; a) \]
+            </div>
           </li>
-          <li><strong>Direction:</strong> By the right-hand rule, if current flows eastward, \(\mathbf{B}\) must point horizontally northward so that \(I(\mathbf{L} \times \mathbf{B})\) points vertically upward.</li>
-        </ol>
-      </div>
-    </div>
+        </ul>
 
-    <div class="q-card">
-      <div class="q-head"><span>Worked Example 2: Circular Coil Center & Axial Field Comparison</span><span>Field Calculations</span></div>
-      <p>A flat circular coil of radius \(R\) carries a current \(I\). At what distance \(x\) along the axis from the center does the magnetic field become \(\frac{1}{8}\)th of its value at the center?</p>
-      <div class="sol-box">
-        <p><strong>Step-by-Step Solution:</strong></p>
-        <ol>
-          <li>Formulas: \(B_{\text{center}} = \frac{\mu_0 I}{2R}\) and \(B_{\text{axis}} = \frac{\mu_0 I R^2}{2(R^2+x^2)^{3/2}}\).</li>
-          <li>Set \(B_{\text{axis}} = \frac{1}{8} B_{\text{center}}\):
-            \[\frac{\mu_0 I R^2}{2(R^2+x^2)^{3/2}} = \frac{1}{8}\left(\frac{\mu_0 I}{2R}\right) \implies \frac{R^2}{(R^2+x^2)^{3/2}} = \frac{1}{8R}\]
+        <h3>4.3 The Long Solenoid</h3>
+        <p>For a closely wound solenoid whose length \(L\) is much larger than its radius (\(L \gg R\)), with \(n = N/L\) turns per unit length carrying current \(I\), the magnetic field inside near the middle is uniform and axial, while the field outside approaches zero:</p>
+        <div class="formula-box">
+          \[ B_{\text{inside}} = \mu_0 n I = \mu_0 \frac{N}{L} I \]
+        </div>
+        <p>Note that at the open ends of a long solenoid, the axial field drops to half its central value: \(B_{\text{end}} = \frac{1}{2}\mu_0 n I\).</p>
+
+        <div class="svg-card">
+          <svg viewBox="0 0 640 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" aria-label="Magnetic Field of a Solid Wire and Long Solenoid">
+            <rect x="0" y="0" width="640" height="210" fill="#F8FAFC" rx="6" />
+            <!-- Left: B vs r for thick wire -->
+            <rect x="14" y="14" width="296" height="182" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="162" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Solid Wire (Radius a): B vs r</text>
+            <!-- Axes -->
+            <line x1="50" y1="165" x2="280" y2="165" stroke="#1E293B" stroke-width="1.8" />
+            <line x1="50" y1="165" x2="50" y2="50" stroke="#1E293B" stroke-width="1.8" />
+            <text x="285" y="169" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">r</text>
+            <text x="42" y="55" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">B</text>
+            <!-- Graph -->
+            <line x1="50" y1="165" x2="135" y2="68" stroke="#2563EB" stroke-width="2.5" />
+            <path d="M 135 68 Q 165 130 265 152" fill="none" stroke="#0D9488" stroke-width="2.5" />
+            <line x1="135" y1="68" x2="135" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <text x="135" y="180" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">r = a</text>
+            <text x="82" y="102" font-family="sans-serif" font-size="11" font-weight="600" fill="#2563EB">B ∝ r</text>
+            <text x="188" y="112" font-family="sans-serif" font-size="11" font-weight="600" fill="#0D9488">B ∝ 1/r</text>
+
+            <!-- Right: Long Solenoid -->
+            <rect x="330" y="14" width="296" height="182" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="478" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Long Solenoid (B = μ₀nI inside)</text>
+            <!-- Top & bottom windings -->
+            <rect x="365" y="65" width="226" height="14" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" />
+            <rect x="365" y="145" width="226" height="14" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" />
+            <!-- Uniform field lines -->
+            <line x1="355" y1="95" x2="598" y2="95" stroke="#0D9488" stroke-width="2" />
+            <polygon points="598,91 606,95 598,99" fill="#0D9488" />
+            <line x1="355" y1="112" x2="598" y2="112" stroke="#0D9488" stroke-width="2" />
+            <polygon points="598,108 606,112 598,116" fill="#0D9488" />
+            <line x1="355" y1="129" x2="598" y2="129" stroke="#0D9488" stroke-width="2" />
+            <polygon points="598,125 606,129 598,133" fill="#0D9488" />
+            <text x="478" y="182" font-family="sans-serif" font-size="12" font-weight="600" fill="#475569" text-anchor="middle">B_outside ≈ 0 (Ideal Long Solenoid)</text>
+          </svg>
+          <div class="svg-caption">Diagram 3: Radial variation of magnetic field inside and outside a solid cylindrical wire (left) and uniform axial field inside a long solenoid (right).</div>
+        </div>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <h3>4.1 ऐम्पियर का परिपथीय नियम</h3>
+        <p>किसी भी बंद ऐम्पियर लूप \(C\) के अनुदिश चुंबकीय क्षेत्र \(\mathbf{B}\) का रेखीय समाकलन लूप से घिरे पृष्ठ से गुजरने वाली कुल स्थायी धारा \(I_e\) के \(\mu_0\) गुना के बराबर होता है:</p>
+        <div class="formula-box">
+          \[ \oint \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_e \]
+        </div>
+        <p>जब \(\mathbf{B}\) का परिमाण एकसमान हो और वह \(L\) लंबाई के लूप खंड के स्पर्शरेखीय हो, तो यह \(B L = \mu_0 I_e\) हो जाता है।</p>
+
+        <h3>4.2 लंबा सीधा तार एवं ठोस बेलनाकार चालक</h3>
+        <ul>
+          <li><strong>पतला अनंत लंबा सीधा तार</strong> (\(r\) त्रिज्यीय दूरी पर): \(B = \frac{\mu_0 I}{2\pi r}\)।</li>
+          <li><strong>\(a\) त्रिज्या का ठोस बेलनाकार तार</strong> जिसमें एकसमान धारा \(I\) बह रही हो:
+            <div class="formula-box">
+              \[ B_{\text{inside}} = \frac{\mu_0 I r}{2\pi a^2} \propto r \quad (r &lt; a), \qquad B_{\text{surface}} = \frac{\mu_0 I}{2\pi a} \quad (r = a), \qquad B_{\text{outside}} = \frac{\mu_0 I}{2\pi r} \propto \frac{1}{r} \quad (r &gt; a) \]
+            </div>
           </li>
-          <li>Rearrange: \((R^2+x^2)^{3/2} = 8 R^3\). Take the \(2/3\) power on both sides:
-            \[R^2 + x^2 = (8)^{2/3} R^2 = (2^3)^{2/3} R^2 = 4 R^2 \implies x^2 = 3 R^2 \implies x = \sqrt{3} R\]
+        </ul>
+
+        <h3>4.3 लंबी परिनालिका (सॉलेनॉइड)</h3>
+        <p>ऐसी सटी हुई परिनालिका जिसकी लंबाई \(L\) उसकी त्रिज्या से बहुत अधिक हो (\(L \gg R\)), और प्रति एकांक लंबाई में फेरों की संख्या \(n = N/L\) तथा धारा \(I\) हो, तो उसके मध्य भाग के भीतर चुंबकीय क्षेत्र एकसमान और अक्षीय होता है, जबकि बाहर लगभग शून्य होता है:</p>
+        <div class="formula-box">
+          \[ B_{\text{inside}} = \mu_0 n I = \mu_0 \frac{N}{L} I \]
+        </div>
+        <p>ध्यान दें कि लंबी परिनालिका के खुले सिरों पर अक्षीय क्षेत्र केंद्रीय मान का आधा रह जाता है: \(B_{\text{end}} = \frac{1}{2}\mu_0 n I\)।</p>
+      </div>
+    </section>
+
+    <!-- 6. Parallel Currents, Torque on Loop & Moving Coil Galvanometer -->
+    <section id="sec-dipole-mcg">
+      <h2>5. Parallel Currents, Magnetic Dipole &amp; Moving Coil Galvanometer | समानांतर धाराएँ, चुंबकीय द्विध्रुव एवं चल कुंडली धारामापी</h2>
+
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <h3>5.1 Force Between Two Parallel Current-Carrying Conductors</h3>
+        <p>Two long parallel wires separated by distance \(d\) carrying steady currents \(I_1\) and \(I_2\) exert equal and opposite magnetic forces on each other. The force per unit length \(f = F/L\) is:</p>
+        <div class="formula-box">
+          \[ f = \frac{\mu_0 I_1 I_2}{2\pi d} \]
+        </div>
+        <ul>
+          <li><strong>Parallel currents (same direction) attract</strong>; <strong>antiparallel currents (opposite directions) repel</strong>.</li>
+          <li><strong>Definition of the Ampere:</strong> \(1\,\mathrm{A}\) is that steady current in two very long parallel wires \(1\,\mathrm{m}\) apart in vacuum which produces a force of \(2 \times 10^{-7}\,\mathrm{N/m}\) on each wire.</li>
+        </ul>
+
+        <h3>5.2 Torque on a Current Loop &amp; Magnetic Dipole Moment</h3>
+        <p>A planar loop of \(N\) turns, area \(A\), and current \(I\) behaves as a magnetic dipole with magnetic moment \(\mathbf{m} = N I \mathbf{A}\) (SI unit: \(\mathrm{A\cdot m^2}\) or \(\mathrm{J/T}\)). In a uniform magnetic field \(\mathbf{B}\), the net force on the loop is zero, while the torque is:</p>
+        <div class="formula-box">
+          \[ \boldsymbol{\tau} = \mathbf{m} \times \mathbf{B}, \qquad \tau = N I A B \sin\theta \]
+        </div>
+        <p>Here \(\theta\) is the angle between \(\mathbf{m}\) (normal to the coil) and \(\mathbf{B}\). At \(\theta = 0^\circ\) (\(\mathbf{m} \parallel \mathbf{B}\)), the loop is in <strong>stable equilibrium</strong>; at \(\theta = 180^\circ\), it is in <strong>unstable equilibrium</strong>.</p>
+        <p>At large distances (\(x \gg R\)) from a circular loop of magnetic moment \(m\), the magnetic field behaves just like an electric dipole field: \(B_{\text{axial}} = \frac{\mu_0}{4\pi}\frac{2m}{x^3}\) and \(B_{\text{equatorial}} = \frac{\mu_0}{4\pi}\frac{m}{x^3}\).</p>
+
+        <h3>5.3 Moving Coil Galvanometer (MCG)</h3>
+        <p>In an MCG, a coil of \(N\) turns and area \(A\) rotates in a <strong>uniform radial magnetic field</strong> (created by concave pole pieces and a cylindrical soft-iron core) so that \(\sin\theta = 1\) at all positions. A spring of torsional constant \(k\) provides a restoring torque \(k\phi\):</p>
+        <div class="formula-box">
+          \[ N I A B = k \phi \implies \text{Current Sensitivity } S_I = \frac{\phi}{I} = \frac{N A B}{k}, \qquad \text{Voltage Sensitivity } S_V = \frac{\phi}{V} = \frac{N A B}{k R_G} \]
+        </div>
+        <p><strong>Key NEET Insight:</strong> Increasing \(N\) (say doubling \(N \to 2N\)) doubles current sensitivity \(S_I\), but if the wire length doubles, the coil resistance \(R_G\) also doubles, leaving voltage sensitivity \(S_V\) <strong>unchanged</strong>!</p>
+
+        <h3>5.4 Conversion to Ammeter and Voltmeter</h3>
+        <ul>
+          <li><strong>Galvanometer to Ammeter (range \(0\text{–}I\)):</strong> Connect a very small <strong>shunt resistance \(r_s\) in parallel</strong> with the galvanometer (\(R_G\)). Effective resistance \(R_A = \frac{R_G r_s}{R_G + r_s}\) (ideal ammeter: \(R_A = 0\)).
+            <div class="formula-box">
+              \[ r_s = \frac{I_g R_G}{I - I_g} \]
+            </div>
           </li>
-        </ol>
-      </div>
-    </div>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>10. महत्वपूर्ण हल सहित उदाहरण</h2>
-    <p><strong>उदाहरण 1:</strong> हवा में संतुलन: \(I L B = m g \implies B = \frac{0.2 \times 9.8}{2 \times 1.5} \approx 0.653\,\mathrm{T}\)।<br>
-    <strong>उदाहरण 2:</strong> अक्ष पर \(x = \sqrt{3}R\) पर चुंबकीय क्षेत्र केंद्र का \(\frac{1}{8}\) भाग होता है।</p>
-  </div>
-</section>
+          <li><strong>Galvanometer to Voltmeter (range \(0\text{–}V\)):</strong> Connect a very large <strong>resistance \(R\) in series</strong> with the galvanometer. Effective resistance \(R_V = R_G + R\) (ideal voltmeter: \(R_V \to \infty\)).
+            <div class="formula-box">
+              \[ R = \frac{V}{I_g} - R_G \]
+            </div>
+          </li>
+        </ul>
 
-<!-- 11. Practice Assessment -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>11. NEET UG Exam-Aligned Practice Assessment</h2>
-    <p>Original practice questions adhering strictly to NEET UG level and bilingual format.</p>
-  </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>11. NEET UG अभ्यास प्रश्नमाला</h2>
-    <p>NEET UG परीक्षा स्तर पर आधारित मूल अभ्यास प्रश्न एवं विस्तृत हल।</p>
-  </div>
+        <div class="svg-card">
+          <svg viewBox="0 0 640 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" aria-label="Galvanometer Conversion to Ammeter and Voltmeter">
+            <rect x="0" y="0" width="640" height="200" fill="#F8FAFC" rx="6" />
+            <!-- Left: Ammeter -->
+            <rect x="14" y="14" width="296" height="172" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="162" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Ammeter (Shunt r_s in Parallel)</text>
+            <line x1="40" y1="80" x2="284" y2="80" stroke="#1E293B" stroke-width="2" />
+            <circle cx="130" cy="80" r="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+            <text x="130" y="85" font-family="sans-serif" font-size="13" font-weight="700" fill="#1D4ED8" text-anchor="middle">G</text>
+            <rect x="175" y="70" width="44" height="20" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+            <text x="197" y="63" font-family="sans-serif" font-size="12" font-weight="600" fill="#1E293B" text-anchor="middle">R_G</text>
+            <!-- Shunt branch -->
+            <line x1="80" y1="80" x2="80" y2="140" stroke="#0D9488" stroke-width="2" />
+            <line x1="80" y1="140" x2="245" y2="140" stroke="#0D9488" stroke-width="2" />
+            <line x1="245" y1="140" x2="245" y2="80" stroke="#0D9488" stroke-width="2" />
+            <rect x="140" y="130" width="46" height="20" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.8" />
+            <text x="163" y="168" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488" text-anchor="middle">Small Shunt r_s</text>
+            <text x="55" y="72" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">I →</text>
 
-  <!-- Question 1 -->
-  <div class="q-card">
-    <div class="q-head"><span>Practice Question 1</span><span>Lorentz Force Work</span></div>
-    <div class="lang-en">
-      <p>A charged particle \(q\) enters a uniform magnetic field \(\mathbf{B}\) with velocity \(\mathbf{v}\) at an angle of \(60^\circ\). After traveling a distance \(s\) along its path, what is the work done by the magnetic force on the particle?</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> Zero</div>
-        <div class="opt-item"><strong>(B)</strong> \(q v B s \sin 60^\circ\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(q v B s \cos 60^\circ\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(\frac{1}{2} m v^2\)</div>
+            <!-- Right: Voltmeter -->
+            <rect x="330" y="14" width="296" height="172" fill="#FFFFFF" stroke="#CBD5E1" rx="4" />
+            <text x="478" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Voltmeter (Large R in Series)</text>
+            <line x1="355" y1="105" x2="600" y2="105" stroke="#1E293B" stroke-width="2" />
+            <circle cx="415" cy="105" r="16" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+            <text x="415" y="110" font-family="sans-serif" font-size="13" font-weight="700" fill="#1D4ED8" text-anchor="middle">G</text>
+            <rect x="455" y="95" width="40" height="20" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+            <text x="475" y="88" font-family="sans-serif" font-size="12" font-weight="600" fill="#1E293B" text-anchor="middle">R_G</text>
+            <rect x="520" y="95" width="52" height="20" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.8" />
+            <text x="546" y="88" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488" text-anchor="middle">Large R</text>
+            <text x="478" y="152" font-family="sans-serif" font-size="12" font-weight="600" fill="#475569" text-anchor="middle">V = I_g (R_G + R)</text>
+          </svg>
+          <div class="svg-caption">Diagram 4: Conversion of a moving coil galvanometer into an ammeter (left) and a voltmeter (right).</div>
+        </div>
       </div>
-      <div class="sol-box">
-        <span class="ans-tag">Correct Option: (A)</span>
-        <p><strong>Reasoning:</strong> Because \(\mathbf{F}_m = q(\mathbf{v} \times \mathbf{B})\) is always strictly perpendicular to velocity \(\mathbf{v}\), power \(P = \mathbf{F}_m \cdot \mathbf{v} \equiv 0\). The work done is identically zero (\(W = 0\)). Kinetic energy and speed remain constant.</p>
-      </div>
-    </div>
-    <hr class="sep"/>
-    <div class="lang-hi">
-      <p>एक आवेशित कण \(q\) एकसमान चुंबकीय क्षेत्र में क्षेत्र रेखाओं से \(60^\circ\) के कोण पर वेग \(\mathbf{v}\) से प्रवेश करता है। कण द्वारा \(s\) दूरी तय करने पर चुंबकीय बल द्वारा किया गया कार्य कितना होगा?</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> शून्य (Zero)</div>
-        <div class="opt-item"><strong>(B)</strong> \(q v B s \sin 60^\circ\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(q v B s \cos 60^\circ\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(\frac{1}{2} m v^2\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">सही उत्तर: (A)</span>
-        <p><strong>विस्तृत हल:</strong> चुंबकीय बल सदैव वेग के लंबवत होता है (\(\mathbf{F}_m \cdot \mathbf{v} = 0\)), अतः शक्ति शून्य होने से किया गया कार्य सदैव शून्य (\(W = 0\)) होता है।</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- Question 2 -->
-  <div class="q-card">
-    <div class="q-head"><span>Practice Question 2</span><span>Orbital Radius Ratio</span></div>
-    <div class="lang-en">
-      <p>A proton and an \(\alpha\)-particle are accelerated from rest through the same potential difference \(V\) and enter perpendicularly into a uniform magnetic field \(B\). The ratio of their orbital radii \(\frac{r_p}{r_\alpha}\) is:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> \(1 : 1\)</div>
-        <div class="opt-item"><strong>(B)</strong> \(1 : \sqrt{2}\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(\sqrt{2} : 1\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(1 : 2\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">Correct Option: (B)</span>
-        <p><strong>Reasoning:</strong> Radius \(r = \frac{\sqrt{2 m q V}}{q B} = \frac{1}{B}\sqrt{\frac{2 m V}{q}}\). For a proton, \(m_p = m\), \(q_p = e\). For an \(\alpha\)-particle, \(m_\alpha = 4m\), \(q_\alpha = 2e\). Thus, \(\frac{r_p}{r_\alpha} = \sqrt{\frac{m_p}{q_p} \cdot \frac{q_\alpha}{m_\alpha}} = \sqrt{\frac{1}{1} \cdot \frac{2}{4}} = \frac{1}{\sqrt{2}}\).</p>
-      </div>
-    </div>
-    <hr class="sep"/>
-    <div class="lang-hi">
-      <p>समान विभवांतर \(V\) द्वारा त्वरित प्रोटॉन तथा \(\alpha\)-कण लंबवत चुंबकीय क्षेत्र में प्रवेश करते हैं। उनकी वृत्तीय त्रिज्याओं का अनुपात \(\frac{r_p}{r_\alpha}\) होगा:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> \(1 : 1\)</div>
-        <div class="opt-item"><strong>(B)</strong> \(1 : \sqrt{2}\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(\sqrt{2} : 1\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(1 : 2\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">सही उत्तर: (B)</span>
-        <p><strong>विस्तृत हल:</strong> \(r \propto \sqrt{\frac{m}{q}}\) होने से \(\frac{r_p}{r_\alpha} = \sqrt{\frac{m_p}{m_\alpha} \cdot \frac{q_\alpha}{q_p}} = \sqrt{\frac{1}{4} \cdot \frac{2}{1}} = \frac{1}{\sqrt{2}}\)।</p>
-      </div>
-    </div>
-  </div>
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <h3>5.1 दो समानांतर धारावाही चालकों के बीच बल</h3>
+        <p>\(d\) दूरी पर रखे दो लंबे समानांतर तारों में \(I_1\) और \(I_2\) स्थायी धाराएँ बहने पर वे एक-दूसरे पर बराबर और विपरीत चुंबकीय बल लगाते हैं। प्रति एकांक लंबाई बल \(f = F/L\) है:</p>
+        <div class="formula-box">
+          \[ f = \frac{\mu_0 I_1 I_2}{2\pi d} \]
+        </div>
+        <ul>
+          <li><strong>समानांतर धाराएँ (एक ही दिशा में) आकर्षित</strong> करती हैं; <strong>प्रतिसमानांतर धाराएँ (विपरीत दिशाओं में) प्रतिकर्षित</strong> करती हैं।</li>
+          <li><strong>ऐम्पियर की परिभाषा:</strong> \(1\,\mathrm{A}\) वह स्थायी धारा है जो निर्वात में \(1\,\mathrm{m}\) की दूरी पर रखे दो बहुत लंबे समानांतर तारों में प्रवाहित होने पर प्रत्येक तार की प्रति मीटर लंबाई पर \(2 \times 10^{-7}\,\mathrm{N/m}\) का बल उत्पन्न करती है।</li>
+        </ul>
 
-  <!-- Question 3 -->
-  <div class="q-card">
-    <div class="q-head"><span>Practice Question 3</span><span>Force on Bent Wire</span></div>
-    <div class="lang-en">
-      <p>A wire carrying current \(I\) is bent into a semicircle of radius \(R\). If a uniform magnetic field \(\mathbf{B}\) is applied perpendicular to the plane of the semicircle, the magnitude of the net magnetic force on the wire is:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> Zero</div>
-        <div class="opt-item"><strong>(B)</strong> \(2 I R B\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(\pi I R B\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(2\pi I R B\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">Correct Option: (B)</span>
-        <p><strong>Reasoning:</strong> In a uniform \(\mathbf{B}\), the net force on any open wire is \(\mathbf{F} = I(\mathbf{L}_{\text{net}} \times \mathbf{B})\). The direct displacement between the endpoints of a semicircle of radius \(R\) is its diameter: \(L_{\text{net}} = 2R\). Hence, \(F = I (2R) B = 2 I R B\).</p>
-      </div>
-    </div>
-    <hr class="sep"/>
-    <div class="lang-hi">
-      <p>\(R\) त्रिज्या के अर्धवृत्त के आकार में मुड़े \(I\) धारावाही तार पर तल के लंबवत चुंबकीय क्षेत्र में लगने वाला परिणामी बल होगा:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> शून्य</div>
-        <div class="opt-item"><strong>(B)</strong> \(2 I R B\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(\pi I R B\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(2\pi I R B\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">सही उत्तर: (B)</span>
-        <p><strong>विस्तृत हल:</strong> सिरों के बीच सीधा विस्थापन व्यास के बराबर होता है (\(L_{\text{net}} = 2R\))। अतः \(F = 2 I R B\)।</p>
-      </div>
-    </div>
-  </div>
+        <h3>5.2 धारा लूप पर बल-आघूर्ण एवं चुंबकीय द्विध्रुव आघूर्ण</h3>
+        <p>\(N\) फेरों, \(A\) क्षेत्रफल और \(I\) धारा वाला एक समतलीय लूप चुंबकीय द्विध्रुव की भाँति व्यवहार करता है जिसका चुंबकीय आघूर्ण \(\mathbf{m} = N I \mathbf{A}\) (SI मात्रक: \(\mathrm{A\cdot m^2}\) या \(\mathrm{J/T}\)) है। एकसमान चुंबकीय क्षेत्र \(\mathbf{B}\) में लूप पर कुल बल शून्य होता है, जबकि बल-आघूर्ण होता है:</p>
+        <div class="formula-box">
+          \[ \boldsymbol{\tau} = \mathbf{m} \times \mathbf{B}, \qquad \tau = N I A B \sin\theta \]
+        </div>
+        <p>यहाँ \(\theta\), \(\mathbf{m}\) (कुंडली के अभिलंब) और \(\mathbf{B}\) के बीच का कोण है। \(\theta = 0^\circ\) (\(\mathbf{m} \parallel \mathbf{B}\)) पर लूप <strong>स्थायी संतुलन</strong> में होता है; \(\theta = 180^\circ\) पर यह <strong>अस्थायी संतुलन</strong> में होता है।</p>
+        <p>\(m\) चुंबकीय आघूर्ण वाले वृत्ताकार लूप से बहुत अधिक दूरी (\(x \gg R\)) पर चुंबकीय क्षेत्र वैद्युत द्विध्रुव जैसा होता है: \(B_{\text{axial}} = \frac{\mu_0}{4\pi}\frac{2m}{x^3}\) तथा \(B_{\text{equatorial}} = \frac{\mu_0}{4\pi}\frac{m}{x^3}\)।</p>
 
-  <!-- Question 4 -->
-  <div class="q-card">
-    <div class="q-head"><span>Practice Question 4</span><span>Ampere's Law Thick Wire</span></div>
-    <div class="lang-en">
-      <p>A solid cylindrical wire of radius \(a\) carries a uniform current. The ratio of the magnetic field at a distance \(\frac{a}{2}\) from the axis to that at a distance \(2a\) from the axis is:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> \(1 : 1\)</div>
-        <div class="opt-item"><strong>(B)</strong> \(1 : 2\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(2 : 1\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(1 : 4\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">Correct Option: (A)</span>
-        <p><strong>Reasoning:</strong> Inside (\(r = a/2\)): \(B_1 = \frac{\mu_0 I (a/2)}{2\pi a^2} = \frac{\mu_0 I}{4\pi a}\). Outside (\(r = 2a\)): \(B_2 = \frac{\mu_0 I}{2\pi (2a)} = \frac{\mu_0 I}{4\pi a}\). Thus, \(B_1 : B_2 = 1 : 1\).</p>
-      </div>
-    </div>
-    <hr class="sep"/>
-    <div class="lang-hi">
-      <p>\(a\) त्रिज्या के ठोस तार में एकसमान धारा प्रवाहित है। अंदर \(r = a/2\) तथा बाहर \(r = 2a\) पर चुंबकीय क्षेत्रों का अनुपात क्या होगा?</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> \(1 : 1\)</div>
-        <div class="opt-item"><strong>(B)</strong> \(1 : 2\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(2 : 1\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(1 : 4\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">सही उत्तर: (A)</span>
-        <p><strong>विस्तृत हल:</strong> \(B_{\text{in}} = \frac{\mu_0 I (a/2)}{2\pi a^2} = \frac{\mu_0 I}{4\pi a}\), \(B_{\text{out}} = \frac{\mu_0 I}{2\pi (2a)} = \frac{\mu_0 I}{4\pi a}\)। अनुपात = \(1 : 1\)।</p>
-      </div>
-    </div>
-  </div>
+        <h3>5.3 चल कुंडली धारामापी (MCG)</h3>
+        <p>MCG में \(N\) फेरों और \(A\) क्षेत्रफल की कुंडली एक <strong>एकसमान त्रिज्यीय चुंबकीय क्षेत्र</strong> (अवतल ध्रुव खंडों और बेलनाकार नर्म लोहे की क्रोड द्वारा निर्मित) में घूमती है ताकि हर स्थिति में \(\sin\theta = 1\) रहे। मरोड़ी नियतांक \(k\) वाली कमानी \(k\phi\) प्रत्यानयन बल-आघूर्ण प्रदान करती है:</p>
+        <div class="formula-box">
+          \[ N I A B = k \phi \implies \text{धारा सुग्राहिता } S_I = \frac{\phi}{I} = \frac{N A B}{k}, \qquad \text{वोल्टता सुग्राहिता } S_V = \frac{\phi}{V} = \frac{N A B}{k R_G} \]
+        </div>
+        <p><strong>महत्वपूर्ण NEET तथ्य:</strong> फेरों की संख्या \(N\) दोगुनी करने पर धारा सुग्राहिता \(S_I\) दोगुनी हो जाती है, परंतु यदि तार की लंबाई दोगुनी होने से प्रतिरोध \(R_G\) भी दोगुना हो जाए, तो वोल्टता सुग्राहिता \(S_V\) <strong>अपरिवर्तित</strong> रहती है!</p>
 
-  <!-- Question 5 -->
-  <div class="q-card">
-    <div class="q-head"><span>Practice Question 5</span><span>Galvanometer Shunt</span></div>
-    <div class="lang-en">
-      <p>A galvanometer has coil resistance \(25\,\Omega\) and gives full-scale deflection for \(10\,\mathrm{mA}\). The shunt resistance required to convert it into an ammeter of range \(0 - 5\,\mathrm{A}\) is approximately:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> \(0.05\,\Omega\)</div>
-        <div class="opt-item"><strong>(B)</strong> \(0.5\,\Omega\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(0.025\,\Omega\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(2.5\,\Omega\)</div>
+        <h3>5.4 अमीटर एवं वोल्टमीटर में रूपांतरण</h3>
+        <ul>
+          <li><strong>धारामापी से अमीटर (परास \(0\text{–}I\)):</strong> धारामापी (\(R_G\)) के <strong>समानांतर क्रम में एक बहुत छोटा शंट प्रतिरोध \(r_s\)</strong> जोड़ें। प्रभावी प्रतिरोध \(R_A = \frac{R_G r_s}{R_G + r_s}\) (आदर्श अमीटर: \(R_A = 0\))।
+            <div class="formula-box">
+              \[ r_s = \frac{I_g R_G}{I - I_g} \]
+            </div>
+          </li>
+          <li><strong>धारामापी से वोल्टमीटर (परास \(0\text{–}V\)):</strong> धारामापी के <strong>श्रेणी क्रम में एक बहुत बड़ा प्रतिरोध \(R\)</strong> जोड़ें। प्रभावी प्रतिरोध \(R_V = R_G + R\) (आदर्श वोल्टमीटर: \(R_V \to \infty\))।
+            <div class="formula-box">
+              \[ R = \frac{V}{I_g} - R_G \]
+            </div>
+          </li>
+        </ul>
       </div>
-      <div class="sol-box">
-        <span class="ans-tag">Correct Option: (A)</span>
-        <p><strong>Reasoning:</strong> Formula: \(S = \frac{I_g R_G}{I - I_g}\). Here \(I_g = 10 \times 10^{-3}\,\mathrm{A} = 0.01\,\mathrm{A}\), \(R_G = 25\,\Omega\), and \(I = 5\,\mathrm{A}\). Thus, \(S = \frac{0.01 \times 25}{5 - 0.01} = \frac{0.25}{4.99} \approx 0.0501\,\Omega \approx 0.05\,\Omega\).</p>
-      </div>
-    </div>
-    <hr class="sep"/>
-    <div class="lang-hi">
-      <p>\(25\,\Omega\) प्रतिरोध वाले धारामापी में \(10\,\mathrm{mA}\) पर पूर्ण पैमाना विक्षेप मिलता है। इसे \(0 - 5\,\mathrm{A}\) अमीटर में बदलने हेतु आवश्यक शंट होगा:</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> \(0.05\,\Omega\)</div>
-        <div class="opt-item"><strong>(B)</strong> \(0.5\,\Omega\)</div>
-        <div class="opt-item"><strong>(C)</strong> \(0.025\,\Omega\)</div>
-        <div class="opt-item"><strong>(D)</strong> \(2.5\,\Omega\)</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">सही उत्तर: (A)</span>
-        <p><strong>विस्तृत हल:</strong> \(S = \frac{I_g R_G}{I - I_g} = \frac{0.01 \times 25}{5 - 0.01} \approx 0.05\,\Omega\)।</p>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Question 6 -->
-  <div class="q-card">
-    <div class="q-head"><span>Practice Question 6</span><span>Assertion & Reason on Sensitivity</span></div>
-    <div class="lang-en">
-      <p><strong>Assertion (A):</strong> Doubling the number of turns in an MCG doubles current sensitivity but leaves voltage sensitivity unchanged.<br>
-      <strong>Reason (R):</strong> Doubling the turns doubles the total wire length, which doubles the coil resistance.</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> Both (A) and (R) are true, and (R) correctly explains (A).</div>
-        <div class="opt-item"><strong>(B)</strong> Both are true, but (R) is NOT the correct explanation.</div>
-        <div class="opt-item"><strong>(C)</strong> (A) is true, but (R) is false.</div>
-        <div class="opt-item"><strong>(D)</strong> (A) is false, but (R) is true.</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">Correct Option: (A)</span>
-        <p><strong>Reasoning:</strong> \(S_i = \frac{NAB}{k}\), so \(N \to 2N \implies S_i \to 2S_i\). But \(S_v = \frac{NAB}{k R_G}\). Wire length doubles so \(R_G \to 2R_G\). Hence \(S_v' = \frac{2NAB}{k(2R_G)} = S_v\) (unchanged). Both statements are true and (R) explains (A).</p>
-      </div>
-    </div>
-    <hr class="sep"/>
-    <div class="lang-hi">
-      <p><strong>अभिकथन (A):</strong> धारामापी में फेरों की संख्या दोगुनी करने पर धारा सुग्राहिता दोगुनी होती है परंतु वोल्टता सुग्राहिता अपरिवर्तित रहती है।<br>
-      <strong>कारण (R):</strong> फेरे दोगुने करने से तार की लंबाई दोगुनी होती है जिससे कुंडली का प्रतिरोध भी दोगुना हो जाता है।</p>
-      <div class="opt-grid">
-        <div class="opt-item"><strong>(A)</strong> (A) और (R) दोनों सही हैं, और (R), (A) की सही व्याख्या है।</div>
-        <div class="opt-item"><strong>(B)</strong> दोनों सही हैं, परंतु (R) सही व्याख्या नहीं है।</div>
-        <div class="opt-item"><strong>(C)</strong> (A) सही है, (R) गलत है।</div>
-        <div class="opt-item"><strong>(D)</strong> (A) गलत है, (R) सही है।</div>
-      </div>
-      <div class="sol-box">
-        <span class="ans-tag">सही उत्तर: (A)</span>
-        <p><strong>विस्तृत हल:</strong> \(S_v = \frac{NAB}{k R_G}\)। फेरे दोगुने होने पर \(R_G\) भी दोगुना होने से \(S_v\) नियत रहता है। अभिकथन व कारण दोनों सत्य हैं तथा कारण सही व्याख्या है।</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- 7. Master Summary Table -->
+    <section id="sec-table">
+      <h2>6. Key Quantities, Dimensions &amp; Formulae | मुख्य राशियाँ, विमाएँ एवं सूत्र</h2>
 
-<!-- 12. Pitfalls & Quick Recap -->
-<section class="sec-block">
-  <div class="lang-en">
-    <span class="l-tag l-en">English</span>
-    <h2>12. High-Yield Pitfalls & Revision Checklist</h2>
-    <div class="pitfall-box">
-      <strong>1. Magnetic Work is Zero:</strong> A purely magnetic force changes only the direction of velocity, never kinetic energy (\(W = 0\)).
-    </div>
-    <div class="pitfall-box">
-      <strong>2. Current Sensitivity vs Voltage Sensitivity:</strong> Increasing turns \(N\) increases \(S_i\) but does NOT increase \(S_v\).
-    </div>
-    <div class="pitfall-box">
-      <strong>3. Attraction vs Repulsion:</strong> Like currents attract; unlike currents repel (opposite of electrostatic charges).
-    </div>
-    <div class="pitfall-box">
-      <strong>4. Solenoid Ends:</strong> At the edge/end of a solenoid, \(B_{\text{end}} = \frac{1}{2}\mu_0 n I\) (half the interior center value).
-    </div>
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <table>
+          <thead>
+            <tr>
+              <th>Quantity / System</th>
+              <th>Formula / Value</th>
+              <th>SI Unit &amp; Dimensions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Permeability of free space (\(\mu_0\))</td>
+              <td>\(4\pi \times 10^{-7}\)</td>
+              <td>\(\mathrm{T\cdot m/A}\), \([\mathrm{M L T^{-2} A^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Magnetic Field (\(\mathbf{B}\))</td>
+              <td>\(F / (qv\sin\theta)\)</td>
+              <td>\(\mathrm{T}\) (tesla), \([\mathrm{M T^{-2} A^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Magnetic Dipole Moment (\(\mathbf{m}\))</td>
+              <td>\(N I \mathbf{A}\)</td>
+              <td>\(\mathrm{A\cdot m^2}\) or \(\mathrm{J/T}\), \([\mathrm{L^2 A}]\)</td>
+            </tr>
+            <tr>
+              <td>Torsional Constant (\(k\))</td>
+              <td>\(N I A B / \phi\)</td>
+              <td>\(\mathrm{N\cdot m/rad}\), \([\mathrm{M L^2 T^{-2}}]\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <table>
+          <thead>
+            <tr>
+              <th>भौतिक राशि / निकाय</th>
+              <th>सूत्र / मान</th>
+              <th>SI मात्रक एवं विमाएँ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>निर्वात की चुंबकशीलता (\(\mu_0\))</td>
+              <td>\(4\pi \times 10^{-7}\)</td>
+              <td>\(\mathrm{T\cdot m/A}\), \([\mathrm{M L T^{-2} A^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>चुंबकीय क्षेत्र (\(\mathbf{B}\))</td>
+              <td>\(F / (qv\sin\theta)\)</td>
+              <td>\(\mathrm{T}\) (टेस्ला), \([\mathrm{M T^{-2} A^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>चुंबकीय द्विध्रुव आघूर्ण (\(\mathbf{m}\))</td>
+              <td>\(N I \mathbf{A}\)</td>
+              <td>\(\mathrm{A\cdot m^2}\) या \(\mathrm{J/T}\), \([\mathrm{L^2 A}]\)</td>
+            </tr>
+            <tr>
+              <td>मरोड़ी नियतांक (\(k\))</td>
+              <td>\(N I A B / \phi\)</td>
+              <td>\(\mathrm{N\cdot m/rad}\), \([\mathrm{M L^2 T^{-2}}]\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 8. Worked Examples -->
+    <section id="sec-examples">
+      <h2>7. Original Worked Examples | मौलिक हल किए गए उदाहरण</h2>
+
+      <!-- Example 1 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="example-title">Example 1: Circular Motion of an Alpha Particle</div>
+          <p><strong>Problem:</strong> Suppose an alpha particle (assumed mass \(m = 6.64 \times 10^{-27}\,\mathrm{kg}\) and charge \(q = +3.2 \times 10^{-19}\,\mathrm{C}\)) enters a uniform magnetic field \(B = 0.50\,\mathrm{T}\) perpendicularly at a speed \(v = 2.0 \times 10^6\,\mathrm{m/s}\). Find the radius and time period of its circular orbit.</p>
+          <div class="solution-box">
+            <p><strong>Solution:</strong></p>
+            <p>Since \(\mathbf{v} \perp \mathbf{B}\), the radius of the circular path is:</p>
+            \[ r = \frac{mv}{qB} = \frac{6.64 \times 10^{-27} \times 2.0 \times 10^6}{3.2 \times 10^{-19} \times 0.50} = \frac{13.28 \times 10^{-21}}{1.6 \times 10^{-19}} = 8.3 \times 10^{-2}\,\mathrm{m} = 8.3\,\mathrm{cm} \]
+            <p>The time period of one revolution is:</p>
+            \[ T = \frac{2\pi m}{qB} = \frac{2 \times 3.14 \times 6.64 \times 10^{-27}}{3.2 \times 10^{-19} \times 0.50} \approx 2.61 \times 10^{-7}\,\mathrm{s} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="example-title">उदाहरण 1: अल्फा कण की वृत्ताकार गति</div>
+          <p><strong>प्रश्न:</strong> मान लीजिए एक अल्फा कण (कल्पित द्रव्यमान \(m = 6.64 \times 10^{-27}\,\mathrm{kg}\) और आवेश \(q = +3.2 \times 10^{-19}\,\mathrm{C}\)) एकसमान चुंबकीय क्षेत्र \(B = 0.50\,\mathrm{T}\) में लंबवत रूप से \(v = 2.0 \times 10^6\,\mathrm{m/s}\) की चाल से प्रवेश करता है। इसके वृत्ताकार कक्ष की त्रिज्या तथा आवर्तकाल ज्ञात कीजिए।</p>
+          <div class="solution-box">
+            <p><strong>हल:</strong></p>
+            <p>चूँकि \(\mathbf{v} \perp \mathbf{B}\) है, वृत्ताकार पथ की त्रिज्या होगी:</p>
+            \[ r = \frac{mv}{qB} = \frac{6.64 \times 10^{-27} \times 2.0 \times 10^6}{3.2 \times 10^{-19} \times 0.50} = \frac{13.28 \times 10^{-21}}{1.6 \times 10^{-19}} = 8.3 \times 10^{-2}\,\mathrm{m} = 8.3\,\mathrm{cm} \]
+            <p>एक चक्कर का आवर्तकाल है:</p>
+            \[ T = \frac{2\pi m}{qB} = \frac{2 \times 3.14 \times 6.64 \times 10^{-27}}{3.2 \times 10^{-19} \times 0.50} \approx 2.61 \times 10^{-7}\,\mathrm{s} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="example-title">Example 2: Magnetic Field at Centre and Axis of a Coil</div>
+          <p><strong>Problem:</strong> A tightly wound circular coil of assumed \(N = 50\) turns and radius \(R = 6.0\,\mathrm{cm}\) carries a steady current \(I = 2.4\,\mathrm{A}\). Calculate the magnetic field magnitude (a) at its centre and (b) at an axial point \(x = 8.0\,\mathrm{cm}\) from the centre.</p>
+          <div class="solution-box">
+            <p><strong>Solution:</strong></p>
+            <p>(a) At the centre (\(x = 0\)):</p>
+            \[ B_0 = \frac{\mu_0 N I}{2R} = \frac{4\pi \times 10^{-7} \times 50 \times 2.4}{2 \times 0.06} = 4\pi \times 10^{-4}\,\mathrm{T} \approx 1.26 \times 10^{-3}\,\mathrm{T} \]
+            <p>(b) On the axis at \(x = 0.08\,\mathrm{m}\), we have \(\sqrt{x^2 + R^2} = \sqrt{0.08^2 + 0.06^2} = 0.10\,\mathrm{m}\):</p>
+            \[ B_x = \frac{\mu_0 N I R^2}{2(x^2 + R^2)^{3/2}} = B_0 \left(\frac{R}{\sqrt{x^2 + R^2}}\right)^3 = (1.257 \times 10^{-3}) \times (0.6)^3 = 2.71 \times 10^{-4}\,\mathrm{T} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="example-title">उदाहरण 2: कुंडली के केंद्र एवं अक्ष पर चुंबकीय क्षेत्र</div>
+          <p><strong>प्रश्न:</strong> सटे हुए फेरों वाली एक वृत्ताकार कुंडली में कल्पित \(N = 50\) फेरे, त्रिज्या \(R = 6.0\,\mathrm{cm}\) और स्थायी धारा \(I = 2.4\,\mathrm{A}\) है। चुंबकीय क्षेत्र का परिमाण (a) इसके केंद्र पर तथा (b) केंद्र से \(x = 8.0\,\mathrm{cm}\) अक्षीय दूरी पर ज्ञात कीजिए।</p>
+          <div class="solution-box">
+            <p><strong>हल:</strong></p>
+            <p>(a) केंद्र पर (\(x = 0\)):</p>
+            \[ B_0 = \frac{\mu_0 N I}{2R} = \frac{4\pi \times 10^{-7} \times 50 \times 2.4}{2 \times 0.06} = 4\pi \times 10^{-4}\,\mathrm{T} \approx 1.26 \times 10^{-3}\,\mathrm{T} \]
+            <p>(b) अक्ष पर \(x = 0.08\,\mathrm{m}\) दूरी पर, \(\sqrt{x^2 + R^2} = \sqrt{0.08^2 + 0.06^2} = 0.10\,\mathrm{m}\):</p>
+            \[ B_x = \frac{\mu_0 N I R^2}{2(x^2 + R^2)^{3/2}} = B_0 \left(\frac{R}{\sqrt{x^2 + R^2}}\right)^3 = (1.257 \times 10^{-3}) \times (0.6)^3 = 2.71 \times 10^{-4}\,\mathrm{T} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="example-title">Example 3: Thick Cylindrical Conductor via Ampere's Law</div>
+          <p><strong>Problem:</strong> A long straight cylindrical copper conductor of assumed radius \(a = 4.0\,\mathrm{mm}\) carries a uniformly distributed current \(I = 20\,\mathrm{A}\). Determine the magnetic field at radial distances \(r_1 = 2.0\,\mathrm{mm}\) and \(r_2 = 8.0\,\mathrm{mm}\) from the axis.</p>
+          <div class="solution-box">
+            <p><strong>Solution:</strong></p>
+            <p>For \(r_1 = 2.0\,\mathrm{mm} &lt; a\) (inside):</p>
+            \[ B_1 = \frac{\mu_0 I r_1}{2\pi a^2} = \frac{2 \times 10^{-7} \times 20 \times 2.0 \times 10^{-3}}{(4.0 \times 10^{-3})^2} = 5.0 \times 10^{-4}\,\mathrm{T} \]
+            <p>For \(r_2 = 8.0\,\mathrm{mm} &gt; a\) (outside):</p>
+            \[ B_2 = \frac{\mu_0 I}{2\pi r_2} = \frac{2 \times 10^{-7} \times 20}{8.0 \times 10^{-3}} = 5.0 \times 10^{-4}\,\mathrm{T} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="example-title">उदाहरण 3: ऐम्पियर के नियम से मोटे बेलनाकार चालक का क्षेत्र</div>
+          <p><strong>प्रश्न:</strong> कल्पित त्रिज्या \(a = 4.0\,\mathrm{mm}\) वाले एक लंबे सीधे बेलनाकार ताँबे के चालक में एकसमान रूप से वितरित धारा \(I = 20\,\mathrm{A}\) प्रवाहित हो रही है। अक्ष से \(r_1 = 2.0\,\mathrm{mm}\) और \(r_2 = 8.0\,\mathrm{mm}\) त्रिज्यीय दूरियों पर चुंबकीय क्षेत्र ज्ञात कीजिए।</p>
+          <div class="solution-box">
+            <p><strong>हल:</strong></p>
+            <p>\(r_1 = 2.0\,\mathrm{mm} &lt; a\) (भीतर) के लिए:</p>
+            \[ B_1 = \frac{\mu_0 I r_1}{2\pi a^2} = \frac{2 \times 10^{-7} \times 20 \times 2.0 \times 10^{-3}}{(4.0 \times 10^{-3})^2} = 5.0 \times 10^{-4}\,\mathrm{T} \]
+            <p>\(r_2 = 8.0\,\mathrm{mm} &gt; a\) (बाहर) के लिए:</p>
+            \[ B_2 = \frac{\mu_0 I}{2\pi r_2} = \frac{2 \times 10^{-7} \times 20}{8.0 \times 10^{-3}} = 5.0 \times 10^{-4}\,\mathrm{T} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="example-title">Example 4: Force Between Antiparallel Conductors</div>
+          <p><strong>Problem:</strong> Two long parallel conductors separated by an assumed distance \(d = 5.0\,\mathrm{cm}\) carry currents \(I_1 = 6.0\,\mathrm{A}\) and \(I_2 = 10\,\mathrm{A}\) in opposite directions. Find the magnitude and nature of the force per unit length on each conductor.</p>
+          <div class="solution-box">
+            <p><strong>Solution:</strong></p>
+            \[ f = \frac{\mu_0 I_1 I_2}{2\pi d} = \frac{2 \times 10^{-7} \times 6.0 \times 10}{0.05} = 2.4 \times 10^{-4}\,\mathrm{N/m} \]
+            <p>Because the currents flow in opposite directions (antiparallel), the force is <strong>repulsive</strong>.</p>
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="example-title">उदाहरण 4: प्रतिसमानांतर चालकों के बीच बल</div>
+          <p><strong>प्रश्न:</strong> कल्पित दूरी \(d = 5.0\,\mathrm{cm}\) पर रखे दो लंबे समानांतर चालकों में विपरीत दिशाओं में \(I_1 = 6.0\,\mathrm{A}\) और \(I_2 = 10\,\mathrm{A}\) धाराएँ प्रवाहित हो रही हैं। प्रत्येक चालक पर प्रति एकांक लंबाई बल का परिमाण और प्रकृति ज्ञात कीजिए।</p>
+          <div class="solution-box">
+            <p><strong>हल:</strong></p>
+            \[ f = \frac{\mu_0 I_1 I_2}{2\pi d} = \frac{2 \times 10^{-7} \times 6.0 \times 10}{0.05} = 2.4 \times 10^{-4}\,\mathrm{N/m} \]
+            <p>चूँकि धाराएँ विपरीत दिशाओं (प्रतिसमानांतर) में बह रही हैं, अतः यह बल <strong>प्रतिकर्षी</strong> होगा।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="example-title">Example 5: Converting a Galvanometer to Ammeter and Voltmeter</div>
+          <p><strong>Problem:</strong> A moving coil galvanometer has an assumed coil resistance \(R_G = 50\,\mathrm{Ω}\) and gives full-scale deflection for a current \(I_g = 2.0\,\mathrm{mA}\). How can it be converted into (a) an ammeter of range \(0\text{–}5.0\,\mathrm{A}\) and (b) a voltmeter of range \(0\text{–}10\,\mathrm{V}\)?</p>
+          <div class="solution-box">
+            <p><strong>Solution:</strong></p>
+            <p>(a) Shunt resistance in parallel for ammeter:</p>
+            \[ r_s = \frac{I_g R_G}{I - I_g} = \frac{2.0 \times 10^{-3} \times 50}{5.0 - 0.002} = \frac{0.10}{4.998} \approx 0.020\,\mathrm{Ω} \]
+            <p>(b) High resistance in series for voltmeter:</p>
+            \[ R = \frac{V}{I_g} - R_G = \frac{10}{2.0 \times 10^{-3}} - 50 = 5000 - 50 = 4950\,\mathrm{Ω} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="example-title">उदाहरण 5: धारामापी का अमीटर एवं वोल्टमीटर में रूपांतरण</div>
+          <p><strong>प्रश्न:</strong> एक चल कुंडली धारामापी का कल्पित प्रतिरोध \(R_G = 50\,\mathrm{Ω}\) है तथा यह \(I_g = 2.0\,\mathrm{mA}\) धारा पर पूर्ण-पैमाने का विक्षेप देता है। इसे (a) \(0\text{–}5.0\,\mathrm{A}\) परास के अमीटर तथा (b) \(0\text{–}10\,\mathrm{V}\) परास के वोल्टमीटर में कैसे बदला जा सकता है?</p>
+          <div class="solution-box">
+            <p><strong>हल:</strong></p>
+            <p>(a) अमीटर के लिए समानांतर क्रम में शंट प्रतिरोध:</p>
+            \[ r_s = \frac{I_g R_G}{I - I_g} = \frac{2.0 \times 10^{-3} \times 50}{5.0 - 0.002} = \frac{0.10}{4.998} \approx 0.020\,\mathrm{Ω} \]
+            <p>(b) वोल्टमीटर के लिए श्रेणी क्रम में उच्च प्रतिरोध:</p>
+            \[ R = \frac{V}{I_g} - R_G = \frac{10}{2.0 \times 10^{-3}} - 50 = 5000 - 50 = 4950\,\mathrm{Ω} \]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NEET UG Practice Questions -->
+    <section id="sec-practice">
+      <h2>8. NEET UG Practice Questions | NEET UG अभ्यास प्रश्न</h2>
+      <p><em>Note: All questions below are original practice questions designed for NEET UG preparation.</em></p>
+
+      <!-- Question 1 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 1 (Single-Correct MCQ)</div>
+          <p>A proton enters a uniform magnetic field at an angle of \(60^\circ\) with the field direction. Which of the following statements is correct regarding its subsequent motion?</p>
+          <ul class="options-list">
+            <li>(A) Both its kinetic energy and linear momentum remain constant.</li>
+            <li>(B) Its kinetic energy remains constant, while its linear momentum changes in direction.</li>
+            <li>(C) Its linear momentum remains constant, while its kinetic energy increases.</li>
+            <li>(D) It moves in a straight line with increasing speed.</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (B)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> The magnetic force \(\mathbf{F} = q(\mathbf{v} \times \mathbf{B})\) is always perpendicular to the velocity \(\mathbf{v}\). Therefore, the magnetic force does zero work, keeping the speed and kinetic energy constant. However, the force continuously deflects the perpendicular component of velocity, changing the direction of the linear momentum vector (producing a helical path).
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 1 (एकल-विकल्प बहुविकल्पीय)</div>
+          <p>एक प्रोटॉन एकसमान चुंबकीय क्षेत्र में क्षेत्र की दिशा से \(60^\circ\) के कोण पर प्रवेश करता है। इसकी आगामी गति के संबंध में निम्नलिखित में से कौन-सा कथन सही है?</p>
+          <ul class="options-list">
+            <li>(A) इसकी गतिज ऊर्जा और रैखिक संवेग दोनों नियत रहते हैं।</li>
+            <li>(B) इसकी गतिज ऊर्जा नियत रहती है, जबकि इसके रैखिक संवेग की दिशा बदलती है।</li>
+            <li>(C) इसका रैखिक संवेग नियत रहता है, जबकि इसकी गतिज ऊर्जा बढ़ती है।</li>
+            <li>(D) यह बढ़ती हुई चाल के साथ एक सीधी रेखा में गति करता है।</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (B)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> चुंबकीय बल \(\mathbf{F} = q(\mathbf{v} \times \mathbf{B})\) सदैव वेग \(\mathbf{v}\) के लंबवत होता है। अतः चुंबकीय बल द्वारा किया गया कार्य शून्य होता है, जिससे चाल और गतिज ऊर्जा नियत रहती हैं। परंतु यह बल वेग के लंबवत घटक को लगातार विक्षेपित करता है, जिससे रैखिक संवेग सदिश की दिशा बदलती है (कुंडलिनी पथ बनता है)।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 2 (Numerical MCQ)</div>
+          <p>A charged particle having specific charge \(q/m = 2.0 \times 10^7\,\mathrm{C/kg}\) is projected into a uniform magnetic field \(B = 0.50\,\mathrm{T}\) with speed \(v = 4.0 \times 10^5\,\mathrm{m/s}\) at an angle of \(60^\circ\) to \(\mathbf{B}\). What is the pitch of its helical path?</p>
+          <ul class="options-list">
+            <li>(A) \(6.28\,\mathrm{cm}\)</li>
+            <li>(B) \(12.6\,\mathrm{cm}\)</li>
+            <li>(C) \(21.8\,\mathrm{cm}\)</li>
+            <li>(D) \(25.1\,\mathrm{cm}\)</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (B)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> The parallel velocity component is \(v_\parallel = v\cos 60^\circ = (4.0 \times 10^5)(0.5) = 2.0 \times 10^5\,\mathrm{m/s}\). The time period is \(T = \frac{2\pi}{(q/m)B} = \frac{2\pi}{2.0 \times 10^7 \times 0.50} = 2\pi \times 10^{-7}\,\mathrm{s}\). Thus, pitch \(p = v_\parallel T = (2.0 \times 10^5)(2\pi \times 10^{-7}) = 0.04\pi\,\mathrm{m} \approx 0.1257\,\mathrm{m} = 12.6\,\mathrm{cm}\).
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 2 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>विशिष्ट आवेश \(q/m = 2.0 \times 10^7\,\mathrm{C/kg}\) वाला एक आवेशित कण एकसमान चुंबकीय क्षेत्र \(B = 0.50\,\mathrm{T}\) में \(\mathbf{B}\) से \(60^\circ\) के कोण पर \(v = 4.0 \times 10^5\,\mathrm{m/s}\) की चाल से प्रक्षेपित किया जाता है। इसके कुंडलिनी पथ की पिच क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(6.28\,\mathrm{cm}\)</li>
+            <li>(B) \(12.6\,\mathrm{cm}\)</li>
+            <li>(C) \(21.8\,\mathrm{cm}\)</li>
+            <li>(D) \(25.1\,\mathrm{cm}\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (B)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> समानांतर वेग घटक \(v_\parallel = v\cos 60^\circ = (4.0 \times 10^5)(0.5) = 2.0 \times 10^5\,\mathrm{m/s}\) है। आवर्तकाल \(T = \frac{2\pi}{(q/m)B} = \frac{2\pi}{2.0 \times 10^7 \times 0.50} = 2\pi \times 10^{-7}\,\mathrm{s}\) है। अतः पिच \(p = v_\parallel T = (2.0 \times 10^5)(2\pi \times 10^{-7}) = 0.04\pi\,\mathrm{m} \approx 0.1257\,\mathrm{m} = 12.6\,\mathrm{cm}\)।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 3 (Numerical MCQ)</div>
+          <p>A horizontal straight conducting rod of mass \(150\,\mathrm{g}\) and length \(0.75\,\mathrm{m}\) is suspended in mid-air by a uniform horizontal magnetic field of \(0.40\,\mathrm{T}\) perpendicular to the rod. Taking \(g = 10\,\mathrm{m/s^2}\), what steady current must flow through the rod?</p>
+          <ul class="options-list">
+            <li>(A) \(2.5\,\mathrm{A}\)</li>
+            <li>(B) \(4.0\,\mathrm{A}\)</li>
+            <li>(C) \(5.0\,\mathrm{A}\)</li>
+            <li>(D) \(7.5\,\mathrm{A}\)</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (C)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> For equilibrium in mid-air, the upward magnetic force balances gravity: \(I l B = m g\). Substituting \(m = 0.15\,\mathrm{kg}\), \(l = 0.75\,\mathrm{m}\), \(B = 0.40\,\mathrm{T}\), and \(g = 10\,\mathrm{m/s^2}\):
+            \[ I = \frac{mg}{lB} = \frac{0.15 \times 10}{0.75 \times 0.40} = \frac{1.5}{0.30} = 5.0\,\mathrm{A} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 3 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>\(150\,\mathrm{g}\) द्रव्यमान और \(0.75\,\mathrm{m}\) लंबाई की एक क्षैतिज सीधी चालक छड़ अपने लंबवत \(0.40\,\mathrm{T}\) के एकसमान क्षैतिज चुंबकीय क्षेत्र द्वारा हवा में संतुलित लटकी है। \(g = 10\,\mathrm{m/s^2}\) लेते हुए, छड़ में कितनी स्थायी धारा प्रवाहित होनी चाहिए?</p>
+          <ul class="options-list">
+            <li>(A) \(2.5\,\mathrm{A}\)</li>
+            <li>(B) \(4.0\,\mathrm{A}\)</li>
+            <li>(C) \(5.0\,\mathrm{A}\)</li>
+            <li>(D) \(7.5\,\mathrm{A}\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (C)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> हवा में संतुलन के लिए ऊपर की ओर लगने वाला चुंबकीय बल गुरुत्व बल को संतुलित करता है: \(I l B = m g\)। \(m = 0.15\,\mathrm{kg}\), \(l = 0.75\,\mathrm{m}\), \(B = 0.40\,\mathrm{T}\) और \(g = 10\,\mathrm{m/s^2}\) रखने पर:
+            \[ I = \frac{mg}{lB} = \frac{0.15 \times 10}{0.75 \times 0.40} = \frac{1.5}{0.30} = 5.0\,\mathrm{A} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 4 (Numerical MCQ)</div>
+          <p>A wire carrying a steady current of \(8.0\,\mathrm{A}\) is bent into a quarter-circle arc of radius \(4.0\,\mathrm{cm}\) with two long straight radial extensions pointing directly away from the centre of curvature. What is the magnitude of the magnetic field at the centre of the arc?</p>
+          <ul class="options-list">
+            <li>(A) \(1.57 \times 10^{-5}\,\mathrm{T}\)</li>
+            <li>(B) \(3.14 \times 10^{-5}\,\mathrm{T}\)</li>
+            <li>(C) \(6.28 \times 10^{-5}\,\mathrm{T}\)</li>
+            <li>(D) \(1.26 \times 10^{-4}\,\mathrm{T}\)</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (B)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> The straight radial segments lie along the line passing through the centre, so \(d\mathbf{l} \times \mathbf{r} = 0\) and their contribution is zero. For a quarter-circle arc (\(\alpha = \pi/2\)),
+            \[ B = \frac{\mu_0 I}{4\pi R}\alpha = \frac{10^{-7} \times 8.0}{0.04} \times \frac{\pi}{2} = \pi \times 10^{-5}\,\mathrm{T} \approx 3.14 \times 10^{-5}\,\mathrm{T} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 4 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>\(8.0\,\mathrm{A}\) स्थायी धारा ले जाने वाले एक तार को \(4.0\,\mathrm{cm}\) त्रिज्या के एक-चौथाई वृत्ताकार चाप में मोड़ा गया है, जिसके दोनों सीधे सिरे वक्रता केंद्र से सीधे बाहर की ओर त्रिज्यीय दिशा में हैं। चाप के केंद्र पर चुंबकीय क्षेत्र का परिमाण क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(1.57 \times 10^{-5}\,\mathrm{T}\)</li>
+            <li>(B) \(3.14 \times 10^{-5}\,\mathrm{T}\)</li>
+            <li>(C) \(6.28 \times 10^{-5}\,\mathrm{T}\)</li>
+            <li>(D) \(1.26 \times 10^{-4}\,\mathrm{T}\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (B)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> सीधे त्रिज्यीय भाग केंद्र से गुजरने वाली रेखा के अनुदिश हैं, अतः \(d\mathbf{l} \times \mathbf{r} = 0\) होने के कारण उनका योगदान शून्य है। एक-चौथाई वृत्ताकार चाप (\(\alpha = \pi/2\)) के लिए:
+            \[ B = \frac{\mu_0 I}{4\pi R}\alpha = \frac{10^{-7} \times 8.0}{0.04} \times \frac{\pi}{2} = \pi \times 10^{-5}\,\mathrm{T} \approx 3.14 \times 10^{-5}\,\mathrm{T} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 5 (Conceptual Ratio MCQ)</div>
+          <p>A long, straight, solid cylindrical wire of radius \(a\) carries a steady current \(I\) uniformly distributed over its cross-section. What is the ratio of the magnetic field at a radial distance \(r = a/2\) to that at \(r = 2a\) from the axis?</p>
+          <ul class="options-list">
+            <li>(A) \(1 : 1\)</li>
+            <li>(B) \(1 : 2\)</li>
+            <li>(C) \(1 : 4\)</li>
+            <li>(D) \(4 : 1\)</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (A)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> Inside (\(r = a/2 &lt; a\)): \(B_1 = \frac{\mu_0 I (a/2)}{2\pi a^2} = \frac{\mu_0 I}{4\pi a}\). Outside (\(r = 2a &gt; a\)): \(B_2 = \frac{\mu_0 I}{2\pi (2a)} = \frac{\mu_0 I}{4\pi a}\). Hence \(B_1 / B_2 = 1 : 1\).
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 5 (अवधारणात्मक अनुपात बहुविकल्पीय)</div>
+          <p>\(a\) त्रिज्या के एक लंबे, सीधे, ठोस बेलनाकार तार में उसके अनुप्रस्थ काट पर एकसमान रूप से वितरित स्थायी धारा \(I\) बह रही है। अक्ष से \(r = a/2\) और \(r = 2a\) त्रिज्यीय दूरियों पर चुंबकीय क्षेत्रों का अनुपात क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(1 : 1\)</li>
+            <li>(B) \(1 : 2\)</li>
+            <li>(C) \(1 : 4\)</li>
+            <li>(D) \(4 : 1\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (A)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> भीतर (\(r = a/2 &lt; a\)): \(B_1 = \frac{\mu_0 I (a/2)}{2\pi a^2} = \frac{\mu_0 I}{4\pi a}\)। बाहर (\(r = 2a &gt; a\)): \(B_2 = \frac{\mu_0 I}{2\pi (2a)} = \frac{\mu_0 I}{4\pi a}\)। अतः \(B_1 / B_2 = 1 : 1\)।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 6 (Numerical MCQ)</div>
+          <p>An air-core solenoid of length \(0.60\,\mathrm{m}\) and radius \(1.0\,\mathrm{cm}\) has \(1200\) closely wound turns and carries a steady current of \(2.5\,\mathrm{A}\). What is the magnitude of the magnetic field inside the solenoid near its centre?</p>
+          <ul class="options-list">
+            <li>(A) \(3.14 \times 10^{-3}\,\mathrm{T}\)</li>
+            <li>(B) \(6.28 \times 10^{-3}\,\mathrm{T}\)</li>
+            <li>(C) \(1.26 \times 10^{-2}\,\mathrm{T}\)</li>
+            <li>(D) \(2.51 \times 10^{-3}\,\mathrm{T}\)</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (B)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> Since \(L = 0.60\,\mathrm{m} \gg R = 0.01\,\mathrm{m}\), we use the long-solenoid formula. Turns per unit length \(n = \frac{1200}{0.60} = 2000\,\mathrm{m^{-1}}\). Thus,
+            \[ B = \mu_0 n I = (4\pi \times 10^{-7}) \times 2000 \times 2.5 = 2\pi \times 10^{-3}\,\mathrm{T} \approx 6.28 \times 10^{-3}\,\mathrm{T} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 6 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>\(0.60\,\mathrm{m}\) लंबाई और \(1.0\,\mathrm{cm}\) त्रिज्या वाली एक वायु-क्रोड परिनालिका में \(1200\) सटे हुए फेरे हैं और इसमें \(2.5\,\mathrm{A}\) की स्थायी धारा प्रवाहित हो रही है। परिनालिका के भीतर इसके केंद्र के पास चुंबकीय क्षेत्र का परिमाण क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(3.14 \times 10^{-3}\,\mathrm{T}\)</li>
+            <li>(B) \(6.28 \times 10^{-3}\,\mathrm{T}\)</li>
+            <li>(C) \(1.26 \times 10^{-2}\,\mathrm{T}\)</li>
+            <li>(D) \(2.51 \times 10^{-3}\,\mathrm{T}\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (B)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> चूँकि \(L = 0.60\,\mathrm{m} \gg R = 0.01\,\mathrm{m}\) है, हम लंबी परिनालिका का सूत्र उपयोग करते हैं। प्रति एकांक लंबाई फेरों की संख्या \(n = \frac{1200}{0.60} = 2000\,\mathrm{m^{-1}}\) है। अतः
+            \[ B = \mu_0 n I = (4\pi \times 10^{-7}) \times 2000 \times 2.5 = 2\pi \times 10^{-3}\,\mathrm{T} \approx 6.28 \times 10^{-3}\,\mathrm{T} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 7 (Numerical MCQ)</div>
+          <p>Two long, straight, parallel wires separated by \(10\,\mathrm{cm}\) carry currents of \(4.0\,\mathrm{A}\) and \(6.0\,\mathrm{A}\) in the same direction. What is the magnetic force acting on a \(50\,\mathrm{cm}\) segment of either wire?</p>
+          <ul class="options-list">
+            <li>(A) \(2.4 \times 10^{-5}\,\mathrm{N}\), attractive</li>
+            <li>(B) \(2.4 \times 10^{-5}\,\mathrm{N}\), repulsive</li>
+            <li>(C) \(4.8 \times 10^{-5}\,\mathrm{N}\), attractive</li>
+            <li>(D) \(1.2 \times 10^{-5}\,\mathrm{N}\), repulsive</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (A)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> Since the currents flow in the same direction, the force is attractive. With \(d = 0.10\,\mathrm{m}\) and \(L = 0.50\,\mathrm{m}\):
+            \[ F = \frac{\mu_0 I_1 I_2 L}{2\pi d} = \frac{2 \times 10^{-7} \times 4.0 \times 6.0 \times 0.50}{0.10} = 2.4 \times 10^{-5}\,\mathrm{N} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 7 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>\(10\,\mathrm{cm}\) की दूरी पर रखे दो लंबे, सीधे, समानांतर तारों में एक ही दिशा में \(4.0\,\mathrm{A}\) और \(6.0\,\mathrm{A}\) की धाराएँ प्रवाहित हो रही हैं। किसी भी तार के \(50\,\mathrm{cm}\) खंड पर लगने वाला चुंबकीय बल क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(2.4 \times 10^{-5}\,\mathrm{N}\), आकर्षक</li>
+            <li>(B) \(2.4 \times 10^{-5}\,\mathrm{N}\), प्रतिकर्षी</li>
+            <li>(C) \(4.8 \times 10^{-5}\,\mathrm{N}\), आकर्षक</li>
+            <li>(D) \(1.2 \times 10^{-5}\,\mathrm{N}\), प्रतिकर्षी</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (A)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> चूँकि धाराएँ एक ही दिशा में बह रही हैं, अतः बल आकर्षक होगा। \(d = 0.10\,\mathrm{m}\) और \(L = 0.50\,\mathrm{m}\) रखने पर:
+            \[ F = \frac{\mu_0 I_1 I_2 L}{2\pi d} = \frac{2 \times 10^{-7} \times 4.0 \times 6.0 \times 0.50}{0.10} = 2.4 \times 10^{-5}\,\mathrm{N} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 8 (Numerical MCQ)</div>
+          <p>A rectangular coil of dimensions \(20\,\mathrm{cm} \times 10\,\mathrm{cm}\) having \(40\) turns carries a current of \(2.0\,\mathrm{A}\). It is placed in a uniform magnetic field of \(0.25\,\mathrm{T}\) such that the field makes an angle of \(30^\circ\) with the <em>plane</em> of the coil. What is the magnitude of the torque acting on the coil?</p>
+          <ul class="options-list">
+            <li>(A) \(0.20\,\mathrm{N\cdot m}\)</li>
+            <li>(B) \(0.20\sqrt{3}\,\mathrm{N\cdot m}\)</li>
+            <li>(C) \(0.40\,\mathrm{N\cdot m}\)</li>
+            <li>(D) \(0.40\sqrt{3}\,\mathrm{N\cdot m}\)</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (B)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> The angle \(\theta\) in \(\tau = N I A B \sin\theta\) is between the normal to the coil and \(\mathbf{B}\). Since \(\mathbf{B}\) makes \(30^\circ\) with the plane of the coil, \(\theta = 90^\circ - 30^\circ = 60^\circ\). With \(A = 0.20 \times 0.10 = 0.02\,\mathrm{m^2}\):
+            \[ \tau = 40 \times 2.0 \times 0.02 \times 0.25 \times \sin 60^\circ = 0.40 \times \frac{\sqrt{3}}{2} = 0.20\sqrt{3}\,\mathrm{N\cdot m} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 8 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>\(20\,\mathrm{cm} \times 10\,\mathrm{cm}\) विमाओं और \(40\) फेरों वाली एक आयताकार कुंडली में \(2.0\,\mathrm{A}\) की धारा बह रही है। इसे \(0.25\,\mathrm{T}\) के एकसमान चुंबकीय क्षेत्र में इस प्रकार रखा गया है कि क्षेत्र कुंडली के <em>तल</em> से \(30^\circ\) का कोण बनाता है। कुंडली पर लगने वाले बल-आघूर्ण का परिमाण क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(0.20\,\mathrm{N\cdot m}\)</li>
+            <li>(B) \(0.20\sqrt{3}\,\mathrm{N\cdot m}\)</li>
+            <li>(C) \(0.40\,\mathrm{N\cdot m}\)</li>
+            <li>(D) \(0.40\sqrt{3}\,\mathrm{N\cdot m}\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (B)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> \(\tau = N I A B \sin\theta\) में \(\theta\) कुंडली के अभिलंब और \(\mathbf{B}\) के बीच का कोण है। चूँकि \(\mathbf{B}\) कुंडली के तल से \(30^\circ\) बनाता है, अतः \(\theta = 90^\circ - 30^\circ = 60^\circ\) होगा। \(A = 0.20 \times 0.10 = 0.02\,\mathrm{m^2}\) रखने पर:
+            \[ \tau = 40 \times 2.0 \times 0.02 \times 0.25 \times \sin 60^\circ = 0.40 \times \frac{\sqrt{3}}{2} = 0.20\sqrt{3}\,\mathrm{N\cdot m} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 9 (Statement-Based MCQ)</div>
+          <p>Consider the following two statements regarding a moving coil galvanometer:</p>
+          <p><strong>Statement I:</strong> Increasing the number of turns \(N\) in the coil increases its current sensitivity.</p>
+          <p><strong>Statement II:</strong> Doubling the number of turns \(N\) of the same wire always doubles its voltage sensitivity.</p>
+          <ul class="options-list">
+            <li>(A) Both Statement I and Statement II are correct.</li>
+            <li>(B) Both Statement I and Statement II are incorrect.</li>
+            <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+            <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (C)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> Current sensitivity \(S_I = \frac{NAB}{k}\) is directly proportional to \(N\), so Statement I is correct. However, voltage sensitivity is \(S_V = \frac{NAB}{k R_G}\). Doubling \(N\) doubles the wire length and hence doubles \(R_G\), so \(S_V\) remains unchanged. Thus Statement II is incorrect.
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 9 (कथन-आधारित बहुविकल्पीय)</div>
+          <p>चल कुंडली धारामापी के संबंध में निम्नलिखित दो कथनों पर विचार कीजिए:</p>
+          <p><strong>कथन I:</strong> कुंडली में फेरों की संख्या \(N\) बढ़ाने पर इसकी धारा सुग्राहिता बढ़ जाती है।</p>
+          <p><strong>कथन II:</strong> उसी तार के फेरों की संख्या \(N\) दोगुनी करने पर इसकी वोल्टता सुग्राहिता सदैव दोगुनी हो जाती है।</p>
+          <ul class="options-list">
+            <li>(A) कथन I और कथन II दोनों सही हैं।</li>
+            <li>(B) कथन I और कथन II दोनों गलत हैं।</li>
+            <li>(C) कथन I सही है, परंतु कथन II गलत है।</li>
+            <li>(D) कथन I गलत है, परंतु कथन II सही है।</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (C)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> धारा सुग्राहिता \(S_I = \frac{NAB}{k}\), \(N\) के अनुक्रमानुपाती होती है, अतः कथन I सही है। परंतु वोल्टता सुग्राहिता \(S_V = \frac{NAB}{k R_G}\) होती है। \(N\) दोगुना करने पर तार की लंबाई और फलस्वरूप प्रतिरोध \(R_G\) भी दोगुना हो जाता है, जिससे \(S_V\) अपरिवर्तित रहती है। अतः कथन II गलत है।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question-card">
+        <div class="lang-en">
+          <span class="lang-tag tag-en">English</span>
+          <div class="question-title">Practice Question 10 (Numerical MCQ)</div>
+          <p>A galvanometer of resistance \(99\,\mathrm{Ω}\) gives full-scale deflection for a current of \(1.0\,\mathrm{mA}\). To convert it into an ammeter capable of measuring up to \(100\,\mathrm{mA}\), what shunt resistance is required?</p>
+          <ul class="options-list">
+            <li>(A) \(1.0\,\mathrm{Ω}\) in parallel</li>
+            <li>(B) \(1.0\,\mathrm{Ω}\) in series</li>
+            <li>(C) \(0.99\,\mathrm{Ω}\) in parallel</li>
+            <li>(D) \(9900\,\mathrm{Ω}\) in series</li>
+          </ul>
+          <div class="answer-box">Correct Answer: (A)</div>
+          <div class="solution-box">
+            <strong>Solution:</strong> To convert a galvanometer into an ammeter, a small shunt \(r_s\) is connected in parallel:
+            \[ r_s = \frac{I_g R_G}{I - I_g} = \frac{1.0\,\mathrm{mA} \times 99\,\mathrm{Ω}}{100\,\mathrm{mA} - 1.0\,\mathrm{mA}} = \frac{99}{99} = 1.0\,\mathrm{Ω} \text{ in parallel.} \]
+          </div>
+        </div>
+        <hr />
+        <div class="lang-hi" lang="hi">
+          <span class="lang-tag tag-hi">हिन्दी</span>
+          <div class="question-title">अभ्यास प्रश्न 10 (संख्यात्मक बहुविकल्पीय)</div>
+          <p>\(99\,\mathrm{Ω}\) प्रतिरोध वाला एक धारामापी \(1.0\,\mathrm{mA}\) की धारा पर पूर्ण-पैमाने का विक्षेप देता है। इसे \(100\,\mathrm{mA}\) तक मापने वाले अमीटर में बदलने के लिए कितने शंट प्रतिरोध की आवश्यकता होगी?</p>
+          <ul class="options-list">
+            <li>(A) समानांतर क्रम में \(1.0\,\mathrm{Ω}\)</li>
+            <li>(B) श्रेणी क्रम में \(1.0\,\mathrm{Ω}\)</li>
+            <li>(C) समानांतर क्रम में \(0.99\,\mathrm{Ω}\)</li>
+            <li>(D) श्रेणी क्रम में \(9900\,\mathrm{Ω}\)</li>
+          </ul>
+          <div class="answer-box">सही उत्तर: (A)</div>
+          <div class="solution-box">
+            <strong>हल:</strong> धारामापी को अमीटर में बदलने के लिए समानांतर क्रम में एक छोटा शंट \(r_s\) जोड़ा जाता है:
+            \[ r_s = \frac{I_g R_G}{I - I_g} = \frac{1.0\,\mathrm{mA} \times 99\,\mathrm{Ω}}{100\,\mathrm{mA} - 1.0\,\mathrm{mA}} = \frac{99}{99} = 1.0\,\mathrm{Ω} \text{ (समानांतर क्रम में)।} \]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Common Pitfalls and Revision Checklist -->
+    <section id="sec-pitfalls">
+      <h2>9. Common Pitfalls &amp; Revision Checklist | सामान्य त्रुटियाँ एवं पुनरावृत्ति सूची</h2>
+
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <div class="callout-warn">
+          <strong>Common NEET UG Pitfalls to Avoid:</strong>
+          <ul>
+            <li><strong>Angle in Torque Formula:</strong> In \(\tau = NIAB\sin\theta\), \(\theta\) is the angle between \(\mathbf{B}\) and the <em>normal</em> to the coil (\(\mathbf{m}\)), NOT the angle between \(\mathbf{B}\) and the plane of the coil.</li>
+            <li><strong>Parallel Currents vs. Like Charges:</strong> Like charges repel, whereas parallel (same-direction) currents <em>attract</em> each other.</li>
+            <li><strong>Voltage Sensitivity Trap:</strong> Doubling \(N\) doubles current sensitivity \(S_I\), but usually leaves voltage sensitivity \(S_V\) unchanged because coil resistance \(R_G\) also doubles.</li>
+            <li><strong>Magnetic Force Work:</strong> A static magnetic field never changes the speed or kinetic energy of a free charged particle.</li>
+          </ul>
+        </div>
+        <div class="callout-tip">
+          <strong>Quick Revision Checklist:</strong>
+          <ul>
+            <li>Check units: \(1\,\mathrm{G} = 10^{-4}\,\mathrm{T}\), \(\mu_0 / (4\pi) = 10^{-7}\,\mathrm{T\cdot m/A}\).</li>
+            <li>Verify right-hand rule conventions: \(\odot\) out of page, \(\otimes\) into page.</li>
+            <li>Remember \(r \propto v\), while \(T\) and \(\nu_c\) are independent of \(v\).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <div class="callout-warn">
+          <strong>NEET UG में बचने योग्य सामान्य त्रुटियाँ:</strong>
+          <ul>
+            <li><strong>बल-आघूर्ण सूत्र में कोण:</strong> \(\tau = NIAB\sin\theta\) में \(\theta\), \(\mathbf{B}\) और कुंडली के <em>अभिलंब</em> (\(\mathbf{m}\)) के बीच का कोण है, न कि \(\mathbf{B}\) और कुंडली के तल के बीच का कोण।</li>
+            <li><strong>समानांतर धाराएँ बनाम समान आवेश:</strong> समान आवेश प्रतिकर्षित करते हैं, जबकि समानांतर (एक ही दिशा की) धाराएँ एक-दूसरे को <em>आकर्षित</em> करती हैं।</li>
+            <li><strong>वोल्टता सुग्राहिता की सावधानी:</strong> \(N\) दोगुना करने पर धारा सुग्राहिता \(S_I\) दोगुनी होती है, परंतु कुंडली का प्रतिरोध \(R_G\) भी दोगुना होने से वोल्टता सुग्राहिता \(S_V\) सामान्यतः अपरिवर्तित रहती है।</li>
+            <li><strong>चुंबकीय बल का कार्य:</strong> स्थिर चुंबकीय क्षेत्र किसी मुक्त आवेशित कण की चाल या गतिज ऊर्जा को कभी नहीं बदलता।</li>
+          </ul>
+        </div>
+        <div class="callout-tip">
+          <strong>त्वरित पुनरावृत्ति सूची:</strong>
+          <ul>
+            <li>मात्रक जाँचें: \(1\,\mathrm{G} = 10^{-4}\,\mathrm{T}\), \(\mu_0 / (4\pi) = 10^{-7}\,\mathrm{T\cdot m/A}\)।</li>
+            <li>दाहिने हाथ के नियम की परिपाटी स्पष्ट रखें: \(\odot\) पृष्ठ से बाहर, \(\otimes\) पृष्ठ के भीतर।</li>
+            <li>याद रखें कि \(r \propto v\), जबकि \(T\) और \(\nu_c\) वेग \(v\) से स्वतंत्र हैं।</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Concise Final Recap -->
+    <section id="sec-recap">
+      <h2>10. Concise Final Recap | संक्षिप्त अंतिम सारांश</h2>
+
+      <div class="lang-en">
+        <span class="lang-tag tag-en">English</span>
+        <p>Moving charges and currents generate magnetic fields governed by the Biot-Savart law and Ampere's circuital law, and experience perpendicular Lorentz forces \(\mathbf{F} = q(\mathbf{v}\times\mathbf{B})\) and \(\mathbf{F} = I(\mathbf{l}\times\mathbf{B})\) that do no work on free charges. Uniform magnetic fields bend perpendicular charges into circles of energy-independent frequency \(\nu_c = qB/(2\pi m)\), exert attractive/repulsive forces between parallel/antiparallel wires, and produce torque \(\boldsymbol{\tau} = \mathbf{m}\times\mathbf{B}\) on current loops—the core principle behind the moving coil galvanometer and its conversion into ammeters and voltmeters.</p>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-tag tag-hi">हिन्दी</span>
+        <p>गतिमान आवेश और विद्युत धाराएँ बायो-सावर्ट नियम तथा ऐम्पियर के परिपथीय नियम के अनुसार चुंबकीय क्षेत्र उत्पन्न करती हैं, और लंबवत लॉरेंज बल \(\mathbf{F} = q(\mathbf{v}\times\mathbf{B})\) तथा \(\mathbf{F} = I(\mathbf{l}\times\mathbf{B})\) का अनुभव करती हैं जो मुक्त आवेशों पर शून्य कार्य करते हैं। एकसमान चुंबकीय क्षेत्र लंबवत गतिमान आवेशों को ऊर्जा-स्वतंत्र आवृत्ति \(\nu_c = qB/(2\pi m)\) वाले वृत्तों में मोड़ता है, समानांतर/प्रतिसमानांतर तारों के बीच आकर्षक/प्रतिकर्षी बल लगाता है, और धारा लूपों पर \(\boldsymbol{\tau} = \mathbf{m}\times\mathbf{B}\) बल-आघूर्ण उत्पन्न करता है—यही चल कुंडली धारामापी तथा अमीटर व वोल्टमीटर में इसके रूपांतरण का मूल सिद्धांत है।</p>
+      </div>
+    </section>
   </div>
-  <div class="lang-hi">
-    <span class="l-tag l-hi">हिंदी</span>
-    <h2>12. महत्वपूर्ण सावधानियां एवं पुनरावृत्ति</h2>
-    <div class="pitfall-box">
-      <strong>1. चुंबकीय कार्य सदैव शून्य:</strong> चुंबकीय बल द्वारा आवेश पर किया गया कार्य शून्य होता है (\(W = 0\))।
-    </div>
-    <div class="pitfall-box">
-      <strong>2. सुग्राहिता भ्रम:</strong> फेरे बढ़ाने से केवल धारा सुग्राहिता बढ़ती है, वोल्टता सुग्राहिता नहीं।
-    </div>
-    <div class="pitfall-box">
-      <strong>3. समांतर धाराएं:</strong> समान दिशा में प्रवाहित धाराएं परस्पर आकर्षित होती हैं (स्थिरवैद्युतिकी के विपरीत)।
-    </div>
-    <div class="pitfall-box">
-      <strong>4. परिनालिका के सिरे:</strong> परिनालिका के सिरों पर क्षेत्र केंद्र का आधा (\(B = \frac{1}{2}\mu_0 n I\)) होता है।
-    </div>
-  </div>
-</section>
-</div>
 </body>
 </html>
