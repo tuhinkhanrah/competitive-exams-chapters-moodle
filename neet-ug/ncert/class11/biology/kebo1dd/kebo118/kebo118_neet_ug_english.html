@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neural Control and Coordination — NEET UG Biology Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'svg']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #1E293B;
+      background-color: #F8FAFC;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #F8FAFC;
+      color: #1E293B;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 48px 20px;
+      background-color: #FFFFFF;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      line-height: 1.25;
+      color: #0F172A;
+      margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: #0F172A;
+      border-left: 4px solid #2563EB;
+      padding-left: 12px;
+      margin: 34px 0 14px 0;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: #1E293B;
+      margin: 22px 0 10px 0;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .card-teal {
+      background-color: #F0FDFA;
+      border-left: 4px solid #0D9488;
+      border-top: 1px solid #CCFBF1;
+      border-right: 1px solid #CCFBF1;
+      border-bottom: 1px solid #CCFBF1;
+    }
+
+    .card-blue {
+      background-color: #EFF6FF;
+      border-left: 4px solid #2563EB;
+      border-top: 1px solid #DBEAFE;
+      border-right: 1px solid #DBEAFE;
+      border-bottom: 1px solid #DBEAFE;
+    }
+
+    .card-amber {
+      background-color: #FFFBEB;
+      border-left: 4px solid #D97706;
+      border-top: 1px solid #FEF3C7;
+      border-right: 1px solid #FEF3C7;
+      border-bottom: 1px solid #FEF3C7;
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .formula-box {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 22px 0;
+      font-size: 0.94rem;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: #F1F5F9;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #FAFCFF;
+    }
+
+    figure.diagram-box {
+      margin: 20px 0;
+      padding: 14px;
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    figure.diagram-box svg {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: #475569;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .example-block, .question-block {
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-header, .question-header {
+      font-weight: 700;
+      color: #1D4ED8;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+
+    .q-type {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #0F766E;
+      background-color: #CCFBF1;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 5px 8px;
+      margin-bottom: 4px;
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      background-color: #F0FDFA;
+      border-left: 3px solid #0D9488;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.95rem;
+    }
+
+    .answer-line {
+      font-weight: 700;
+      color: #0F766E;
+      margin-bottom: 6px;
+    }
+
+    footer.doc-footer {
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 1px solid #CBD5E1;
+      font-size: 0.88rem;
+      color: #64748B;
+      text-align: center;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      html, body {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 10.5pt;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .card, .example-block, .question-block, figure.diagram-box, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .exam-badge, .q-type {
+        border: 1px solid #64748B;
+        color: #0F172A;
+        background-color: #F1F5F9;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    <header class="doc-header">
+      <span class="exam-badge">NEET UG Biology • Human Physiology</span>
+      <h1>Neural Control and Coordination</h1>
+      <p class="subtitle">Comprehensive Concept Tutorial, Schematic Mechanisms, Worked Examples, and NEET UG Practice Assessment</p>
+    </header>
+
+    <main>
+      <section id="overview">
+        <h2>1. Learning Objectives and Overview</h2>
+        <p>Multicellular organisms depend on rapid, precise communication among organs to maintain a stable internal environment (homeostasis). This tutorial builds a complete conceptual and exam-ready understanding of neural coordination in humans, aligned with the NEET UG syllabus.</p>
+        <div class="card card-blue">
+          <span class="card-title">By the end of this tutorial, you will be able to:</span>
+          <ul>
+            <li>Distinguish between neural and endocrine modes of physiological integration.</li>
+            <li>Classify the divisions of the human neural system (CNS, PNS, somatic, autonomic, and visceral components).</li>
+            <li>Identify the structural parts of a neuron and classify neurons by polarity and myelination.</li>
+            <li>Explain the ionic basis of resting membrane potential, depolarisation, action potential propagation, and repolarisation.</li>
+            <li>Compare electrical and chemical synapses and trace neurotransmitter-mediated signal transmission.</li>
+            <li>Map the anatomical subdivisions of the human brain (forebrain, midbrain, hindbrain) to their specific physiological functions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="coordination-systems">
+        <h2>2. Physiological Coordination and Evolution of Neural Complexity</h2>
+        <p><strong>Coordination</strong> is the process through which two or more organs interact and complement one another's functions. During vigorous physical exertion, for instance, skeletal muscles require elevated oxygen and ATP delivery; consequently, breathing rate, heart rate, and blood flow increase simultaneously. Once exercise stops, neural and chemical signals return cardiac, pulmonary, and renal activities to baseline.</p>
+
+        <p>Two organ systems jointly orchestrate this integration:</p>
+        <ul>
+          <li><strong>Neural System:</strong> Provides an organised network of point-to-point connections for rapid, short-lived, targeted coordination via electrical impulses and neurotransmitters.</li>
+          <li><strong>Endocrine System:</strong> Provides slower, widespread chemical integration via hormones transported through the bloodstream.</li>
+        </ul>
+
+        <h3>Comparative Neural Organisation Across Animals</h3>
+        <p>All animal neural systems are built from specialised excitable cells called <strong>neurons</strong>, which detect, receive, and transmit stimuli. Complexity increases across evolutionary grades:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Animal Group / Example</th>
+              <th>Level of Neural Organisation</th>
+              <th>Key Structural Feature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lower invertebrates (e.g., <em>Hydra</em>)</td>
+              <td>Simple</td>
+              <td>Diffuse network of interconnected neurons without a central brain</td>
+            </tr>
+            <tr>
+              <td>Arthropods (e.g., Insects)</td>
+              <td>Intermediate / Organised</td>
+              <td>Distinct brain accompanied by segmental ganglia and neural tissues</td>
+            </tr>
+            <tr>
+              <td>Vertebrates (e.g., Humans)</td>
+              <td>Highly developed</td>
+              <td>Centralised brain and spinal cord with extensive peripheral nerves</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="human-neural-system">
+        <h2>3. Organisation of the Human Neural System</h2>
+        <p>The human neural system is divided into two principal anatomical divisions: the <strong>Central Neural System (CNS)</strong> and the <strong>Peripheral Neural System (PNS)</strong>.</p>
+        <ul>
+          <li><strong>Central Neural System (CNS):</strong> Comprises the <strong>brain</strong> and the <strong>spinal cord</strong>. It serves as the primary site of information processing, integration, and command.</li>
+          <li><strong>Peripheral Neural System (PNS):</strong> Comprises all nerves of the body associated with the brain (cranial nerves) and spinal cord (spinal nerves).</li>
+        </ul>
+
+        <h3>Functional Classification of PNS Fibres and Divisions</h3>
+        <p>Based on impulse direction, PNS nerve fibres are classified into two types:</p>
+        <ul>
+          <li><strong>Afferent (Sensory) Fibres:</strong> Transmit impulses from peripheral tissues or organs <em>towards</em> the CNS.</li>
+          <li><strong>Efferent (Motor) Fibres:</strong> Transmit regulatory impulses <em>away from</em> the CNS to target peripheral tissues or organs.</li>
+        </ul>
+
+        <p>Based on target effectors, the PNS is subdivided into:</p>
+        <ol>
+          <li><strong>Somatic Neural System:</strong> Relays motor impulses from the CNS to <strong>skeletal muscles</strong> (voluntary control).</li>
+          <li><strong>Autonomic Neural System (ANS):</strong> Transmits impulses from the CNS to <strong>involuntary organs and smooth muscles</strong>. It is further divided into the <strong>sympathetic</strong> neural system (typically mobilising energy during stress) and the <strong>parasympathetic</strong> neural system (typically conserving energy and promoting resting functions).</li>
+          <li><strong>Visceral Nervous System:</strong> The component of the PNS comprising the complete complex of nerves, fibres, ganglia, and plexuses through which impulses travel both from the CNS to the viscera and from the viscera back to the CNS.</li>
+        </ol>
+
+        <figure class="diagram-box">
+          <svg viewBox="0 0 760 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flowchart of the Human Neural System divisions">
+            <rect x="0" y="0" width="760" height="320" fill="#FFFFFF"/>
+            <!-- Root -->
+            <rect x="270" y="14" width="220" height="38" rx="6" fill="#1E293B"/>
+            <text x="380" y="38" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Human Neural System</text>
+
+            <!-- Connectors from Root -->
+            <line x1="380" y1="52" x2="380" y2="74" stroke="#64748B" stroke-width="2"/>
+            <line x1="160" y1="74" x2="560" y2="74" stroke="#64748B" stroke-width="2"/>
+            <line x1="160" y1="74" x2="160" y2="94" stroke="#64748B" stroke-width="2"/>
+            <line x1="560" y1="74" x2="560" y2="94" stroke="#64748B" stroke-width="2"/>
+
+            <!-- CNS -->
+            <rect x="65" y="94" width="190" height="38" rx="6" fill="#2563EB"/>
+            <text x="160" y="118" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Central Neural System (CNS)</text>
+            <line x1="160" y1="132" x2="160" y2="154" stroke="#2563EB" stroke-width="2"/>
+            <line x1="95" y1="154" x2="225" y2="154" stroke="#2563EB" stroke-width="2"/>
+            <line x1="95" y1="154" x2="95" y2="174" stroke="#2563EB" stroke-width="2"/>
+            <line x1="225" y1="154" x2="225" y2="174" stroke="#2563EB" stroke-width="2"/>
+
+            <rect x="45" y="174" width="100" height="34" rx="5" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="95" y="196" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Brain</text>
+            <rect x="175" y="174" width="100" height="34" rx="5" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="225" y="196" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Spinal Cord</text>
+
+            <!-- PNS -->
+            <rect x="455" y="94" width="210" height="38" rx="6" fill="#0D9488"/>
+            <text x="560" y="118" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Peripheral Neural System (PNS)</text>
+
+            <!-- PNS branches -->
+            <line x1="560" y1="132" x2="560" y2="154" stroke="#0D9488" stroke-width="2"/>
+            <line x1="365" y1="154" x2="685" y2="154" stroke="#0D9488" stroke-width="2"/>
+            <line x1="365" y1="154" x2="365" y2="174" stroke="#0D9488" stroke-width="2"/>
+            <line x1="535" y1="154" x2="535" y2="174" stroke="#0D9488" stroke-width="2"/>
+            <line x1="685" y1="154" x2="685" y2="174" stroke="#0D9488" stroke-width="2"/>
+
+            <rect x="295" y="174" width="140" height="42" rx="5" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="365" y="192" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Somatic System</text>
+            <text x="365" y="208" fill="#475569" font-family="sans-serif" font-size="10" text-anchor="middle">(To skeletal muscles)</text>
+
+            <rect x="460" y="174" width="150" height="42" rx="5" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="535" y="192" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Autonomic System</text>
+            <text x="535" y="208" fill="#475569" font-family="sans-serif" font-size="10" text-anchor="middle">(Involuntary organs)</text>
+
+            <rect x="625" y="174" width="120" height="42" rx="5" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="685" y="192" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Visceral System</text>
+            <text x="685" y="208" fill="#475569" font-family="sans-serif" font-size="10" text-anchor="middle">(CNS ↔ Viscera)</text>
+
+            <!-- Autonomic Subdivisions -->
+            <line x1="535" y1="216" x2="535" y2="238" stroke="#0D9488" stroke-width="1.5"/>
+            <line x1="465" y1="238" x2="605" y2="238" stroke="#0D9488" stroke-width="1.5"/>
+            <line x1="465" y1="238" x2="465" y2="256" stroke="#0D9488" stroke-width="1.5"/>
+            <line x1="605" y1="238" x2="605" y2="256" stroke="#0D9488" stroke-width="1.5"/>
+
+            <rect x="405" y="256" width="120" height="34" rx="5" fill="#F8FAFC" stroke="#64748B" stroke-width="1.2"/>
+            <text x="465" y="277" fill="#1E293B" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Sympathetic</text>
+
+            <rect x="545" y="256" width="120" height="34" rx="5" fill="#F8FAFC" stroke="#64748B" stroke-width="1.2"/>
+            <text x="605" y="277" fill="#1E293B" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Parasympathetic</text>
+
+            <!-- Afferent/Efferent Note -->
+            <rect x="45" y="246" width="230" height="44" rx="5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.2"/>
+            <text x="160" y="264" fill="#92400E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">PNS Fibre Types:</text>
+            <text x="160" y="280" fill="#78350F" font-family="sans-serif" font-size="10.5" text-anchor="middle">Afferent (to CNS) • Efferent (from CNS)</text>
+          </svg>
+          <figcaption>Tutorial Diagram 1: Hierarchical organisation of the human neural system and its functional subdivisions.</figcaption>
+        </figure>
+      </section>
+
+      <section id="neuron-structure">
+        <h2>4. Neuron: Structural and Functional Unit</h2>
+        <p>A <strong>neuron</strong> is a microscopic, excitable cell specialised for electrical signalling. Every typical neuron consists of three main regions:</p>
+        <ol>
+          <li><strong>Cell Body (Soma / Cyton):</strong> Contains cytoplasm with standard organelles and characteristic basophilic granular bodies called <strong>Nissl's granules</strong> (involved in protein synthesis).</li>
+          <li><strong>Dendrites:</strong> Short, repeatedly branching fibres projecting from the cell body that also contain <strong>Nissl's granules</strong>. They receive incoming signals and transmit impulses <em>towards</em> the cell body.</li>
+          <li><strong>Axon:</strong> A single long fibre transmitting impulses <em>away from</em> the cell body towards a synapse or a neuromuscular junction. Note that axons lack Nissl's granules. The distal end of an axon branches into axon terminals, each ending in a bulb-like <strong>synaptic knob</strong> packed with <strong>synaptic vesicles</strong> containing chemical messengers called <strong>neurotransmitters</strong>.</li>
+        </ol>
+
+        <figure class="diagram-box">
+          <svg viewBox="0 0 760 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic structure of a myelinated multipolar neuron">
+            <rect x="0" y="0" width="760" height="280" fill="#FFFFFF"/>
+            <!-- Dendrites -->
+            <path d="M120,140 L75,95 M75,95 L50,80 M75,95 L70,65 M120,140 L60,130 M60,130 L35,120 M60,130 L40,150 M120,140 L75,185 M75,185 L50,200 M75,185 L75,215 M120,140 L110,75 M110,75 L100,50 M110,75 L130,55 M120,140 L115,205 M115,205 L105,230 M115,205 L135,225" stroke="#2563EB" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+            <!-- Cell Body -->
+            <polygon points="105,105 155,112 185,132 185,148 155,168 105,175 90,140" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Nucleus -->
+            <circle cx="135" cy="140" r="14" fill="#1E293B"/>
+            <!-- Nissl's granules -->
+            <circle cx="115" cy="126" r="2.2" fill="#0D9488"/>
+            <circle cx="152" cy="124" r="2.2" fill="#0D9488"/>
+            <circle cx="112" cy="152" r="2.2" fill="#0D9488"/>
+            <circle cx="156" cy="155" r="2.2" fill="#0D9488"/>
+            <circle cx="166" cy="140" r="2.2" fill="#0D9488"/>
+
+            <!-- Axon shaft -->
+            <line x1="185" y1="140" x2="620" y2="140" stroke="#2563EB" stroke-width="5"/>
+
+            <!-- Myelin sheaths & Schwann cells -->
+            <rect x="215" y="124" width="85" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+            <ellipse cx="257" cy="120" rx="8" ry="4" fill="#0F766E"/>
+            <rect x="320" y="124" width="85" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+            <ellipse cx="362" cy="120" rx="8" ry="4" fill="#0F766E"/>
+            <rect x="425" y="124" width="85" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+            <ellipse cx="467" cy="120" rx="8" ry="4" fill="#0F766E"/>
+            <rect x="530" y="124" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+            <ellipse cx="567" cy="120" rx="8" ry="4" fill="#0F766E"/>
+
+            <!-- Axon terminals and synaptic knobs -->
+            <path d="M620,140 L675,95 M620,140 L685,140 M620,140 L675,185" stroke="#2563EB" stroke-width="3" fill="none"/>
+            <circle cx="680" cy="92" r="7" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+            <circle cx="690" cy="140" r="7" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+            <circle cx="680" cy="188" r="7" fill="#D97706" stroke="#92400E" stroke-width="1.5"/>
+
+            <!-- Labels and leader lines -->
+            <line x1="62" y1="68" x2="62" y2="36" stroke="#64748B" stroke-width="1.2"/>
+            <text x="62" y="28" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Dendrites</text>
+
+            <line x1="135" y1="126" x2="175" y2="55" stroke="#64748B" stroke-width="1.2"/>
+            <text x="180" y="50" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Nucleus</text>
+
+            <line x1="152" y1="124" x2="215" y2="75" stroke="#64748B" stroke-width="1.2"/>
+            <text x="220" y="72" fill="#0F766E" font-family="sans-serif" font-size="11.5" font-weight="bold">Nissl's granules</text>
+
+            <line x1="135" y1="170" x2="135" y2="245" stroke="#64748B" stroke-width="1.2"/>
+            <text x="135" y="262" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Cell body (Soma)</text>
+
+            <line x1="257" y1="116" x2="285" y2="50" stroke="#64748B" stroke-width="1.2"/>
+            <text x="290" y="45" fill="#0F766E" font-family="sans-serif" font-size="12" font-weight="bold">Schwann cell</text>
+
+            <line x1="362" y1="156" x2="362" y2="210" stroke="#64748B" stroke-width="1.2"/>
+            <text x="362" y="226" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Myelin sheath</text>
+
+            <line x1="415" y1="140" x2="435" y2="245" stroke="#64748B" stroke-width="1.2"/>
+            <text x="435" y="262" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Node of Ranvier</text>
+
+            <line x1="520" y1="140" x2="520" y2="70" stroke="#64748B" stroke-width="1.2"/>
+            <text x="520" y="62" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Axon</text>
+
+            <line x1="687" y1="92" x2="687" y2="50" stroke="#64748B" stroke-width="1.2"/>
+            <text x="687" y="42" fill="#92400E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Synaptic knob</text>
+
+            <line x1="655" y1="170" x2="655" y2="225" stroke="#64748B" stroke-width="1.2"/>
+            <text x="655" y="242" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Axon terminal</text>
+          </svg>
+          <figcaption>Tutorial Diagram 2: Structural components of a myelinated multipolar neuron.</figcaption>
+        </figure>
+
+        <h3>Classification of Neurons</h3>
+        <p>Neurons are classified structurally by the number of processes extending from the cell body, and functionally by the presence or absence of a myelin sheath around the axon:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Neuron Type (by Polarity)</th>
+              <th>Process Arrangement</th>
+              <th>Typical Anatomical Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Multipolar</strong></td>
+              <td>One axon and two or more dendrites</td>
+              <td>Cerebral cortex</td>
+            </tr>
+            <tr>
+              <td><strong>Bipolar</strong></td>
+              <td>One axon and one dendrite</td>
+              <td>Retina of the eye</td>
+            </tr>
+            <tr>
+              <td><strong>Unipolar</strong></td>
+              <td>Cell body with one axon only (no dendrites)</td>
+              <td>Usually found in the embryonic stage</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card card-amber">
+          <span class="card-title">High-Yield NEET Distinction: Myelinated vs. Non-Myelinated Axons</span>
+          <p>Both myelinated and non-myelinated nerve fibres in the PNS are associated with <strong>Schwann cells</strong>:</p>
+          <ul>
+            <li><strong>Myelinated fibres:</strong> Enveloped by Schwann cells that wrap around the axon to form an insulating <strong>myelin sheath</strong>. Periodic uninsulated gaps between adjacent sheaths are called <strong>nodes of Ranvier</strong>. Found in <strong>spinal and cranial nerves</strong>.</li>
+            <li><strong>Non-myelinated fibres:</strong> Enclosed by a Schwann cell that <em>does not</em> form a myelin sheath around the axon. Commonly found in the <strong>autonomic and somatic neural systems</strong>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="nerve-impulse">
+        <h2>5. Generation and Conduction of a Nerve Impulse</h2>
+        <p>Neurons are excitable because their plasma membranes maintain an asymmetric distribution of ions, creating a polarised electrical state. Selective ion channels and active transport pumps govern every phase of impulse generation and propagation.</p>
+
+        <h3>Phase 1: Resting Potential (Polarised State)</h3>
+        <p>When a neuron is not conducting an impulse, its axonal membrane is:</p>
+        <ul>
+          <li>Comparatively <strong>more permeable to potassium ions (K⁺)</strong>.</li>
+          <li>Nearly <strong>impermeable to sodium ions (Na⁺)</strong>.</li>
+          <li><strong>Impermeable to negatively charged proteins</strong> present inside the axoplasm.</li>
+        </ul>
+        <p>Consequently, the axoplasm has a high concentration of K⁺ and negatively charged proteins, and a low concentration of Na⁺, whereas the extracellular fluid has a high concentration of Na⁺ and a low concentration of K⁺. This steep ionic gradient is actively maintained by the <strong>sodium–potassium pump</strong> (Na⁺/K⁺-ATPase), which uses ATP to transport:</p>
+        <div class="formula-box">
+          \[3\,\mathrm{Na}^{+}\text{ outwards} \quad : \quad 2\,\mathrm{K}^{+}\text{ inwards per ATP-driven cycle}\]
+        </div>
+        <p>Because more positive charges are pumped out than in, and large anionic proteins remain trapped inside, the outer surface of the axonal membrane carries a <strong>net positive charge</strong> while the inner surface carries a <strong>net negative charge</strong>. This electrical potential difference across the resting plasma membrane is the <strong>resting potential</strong> (a polarised state).</p>
+
+        <h3>Phase 2: Depolarisation and Action Potential</h3>
+        <p>When a threshold stimulus is applied at a specific site (say, point A) on a polarised membrane:</p>
+        <ol>
+          <li>The membrane at site A suddenly becomes <strong>freely permeable to Na⁺</strong>.</li>
+          <li>A rapid influx of Na⁺ into the axoplasm occurs down its concentration gradient.</li>
+          <li>Polarity reverses at site A: the outer surface becomes <strong>negatively charged</strong> and the inner surface becomes <strong>positively charged</strong>. The membrane at site A is now <strong>depolarised</strong>.</li>
+          <li>The electrical potential difference across the membrane at site A during this reversal is the <strong>action potential</strong>, which constitutes a <strong>nerve impulse</strong>.</li>
+        </ol>
+
+        <h3>Phase 3: Impulse Conduction Along the Axon</h3>
+        <p>Immediately ahead of site A, the neighbouring resting region (say, site B) still has a positive outer surface and negative inner surface. This potential difference drives local ionic currents:</p>
+        <ul>
+          <li><strong>On the inner surface:</strong> Current flows from site A to site B.</li>
+          <li><strong>On the outer surface:</strong> Current flows from site B to site A, completing the electrical circuit.</li>
+        </ul>
+        <p>This current depolarises site B, reversing its polarity and generating a new action potential there. The sequence repeats continuously along the axon, propagating the impulse forward.</p>
+
+        <h3>Phase 4: Repolarisation</h3>
+        <p>The stimulus-induced surge in Na⁺ permeability is extremely short-lived. It is rapidly followed by a rise in permeability to <strong>K⁺</strong>. Within a fraction of a second, K⁺ diffuses out of the axoplasm across the membrane, restoring the positive outer / negative inner charge distribution (resting potential) at the excited site so the fibre becomes responsive to further stimulation.</p>
+
+        <figure class="diagram-box">
+          <svg viewBox="0 0 760 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Impulse conduction and local current circuit along an axon">
+            <rect x="0" y="0" width="760" height="260" fill="#FFFFFF"/>
+            <!-- Top Panel: Polarised vs Depolarised at A -->
+            <text x="30" y="26" fill="#1E293B" font-family="sans-serif" font-size="12.5" font-weight="bold">1. Stimulus at Site A: Na⁺ influx causes local depolarisation</text>
+
+            <!-- Axon membrane top panel -->
+            <rect x="60" y="48" width="180" height="52" fill="#FEE2E2"/>
+            <rect x="240" y="48" width="460" height="52" fill="#EFF6FF"/>
+            <line x1="60" y1="48" x2="700" y2="48" stroke="#1E293B" stroke-width="2.5"/>
+            <line x1="60" y1="100" x2="700" y2="100" stroke="#1E293B" stroke-width="2.5"/>
+
+            <!-- Na+ influx arrow -->
+            <line x1="150" y1="30" x2="150" y2="66" stroke="#DC2626" stroke-width="2.5"/>
+            <polygon points="150,72 145,62 155,62" fill="#DC2626"/>
+            <text x="162" y="42" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Na⁺ influx (Site A)</text>
+
+            <!-- Charges top panel -->
+            <text x="95" y="43" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold">−   −   −   −</text>
+            <text x="95" y="65" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold">+   +   +   +</text>
+            <text x="95" y="94" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold">+   +   +   +</text>
+            <text x="95" y="114" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold">−   −   −   −</text>
+
+            <text x="275" y="43" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold">+   +   +   +   +   +   +   +   +   +   +</text>
+            <text x="275" y="65" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold">−   −   −   −   −   −   −   −   −   −   −</text>
+            <text x="275" y="94" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold">−   −   −   −   −   −   −   −   −   −   −</text>
+            <text x="275" y="114" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold">+   +   +   +   +   +   +   +   +   +   +</text>
+
+            <!-- Bottom Panel: Local circuit A to B -->
+            <text x="30" y="148" fill="#1E293B" font-family="sans-serif" font-size="12.5" font-weight="bold">2. Local current circuit propagates action potential from Site A to Site B</text>
+
+            <rect x="60" y="172" width="180" height="52" fill="#CCFBF1"/>
+            <rect x="240" y="172" width="180" height="52" fill="#FEE2E2"/>
+            <rect x="420" y="172" width="280" height="52" fill="#EFF6FF"/>
+            <line x1="60" y1="172" x2="700" y2="172" stroke="#1E293B" stroke-width="2.5"/>
+            <line x1="60" y1="224" x2="700" y2="224" stroke="#1E293B" stroke-width="2.5"/>
+
+            <!-- Repolarisation K+ efflux at A -->
+            <line x1="150" y1="190" x2="150" y2="155" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="150,150 145,160 155,160" fill="#0D9488"/>
+            <text x="72" y="164" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold">K⁺ efflux (Repolarised)</text>
+
+            <!-- Inner current A -> B -->
+            <line x1="210" y1="198" x2="280" y2="198" stroke="#D97706" stroke-width="2.5"/>
+            <polygon points="286,198 276,193 276,203" fill="#D97706"/>
+            <text x="245" y="214" fill="#92400E" font-family="sans-serif" font-size="10.5" font-weight="bold" text-anchor="middle">Inner: A → B</text>
+
+            <!-- Outer current B -> A -->
+            <path d="M295,166 Q250,148 205,166" stroke="#D97706" stroke-width="2" fill="none"/>
+            <polygon points="200,168 210,168 206,160" fill="#D97706"/>
+            <text x="330" y="166" fill="#92400E" font-family="sans-serif" font-size="10.5" font-weight="bold">Outer: B → A</text>
+
+            <text x="330" y="192" fill="#DC2626" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Site B</text>
+            <text x="330" y="208" fill="#DC2626" font-family="sans-serif" font-size="10.5" text-anchor="middle">(Depolarising)</text>
+
+            <text x="560" y="202" fill="#2563EB" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Resting Polarised Region (+ out / − in)</text>
+          </svg>
+          <figcaption>Tutorial Diagram 3: Ionic basis of depolarisation, local current flow, and repolarisation during impulse conduction.</figcaption>
+        </figure>
+      </section>
+
+      <section id="synapse">
+        <h2>6. Synaptic Transmission of Impulses</h2>
+        <p>A nerve impulse travels from one neuron to the next across a specialised junction called a <strong>synapse</strong>, formed by the membrane of a <strong>pre-synaptic neuron</strong> and a <strong>post-synaptic neuron</strong>, which may or may not be separated by a gap called the <strong>synaptic cleft</strong>.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Electrical Synapse</th>
+              <th>Chemical Synapse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Membrane proximity</strong></td>
+              <td>Pre- and post-synaptic membranes are in very close proximity</td>
+              <td>Separated by a fluid-filled <strong>synaptic cleft</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Mechanism</strong></td>
+              <td>Electrical current flows directly from one neuron to the next</td>
+              <td>Neurotransmitters diffuse across the cleft and bind to receptors</td>
+            </tr>
+            <tr>
+              <td><strong>Speed of transmission</strong></td>
+              <td>Always faster (similar to conduction along a single axon)</td>
+              <td>Slower due to synaptic delay (vesicle fusion and diffusion)</td>
+            </tr>
+            <tr>
+              <td><strong>Occurrence in humans</strong></td>
+              <td>Rare in our neural system</td>
+              <td>Predominant type in the human neural system</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Step-by-Step Mechanism at a Chemical Synapse</h3>
+        <ol>
+          <li>An action potential arrives at the <strong>axon terminal</strong> (synaptic knob) of the pre-synaptic neuron.</li>
+          <li>The impulse stimulates <strong>synaptic vesicles</strong> (filled with neurotransmitters) to move towards and fuse with the <strong>pre-synaptic membrane</strong>.</li>
+          <li>Neurotransmitters are released into the <strong>synaptic cleft</strong>.</li>
+          <li>The released neurotransmitters bind to specific <strong>receptors</strong> located on the <strong>post-synaptic membrane</strong>.</li>
+          <li>Receptor binding opens specific <strong>ion channels</strong>, allowing ions to enter the post-synaptic neuron and generate a new potential, which may be either <strong>excitatory</strong> or <strong>inhibitory</strong> depending on the neurotransmitter and channel type.</li>
+        </ol>
+
+        <figure class="diagram-box">
+          <svg viewBox="0 0 760 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a chemical synapse showing vesicle fusion and receptor binding">
+            <rect x="0" y="0" width="760" height="260" fill="#FFFFFF"/>
+            <!-- Pre-synaptic knob -->
+            <path d="M160,20 L240,20 L255,75 C320,95 340,145 290,175 C240,200 160,200 110,175 C60,145 80,95 145,75 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+            <!-- Impulse arrow -->
+            <line x1="200" y1="28" x2="200" y2="68" stroke="#DC2626" stroke-width="2.5"/>
+            <polygon points="200,74 195,64 205,64" fill="#DC2626"/>
+            <text x="265" y="45" fill="#DC2626" font-family="sans-serif" font-size="11.5" font-weight="bold">Action potential arrives</text>
+
+            <!-- Synaptic vesicles -->
+            <circle cx="155" cy="115" r="16" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+            <circle cx="150" cy="112" r="2.5" fill="#2563EB"/><circle cx="160" cy="112" r="2.5" fill="#2563EB"/><circle cx="155" cy="121" r="2.5" fill="#2563EB"/>
+
+            <circle cx="235" cy="120" r="16" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+            <circle cx="230" cy="117" r="2.5" fill="#2563EB"/><circle cx="240" cy="117" r="2.5" fill="#2563EB"/><circle cx="235" cy="126" r="2.5" fill="#2563EB"/>
+
+            <!-- Fusing vesicle -->
+            <path d="M182,188 A14,14 0 1,1 218,188" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+
+            <!-- Neurotransmitters in cleft -->
+            <circle cx="190" cy="196" r="3" fill="#2563EB"/>
+            <circle cx="202" cy="202" r="3" fill="#2563EB"/>
+            <circle cx="212" cy="195" r="3" fill="#2563EB"/>
+            <circle cx="172" cy="204" r="3" fill="#2563EB"/>
+            <circle cx="228" cy="204" r="3" fill="#2563EB"/>
+
+            <!-- Post-synaptic membrane -->
+            <path d="M55,212 Q200,224 345,212 L345,245 L55,245 Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+
+            <!-- Receptors -->
+            <rect x="135" y="206" width="12" height="14" rx="2" fill="#1E293B"/>
+            <rect x="194" y="208" width="12" height="14" rx="2" fill="#1E293B"/>
+            <rect x="255" y="206" width="12" height="14" rx="2" fill="#1E293B"/>
+
+            <!-- Labels on right -->
+            <line x1="251" y1="120" x2="410" y2="85" stroke="#64748B" stroke-width="1.2"/>
+            <text x="418" y="89" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Synaptic vesicles (with neurotransmitters)</text>
+
+            <line x1="292" y1="168" x2="410" y2="130" stroke="#64748B" stroke-width="1.2"/>
+            <text x="418" y="134" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Pre-synaptic membrane</text>
+
+            <line x1="233" y1="202" x2="410" y2="170" stroke="#64748B" stroke-width="1.2"/>
+            <text x="418" y="174" fill="#0F766E" font-family="sans-serif" font-size="12" font-weight="bold">Synaptic cleft (fluid-filled space)</text>
+
+            <line x1="267" y1="213" x2="410" y2="206" stroke="#64748B" stroke-width="1.2"/>
+            <text x="418" y="210" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Specific receptors on post-synaptic membrane</text>
+
+            <line x1="345" y1="232" x2="410" y2="238" stroke="#64748B" stroke-width="1.2"/>
+            <text x="418" y="242" fill="#2563EB" font-family="sans-serif" font-size="12" font-weight="bold">Post-synaptic neuron (ion channels open)</text>
+          </svg>
+          <figcaption>Tutorial Diagram 4: Signal transmission across a chemical synapse.</figcaption>
+        </figure>
+      </section>
+
+      <section id="cns-brain">
+        <h2>7. Central Neural System: The Human Brain</h2>
+        <p>The <strong>brain</strong> is the central information-processing organ and acts as the body's command and control system. It governs voluntary movements, balance, vital involuntary organs (lungs, heart, kidneys), thermoregulation, hunger and thirst, circadian (24-hour) rhythms, endocrine gland activity, behaviour, vision, hearing, speech, memory, intelligence, emotions, and thoughts.</p>
+
+        <h3>Protective Coverings: Cranial Meninges</h3>
+        <p>Protected externally by the bony skull, the brain is wrapped internally by three <strong>cranial meninges</strong> (from outer to inner):</p>
+        <ol>
+          <li><strong>Dura mater:</strong> Tough outer layer.</li>
+          <li><strong>Arachnoid:</strong> Very thin middle layer.</li>
+          <li><strong>Pia mater:</strong> Innermost layer in direct contact with brain tissue.</li>
+        </ol>
+
+        <figure class="diagram-box">
+          <svg viewBox="0 0 760 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sagittal schematic of the human brain">
+            <rect x="0" y="0" width="760" height="280" fill="#FFFFFF"/>
+            <!-- Cerebrum outline -->
+            <path d="M180,145 C165,70 245,30 355,32 C465,34 525,85 505,155 C485,180 440,175 410,165 C375,155 340,160 310,165 C255,175 195,175 180,145 Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+            <!-- Corpus callosum -->
+            <path d="M245,118 C275,85 375,85 415,115 C385,105 280,105 245,118 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
+            <!-- Thalamus -->
+            <ellipse cx="330" cy="130" rx="34" ry="18" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+            <!-- Hypothalamus -->
+            <polygon points="296,138 332,146 312,165 292,155" fill="#99F6E4" stroke="#0F766E" stroke-width="1.8"/>
+            <!-- Midbrain -->
+            <rect x="342" y="152" width="28" height="26" rx="4" fill="#E2E8F0" stroke="#475569" stroke-width="1.8"/>
+            <!-- Cerebral aqueduct -->
+            <line x1="356" y1="152" x2="356" y2="178" stroke="#DC2626" stroke-width="2" stroke-dasharray="3,2"/>
+            <!-- Pons -->
+            <ellipse cx="342" cy="195" rx="22" ry="18" fill="#CBD5E1" stroke="#475569" stroke-width="1.8"/>
+            <!-- Medulla -->
+            <path d="M336,212 L364,212 L360,248 L340,248 Z" fill="#CBD5E1" stroke="#475569" stroke-width="1.8"/>
+            <!-- Spinal cord -->
+            <rect x="342" y="248" width="16" height="24" fill="#94A3B8" stroke="#334155" stroke-width="1.5"/>
+            <!-- Cerebellum -->
+            <path d="M372,175 C425,165 462,192 442,226 C418,242 375,232 370,202 Z" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="2"/>
+            <path d="M380,195 L435,195 M382,210 L432,210 M406,178 L406,225" stroke="#1D4ED8" stroke-width="1.2"/>
+
+            <!-- Labels Left -->
+            <line x1="210" y1="78" x2="130" y2="62" stroke="#64748B" stroke-width="1.2"/>
+            <text x="124" y="66" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Cerebrum</text>
+
+            <line x1="275" y1="102" x2="130" y2="102" stroke="#64748B" stroke-width="1.2"/>
+            <text x="124" y="106" fill="#92400E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Corpus callosum</text>
+
+            <line x1="298" y1="130" x2="130" y2="140" stroke="#64748B" stroke-width="1.2"/>
+            <text x="124" y="144" fill="#0F766E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Thalamus</text>
+
+            <line x1="298" y1="158" x2="130" y2="178" stroke="#64748B" stroke-width="1.2"/>
+            <text x="124" y="182" fill="#0F766E" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Hypothalamus</text>
+
+            <line x1="320" y1="195" x2="130" y2="215" stroke="#64748B" stroke-width="1.2"/>
+            <text x="124" y="219" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Pons</text>
+
+            <line x1="338" y1="234" x2="130" y2="248" stroke="#64748B" stroke-width="1.2"/>
+            <text x="124" y="252" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="end">Medulla oblongata</text>
+
+            <!-- Labels Right -->
+            <line x1="370" y1="164" x2="545" y2="130" stroke="#64748B" stroke-width="1.2"/>
+            <text x="552" y="134" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Midbrain &amp; Cerebral aqueduct</text>
+
+            <line x1="445" y1="202" x2="545" y2="195" stroke="#64748B" stroke-width="1.2"/>
+            <text x="552" y="199" fill="#1D4ED8" font-family="sans-serif" font-size="12" font-weight="bold">Cerebellum</text>
+
+            <line x1="358" y1="260" x2="545" y2="260" stroke="#64748B" stroke-width="1.2"/>
+            <text x="552" y="264" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Spinal cord</text>
+          </svg>
+          <figcaption>Tutorial Diagram 5: Sagittal schematic showing the major regions of the human brain.</figcaption>
+        </figure>
+
+        <h3>Three Major Divisions of the Brain</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Division</th>
+              <th>Key Components</th>
+              <th>Primary Functions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Forebrain</strong></td>
+              <td>
+                <strong>Cerebrum</strong> (two cerebral hemispheres joined by <strong>corpus callosum</strong>; outer folded <strong>cerebral cortex / grey matter</strong> with concentrated cell bodies; inner <strong>white matter</strong> of myelinated tracts)<br><br>
+                <strong>Thalamus</strong><br><br>
+                <strong>Hypothalamus</strong><br><br>
+                <strong>Limbic system</strong> (inner cerebral hemispheres + amygdala, hippocampus, etc.)
+              </td>
+              <td>
+                Cerebral cortex contains motor, sensory, and <strong>association areas</strong> (intersensory associations, memory, communication).<br><br>
+                Major coordinating centre for sensory and motor signalling.<br><br>
+                Controls body temperature, urge for eating and drinking; neurosecretory cells secrete hypothalamic hormones.<br><br>
+                With hypothalamus, regulates sexual behaviour, emotional reactions (excitement, pleasure, rage, fear), motivation, olfaction, and autonomic responses.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Midbrain</strong></td>
+              <td>Located between thalamus/hypothalamus and pons; traversed by <strong>cerebral aqueduct</strong>; dorsal side has four round lobes called <strong>corpora quadrigemina</strong></td>
+              <td>Receives and integrates visual, tactile, and auditory inputs.</td>
+            </tr>
+            <tr>
+              <td><strong>Hindbrain</strong></td>
+              <td>
+                <strong>Pons</strong><br><br>
+                <strong>Cerebellum</strong> (highly convoluted surface for extra neurons)<br><br>
+                <strong>Medulla oblongata</strong> (connects to spinal cord)
+              </td>
+              <td>
+                Fibre tracts interconnecting different brain regions.<br><br>
+                Integrates information from semicircular canals of the ear and auditory system; maintains posture and balance.<br><br>
+                Centres controlling respiration, cardiovascular reflexes, and gastric secretions.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="card card-teal">
+          <span class="card-title">Brain Stem Composition</span>
+          <p>Three major regions together form the <strong>brain stem</strong>, which establishes the structural and functional connection between the brain and the spinal cord:</p>
+          <div class="formula-box">
+            \[\text{Brain Stem} = \text{Midbrain} + \text{Pons} + \text{Medulla Oblongata}\]
+          </div>
+        </div>
+      </section>
+
+      <section id="worked-examples">
+        <h2>8. Worked Examples</h2>
+
+        <div class="example-block">
+          <div class="example-header">Worked Example 1: Ion Stoichiometry of the Sodium–Potassium Pump</div>
+          <p><strong>Scenario (Illustrative Assumption):</strong> Suppose a segment of a resting axonal membrane performs \(500\) complete ATP-driven cycles of the \(\mathrm{Na}^+/\mathrm{K}^+\) pump to maintain its resting potential. Calculate the net number of positive charges shifted across the membrane and identify which side becomes more positive.</p>
+          <p><strong>Solution:</strong></p>
+          <ol>
+            <li>In each active transport cycle, the \(\mathrm{Na}^+/\mathrm{K}^+\) pump exports \(3\,\mathrm{Na}^+\) ions out of the axoplasm and imports \(2\,\mathrm{K}^+\) ions into the axoplasm.</li>
+            <li>For \(500\) cycles:
+              \[
+                \text{Na}^+ \text{ exported} = 500 \times 3 = 1500\text{ ions (outward)}
+              \]
+              \[
+                \text{K}^+ \text{ imported} = 500 \times 2 = 1000\text{ ions (inward)}
+              \]
+            </li>
+            <li>Since both \(\mathrm{Na}^+\) and \(\mathrm{K}^+\) carry a \(+1\) charge, the net outward movement of positive charge is:
+              \[
+                1500 - 1000 = 500\text{ elementary positive charges outward}
+              \]
+            </li>
+          </ol>
+          <p><strong>Conclusion:</strong> A net \(500\) positive charges are shifted to the <strong>outer surface</strong> of the axonal membrane, reinforcing the positive exterior and negative interior of the polarised resting state.</p>
+        </div>
+
+        <div class="example-block">
+          <div class="example-header">Worked Example 2: Localising Brain Lesions from Physiological Symptoms</div>
+          <p><strong>Scenario:</strong> A patient presents with three distinct deficits following a focal neurological injury: (i) loss of body temperature regulation and appetite control, (ii) impaired coordination of balance despite intact muscle strength, and (iii) unstable respiratory rhythm. Identify the specific brain structure associated with each symptom.</p>
+          <p><strong>Solution:</strong></p>
+          <ul>
+            <li><strong>Loss of thermoregulation and appetite:</strong> Points to the <strong>hypothalamus</strong> (forebrain), which houses centres for body temperature and the urges for eating and drinking.</li>
+            <li><strong>Impaired balance and coordination:</strong> Points to the <strong>cerebellum</strong> (hindbrain), which integrates vestibular inputs from the semicircular canals and coordinates motor precision.</li>
+            <li><strong>Unstable respiratory rhythm:</strong> Points to the <strong>medulla oblongata</strong> (hindbrain), which contains vital centres regulating respiration, cardiovascular reflexes, and gastric secretions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="practice-questions">
+        <h2>9. NEET UG Practice Questions</h2>
+        <p>Attempt all questions below to test your conceptual clarity and exam readiness. Each item is an original practice question modelled on NEET UG patterns.</p>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 1 <span class="q-type">Single-Correct MCQ</span></div>
+          <p>Which of the following correctly describes the direction of local electrical current flow during the propagation of an action potential from an excited site P to an adjacent resting site Q along an unmyelinated axon?</p>
+          <ul class="options-list">
+            <li>(A) Inner surface: Q to P; Outer surface: P to Q</li>
+            <li>(B) Inner surface: P to Q; Outer surface: Q to P</li>
+            <li>(C) Both inner and outer surfaces: P to Q</li>
+            <li>(D) Both inner and outer surfaces: Q to P</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (B)</div>
+            <p><strong>Explanation:</strong> At the depolarised site P, the inner surface is positively charged and the outer surface is negatively charged. At the resting site Q ahead of it, the inner surface is negative and the outer surface is positive. Current flows from positive to negative: hence from <strong>P to Q on the inner surface</strong> and from <strong>Q to P on the outer surface</strong> to complete the circuit.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 2 <span class="q-type">Single-Correct MCQ</span></div>
+          <p>Select the <strong>incorrect</strong> statement regarding the structure and classification of neurons.</p>
+          <ul class="options-list">
+            <li>(A) Nissl's granules are present in both the cell body and the dendrites.</li>
+            <li>(B) Bipolar neurons possess one axon and one dendrite and are found in the retina of the eye.</li>
+            <li>(C) Non-myelinated nerve fibres in the peripheral neural system lack Schwann cells completely.</li>
+            <li>(D) Multipolar neurons are characteristic of the cerebral cortex.</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (C)</div>
+            <p><strong>Explanation:</strong> Non-myelinated nerve fibres <em>are</em> enclosed by Schwann cells, but those Schwann cells do not wrap around the axon to form a myelin sheath. Statements (A), (B), and (D) are factually accurate.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 3 <span class="q-type">Assertion–Reason</span></div>
+          <p><strong>Assertion (A):</strong> Impulse transmission across an electrical synapse is always faster than across a chemical synapse.<br>
+          <strong>Reason (R):</strong> At an electrical synapse, pre- and post-synaptic membranes are in very close proximity, allowing direct flow of electrical current without neurotransmitter release.</p>
+          <ul class="options-list">
+            <li>(A) Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+            <li>(B) Both (A) and (R) are true but (R) is not the correct explanation of (A).</li>
+            <li>(C) (A) is true but (R) is false.</li>
+            <li>(D) (A) is false but (R) is true.</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (A)</div>
+            <p><strong>Explanation:</strong> Electrical synapses lack a wide synaptic cleft and do not require vesicle movement, exocytosis, or neurotransmitter diffusion. Direct ionic current flow makes transmission nearly instantaneous, much like conduction along a single axon.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 4 <span class="q-type">Statement I &amp; II</span></div>
+          <p><strong>Statement I:</strong> The cerebral cortex appears greyish due to the high concentration of myelinated axon tracts.<br>
+          <strong>Statement II:</strong> Association areas of the cerebral cortex are neither clearly sensory nor motor, and are responsible for memory, communication, and intersensory associations.</p>
+          <ul class="options-list">
+            <li>(A) Both Statement I and Statement II are correct.</li>
+            <li>(B) Both Statement I and Statement II are incorrect.</li>
+            <li>(C) Statement I is correct but Statement II is incorrect.</li>
+            <li>(D) Statement I is incorrect but Statement II is correct.</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (D)</div>
+            <p><strong>Explanation:</strong> Statement I is incorrect because the cerebral cortex (grey matter) appears greyish due to concentrated <strong>neuron cell bodies</strong>, whereas myelinated fibre tracts form the inner opaque <strong>white matter</strong>. Statement II accurately describes association areas.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 5 <span class="q-type">Matching Type</span></div>
+          <p>Match the brain structures in Column I with their correct features or functions in Column II:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Column I</th>
+                <th>Column II</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Corpora quadrigemina</td>
+                <td>(p) Connects the two cerebral hemispheres</td>
+              </tr>
+              <tr>
+                <td>2. Corpus callosum</td>
+                <td>(q) Four round swellings on the dorsal midbrain</td>
+              </tr>
+              <tr>
+                <td>3. Limbic system</td>
+                <td>(r) Regulates emotional reactions, motivation, and sexual behaviour</td>
+              </tr>
+              <tr>
+                <td>4. Medulla oblongata</td>
+                <td>(s) Controls cardiovascular reflexes and gastric secretions</td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="options-list">
+            <li>(A) 1–(q), 2–(p), 3–(r), 4–(s)</li>
+            <li>(B) 1–(p), 2–(q), 3–(r), 4–(s)</li>
+            <li>(C) 1–(q), 2–(r), 3–(p), 4–(s)</li>
+            <li>(D) 1–(s), 2–(p), 3–(r), 4–(q)</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (A)</div>
+            <p><strong>Explanation:</strong> Corpora quadrigemina are four dorsal lobes of the midbrain (q); corpus callosum is the nerve fibre tract linking cerebral hemispheres (p); the limbic system (with the hypothalamus) regulates emotions, motivation, and sexual behaviour (r); and the medulla controls respiration, cardiovascular reflexes, and gastric secretions (s).</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 6 <span class="q-type">Single-Correct MCQ</span></div>
+          <p>During repolarisation of an excited axonal membrane, restoration of the resting potential is primarily achieved by:</p>
+          <ul class="options-list">
+            <li>(A) Rapid influx of K⁺ ions into the axoplasm</li>
+            <li>(B) Rapid efflux of K⁺ ions outside the membrane</li>
+            <li>(C) Continuous influx of Na⁺ ions through voltage-independent channels</li>
+            <li>(D) Efflux of negatively charged proteins into the extracellular fluid</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (B)</div>
+            <p><strong>Explanation:</strong> Following the brief rise in Na⁺ permeability during depolarisation, membrane permeability to K⁺ increases rapidly. K⁺ diffuses <em>out</em> of the axoplasm within a fraction of a second, restoring the positive outer / negative inner resting polarity.</p>
+          </div>
+        </div>
+
+        <div class="question-block">
+          <div class="question-header">Practice Question 7 <span class="q-type">Single-Correct MCQ</span></div>
+          <p>Which combination of structures constitutes the human brain stem?</p>
+          <ul class="options-list">
+            <li>(A) Thalamus, Hypothalamus, and Midbrain</li>
+            <li>(B) Cerebellum, Pons, and Medulla oblongata</li>
+            <li>(C) Midbrain, Pons, and Medulla oblongata</li>
+            <li>(D) Cerebrum, Midbrain, and Spinal cord</li>
+          </ul>
+          <div class="solution-box">
+            <div class="answer-line">Correct Answer: (C)</div>
+            <p><strong>Explanation:</strong> The brain stem consists of three regions: the <strong>midbrain</strong>, <strong>pons</strong>, and <strong>medulla oblongata</strong>. Note that the cerebellum is part of the hindbrain, not the brain stem.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pitfalls-checklist">
+        <h2>10. Common Pitfalls and Revision Checklist</h2>
+        <div class="card card-amber">
+          <span class="card-title">Avoid These Frequent Exam Traps</span>
+          <ul>
+            <li><strong>Schwann cells in non-myelinated fibres:</strong> Non-myelinated fibres <em>do</em> have Schwann cells; they simply lack a myelin sheath.</li>
+            <li><strong>Brain stem vs. Hindbrain:</strong> Hindbrain = Pons + Cerebellum + Medulla. Brain stem = Midbrain + Pons + Medulla (excludes cerebellum).</li>
+            <li><strong>Pump stoichiometry:</strong> Always \(3\,\mathrm{Na}^+\) <em>out</em> for \(2\,\mathrm{K}^+\) <em>in</em>—never reverse these numbers or directions.</li>
+            <li><strong>Meninges order (outer to inner):</strong> Dura mater → Arachnoid → Pia mater (mnemonic: <strong>DAP</strong>).</li>
+            <li><strong>Afferent vs. Efferent:</strong> Afferent = <strong>A</strong>rriving at CNS; Efferent = <strong>E</strong>xiting CNS.</li>
+          </ul>
+        </div>
+
+        <h3>Concise Final Recap</h3>
+        <ul>
+          <li>Neurons are excitable cells with dendrites (towards soma), cell body (with Nissl's granules), and an axon (away from soma).</li>
+          <li>Resting membrane is polarised (+ outside, − inside) due to differential ion permeability, intracellular anionic proteins, and the \(3\,\mathrm{Na}^+ : 2\,\mathrm{K}^+\) pump.</li>
+          <li>Depolarisation is driven by rapid \(\mathrm{Na}^+\) influx; repolarisation is driven by rapid \(\mathrm{K}^+\) efflux.</li>
+          <li>Chemical synapses convert an electrical impulse into a neurotransmitter signal across the synaptic cleft, generating an excitatory or inhibitory post-synaptic potential.</li>
+          <li>The brain integrates sensory, motor, homeostatic, and cognitive functions across the forebrain, midbrain, and hindbrain.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="doc-footer">
+      NEET UG Biology Study Resource • Neural Control and Coordination • Self-Contained HTML5 Tutorial
+    </footer>
+  </div>
+</body>
+</html>

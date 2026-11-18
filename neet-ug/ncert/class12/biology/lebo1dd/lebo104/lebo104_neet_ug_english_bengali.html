@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principles of Inheritance and Variation — NEET UG Bilingual Tutorial (English &amp; Bengali)</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #1E293B;
+      background-color: #FFFFFF;
+    }
+
+    body {
+      margin: 0 auto;
+      padding: 24px 20px;
+      max-width: 900px;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Bengali', 'Bangla Sangam MN', 'Kohinoor Bangla', 'Vrinda', Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #1E293B;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    h1, h2, h3, h4 {
+      color: #0F172A;
+      line-height: 1.3;
+      margin-top: 1.5em;
+      margin-bottom: 0.6em;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      border-left: 4px solid #2563EB;
+      padding-left: 12px;
+      background-color: #F8FAFC;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: #0D9488;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0.9em;
+    }
+
+    ul, ol {
+      margin-top: 0.4em;
+      margin-bottom: 1em;
+      padding-left: 1.5em;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+
+    .meta-banner {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-left: 5px solid #0D9488;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      border-radius: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-right: 8px;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-teal {
+      background-color: #0D9488;
+    }
+
+    .lang-en {
+      padding: 12px 16px;
+      background-color: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .lang-bn {
+      padding: 12px 16px;
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #0D9488;
+      border-radius: 6px;
+      margin-bottom: 22px;
+      font-family: 'Noto Sans Bengali', 'Bangla Sangam MN', 'Kohinoor Bangla', 'Vrinda', system-ui, sans-serif;
+    }
+
+    .lang-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #2563EB;
+      margin-bottom: 6px;
+    }
+
+    .lang-bn .lang-label {
+      color: #0D9488;
+    }
+
+    .box-formula {
+      background-color: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-left: 4px solid #2563EB;
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 4px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .box-example {
+      background-color: #F0FDFA;
+      border: 1px solid #99F6E4;
+      border-left: 4px solid #0D9488;
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 6px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .box-pitfall {
+      background-color: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-left: 4px solid #D97706;
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 4px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-header {
+      font-weight: 700;
+      color: #1E293B;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0;
+    }
+
+    .options-list li {
+      padding: 5px 10px;
+      margin-bottom: 6px;
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      background-color: #F8FAFC;
+      border-top: 2px solid #2563EB;
+      padding: 10px 14px;
+      margin-top: 10px;
+      border-radius: 0 0 4px 4px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed #94A3B8;
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.92rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #1E293B;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .svg-container {
+      margin: 16px 0;
+      padding: 12px;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .svg-caption {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    svg {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm 14mm;
+    }
+
+    @media print {
+      body {
+        max-width: 100%;
+        padding: 0;
+        font-size: 10.5pt;
+        line-height: 1.5;
+      }
+
+      .lang-en, .lang-bn, .question-card, .box-example, .box-formula, .box-pitfall, .svg-container {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h1, h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .badge {
+        border: 1px solid #1E293B;
+        color: #1E293B;
+        background-color: #F8FAFC;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+  <header class="meta-banner">
+    <div>
+      <span class="badge">NEET UG BIOLOGY</span>
+      <span class="badge badge-teal">BILINGUAL: ENGLISH + বাংলা</span>
+    </div>
+    <h1>Principles of Inheritance and Variation<br><span lang="bn">বংশগতি এবং প্রকরণের নীতিসমূহ</span></h1>
+    <p><strong>Exam Focus:</strong> Conceptual clarity, Mendelian ratios, exceptions, chromosomal linkage, sex determination, pedigree deduction, and human genetic disorders aligned to NEET UG.</p>
+    <p lang="bn"><strong>পরীক্ষার লক্ষ্য:</strong> নিট ইউজি (NEET UG) পরীক্ষার উপযোগী ধারণাগত স্বচ্ছতা, মেন্ডেলীয় অনুপাত, ব্যতিক্রম, ক্রোমোজোমীয় লিংকেজ, লিঙ্গ নির্ধারণ, পেডিগ্রি বিশ্লেষণ এবং মানব জিনগত ব্যাধি।</p>
+  </header>
+
+  <section id="objectives">
+    <h2>1. Learning Objectives and Chapter Overview / <span lang="bn">১. শিখন উদ্দেশ্য ও অধ্যায়ের রূপরেখা</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <p>Genetics examines two complementary phenomena: <strong>inheritance</strong> (how traits pass from parents to offspring across generations) and <strong>variation</strong> (the observable differences between offspring and parents, or among siblings). By mastering this tutorial, you will be able to:</p>
+      <ul>
+        <li>Apply Mendel's Laws of Dominance, Segregation, and Independent Assortment using Punnett squares and probability rules.</li>
+        <li>Distinguish classical dominance from incomplete dominance, co-dominance, multiple allelism, polygenic inheritance, and pleiotropy.</li>
+        <li>Connect chromosome behaviour during meiosis to gene inheritance, linkage, recombination, and genetic mapping.</li>
+        <li>Compare chromosomal and haplodiploid sex-determination systems across humans, insects, and birds.</li>
+        <li>Interpret family pedigrees and differentiate Mendelian single-gene disorders from chromosomal aneuploidies.</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <p>জিনতত্ত্ব বা জেনেটিক্স দুটি পরিপূরক ঘটনা নিয়ে আলোচনা করে: <strong>বংশগতি (Inheritance)</strong> অর্থাৎ পিতামাতা থেকে পরবর্তী প্রজন্মে বৈশিষ্ট্যের সঞ্চারণ, এবং <strong>প্রকরণ (Variation)</strong> অর্থাৎ পিতামাতা ও সন্তানের মধ্যে বা সহোদরদের মধ্যে পরিলক্ষিত পার্থক্য। এই টিউটোরিয়ালটি সম্পন্ন করলে আপনি সক্ষম হবেন:</p>
+      <ul>
+        <li>পানেট স্কোয়ার (Punnett square) এবং সম্ভাব্যতার সূত্র ব্যবহার করে মেন্ডেলের প্রকটতা, পৃথকীকরণ এবং স্বাধীন বিন্যাসের সূত্র প্রয়োগ করতে।</li>
+        <li>সম্পূর্ণ প্রকটতার সাথে অসম্পূর্ণ প্রকটতা, সহ-প্রকটতা, মাল্টিপল অ্যালিল, পলিজেনিক বংশগতি এবং প্লিওট্রপির পার্থক্য নির্ণয় করতে।</li>
+        <li>মিয়োসিস কোষ বিভাজনের সময় ক্রোমোজোমের আচরণের সাথে জিনের বংশগতি, লিংকেজ, রিকম্বিনেশন এবং জেনেটিক ম্যাপিং-এর সম্পর্ক স্থাপন করতে।</li>
+        <li>মানুষ, পতঙ্গ এবং পাখির মধ্যে ক্রোমোজোমীয় এবং হ্যাপ্লোডিপ্লয়েড লিঙ্গ নির্ধারণ পদ্ধতির তুলনা করতে।</li>
+        <li>পারিবারিক পেডিগ্রি চার্ট বিশ্লেষণ করতে এবং মেন্ডেলীয় এক-জিনগত ব্যাধির সাথে ক্রোমোজোমীয় অ্যানিউপ্লয়েডির পার্থক্য করতে।</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="mendelian-basics">
+    <h2>2. Foundations of Mendelian Genetics &amp; Monohybrid Inheritance / <span lang="bn">২. মেন্ডেলীয় জিনতত্ত্বের ভিত্তি ও একসংকর জনন</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <h3>Why Garden Pea (<em>Pisum sativum</em>) and Statistical Logic Worked</h3>
+      <p>Between 1856 and 1863, Gregor Mendel performed controlled hybridisation experiments on garden pea plants. His success rested on three pillars: (1) using large sample sizes and mathematical probability, (2) confirming inferences across multiple successive generations, and (3) starting with 14 <strong>true-breeding lines</strong> (lines that show stable trait expression over many generations of continuous self-pollination) arranged as seven pairs of sharply contrasting traits.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Character</th>
+            <th>Dominant Trait</th>
+            <th>Recessive Trait</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Stem height</td><td>Tall</td><td>Dwarf</td></tr>
+          <tr><td>Flower colour</td><td>Violet</td><td>White</td></tr>
+          <tr><td>Flower position</td><td>Axial</td><td>Terminal</td></tr>
+          <tr><td>Pod shape</td><td>Inflated (Full)</td><td>Constricted</td></tr>
+          <tr><td>Pod colour</td><td>Green</td><td>Yellow</td></tr>
+          <tr><td>Seed shape</td><td>Round</td><td>Wrinkled</td></tr>
+          <tr><td>Seed colour</td><td>Yellow</td><td>Green</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Core Vocabulary &amp; Monohybrid Cross</h3>
+      <ul>
+        <li><strong>Gene (Factor):</strong> Discrete unit of inheritance carrying information for a trait.</li>
+        <li><strong>Alleles:</strong> Slightly different forms of the same gene coding for contrasting traits (e.g., \(G\) for green pod, \(g\) for yellow pod).</li>
+        <li><strong>Homozygous vs. Heterozygous:</strong> Identical allelic pair (\(GG\) or \(gg\)) versus dissimilar allelic pair (\(Gg\)).</li>
+        <li><strong>Genotype vs. Phenotype:</strong> Genetic constitution (\(GG, Gg, gg\)) versus observable physical expression (green or yellow pod).</li>
+        <li><strong>Law of Dominance:</strong> Characters are controlled by discrete factors occurring in pairs; in a dissimilar pair, one (dominant) masks the expression of the other (recessive) in the \(F_1\) hybrid.</li>
+        <li><strong>Law of Segregation:</strong> Alleles do not blend; during meiosis (gamete formation), the two alleles of a pair separate randomly so each gamete receives only one allele with a \(50\%\) probability.</li>
+      </ul>
+
+      <div class="box-formula">
+        <strong>Key Monohybrid Ratios &amp; Binomial Representation:</strong><br>
+        Selfing an \(F_1\) heterozygote (\(Gg \times Gg\)) follows the binomial expansion:
+        \[ \left(\frac{1}{2}G + \frac{1}{2}g\right)^2 = \frac{1}{4}GG + \frac{1}{2}Gg + \frac{1}{4}gg \]
+        <ul>
+          <li><strong>\(F_2\) Phenotypic ratio:</strong> \(3\text{ Dominant} : 1\text{ Recessive}\)</li>
+          <li><strong>\(F_2\) Genotypic ratio:</strong> \(1\text{ Homozygous dominant} : 2\text{ Heterozygous} : 1\text{ Homozygous recessive}\)</li>
+        </ul>
+      </div>
+
+      <h3>The Test Cross</h3>
+      <p>Because a dominant phenotype (\(GG\) or \(Gg\)) looks identical externally, its genotype is determined by crossing it with a <strong>homozygous recessive</strong> parent (\(gg\)). If all offspring show the dominant trait, the tested parent is homozygous (\(GG\)); if offspring appear in a \(1:1\) dominant-to-recessive ratio, the tested parent is heterozygous (\(Gg\)).</p>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 680 270" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="270" fill="#F8FAFC" rx="8"/>
+          <text x="340" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Test Cross Logic: Determining Unknown Dominant Genotype (Pod Colour)</text>
+
+          <!-- Left Case: GG x gg -->
+          <rect x="20" y="42" width="300" height="212" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="170" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Case A: Unknown is Homozygous (GG)</text>
+          <text x="170" y="84" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">Parent Cross: GG (Green) × gg (Yellow)</text>
+          <!-- 2x2 grid -->
+          <rect x="115" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="170" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="115" y="136" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="170" y="136" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <text x="142" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="197" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="103" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">G</text>
+          <text x="103" y="158" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">G</text>
+          <text x="142" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="197" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="142" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="197" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="170" y="202" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Result: 100% Green Pods</text>
+          <text x="170" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Conclusion: Tested plant is GG</text>
+
+          <!-- Right Case: Gg x gg -->
+          <rect x="360" y="42" width="300" height="212" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="510" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Case B: Unknown is Heterozygous (Gg)</text>
+          <text x="510" y="84" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">Parent Cross: Gg (Green) × gg (Yellow)</text>
+          <!-- 2x2 grid -->
+          <rect x="455" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="510" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="455" y="136" width="55" height="36" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+          <rect x="510" y="136" width="55" height="36" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+          <text x="482" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="537" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="443" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">G</text>
+          <text x="443" y="158" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="482" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="537" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="482" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">gg</text>
+          <text x="537" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">gg</text>
+          <text x="510" y="202" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Result: 50% Green : 50% Yellow (1:1)</text>
+          <text x="510" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Conclusion: Tested plant is Gg</text>
+        </svg>
+        <div class="svg-caption">Tutorial Diagram 1: Test cross outcomes distinguishing homozygous dominant from heterozygous individuals.</div>
+      </div>
+
+      <div class="box-example">
+        <strong>Worked Example 1 (Original Scenario):</strong><br>
+        <em>Assumption:</em> Suppose a plant breeder crosses a pea plant having axial flowers of unknown genotype (\(AA\) or \(Aa\)) with a terminal-flowered pea plant (\(aa\)), and obtains \(120\) progeny: \(62\) axial and \(58\) terminal.<br>
+        <strong>Question:</strong> What is the genotype of the axial-flowered parent, and what fraction of the axial progeny are heterozygous?<br>
+        <strong>Solution:</strong> The progeny ratio \(62 : 58\) is approximately \(1 : 1\), which is the signature of a heterozygous test cross (\(Aa \times aa\)). Therefore, the axial parent has genotype \(Aa\). Since the \(aa\) parent contributes only \(a\) gametes, all axial progeny receive \(A\) from the axial parent and \(a\) from the terminal parent, meaning \(100\%\) (all \(62\)) of the axial progeny are heterozygous (\(Aa\)).
+      </div>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <h3>মটর গাছ (<em>Pisum sativum</em>) এবং পরিসংখ্যানগত যুক্তির সাফল্য</h3>
+      <p>১৮৫৬ থেকে ১৮৬৩ সাল পর্যন্ত গ্রেগর মেন্ডেল মটর গাছের ওপর নিয়ন্ত্রিত সংকরায়ণ পরীক্ষা চালান। তাঁর সাফল্যের তিনটি প্রধান কারণ ছিল: (১) বৃহৎ নমুনা সংখ্যা ও গাণিতিক সম্ভাব্যতার ব্যবহার, (২) পরপর একাধিক প্রজন্ম ধরে ফলাফলের সত্যতা যাচাই, এবং (৩) ১৪টি <strong>খাঁটি বংশধারা (True-breeding lines)</strong> (যা ক্রমাগত স্ব-পরাগযোগের মাধ্যমে স্থায়ী বৈশিষ্ট্য প্রকাশ করে) ব্যবহার করা, যা ৭ জোড়া স্পষ্ট বিপরীত বৈশিষ্ট্যের প্রতিনিধিত্ব করে।</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>বৈশিষ্ট্য (Character)</th>
+            <th>প্রকট গুণ (Dominant)</th>
+            <th>প্রচ্ছন্ন গুণ (Recessive)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>কাণ্ডের দৈর্ঘ্য</td><td>লম্বা (Tall)</td><td>বেঁটে (Dwarf)</td></tr>
+          <tr><td>ফুলের বর্ণ</td><td>বেগুনি (Violet)</td><td>সাদা (White)</td></tr>
+          <tr><td>ফুলের অবস্থান</td><td>কাক্ষিক (Axial)</td><td>শীর্ষস্থ (Terminal)</td></tr>
+          <tr><td>ফলের আকৃতি</td><td>স্ফীত (Inflated)</td><td>সংকুচিত (Constricted)</td></tr>
+          <tr><td>ফলের বর্ণ</td><td>সবুজ (Green)</td><td>হলুদ (Yellow)</td></tr>
+          <tr><td>বীজের আকৃতি</td><td>গোলাকার (Round)</td><td>কুঞ্চিত (Wrinkled)</td></tr>
+          <tr><td>বীজের বর্ণ</td><td>হলুদ (Yellow)</td><td>সবুজ (Green)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>মূল পরিভাষা ও একসংকর জনন</h3>
+      <ul>
+        <li><strong>জিন (ফ্যাক্টর):</strong> বংশগতির বিচ্ছিন্ন একক যা কোনো নির্দিষ্ট বৈশিষ্ট্যের তথ্য বহন করে।</li>
+        <li><strong>অ্যালিল:</strong> একই জিনের সামান্য ভিন্ন রূপ যা বিপরীত বৈশিষ্ট্য নিয়ন্ত্রণ করে (যেমন সবুজ ফলের জন্য \(G\) এবং হলুদ ফলের জন্য \(g\))।</li>
+        <li><strong>হোমোজাইগাস বনাম হেটেরোজাইগাস:</strong> অভিন্ন অ্যালিল জোড়া (\(GG\) বা \(gg\)) বনাম ভিন্ন অ্যালিল জোড়া (\(Gg\))।</li>
+        <li><strong>জিনোটাইপ বনাম ফিনোটাইপ:</strong> জীবের জিনগত গঠন (\(GG, Gg, gg\)) বনাম বাহ্যিক প্রকাশিত বৈশিষ্ট্য (সবুজ বা হলুদ ফল)।</li>
+        <li><strong>প্রকটতার সূত্র (Law of Dominance):</strong> বৈশিষ্ট্যগুলি জোড়ায় থাকা বিচ্ছিন্ন একক দ্বারা নিয়ন্ত্রিত হয়; ভিন্নধর্মী জোড়ায় একটি (প্রকট) অপরটির (প্রচ্ছন্ন) প্রকাশকে \(F_1\) সংকর প্রজন্মে ঢেকে দেয়।</li>
+        <li><strong>পৃথকীকরণের সূত্র (Law of Segregation):</strong> অ্যালিলগুলি মিশে যায় না; মিয়োসিস বা গ্যামেট গঠনের সময় জোড়ার দুটি অ্যালিল স্বাধীনভাবে পৃথক হয়ে যায়, ফলে প্রতিটি গ্যামেট \(50\%\) সম্ভাবনায় একটিমাত্র অ্যালিল লাভ করে।</li>
+      </ul>
+
+      <div class="box-formula">
+        <strong>একসংকর জননের মূল অনুপাত ও দ্বিপদ রাশি:</strong><br>
+        \(F_1\) হেটেরোজাইগাস (\(Gg \times Gg\)) উদ্ভিদের স্ব-পরাগযোগ নিম্নলিখিত দ্বিপদ বিস্তৃতি অনুসরণ করে:
+        \[ \left(\frac{1}{2}G + \frac{1}{2}g\right)^2 = \frac{1}{4}GG + \frac{1}{2}Gg + \frac{1}{4}gg \]
+        <ul>
+          <li><strong>\(F_2\) ফিনোটাইপিক অনুপাত:</strong> \(3\text{ প্রকট} : 1\text{ প্রচ্ছন্ন}\)</li>
+          <li><strong>\(F_2\) জিনোটাইপিক অনুপাত:</strong> \(1\text{ হোমোজাইগাস প্রকট} : 2\text{ হেটেরোজাইগাস} : 1\text{ হোমোজাইগাস প্রচ্ছন্ন}\)</li>
+        </ul>
+      </div>
+
+      <h3>টেস্ট ক্রস (Test Cross)</h3>
+      <p>প্রকট ফিনোটাইপযুক্ত উদ্ভিদ (\(GG\) বা \(Gg\)) বাইরে থেকে একই রকম দেখায়, তাই এর জিনোটাইপ জানার জন্য একে <strong>হোমোজাইগাস প্রচ্ছন্ন</strong> পিতামাতার (\(gg\)) সাথে সংকরায়ণ করা হয়। যদি সব অপত্য প্রকট বৈশিষ্ট্য দেখায়, তবে অজানা উদ্ভিদটি হোমোজাইগাস (\(GG\)); আর যদি অপত্যে \(1:1\) অনুপাতে প্রকট ও প্রচ্ছন্ন বৈশিষ্ট্য আসে, তবে অজানা উদ্ভিদটি হেটেরোজাইগাস (\(Gg\))।</p>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 680 270" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="270" fill="#F8FAFC" rx="8"/>
+          <text x="340" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">টেস্ট ক্রস যুক্তি: অজানা প্রকট জিনোটাইপ নির্ণয় (ফলের বর্ণ)</text>
+
+          <rect x="20" y="42" width="300" height="212" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="170" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">ক্ষেত্র ক: অজানা উদ্ভিদ হোমোজাইগাস (GG)</text>
+          <text x="170" y="84" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">সংকরায়ণ: GG (সবুজ) × gg (হলুদ)</text>
+          <rect x="115" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="170" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="115" y="136" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="170" y="136" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <text x="142" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="197" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="103" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">G</text>
+          <text x="103" y="158" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">G</text>
+          <text x="142" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="197" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="142" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="197" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="170" y="202" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">ফলাফল: ১০০% সবুজ ফল</text>
+          <text x="170" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">সিদ্ধান্ত: পরীক্ষিত উদ্ভিদটি GG</text>
+
+          <rect x="360" y="42" width="300" height="212" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="510" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">ক্ষেত্র খ: অজানা উদ্ভিদ হেটেরোজাইগাস (Gg)</text>
+          <text x="510" y="84" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">সংকরায়ণ: Gg (সবুজ) × gg (হলুদ)</text>
+          <rect x="455" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="510" y="100" width="55" height="36" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="455" y="136" width="55" height="36" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+          <rect x="510" y="136" width="55" height="36" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+          <text x="482" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="537" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="443" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">G</text>
+          <text x="443" y="158" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">g</text>
+          <text x="482" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="537" y="122" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">Gg</text>
+          <text x="482" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">gg</text>
+          <text x="537" y="158" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0F172A">gg</text>
+          <text x="510" y="202" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">ফলাফল: ৫০% সবুজ : ৫০% হলুদ (১:১)</text>
+          <text x="510" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">সিদ্ধান্ত: পরীক্ষিত উদ্ভিদটি Gg</text>
+        </svg>
+        <div class="svg-caption">টিউটোরিয়াল চিত্র ১: হোমোজাইগাস প্রকট এবং হেটেরোজাইগাস জীবকে পৃথক করার টেস্ট ক্রস।</div>
+      </div>
+
+      <div class="box-example">
+        <strong>সমাধানকৃত উদাহরণ ১ (মৌলিক অনুমান):</strong><br>
+        <em>অনুমান:</em> ধরুন একজন উদ্ভিদ প্রজননবিদ অজানা জিনোটাইপের (\(AA\) বা \(Aa\)) কাক্ষিক ফুলযুক্ত মটর গাছের সাথে শীর্ষস্থ ফুলযুক্ত (\(aa\)) মটর গাছের সংকরায়ণ ঘটালেন এবং মোট \(120\)টি অপত্য পেলেন, যার মধ্যে \(62\)টি কাক্ষিক ও \(58\)টি শীর্ষস্থ।<br>
+        <strong>প্রশ্ন:</strong> কাক্ষিক ফুলযুক্ত পিতামাতার জিনোটাইপ কী এবং কাক্ষিক অপত্যের কত শতাংশ হেটেরোজাইগাস?<br>
+        <strong>সমাধান:</strong> অপত্যের অনুপাত \(62 : 58\) প্রায় \(1 : 1\), যা হেটেরোজাইগাস টেস্ট ক্রসের (\(Aa \times aa\)) নির্দেশক। সুতরাং কাক্ষিক পিতামাতার জিনোটাইপ \(Aa\)। যেহেতু \(aa\) পিতামাতা কেবল \(a\) গ্যামেট দেয়, তাই প্রতিটি কাক্ষিক অপত্য পিতার কাছ থেকে \(A\) এবং অন্য পিতার কাছ থেকে \(a\) পায়; অর্থাৎ \(100\%\) (সব \(62\)টি) কাক্ষিক অপত্যই হেটেরোজাইগাস (\(Aa\))।
+      </div>
+    </div>
+  </section>
+
+  <section id="non-mendelian">
+    <h2>3. Beyond Simple Dominance: Exceptions &amp; Gene Interactions / <span lang="bn">৩. সরল প্রকটতার ব্যতিক্রম ও জিনের আন্তঃক্রিয়া</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <h3>Molecular Meaning of Dominance</h3>
+      <p>In a diploid organism, a gene typically has two alleles. The normal (unmodified) allele produces a functional enzyme to convert a substrate \(S\). A modified allele may produce: (1) a normal or less efficient enzyme (behaves as equivalent/dominant), (2) a non-functional enzyme, or (3) no enzyme at all. In cases (2) and (3), the phenotype depends solely on the unmodified allele, making the unmodified allele <strong>dominant</strong> and the modified allele <strong>recessive</strong>.</p>
+
+      <h3>Incomplete Dominance vs. Co-dominance</h3>
+      <ul>
+        <li><strong>Incomplete Dominance:</strong> Neither allele completely masks the other, so the \(F_1\) heterozygote displays an intermediate phenotype. Example: Flower colour in snapdragon (<em>Antirrhinum</em> sp.), where \(RR\) (red) × \(rr\) (white) gives \(Rr\) (pink) in \(F_1\), and selfing \(F_1\) yields an \(F_2\) phenotypic and genotypic ratio of \(1\text{ Red } (RR) : 2\text{ Pink } (Rr) : 1\text{ White } (rr)\).</li>
+        <li><strong>Phenotype-Dependent Dominance:</strong> In pea seeds, gene \(B/b\) controls starch synthesis. \(BB\) produces large starch grains and round seeds; \(bb\) produces small grains and wrinkled seeds. The heterozygote \(Bb\) produces round seeds (complete dominance for seed shape) but intermediate-sized starch grains (incomplete dominance for grain size). Thus, dominance is not an autonomous property of a gene—it depends on which phenotype is observed.</li>
+        <li><strong>Co-dominance:</strong> Both alleles express themselves simultaneously and independently in the heterozygote. Example: Human ABO blood groups controlled by gene \(I\), which has three alleles (\(I^A, I^B, i\)). \(I^A\) and \(I^B\) produce distinct surface sugar polymers on RBC membranes, whereas \(i\) produces none. Both \(I^A\) and \(I^B\) are completely dominant over \(i\), but when present together (\(I^AI^B\)), both sugars are expressed (blood group AB).</li>
+      </ul>
+
+      <div class="box-formula">
+        <strong>Multiple Alleles Formula:</strong><br>
+        For a gene with \(n\) alleles in a population (note: any single diploid individual carries at most \(2\) alleles), the number of possible diploid genotypes is:
+        \[ \text{Total Genotypes} = \frac{n(n+1)}{2} \]
+        For ABO blood groups, \(n = 3\) (\(I^A, I^B, i\)), giving \(\frac{3(4)}{2} = 6\) genotypes (\(I^AI^A, I^Ai, I^BI^B, I^Bi, I^AI^B, ii\)) and \(4\) phenotypes (A, B, AB, O).
+      </div>
+
+      <h3>Polygenic Inheritance vs. Pleiotropy</h3>
+      <ul>
+        <li><strong>Polygenic Inheritance:</strong> A single trait is governed by three or more genes with additive effects, plus environmental influence, creating continuous variation. Example: Human skin colour controlled by three genes (\(A, B, C\)), where \(AABBCC\) is darkest, \(aabbcc\) is lightest, and \(AaBbCc\) (three dominant alleles) is intermediate.</li>
+        <li><strong>Pleiotropy:</strong> A single gene influences multiple seemingly unrelated phenotypes, usually via a metabolic pathway. Example: Phenylketonuria (PKU), caused by mutation in the single gene coding for the enzyme <em>phenylalanine hydroxylase</em>, leading to mental retardation as well as reduced hair and skin pigmentation.</li>
+      </ul>
+
+      <div class="box-example">
+        <strong>Worked Example 2 (Original Scenario):</strong><br>
+        <em>Assumption:</em> In a hypothetical human family, the mother has blood group A (genotype \(I^Ai\)) and the father has blood group B (genotype \(I^Bi\)).<br>
+        <strong>Question:</strong> How many distinct blood group phenotypes and genotypes are possible among their children, and what is the probability of having a child with blood group O?<br>
+        <strong>Solution:</strong> Crossing \(I^Ai \times I^Bi\) produces four equally likely zygote genotypes: \(I^AI^B\) (AB), \(I^Ai\) (A), \(I^Bi\) (B), and \(ii\) (O). Thus, all \(4\) phenotypes and \(4\) distinct genotypes are possible, and the probability of blood group O (\(ii\)) is \(\frac{1}{4}\) (\(25\%\)).
+      </div>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <h3>প্রকটতার আণবিক ব্যাখ্যা</h3>
+      <p>একটি ডিপ্লয়েড জীবে সাধারণত একটি জিনের দুটি অ্যালিল থাকে। স্বাভাবিক (অপরিবর্তিত) অ্যালিলটি একটি কার্যকরী উৎসেচক তৈরি করে যা সাবস্ট্রেট \(S\)-কে রূপান্তরিত করে। পরিবর্তিত অ্যালিলটি (১) স্বাভাবিক বা কম কার্যকরী উৎসেচক, (২) অকার্যকরী উৎসেচক, অথবা (৩) কোনো উৎসেচকই তৈরি না-ও করতে পারে। (২) ও (৩) ক্ষেত্রে ফিনোটাইপ কেবল অপরিবর্তিত অ্যালিলের ওপর নির্ভর করে; তাই অপরিবর্তিত অ্যালিলটি <strong>প্রকট</strong> এবং পরিবর্তিত অ্যালিলটি <strong>প্রচ্ছন্ন</strong> হয়।</p>
+
+      <h3>অসম্পূর্ণ প্রকটতা বনাম সহ-প্রকটতা</h3>
+      <ul>
+        <li><strong>অসম্পূর্ণ প্রকটতা (Incomplete Dominance):</strong> কোনো অ্যালিলই অপরটির প্রকাশ সম্পূর্ণ ঢেকে দিতে পারে না, ফলে \(F_1\) হেটেরোজাইগাস জীবে একটি মধ্যবর্তী ফিনোটাইপ দেখা যায়। উদাহরণ: স্ন্যাপড্রাগন (<em>Antirrhinum</em> sp.) ফুলের বর্ণ, যেখানে \(RR\) (লাল) × \(rr\) (সাদা) সংকরায়ণে \(F_1\)-এ \(Rr\) (গোলাপি) হয় এবং \(F_2\)-এ ফিনোটাইপিক ও জিনোটাইপিক উভয় অনুপাতই \(1\text{ লাল } (RR) : 2\text{ গোলাপি } (Rr) : 1\text{ সাদা } (rr)\) হয়।</li>
+        <li><strong>ফিনোটাইপ-নির্ভর প্রকটতা:</strong> মটর বীজে \(B/b\) জিন শ্বেতসার সংশ্লেষণ নিয়ন্ত্রণ করে। \(BB\) বড় শ্বেতসার কণা ও গোলাকার বীজ তৈরি করে; \(bb\) ছোট কণা ও কুঞ্চিত বীজ তৈরি করে। হেটেরোজাইগাস \(Bb\) উদ্ভিদে বীজ গোলাকার হয় (বীজের আকৃতিতে সম্পূর্ণ প্রকটতা), কিন্তু শ্বেতসার কণা মাঝারি আকারের হয় (কণার আকারে অসম্পূর্ণ প্রকটতা)। অর্থাৎ প্রকটতা জিনের নিজস্ব স্বতন্ত্র বৈশিষ্ট্য নয়, বরং কোন ফিনোটাইপ পর্যবেক্ষণ করা হচ্ছে তার ওপর নির্ভর করে।</li>
+        <li><strong>সহ-প্রকটতা (Co-dominance):</strong> হেটেরোজাইগাস অবস্থায় উভয় অ্যালিলই সমানভাবে ও স্বাধীনভাবে প্রকাশিত হয়। উদাহরণ: মানুষের ABO রক্তের গ্রুপ, যা \(I\) জিনের তিনটি অ্যালিল (\(I^A, I^B, i\)) দ্বারা নিয়ন্ত্রিত। \(I^A\) ও \(I^B\) লোহিত রক্তকণিকার পর্দায় ভিন্ন শর্করা পলিমার তৈরি করে, কিন্তু \(i\) কোনো শর্করা তৈরি করে না। \(I^A\) ও \(I^B\) উভয়ই \(i\)-এর ওপর প্রকট, কিন্তু \(I^AI^B\) অবস্থায় উভয় শর্করাই প্রকাশিত হয় (রক্তের গ্রুপ AB)।</li>
+      </ul>
+
+      <div class="box-formula">
+        <strong>মাল্টিপল অ্যালিল সূত্র:</strong><br>
+        কোনো পপুলেশনে একটি জিনের \(n\) সংখ্যক অ্যালিল থাকলে (একটি ডিপ্লয়েড জীবে সর্বোচ্চ \(2\)টি অ্যালিল থাকে), সম্ভাব্য ডিপ্লয়েড জিনোটাইপের সংখ্যা:
+        \[ \text{মোট জিনোটাইপ} = \frac{n(n+1)}{2} \]
+        ABO রক্তের গ্রুপে \(n = 3\) (\(I^A, I^B, i\)), তাই জিনোটাইপ \(\frac{3(4)}{2} = 6\)টি (\(I^AI^A, I^Ai, I^BI^B, I^Bi, I^AI^B, ii\)) এবং ফিনোটাইপ \(4\)টি (A, B, AB, O)।
+      </div>
+
+      <h3>পলিজেনিক বংশগতি বনাম প্লিওট্রপি</h3>
+      <ul>
+        <li><strong>পলিজেনিক বংশগতি (Polygenic Inheritance):</strong> একটি বৈশিষ্ট্য তিন বা ততোধিক জিন দ্বারা নিয়ন্ত্রিত হয় যেখানে প্রতিটি প্রকট অ্যালিলের প্রভাব যোগ হয় (এবং পরিবেশও প্রভাব ফেলে), ফলে অবিচ্ছিন্ন প্রকরণ সৃষ্টি হয়। উদাহরণ: মানুষের ত্বকের বর্ণ তিনটি জিন (\(A, B, C\)) দ্বারা নিয়ন্ত্রিত—\(AABBCC\) সবচেয়ে গাঢ়, \(aabbcc\) সবচেয়ে হালকা এবং \(AaBbCc\) মাঝারি বর্ণের হয়।</li>
+        <li><strong>প্লিওট্রপি (Pleiotropy):</strong> একটিমাত্র জিন একাধিক আপাত-সম্পর্কহীন ফিনোটাইপিক বৈশিষ্ট্যকে প্রভাবিত করে (সাধারণত বিপাকীয় পথের মাধ্যমে)। উদাহরণ: ফিনাইলকিটোনিউরিয়া (PKU), যা <em>ফিনাইলঅ্যালানিন হাইড্রোক্সিলেজ</em> উৎসেচকের জিনের মিউটেশনের ফলে ঘটে এবং মানসিক প্রতিবন্ধকতার পাশাপাশি চুল ও ত্বকের রঞ্জক হ্রাস করে।</li>
+      </ul>
+
+      <div class="box-example">
+        <strong>সমাধানকৃত উদাহরণ ২ (মৌলিক অনুমান):</strong><br>
+        <em>অনুমান:</em> একটি কাল্পনিক পরিবারে মায়ের রক্তের গ্রুপ A (জিনোটাইপ \(I^Ai\)) এবং পিতার রক্তের গ্রুপ B (জিনোটাইপ \(I^Bi\))।<br>
+        <strong>প্রশ্ন:</strong> তাঁদের সন্তানদের মধ্যে কত ধরনের রক্তের গ্রুপের ফিনোটাইপ ও জিনোটাইপ সম্ভব এবং O গ্রুপের সন্তান হওয়ার সম্ভাবনা কত?<br>
+        <strong>সমাধান:</strong> \(I^Ai \times I^Bi\) সংকরায়ণে চারটি সমসম্ভাব্য জিনোটাইপ তৈরি হয়: \(I^AI^B\) (AB), \(I^Ai\) (A), \(I^Bi\) (B), এবং \(ii\) (O)। সুতরাং \(4\)টি ফিনোটাইপ এবং \(4\)টি ভিন্ন জিনোটাইপই সম্ভব, এবং O গ্রুপ (\(ii\)) হওয়ার সম্ভাবনা \(\frac{1}{4}\) (\(25\%\))।
+      </div>
+    </div>
+  </section>
+
+  <section id="dihybrid-linkage">
+    <h2>4. Dihybrid Inheritance, Chromosomal Theory &amp; Linkage / <span lang="bn">৪. দ্বিসংকর জনন, ক্রোমোজোম তত্ত্ব ও লিংকেজ</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <h3>Dihybrid Cross &amp; Law of Independent Assortment</h3>
+      <p>When Mendel crossed pea plants differing in two unlinked characters—such as Round Yellow seeds (\(RRYY\)) with Wrinkled Green seeds (\(rryy\))—all \(F_1\) progeny were Round Yellow (\(RrYy\)). Selfing \(RrYy\) yielded four phenotypes in the \(F_2\) generation in the ratio \(9:3:3:1\), which is simply the product of two independent monohybrid ratios: \((3:1) \times (3:1) = 9:3:3:1\). This led to the <strong>Law of Independent Assortment</strong>: when two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair.</p>
+
+      <div class="box-formula">
+        <strong>General Formulae for \(n\) Independently Assorting Heterozygous Loci:</strong>
+        <ul>
+          <li>Number of distinct gamete types = \(2^n\)</li>
+          <li>Number of \(F_2\) genotypes = \(3^n\)</li>
+          <li>Number of \(F_2\) phenotypes (complete dominance) = \(2^n\)</li>
+          <li>Total Punnett square combinations in \(F_2\) = \(4^n\)</li>
+        </ul>
+        For a dihybrid (\(n = 2\)): \(4\) gamete types (\(RY, Ry, rY, ry\)), \(9\) genotypes, \(4\) phenotypes, and \(16\) squares.
+      </div>
+
+      <h3>Chromosomal Theory of Inheritance &amp; Linkage</h3>
+      <p>After Mendel's work was rediscovered in 1900 (by de Vries, Correns, and von Tschermak), Walter Sutton and Theodore Boveri (1902) noticed that chromosomes occur in pairs, segregate into gametes during meiosis, and assort independently at Anaphase I—mirroring Mendel's factors. This unified view is the <strong>Chromosomal Theory of Inheritance</strong>.</p>
+      <p>Thomas Hunt Morgan experimentally verified this theory using the fruit fly <em>Drosophila melanogaster</em> (ideal due to its short 2-week life cycle, large progeny count, clear sex dimorphism, and simple synthetic medium). When Morgan studied two genes located on the <em>same</em> X chromosome, the \(F_2\) ratio deviated sharply from \(9:3:3:1\): parental combinations far outnumbered non-parental (recombinant) types.</p>
+      <ul>
+        <li><strong>Linkage:</strong> Physical association of two or more genes on the same chromosome, causing them to be inherited together.</li>
+        <li><strong>Recombination:</strong> Generation of non-parental gene combinations via crossing over during meiosis.</li>
+        <li><strong>Tightly vs. Loosely Linked Genes:</strong> Closely placed genes show very low recombination (e.g., yellow body and white eye in <em>Drosophila</em> showed \(1.3\%\) recombination), whereas distant genes on the same chromosome show higher recombination (e.g., white eye and miniature wing showed \(37.2\%\) recombination).</li>
+        <li><strong>Genetic Mapping:</strong> Morgan's student Alfred Sturtevant used recombination frequency as a measure of distance between genes (\(1\%\text{ recombination} = 1\text{ map unit}\) or centimorgan) to construct chromosome maps.</li>
+      </ul>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="8"/>
+          <text x="340" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Independent Assortment vs. Chromosomal Linkage</text>
+
+          <!-- Left: Unlinked -->
+          <rect x="20" y="40" width="305" height="175" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="172" y="60" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Unlinked Genes (Different Chromosomes)</text>
+          <!-- Chr 1 pair -->
+          <rect x="85" y="78" width="14" height="75" rx="7" fill="#2563EB"/>
+          <rect x="115" y="78" width="14" height="75" rx="7" fill="#93C5FD"/>
+          <text x="92" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">A</text>
+          <text x="122" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">a</text>
+          <!-- Chr 2 pair -->
+          <rect x="205" y="88" width="14" height="55" rx="7" fill="#0D9488"/>
+          <rect x="235" y="88" width="14" height="55" rx="7" fill="#99F6E4"/>
+          <text x="212" y="116" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">B</text>
+          <text x="242" y="116" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">b</text>
+          <text x="172" y="176" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Gametes: AB, Ab, aB, ab (25% each)</text>
+          <text x="172" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">50% Parental : 50% Recombinant</text>
+
+          <!-- Right: Linked -->
+          <rect x="355" y="40" width="305" height="175" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="507" y="60" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Linked Genes (Same Chromosome)</text>
+          <rect x="465" y="76" width="16" height="80" rx="8" fill="#2563EB"/>
+          <rect x="525" y="76" width="16" height="80" rx="8" fill="#93C5FD"/>
+          <line x1="465" y1="98" x2="481" y2="98" stroke="#FFFFFF" stroke-width="2"/>
+          <line x1="465" y1="126" x2="481" y2="126" stroke="#FFFFFF" stroke-width="2"/>
+          <line x1="525" y1="98" x2="541" y2="98" stroke="#1E293B" stroke-width="2"/>
+          <line x1="525" y1="126" x2="541" y2="126" stroke="#1E293B" stroke-width="2"/>
+          <text x="452" y="102" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">A</text>
+          <text x="452" y="130" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">B</text>
+          <text x="554" y="102" text-anchor="start" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">a</text>
+          <text x="554" y="130" text-anchor="start" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">b</text>
+          <text x="507" y="176" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Parental (AB, ab) &gt; 50%</text>
+          <text x="507" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Recombinants (Ab, aB) &lt; 50%</text>
+        </svg>
+        <div class="svg-caption">Tutorial Diagram 2: Why unlinked genes assort independently while linked genes favour parental combinations.</div>
+      </div>
+
+      <div class="box-example">
+        <strong>Worked Example 3 (Original Scenario):</strong><br>
+        <em>Assumption:</em> Suppose an organism has the genotype \(AaBbCcDd\), where loci \(A, B, C\) assort independently, while \(C\) and \(D\) are completely linked (no crossing over between \(C\) and \(D\), with \(C\) and \(D\) on one chromosome and \(c\) and \(d\) on the homologue).<br>
+        <strong>Question:</strong> How many genetically distinct gametes can this organism produce?<br>
+        <strong>Solution:</strong> Because \(C\) and \(D\) are completely linked, they behave as a single heterozygous unit (\(CD/cd\)), producing only \(2\) combinations (\(CD\) or \(cd\)). Together with independent loci \(A/a\) and \(B/b\), there are \(n = 3\) independently segregating heterozygous units. Hence, total gamete types = \(2^3 = 8\).
+      </div>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <h3>দ্বিসংকর জনন ও স্বাধীন বিন্যাসের সূত্র</h3>
+      <p>মেন্ডেল যখন দুটি স্বাধীন বৈশিষ্ট্য—যেমন গোলাকার হলুদ বীজ (\(RRYY\)) এবং কুঞ্চিত সবুজ বীজ (\(rryy\))—বিশিষ্ট মটর গাছের সংকরায়ণ ঘটান, তখন \(F_1\)-এ সব বীজ গোলাকার হলুদ (\(RrYy\)) হয়। \(RrYy\)-এর স্ব-পরাগযোগে \(F_2\) প্রজন্মে চারটি ফিনোটাইপ \(9:3:3:1\) অনুপাতে পাওয়া যায়, যা প্রকৃতপক্ষে দুটি স্বাধীন একসংকর অনুপাতের গুণফল: \((3:1) \times (3:1) = 9:3:3:1\)। এ থেকেই <strong>স্বাধীন বিন্যাসের সূত্র (Law of Independent Assortment)</strong> প্রতিষ্ঠিত হয়: যখন দুটি বৈশিষ্ট্যজোড়া একটি সংকরে মিলিত হয়, তখন একটি বৈশিষ্ট্যজোড়ার পৃথকীকরণ অন্য বৈশিষ্ট্যজোড়ার থেকে স্বাধীনভাবে ঘটে।</p>
+
+      <div class="box-formula">
+        <strong>\(n\) সংখ্যক স্বাধীন হেটেরোজাইগাস লোকাসের সাধারণ সূত্র:</strong>
+        <ul>
+          <li>ভিন্ন প্রকার গ্যামেটের সংখ্যা = \(2^n\)</li>
+          <li>\(F_2\) জিনোটাইপের সংখ্যা = \(3^n\)</li>
+          <li>\(F_2\) ফিনোটাইপের সংখ্যা (সম্পূর্ণ প্রকটতায়) = \(2^n\)</li>
+          <li>\(F_2\) পানেট স্কোয়ারে মোট ঘর = \(4^n\)</li>
+        </ul>
+        দ্বিসংকর জননের (\(n = 2\)) ক্ষেত্রে: \(4\)টি গ্যামেট (\(RY, Ry, rY, ry\)), \(9\)টি জিনোটাইপ, \(4\)টি ফিনোটাইপ ও \(16\)টি ঘর।
+      </div>
+
+      <h3>বংশগতির ক্রোমোজোম তত্ত্ব ও লিংকেজ</h3>
+      <p>১৯০০ সালে মেন্ডেলের কাজের পুনরাবিষ্কারের (ডি ভ্রিস, কোরেন্স ও শেরমাক) পর, ওয়াল্টার সাটন এবং থিওডোর বোভেরি (১৯০২) লক্ষ্য করেন যে ক্রোমোজোম জোড়ায় থাকে, মিয়োসিসে গ্যামেটে পৃথক হয় এবং অ্যানাফেজ-১ দশায় স্বাধীনভাবে বিন্যস্ত হয়—যা হুবহু মেন্ডেলের ফ্যাক্টরের মতো। এটিই <strong>বংশগতির ক্রোমোজোম তত্ত্ব</strong>।</p>
+      <p>থমাস হান্ট মর্গান <em>Drosophila melanogaster</em> (ফলের মাছি)-র ওপর পরীক্ষা চালিয়ে এই তত্ত্ব প্রমাণ করেন (মাত্র ২ সপ্তাহের জীবনচক্র, প্রচুর অপত্য, স্পষ্ট লিঙ্গ পার্থক্য ও সহজ খাদ্যমাধ্যমের জন্য এটি আদর্শ)। মর্গান দেখেন, একই X ক্রোমোজোমে অবস্থিত দুটি জিনের ক্ষেত্রে \(F_2\) অনুপাত \(9:3:3:1\) থেকে বিচ্যুত হয় এবং পিতৃ-মাতৃ (Parental) সংমিশ্রণ রিকম্বিন্যান্টের তুলনায় অনেক বেশি হয়।</p>
+      <ul>
+        <li><strong>লিংকেজ (Linkage):</strong> একই ক্রোমোজোমে দুটি বা ততোধিক জিনের ভৌত সহাবস্থান, যা তাদের একসাথে বংশানুক্রমে সঞ্চারিত হতে বাধ্য করে।</li>
+        <li><strong>রিকম্বিনেশন (Recombination):</strong> মিয়োসিসে ক্রসিং ওভারের মাধ্যমে নতুন বা অপিতৃ-মাতৃ জিন সংমিশ্রণের সৃষ্টি।</li>
+        <li><strong>দৃঢ় বনাম শিথিল লিংকেজ:</strong> কাছাকাছি থাকা জিনগুলোতে রিকম্বিনেশন খুব কম হয় (যেমন ড্রোসোফিলায় হলুদ দেহ ও সাদা চোখে \(1.3\%\)), আর দূরে থাকা জিনগুলোতে রিকম্বিনেশন বেশি হয় (যেমন সাদা চোখ ও ক্ষুদ্র ডানায় \(37.2\%\))।</li>
+        <li><strong>জেনেটিক ম্যাপিং:</strong> মর্গানের ছাত্র আলফ্রেড স্টার্টিভ্যান্ট রিকম্বিনেশন হারকে জিনের দূরত্বের একক হিসেবে ব্যবহার করে (\(1\%\text{ রিকম্বিনেশন} = 1\text{ ম্যাপ ইউনিট}\) বা সেন্টিমরগান) ক্রোমোজোম ম্যাপ তৈরি করেন।</li>
+      </ul>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="8"/>
+          <text x="340" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">স্বাধীন বিন্যাস বনাম ক্রোমোজোমীয় লিংকেজ</text>
+
+          <rect x="20" y="40" width="305" height="175" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="172" y="60" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">আনলিঙ্কড জিন (ভিন্ন ক্রোমোজোম)</text>
+          <rect x="85" y="78" width="14" height="75" rx="7" fill="#2563EB"/>
+          <rect x="115" y="78" width="14" height="75" rx="7" fill="#93C5FD"/>
+          <text x="92" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">A</text>
+          <text x="122" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">a</text>
+          <rect x="205" y="88" width="14" height="55" rx="7" fill="#0D9488"/>
+          <rect x="235" y="88" width="14" height="55" rx="7" fill="#99F6E4"/>
+          <text x="212" y="116" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">B</text>
+          <text x="242" y="116" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">b</text>
+          <text x="172" y="176" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">গ্যামেট: AB, Ab, aB, ab (প্রতিটি ২৫%)</text>
+          <text x="172" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">৫০% প্যারেন্টাল : ৫০% রিকম্বিন্যান্ট</text>
+
+          <rect x="355" y="40" width="305" height="175" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="507" y="60" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">লিঙ্কড জিন (একই ক্রোমোজোম)</text>
+          <rect x="465" y="76" width="16" height="80" rx="8" fill="#2563EB"/>
+          <rect x="525" y="76" width="16" height="80" rx="8" fill="#93C5FD"/>
+          <line x1="465" y1="98" x2="481" y2="98" stroke="#FFFFFF" stroke-width="2"/>
+          <line x1="465" y1="126" x2="481" y2="126" stroke="#FFFFFF" stroke-width="2"/>
+          <line x1="525" y1="98" x2="541" y2="98" stroke="#1E293B" stroke-width="2"/>
+          <line x1="525" y1="126" x2="541" y2="126" stroke="#1E293B" stroke-width="2"/>
+          <text x="452" y="102" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">A</text>
+          <text x="452" y="130" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">B</text>
+          <text x="554" y="102" text-anchor="start" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">a</text>
+          <text x="554" y="130" text-anchor="start" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">b</text>
+          <text x="507" y="176" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">প্যারেন্টাল (AB, ab) &gt; ৫০%</text>
+          <text x="507" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">রিকম্বিন্যান্ট (Ab, aB) &lt; ৫০%</text>
+        </svg>
+        <div class="svg-caption">টিউটোরিয়াল চিত্র ২: আনলিঙ্কড জিনের স্বাধীন বিন্যাস ও লিঙ্কড জিনের প্যারেন্টাল প্রাধান্য।</div>
+      </div>
+
+      <div class="box-example">
+        <strong>সমাধানকৃত উদাহরণ ৩ (মৌলিক অনুমান):</strong><br>
+        <em>অনুমান:</em> ধরুন কোনো জীবের জিনোটাইপ \(AaBbCcDd\), যেখানে \(A, B, C\) স্বাধীনভাবে বিন্যস্ত হয়, কিন্তু \(C\) ও \(D\) সম্পূর্ণরূপে লিঙ্কড (কোনো ক্রসিং ওভার হয় না, একটি ক্রোমোজোমে \(CD\) এবং সমসংস্থ ক্রোমোজোমে \(cd\) আছে)।<br>
+        <strong>প্রশ্ন:</strong> জীবটি কত প্রকার জিনগতভাবে ভিন্ন গ্যামেট তৈরি করতে পারবে?<br>
+        <strong>সমাধান:</strong> \(C\) ও \(D\) সম্পূর্ণ লিঙ্কড হওয়ায় তারা একসাথে একটি একক হেটেরোজাইগাস ইউনিটের (\(CD/cd\)) মতো আচরণ করে এবং মাত্র \(2\)টি সংমিশ্রণ (\(CD\) বা \(cd\)) দেয়। \(A/a\) এবং \(B/b\)-এর সাথে মিলে মোট \(n = 3\)টি স্বাধীন একক থাকে। অতএব, গ্যামেটের সংখ্যা = \(2^3 = 8\)।
+      </div>
+    </div>
+  </section>
+
+  <section id="sex-determination">
+    <h2>5. Chromosomal &amp; Haplodiploid Sex Determination / <span lang="bn">৫. ক্রোমোজোমীয় ও হ্যাপ্লোডিপ্লয়েড লিঙ্গ নির্ধারণ</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <p>Henking (1891) first noticed a specific nuclear structure ("X body") present in \(50\%\) of insect sperm, which was later identified as the X-chromosome. Chromosomes other than sex chromosomes are called <strong>autosomes</strong>. Sex determination depends on which sex produces two types of gametes (<strong>heterogamety</strong>).</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mechanism</th>
+            <th>Organisms</th>
+            <th>Female</th>
+            <th>Male</th>
+            <th>Heterogametic Sex</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>XX–XY</td><td>Humans, <em>Drosophila</em></td><td>XX (Autosomes + XX)</td><td>XY (Autosomes + XY)</td><td>Male (50% X, 50% Y)</td></tr>
+          <tr><td>XX–XO</td><td>Grasshopper</td><td>XX</td><td>XO (1 less chromosome)</td><td>Male (50% X, 50% O)</td></tr>
+          <tr><td>ZZ–ZW</td><td>Birds (e.g., Chicken)</td><td>ZW</td><td>ZZ</td><td>Female (50% Z, 50% W)</td></tr>
+          <tr><td>Haplodiploidy</td><td>Honey bee</td><td>Diploid (\(2n = 32\))</td><td>Haploid (\(n = 16\))</td><td>Special (see below)</td></tr>
+        </tbody>
+      </table>
+
+      <ul>
+        <li><strong>Human Sex Determination:</strong> Humans have \(23\) pairs of chromosomes (\(22\) pairs of autosomes + \(1\) pair of sex chromosomes). All ova carry an X-chromosome, whereas \(50\%\) of sperms carry X and \(50\%\) carry Y. Thus, the <strong>sperm</strong> determines the sex of the child, with a \(50\%\) probability of a male or female in every pregnancy.</li>
+        <li><strong>Honey Bee Haplodiploidy:</strong> Fertilised eggs develop into diploid females (queen or worker, \(2n = 32\)), while unfertilised eggs develop into haploid males (drones, \(n = 16\)) by <strong>parthenogenesis</strong>. Males produce sperm by <strong>mitosis</strong>; they have no father and cannot have sons, but they have a grandfather and can have grandsons.</li>
+      </ul>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 660 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="660" height="200" fill="#F8FAFC" rx="8"/>
+          <text x="330" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Haplodiploid Sex Determination in Honey Bee</text>
+
+          <rect x="80" y="40" width="160" height="38" rx="6" fill="#2563EB"/>
+          <text x="160" y="64" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Female (Queen): 2n = 32</text>
+
+          <rect x="420" y="40" width="160" height="38" rx="6" fill="#0D9488"/>
+          <text x="500" y="64" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Male (Drone): n = 16</text>
+
+          <line x1="160" y1="78" x2="160" y2="104" stroke="#1E293B" stroke-width="2"/>
+          <text x="170" y="95" font-family="sans-serif" font-size="11" fill="#475569">Meiosis</text>
+
+          <line x1="500" y1="78" x2="500" y2="104" stroke="#1E293B" stroke-width="2"/>
+          <text x="510" y="95" font-family="sans-serif" font-size="11" fill="#475569">Mitosis</text>
+
+          <rect x="105" y="104" width="110" height="28" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="160" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Egg (n = 16)</text>
+
+          <rect x="445" y="104" width="110" height="28" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="500" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Sperm (n = 16)</text>
+
+          <!-- Parthenogenesis path -->
+          <line x1="130" y1="132" x2="130" y2="154" stroke="#D97706" stroke-width="2"/>
+          <text x="130" y="148" text-anchor="end" font-family="sans-serif" font-size="10" fill="#B45309">Parthenogenesis </text>
+          <rect x="55" y="156" width="150" height="30" rx="5" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+          <text x="130" y="176" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Male (n = 16)</text>
+
+          <!-- Fertilisation path -->
+          <line x1="190" y1="132" x2="360" y2="156" stroke="#0D9488" stroke-width="2"/>
+          <line x1="500" y1="132" x2="380" y2="156" stroke="#0D9488" stroke-width="2"/>
+          <text x="370" y="142" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">Fertilisation</text>
+          <rect x="295" y="156" width="150" height="30" rx="5" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="370" y="176" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Female (2n = 32)</text>
+        </svg>
+        <div class="svg-caption">Tutorial Diagram 3: Haplodiploid inheritance in honey bees showing meiosis in females and mitosis in males.</div>
+      </div>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <p>হেনকিং (১৮৯১) প্রথম পতঙ্গের \(50\%\) শুক্রাণুতে একটি বিশেষ নিউক্লীয় গঠন ("X বডি") লক্ষ্য করেন, যা পরে X-ক্রোমোজোম হিসেবে চিহ্নিত হয়। সেক্স ক্রোমোজোম বাদে বাকি ক্রোমোজোমগুলোকে <strong>অটোজোম</strong> বলে। কোনো লিঙ্গ দুই ধরনের গ্যামেট তৈরি করলে তাকে <strong>হেটেরোগ্যামেটিক লিঙ্গ</strong> বলে।</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>পদ্ধতি</th>
+            <th>উদাহরণ</th>
+            <th>স্ত্রী</th>
+            <th>পুরুষ</th>
+            <th>হেটেরোগ্যামেটিক লিঙ্গ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>XX–XY</td><td>মানুষ, ড্রোসোফিলা</td><td>XX (অটোজোম + XX)</td><td>XY (অটোজোম + XY)</td><td>পুরুষ (৫০% X, ৫০% Y)</td></tr>
+          <tr><td>XX–XO</td><td>ঘাসফড়িং</td><td>XX</td><td>XO (১টি ক্রোমোজোম কম)</td><td>পুরুষ (৫০% X, ৫০% O)</td></tr>
+          <tr><td>ZZ–ZW</td><td>পাখি (যেমন মুরগি)</td><td>ZW</td><td>ZZ</td><td>স্ত্রী (৫০% Z, ৫০% W)</td></tr>
+          <tr><td>হ্যাপ্লোডিপ্লয়েডি</td><td>মৌমাছি</td><td>ডিপ্লয়েড (\(2n = 32\))</td><td>হ্যাপ্লয়েড (\(n = 16\))</td><td>বিশেষ পদ্ধতি (নিচে দেখুন)</td></tr>
+        </tbody>
+      </table>
+
+      <ul>
+        <li><strong>মানুষে লিঙ্গ নির্ধারণ:</strong> মানুষের \(23\) জোড়া ক্রোমোজোম থাকে (\(22\) জোড়া অটোজোম + \(1\) জোড়া সেক্স ক্রোমোজোম)। সব ডিম্বাণুতে X থাকে, কিন্তু \(50\%\) শুক্রাণুতে X এবং \(50\%\) শুক্রাণুতে Y থাকে। তাই সন্তানের লিঙ্গ <strong>শুক্রাণু</strong> দ্বারা নির্ধারিত হয় এবং প্রতি গর্ভাবস্থায় ছেলে বা মেয়ে হওয়ার সম্ভাবনা \(50\%\)।</li>
+        <li><strong>মৌমাছিতে হ্যাপ্লোডিপ্লয়েডি:</strong> নিষিক্ত ডিম্বাণু থেকে ডিপ্লয়েড স্ত্রী (রানী বা কর্মী, \(2n = 32\)) এবং অনিষিক্ত ডিম্বাণু থেকে <strong>পার্থেনোজেনেসিস</strong> প্রক্রিয়ায় হ্যাপ্লয়েড পুরুষ (ড্রোন, \(n = 16\)) তৈরি হয়। পুরুষ মৌমাছি <strong>মাইটোসিস</strong> প্রক্রিয়ায় শুক্রাণু তৈরি করে; এদের কোনো পিতা থাকে না এবং পুত্র সন্তান হতে পারে না, তবে পিতামহ ও পৌত্র থাকতে পারে।</li>
+      </ul>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 660 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="660" height="200" fill="#F8FAFC" rx="8"/>
+          <text x="330" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">মৌমাছিতে হ্যাপ্লোডিপ্লয়েড লিঙ্গ নির্ধারণ</text>
+
+          <rect x="80" y="40" width="160" height="38" rx="6" fill="#2563EB"/>
+          <text x="160" y="64" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">স্ত্রী (রানী): 2n = 32</text>
+
+          <rect x="420" y="40" width="160" height="38" rx="6" fill="#0D9488"/>
+          <text x="500" y="64" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">পুরুষ (ড্রোন): n = 16</text>
+
+          <line x1="160" y1="78" x2="160" y2="104" stroke="#1E293B" stroke-width="2"/>
+          <text x="170" y="95" font-family="sans-serif" font-size="11" fill="#475569">মিয়োসিস</text>
+
+          <line x1="500" y1="78" x2="500" y2="104" stroke="#1E293B" stroke-width="2"/>
+          <text x="510" y="95" font-family="sans-serif" font-size="11" fill="#475569">মাইটোসিস</text>
+
+          <rect x="105" y="104" width="110" height="28" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="160" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">ডিম্বাণু (n = 16)</text>
+
+          <rect x="445" y="104" width="110" height="28" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="500" y="122" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">শুক্রাণু (n = 16)</text>
+
+          <line x1="130" y1="132" x2="130" y2="154" stroke="#D97706" stroke-width="2"/>
+          <text x="125" y="148" text-anchor="end" font-family="sans-serif" font-size="10" fill="#B45309">পার্থেনোজেনেসিস</text>
+          <rect x="55" y="156" width="150" height="30" rx="5" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+          <text x="130" y="176" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">পুরুষ (n = 16)</text>
+
+          <line x1="190" y1="132" x2="360" y2="156" stroke="#0D9488" stroke-width="2"/>
+          <line x1="500" y1="132" x2="380" y2="156" stroke="#0D9488" stroke-width="2"/>
+          <text x="370" y="142" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">নিষেক</text>
+          <rect x="295" y="156" width="150" height="30" rx="5" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="370" y="176" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">স্ত্রী (2n = 32)</text>
+        </svg>
+        <div class="svg-caption">টিউটোরিয়াল চিত্র ৩: মৌমাছিতে হ্যাপ্লোডিপ্লয়েড বংশগতি (স্ত্রীতে মিয়োসিস ও পুরুষে মাইটোসিস)।</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mutation-disorders">
+    <h2>6. Mutation, Pedigree Analysis &amp; Genetic Disorders / <span lang="bn">৬. মিউটেশন, পেডিগ্রি বিশ্লেষণ ও জিনগত ব্যাধি</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <h3>Mutation Types</h3>
+      <p><strong>Mutation</strong> is a heritable alteration in DNA sequence causing changes in genotype and phenotype. Loss or gain of DNA segments causes chromosomal aberrations (often seen in cancer cells). A <strong>point mutation</strong> alters a single base pair (e.g., sickle-cell anaemia), whereas insertions or deletions of base pairs cause <strong>frameshift mutations</strong>. Physical/chemical agents inducing mutations (like UV radiation) are called <strong>mutagens</strong>.</p>
+
+      <h3>Pedigree Analysis</h3>
+      <p>Since controlled crosses are impossible in humans, inheritance of traits across generations is studied using a family tree called <strong>pedigree analysis</strong>.</p>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 660 150" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="660" height="150" fill="#F8FAFC" rx="8"/>
+          <text x="330" y="20" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Standard Pedigree Symbols</text>
+
+          <rect x="35" y="38" width="26" height="26" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="48" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Male</text>
+
+          <circle cx="130" cy="51" r="13" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="130" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Female</text>
+
+          <polygon points="215,36 230,51 215,66 200,51" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="215" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Sex unspecified</text>
+
+          <rect x="285" y="38" width="26" height="26" fill="#DC2626" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="332" cy="51" r="13" fill="#DC2626" stroke="#1E293B" stroke-width="2"/>
+          <text x="309" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Affected</text>
+
+          <rect x="395" y="40" width="22" height="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="417" y1="51" x2="443" y2="51" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="454" cy="51" r="11" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="430" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Mating</text>
+
+          <rect x="520" y="40" width="22" height="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="542" y1="48" x2="568" y2="48" stroke="#1E293B" stroke-width="2"/>
+          <line x1="542" y1="54" x2="568" y2="54" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="579" cy="51" r="11" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="555" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Consanguineous</text>
+
+          <text x="330" y="114" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">Quick Pedigree Rules: (1) Unaffected parents having affected child → Recessive trait.</text>
+          <text x="330" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">(2) Affected parents having unaffected child → Dominant trait. (3) Carrier mother to son → X-linked recessive.</text>
+        </svg>
+        <div class="svg-caption">Tutorial Diagram 4: Core pedigree symbols and rapid NEET deduction rules.</div>
+      </div>
+
+      <h3>Mendelian (Single-Gene) Disorders</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Disorder</th>
+            <th>Inheritance</th>
+            <th>Key Molecular / Clinical Feature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Colour blindness</strong></td><td>X-linked recessive</td><td>Defect in red/green eye cone; occurs in ~8% males vs ~0.4% females.</td></tr>
+          <tr><td><strong>Haemophilia</strong></td><td>X-linked recessive</td><td>Single blood-clotting cascade protein affected; non-stop bleeding; transmitted from carrier female to sons.</td></tr>
+          <tr><td><strong>Sickle-cell anaemia</strong></td><td>Autosomal recessive</td><td><strong>Qualitative</strong> defect: 6th codon of \(\beta\)-globin mutates from GAG to GUG (Glu → Val). Mutant \(Hb^S\) polymerises under low \(O_2\), making RBCs sickle-shaped.</td></tr>
+          <tr><td><strong>Phenylketonuria</strong></td><td>Autosomal recessive</td><td>Lack of enzyme converting phenylalanine to tyrosine; phenylpyruvic acid accumulates in brain (mental retardation) and urine.</td></tr>
+          <tr><td><strong>Thalassemia</strong></td><td>Autosomal recessive</td><td><strong>Quantitative</strong> defect (too few globin chains). \(\alpha\)-thalassemia: HBA1 &amp; HBA2 on chr 16. \(\beta\)-thalassemia: HBB on chr 11.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Chromosomal Disorders</h3>
+      <p>Failure of chromatid segregation during cell division causes gain or loss of chromosome(s) (<strong>aneuploidy</strong>: trisomy or monosomy), whereas failure of cytokinesis after telophase increases the whole set of chromosomes (<strong>polyploidy</strong>, common in plants).</p>
+      <ul>
+        <li><strong>Down's Syndrome (47, +21):</strong> Trisomy of chromosome 21 (described by Langdon Down, 1866). Short stature, small round head, furrowed tongue, partially open mouth, broad palm with characteristic palm crease, physical and mental retardation.</li>
+        <li><strong>Klinefelter's Syndrome (47, XXY):</strong> Extra X-chromosome in males. Overall masculine development with feminine breast development (gynaecomastia); sterile.</li>
+        <li><strong>Turner's Syndrome (45, XO):</strong> Absence of one X-chromosome in females. Short stature, rudimentary ovaries, lack of secondary sexual characters; sterile.</li>
+      </ul>
+
+      <div class="box-example">
+        <strong>Worked Example 4 (Original Scenario):</strong><br>
+        <em>Assumption:</em> In a family, both parents have normal colour vision, and the mother's father was red-green colour blind. They have a daughter and a son.<br>
+        <strong>Question:</strong> What is the probability that their son is colour blind, and what is the probability that their daughter is colour blind?<br>
+        <strong>Solution:</strong> Since the mother's father was colour blind (\(X^cY\)), the mother (having normal vision) must be a heterozygous carrier (\(X^CX^c\)). The father is normal (\(X^CY\)). Crossing \(X^CX^c \times X^CY\): the son receives \(Y\) from his father and either \(X^C\) or \(X^c\) from his mother, so his probability of being colour blind is \(\frac{1}{2}\) (\(50\%\)). The daughter always receives \(X^C\) from her normal father, so her probability of being colour blind is \(0\%\) (though she has a \(50\%\) chance of being a carrier).
+      </div>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <h3>মিউটেশনের প্রকারভেদ</h3>
+      <p><strong>মিউটেশন</strong> হলো DNA অনুক্রমের বংশানুক্রমিক পরিবর্তন, যা জিনোটাইপ ও ফিনোটাইপে পরিবর্তন ঘটায়। DNA খণ্ডের বিলোপ বা সংযোজন ক্রোমোজোমীয় বিকৃতি ঘটায় (ক্যান্সার কোষে দেখা যায়)। একটিমাত্র বেস পেয়ারের পরিবর্তনকে <strong>পয়েন্ট মিউটেশন</strong> (যেমন সিকেল-সেল অ্যানিমিয়া) এবং বেস পেয়ার সংযোজন বা বিলোপের ফলে ঘটা পরিবর্তনকে <strong>ফ্রেমশিফট মিউটেশন</strong> বলে। মিউটেশন সৃষ্টিকারী উপাদান (যেমন UV রশ্মি) হলো <strong>মিউটাজেন</strong>।</p>
+
+      <h3>পেডিগ্রি বিশ্লেষণ</h3>
+      <p>মানুষের ক্ষেত্রে নিয়ন্ত্রিত সংকরায়ণ সম্ভব নয় বলে বংশতালিকা বা <strong>পেডিগ্রি বিশ্লেষণ</strong> দ্বারা প্রজন্মের পর প্রজন্ম বৈশিষ্ট্যের সঞ্চারণ অধ্যয়ন করা হয়।</p>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 660 150" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="660" height="150" fill="#F8FAFC" rx="8"/>
+          <text x="330" y="20" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">পেডিগ্রির প্রচলিত প্রতীকসমূহ</text>
+
+          <rect x="35" y="38" width="26" height="26" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="48" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">পুরুষ</text>
+
+          <circle cx="130" cy="51" r="13" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="130" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">স্ত্রী</text>
+
+          <polygon points="215,36 230,51 215,66 200,51" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="215" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">অনির্দিষ্ট লিঙ্গ</text>
+
+          <rect x="285" y="38" width="26" height="26" fill="#DC2626" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="332" cy="51" r="13" fill="#DC2626" stroke="#1E293B" stroke-width="2"/>
+          <text x="309" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">আক্রান্ত</text>
+
+          <rect x="395" y="40" width="22" height="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="417" y1="51" x2="443" y2="51" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="454" cy="51" r="11" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="430" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">বিবাহ/মিলন</text>
+
+          <rect x="520" y="40" width="22" height="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="542" y1="48" x2="568" y2="48" stroke="#1E293B" stroke-width="2"/>
+          <line x1="542" y1="54" x2="568" y2="54" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="579" cy="51" r="11" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="555" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">আত্মীয়ের মধ্যে</text>
+
+          <text x="330" y="114" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">দ্রুত নিয়ম: (১) সুস্থ পিতামাতার আক্রান্ত সন্তান → প্রচ্ছন্ন বৈশিষ্ট্য।</text>
+          <text x="330" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">(২) আক্রান্ত পিতামাতার সুস্থ সন্তান → প্রকট বৈশিষ্ট্য। (৩) বাহক মাতা থেকে পুত্র → X-লিঙ্কড প্রচ্ছন্ন।</text>
+        </svg>
+        <div class="svg-caption">টিউটোরিয়াল চিত্র ৪: পেডিগ্রির প্রতীক ও দ্রুত বিশ্লেষণের নিয়ম।</div>
+      </div>
+
+      <h3>মেন্ডেলীয় (এক-জিনগত) ব্যাধি</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ব্যাধি</th>
+            <th>বংশগতি</th>
+            <th>প্রধান আণবিক / লক্ষণগত বৈশিষ্ট্য</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>বর্ণান্ধতা</strong></td><td>X-লিঙ্কড প্রচ্ছন্ন</td><td>চোখের লাল/সবুজ কোণ কোষের ত্রুটি; প্রায় ৮% পুরুষ ও ০.৪% মহিলায় ঘটে।</td></tr>
+          <tr><td><strong>হিমোফিলিয়া</strong></td><td>X-লিঙ্কড প্রচ্ছন্ন</td><td>রক্ত তঞ্চনের প্রোটিন অনুপস্থিত/ত্রুটিপূর্ণ; সামান্য কাটায় রক্তক্ষরণ বন্ধ হয় না; বাহক মাতা থেকে পুত্রে যায়।</td></tr>
+          <tr><td><strong>সিকেল-সেল অ্যানিমিয়া</strong></td><td>অটোজোমাল প্রচ্ছন্ন</td><td><strong>গুণগত</strong> ত্রুটি: \(\beta\)-গ্লোবিনের ৬ষ্ঠ কোডন GAG থেকে GUG হয় (Glu → Val)। কম \(O_2\)-এ \(Hb^S\) পলিমারাইজড হয়ে RBC-কে কাস্তের মতো করে।</td></tr>
+          <tr><td><strong>ফিনাইলকিটোনিউরিয়া</strong></td><td>অটোজোমাল প্রচ্ছন্ন</td><td>ফিনাইলঅ্যালানিনকে টাইরোসিনে রূপান্তরকারী উৎসেচকের অভাব; মস্তিষ্কে জমে মানসিক প্রতিবন্ধকতা ঘটায় ও মূত্রে নির্গত হয়।</td></tr>
+          <tr><td><strong>থ্যালাসেমিয়া</strong></td><td>অটোজোমাল প্রচ্ছন্ন</td><td><strong>পরিমাণগত</strong> ত্রুটি (খুব কম গ্লোবিন শৃঙ্খল তৈরি হওয়া)। \(\alpha\)-থ্যালাসেমিয়া: ১৬ নং ক্রোমোজোম (HBA1, HBA2); \(\beta\)-থ্যালাসেমিয়া: ১১ নং ক্রোমোজোম (HBB)।</td></tr>
+        </tbody>
+      </table>
+
+      <h3>ক্রোমোজোমীয় ব্যাধি</h3>
+      <p>কোষ বিভাজনে ক্রোমাটিডের পৃথকীকরণে ব্যর্থতা ঘটলে ক্রোমোজোমের সংখ্যা হ্রাস বা বৃদ্ধি পায় (<strong>অ্যানিউপ্লয়েডি</strong>: ট্রাইসোমি বা মনোসোমি), আর টেলোফেজের পর সাইটোকাইনেসিস না হলে সম্পূর্ণ ক্রোমোজোম সেট বেড়ে যায় (<strong>পলিপ্লয়েডি</strong>, উদ্ভিদে দেখা যায়)।</p>
+      <ul>
+        <li><strong>ডাউন'স সিনড্রোম (47, +21):</strong> ২১ নং ক্রোমোজোমের ট্রাইসোমি (ল্যাংডন ডাউন, ১৮৬৬)। খর্বাকৃতি, ছোট গোল মাথা, খাঁজকাটা জিহ্বা, আংশিক খোলা মুখ, চওড়া হাতের তালুতে বিশেষ ভাঁজ এবং শারীরিক ও মানসিক প্রতিবন্ধকতা।</li>
+        <li><strong>ক্লাইনফেল্টার'স সিনড্রোম (47, XXY):</strong> পুরুষে অতিরিক্ত X-ক্রোমোজোম। সামগ্রিক পুরুষালী গঠনের সাথে স্তন বিকাশ (গাইনেকোমাস্টিয়া); বন্ধ্যা।</li>
+        <li><strong>টার্নার'স সিনড্রোম (45, XO):</strong> নারীতে একটি X-ক্রোমোজোমের অনুপস্থিতি। খর্বাকৃতি, অপরিণত ডিম্বাশয়, গৌণ যৌন বৈশিষ্ট্যের অভাব; বন্ধ্যা।</li>
+      </ul>
+
+      <div class="box-example">
+        <strong>সমাধানকৃত উদাহরণ ৪ (মৌলিক অনুমান):</strong><br>
+        <em>অনুমান:</em> একটি পরিবারে পিতা ও মাতা উভয়েরই বর্ণদৃষ্টি স্বাভাবিক, কিন্তু মাতার পিতা লাল-সবুজ বর্ণান্ধ ছিলেন। তাঁদের একটি কন্যা ও একটি পুত্র সন্তান রয়েছে।<br>
+        <strong>প্রশ্ন:</strong> পুত্রটির বর্ণান্ধ হওয়ার সম্ভাবনা কত এবং কন্যাটির বর্ণান্ধ হওয়ার সম্ভাবনা কত?<br>
+        <strong>সমাধান:</strong> মাতার পিতা বর্ণান্ধ (\(X^cY\)) হওয়ায় স্বাভাবিক দৃষ্টিসম্পন্ন মাতা অবশ্যই হেটেরোজাইগাস বাহক (\(X^CX^c\))। পিতা স্বাভাবিক (\(X^CY\))। \(X^CX^c \times X^CY\) সংকরায়ণে পুত্র পিতার কাছ থেকে \(Y\) এবং মাতার কাছ থেকে \(X^C\) বা \(X^c\) পায়, তাই পুত্রের বর্ণান্ধ হওয়ার সম্ভাবনা \(\frac{1}{2}\) (\(50\%\))। কন্যা পিতার কাছ থেকে সর্বদা \(X^C\) পায়, তাই তার বর্ণান্ধ হওয়ার সম্ভাবনা \(0\%\) (যদিও বাহক হওয়ার সম্ভাবনা \(50\%\))।
+      </div>
+    </div>
+  </section>
+
+  <section id="practice-questions">
+    <h2>7. NEET UG Practice Questions (With Answers &amp; Worked Solutions) / <span lang="bn">৭. নিট ইউজি অনুশীলনী প্রশ্নাবলি (উত্তর ও সমাধানসহ)</span></h2>
+
+    <!-- Question 1 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 1 (Single-Correct MCQ — Test Cross &amp; Probability)</div>
+        <p><em>Assumption:</em> In a garden pea hybridisation, violet flower colour (\(V\)) is completely dominant over white (\(v\)). A violet-flowered plant of unknown genotype is crossed with a white-flowered plant, yielding \(45\) violet and \(43\) white offspring. If two of these violet-flowered offspring are crossed with each other, what proportion of their progeny is expected to be white-flowered?</p>
+        <ul class="options-list">
+          <li>(A) \(0\)</li>
+          <li>(B) \(\frac{1}{4}\)</li>
+          <li>(C) \(\frac{1}{2}\)</li>
+          <li>(D) \(\frac{3}{4}\)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (B) \(\frac{1}{4}\)<br>
+          <strong>Worked Solution:</strong> The \(45 : 43 \approx 1 : 1\) test cross ratio shows the unknown parent is heterozygous (\(Vv\)). All violet offspring from \(Vv \times vv\) receive \(V\) from the violet parent and \(v\) from the white parent, so every violet offspring has genotype \(Vv\). Crossing two such \(Vv\) plants (\(Vv \times Vv\)) gives \(\frac{1}{4} VV : \frac{1}{2} Vv : \frac{1}{4} vv\). Thus, \(\frac{1}{4}\) of the progeny will be white-flowered (\(vv\)).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ১ (একক-সঠিক MCQ — টেস্ট ক্রস ও সম্ভাব্যতা)</div>
+        <p><em>অনুমান:</em> মটর গাছে বেগুনি ফুল (\(V\)) সাদা ফুলের (\(v\)) ওপর সম্পূর্ণ প্রকট। অজানা জিনোটাইপের একটি বেগুনি ফুলযুক্ত গাছের সাথে সাদা ফুলযুক্ত গাছের সংকরায়ণে \(45\)টি বেগুনি ও \(43\)টি সাদা ফুলযুক্ত অপত্য পাওয়া গেল। এই বেগুনি অপত্যগুলির মধ্যে দুটি গাছের নিজেদের মধ্যে সংকরায়ণ ঘটালে কত অংশ অপত্য সাদা ফুলযুক্ত হবে?</p>
+        <ul class="options-list">
+          <li>(ক) \(0\)</li>
+          <li>(খ) \(\frac{1}{4}\)</li>
+          <li>(গ) \(\frac{1}{2}\)</li>
+          <li>(ঘ) \(\frac{3}{4}\)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (খ) \(\frac{1}{4}\)<br>
+          <strong>সমাধান:</strong> \(45 : 43 \approx 1 : 1\) টেস্ট ক্রস অনুপাত প্রমাণ করে যে অজানা গাছটি হেটেরোজাইগাস (\(Vv\))। \(Vv \times vv\) সংকরায়ণে উৎপন্ন প্রতিটি বেগুনি অপত্যের জিনোটাইপ \(Vv\)। এমন দুটি \(Vv\) গাছের সংকরায়ণে (\(Vv \times Vv\)) অপত্যের অনুপাত হয় \(\frac{1}{4} VV : \frac{1}{2} Vv : \frac{1}{4} vv\)। সুতরাং \(\frac{1}{4}\) অংশ অপত্য সাদা ফুলযুক্ত (\(vv\)) হবে।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 2 (Single-Correct MCQ — Phenotype-Dependent Dominance)</div>
+        <p>In garden pea, a single gene with alleles \(B\) and \(b\) controls starch grain size and seed shape. Which statement accurately describes the heterozygous genotype \(Bb\)?</p>
+        <ul class="options-list">
+          <li>(A) Wrinkled seeds with large starch grains</li>
+          <li>(B) Round seeds with intermediate-sized starch grains</li>
+          <li>(C) Wrinkled seeds with intermediate-sized starch grains</li>
+          <li>(D) Round seeds with small starch grains</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (B) Round seeds with intermediate-sized starch grains<br>
+          <strong>Worked Solution:</strong> In pea seeds, \(Bb\) produces round seeds (showing complete dominance of \(B\) over \(b\) for seed shape) but intermediate-sized starch grains (showing incomplete dominance for starch grain size). This demonstrates that dominance depends on the specific phenotype examined.
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ২ (একক-সঠিক MCQ — ফিনোটাইপ-নির্ভর প্রকটতা)</div>
+        <p>মটর গাছে \(B\) এবং \(b\) অ্যালিলযুক্ত একটি জিন শ্বেতসার কণার আকার এবং বীজের আকৃতি নিয়ন্ত্রণ করে। হেটেরোজাইগাস জিনোটাইপ \(Bb\)-এর ক্ষেত্রে নিচের কোন বক্তব্যটি সঠিক?</p>
+        <ul class="options-list">
+          <li>(ক) কুঞ্চিত বীজ ও বড় শ্বেতসার কণা</li>
+          <li>(খ) গোলাকার বীজ ও মাঝারি আকারের শ্বেতসার কণা</li>
+          <li>(গ) কুঞ্চিত বীজ ও মাঝারি আকারের শ্বেতসার কণা</li>
+          <li>(ঘ) গোলাকার বীজ ও ছোট শ্বেতসার কণা</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (খ) গোলাকার বীজ ও মাঝারি আকারের শ্বেতসার কণা<br>
+          <strong>সমাধান:</strong> মটর বীজে \(Bb\) অবস্থায় বীজের আকৃতি গোলাকার হয় (সম্পূর্ণ প্রকটতা), কিন্তু শ্বেতসার কণার আকার মাঝারি হয় (অসম্পূর্ণ প্রকটতা)। এটি প্রমাণ করে যে প্রকটতা পর্যবেক্ষিত ফিনোটাইপের ওপর নির্ভর করে।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 3 (Single-Correct MCQ — Multiple Alleles &amp; Co-dominance)</div>
+        <p><em>Assumption:</em> Suppose a hypothetical locus in a diploid mammal has \(4\) alleles in the population, where all alleles show co-dominance with one another. How many distinct genotypes and phenotypes are possible in the population?</p>
+        <ul class="options-list">
+          <li>(A) \(10\) genotypes, \(4\) phenotypes</li>
+          <li>(B) \(10\) genotypes, \(10\) phenotypes</li>
+          <li>(C) \(16\) genotypes, \(10\) phenotypes</li>
+          <li>(D) \(8\) genotypes, \(4\) phenotypes</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (B) \(10\) genotypes, \(10\) phenotypes<br>
+          <strong>Worked Solution:</strong> With \(n = 4\) alleles, the number of diploid genotypes is \(\frac{n(n+1)}{2} = \frac{4 \times 5}{2} = 10\). Because all alleles are co-dominant with each other, every homozygous and heterozygous combination expresses a unique phenotype, giving \(10\) distinct phenotypes.
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ৩ (একক-সঠিক MCQ — মাল্টিপল অ্যালিল ও সহ-প্রকটতা)</div>
+        <p><em>অনুমান:</em> ধরুন একটি ডিপ্লয়েড স্তন্যপায়ীর পপুলেশনে কোনো লোকাসে \(4\)টি অ্যালিল রয়েছে এবং প্রতিটি অ্যালিল পরস্পরের সাথে সহ-প্রকট (co-dominant)। ওই পপুলেশনে কতগুলি ভিন্ন জিনোটাইপ ও ফিনোটাইপ সম্ভব?</p>
+        <ul class="options-list">
+          <li>(ক) \(10\)টি জিনোটাইপ, \(4\)টি ফিনোটাইপ</li>
+          <li>(খ) \(10\)টি জিনোটাইপ, \(10\)টি ফিনোটাইপ</li>
+          <li>(গ) \(16\)টি জিনোটাইপ, \(10\)টি ফিনোটাইপ</li>
+          <li>(ঘ) \(8\)টি জিনোটাইপ, \(4\)টি ফিনোটাইপ</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (খ) \(10\)টি জিনোটাইপ, \(10\)টি ফিনোটাইপ<br>
+          <strong>সমাধান:</strong> \(n = 4\)টি অ্যালিল থাকলে ডিপ্লয়েড জিনোটাইপের সংখ্যা \(\frac{n(n+1)}{2} = \frac{4 \times 5}{2} = 10\)। যেহেতু সব অ্যালিল পরস্পরের সাথে সহ-প্রকট, তাই প্রতিটি হোমোজাইগাস ও হেটেরোজাইগাস জিনোটাইপ আলাদা ফিনোটাইপ প্রকাশ করবে, অর্থাৎ \(10\)টি ফিনোটাইপ পাওয়া যাবে।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 4 (Single-Correct MCQ — Dihybrid Cross Ratios)</div>
+        <p><em>Assumption:</em> In a dihybrid cross in pea plants between a tall plant with yellow seeds (\(TtYy\)) and a tall plant with green seeds (\(Ttyy\)), what proportion of the offspring is expected to be dwarf with green seeds?</p>
+        <ul class="options-list">
+          <li>(A) \(\frac{1}{16}\)</li>
+          <li>(B) \(\frac{1}{8}\)</li>
+          <li>(C) \(\frac{3}{8}\)</li>
+          <li>(D) \(\frac{1}{4}\)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (B) \(\frac{1}{8}\)<br>
+          <strong>Worked Solution:</strong> Treat the two independently assorting loci separately. From \(Tt \times Tt\), the probability of dwarf (\(tt\)) is \(\frac{1}{4}\). From \(Yy \times yy\), the probability of green (\(yy\)) is \(\frac{1}{2}\). Multiplying independent probabilities: \(P(ttyy) = \frac{1}{4} \times \frac{1}{2} = \frac{1}{8}\).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ৪ (একক-সঠিক MCQ — দ্বিসংকর অনুপাত)</div>
+        <p><em>অনুমান:</em> মটর গাছে লম্বা ও হলুদ বীজযুক্ত উদ্ভিদ (\(TtYy\))-এর সাথে লম্বা ও সবুজ বীজযুক্ত উদ্ভিদ (\(Ttyy\))-এর সংকরায়ণ ঘটালে অপত্যের কত অংশ বেঁটে ও সবুজ বীজযুক্ত হবে?</p>
+        <ul class="options-list">
+          <li>(ক) \(\frac{1}{16}\)</li>
+          <li>(খ) \(\frac{1}{8}\)</li>
+          <li>(গ) \(\frac{3}{8}\)</li>
+          <li>(ঘ) \(\frac{1}{4}\)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (খ) \(\frac{1}{8}\)<br>
+          <strong>সমাধান:</strong> দুটি স্বাধীন লোকাসকে আলাদাভাবে হিসাব করি। \(Tt \times Tt\) থেকে বেঁটে (\(tt\)) হওয়ার সম্ভাবনা \(\frac{1}{4}\)। \(Yy \times yy\) থেকে সবুজ (\(yy\)) হওয়ার সম্ভাবনা \(\frac{1}{2}\)। স্বাধীন সম্ভাবনার গুণফল: \(P(ttyy) = \frac{1}{4} \times \frac{1}{2} = \frac{1}{8}\)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 5 (Single-Correct MCQ — Linkage &amp; Genetic Mapping)</div>
+        <p><em>Assumption:</em> Three genes \(P, Q,\) and \(R\) are located on the same chromosome. The recombination frequencies are: between \(P\) and \(Q\) = \(28\%\), between \(Q\) and \(R\) = \(12\%\), and between \(P\) and \(R\) = \(16\%\). What is the correct linear order of these genes on the chromosome?</p>
+        <ul class="options-list">
+          <li>(A) \(P - Q - R\)</li>
+          <li>(B) \(Q - P - R\)</li>
+          <li>(C) \(P - R - Q\)</li>
+          <li>(D) \(R - P - Q\)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (C) \(P - R - Q\)<br>
+          <strong>Worked Solution:</strong> Recombination frequency represents map distance. The largest distance is between \(P\) and \(Q\) (\(28\text{ map units}\)), placing \(P\) and \(Q\) at the two ends. Since \(16 + 12 = 28\), gene \(R\) lies between \(P\) and \(Q\) (\(P - R - Q\)).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ৫ (একক-সঠিক MCQ — লিংকেজ ও জেনেটিক ম্যাপিং)</div>
+        <p><em>অনুমান:</em> তিনটি জিন \(P, Q,\) এবং \(R\) একই ক্রোমোজোমে অবস্থিত। এদের রিকম্বিনেশন হার হলো: \(P\) ও \(Q\)-এর মধ্যে \(28\%\), \(Q\) ও \(R\)-এর মধ্যে \(12\%\), এবং \(P\) ও \(R\)-এর মধ্যে \(16\%\)। ক্রোমোজোমে জিনগুলির সঠিক রৈখিক বিন্যাস কী?</p>
+        <ul class="options-list">
+          <li>(ক) \(P - Q - R\)</li>
+          <li>(খ) \(Q - P - R\)</li>
+          <li>(গ) \(P - R - Q\)</li>
+          <li>(ঘ) \(R - P - Q\)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (গ) \(P - R - Q\)<br>
+          <strong>সমাধান:</strong> রিকম্বিনেশন হার জিনের মধ্যবর্তী দূরত্ব নির্দেশ করে। সবচেয়ে বেশি দূরত্ব \(P\) ও \(Q\)-এর মধ্যে (\(28\text{ ম্যাপ ইউনিট}\)), তাই \(P\) ও \(Q\) দুই প্রান্তে থাকবে। যেহেতু \(16 + 12 = 28\), তাই \(R\) জিনটি \(P\) ও \(Q\)-এর মাঝে অবস্থিত (\(P - R - Q\))।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 6 (Statement-Based MCQ — Sex Determination)</div>
+        <p>Read the following statements carefully and choose the correct option:</p>
+        <p><strong>Statement I:</strong> In birds, females are heterogametic (ZW) and males are homogametic (ZZ), so the ovum determines the sex of the chick.<br>
+        <strong>Statement II:</strong> In honey bees, male drones are haploid and produce sperm through meiosis.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct</li>
+          <li>(B) Statement I is correct but Statement II is incorrect</li>
+          <li>(C) Statement I is incorrect but Statement II is correct</li>
+          <li>(D) Both Statement I and Statement II are incorrect</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (B) Statement I is correct but Statement II is incorrect<br>
+          <strong>Worked Solution:</strong> Birds exhibit female heterogamety (ZW female, ZZ male), so the egg determines the offspring's sex (Statement I is correct). In honey bees, haploid drones (\(n = 16\)) cannot undergo meiosis; they produce sperm by <strong>mitosis</strong> (Statement II is incorrect).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ৬ (বিবৃতি-ভিত্তিক MCQ — লিঙ্গ নির্ধারণ)</div>
+        <p>নিচের বিবৃতি দুটি মনোযোগ দিয়ে পড়ুন এবং সঠিক বিকল্পটি নির্বাচন করুন:</p>
+        <p><strong>বিবৃতি ১:</strong> পাখিদের ক্ষেত্রে স্ত্রী হেটেরোগ্যামেটিক (ZW) এবং পুরুষ হোমোগ্যামেটিক (ZZ), তাই ডিম্বাণু ছানার লিঙ্গ নির্ধারণ করে।<br>
+        <strong>বিবৃতি ২:</strong> মৌমাছির ক্ষেত্রে পুরুষ ড্রোন হ্যাপ্লয়েড এবং মিয়োসিস প্রক্রিয়ায় শুক্রাণু উৎপন্ন করে।</p>
+        <ul class="options-list">
+          <li>(ক) বিবৃতি ১ এবং বিবৃতি ২ উভয়ই সঠিক</li>
+          <li>(খ) বিবৃতি ১ সঠিক কিন্তু বিবৃতি ২ ভুল</li>
+          <li>(গ) বিবৃতি ১ ভুল কিন্তু বিবৃতি ২ সঠিক</li>
+          <li>(ঘ) বিবৃতি ১ এবং বিবৃতি ২ উভয়ই ভুল</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (খ) বিবৃতি ১ সঠিক কিন্তু বিবৃতি ২ ভুল<br>
+          <strong>সমাধান:</strong> পাখিদের মধ্যে স্ত্রী হেটেরোগ্যামেটি (ZW স্ত্রী, ZZ পুরুষ) দেখা যায়, তাই ডিম্বাণু লিঙ্গ নির্ধারণ করে (বিবৃতি ১ সঠিক)। মৌমাছিতে হ্যাপ্লয়েড ড্রোন (\(n = 16\)) মিয়োসিস করতে পারে না; তারা <strong>মাইটোসিস</strong> প্রক্রিয়ায় শুক্রাণু তৈরি করে (বিবৃতি ২ ভুল)।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 7 (Assertion–Reason MCQ — Sickle-Cell Anaemia vs. Thalassemia)</div>
+        <p><strong>Assertion (A):</strong> Sickle-cell anaemia is a qualitative genetic disorder, whereas thalassemia is a quantitative genetic disorder.<br>
+        <strong>Reason (R):</strong> Sickle-cell anaemia results from synthesising an incorrectly functioning \(\beta\)-globin (Glu → Val), whereas thalassemia results from synthesising too few \(\alpha\)- or \(\beta\)-globin chains.</p>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true and (R) is the correct explanation of (A)</li>
+          <li>(B) Both (A) and (R) are true but (R) is not the correct explanation of (A)</li>
+          <li>(C) (A) is true but (R) is false</li>
+          <li>(D) (A) is false but (R) is true</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (A) Both (A) and (R) are true and (R) is the correct explanation of (A)<br>
+          <strong>Worked Solution:</strong> Sickle-cell anaemia alters the quality (amino acid sequence: Glu → Val at position 6) of \(\beta\)-globin, while thalassemia reduces the quantity (rate of synthesis) of \(\alpha\)- or \(\beta\)-globin chains. Thus, (R) directly explains (A).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ৭ (দাবি–যুক্তি MCQ — সিকেল-সেল অ্যানিমিয়া বনাম থ্যালাসেমিয়া)</div>
+        <p><strong>দাবি (A):</strong> সিকেল-সেল অ্যানিমিয়া একটি গুণগত জিনগত ব্যাধি, যেখানে থ্যালাসেমিয়া একটি পরিমাণগত জিনগত ব্যাধি।<br>
+        <strong>যুক্তি (R):</strong> সিকেল-সেল অ্যানিমিয়া ত্রুটিপূর্ণভাবে কাজ করা \(\beta\)-গ্লোবিন (Glu → Val) সংশ্লেষণের কারণে হয়, কিন্তু থ্যালাসেমিয়া খুব কম পরিমাণে \(\alpha\)- বা \(\beta\)-গ্লোবিন শৃঙ্খল সংশ্লেষণের কারণে হয়।</p>
+        <ul class="options-list">
+          <li>(ক) (A) এবং (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা</li>
+          <li>(খ) (A) এবং (R) উভয়ই সত্য কিন্তু (R), (A)-এর সঠিক ব্যাখ্যা নয়</li>
+          <li>(গ) (A) সত্য কিন্তু (R) মিথ্যা</li>
+          <li>(ঘ) (A) মিথ্যা কিন্তু (R) সত্য</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (ক) (A) এবং (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা<br>
+          <strong>সমাধান:</strong> সিকেল-সেল অ্যানিমিয়ায় \(\beta\)-গ্লোবিনের গুণগত মান (৬ষ্ঠ স্থানে Glu → Val) পরিবর্তিত হয়, আর থ্যালাসেমিয়ায় \(\alpha\)- বা \(\beta\)-গ্লোবিন শৃঙ্খলের পরিমাণ (সংশ্লেষণের হার) কমে যায়। তাই (R) সঠিকভাবে (A)-কে ব্যাখ্যা করে।
+        </div>
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <div class="question-header">Practice Question 8 (Matching MCQ — Chromosomal Disorders)</div>
+        <p>Match the chromosomal disorder in Column I with its karyotype and characteristic feature in Column II:</p>
+        <table>
+          <thead>
+            <tr><th>Column I</th><th>Column II</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(i) Down's syndrome</td><td>(p) \(45\), XO; rudimentary ovaries, sterile female</td></tr>
+            <tr><td>(ii) Klinefelter's syndrome</td><td>(q) \(47\), +21; furrowed tongue, broad palm crease</td></tr>
+            <tr><td>(iii) Turner's syndrome</td><td>(r) \(47\), XXY; masculine build with gynaecomastia</td></tr>
+          </tbody>
+        </table>
+        <ul class="options-list">
+          <li>(A) (i)-(q), (ii)-(p), (iii)-(r)</li>
+          <li>(B) (i)-(q), (ii)-(r), (iii)-(p)</li>
+          <li>(C) (i)-(r), (ii)-(q), (iii)-(p)</li>
+          <li>(D) (i)-(p), (ii)-(r), (iii)-(q)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>Answer:</strong> (B) (i)-(q), (ii)-(r), (iii)-(p)<br>
+          <strong>Worked Solution:</strong> Down's syndrome is trisomy 21 (\(47, +21\)) with furrowed tongue and palm crease (q). Klinefelter's syndrome is \(47, \text{XXY}\) with gynaecomastia (r). Turner's syndrome is monosomy X (\(45, \text{XO}\)) with rudimentary ovaries (p).
+        </div>
+      </div>
+      <hr/>
+      <div class="lang-bn" lang="bn">
+        <div class="question-header">অনুশীলন প্রশ্ন ৮ (স্তম্ভ মেলানো MCQ — ক্রোমোজোমীয় ব্যাধি)</div>
+        <p>স্তম্ভ ১-এর ক্রোমোজোমীয় ব্যাধির সাথে স্তম্ভ ২-এর ক্যারিওটাইপ ও লক্ষণ মেলাও:</p>
+        <table>
+          <thead>
+            <tr><th>স্তম্ভ ১</th><th>স্তম্ভ ২</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(i) ডাউন'স সিনড্রোম</td><td>(p) \(45\), XO; অপরিণত ডিম্বাশয়, বন্ধ্যা নারী</td></tr>
+            <tr><td>(ii) ক্লাইনফেল্টার'স সিনড্রোম</td><td>(q) \(47\), +21; খাঁজকাটা জিহ্বা, চওড়া তালুতে ভাঁজ</td></tr>
+            <tr><td>(iii) টার্নার'স সিনড্রোম</td><td>(r) \(47\), XXY; পুরুষালী গঠন ও গাইনেকোমাস্টিয়া</td></tr>
+          </tbody>
+        </table>
+        <ul class="options-list">
+          <li>(ক) (i)-(q), (ii)-(p), (iii)-(r)</li>
+          <li>(খ) (i)-(q), (ii)-(r), (iii)-(p)</li>
+          <li>(গ) (i)-(r), (ii)-(q), (iii)-(p)</li>
+          <li>(ঘ) (i)-(p), (ii)-(r), (iii)-(q)</li>
+        </ul>
+        <div class="solution-box">
+          <strong>উত্তর:</strong> (খ) (i)-(q), (ii)-(r), (iii)-(p)<br>
+          <strong>সমাধান:</strong> ডাউন'স সিনড্রোম হলো ২১ নং ট্রাইসোমি (\(47, +21\)), যাতে খাঁজকাটা জিহ্বা ও তালুতে ভাঁজ থাকে (q)। ক্লাইনফেল্টার'স সিনড্রোম হলো \(47, \text{XXY}\), যাতে গাইনেকোমাস্টিয়া দেখা যায় (r)। টার্নার'স সিনড্রোম হলো \(45, \text{XO}\), যাতে অপরিণত ডিম্বাশয় থাকে (p)।
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pitfalls-recap">
+    <h2>8. Common Pitfalls, Revision Checklist &amp; Final Recap / <span lang="bn">৮. সাধারণ ভুল, রিভিশন চেকলিস্ট ও সারসংক্ষেপ</span></h2>
+
+    <div class="lang-en">
+      <span class="lang-label">English</span>
+      <div class="box-pitfall">
+        <strong>Common NEET Pitfalls to Avoid:</strong>
+        <ul>
+          <li>Confusing <strong>incomplete dominance</strong> (intermediate phenotype, e.g., pink snapdragon) with <strong>co-dominance</strong> (both parental phenotypes expressed together, e.g., AB blood group).</li>
+          <li>Assuming \(F_2\) genotypic and phenotypic ratios are always different: in incomplete dominance, <em>both</em> ratios are \(1:2:1\).</li>
+          <li>Forgetting that in birds (ZZ–ZW), the <strong>female</strong> is heterogametic, unlike humans and <em>Drosophila</em> (XX–XY).</li>
+          <li>Mixing up <strong>aneuploidy</strong> (gain/loss of single chromosome, e.g., Down's \(47\), Turner's \(45\)) with <strong>polyploidy</strong> (gain of entire chromosome set).</li>
+        </ul>
+      </div>
+      <h3>Rapid Revision Checklist</h3>
+      <ul>
+        <li>Monohybrid \(F_2\): Phenotype \(3:1\), Genotype \(1:2:1\); Test cross \(1:1\).</li>
+        <li>Dihybrid \(F_2\) (unlinked): Phenotype \(9:3:3:1\); Gametes \(= 2^n\), Genotypes \(= 3^n\).</li>
+        <li>Linkage: Parental types \(&gt; 50\%\), Recombinants \(&lt; 50\%\); \(1\%\text{ recombination} = 1\text{ map unit}\).</li>
+        <li>Pleiotropy: One gene → multiple traits (PKU); Polygenic: Many genes → one trait (skin colour).</li>
+        <li>Sickle-cell anaemia: GAG → GUG (Glu → Val, 6th position \(\beta\)-globin, qualitative). Thalassemia: Quantitative globin deficit (\(\alpha\) chr 16, \(\beta\) chr 11).</li>
+      </ul>
+    </div>
+
+    <div class="lang-bn" lang="bn">
+      <span class="lang-label">বাংলা</span>
+      <div class="box-pitfall">
+        <strong>সাধারণ ভুল যা এড়িয়ে চলবেন:</strong>
+        <ul>
+          <li><strong>অসম্পূর্ণ প্রকটতা</strong> (মধ্যবর্তী ফিনোটাইপ, যেমন গোলাপি স্ন্যাপড্রাগন) এবং <strong>সহ-প্রকটতা</strong> (উভয় পিতামাতার বৈশিষ্ট্য একসাথে প্রকাশ, যেমন AB রক্তের গ্রুপ) গুলিয়ে ফেলা।</li>
+          <li>\(F_2\) জিনোটাইপিক ও ফিনোটাইপিক অনুপাত সর্বদা ভিন্ন ভাবা: অসম্পূর্ণ প্রকটতায় <em>উভয়</em> অনুপাতই \(1:2:1\) হয়।</li>
+          <li>পাখিদের (ZZ–ZW) ক্ষেত্রে মানুষ ও ড্রোসোফিলার (XX–XY) বিপরীতে <strong>স্ত্রী</strong> যে হেটেরোগ্যামেটিক, তা ভুলে যাওয়া।</li>
+          <li><strong>অ্যানিউপ্লয়েডি</strong> (একটি ক্রোমোজোম কম/বেশি, যেমন ডাউন'স \(47\), টার্নার'স \(45\)) এবং <strong>পলিপ্লয়েডি</strong> (সম্পূর্ণ ক্রোমোজোম সেট বৃদ্ধি) এক করে ফেলা।</li>
+        </ul>
+      </div>
+      <h3>দ্রুত রিভিশন চেকলিস্ট</h3>
+      <ul>
+        <li>একসংকর \(F_2\): ফিনোটাইপ \(3:1\), জিনোটাইপ \(1:2:1\); টেস্ট ক্রস \(1:1\)।</li>
+        <li>দ্বিসংকর \(F_2\) (আনলিঙ্কড): ফিনোটাইপ \(9:3:3:1\); গ্যামেট \(= 2^n\), জিনোটাইপ \(= 3^n\)।</li>
+        <li>লিংকেজ: প্যারেন্টাল \(&gt; 50\%\), রিকম্বিন্যান্ট \(&lt; 50\%\); \(1\%\text{ রিকম্বিনেশন} = 1\text{ ম্যাপ ইউনিট}\)।</li>
+        <li>প্লিওট্রপি: একটি জিন → একাধিক বৈশিষ্ট্য (PKU); পলিজেনিক: বহু জিন → একটি বৈশিষ্ট্য (ত্বকের বর্ণ)।</li>
+        <li>সিকেল-সেল অ্যানিমিয়া: GAG → GUG (\(\beta\)-গ্লোবিনের ৬ষ্ঠ স্থানে Glu → Val, গুণগত)। থ্যালাসেমিয়া: পরিমাণগত গ্লোবিন হ্রাস (\(\alpha\) ১৬ নং, \(\beta\) ১১ নং ক্রোমোজোম)।</li>
+      </ul>
+    </div>
+  </section>
+
+</body>
+</html>

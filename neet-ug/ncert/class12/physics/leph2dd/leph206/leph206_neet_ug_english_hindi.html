@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semiconductor Electronics: Materials, Devices and Simple Circuits — NEET UG Bilingual Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F8FAFC;
+      color: #1E293B;
+      font-family: "Noto Sans", "Noto Sans Devanagari", "Kohinoor Devanagari", "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+      background-color: #FFFFFF;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge.teal {
+      background-color: #F0FDFA;
+      color: #0F766E;
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+      margin: 8px 0 6px;
+      color: #0F172A;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #E2E8F0;
+      color: #1E3A8A;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.4;
+      margin: 20px 0 8px;
+      color: #0F766E;
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin: 14px 0 6px;
+      color: #1E293B;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-block {
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      border: 1px solid #E2E8F0;
+      background-color: #FFFFFF;
+    }
+
+    .lang-en {
+      border-left: 4px solid #2563EB;
+    }
+
+    .lang-hi {
+      border-left: 4px solid #0D9488;
+      background-color: #FAFFFE;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+
+    .lang-en .lang-tag {
+      background-color: #DBEAFE;
+      color: #1E40AF;
+    }
+
+    .lang-hi .lang-tag {
+      background-color: #CCFBF1;
+      color: #115E59;
+    }
+
+    .callout {
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-radius: 6px;
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+    }
+
+    .callout.key-formula {
+      background-color: #EFF6FF;
+      border-color: #93C5FD;
+    }
+
+    .callout.pitfall {
+      background-color: #FFFBEB;
+      border-color: #FCD34D;
+    }
+
+    .formula-box {
+      padding: 10px 12px;
+      margin: 10px 0;
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 5px;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #F1F5F9;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    .diagram-card {
+      margin: 16px 0;
+      padding: 12px;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      text-align: center;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .diagram-card svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .example-card, .question-card {
+      margin: 18px 0;
+      padding: 16px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-card {
+      border-top: 4px solid #0D9488;
+    }
+
+    .question-card {
+      border-top: 4px solid #2563EB;
+    }
+
+    .q-header {
+      font-weight: 700;
+      color: #1E3A8A;
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 4px;
+      margin: 10px 0 12px;
+    }
+
+    .options-list li {
+      margin-bottom: 6px;
+      padding: 4px 8px;
+      background-color: #F8FAFC;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background-color: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 5px;
+    }
+
+    hr.bilingual-sep {
+      border: 0;
+      border-top: 1px dashed #94A3B8;
+      margin: 16px 0;
+    }
+
+    mjx-container {
+      max-width: 100%;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      html, body {
+        background-color: #FFFFFF;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .lang-block, .example-card, .question-card, .diagram-card, .callout, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2, h3, h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <!-- 1. TITLE AND EXAM CONTEXT -->
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">NEET UG Physics</span>
+        <span class="badge teal">Bilingual: English + हिन्दी</span>
+      </div>
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <h1>Semiconductor Electronics: Materials, Devices, and Simple Circuits</h1>
+        <p><strong>Examination Alignment:</strong> Designed specifically for <strong>NEET UG</strong> Physics, emphasizing conceptual precision, energy-band reasoning, carrier concentration laws, p-n junction biasing, and rectifier circuits.</p>
+      </div>
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h1>अर्धचालक इलेक्ट्रॉनिकी: पदार्थ, युक्तियाँ तथा सरल परिपथ</h1>
+        <p><strong>परीक्षा संरेखण:</strong> विशेष रूप से <strong>NEET UG</strong> भौतिकी के लिए तैयार किया गया, जिसमें अवधारणात्मक स्पष्टता, ऊर्जा-बैंड तर्क, आवेश वाहक सांद्रता नियम, p-n संधि अभिनति (बायसिंग) और दिष्टकारी परिपथों पर विशेष ध्यान दिया गया है।</p>
+      </div>
+    </header>
+
+    <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+    <section id="overview">
+      <h2>1. Learning Objectives and Overview / अधिगम उद्देश्य एवं सारांश</h2>
+
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <p>Modern electronics relies on solid-state semiconductor devices rather than bulky, power-hungry vacuum tubes (valves). In vacuum tubes, electrons are emitted by a heated cathode and travel through an evacuated space to an anode; in semiconductors, mobile charge carriers are generated and controlled entirely within the solid crystal itself using small voltages, heat, or light.</p>
+        <h4>After completing this tutorial, you will be able to:</h4>
+        <ul>
+          <li>Classify metals, semiconductors, and insulators using both electrical resistivity/conductivity ranges and energy-band diagrams.</li>
+          <li>Explain electrical conduction in pure (intrinsic) semiconductors in terms of thermally generated electrons and holes.</li>
+          <li>Distinguish between n-type and p-type extrinsic semiconductors, apply the mass-action law, and verify overall crystal charge neutrality.</li>
+          <li>Analyze the formation of a p-n junction via diffusion and drift, and predict how forward and reverse bias alter the barrier potential and depletion width.</li>
+          <li>Interpret diode V-I characteristics, compute dynamic resistance, and analyze half-wave and full-wave rectifiers with capacitor filters.</li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <p>आधुनिक इलेक्ट्रॉनिकी भारी और अधिक ऊर्जा खपत करने वाली निर्वात नलिकाओं (वाल्वों) के बजाय ठोस-अवस्था अर्धचालक युक्तियों पर आधारित है। निर्वात नलिकाओं में इलेक्ट्रॉन तप्त कैथोड से उत्सर्जित होकर निर्वातित स्थान में एनोड की ओर प्रवाहित होते थे, जबकि अर्धचालकों में गतिशील आवेश वाहक ठोस क्रिस्टल के भीतर ही उत्पन्न और नियंत्रित किए जाते हैं।</p>
+        <h4>इस ट्यूटोरियल को पूरा करने के बाद आप सक्षम होंगे:</h4>
+        <ul>
+          <li>विद्युत प्रतिरोधकता/चालकता और ऊर्जा-बैंड आरेखों के आधार पर धातुओं, अर्धचालकों और विद्युतरोधियों का वर्गीकरण करने में।</li>
+          <li>शुद्ध (नैज) अर्धचालकों में ऊष्मीय रूप से उत्पन्न इलेक्ट्रॉनों और होलों (कोटरों) के द्वारा विद्युत चालन को समझाने में।</li>
+          <li>n-प्रकार और p-प्रकार के अपद्रव्यी अर्धचालकों में अंतर करने, द्रव्यमान-क्रिया नियम लागू करने तथा क्रिस्टल की समग्र आवेश उदासीनता को सत्यापित करने में।</li>
+          <li>विसरण और अपवाह द्वारा p-n संधि के निर्माण का विश्लेषण करने तथा अग्र और पश्च अभिनति में विभव प्राचीर व अवक्षय परत की चौड़ाई में परिवर्तन का अनुमान लगाने में।</li>
+          <li>डायोड के V-I अभिलक्षणिक वक्रों की व्याख्या करने, गतिक प्रतिरोध की गणना करने तथा संधारित्र फिल्टर सहित अर्ध-तरंग व पूर्ण-तरंग दिष्टकारियों का विश्लेषण करने में।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. CLASSIFICATION OF SOLIDS -->
+    <section id="classification">
+      <h2>2. Classification of Solids: Conductivity and Energy Bands / ठोसों का वर्गीकरण: चालकता और ऊर्जा बैंड</h2>
+
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <h3>2.1 Classification Based on Electrical Conductivity</h3>
+        <p>Solids are grouped into three broad categories based on their resistivity \(\rho\) and conductivity \(\sigma = 1/\rho\):</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Material Class</th>
+              <th>Resistivity \(\rho\) (\(\mathrm{Ω\cdot m}\))</th>
+              <th>Conductivity \(\sigma\) (\(\mathrm{S\cdot m^{-1}}\))</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Metals (Conductors)</td>
+              <td>\(10^{-2}\) to \(10^{-8}\)</td>
+              <td>\(10^{2}\) to \(10^{8}\)</td>
+              <td>Cu, Al, Ag, Sn</td>
+            </tr>
+            <tr>
+              <td>Semiconductors</td>
+              <td>\(10^{-5}\) to \(10^{6}\)</td>
+              <td>\(10^{5}\) to \(10^{-6}\)</td>
+              <td>Elemental: Si, Ge; Compound: GaAs, CdS, InP</td>
+            </tr>
+            <tr>
+              <td>Insulators</td>
+              <td>\(10^{11}\) to \(10^{19}\)</td>
+              <td>\(10^{-11}\) to \(10^{-19}\)</td>
+              <td>Diamond (C), glass, quartz</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.2 Energy Band Theory of Solids</h3>
+        <p>In an isolated atom, electrons occupy discrete energy levels. When \(N\) atoms pack closely into a crystal lattice, outer electron orbitals overlap, splitting each discrete atomic level into \(N\) closely spaced levels that merge into continuous <strong>energy bands</strong>:</p>
+        <ul>
+          <li><strong>Valence Band (VB):</strong> The lower band containing valence electrons. Its highest energy level is denoted \(E_V\). At \(0\,\mathrm{K}\) in a pure semiconductor, this band is completely filled.</li>
+          <li><strong>Conduction Band (CB):</strong> The upper band above the valence band. Its lowest energy level is denoted \(E_C\). At \(0\,\mathrm{K}\) in a pure semiconductor, this band is completely empty.</li>
+          <li><strong>Forbidden Energy Gap (\(E_g\)):</strong> The energy separation \(E_g = E_C - E_V\) where no allowed electron states exist.</li>
+        </ul>
+        <p>For a Si or Ge crystal with \(N\) atoms, each atom has 4 valence electrons (two \(s\) and two \(p\)) out of 8 possible outer states (\(2s + 6p\)). Thus, \(8N\) total states split into a completely filled valence band of \(4N\) states and an empty conduction band of \(4N\) states at \(0\,\mathrm{K}\).</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 760 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Energy band diagrams for metal, semiconductor, and insulator">
+            <rect x="0" y="0" width="760" height="250" fill="#F8FAFC" rx="8" />
+            <!-- Energy Axis -->
+            <line x1="45" y1="220" x2="45" y2="30" stroke="#1E293B" stroke-width="2" />
+            <polygon points="45,22 40,34 50,34" fill="#1E293B" />
+            <text x="20" y="130" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" transform="rotate(-90 20 130)" text-anchor="middle">Electron Energy</text>
+
+            <!-- Metal -->
+            <text x="165" y="34" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Metal (Eg ≈ 0)</text>
+            <rect x="105" y="120" width="120" height="80" fill="#2563EB" opacity="0.85" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="105" y="70" width="120" height="75" fill="#0D9488" opacity="0.55" stroke="#1E293B" stroke-width="1.5" />
+            <text x="165" y="100" fill="#0F172A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Conduction Band</text>
+            <text x="165" y="135" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Overlap</text>
+            <text x="165" y="175" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Valence Band</text>
+
+            <!-- Semiconductor -->
+            <text x="415" y="34" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Semiconductor (Eg &lt; 3 eV)</text>
+            <rect x="355" y="55" width="120" height="48" fill="#0D9488" opacity="0.3" stroke="#1E293B" stroke-width="1.5" />
+            <text x="415" y="83" fill="#0F172A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Conduction Band</text>
+            <text x="485" y="103" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <line x1="415" y1="106" x2="415" y2="146" stroke="#DC2626" stroke-width="2" />
+            <polygon points="415,103 411,111 419,111" fill="#DC2626" />
+            <polygon points="415,149 411,141 419,141" fill="#DC2626" />
+            <text x="425" y="130" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Small Eg</text>
+            <rect x="355" y="150" width="120" height="55" fill="#2563EB" opacity="0.85" stroke="#1E293B" stroke-width="1.5" />
+            <text x="415" y="182" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Valence Band</text>
+            <text x="485" y="155" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+
+            <!-- Insulator -->
+            <text x="645" y="34" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Insulator (Eg &gt; 3 eV)</text>
+            <rect x="585" y="48" width="120" height="32" fill="#0D9488" opacity="0.2" stroke="#1E293B" stroke-width="1.5" />
+            <text x="645" y="68" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Empty CB</text>
+            <text x="715" y="80" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <line x1="645" y1="83" x2="645" y2="163" stroke="#DC2626" stroke-width="2" />
+            <polygon points="645,80 641,88 649,88" fill="#DC2626" />
+            <polygon points="645,166 641,158 649,158" fill="#DC2626" />
+            <text x="655" y="128" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Large Eg</text>
+            <rect x="585" y="167" width="120" height="45" fill="#2563EB" opacity="0.85" stroke="#1E293B" stroke-width="1.5" />
+            <text x="645" y="194" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Valence Band</text>
+            <text x="715" y="172" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 1: Energy band comparison across metals, semiconductors, and insulators.</div>
+        </div>
+
+        <p><strong>Group-14 Trend:</strong> Diamond (C), Silicon (Si), Germanium (Ge), and Tin (Sn) all have four valence electrons. However, their valence electrons lie in the \(n = 2, 3, 4,\) and \(5\) shells respectively. As atomic size increases, electrons are less tightly bound, so the band gap decreases sharply: \(E_g(\mathrm{C}) = 5.4\,\mathrm{eV}\) (insulator), \(E_g(\mathrm{Si}) = 1.1\,\mathrm{eV}\) (semiconductor), \(E_g(\mathrm{Ge}) = 0.7\,\mathrm{eV}\) (semiconductor), and \(E_g(\mathrm{Sn}) \approx 0\,\mathrm{eV}\) (metal).</p>
+      </div>
+
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h3>2.1 विद्युत चालकता के आधार पर वर्गीकरण</h3>
+        <p>प्रतिरोधकता \(\rho\) और चालकता \(\sigma = 1/\rho\) के आधार पर ठोसों को तीन मुख्य वर्गों में बाँटा जाता है:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>पदार्थ का वर्ग</th>
+              <th>प्रतिरोधकता \(\rho\) (\(\mathrm{Ω\cdot m}\))</th>
+              <th>चालकता \(\sigma\) (\(\mathrm{S\cdot m^{-1}}\))</th>
+              <th>उदाहरण</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>धातु (चालक)</td>
+              <td>\(10^{-2}\) से \(10^{-8}\)</td>
+              <td>\(10^{2}\) से \(10^{8}\)</td>
+              <td>Cu, Al, Ag, Sn</td>
+            </tr>
+            <tr>
+              <td>अर्धचालक</td>
+              <td>\(10^{-5}\) से \(10^{6}\)</td>
+              <td>\(10^{5}\) से \(10^{-6}\)</td>
+              <td>तात्विक: Si, Ge; यौगिक: GaAs, CdS, InP</td>
+            </tr>
+            <tr>
+              <td>विद्युतरोधी (कुचालक)</td>
+              <td>\(10^{11}\) से \(10^{19}\)</td>
+              <td>\(10^{-11}\) से \(10^{-19}\)</td>
+              <td>हीरा (C), काँच, क्वार्ट्ज़</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.2 ठोसों का ऊर्जा बैंड सिद्धांत</h3>
+        <p>एक विलगित परमाणु में इलेक्ट्रॉन विविक्त ऊर्जा स्तरों में रहते हैं। जब \(N\) परमाणु क्रिस्टल जालक में पास-पास आते हैं, तो बाहरी कक्षकों के अतिव्यापन से प्रत्येक ऊर्जा स्तर \(N\) सूक्ष्म स्तरों में विभाजित होकर सतत <strong>ऊर्जा बैंड</strong> बनाता है:</p>
+        <ul>
+          <li><strong>संयोजकता बैंड (VB):</strong> निचला बैंड जिसमें संयोजक इलेक्ट्रॉन होते हैं। इसका उच्चतम ऊर्जा स्तर \(E_V\) है। शुद्ध अर्धचालक में \(0\,\mathrm{K}\) पर यह पूर्णतः भरा होता है।</li>
+          <li><strong>चालन बैंड (CB):</strong> संयोजकता बैंड के ऊपर स्थित बैंड। इसका न्यूनतम ऊर्जा स्तर \(E_C\) है। \(0\,\mathrm{K}\) पर शुद्ध अर्धचालक में यह पूर्णतः रिक्त होता है।</li>
+          <li><strong>वर्जित ऊर्जा अंतराल (\(E_g\)):</strong> \(E_g = E_C - E_V\) वह ऊर्जा अंतराल है जिसमें कोई अनुमत इलेक्ट्रॉन अवस्था नहीं होती।</li>
+        </ul>
+        <p>\(N\) परमाणुओं वाले Si या Ge क्रिस्टल में प्रत्येक परमाणु के पास 8 उपलब्ध अवस्थाओं (\(2s + 6p\)) में से 4 संयोजक इलेक्ट्रॉन होते हैं। अतः कुल \(8N\) अवस्थाएँ \(0\,\mathrm{K}\) पर \(4N\) भरी हुई संयोजकता अवस्थाओं और \(4N\) रिक्त चालन अवस्थाओं में विभाजित हो जाती हैं।</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 760 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="धातु, अर्धचालक और विद्युतरोधी के ऊर्जा बैंड आरेख">
+            <rect x="0" y="0" width="760" height="250" fill="#F8FAFC" rx="8" />
+            <line x1="45" y1="220" x2="45" y2="30" stroke="#1E293B" stroke-width="2" />
+            <polygon points="45,22 40,34 50,34" fill="#1E293B" />
+            <text x="20" y="130" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" transform="rotate(-90 20 130)" text-anchor="middle">इलेक्ट्रॉन ऊर्जा</text>
+
+            <!-- धातु -->
+            <text x="165" y="34" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">धातु (Eg ≈ 0)</text>
+            <rect x="105" y="120" width="120" height="80" fill="#2563EB" opacity="0.85" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="105" y="70" width="120" height="75" fill="#0D9488" opacity="0.55" stroke="#1E293B" stroke-width="1.5" />
+            <text x="165" y="100" fill="#0F172A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">चालन बैंड</text>
+            <text x="165" y="135" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">अतिव्यापन</text>
+            <text x="165" y="175" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">संयोजकता बैंड</text>
+
+            <!-- अर्धचालक -->
+            <text x="415" y="34" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">अर्धचालक (Eg &lt; 3 eV)</text>
+            <rect x="355" y="55" width="120" height="48" fill="#0D9488" opacity="0.3" stroke="#1E293B" stroke-width="1.5" />
+            <text x="415" y="83" fill="#0F172A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">चालन बैंड</text>
+            <text x="485" y="103" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <line x1="415" y1="106" x2="415" y2="146" stroke="#DC2626" stroke-width="2" />
+            <polygon points="415,103 411,111 419,111" fill="#DC2626" />
+            <polygon points="415,149 411,141 419,141" fill="#DC2626" />
+            <text x="425" y="130" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">कम Eg</text>
+            <rect x="355" y="150" width="120" height="55" fill="#2563EB" opacity="0.85" stroke="#1E293B" stroke-width="1.5" />
+            <text x="415" y="182" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">संयोजकता बैंड</text>
+            <text x="485" y="155" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+
+            <!-- विद्युतरोधी -->
+            <text x="645" y="34" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">विद्युतरोधी (Eg &gt; 3 eV)</text>
+            <rect x="585" y="48" width="120" height="32" fill="#0D9488" opacity="0.2" stroke="#1E293B" stroke-width="1.5" />
+            <text x="645" y="68" fill="#0F172A" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">रिक्त चालन बैंड</text>
+            <text x="715" y="80" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <line x1="645" y1="83" x2="645" y2="163" stroke="#DC2626" stroke-width="2" />
+            <polygon points="645,80 641,88 649,88" fill="#DC2626" />
+            <polygon points="645,166 641,158 649,158" fill="#DC2626" />
+            <text x="655" y="128" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">अधिक Eg</text>
+            <rect x="585" y="167" width="120" height="45" fill="#2563EB" opacity="0.85" stroke="#1E293B" stroke-width="1.5" />
+            <text x="645" y="194" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">संयोजकता बैंड</text>
+            <text x="715" y="172" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+          </svg>
+          <div class="diagram-caption">ट्यूटोरियल आरेख 1: धातुओं, अर्धचालकों और विद्युतरोधियों में ऊर्जा बैंड की तुलना।</div>
+        </div>
+
+        <p><strong>समूह-14 की प्रवृत्ति:</strong> हीरा (C), सिलिकॉन (Si), जर्मेनियम (Ge) और टिन (Sn) सभी में चार संयोजक इलेक्ट्रॉन होते हैं, परंतु वे क्रमशः \(n = 2, 3, 4,\) और \(5\) कोशों में होते हैं। परमाणु आकार बढ़ने पर बाहरी इलेक्ट्रॉन कम दृढ़ता से बंधे होते हैं, जिससे बैंड अंतराल घटता जाता है: \(E_g(\mathrm{C}) = 5.4\,\mathrm{eV}\) (विद्युतरोधी), \(E_g(\mathrm{Si}) = 1.1\,\mathrm{eV}\) (अर्धचालक), \(E_g(\mathrm{Ge}) = 0.7\,\mathrm{eV}\) (अर्धचालक), तथा \(E_g(\mathrm{Sn}) \approx 0\,\mathrm{eV}\) (धातु)।</p>
+      </div>
+    </section>
+
+    <!-- 4. INTRINSIC AND EXTRINSIC SEMICONDUCTORS -->
+    <section id="semiconductors">
+      <h2>3. Intrinsic and Extrinsic Semiconductors / नैज एवं अपद्रव्यी अर्धचालक</h2>
+
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <h3>3.1 Intrinsic (Pure) Semiconductors</h3>
+        <p>Pure Si and Ge crystallize in a diamond-like tetrahedral lattice where every atom forms four covalent bonds with its four nearest neighbors. At \(T = 0\,\mathrm{K}\), all covalent bonds are intact and the material behaves as an insulator. At \(T > 0\,\mathrm{K}\), thermal energy breaks a small fraction of covalent bonds, promoting electrons to the conduction band and leaving behind electron vacancies called <strong>holes</strong> in the valence band.</p>
+        <p>A hole carries an effective charge \(+q\) (equal in magnitude to the electron charge). When a bound electron from a neighboring covalent bond hops into a vacancy, the hole effectively shifts in the opposite direction. Under an applied electric field, free electrons drift opposite to the field (producing electron current \(I_e\)) while holes appear to drift along the field (producing hole current \(I_h\)). Both currents add up in the same conventional direction:</p>
+        <div class="formula-box">
+          \[n_e = n_h = n_i \qquad \text{and} \qquad I = I_e + I_h\]
+        </div>
+        <p>Here \(n_i\) is the intrinsic carrier concentration. At thermal equilibrium, the rate of thermal generation of electron-hole pairs equals the rate of recombination.</p>
+
+        <h3>3.2 Extrinsic (Doped) Semiconductors</h3>
+        <p>Because \(n_i\) at room temperature is too small for practical devices, conductivity is enhanced by <strong>doping</strong>—adding a few parts per million (ppm) of a suitable impurity (dopant) whose atomic size closely matches that of Si or Ge so the crystal lattice is not distorted.</p>
+        <ul>
+          <li><strong>n-type Semiconductor (Donor Doping):</strong> Doped with pentavalent Group-15 atoms (P, As, Sb). Four valence electrons form covalent bonds; the fifth electron is weakly bound at a donor energy level \(E_D\) just below \(E_C\) (ionisation energy \(\approx 0.01\,\mathrm{eV}\) for Ge and \(\approx 0.05\,\mathrm{eV}\) for Si). At room temperature, nearly all donor atoms ionise, making electrons the majority carriers and holes the minority carriers (\(n_e \gg n_h\)).</li>
+          <li><strong>p-type Semiconductor (Acceptor Doping):</strong> Doped with trivalent Group-13 atoms (B, Al, In). The dopant forms three covalent bonds and leaves a vacancy (hole) in the fourth bond, creating an acceptor level \(E_A\) just above \(E_V\). Electrons from the valence band easily jump into \(E_A\), leaving mobile holes in the valence band and immobile negatively charged acceptor cores. Holes are majority carriers and electrons are minority carriers (\(n_h \gg n_e\)).</li>
+        </ul>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 720 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Energy levels in n-type and p-type semiconductors">
+            <rect x="0" y="0" width="720" height="220" fill="#F8FAFC" rx="8" />
+            <!-- n-type -->
+            <text x="180" y="28" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n-type Semiconductor (T &gt; 0 K)</text>
+            <rect x="70" y="45" width="220" height="42" fill="#0D9488" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="52" y="87" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <circle cx="110" cy="66" r="5" fill="#0F172A" />
+            <circle cx="145" cy="60" r="5" fill="#0F172A" />
+            <circle cx="180" cy="72" r="5" fill="#0F172A" />
+            <circle cx="215" cy="62" r="5" fill="#0F172A" />
+            <circle cx="250" cy="68" r="5" fill="#0F172A" />
+            <line x1="70" y1="102" x2="290" y2="102" stroke="#DC2626" stroke-width="2" stroke-dasharray="6,4" />
+            <text x="300" y="106" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Ed (Donor)</text>
+            <rect x="70" y="150" width="220" height="45" fill="#2563EB" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="52" y="155" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+            <circle cx="155" cy="162" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <text x="180" y="212" fill="#475569" font-family="sans-serif" font-size="11" text-anchor="middle">Majority: electrons (filled) | Minority: holes (open)</text>
+
+            <!-- p-type -->
+            <text x="540" y="28" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p-type Semiconductor (T &gt; 0 K)</text>
+            <rect x="430" y="45" width="220" height="42" fill="#0D9488" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="412" y="87" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <circle cx="535" cy="70" r="5" fill="#0F172A" />
+            <line x1="430" y1="135" x2="650" y2="135" stroke="#DC2626" stroke-width="2" stroke-dasharray="6,4" />
+            <text x="660" y="139" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Ea (Acceptor)</text>
+            <rect x="430" y="150" width="220" height="45" fill="#2563EB" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="412" y="155" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+            <circle cx="465" cy="165" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="505" cy="175" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="545" cy="163" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="585" cy="178" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="620" cy="166" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <text x="540" y="212" fill="#475569" font-family="sans-serif" font-size="11" text-anchor="middle">Majority: holes (open) | Minority: electrons (filled)</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 2: Impurity energy levels in n-type and p-type semiconductors.</div>
+        </div>
+
+        <div class="callout key-formula">
+          <strong>Mass-Action Law &amp; Charge Neutrality:</strong> In thermal equilibrium, for both intrinsic and extrinsic semiconductors:
+          \[n_e n_h = n_i^2\]
+          Increasing the majority carrier concentration suppresses the minority carrier concentration through enhanced recombination. Crucially, both n-type and p-type crystals remain <strong>electrically neutral</strong> overall because the charge of mobile carriers balances the charge of immobile ionised dopant cores.
+        </div>
+      </div>
+
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h3>3.1 नैज (शुद्ध) अर्धचालक</h3>
+        <p>शुद्ध Si और Ge हीरे जैसी चतुष्फलकीय जालक संरचना में क्रिस्टलीकृत होते हैं, जहाँ प्रत्येक परमाणु अपने चार निकटतम पड़ोसियों के साथ चार सहसंयोजक बंध बनाता है। \(T = 0\,\mathrm{K}\) पर सभी बंध पूर्ण रहते हैं और पदार्थ विद्युतरोधी की भाँति व्यवहार करता है। \(T > 0\,\mathrm{K}\) पर ऊष्मीय ऊर्जा से कुछ सहसंयोजक बंध टूटते हैं, जिससे इलेक्ट्रॉन चालन बैंड में पहुँचते हैं और संयोजकता बैंड में रिक्तियाँ बन जाती हैं जिन्हें <strong>होल (कोटर)</strong> कहते हैं।</p>
+        <p>होल पर प्रभावी धनात्मक आवेश \(+q\) होता है। जब पड़ोसी बंध का कोई इलेक्ट्रॉन इस रिक्ति में कूदता है, तो होल विपरीत दिशा में चलता प्रतीत होता है। बाह्य विद्युत क्षेत्र लगाने पर मुक्त इलेक्ट्रॉन क्षेत्र के विपरीत (धारा \(I_e\)) और होल क्षेत्र की दिशा में (धारा \(I_h\)) गति करते हैं। दोनों धाराएँ एक ही पारंपरिक दिशा में जुड़ती हैं:</p>
+        <div class="formula-box">
+          \[n_e = n_h = n_i \qquad \text{तथा} \qquad I = I_e + I_h\]
+        </div>
+        <p>यहाँ \(n_i\) नैज आवेश वाहक सांद्रता है। ऊष्मीय साम्य में इलेक्ट्रॉन-होल युग्म के जनन की दर उनके पुनर्संयोजन (recombination) की दर के बराबर होती है।</p>
+
+        <h3>3.2 अपद्रव्यी (मादित) अर्धचालक</h3>
+        <p>कमरे के ताप पर \(n_i\) अत्यंत कम होने के कारण चालकता बढ़ाने के लिए <strong>मादन (डोपिंग)</strong> किया जाता है—अर्थात् कुछ भाग प्रति मिलियन (ppm) की मात्रा में उपयुक्त अशुद्धि मिलाई जाती है जिसका परमाणु आकार Si या Ge के लगभग समान हो।</p>
+        <ul>
+          <li><strong>n-प्रकार अर्धचालक (दाता मादन):</strong> पंचसंयोजी समूह-15 तत्वों (P, As, Sb) से मादित। चार इलेक्ट्रॉन सहसंयोजक बंध बनाते हैं; पाँचवाँ इलेक्ट्रॉन \(E_C\) के ठीक नीचे दाता स्तर \(E_D\) पर दुर्बल रूप से बंधा होता है (आयनन ऊर्जा Ge में \(\approx 0.01\,\mathrm{eV}\) और Si में \(\approx 0.05\,\mathrm{eV}\))। कमरे के ताप पर इलेक्ट्रॉन बहुसंख्यक वाहक और होल अल्पसंख्यक वाहक होते हैं (\(n_e \gg n_h\))।</li>
+          <li><strong>p-प्रकार अर्धचालक (ग्राही मादन):</strong> त्रिसंयोजी समूह-13 तत्वों (B, Al, In) से मादित। यह तीन सहसंयोजक बंध बनाता है और चौथे बंध में एक होल छोड़ता है, जिससे \(E_V\) के ठीक ऊपर ग्राही स्तर \(E_A\) बनता है। होल बहुसंख्यक वाहक और इलेक्ट्रॉन अल्पसंख्यक वाहक होते हैं (\(n_h \gg n_e\))।</li>
+        </ul>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 720 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="n-प्रकार और p-प्रकार अर्धचालकों में ऊर्जा स्तर">
+            <rect x="0" y="0" width="720" height="220" fill="#F8FAFC" rx="8" />
+            <!-- n-प्रकार -->
+            <text x="180" y="28" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n-प्रकार अर्धचालक (T &gt; 0 K)</text>
+            <rect x="70" y="45" width="220" height="42" fill="#0D9488" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="52" y="87" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <circle cx="110" cy="66" r="5" fill="#0F172A" />
+            <circle cx="145" cy="60" r="5" fill="#0F172A" />
+            <circle cx="180" cy="72" r="5" fill="#0F172A" />
+            <circle cx="215" cy="62" r="5" fill="#0F172A" />
+            <circle cx="250" cy="68" r="5" fill="#0F172A" />
+            <line x1="70" y1="102" x2="290" y2="102" stroke="#DC2626" stroke-width="2" stroke-dasharray="6,4" />
+            <text x="300" y="106" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Ed (दाता)</text>
+            <rect x="70" y="150" width="220" height="45" fill="#2563EB" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="52" y="155" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+            <circle cx="155" cy="162" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <text x="180" y="212" fill="#475569" font-family="sans-serif" font-size="11" text-anchor="middle">बहुसंख्यक: इलेक्ट्रॉन (भरे) | अल्पसंख्यक: होल (रिक्त)</text>
+
+            <!-- p-प्रकार -->
+            <text x="540" y="28" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p-प्रकार अर्धचालक (T &gt; 0 K)</text>
+            <rect x="430" y="45" width="220" height="42" fill="#0D9488" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="412" y="87" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ec</text>
+            <circle cx="535" cy="70" r="5" fill="#0F172A" />
+            <line x1="430" y1="135" x2="650" y2="135" stroke="#DC2626" stroke-width="2" stroke-dasharray="6,4" />
+            <text x="660" y="139" fill="#DC2626" font-family="sans-serif" font-size="12" font-weight="bold">Ea (ग्राही)</text>
+            <rect x="430" y="150" width="220" height="45" fill="#2563EB" opacity="0.25" stroke="#1E293B" stroke-width="1.5" />
+            <text x="412" y="155" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">Ev</text>
+            <circle cx="465" cy="165" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="505" cy="175" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="545" cy="163" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="585" cy="178" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <circle cx="620" cy="166" r="5" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.5" />
+            <text x="540" y="212" fill="#475569" font-family="sans-serif" font-size="11" text-anchor="middle">बहुसंख्यक: होल (रिक्त) | अल्पसंख्यक: इलेक्ट्रॉन (भरे)</text>
+          </svg>
+          <div class="diagram-caption">ट्यूटोरियल आरेख 2: n-प्रकार और p-प्रकार अर्धचालकों में अशुद्धि ऊर्जा स्तर।</div>
+        </div>
+
+        <div class="callout key-formula">
+          <strong>द्रव्यमान-क्रिया नियम एवं आवेश उदासीनता:</strong> ऊष्मीय साम्य में नैज तथा अपद्रव्यी दोनों अर्धचालकों के लिए:
+          \[n_e n_h = n_i^2\]
+          बहुसंख्यक वाहकों की संख्या बढ़ने पर पुनर्संयोजन बढ़ता है जिससे अल्पसंख्यक वाहकों की संख्या घट जाती है। महत्वपूर्ण रूप से, n-प्रकार और p-प्रकार दोनों क्रिस्टल समग्र रूप से <strong>विद्युततः उदासीन</strong> रहते हैं।
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. P-N JUNCTION AND SEMICONDUCTOR DIODE -->
+    <section id="pn-junction">
+      <h2>4. p-n Junction Formation and Diode Biasing / p-n संधि निर्माण एवं डायोड अभिनति</h2>
+
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <h3>4.1 Junction Formation: Diffusion and Drift</h3>
+        <p>A p-n junction cannot be fabricated by merely pressing a p-type slab against an n-type slab, because surface roughness far exceeds interatomic crystal spacing (\(2\text{–}3\,\mathrm{Å}\)), creating a discontinuity. Instead, one side of a single crystal wafer is doped differently from the other to form a continuous metallurgical junction.</p>
+        <p>Two opposing transport processes establish equilibrium:</p>
+        <ol>
+          <li><strong>Diffusion:</strong> Due to the concentration gradient, holes diffuse from p to n and electrons diffuse from n to p. This leaves behind immobile negatively charged acceptor ions on the p-side and immobile positively charged donor ions on the n-side.</li>
+          <li><strong>Depletion Region &amp; Drift:</strong> This uncovered space-charge zone (thickness \(\sim 0.1\,\mathrm{µm}\)) lacks free carriers and creates an internal electric field directed from the n-side to the p-side. This field sweeps minority carriers back (electrons from p to n, holes from n to p), producing a <strong>drift current</strong> opposite to the diffusion current.</li>
+        </ol>
+        <p>At equilibrium, diffusion current equals drift current, net current is zero, and a <strong>barrier potential \(V_0\)</strong> is established (making the n-side positive relative to the p-side).</p>
+
+        <h3>4.2 Forward Bias vs. Reverse Bias</h3>
+        <p>A p-n junction with metallic end contacts forms a two-terminal <strong>semiconductor diode</strong>. Nearly all external applied voltage \(V\) drops across the high-resistance depletion region:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Forward Bias (p to +, n to −)</th>
+              <th>Reverse Bias (p to −, n to +)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Effective Barrier Height</td>
+              <td>Decreases to \(V_0 - V\)</td>
+              <td>Increases to \(V_0 + V\)</td>
+            </tr>
+            <tr>
+              <td>Depletion Layer Width \(W\)</td>
+              <td>Decreases (narrows)</td>
+              <td>Increases (widens)</td>
+            </tr>
+            <tr>
+              <td>Dominant Mechanism</td>
+              <td>Minority carrier injection &amp; diffusion</td>
+              <td>Minority carrier drift across junction</td>
+            </tr>
+            <tr>
+              <td>Current Magnitude</td>
+              <td>Large (\(\mathrm{mA}\)) once \(V > V_{\text{cut-in}}\)</td>
+              <td>Very small (\(\mathrm{µA}\)), nearly voltage-independent up to \(V_{br}\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 740 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="p-n junction under equilibrium, forward bias, and reverse bias">
+            <rect x="0" y="0" width="740" height="210" fill="#F8FAFC" rx="8" />
+            <!-- Equilibrium -->
+            <text x="125" y="26" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Equilibrium (V = 0)</text>
+            <rect x="30" y="42" width="75" height="65" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="105" y="42" width="40" height="65" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="145" y="42" width="75" height="65" fill="#99F6E4" stroke="#1E293B" stroke-width="1.5" />
+            <text x="67" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p</text>
+            <text x="182" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n</text>
+            <text x="115" y="65" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">−</text>
+            <text x="115" y="92" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">−</text>
+            <text x="135" y="65" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+</text>
+            <text x="135" y="92" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+</text>
+            <text x="125" y="124" fill="#475569" font-family="sans-serif" font-size="11" text-anchor="middle">W = W₀</text>
+            <polyline points="40,185 100,185 150,145 210,145" fill="none" stroke="#1E293B" stroke-width="2.5" />
+            <text x="125" y="200" fill="#1E293B" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Barrier: V₀</text>
+
+            <!-- Forward Bias -->
+            <text x="370" y="26" fill="#0F766E" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Forward Bias (p to +, n to −)</text>
+            <rect x="275" y="42" width="85" height="65" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="360" y="42" width="20" height="65" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="380" y="42" width="85" height="65" fill="#99F6E4" stroke="#1E293B" stroke-width="1.5" />
+            <text x="317" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p</text>
+            <text x="422" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n</text>
+            <text x="370" y="124" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">W &lt; W₀ (Narrow)</text>
+            <polyline points="285,185 345,185 395,165 455,165" fill="none" stroke="#0D9488" stroke-width="2.5" />
+            <text x="370" y="200" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Barrier: V₀ − V</text>
+
+            <!-- Reverse Bias -->
+            <text x="615" y="26" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Reverse Bias (p to −, n to +)</text>
+            <rect x="520" y="42" width="60" height="65" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="580" y="42" width="70" height="65" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="650" y="42" width="60" height="65" fill="#99F6E4" stroke="#1E293B" stroke-width="1.5" />
+            <text x="550" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p</text>
+            <text x="680" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n</text>
+            <text x="595" y="65" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">− −</text>
+            <text x="595" y="92" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">− −</text>
+            <text x="635" y="65" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+ +</text>
+            <text x="635" y="92" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+ +</text>
+            <text x="615" y="124" fill="#DC2626" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">W &gt; W₀ (Wide)</text>
+            <polyline points="530,185 590,185 640,132 700,132" fill="none" stroke="#DC2626" stroke-width="2.5" />
+            <text x="615" y="200" fill="#DC2626" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Barrier: V₀ + V</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 3: Depletion width and barrier potential under equilibrium, forward bias, and reverse bias.</div>
+        </div>
+
+        <p><strong>V-I Characteristics &amp; Dynamic Resistance:</strong> In forward bias, current remains negligible until the applied voltage exceeds the <strong>threshold (cut-in) voltage</strong> (\(\approx 0.2\,\mathrm{V}\) for Ge, \(\approx 0.7\,\mathrm{V}\) for Si), after which current rises exponentially. In reverse bias, a tiny <strong>reverse saturation current</strong> (\(\sim \mathrm{µA}\)) flows until the critical <strong>breakdown voltage \(V_{br}\)</strong> is reached, where current rises abruptly. Dynamic resistance is defined as:</p>
+        <div class="formula-box">
+          \[r_d = \frac{\Delta V}{\Delta I}\]
+        </div>
+      </div>
+
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h3>4.1 संधि निर्माण: विसरण और अपवाह</h3>
+        <p>p-प्रकार और n-प्रकार की दो अलग पट्टियों को भौतिक रूप से जोड़कर p-n संधि नहीं बनाई जा सकती, क्योंकि सतह का खुरदरापन अंतर-परमाण्विक दूरी (\(2\text{–}3\,\mathrm{Å}\)) से बहुत अधिक होता है। अतः एक ही क्रिस्टल वेफर के एक भाग को अलग अशुद्धि से मादित कर सतत संधि बनाई जाती है।</p>
+        <ol>
+          <li><strong>विसरण (Diffusion):</strong> सांद्रता प्रवणता के कारण होल p से n की ओर तथा इलेक्ट्रॉन n से p की ओर विसरित होते हैं। इससे p-भाग में ऋणावेशित अगतिशील ग्राही आयन और n-भाग में धनावेशित अगतिशील दाता आयन बच जाते हैं।</li>
+          <li><strong>अवक्षय परत और अपवाह (Drift):</strong> मुक्त आवेशों से रहित इस क्षेत्र (मोटाई \(\sim 0.1\,\mathrm{µm}\)) में n से p की ओर एक आंतरिक विद्युत क्षेत्र उत्पन्न होता है, जो अल्पसंख्यक वाहकों को वापस खींचता है। इससे विसरण धारा के विपरीत एक <strong>अपवाह धारा</strong> बहती है।</li>
+        </ol>
+        <p>साम्यावस्था में विसरण धारा अपवाह धारा के बराबर हो जाती है, कुल धारा शून्य होती है, और एक <strong>विभव प्राचीर \(V_0\)</strong> स्थापित हो जाती है।</p>
+
+        <h3>4.2 अग्र अभिनति बनाम पश्च अभिनति</h3>
+        <p>धात्विक संपर्कों से युक्त p-n संधि एक दो-टर्मिनल <strong>अर्धचालक डायोड</strong> कहलाती है। बाह्य वोल्टता \(V\) का लगभग पूरा भाग उच्च प्रतिरोध वाली अवक्षय परत पर ही व्यय होता है:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>गुणधर्म</th>
+              <th>अग्र अभिनति (p से +, n से −)</th>
+              <th>पश्च अभिनति (p से −, n से +)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>प्रभावी विभव प्राचीर</td>
+              <td>घटकर \(V_0 - V\) हो जाती है</td>
+              <td>बढ़कर \(V_0 + V\) हो जाती है</td>
+            </tr>
+            <tr>
+              <td>अवक्षय परत की चौड़ाई \(W\)</td>
+              <td>घटती है (सँकरी होती है)</td>
+              <td>बढ़ती है (चौड़ी होती है)</td>
+            </tr>
+            <tr>
+              <td>मुख्य प्रक्रिया</td>
+              <td>अल्पसंख्यक वाहक अंतःक्षेपण एवं विसरण</td>
+              <td>संधि के पार अल्पसंख्यक वाहक अपवाह</td>
+            </tr>
+            <tr>
+              <td>धारा का परिमाण</td>
+              <td>\(V > V_{\text{cut-in}}\) पर अधिक (\(\mathrm{mA}\))</td>
+              <td>अत्यल्प (\(\mathrm{µA}\)), \(V_{br}\) तक लगभग नियत</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 740 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="साम्यावस्था, अग्र अभिनति और पश्च अभिनति में p-n संधि">
+            <rect x="0" y="0" width="740" height="210" fill="#F8FAFC" rx="8" />
+            <!-- साम्यावस्था -->
+            <text x="125" y="26" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">साम्यावस्था (V = 0)</text>
+            <rect x="30" y="42" width="75" height="65" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="105" y="42" width="40" height="65" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="145" y="42" width="75" height="65" fill="#99F6E4" stroke="#1E293B" stroke-width="1.5" />
+            <text x="67" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p</text>
+            <text x="182" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n</text>
+            <text x="115" y="65" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">−</text>
+            <text x="115" y="92" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">−</text>
+            <text x="135" y="65" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+</text>
+            <text x="135" y="92" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+</text>
+            <text x="125" y="124" fill="#475569" font-family="sans-serif" font-size="11" text-anchor="middle">W = W₀</text>
+            <polyline points="40,185 100,185 150,145 210,145" fill="none" stroke="#1E293B" stroke-width="2.5" />
+            <text x="125" y="200" fill="#1E293B" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">प्राचीर: V₀</text>
+
+            <!-- अग्र अभिनति -->
+            <text x="370" y="26" fill="#0F766E" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">अग्र अभिनति (p से +, n से −)</text>
+            <rect x="275" y="42" width="85" height="65" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="360" y="42" width="20" height="65" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="380" y="42" width="85" height="65" fill="#99F6E4" stroke="#1E293B" stroke-width="1.5" />
+            <text x="317" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p</text>
+            <text x="422" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n</text>
+            <text x="370" y="124" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">W &lt; W₀ (सँकरी)</text>
+            <polyline points="285,185 345,185 395,165 455,165" fill="none" stroke="#0D9488" stroke-width="2.5" />
+            <text x="370" y="200" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">प्राचीर: V₀ − V</text>
+
+            <!-- पश्च अभिनति -->
+            <text x="615" y="26" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">पश्च अभिनति (p से −, n से +)</text>
+            <rect x="520" y="42" width="60" height="65" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="580" y="42" width="70" height="65" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.5" />
+            <rect x="650" y="42" width="60" height="65" fill="#99F6E4" stroke="#1E293B" stroke-width="1.5" />
+            <text x="550" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">p</text>
+            <text x="680" y="79" fill="#1E293B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">n</text>
+            <text x="595" y="65" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">− −</text>
+            <text x="595" y="92" fill="#DC2626" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">− −</text>
+            <text x="635" y="65" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+ +</text>
+            <text x="635" y="92" fill="#2563EB" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">+ +</text>
+            <text x="615" y="124" fill="#DC2626" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">W &gt; W₀ (चौड़ी)</text>
+            <polyline points="530,185 590,185 640,132 700,132" fill="none" stroke="#DC2626" stroke-width="2.5" />
+            <text x="615" y="200" fill="#DC2626" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">प्राचीर: V₀ + V</text>
+          </svg>
+          <div class="diagram-caption">ट्यूटोरियल आरेख 3: साम्यावस्था, अग्र अभिनति और पश्च अभिनति में अवक्षय परत तथा विभव प्राचीर।</div>
+        </div>
+
+        <p><strong>V-I अभिलक्षण एवं गतिक प्रतिरोध:</strong> अग्र अभिनति में <strong>देहली (कट-इन) वोल्टता</strong> (Ge के लिए \(\approx 0.2\,\mathrm{V}\), Si के लिए \(\approx 0.7\,\mathrm{V}\)) पार करने के बाद धारा तेजी से बढ़ती है। पश्च अभिनति में अल्प <strong>पश्च संतृप्त धारा</strong> (\(\sim \mathrm{µA}\)) बहती है, जो <strong>भंजन वोल्टता \(V_{br}\)</strong> पर अचानक बढ़ जाती है। गतिक प्रतिरोध का सूत्र है:</p>
+        <div class="formula-box">
+          \[r_d = \frac{\Delta V}{\Delta I}\]
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. RECTIFIERS AND CAPACITOR FILTERS -->
+    <section id="rectifiers">
+      <h2>5. Junction Diode as a Rectifier and Filter Circuits / दिष्टकारी एवं फिल्टर परिपथ के रूप में संधि डायोड</h2>
+
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <p>Because a diode conducts easily in forward bias and blocks current in reverse bias, it converts alternating voltage (AC) into unidirectional pulsating voltage—a process called <strong>rectification</strong>.</p>
+        <ul>
+          <li><strong>Half-Wave Rectifier (1 Diode):</strong> Conducts only during one half-cycle (when the diode is forward biased) and blocks the other half-cycle. If input AC frequency is \(f\), the output ripple frequency is also \(f\).</li>
+          <li><strong>Full-Wave Centre-Tap Rectifier (2 Diodes):</strong> Uses a centre-tapped transformer secondary so the two ends A and B are \(180^\circ\) out of phase. Diode \(D_1\) conducts during the positive half-cycle and \(D_2\) conducts during the negative half-cycle, both sending current in the same direction through the load \(R_L\). Output ripple frequency is \(2f\). (Alternatively, a four-diode bridge rectifier achieves full-wave rectification without a centre tap.)</li>
+          <li><strong>Capacitor Input Filter:</strong> A large capacitor \(C\) connected in parallel with \(R_L\) charges rapidly to the peak rectified voltage and discharges slowly through \(R_L\) during the interval between peaks. A large time constant \(\tau = R_L C\) keeps the output nearly steady DC close to the peak voltage.</li>
+        </ul>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 740 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Full-wave rectifier with capacitor filter and output waveform">
+            <rect x="0" y="0" width="740" height="200" fill="#F8FAFC" rx="8" />
+            <!-- Circuit schematic -->
+            <text x="180" y="24" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Full-Wave Rectifier + Capacitor Filter</text>
+            <rect x="35" y="48" width="90" height="110" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" rx="4" />
+            <text x="80" y="98" fill="#1E3A8A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Centre-Tap</text>
+            <text x="80" y="114" fill="#1E3A8A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Transformer</text>
+
+            <!-- Top branch D1 -->
+            <line x1="125" y1="62" x2="175" y2="62" stroke="#1E293B" stroke-width="2" />
+            <polygon points="175,52 175,72 195,62" fill="#2563EB" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="195" y1="52" x2="195" y2="72" stroke="#1E293B" stroke-width="2" />
+            <text x="185" y="45" fill="#1E293B" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">D₁</text>
+            <line x1="195" y1="62" x2="235" y2="62" stroke="#1E293B" stroke-width="2" />
+
+            <!-- Bottom branch D2 -->
+            <line x1="125" y1="144" x2="175" y2="144" stroke="#1E293B" stroke-width="2" />
+            <polygon points="175,134 175,154 195,144" fill="#2563EB" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="195" y1="134" x2="195" y2="154" stroke="#1E293B" stroke-width="2" />
+            <text x="185" y="170" fill="#1E293B" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">D₂</text>
+            <line x1="195" y1="144" x2="235" y2="144" stroke="#1E293B" stroke-width="2" />
+
+            <!-- Common node and Centre tap -->
+            <line x1="235" y1="62" x2="235" y2="144" stroke="#1E293B" stroke-width="2" />
+            <line x1="235" y1="103" x2="345" y2="103" stroke="#1E293B" stroke-width="2" />
+            <line x1="125" y1="103" x2="150" y2="103" stroke="#0D9488" stroke-width="2" />
+            <line x1="150" y1="103" x2="150" y2="182" stroke="#0D9488" stroke-width="2" />
+            <line x1="150" y1="182" x2="345" y2="182" stroke="#0D9488" stroke-width="2" />
+
+            <!-- Capacitor C -->
+            <line x1="275" y1="103" x2="275" y2="136" stroke="#1E293B" stroke-width="2" />
+            <line x1="263" y1="136" x2="287" y2="136" stroke="#1E293B" stroke-width="2.5" />
+            <line x1="263" y1="145" x2="287" y2="145" stroke="#1E293B" stroke-width="2.5" />
+            <line x1="275" y1="145" x2="275" y2="182" stroke="#1E293B" stroke-width="2" />
+            <text x="293" y="144" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">C</text>
+
+            <!-- Load RL -->
+            <line x1="330" y1="103" x2="330" y2="122" stroke="#1E293B" stroke-width="2" />
+            <rect x="323" y="122" width="14" height="38" fill="#FDE68A" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="330" y1="160" x2="330" y2="182" stroke="#1E293B" stroke-width="2" />
+            <text x="348" y="144" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">RL</text>
+
+            <!-- Waveform -->
+            <text x="555" y="24" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Filtered Output Waveform</text>
+            <line x1="400" y1="165" x2="710" y2="165" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="400" y1="165" x2="400" y2="45" stroke="#1E293B" stroke-width="1.5" />
+            <text x="715" y="169" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">t</text>
+            <text x="392" y="48" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">V</text>
+
+            <!-- Pulsating dashed -->
+            <path d="M 400,165 Q 438,55 476,165 Q 514,55 552,165 Q 590,55 628,165 Q 666,55 704,165" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4,4" />
+            <!-- Filtered solid -->
+            <path d="M 400,165 Q 422,82 438,82 L 502,96 Q 510,82 514,82 L 578,96 Q 586,82 590,82 L 654,96 Q 662,82 666,82 L 704,92" fill="none" stroke="#0D9488" stroke-width="2.5" />
+            <text x="555" y="188" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Solid: Filtered DC | Dashed: Unfiltered</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 4: Full-wave centre-tap rectifier with capacitor input filter and smoothed output.</div>
+        </div>
+      </div>
+
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <p>चूँकि डायोड अग्र अभिनति में आसानी से धारा प्रवाहित करता है और पश्च अभिनति में धारा रोकता है, यह प्रत्यावर्ती वोल्टता (AC) को एकदिश स्पंदमान वोल्टता में बदलता है—इस प्रक्रिया को <strong>दिष्टकरण (Rectification)</strong> कहते हैं।</p>
+        <ul>
+          <li><strong>अर्ध-तरंग दिष्टकारी (1 डायोड):</strong> केवल आधे चक्र (जब डायोड अग्र अभिनत हो) में धारा प्रवाहित करता है। यदि निवेश AC आवृत्ति \(f\) है, तो निर्गत आवृत्ति भी \(f\) होती है।</li>
+          <li><strong>पूर्ण-तरंग मध्य-निष्कासित दिष्टकारी (2 डायोड):</strong> इसमें मध्य-निष्कासित ट्रांसफॉर्मर के सिरे A और B पर \(180^\circ\) कलांतर की वोल्टता होती है। धनात्मक अर्ध-चक्र में \(D_1\) और ऋणात्मक अर्ध-चक्र में \(D_2\) चालन करता है, जिससे लोड \(R_L\) में दोनों बार एक ही दिशा में धारा बहती है। निर्गत आवृत्ति \(2f\) होती है।</li>
+          <li><strong>संधारित्र निवेश फिल्टर:</strong> \(R_L\) के समांतर जुड़ा बड़ा संधारित्र \(C\) शिखर वोल्टता तक तेजी से आवेशित होता है और शिखरों के बीच \(R_L\) के माध्यम से धीरे-धीरे अनावेशित होता है। बड़ा कालांक \(\tau = R_L C\) निर्गत वोल्टता को लगभग स्थिर DC बनाए रखता है।</li>
+        </ul>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 740 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="संधारित्र फिल्टर युक्त पूर्ण-तरंग दिष्टकारी और निर्गत तरंगरूप">
+            <rect x="0" y="0" width="740" height="200" fill="#F8FAFC" rx="8" />
+            <text x="180" y="24" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">पूर्ण-तरंग दिष्टकारी + संधारित्र फिल्टर</text>
+            <rect x="35" y="48" width="90" height="110" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" rx="4" />
+            <text x="80" y="98" fill="#1E3A8A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">मध्य-निष्कासित</text>
+            <text x="80" y="114" fill="#1E3A8A" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">ट्रांसफॉर्मर</text>
+
+            <line x1="125" y1="62" x2="175" y2="62" stroke="#1E293B" stroke-width="2" />
+            <polygon points="175,52 175,72 195,62" fill="#2563EB" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="195" y1="52" x2="195" y2="72" stroke="#1E293B" stroke-width="2" />
+            <text x="185" y="45" fill="#1E293B" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">D₁</text>
+            <line x1="195" y1="62" x2="235" y2="62" stroke="#1E293B" stroke-width="2" />
+
+            <line x1="125" y1="144" x2="175" y2="144" stroke="#1E293B" stroke-width="2" />
+            <polygon points="175,134 175,154 195,144" fill="#2563EB" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="195" y1="134" x2="195" y2="154" stroke="#1E293B" stroke-width="2" />
+            <text x="185" y="170" fill="#1E293B" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">D₂</text>
+            <line x1="195" y1="144" x2="235" y2="144" stroke="#1E293B" stroke-width="2" />
+
+            <line x1="235" y1="62" x2="235" y2="144" stroke="#1E293B" stroke-width="2" />
+            <line x1="235" y1="103" x2="345" y2="103" stroke="#1E293B" stroke-width="2" />
+            <line x1="125" y1="103" x2="150" y2="103" stroke="#0D9488" stroke-width="2" />
+            <line x1="150" y1="103" x2="150" y2="182" stroke="#0D9488" stroke-width="2" />
+            <line x1="150" y1="182" x2="345" y2="182" stroke="#0D9488" stroke-width="2" />
+
+            <line x1="275" y1="103" x2="275" y2="136" stroke="#1E293B" stroke-width="2" />
+            <line x1="263" y1="136" x2="287" y2="136" stroke="#1E293B" stroke-width="2.5" />
+            <line x1="263" y1="145" x2="287" y2="145" stroke="#1E293B" stroke-width="2.5" />
+            <line x1="275" y1="145" x2="275" y2="182" stroke="#1E293B" stroke-width="2" />
+            <text x="293" y="144" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">C</text>
+
+            <line x1="330" y1="103" x2="330" y2="122" stroke="#1E293B" stroke-width="2" />
+            <rect x="323" y="122" width="14" height="38" fill="#FDE68A" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="330" y1="160" x2="330" y2="182" stroke="#1E293B" stroke-width="2" />
+            <text x="348" y="144" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">RL</text>
+
+            <text x="555" y="24" fill="#1E293B" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">फिल्टर किया गया निर्गत तरंगरूप</text>
+            <line x1="400" y1="165" x2="710" y2="165" stroke="#1E293B" stroke-width="1.5" />
+            <line x1="400" y1="165" x2="400" y2="45" stroke="#1E293B" stroke-width="1.5" />
+            <text x="715" y="169" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">t</text>
+            <text x="392" y="48" fill="#1E293B" font-family="sans-serif" font-size="12" font-weight="bold">V</text>
+
+            <path d="M 400,165 Q 438,55 476,165 Q 514,55 552,165 Q 590,55 628,165 Q 666,55 704,165" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4,4" />
+            <path d="M 400,165 Q 422,82 438,82 L 502,96 Q 510,82 514,82 L 578,96 Q 586,82 590,82 L 654,96 Q 662,82 666,82 L 704,92" fill="none" stroke="#0D9488" stroke-width="2.5" />
+            <text x="555" y="188" fill="#0F766E" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">ठोस रेखा: फिल्टरित DC | बिन्दुकित: अनफिल्टरित</text>
+          </svg>
+          <div class="diagram-caption">ट्यूटोरियल आरेख 4: संधारित्र फिल्टर सहित पूर्ण-तरंग दिष्टकारी एवं समतल निर्गत तरंगरूप।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. WORKED EXAMPLES -->
+    <section id="worked-examples">
+      <h2>6. Worked Examples / मौलिक हल किए गए उदाहरण</h2>
+
+      <div class="example-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <h4>Worked Example 1 (Carrier Concentration)</h4>
+          <p><strong>Problem (Assumed Data):</strong> A hypothetical germanium sample has an intrinsic carrier concentration \(n_i = 2.4 \times 10^{19}\,\mathrm{m^{-3}}\) at room temperature. It is doped with indium (trivalent) to an acceptor concentration \(N_A = 4.0 \times 10^{22}\,\mathrm{m^{-3}}\). Assuming complete acceptor ionisation, find the electron concentration \(n_e\).</p>
+          <p><strong>Solution:</strong></p>
+          <p>Because \(N_A \gg n_i\), the hole concentration is essentially equal to the acceptor concentration:</p>
+          \[n_h \approx N_A = 4.0 \times 10^{22}\,\mathrm{m^{-3}}\]
+          <p>Applying the mass-action law \(n_e n_h = n_i^2\):</p>
+          \[n_e = \frac{n_i^2}{n_h} = \frac{(2.4 \times 10^{19})^2}{4.0 \times 10^{22}} = \frac{5.76 \times 10^{38}}{4.0 \times 10^{22}} = 1.44 \times 10^{16}\,\mathrm{m^{-3}}\]
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <h4>हल किया गया उदाहरण 1 (वाहक सांद्रता)</h4>
+          <p><strong>प्रश्न (कल्पित आँकड़े):</strong> कमरे के ताप पर एक काल्पनिक जर्मेनियम नमूने की नैज वाहक सांद्रता \(n_i = 2.4 \times 10^{19}\,\mathrm{m^{-3}}\) है। इसे इंडियम (त्रिसंयोजी) से ग्राही सांद्रता \(N_A = 4.0 \times 10^{22}\,\mathrm{m^{-3}}\) तक मादित किया जाता है। पूर्ण आयनन मानते हुए इलेक्ट्रॉन सांद्रता \(n_e\) ज्ञात कीजिए।</p>
+          <p><strong>हल:</strong></p>
+          <p>चूँकि \(N_A \gg n_i\), अतः होल सांद्रता लगभग ग्राही सांद्रता के बराबर होगी:</p>
+          \[n_h \approx N_A = 4.0 \times 10^{22}\,\mathrm{m^{-3}}\]
+          <p>द्रव्यमान-क्रिया नियम \(n_e n_h = n_i^2\) लगाने पर:</p>
+          \[n_e = \frac{n_i^2}{n_h} = \frac{(2.4 \times 10^{19})^2}{4.0 \times 10^{22}} = \frac{5.76 \times 10^{38}}{4.0 \times 10^{22}} = 1.44 \times 10^{16}\,\mathrm{m^{-3}}\]
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <h4>Worked Example 2 (Dynamic Resistance of a Diode)</h4>
+          <p><strong>Problem (Assumed Data):</strong> On the forward characteristic of a hypothetical semiconductor diode, the current increases from \(12\,\mathrm{mA}\) at \(0.72\,\mathrm{V}\) to \(28\,\mathrm{mA}\) at \(0.80\,\mathrm{V}\). Calculate the dynamic resistance in this region.</p>
+          <p><strong>Solution:</strong></p>
+          <p>Using \(\Delta V = 0.80\,\mathrm{V} - 0.72\,\mathrm{V} = 0.08\,\mathrm{V}\) and \(\Delta I = 28\,\mathrm{mA} - 12\,\mathrm{mA} = 16\,\mathrm{mA} = 16 \times 10^{-3}\,\mathrm{A}\):</p>
+          \[r_d = \frac{\Delta V}{\Delta I} = \frac{0.08}{16 \times 10^{-3}} = 5\,\mathrm{Ω}\]
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <h4>हल किया गया उदाहरण 2 (डायोड का गतिक प्रतिरोध)</h4>
+          <p><strong>प्रश्न (कल्पित आँकड़े):</strong> एक काल्पनिक अर्धचालक डायोड के अग्र अभिलक्षण पर, वोल्टता \(0.72\,\mathrm{V}\) से \(0.80\,\mathrm{V}\) बढ़ने पर धारा \(12\,\mathrm{mA}\) से बढ़कर \(28\,\mathrm{mA}\) हो जाती है। इस क्षेत्र में गतिक प्रतिरोध की गणना कीजिए।</p>
+          <p><strong>हल:</strong></p>
+          <p>यहाँ \(\Delta V = 0.80\,\mathrm{V} - 0.72\,\mathrm{V} = 0.08\,\mathrm{V}\) तथा \(\Delta I = 28\,\mathrm{mA} - 12\,\mathrm{mA} = 16\,\mathrm{mA} = 16 \times 10^{-3}\,\mathrm{A}\):</p>
+          \[r_d = \frac{\Delta V}{\Delta I} = \frac{0.08}{16 \times 10^{-3}} = 5\,\mathrm{Ω}\]
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. NEET UG PRACTICE QUESTIONS -->
+    <section id="practice-questions">
+      <h2>7. NEET UG Practice Questions / NEET UG अभ्यास प्रश्न</h2>
+      <p><em>Note: All questions below are original practice questions designed for NEET UG preparation.</em></p>
+
+      <!-- Question 1 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 1 (Single-Correct MCQ)</div>
+          <p>Four Group-14 elements—Carbon (diamond), Silicon, Germanium, and Tin—each have four valence electrons. Which ordering correctly represents their energy band gaps \(E_g\)?</p>
+          <ul class="options-list">
+            <li>(A) \(E_g(\mathrm{Sn}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Si}) > E_g(\mathrm{C})\)</li>
+            <li>(B) \(E_g(\mathrm{C}) > E_g(\mathrm{Si}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Sn})\)</li>
+            <li>(C) \(E_g(\mathrm{C}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Si}) > E_g(\mathrm{Sn})\)</li>
+            <li>(D) \(E_g(\mathrm{Si}) > E_g(\mathrm{C}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Sn})\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (B)<br />
+            <strong>Explanation:</strong> As we move down Group 14 from C to Sn, the valence electrons occupy higher principal shells (\(n = 2, 3, 4, 5\)) and are less tightly bound. Consequently, the band gap decreases monotonically: \(E_g(\mathrm{C}) = 5.4\,\mathrm{eV}\), \(E_g(\mathrm{Si}) = 1.1\,\mathrm{eV}\), \(E_g(\mathrm{Ge}) = 0.7\,\mathrm{eV}\), and \(E_g(\mathrm{Sn}) \approx 0\,\mathrm{eV}\).
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 1 (एकल-सही बहुविकल्पीय)</div>
+          <p>समूह-14 के चार तत्वों—कार्बन (हीरा), सिलिकॉन, जर्मेनियम और टिन—में से प्रत्येक में चार संयोजक इलेक्ट्रॉन होते हैं। उनके ऊर्जा बैंड अंतराल \(E_g\) का सही क्रम कौन-सा है?</p>
+          <ul class="options-list">
+            <li>(A) \(E_g(\mathrm{Sn}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Si}) > E_g(\mathrm{C})\)</li>
+            <li>(B) \(E_g(\mathrm{C}) > E_g(\mathrm{Si}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Sn})\)</li>
+            <li>(C) \(E_g(\mathrm{C}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Si}) > E_g(\mathrm{Sn})\)</li>
+            <li>(D) \(E_g(\mathrm{Si}) > E_g(\mathrm{C}) > E_g(\mathrm{Ge}) > E_g(\mathrm{Sn})\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (B)<br />
+            <strong>व्याख्या:</strong> समूह-14 में C से Sn की ओर जाने पर संयोजक इलेक्ट्रॉन क्रमशः उच्चतर कोशों (\(n = 2, 3, 4, 5\)) में होते हैं और कम दृढ़ता से बंधे होते हैं। अतः बैंड अंतराल घटता है: \(E_g(\mathrm{C}) = 5.4\,\mathrm{eV}\), \(E_g(\mathrm{Si}) = 1.1\,\mathrm{eV}\), \(E_g(\mathrm{Ge}) = 0.7\,\mathrm{eV}\), और \(E_g(\mathrm{Sn}) \approx 0\,\mathrm{eV}\)।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 2 (Numerical MCQ)</div>
+          <p>A pure silicon wafer has \(n_i = 1.5 \times 10^{16}\,\mathrm{m^{-3}}\). It is doped with pentavalent phosphorus to give a donor concentration \(N_D = 3.0 \times 10^{21}\,\mathrm{m^{-3}}\). What is the approximate minority hole concentration \(n_h\) at thermal equilibrium?</p>
+          <ul class="options-list">
+            <li>(A) \(7.5 \times 10^{10}\,\mathrm{m^{-3}}\)</li>
+            <li>(B) \(2.0 \times 10^{11}\,\mathrm{m^{-3}}\)</li>
+            <li>(C) \(1.5 \times 10^{16}\,\mathrm{m^{-3}}\)</li>
+            <li>(D) \(3.0 \times 10^{21}\,\mathrm{m^{-3}}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (A)<br />
+            <strong>Explanation:</strong> Since \(N_D \gg n_i\), \(n_e \approx N_D = 3.0 \times 10^{21}\,\mathrm{m^{-3}}\). By \(n_e n_h = n_i^2\):
+            \[n_h = \frac{(1.5 \times 10^{16})^2}{3.0 \times 10^{21}} = \frac{2.25 \times 10^{32}}{3.0 \times 10^{21}} = 7.5 \times 10^{10}\,\mathrm{m^{-3}}\]
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 2 (आंकिक बहुविकल्पीय)</div>
+          <p>एक शुद्ध सिलिकॉन वेफर की नैज सांद्रता \(n_i = 1.5 \times 10^{16}\,\mathrm{m^{-3}}\) है। इसे पंचसंयोजी फॉस्फोरस से दाता सांद्रता \(N_D = 3.0 \times 10^{21}\,\mathrm{m^{-3}}\) तक मादित किया जाता है। ऊष्मीय साम्य पर अल्पसंख्यक होल सांद्रता \(n_h\) लगभग कितनी होगी?</p>
+          <ul class="options-list">
+            <li>(A) \(7.5 \times 10^{10}\,\mathrm{m^{-3}}\)</li>
+            <li>(B) \(2.0 \times 10^{11}\,\mathrm{m^{-3}}\)</li>
+            <li>(C) \(1.5 \times 10^{16}\,\mathrm{m^{-3}}\)</li>
+            <li>(D) \(3.0 \times 10^{21}\,\mathrm{m^{-3}}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (A)<br />
+            <strong>व्याख्या:</strong> चूँकि \(N_D \gg n_i\), इसलिए \(n_e \approx N_D = 3.0 \times 10^{21}\,\mathrm{m^{-3}}\)। सूत्र \(n_e n_h = n_i^2\) से:
+            \[n_h = \frac{(1.5 \times 10^{16})^2}{3.0 \times 10^{21}} = \frac{2.25 \times 10^{32}}{3.0 \times 10^{21}} = 7.5 \times 10^{10}\,\mathrm{m^{-3}}\]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 3 (Statement-Based MCQ)</div>
+          <p>Consider the following two statements regarding a p-type semiconductor:<br />
+          <strong>Statement I:</strong> A p-type semiconductor crystal carries a net positive electric charge because holes are its majority carriers.<br />
+          <strong>Statement II:</strong> The acceptor energy level \(E_A\) lies slightly above the top of the valence band \(E_V\).</p>
+          <ul class="options-list">
+            <li>(A) Both Statement I and Statement II are true.</li>
+            <li>(B) Both Statement I and Statement II are false.</li>
+            <li>(C) Statement I is true, but Statement II is false.</li>
+            <li>(D) Statement I is false, but Statement II is true.</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (D)<br />
+            <strong>Explanation:</strong> Statement I is false because every p-type semiconductor is electrically neutral overall—the positive charge of mobile holes is balanced by the negative charge of immobile ionised acceptor cores. Statement II is true because trivalent acceptors introduce an energy level \(E_A\) just above \(E_V\).
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 3 (कथन-आधारित बहुविकल्पीय)</div>
+          <p>p-प्रकार के अर्धचालक के संदर्भ में निम्नलिखित दो कथनों पर विचार कीजिए:<br />
+          <strong>कथन I:</strong> p-प्रकार के अर्धचालक क्रिस्टल पर शुद्ध धनात्मक आवेश होता है क्योंकि इसमें होल बहुसंख्यक वाहक होते हैं।<br />
+          <strong>कथन II:</strong> ग्राही ऊर्जा स्तर \(E_A\), संयोजकता बैंड के शीर्ष \(E_V\) के थोड़ा ऊपर स्थित होता है।</p>
+          <ul class="options-list">
+            <li>(A) कथन I और कथन II दोनों सत्य हैं।</li>
+            <li>(B) कथन I और कथन II दोनों असत्य हैं।</li>
+            <li>(C) कथन I सत्य है, परंतु कथन II असत्य है।</li>
+            <li>(D) कथन I असत्य है, परंतु कथन II सत्य है।</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (D)<br />
+            <strong>व्याख्या:</strong> कथन I असत्य है क्योंकि p-प्रकार का अर्धचालक समग्र रूप से विद्युततः उदासीन होता है—गतिशील होलों का धनात्मक आवेश अगतिशील ऋणावेशित ग्राही आयनों द्वारा संतुलित रहता है। कथन II सत्य है क्योंकि त्रिसंयोजी अशुद्धि \(E_V\) के ठीक ऊपर \(E_A\) स्तर बनाती है।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 4 (Assertion–Reason MCQ)</div>
+          <p><strong>Assertion (A):</strong> In an unbiased p-n junction at equilibrium, holes diffuse from the p-region to the n-region.<br />
+          <strong>Reason (R):</strong> The concentration of holes in the p-region is much higher than in the n-region.</p>
+          <ul class="options-list">
+            <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+            <li>(B) Both A and R are true, but R is not the correct explanation of A.</li>
+            <li>(C) A is true, but R is false.</li>
+            <li>(D) A is false, but R is true.</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (A)<br />
+            <strong>Explanation:</strong> Diffusion is driven by a concentration gradient. Because hole concentration is far higher on the p-side than on the n-side, holes diffuse from p to n (until balanced by the drift current due to the built-in electric field).
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 4 (अभिकथन–कारण बहुविकल्पीय)</div>
+          <p><strong>अभिकथन (A):</strong> साम्यावस्था में बिना बायस वाली p-n संधि में होल p-क्षेत्र से n-क्षेत्र की ओर विसरित होते हैं।<br />
+          <strong>कारण (R):</strong> p-क्षेत्र में होलों की सांद्रता n-क्षेत्र की तुलना में बहुत अधिक होती है।</p>
+          <ul class="options-list">
+            <li>(A) A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है।</li>
+            <li>(B) A और R दोनों सत्य हैं, परंतु R, A की सही व्याख्या नहीं है।</li>
+            <li>(C) A सत्य है, परंतु R असत्य है।</li>
+            <li>(D) A असत्य है, परंतु R सत्य है।</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (A)<br />
+            <strong>व्याख्या:</strong> विसरण सांद्रता प्रवणता के कारण होता है। p-भाग में होलों की सांद्रता n-भाग से बहुत अधिक होने के कारण होल p से n की ओर विसरित होते हैं।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 5 (Single-Correct MCQ)</div>
+          <p>When a p-n junction diode is connected in reverse bias, which of the following occurs?</p>
+          <ul class="options-list">
+            <li>(A) The potential barrier height decreases and the depletion layer narrows.</li>
+            <li>(B) The potential barrier height increases and the depletion layer widens.</li>
+            <li>(C) Minority carrier injection increases sharply, producing a current in \(\mathrm{mA}\).</li>
+            <li>(D) The diffusion current becomes much larger than the drift current.</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (B)<br />
+            <strong>Explanation:</strong> In reverse bias (p to negative, n to positive), the external voltage aids the built-in barrier potential, raising the effective barrier to \(V_0 + V\) and widening the depletion region. Diffusion is suppressed and only a tiny \(\mathrm{µA}\) drift current flows.
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 5 (एकल-सही बहुविकल्पीय)</div>
+          <p>जब किसी p-n संधि डायोड को पश्च अभिनति में जोड़ा जाता है, तो निम्नलिखित में से क्या होता है?</p>
+          <ul class="options-list">
+            <li>(A) विभव प्राचीर की ऊँचाई घटती है और अवक्षय परत सँकरी हो जाती है।</li>
+            <li>(B) विभव प्राचीर की ऊँचाई बढ़ती है और अवक्षय परत चौड़ी हो जाती है।</li>
+            <li>(C) अल्पसंख्यक वाहक अंतःक्षेपण तेजी से बढ़ता है और \(\mathrm{mA}\) में धारा बहती है।</li>
+            <li>(D) विसरण धारा, अपवाह धारा से बहुत अधिक हो जाती है।</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (B)<br />
+            <strong>व्याख्या:</strong> पश्च अभिनति में बाह्य वोल्टता आंतरिक विभव प्राचीर का समर्थन करती है, जिससे प्रभावी प्राचीर बढ़कर \(V_0 + V\) हो जाती है और अवक्षय परत चौड़ी हो जाती है।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 6 (Numerical MCQ)</div>
+          <p>In the linear forward-bias region of a silicon diode, the current changes by \(25\,\mathrm{mA}\) when the applied voltage changes from \(0.70\,\mathrm{V}\) to \(0.85\,\mathrm{V}\). What is the dynamic resistance of the diode?</p>
+          <ul class="options-list">
+            <li>(A) \(6\,\mathrm{Ω}\)</li>
+            <li>(B) \(15\,\mathrm{Ω}\)</li>
+            <li>(C) \(0.6\,\mathrm{Ω}\)</li>
+            <li>(D) \(60\,\mathrm{Ω}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (A)<br />
+            <strong>Explanation:</strong>
+            \[r_d = \frac{\Delta V}{\Delta I} = \frac{0.85 - 0.70}{25 \times 10^{-3}} = \frac{0.15}{0.025} = 6\,\mathrm{Ω}\]
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 6 (आंकिक बहुविकल्पीय)</div>
+          <p>एक सिलिकॉन डायोड के रेखीय अग्र-अभिनति क्षेत्र में वोल्टता \(0.70\,\mathrm{V}\) से \(0.85\,\mathrm{V}\) बदलने पर धारा में \(25\,\mathrm{mA}\) का परिवर्तन होता है। डायोड का गतिक प्रतिरोध कितना है?</p>
+          <ul class="options-list">
+            <li>(A) \(6\,\mathrm{Ω}\)</li>
+            <li>(B) \(15\,\mathrm{Ω}\)</li>
+            <li>(C) \(0.6\,\mathrm{Ω}\)</li>
+            <li>(D) \(60\,\mathrm{Ω}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (A)<br />
+            <strong>व्याख्या:</strong>
+            \[r_d = \frac{\Delta V}{\Delta I} = \frac{0.85 - 0.70}{25 \times 10^{-3}} = \frac{0.15}{0.025} = 6\,\mathrm{Ω}\]
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 7 (Numerical MCQ)</div>
+          <p>An AC mains supply of frequency \(60\,\mathrm{Hz}\) is fed to (i) a half-wave rectifier and (ii) a full-wave centre-tap rectifier. The fundamental output ripple frequencies are respectively:</p>
+          <ul class="options-list">
+            <li>(A) \(30\,\mathrm{Hz}\) and \(60\,\mathrm{Hz}\)</li>
+            <li>(B) \(60\,\mathrm{Hz}\) and \(60\,\mathrm{Hz}\)</li>
+            <li>(C) \(60\,\mathrm{Hz}\) and \(120\,\mathrm{Hz}\)</li>
+            <li>(D) \(120\,\mathrm{Hz}\) and \(120\,\mathrm{Hz}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (C)<br />
+            <strong>Explanation:</strong> A half-wave rectifier produces one output pulse per input cycle, so \(f_{\text{out}} = f_{\text{in}} = 60\,\mathrm{Hz}\). A full-wave rectifier produces two output pulses per input cycle (one from each diode), so \(f_{\text{out}} = 2 f_{\text{in}} = 120\,\mathrm{Hz}\).
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 7 (आंकिक बहुविकल्पीय)</div>
+          <p>\(60\,\mathrm{Hz}\) आवृत्ति की एक AC आपूर्ति को (i) एक अर्ध-तरंग दिष्टकारी तथा (ii) एक पूर्ण-तरंग मध्य-निष्कासित दिष्टकारी में दिया जाता है। दोनों के निर्गत की मूल आवृत्तियाँ क्रमशः होंगी:</p>
+          <ul class="options-list">
+            <li>(A) \(30\,\mathrm{Hz}\) और \(60\,\mathrm{Hz}\)</li>
+            <li>(B) \(60\,\mathrm{Hz}\) और \(60\,\mathrm{Hz}\)</li>
+            <li>(C) \(60\,\mathrm{Hz}\) और \(120\,\mathrm{Hz}\)</li>
+            <li>(D) \(120\,\mathrm{Hz}\) और \(120\,\mathrm{Hz}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (C)<br />
+            <strong>व्याख्या:</strong> अर्ध-तरंग दिष्टकारी प्रत्येक निवेश चक्र में एक स्पंद देता है, अतः \(f_{\text{out}} = 60\,\mathrm{Hz}\)। पूर्ण-तरंग दिष्टकारी प्रत्येक निवेश चक्र में दो स्पंद देता है, अतः \(f_{\text{out}} = 2 \times 60 = 120\,\mathrm{Hz}\)।
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question-card">
+        <div class="lang-block lang-en">
+          <span class="lang-tag">English</span>
+          <div class="q-header">Practice Question 8 (Assertion–Reason MCQ)</div>
+          <p><strong>Assertion (A):</strong> Capacitor-input filters used in DC power supplies employ capacitors with large capacitance values.<br />
+          <strong>Reason (R):</strong> A larger capacitance \(C\) increases the time constant \(R_L C\), causing the capacitor to discharge more slowly through the load \(R_L\) and keeping the output closer to the peak rectified voltage.</p>
+          <ul class="options-list">
+            <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+            <li>(B) Both A and R are true, but R is not the correct explanation of A.</li>
+            <li>(C) A is true, but R is false.</li>
+            <li>(D) A is false, but R is true.</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer:</strong> (A)<br />
+            <strong>Explanation:</strong> The rate of voltage fall across the load is inversely proportional to the time constant \(\tau = R_L C\). A large capacitance \(C\) makes \(\tau\) large, minimizing ripple and holding the output voltage near the peak value.
+          </div>
+        </div>
+        <hr class="bilingual-sep" />
+        <div class="lang-block lang-hi" lang="hi">
+          <span class="lang-tag">हिन्दी</span>
+          <div class="q-header">अभ्यास प्रश्न 8 (अभिकथन–कारण बहुविकल्पीय)</div>
+          <p><strong>अभिकथन (A):</strong> DC शक्ति प्रदायों में प्रयुक्त संधारित्र-निवेश फिल्टरों में उच्च धारिता वाले संधारित्रों का उपयोग किया जाता है।<br />
+          <strong>कारण (R):</strong> अधिक धारिता \(C\) से कालांक \(R_L C\) बढ़ जाता है, जिससे संधारित्र लोड \(R_L\) से धीरे अनावेशित होता है और निर्गत वोल्टता शिखर मान के निकट बनी रहती है।</p>
+          <ul class="options-list">
+            <li>(A) A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है।</li>
+            <li>(B) A और R दोनों सत्य हैं, परंतु R, A की सही व्याख्या नहीं है।</li>
+            <li>(C) A सत्य है, परंतु R असत्य है।</li>
+            <li>(D) A असत्य है, परंतु R सत्य है।</li>
+          </ul>
+          <div class="solution-box">
+            <strong>उत्तर:</strong> (A)<br />
+            <strong>व्याख्या:</strong> लोड के सिरों पर वोल्टता गिरने की दर कालांक \(\tau = R_L C\) के व्युत्क्रमानुपाती होती है। अधिक \(C\) होने से \(\tau\) बड़ा होता है, जिससे ऊर्मिका (ripple) कम होती है।
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. COMMON PITFALLS & REVISION CHECKLIST -->
+    <section id="pitfalls-recap">
+      <h2>8. Common Pitfalls, Revision Checklist, and Final Recap / सामान्य त्रुटियाँ, पुनरावृत्ति सूची एवं संक्षिप्त सारांश</h2>
+
+      <div class="lang-block lang-en">
+        <span class="lang-tag">English</span>
+        <div class="callout pitfall">
+          <h4>Common NEET UG Pitfalls to Avoid</h4>
+          <ul>
+            <li><strong>Charge of Extrinsic Semiconductors:</strong> Never assume an n-type crystal is negatively charged or a p-type crystal is positively charged. Both are strictly neutral overall.</li>
+            <li><strong>Diffusion vs. Drift:</strong> Diffusion is driven by concentration gradients (majority carriers), whereas drift is driven by the internal electric field (minority carriers).</li>
+            <li><strong>Rectifier Output Frequency:</strong> Half-wave output frequency equals input frequency \(f\); full-wave output frequency equals \(2f\).</li>
+          </ul>
+        </div>
+        <h4>Concise Final Recap</h4>
+        <ul>
+          <li>Metals: \(E_g \approx 0\); Semiconductors: \(E_g < 3\,\mathrm{eV}\) (\(1.1\,\mathrm{eV}\) for Si, \(0.7\,\mathrm{eV}\) for Ge); Insulators: \(E_g > 3\,\mathrm{eV}\).</li>
+          <li>Intrinsic: \(n_e = n_h = n_i\); Extrinsic: \(n_e n_h = n_i^2\) always holds at thermal equilibrium.</li>
+          <li>Forward bias reduces barrier (\(V_0 - V\)) and narrows depletion width, giving \(\mathrm{mA}\) current; reverse bias raises barrier (\(V_0 + V\)) and widens depletion width, giving \(\mathrm{µA}\) saturation current up to \(V_{br}\).</li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <div class="callout pitfall">
+          <h4>NEET UG में बचने योग्य सामान्य त्रुटियाँ</h4>
+          <ul>
+            <li><strong>अपद्रव्यी अर्धचालक का आवेश:</strong> कभी न मानें कि n-प्रकार क्रिस्टल ऋणावेशित या p-प्रकार क्रिस्टल धनावेशित होता है। दोनों समग्र रूप से पूर्णतः उदासीन होते हैं।</li>
+            <li><strong>विसरण बनाम अपवाह:</strong> विसरण सांद्रता प्रवणता के कारण (बहुसंख्यक वाहक) होता है, जबकि अपवाह आंतरिक विद्युत क्षेत्र के कारण (अल्पसंख्यक वाहक) होता है।</li>
+            <li><strong>दिष्टकारी निर्गत आवृत्ति:</strong> अर्ध-तरंग की निर्गत आवृत्ति \(f\) होती है, जबकि पूर्ण-तरंग की निर्गत आवृत्ति \(2f\) होती है।</li>
+          </ul>
+        </div>
+        <h4>संक्षिप्त अंतिम सारांश</h4>
+        <ul>
+          <li>धातु: \(E_g \approx 0\); अर्धचालक: \(E_g < 3\,\mathrm{eV}\) (Si के लिए \(1.1\,\mathrm{eV}\), Ge के लिए \(0.7\,\mathrm{eV}\)); विद्युतरोधी: \(E_g > 3\,\mathrm{eV}\)।</li>
+          <li>नैज: \(n_e = n_h = n_i\); अपद्रव्यी: ऊष्मीय साम्य में सदैव \(n_e n_h = n_i^2\) लागू होता है।</li>
+          <li>अग्र अभिनति में विभव प्राचीर (\(V_0 - V\)) और अवक्षय चौड़ाई घटती है (\(\mathrm{mA}\) धारा); पश्च अभिनति में विभव प्राचीर (\(V_0 + V\)) और अवक्षय चौड़ाई बढ़ती है (\(V_{br}\) तक \(\mathrm{µA}\) संतृप्त धारा)।</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

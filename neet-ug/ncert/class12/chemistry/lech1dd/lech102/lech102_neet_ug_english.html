@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrochemistry — NEET UG Tutorial &amp; Practice</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'svg']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --primary-soft: #EFF6FF;
+      --teal: #0D9488;
+      --teal-soft: #F0FDFA;
+      --amber: #B45309;
+      --amber-soft: #FFFBEB;
+      --border: #CBD5E1;
+      --surface: #F8FAFC;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--white);
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge.teal {
+      background-color: var(--teal-soft);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      margin: 6px 0 8px;
+      font-size: 1.95rem;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+      font-size: 1.4rem;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.12rem;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .card.teal {
+      border-left-color: var(--teal);
+      background-color: var(--teal-soft);
+    }
+
+    .card.amber {
+      border-left-color: var(--amber);
+      background-color: var(--amber-soft);
+    }
+
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .diagram-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .diagram-box svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--primary-soft);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: var(--surface);
+    }
+
+    .example-box {
+      border: 1px solid #99F6E4;
+      background-color: var(--white);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .example-header {
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+
+    .question-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      background-color: var(--white);
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 8px 0 0;
+    }
+
+    .options-list li {
+      margin-bottom: 5px;
+      padding-left: 6px;
+    }
+
+    .solution-block {
+      background-color: var(--surface);
+      border-left: 3px solid var(--teal);
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .ans-tag {
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+
+    @media print {
+      body {
+        font-size: 11pt;
+        line-height: 1.5;
+        color: #000000;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      h2 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .card, .formula-box, .diagram-box, .example-box, .question-card, tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <main class="container">
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">NEET UG Chemistry</span>
+        <span class="badge teal">Physical Chemistry</span>
+      </div>
+      <h1>Electrochemistry: Concepts, Formulas &amp; NEET UG Practice</h1>
+      <p class="subtitle">A self-contained exam-oriented tutorial covering galvanic and electrolytic cells, Nernst equation, electrolytic conductance, Kohlrausch law, Faraday's laws, batteries, fuel cells, and corrosion.</p>
+    </header>
+
+    <section id="objectives">
+      <h2>1. Learning Objectives &amp; Exam Roadmap</h2>
+      <p>Electrochemistry links chemical reactions with electrical energy. Either a spontaneous redox reaction generates electricity (as in galvanic cells and batteries), or an external electrical source drives a non-spontaneous chemical change (as in electrolysis). For NEET UG, questions frequently test sign conventions, Nernst equation calculations, conductance trends on dilution, Kohlrausch law, Faraday's laws, and commercial cell reactions.</p>
+      <div class="card">
+        <div class="card-title">After completing this tutorial, you will be able to:</div>
+        <ul>
+          <li>Distinguish between galvanic and electrolytic cells, including how an opposing external voltage reverses cell operation.</li>
+          <li>Use standard reduction potentials (\(E^\circ\)) and the Standard Hydrogen Electrode (SHE) to predict spontaneity, oxidizing/reducing strength, and cell emf.</li>
+          <li>Apply the Nernst equation to find non-standard cell potentials, equilibrium constants (\(K_c\)), and Gibbs free energy changes (\(\Delta_r G^\circ\)).</li>
+          <li>Calculate resistivity (\(\rho\)), conductivity (\(\kappa\)), cell constant (\(G^*\)), and molar conductivity (\(\Lambda_m\)), and explain their variation with dilution.</li>
+          <li>Apply Kohlrausch law to find limiting molar conductivity (\(\Lambda_m^\circ\)), degree of dissociation (\(\alpha\)), and dissociation constants (\(K_a, K_b\)) of weak electrolytes.</li>
+          <li>Predict electrolysis products and solve quantitative problems using Faraday's laws.</li>
+          <li>Identify electrode reactions and applications of primary cells, secondary batteries, fuel cells, and electrochemical corrosion.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="electrochemical-cells">
+      <h2>2. Electrochemical Cells: Galvanic vs. Electrolytic</h2>
+      <p>An electrochemical cell consists of two electronic conductors (electrodes) dipping into ionic conductors (electrolytes). Depending on whether the net redox reaction is spontaneous or driven by an external power supply, cells fall into two classes:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Galvanic (Voltaic) Cell</th>
+            <th>Electrolytic Cell</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Energy conversion</td>
+            <td>Chemical energy &rarr; Electrical energy</td>
+            <td>Electrical energy &rarr; Chemical energy</td>
+          </tr>
+          <tr>
+            <td>Reaction spontaneity</td>
+            <td>Spontaneous (\(\Delta_r G &lt; 0\), \(E_{\mathrm{cell}} &gt; 0\))</td>
+            <td>Non-spontaneous (\(\Delta_r G &gt; 0\), driven by \(E_{\mathrm{ext}}\))</td>
+          </tr>
+          <tr>
+            <td>Anode (oxidation)</td>
+            <td>Negative (&minus;) electrode</td>
+            <td>Positive (+) electrode</td>
+          </tr>
+          <tr>
+            <td>Cathode (reduction)</td>
+            <td>Positive (+) electrode</td>
+            <td>Negative (&minus;) electrode</td>
+          </tr>
+          <tr>
+            <td>Salt bridge</td>
+            <td>Required when half-cells use separate electrolytes</td>
+            <td>Usually absent (electrodes share one electrolyte)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Anatomy and Functioning of a Daniell Cell</h3>
+      <p>In a Daniell cell, a zinc rod dips into \(\mathrm{ZnSO_4(aq)}\) and a copper rod dips into \(\mathrm{CuSO_4(aq)}\). Oxidation occurs at the zinc anode while reduction occurs at the copper cathode:</p>
+      <ul>
+        <li><strong>Anode (oxidation):</strong> \(\mathrm{Zn(s) \rightarrow Zn^{2+}(aq) + 2e^-}\)</li>
+        <li><strong>Cathode (reduction):</strong> \(\mathrm{Cu^{2+}(aq) + 2e^- \rightarrow Cu(s)}\)</li>
+        <li><strong>Overall cell reaction:</strong> \(\mathrm{Zn(s) + Cu^{2+}(aq) \rightarrow Zn^{2+}(aq) + Cu(s)}\)</li>
+      </ul>
+      <p>At \(298\,\mathrm{K}\) and unit molar concentrations (\(1\,\mathrm{mol\,dm^{-3}}\)), the standard cell potential is \(1.10\,\mathrm{V}\). Electrons flow externally from the zinc anode to the copper cathode, while conventional current flows from copper to zinc.</p>
+
+      <div class="card teal">
+        <div class="card-title">Role of the Salt Bridge &amp; IUPAC Cell Notation</div>
+        <p>A salt bridge (an inverted U-tube filled with an inert electrolyte such as \(\mathrm{KCl}\) or \(\mathrm{KNO_3}\) in agar-agar gel) completes the internal circuit by allowing ion migration while preventing the two solutions from mixing, thus maintaining electrical neutrality in both half-cells. (Note: \(\mathrm{KCl}\) is avoided if \(\mathrm{Ag^+}\), \(\mathrm{Pb^{2+}}\), or \(\mathrm{Hg_2^{2+}}\) ions are present because insoluble chlorides precipitate.)</p>
+        <p>By IUPAC convention, the anode is written on the left and the cathode on the right. A single vertical line (\(|\)) denotes a phase boundary, and a double vertical line (\(\parallel\)) denotes the salt bridge:</p>
+        <p style="text-align:center; margin-bottom:0;">\(\mathrm{Zn(s) \mid Zn^{2+}(aq) \parallel Cu^{2+}(aq) \mid Cu(s)}\)</p>
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 680 270" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Galvanic cell schematic showing zinc anode, copper cathode, salt bridge, and electron flow">
+          <!-- Left Beaker (Anode) -->
+          <rect x="60" y="95" width="170" height="135" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" rx="4"/>
+          <rect x="62" y="135" width="166" height="93" fill="#E2E8F0"/>
+          <text x="145" y="218" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">ZnSO₄(aq)</text>
+          <!-- Zn Electrode -->
+          <rect x="95" y="65" width="26" height="130" fill="#94A3B8" stroke="#1E293B" stroke-width="2"/>
+          <text x="108" y="55" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Zn (−) Anode</text>
+
+          <!-- Right Beaker (Cathode) -->
+          <rect x="450" y="95" width="170" height="135" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" rx="4"/>
+          <rect x="452" y="135" width="166" height="93" fill="#DBEAFE"/>
+          <text x="535" y="218" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">CuSO₄(aq)</text>
+          <!-- Cu Electrode -->
+          <rect x="559" y="65" width="26" height="130" fill="#B45309" stroke="#1E293B" stroke-width="2"/>
+          <text x="572" y="55" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Cu (+) Cathode</text>
+
+          <!-- Salt Bridge -->
+          <path d="M 190 165 L 190 85 L 490 85 L 490 165" fill="none" stroke="#0D9488" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 190 165 L 190 85 L 490 85 L 490 165" fill="none" stroke="#F0FDFA" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="340" y="112" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488" text-anchor="middle">Salt Bridge (KCl / KNO₃)</text>
+
+          <!-- External Circuit & Voltmeter -->
+          <polyline points="108,65 108,28 315,28" fill="none" stroke="#1E293B" stroke-width="2"/>
+          <polyline points="365,28 572,28 572,65" fill="none" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="340" cy="28" r="22" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+          <text x="340" y="33" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2563EB" text-anchor="middle">V</text>
+
+          <!-- Electron Flow Arrow -->
+          <line x1="160" y1="18" x2="265" y2="18" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="265,14 275,18 265,22" fill="#2563EB"/>
+          <text x="215" y="13" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB" text-anchor="middle">e⁻ flow</text>
+
+          <!-- Current Flow Arrow -->
+          <line x1="510" y1="18" x2="415" y2="18" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="415,14 405,18 415,22" fill="#1E293B"/>
+          <text x="462" y="13" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="middle">Current (I)</text>
+
+          <!-- Ion Movements in Solution -->
+          <line x1="125" y1="165" x2="155" y2="165" stroke="#1E293B" stroke-width="1.5"/>
+          <polygon points="155,162 162,165 155,168" fill="#1E293B"/>
+          <text x="148" y="185" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Zn → Zn²⁺</text>
+
+          <line x1="525" y1="165" x2="550" y2="165" stroke="#1E293B" stroke-width="1.5"/>
+          <polygon points="550,162 557,165 550,168" fill="#1E293B"/>
+          <text x="530" y="185" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Cu²⁺ → Cu</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 1: Daniell galvanic cell showing electron flow, current direction, and salt bridge.</div>
+      </div>
+
+      <h3>Effect of an Opposing External Potential (\(E_{\mathrm{ext}}\))</h3>
+      <p>Applying a variable external voltage \(E_{\mathrm{ext}}\) opposite to the Daniell cell potential (\(1.10\,\mathrm{V}\)) produces three distinct regimes:</p>
+      <ul>
+        <li><strong>When \(E_{\mathrm{ext}} &lt; 1.10\,\mathrm{V}\):</strong> The cell continues to act as a galvanic cell. Electrons flow from Zn to Cu; Zn dissolves at the anode and Cu deposits at the cathode.</li>
+        <li><strong>When \(E_{\mathrm{ext}} = 1.10\,\mathrm{V}\):</strong> The opposing potential balances the cell emf. Current drops to zero (\(I = 0\)) and no chemical reaction occurs.</li>
+        <li><strong>When \(E_{\mathrm{ext}} &gt; 1.10\,\mathrm{V}\):</strong> The cell reverses and acts as an <strong>electrolytic cell</strong>. Electrons flow from Cu to Zn; Cu dissolves at the anode (now positive) and Zn deposits at the cathode (now negative).</li>
+      </ul>
+    </section>
+
+    <section id="electrode-potential">
+      <h2>3. Electrode Potential, SHE &amp; Electrochemical Series</h2>
+      <p>At an electrode–electrolyte interface, a potential difference develops due to the competition between metal atoms entering solution as ions and ions depositing onto the metal. Because a single half-cell potential cannot be measured in isolation, potentials are measured relative to a universal reference: the <strong>Standard Hydrogen Electrode (SHE)</strong>.</p>
+
+      <h3>Standard Hydrogen Electrode (SHE)</h3>
+      <p>The SHE consists of a platinum foil coated with finely divided platinum black, immersed in an acidic solution of \(1.00\,\mathrm{M}\,\mathrm{H^+(aq)}\) with pure \(\mathrm{H_2(g)}\) bubbled at \(1\,\mathrm{bar}\) pressure. By convention, its standard potential is assigned exactly \(0.00\,\mathrm{V}\) at all temperatures:</p>
+      <div class="formula-box">
+        \[\mathrm{Pt(s) \mid H_2(g, 1\,bar) \mid H^+(aq, 1\,M)} \qquad \mathrm{H^+(aq) + e^- \rightleftharpoons \frac{1}{2}H_2(g)} \qquad E^\circ = 0.00\,\mathrm{V}\]
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 520 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Standard Hydrogen Electrode schematic">
+          <!-- Beaker -->
+          <rect x="130" y="70" width="220" height="145" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" rx="4"/>
+          <rect x="132" y="105" width="216" height="108" fill="#EFF6FF"/>
+          <text x="240" y="200" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">1.00 M H⁺(aq)</text>
+
+          <!-- Outer Glass Jacket -->
+          <path d="M 215 45 L 215 165 M 265 45 L 265 80 M 265 100 L 265 165" fill="none" stroke="#475569" stroke-width="2"/>
+          <path d="M 215 45 Q 240 25 265 45" fill="none" stroke="#475569" stroke-width="2"/>
+          <!-- Gas Inlet -->
+          <line x1="265" y1="80" x2="315" y2="80" stroke="#475569" stroke-width="2"/>
+          <line x1="265" y1="100" x2="315" y2="100" stroke="#475569" stroke-width="2"/>
+          <line x1="345" y1="90" x2="318" y2="90" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="318,86 310,90 318,94" fill="#2563EB"/>
+          <text x="415" y="94" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB" text-anchor="middle">H₂(g) at 1 bar</text>
+
+          <!-- Platinum Wire & Foil -->
+          <line x1="240" y1="15" x2="240" y2="155" stroke="#1E293B" stroke-width="2"/>
+          <line x1="240" y1="15" x2="100" y2="15" stroke="#1E293B" stroke-width="2"/>
+          <text x="70" y="20" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="middle">To circuit</text>
+          <rect x="228" y="155" width="24" height="20" fill="#1E293B"/>
+          <text x="415" y="165" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">Platinized Pt foil</text>
+          <line x1="355" y1="162" x2="256" y2="165" stroke="#475569" stroke-width="1.5"/>
+
+          <!-- Bubbles -->
+          <circle cx="223" cy="145" r="3" fill="#2563EB"/>
+          <circle cx="257" cy="138" r="3" fill="#2563EB"/>
+          <circle cx="221" cy="122" r="3" fill="#2563EB"/>
+          <circle cx="259" cy="116" r="3" fill="#2563EB"/>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 2: Standard Hydrogen Electrode (SHE) reference half-cell.</div>
+      </div>
+
+      <h3>Standard Cell Potential &amp; Electrochemical Series</h3>
+      <p>According to IUPAC convention, standard electrode potentials are reported as <strong>standard reduction potentials</strong> (\(E^\circ\)). For any galvanic cell constructed with the anode on the left and cathode on the right:</p>
+      <div class="formula-box">
+        \[E^\circ_{\mathrm{cell}} = E^\circ_{\mathrm{cathode}} - E^\circ_{\mathrm{anode}} = E^\circ_{\mathrm{right}} - E^\circ_{\mathrm{left}}\]
+      </div>
+      <p>Arranging redox couples in decreasing order of \(E^\circ\) gives the <strong>electrochemical series</strong>:</p>
+      <ul>
+        <li><strong>Higher (more positive) \(E^\circ\):</strong> Greater tendency for the oxidized form to gain electrons &rarr; stronger <strong>oxidizing agent</strong> (e.g., \(\mathrm{F_2}\) with \(E^\circ = +2.87\,\mathrm{V}\) is the strongest oxidizing agent).</li>
+        <li><strong>Lower (more negative) \(E^\circ\):</strong> Greater tendency for the reduced form to lose electrons &rarr; stronger <strong>reducing agent</strong> (e.g., \(\mathrm{Li}\) with \(E^\circ = -3.05\,\mathrm{V}\) is the strongest reducing agent in aqueous solution).</li>
+        <li><strong>Metal displacement:</strong> A metal with a lower \(E^\circ\) can displace a metal with a higher \(E^\circ\) from its aqueous salt solution. Metals with \(E^\circ &lt; 0\) liberate \(\mathrm{H_2}\) from dilute acids, whereas metals like \(\mathrm{Cu}\) (\(E^\circ = +0.34\,\mathrm{V}\)) and \(\mathrm{Ag}\) (\(E^\circ = +0.80\,\mathrm{V}\)) do not dissolve in \(\mathrm{HCl}\).</li>
+      </ul>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Reduction Half-Reaction</th>
+            <th>\(E^\circ\,(\mathrm{V})\) at \(298\,\mathrm{K}\)</th>
+            <th>Reduction Half-Reaction</th>
+            <th>\(E^\circ\,(\mathrm{V})\) at \(298\,\mathrm{K}\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(\mathrm{F_2(g) + 2e^- \rightarrow 2F^-}\)</td>
+            <td>\(+2.87\)</td>
+            <td>\(\mathrm{Cu^{2+} + 2e^- \rightarrow Cu(s)}\)</td>
+            <td>\(+0.34\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{MnO_4^- + 8H^+ + 5e^- \rightarrow Mn^{2+} + 4H_2O}\)</td>
+            <td>\(+1.51\)</td>
+            <td>\(\mathrm{2H^+ + 2e^- \rightarrow H_2(g)}\)</td>
+            <td>\(0.00\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{Cl_2(g) + 2e^- \rightarrow 2Cl^-}\)</td>
+            <td>\(+1.36\)</td>
+            <td>\(\mathrm{Ni^{2+} + 2e^- \rightarrow Ni(s)}\)</td>
+            <td>\(-0.25\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{Cr_2O_7^{2-} + 14H^+ + 6e^- \rightarrow 2Cr^{3+} + 7H_2O}\)</td>
+            <td>\(+1.33\)</td>
+            <td>\(\mathrm{Cd^{2+} + 2e^- \rightarrow Cd(s)}\)</td>
+            <td>\(-0.40\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{O_2(g) + 4H^+ + 4e^- \rightarrow 2H_2O}\)</td>
+            <td>\(+1.23\)</td>
+            <td>\(\mathrm{Fe^{2+} + 2e^- \rightarrow Fe(s)}\)</td>
+            <td>\(-0.44\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{Br_2 + 2e^- \rightarrow 2Br^-}\)</td>
+            <td>\(+1.09\)</td>
+            <td>\(\mathrm{Zn^{2+} + 2e^- \rightarrow Zn(s)}\)</td>
+            <td>\(-0.76\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{Ag^+ + e^- \rightarrow Ag(s)}\)</td>
+            <td>\(+0.80\)</td>
+            <td>\(\mathrm{Al^{3+} + 3e^- \rightarrow Al(s)}\)</td>
+            <td>\(-1.66\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{Fe^{3+} + e^- \rightarrow Fe^{2+}}\)</td>
+            <td>\(+0.77\)</td>
+            <td>\(\mathrm{Mg^{2+} + 2e^- \rightarrow Mg(s)}\)</td>
+            <td>\(-2.36\)</td>
+          </tr>
+          <tr>
+            <td>\(\mathrm{I_2 + 2e^- \rightarrow 2I^-}\)</td>
+            <td>\(+0.54\)</td>
+            <td>\(\mathrm{Li^+ + e^- \rightarrow Li(s)}\)</td>
+            <td>\(-3.05\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="nernst-thermodynamics">
+      <h2>4. Nernst Equation &amp; Cell Thermodynamics</h2>
+      <p>When species are not at unit concentration (or \(1\,\mathrm{bar}\) pressure for gases), electrode and cell potentials depend on concentration according to the <strong>Nernst equation</strong>. For a general cell reaction \(a\mathrm{A} + b\mathrm{B} \xrightarrow{n\mathrm{e^-}} c\mathrm{C} + d\mathrm{D}\):</p>
+      <div class="formula-box">
+        \[E_{\mathrm{cell}} = E^\circ_{\mathrm{cell}} - \frac{RT}{nF} \ln Q = E^\circ_{\mathrm{cell}} - \frac{2.303RT}{nF} \log \frac{[\mathrm{C}]^c[\mathrm{D}]^d}{[\mathrm{A}]^a[\mathrm{B}]^b}\]
+      </div>
+      <p>Here \(R = 8.314\,\mathrm{J\,K^{-1}\,mol^{-1}}\), \(F = 96487\,\mathrm{C\,mol^{-1}}\) (often approximated as \(96500\,\mathrm{C\,mol^{-1}}\)), \(n\) is the number of moles of electrons transferred in the balanced equation, and pure solids or pure liquids are taken as unity in \(Q\). At \(T = 298\,\mathrm{K}\), \(\frac{2.303RT}{F} \approx 0.059\,\mathrm{V}\), so:</p>
+      <div class="formula-box">
+        \[E_{\mathrm{cell}} = E^\circ_{\mathrm{cell}} - \frac{0.059}{n} \log Q \qquad (\text{at } 298\,\mathrm{K})\]
+      </div>
+
+      <h3>Equilibrium Constant (\(K_c\)) and Gibbs Free Energy (\(\Delta_r G\))</h3>
+      <p>As a galvanic cell discharges, reactant ion concentrations fall and product ion concentrations rise until equilibrium is reached, at which point \(E_{\mathrm{cell}} = 0\) and \(Q = K_c\). Furthermore, the maximum reversible electrical work obtained from a galvanic cell equals the decrease in Gibbs free energy:</p>
+      <div class="formula-box">
+        \[\Delta_r G = -nFE_{\mathrm{cell}} \qquad \Delta_r G^\circ = -nFE^\circ_{\mathrm{cell}} = -RT \ln K_c\]
+        \[E^\circ_{\mathrm{cell}} = \frac{0.059}{n} \log K_c \qquad (\text{at } 298\,\mathrm{K})\]
+      </div>
+
+      <div class="card amber">
+        <div class="card-title">Crucial NEET Concept: Intensive vs. Extensive Properties</div>
+        <p style="margin-bottom:0;">\(E_{\mathrm{cell}}\) is an <strong>intensive</strong> property: multiplying a cell equation by 2 does <em>not</em> double \(E_{\mathrm{cell}}\) or \(E^\circ_{\mathrm{cell}}\). However, \(\Delta_r G\) is an <strong>extensive</strong> property: multiplying the equation by 2 doubles \(n\), which doubles \(\Delta_r G\). Always match \(n\) to the exact stoichiometric equation written.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Worked Example 1: Non-Standard Cell Potential &amp; \(\Delta_r G^\circ\)</div>
+        <p>Consider a hypothetical galvanic cell at \(298\,\mathrm{K}\): \(\mathrm{Cd(s) \mid Cd^{2+}(0.020\,M) \parallel Ag^+(0.20\,M) \mid Ag(s)}\). Given \(E^\circ(\mathrm{Cd^{2+}/Cd}) = -0.40\,\mathrm{V}\) and \(E^\circ(\mathrm{Ag^+/Ag}) = +0.80\,\mathrm{V}\), calculate \(E_{\mathrm{cell}}\) and \(\Delta_r G^\circ\).</p>
+        <p><strong>Solution:</strong></p>
+        <p>1. Balanced cell reaction: \(\mathrm{Cd(s) + 2Ag^+(aq) \rightarrow Cd^{2+}(aq) + 2Ag(s)}\), so \(n = 2\).</p>
+        <p>2. Standard cell potential: \(E^\circ_{\mathrm{cell}} = E^\circ_{\mathrm{Ag^+/Ag}} - E^\circ_{\mathrm{Cd^{2+}/Cd}} = 0.80 - (-0.40) = 1.20\,\mathrm{V}\).</p>
+        <p>3. Reaction quotient: \(Q = \frac{[\mathrm{Cd^{2+}}]}{[\mathrm{Ag^+}]^2} = \frac{0.020}{(0.20)^2} = \frac{0.020}{0.040} = 0.50\).</p>
+        <p>4. Nernst equation at \(298\,\mathrm{K}\):
+        \[E_{\mathrm{cell}} = 1.20 - \frac{0.059}{2}\log(0.50) = 1.20 - 0.0295 \times (-0.3010) = 1.20 + 0.0089 \approx 1.21\,\mathrm{V}\]</p>
+        <p style="margin-bottom:0;">5. Standard Gibbs energy: \(\Delta_r G^\circ = -nFE^\circ_{\mathrm{cell}} = -2 \times 96487 \times 1.20 = -231568.8\,\mathrm{J\,mol^{-1}} \approx -231.57\,\mathrm{kJ\,mol^{-1}}\).</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Worked Example 2: Equilibrium Constant from \(E^\circ_{\mathrm{cell}}\)</div>
+        <p>For the reaction \(\mathrm{Zn(s) + Ni^{2+}(aq) \rightarrow Zn^{2+}(aq) + Ni(s)}\) at \(298\,\mathrm{K}\), calculate \(K_c\) using \(E^\circ(\mathrm{Zn^{2+}/Zn}) = -0.76\,\mathrm{V}\) and \(E^\circ(\mathrm{Ni^{2+}/Ni}) = -0.25\,\mathrm{V}\).</p>
+        <p><strong>Solution:</strong></p>
+        <p>\(E^\circ_{\mathrm{cell}} = -0.25 - (-0.76) = 0.51\,\mathrm{V}\), with \(n = 2\).</p>
+        <p style="margin-bottom:0;">\[\log K_c = \frac{n E^\circ_{\mathrm{cell}}}{0.059} = \frac{2 \times 0.51}{0.059} \approx 17.29 \implies K_c = 10^{17.29} \approx 1.95 \times 10^{17}\]</p>
+      </div>
+    </section>
+
+    <section id="conductance">
+      <h2>5. Conductance of Electrolytic Solutions &amp; Kohlrausch Law</h2>
+      <p>Electricity flows through metals by <strong>electronic conductance</strong> (movement of electrons without chemical change; decreases as temperature increases due to lattice vibrations). In aqueous solutions or melts, electricity flows by <strong>ionic (electrolytic) conductance</strong> (movement of ions; <em>increases</em> as temperature increases because viscosity decreases and ion mobility/dissociation increases).</p>
+
+      <h3>Key Conductance Quantities &amp; Measurement</h3>
+      <p>For an electrolyte column of length \(l\) and cross-sectional area \(A\) confined between two platinized platinum electrodes in a conductivity cell:</p>
+      <div class="formula-box">
+        \[R = \rho \frac{l}{A} \qquad G = \frac{1}{R} = \kappa \frac{A}{l} \qquad G^* = \frac{l}{A} = R\kappa \qquad \kappa = \frac{G^*}{R}\]
+      </div>
+      <ul>
+        <li><strong>Resistivity (\(\rho\)):</strong> SI unit \(\Omega\,\mathrm{m}\) (\(1\,\Omega\,\mathrm{m} = 100\,\Omega\,\mathrm{cm}\)).</li>
+        <li><strong>Conductance (\(G\)):</strong> SI unit siemens (\(\mathrm{S} = \Omega^{-1}\)).</li>
+        <li><strong>Conductivity (\(\kappa\)):</strong> Conductance of a unit volume of solution; SI unit \(\mathrm{S\,m^{-1}}\) (\(1\,\mathrm{S\,cm^{-1}} = 100\,\mathrm{S\,m^{-1}}\)).</li>
+        <li><strong>Cell constant (\(G^* = l/A\)):</strong> Determined experimentally using a standard \(\mathrm{KCl}\) solution of known conductivity rather than direct geometric measurement.</li>
+        <li><strong>Wheatstone bridge with AC:</strong> Alternating current (audio frequency) is used instead of DC to prevent electrolysis and polarization from altering solution composition.</li>
+      </ul>
+
+      <h3>Molar Conductivity (\(\Lambda_m\)) and Dilution Effects</h3>
+      <p>Molar conductivity is the conductance of the volume \(V\) of solution containing \(1\,\mathrm{mol}\) of electrolyte placed between electrodes \(1\,\mathrm{unit}\) apart:</p>
+      <div class="formula-box">
+        \[\Lambda_m = \frac{\kappa}{c} \qquad \text{or} \qquad \Lambda_m\,(\mathrm{S\,cm^2\,mol^{-1}}) = \frac{\kappa\,(\mathrm{S\,cm^{-1}}) \times 1000\,(\mathrm{cm^3\,L^{-1}})}{\text{Molarity}\,(\mathrm{mol\,L^{-1}})}\]
+      </div>
+      <p>Note the unit conversion: \(1\,\mathrm{S\,m^2\,mol^{-1}} = 10^4\,\mathrm{S\,cm^2\,mol^{-1}}\).</p>
+      <ul>
+        <li><strong>Effect of dilution on \(\kappa\):</strong> Conductivity \(\kappa\) <em>always decreases</em> on dilution (for both strong and weak electrolytes) because the number of current-carrying ions per unit volume decreases.</li>
+        <li><strong>Effect of dilution on \(\Lambda_m\):</strong> Molar conductivity \(\Lambda_m = \kappa V\) <em>always increases</em> on dilution because the increase in total volume \(V\) more than compensates for the decrease in \(\kappa\).</li>
+        <li><strong>Strong electrolytes:</strong> Completely dissociated; \(\Lambda_m\) increases slowly on dilution as interionic attractions weaken, following \(\Lambda_m = \Lambda_m^\circ - A c^{1/2}\). Extrapolating the straight line to \(c^{1/2} \rightarrow 0\) gives \(\Lambda_m^\circ\) (limiting molar conductivity).</li>
+        <li><strong>Weak electrolytes:</strong> Partially dissociated; \(\Lambda_m\) rises steeply at low concentrations because the degree of dissociation (\(\alpha\)) increases sharply. Extrapolation to \(c^{1/2} = 0\) is impossible, so \(\Lambda_m^\circ\) is found via Kohlrausch law.</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 560 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plot of molar conductivity versus square root of concentration for strong and weak electrolytes">
+          <!-- Axes -->
+          <line x1="80" y1="205" x2="500" y2="205" stroke="#1E293B" stroke-width="2"/>
+          <line x1="80" y1="205" x2="80" y2="25" stroke="#1E293B" stroke-width="2"/>
+          <!-- Axis Labels -->
+          <text x="290" y="236" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">c¹/² / (mol L⁻¹)¹/²</text>
+          <text x="32" y="115" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle" transform="rotate(-90 32 115)">Λₘ / (S cm² mol⁻¹)</text>
+          <text x="72" y="220" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="end">0</text>
+
+          <!-- Strong Electrolyte (KCl) -->
+          <line x1="80" y1="115" x2="380" y2="145" stroke="#1E293B" stroke-width="2.5"/>
+          <circle cx="80" cy="115" r="4" fill="#1E293B"/>
+          <text x="68" y="119" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="end">Λ°ₘ</text>
+          <text x="390" y="148" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">KCl (Strong)</text>
+
+          <!-- Weak Electrolyte (CH3COOH) -->
+          <path d="M 94 35 C 98 140, 130 182, 430 192" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+          <text x="165" y="55" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">CH₃COOH (Weak)</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 3: Variation of molar conductivity with \(c^{1/2}\) for strong and weak electrolytes.</div>
+      </div>
+
+      <h3>Kohlrausch Law of Independent Migration of Ions</h3>
+      <p>At infinite dilution, each ion migrates independently without interionic hindrance. Thus, \(\Lambda_m^\circ\) of an electrolyte is the sum of the individual limiting molar conductivities of its cations (\(\lambda_+^\circ\)) and anions (\(\lambda_-^\circ\)):</p>
+      <div class="formula-box">
+        \[\Lambda_m^\circ = \nu_+ \lambda_+^\circ + \nu_- \lambda_-^\circ \qquad \alpha = \frac{\Lambda_m}{\Lambda_m^\circ} \qquad K_a = \frac{c\alpha^2}{1 - \alpha} = \frac{c\Lambda_m^2}{\Lambda_m^\circ(\Lambda_m^\circ - \Lambda_m)}\]
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Worked Example 3: Cell Constant, Conductivity &amp; Molar Conductivity</div>
+        <p>A conductivity cell filled with \(0.05\,\mathrm{mol\,L^{-1}}\) \(\mathrm{KCl}\) (\(\kappa = 0.0067\,\mathrm{S\,cm^{-1}}\)) shows a resistance of \(120\,\Omega\) at \(298\,\mathrm{K}\). When filled with \(0.02\,\mathrm{mol\,L^{-1}}\) \(\mathrm{NaCl}\) (assumed sample), its resistance is \(350\,\Omega\). Find \(\kappa\) and \(\Lambda_m\) of the \(\mathrm{NaCl}\) solution.</p>
+        <p><strong>Solution:</strong></p>
+        <p>1. Cell constant: \(G^* = R_{\mathrm{KCl}} \cdot \kappa_{\mathrm{KCl}} = 120\,\Omega \times 0.0067\,\mathrm{S\,cm^{-1}} = 0.804\,\mathrm{cm^{-1}}\).</p>
+        <p>2. Conductivity of \(\mathrm{NaCl}\): \(\kappa = \frac{G^*}{R_{\mathrm{NaCl}}} = \frac{0.804}{350} \approx 2.297 \times 10^{-3}\,\mathrm{S\,cm^{-1}}\).</p>
+        <p style="margin-bottom:0;">3. Molar conductivity: \(\Lambda_m = \frac{2.297 \times 10^{-3} \times 1000}{0.02} = 114.86\,\mathrm{S\,cm^2\,mol^{-1}}\).</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Worked Example 4: Kohlrausch Law &amp; Base Dissociation Constant</div>
+        <p>Using illustrative values at \(298\,\mathrm{K}\): \(\Lambda_m^\circ(\mathrm{Ba(OH)_2}) = 523.2\,\mathrm{S\,cm^2\,mol^{-1}}\), \(\Lambda_m^\circ(\mathrm{BaCl_2}) = 280.0\,\mathrm{S\,cm^2\,mol^{-1}}\), and \(\Lambda_m^\circ(\mathrm{NH_4Cl}) = 129.8\,\mathrm{S\,cm^2\,mol^{-1}}\). Calculate \(\Lambda_m^\circ(\mathrm{NH_4OH})\). If \(0.01\,\mathrm{M}\) \(\mathrm{NH_4OH}\) has \(\Lambda_m = 10.06\,\mathrm{S\,cm^2\,mol^{-1}}\), find \(K_b\).</p>
+        <p><strong>Solution:</strong></p>
+        <p>1. \(\Lambda_m^\circ(\mathrm{NH_4OH}) = \Lambda_m^\circ(\mathrm{NH_4Cl}) + \frac{1}{2}\Lambda_m^\circ(\mathrm{Ba(OH)_2}) - \frac{1}{2}\Lambda_m^\circ(\mathrm{BaCl_2}) = 129.8 + 261.6 - 140.0 = 251.4\,\mathrm{S\,cm^2\,mol^{-1}}\).</p>
+        <p>2. Degree of dissociation: \(\alpha = \frac{10.06}{251.4} = 0.040\).</p>
+        <p style="margin-bottom:0;">3. Dissociation constant: \(K_b = \frac{0.01 \times (0.040)^2}{1 - 0.040} = \frac{1.6 \times 10^{-5}}{0.96} \approx 1.67 \times 10^{-5}\,\mathrm{mol\,L^{-1}}\).</p>
+      </div>
+    </section>
+
+    <section id="electrolysis">
+      <h2>6. Electrolysis &amp; Faraday's Laws</h2>
+      <p>In an electrolytic cell, ions migrate toward oppositely charged electrodes. Which species actually discharges depends on standard electrode potentials, concentration (Nernst effect), electrode reactivity (inert Pt/Au vs. reactive Cu/Ag), and kinetic barriers known as <strong>overpotential</strong>.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Electrolyte &amp; Electrodes</th>
+            <th>Cathode Product</th>
+            <th>Anode Product</th>
+            <th>Key Governing Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Molten \(\mathrm{NaCl}\) (inert Pt)</td>
+            <td>\(\mathrm{Na(l)}\)</td>
+            <td>\(\mathrm{Cl_2(g)}\)</td>
+            <td>Only \(\mathrm{Na^+}\) and \(\mathrm{Cl^-}\) present</td>
+          </tr>
+          <tr>
+            <td>Aqueous \(\mathrm{NaCl}\) (inert Pt)</td>
+            <td>\(\mathrm{H_2(g)}\) (+ \(\mathrm{OH^-}\))</td>
+            <td>\(\mathrm{Cl_2(g)}\)</td>
+            <td>\(\mathrm{H_2O}\) reduces more easily than \(\mathrm{Na^+}\); \(\mathrm{O_2}\) has high overpotential</td>
+          </tr>
+          <tr>
+            <td>Dilute \(\mathrm{H_2SO_4}\) (inert Pt)</td>
+            <td>\(\mathrm{H_2(g)}\)</td>
+            <td>\(\mathrm{O_2(g)}\)</td>
+            <td>\(\mathrm{H_2O}\) oxidation (\(1.23\,\mathrm{V}\)) favored over \(\mathrm{SO_4^{2-}}\) (\(1.96\,\mathrm{V}\))</td>
+          </tr>
+          <tr>
+            <td>Concentrated \(\mathrm{H_2SO_4}\) (inert Pt)</td>
+            <td>\(\mathrm{H_2(g)}\)</td>
+            <td>\(\mathrm{S_2O_8^{2-}(aq)}\)</td>
+            <td>High \(\mathrm{SO_4^{2-}}\) concentration favors peroxodisulfate formation</td>
+          </tr>
+          <tr>
+            <td>Aqueous \(\mathrm{CuSO_4}\) (Cu electrodes)</td>
+            <td>\(\mathrm{Cu(s)}\) deposited</td>
+            <td>\(\mathrm{Cu(s)}\) dissolves as \(\mathrm{Cu^{2+}}\)</td>
+            <td>Reactive Cu anode oxidizes more easily than \(\mathrm{H_2O}\) or \(\mathrm{SO_4^{2-}}\)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Faraday's Laws of Electrolysis</h3>
+      <ul>
+        <li><strong>First Law:</strong> The mass (\(m\)) of substance deposited or liberated at an electrode is directly proportional to the quantity of electricity (\(Q = It\)) passed:
+          \[m = ZIt = \frac{M \cdot I \cdot t}{nF} = \frac{E_{\mathrm{eq}} \cdot Q}{96500}\]
+          where \(M\) is molar mass, \(n\) is electrons per formula unit, and \(E_{\mathrm{eq}} = M/n\) is equivalent mass.
+        </li>
+        <li><strong>Second Law:</strong> When the same quantity of electricity passes through different electrolytes connected in series, the masses liberated are proportional to their chemical equivalent weights (\(m_1 / m_2 = E_{\mathrm{eq},1} / E_{\mathrm{eq},2}\)).</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-header">Worked Example 5: Quantitative Electrolysis</div>
+        <p>A steady current of \(2.5\,\mathrm{A}\) is passed through molten \(\mathrm{Al_2O_3}\) (with cryolite) for \(1930\,\mathrm{s}\). Calculate the mass of aluminium deposited at the cathode (molar mass of \(\mathrm{Al} = 27\,\mathrm{g\,mol^{-1}}\), \(F = 96500\,\mathrm{C\,mol^{-1}}\)).</p>
+        <p><strong>Solution:</strong></p>
+        <p>1. Charge passed: \(Q = I \cdot t = 2.5\,\mathrm{A} \times 1930\,\mathrm{s} = 4825\,\mathrm{C}\).</p>
+        <p>2. Faradays passed: \(\frac{4825}{96500} = 0.05\,\mathrm{F}\).</p>
+        <p style="margin-bottom:0;">3. Since \(\mathrm{Al^{3+} + 3e^- \rightarrow Al(s)}\), \(n = 3\), so equivalent mass \(= \frac{27}{3} = 9\,\mathrm{g\,eq^{-1}}\). Mass deposited \(= 0.05 \times 9 = 0.45\,\mathrm{g}\).</p>
+      </div>
+    </section>
+
+    <section id="batteries-corrosion">
+      <h2>7. Commercial Cells, Fuel Cells &amp; Corrosion</h2>
+      <h3>Primary and Secondary Batteries</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Battery Type</th>
+            <th>Anode &amp; Cathode</th>
+            <th>Electrolyte</th>
+            <th>Key Reactions &amp; Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dry Cell (Leclanché)</strong><br><em>Primary (~1.5 V)</em></td>
+            <td>Anode: Zn container<br>Cathode: Graphite rod + \(\mathrm{MnO_2}\) + C</td>
+            <td>Moist \(\mathrm{NH_4Cl} + \mathrm{ZnCl_2}\) paste</td>
+            <td>Anode: \(\mathrm{Zn \rightarrow Zn^{2+} + 2e^-}\)<br>Cathode: \(\mathrm{MnO_2 + NH_4^+ + e^- \rightarrow MnO(OH) + NH_3}\)<br>Voltage drops slowly with use.</td>
+          </tr>
+          <tr>
+            <td><strong>Mercury Cell</strong><br><em>Primary (~1.35 V)</em></td>
+            <td>Anode: \(\mathrm{Zn–Hg}\) amalgam<br>Cathode: \(\mathrm{HgO}\) + C paste</td>
+            <td>\(\mathrm{KOH} + \mathrm{ZnO}\) paste</td>
+            <td>Overall: \(\mathrm{Zn(Hg) + HgO(s) \rightarrow ZnO(s) + Hg(l)}\)<br>Constant voltage (no net ions in solution).</td>
+          </tr>
+          <tr>
+            <td><strong>Lead Storage</strong><br><em>Secondary</em></td>
+            <td>Anode: Spongy Pb<br>Cathode: Pb grid packed with \(\mathrm{PbO_2}\)</td>
+            <td>\(38\%\,\mathrm{H_2SO_4(aq)}\)</td>
+            <td>Discharge: \(\mathrm{Pb + PbO_2 + 2H_2SO_4 \rightarrow 2PbSO_4(s) + 2H_2O}\)<br>Reversed on recharging.</td>
+          </tr>
+          <tr>
+            <td><strong>Nickel–Cadmium</strong><br><em>Secondary</em></td>
+            <td>Anode: Cd<br>Cathode: \(\mathrm{Ni(OH)_3}\)</td>
+            <td>Moist \(\mathrm{KOH}\) / \(\mathrm{NaOH}\)</td>
+            <td>Discharge: \(\mathrm{Cd + 2Ni(OH)_3 \rightarrow CdO + 2Ni(OH)_2 + H_2O}\)<br>Longer life than lead storage, more expensive.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Hydrogen–Oxygen Fuel Cell</h3>
+      <p>Fuel cells convert the energy of combustion of fuels (\(\mathrm{H_2}\), \(\mathrm{CH_4}\), \(\mathrm{CH_3OH}\)) directly into electricity with ~\(70\%\) efficiency (compared to ~\(40\%\) for thermal power plants) and zero pollution. In an alkaline \(\mathrm{H_2–O_2}\) fuel cell with porous carbon electrodes containing Pt/Pd catalysts and concentrated \(\mathrm{NaOH(aq)}\):</p>
+      <ul>
+        <li><strong>Anode:</strong> \(2\mathrm{H_2(g) + 4OH^-(aq) \rightarrow 4H_2O(l) + 4e^-}\)</li>
+        <li><strong>Cathode:</strong> \(\mathrm{O_2(g) + 2H_2O(l) + 4e^- \rightarrow 4OH^-(aq)}\)</li>
+        <li><strong>Overall:</strong> \(2\mathrm{H_2(g) + O_2(g) \rightarrow 2H_2O(l)}\)</li>
+      </ul>
+
+      <h3>Corrosion of Iron (Rusting)</h3>
+      <p>Corrosion is an electrochemical process. On an iron surface exposed to moist air containing dissolved \(\mathrm{CO_2}\) (forming \(\mathrm{H_2CO_3}\), which supplies \(\mathrm{H^+}\)), one region acts as an anode and another as a cathode:</p>
+      <ul>
+        <li><strong>Anode:</strong> \(2\mathrm{Fe(s) \rightarrow 2Fe^{2+}(aq) + 4e^-}\) (\(E^\circ = -0.44\,\mathrm{V}\))</li>
+        <li><strong>Cathode:</strong> \(\mathrm{O_2(g) + 4H^+(aq) + 4e^- \rightarrow 2H_2O(l)}\) (\(E^\circ = +1.23\,\mathrm{V}\))</li>
+        <li><strong>Overall:</strong> \(2\mathrm{Fe(s) + O_2(g) + 4H^+(aq) \rightarrow 2Fe^{2+}(aq) + 2H_2O(l)}\) (\(E^\circ_{\mathrm{cell}} = +1.67\,\mathrm{V}\))</li>
+      </ul>
+      <p>Atmospheric oxygen further oxidizes \(\mathrm{Fe^{2+}}\) to \(\mathrm{Fe^{3+}}\), precipitating hydrated ferric oxide (rust, \(\mathrm{Fe_2O_3 \cdot xH_2O}\)). Prevention methods include barrier coatings (paint, bisphenol), metallic coatings (Sn, Zn), and <strong>sacrificial protection</strong> using more reactive metals like \(\mathrm{Mg}\) or \(\mathrm{Zn}\).</p>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 560 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Electrochemical mechanism of iron corrosion under a water droplet">
+          <!-- Iron Block -->
+          <rect x="40" y="130" width="480" height="70" fill="#94A3B8" stroke="#1E293B" stroke-width="2"/>
+          <text x="280" y="188" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Iron (Fe) Metal</text>
+
+          <!-- Water Droplet -->
+          <path d="M 110 130 Q 280 20 450 130 Z" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" fill-opacity="0.85"/>
+          <text x="280" y="75" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB" text-anchor="middle">Moisture + H⁺(aq) + O₂</text>
+
+          <!-- Anodic Spot -->
+          <text x="155" y="118" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="middle">Anode: Fe → Fe²⁺ + 2e⁻</text>
+          <line x1="155" y1="138" x2="155" y2="123" stroke="#1E293B" stroke-width="1.5"/>
+          <polygon points="152,123 155,117 158,123" fill="#1E293B"/>
+
+          <!-- Electron Flow Inside Iron -->
+          <line x1="175" y1="155" x2="380" y2="155" stroke="#1E293B" stroke-width="2" stroke-dasharray="5,3"/>
+          <polygon points="380,151 390,155 380,159" fill="#1E293B"/>
+          <text x="280" y="149" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="middle">e⁻ flow through metal</text>
+
+          <!-- Cathodic Spot -->
+          <text x="415" y="118" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488" text-anchor="middle">Cathode: O₂ + 4H⁺ + 4e⁻ → 2H₂O</text>
+
+          <!-- Rust Deposit -->
+          <path d="M 65 130 Q 85 110 108 130 Z" fill="#B45309" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="85" y="102" font-family="sans-serif" font-size="12" font-weight="bold" fill="#B45309" text-anchor="middle">Rust (Fe₂O₃·xH₂O)</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 4: Electrochemical cell formed during rusting of iron.</div>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>8. NEET UG Practice Questions</h2>
+      <p><em>Note: All questions below are original practice questions designed to match the NEET UG examination pattern and difficulty.</em></p>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>When an opposing external potential \(E_{\mathrm{ext}} &gt; 1.10\,\mathrm{V}\) is applied to a standard Daniell cell (\(\mathrm{Zn \mid Zn^{2+}(1\,M) \parallel Cu^{2+}(1\,M) \mid Cu}\)), which of the following occurs?</p>
+        <ul class="options-list">
+          <li>(A) Electrons flow from Zn to Cu and Cu deposits at the cathode.</li>
+          <li>(B) Electrons flow from Cu to Zn and Zn deposits at the cathode.</li>
+          <li>(C) No current flows through the cell and the reaction stops.</li>
+          <li>(D) Conventional current flows from Cu to Zn through the external wire.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong> When \(E_{\mathrm{ext}} &gt; 1.10\,\mathrm{V}\), the Daniell cell reverses and operates as an electrolytic cell. Electrons are forced from the Cu electrode (now anode, oxidizing \(\mathrm{Cu \rightarrow Cu^{2+} + 2e^-}\)) to the Zn electrode (now cathode, reducing \(\mathrm{Zn^{2+} + 2e^- \rightarrow Zn}\)).
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>Given the standard reduction potentials at \(298\,\mathrm{K}\): \(E^\circ(\mathrm{A^{2+}/A}) = -2.36\,\mathrm{V}\), \(E^\circ(\mathrm{B^{2+}/B}) = -0.44\,\mathrm{V}\), \(E^\circ(\mathrm{C^+/C}) = +0.80\,\mathrm{V}\), and \(E^\circ(\mathrm{D^{3+}/D}) = -1.66\,\mathrm{V}\). The correct order of <strong>increasing</strong> reducing power of these metals is:</p>
+        <ul class="options-list">
+          <li>(A) \(\mathrm{A &lt; D &lt; B &lt; C}\)</li>
+          <li>(B) \(\mathrm{C &lt; B &lt; D &lt; A}\)</li>
+          <li>(C) \(\mathrm{C &lt; D &lt; B &lt; A}\)</li>
+          <li>(D) \(\mathrm{B &lt; C &lt; D &lt; A}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong> A lower (more negative) standard reduction potential indicates a stronger tendency to undergo oxidation, hence stronger reducing power. Ordering \(E^\circ\) from highest to lowest (\(+0.80 &gt; -0.44 &gt; -1.66 &gt; -2.36\,\mathrm{V}\)) gives increasing reducing power: \(\mathrm{C &lt; B &lt; D &lt; A}\).
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 3 (Numerical MCQ)</div>
+        <p>What is the reduction potential of a hydrogen electrode at \(298\,\mathrm{K}\) in contact with an aqueous solution of \(\mathrm{pH} = 4\) when \(\mathrm{H_2(g)}\) is bubbled at \(1\,\mathrm{bar}\) pressure?</p>
+        <ul class="options-list">
+          <li>(A) \(-0.236\,\mathrm{V}\)</li>
+          <li>(B) \(+0.236\,\mathrm{V}\)</li>
+          <li>(C) \(-0.118\,\mathrm{V}\)</li>
+          <li>(D) \(-0.472\,\mathrm{V}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (A)</span><br>
+          <strong>Explanation:</strong> For \(\mathrm{H^+(aq) + e^- \rightarrow \frac{1}{2}H_2(g)}\), \(E^\circ = 0.00\,\mathrm{V}\) and \(n = 1\). At \(298\,\mathrm{K}\):
+          \[E = E^\circ - \frac{0.059}{1}\log\frac{p_{\mathrm{H_2}}^{1/2}}{[\mathrm{H^+}]} = 0 - 0.059\log\left(\frac{1}{10^{-4}}\right) = -0.059 \times 4 = -0.236\,\mathrm{V}\]
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 4 (Numerical MCQ)</div>
+        <p>For the cell reaction \(2\mathrm{Fe^{3+}(aq) + 2I^-(aq) \rightarrow 2Fe^{2+}(aq) + I_2(s)}\) at \(298\,\mathrm{K}\), \(E^\circ_{\mathrm{cell}} = 0.236\,\mathrm{V}\). Taking \(F = 96500\,\mathrm{C\,mol^{-1}}\), what is \(\Delta_r G^\circ\) for the reaction as written?</p>
+        <ul class="options-list">
+          <li>(A) \(-22.77\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>(B) \(-45.55\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>(C) \(+45.55\,\mathrm{kJ\,mol^{-1}}\)</li>
+          <li>(D) \(-91.10\,\mathrm{kJ\,mol^{-1}}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong> In the balanced equation, \(2\,\mathrm{mol}\) of electrons are transferred (\(n = 2\)). Thus:
+          \[\Delta_r G^\circ = -nFE^\circ_{\mathrm{cell}} = -2 \times 96500\,\mathrm{C\,mol^{-1}} \times 0.236\,\mathrm{V} = -45548\,\mathrm{J\,mol^{-1}} \approx -45.55\,\mathrm{kJ\,mol^{-1}}\]
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 5 (Conceptual MCQ)</div>
+        <p>Upon diluting an aqueous solution of a weak electrolyte such as acetic acid, how do its conductivity (\(\kappa\)) and molar conductivity (\(\Lambda_m\)) change?</p>
+        <ul class="options-list">
+          <li>(A) Both \(\kappa\) and \(\Lambda_m\) increase.</li>
+          <li>(B) Both \(\kappa\) and \(\Lambda_m\) decrease.</li>
+          <li>(C) \(\kappa\) increases, whereas \(\Lambda_m\) decreases.</li>
+          <li>(D) \(\kappa\) decreases, whereas \(\Lambda_m\) increases steeply.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (D)</span><br>
+          <strong>Explanation:</strong> On dilution, the number of ions per unit volume decreases, so conductivity \(\kappa\) always decreases. Meanwhile, the degree of dissociation (\(\alpha\)) of a weak electrolyte increases sharply, causing \(\Lambda_m = \kappa V\) to increase steeply.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 6 (Numerical MCQ)</div>
+        <p>The conductivity of a \(0.01\,\mathrm{mol\,L^{-1}}\) aqueous electrolyte solution at \(298\,\mathrm{K}\) is \(1.41 \times 10^{-3}\,\mathrm{S\,cm^{-1}}\). Its molar conductivity is:</p>
+        <ul class="options-list">
+          <li>(A) \(14.1\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+          <li>(B) \(141\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+          <li>(C) \(1410\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+          <li>(D) \(0.141\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong>
+          \[\Lambda_m = \frac{\kappa \times 1000}{c} = \frac{1.41 \times 10^{-3}\,\mathrm{S\,cm^{-1}} \times 1000\,\mathrm{cm^3\,L^{-1}}}{0.01\,\mathrm{mol\,L^{-1}}} = 141\,\mathrm{S\,cm^2\,mol^{-1}}\]
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 7 (Numerical MCQ)</div>
+        <p>Given limiting molar conductivities in water at \(298\,\mathrm{K}\): \(\lambda^\circ(\mathrm{Mg^{2+}}) = 106.0\,\mathrm{S\,cm^2\,mol^{-1}}\) and \(\lambda^\circ(\mathrm{Br^-}) = 78.1\,\mathrm{S\,cm^2\,mol^{-1}}\). What is \(\Lambda_m^\circ\) for \(\mathrm{MgBr_2}\)?</p>
+        <ul class="options-list">
+          <li>(A) \(184.1\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+          <li>(B) \(262.2\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+          <li>(C) \(290.1\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+          <li>(D) \(131.1\,\mathrm{S\,cm^2\,mol^{-1}}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong> By Kohlrausch law, \(\Lambda_m^\circ(\mathrm{MgBr_2}) = \lambda^\circ(\mathrm{Mg^{2+}}) + 2\lambda^\circ(\mathrm{Br^-}) = 106.0 + 2(78.1) = 262.2\,\mathrm{S\,cm^2\,mol^{-1}}\).
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 8 (Numerical MCQ)</div>
+        <p>How many coulombs of electricity are required for the complete oxidation of \(2\,\mathrm{mol}\) of \(\mathrm{H_2O}\) to \(\mathrm{O_2}\)? (Take \(F = 96500\,\mathrm{C\,mol^{-1}}\))</p>
+        <ul class="options-list">
+          <li>(A) \(9.65 \times 10^4\,\mathrm{C}\)</li>
+          <li>(B) \(1.93 \times 10^5\,\mathrm{C}\)</li>
+          <li>(C) \(3.86 \times 10^5\,\mathrm{C}\)</li>
+          <li>(D) \(7.72 \times 10^5\,\mathrm{C}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (C)</span><br>
+          <strong>Explanation:</strong> The oxidation half-reaction is \(2\mathrm{H_2O(l) \rightarrow O_2(g) + 4H^+(aq) + 4e^-}\). Thus, \(2\,\mathrm{mol}\) of \(\mathrm{H_2O}\) requires \(4\,\mathrm{mol}\) of electrons \(= 4F = 4 \times 96500 = 3.86 \times 10^5\,\mathrm{C}\).
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 9 (Numerical MCQ)</div>
+        <p>Two electrolytic cells containing aqueous \(\mathrm{AgNO_3}\) and \(\mathrm{CuSO_4}\) solutions are connected in series. If \(2.16\,\mathrm{g}\) of \(\mathrm{Ag}\) (atomic mass \(108\,\mathrm{u}\)) is deposited in the first cell, what mass of \(\mathrm{Cu}\) (atomic mass \(63.5\,\mathrm{u}\)) is deposited in the second cell?</p>
+        <ul class="options-list">
+          <li>(A) \(0.3175\,\mathrm{g}\)</li>
+          <li>(B) \(0.635\,\mathrm{g}\)</li>
+          <li>(C) \(1.270\,\mathrm{g}\)</li>
+          <li>(D) \(2.540\,\mathrm{g}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong> Equivalent mass of \(\mathrm{Ag} = 108/1 = 108\); equivalent mass of \(\mathrm{Cu} = 63.5/2 = 31.75\). By Faraday's second law:
+          \[m_{\mathrm{Cu}} = m_{\mathrm{Ag}} \times \frac{E_{\mathrm{Cu}}}{E_{\mathrm{Ag}}} = 2.16 \times \frac{31.75}{108} = 0.02 \times 31.75 = 0.635\,\mathrm{g}\]
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 10 (Conceptual MCQ)</div>
+        <p>During the electrolysis of aqueous \(\mathrm{NaCl}\) solution using inert platinum electrodes, \(\mathrm{Cl_2}\) gas is evolved at the anode instead of \(\mathrm{O_2}\) gas, even though \(E^\circ(\mathrm{O_2/H_2O}) = +1.23\,\mathrm{V}\) is lower than \(E^\circ(\mathrm{Cl_2/Cl^-}) = +1.36\,\mathrm{V}\). This occurs because:</p>
+        <ul class="options-list">
+          <li>(A) \(\mathrm{Cl^-}\) ions are smaller than \(\mathrm{H_2O}\) molecules.</li>
+          <li>(B) Evolution of \(\mathrm{O_2}\) at the anode suffers from a high overpotential.</li>
+          <li>(C) \(\mathrm{Na^+}\) ions catalyze the oxidation of \(\mathrm{Cl^-}\).</li>
+          <li>(D) Platinum reacts chemically with \(\mathrm{Cl^-}\) ions.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (B)</span><br>
+          <strong>Explanation:</strong> Oxidation of \(\mathrm{H_2O}\) to \(\mathrm{O_2}\) is kinetically slow and requires an extra potential (overpotential), making \(\mathrm{Cl^-}\) oxidation to \(\mathrm{Cl_2}\) the preferred anodic reaction.
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 11 (Statement I &amp; Statement II)</div>
+        <p>Read the two statements carefully and choose the correct option:</p>
+        <p><strong>Statement I:</strong> The cell potential of a mercury button cell remains nearly constant at \(1.35\,\mathrm{V}\) throughout its working life.<br>
+        <strong>Statement II:</strong> The overall cell reaction of a mercury cell does not involve any ion in solution whose concentration changes during discharge.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct.</li>
+          <li>(B) Both Statement I and Statement II are incorrect.</li>
+          <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+          <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (A)</span><br>
+          <strong>Explanation:</strong> The overall reaction \(\mathrm{Zn(Hg) + HgO(s) \rightarrow ZnO(s) + Hg(l)}\) involves only solids and pure liquids, so the reaction quotient \(Q\) remains constant and the emf stays steady at ~\(1.35\,\mathrm{V}\).
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="q-title">Practice Question 12 (Assertion &amp; Reason)</div>
+        <p><strong>Assertion (A):</strong> Coating iron with zinc (galvanization) protects iron from rusting even if the zinc layer is scratched.<br>
+        <strong>Reason (R):</strong> Zinc has a more negative standard reduction potential than iron and acts as a sacrificial anode, oxidizing in preference to iron.</p>
+        <ul class="options-list">
+          <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+          <li>(B) Both A and R are true, but R is NOT the correct explanation of A.</li>
+          <li>(C) A is true, but R is false.</li>
+          <li>(D) A is false, but R is true.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Answer: (A)</span><br>
+          <strong>Explanation:</strong> Since \(E^\circ(\mathrm{Zn^{2+}/Zn}) = -0.76\,\mathrm{V}\) is more negative than \(E^\circ(\mathrm{Fe^{2+}/Fe}) = -0.44\,\mathrm{V}\), zinc oxidizes preferentially when exposed to moisture and air, protecting the underlying iron as a sacrificial anode.
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls-recap">
+      <h2>9. Common Pitfalls, Revision Checklist &amp; Final Recap</h2>
+      <div class="card amber">
+        <div class="card-title">Common Exam Pitfalls to Avoid</div>
+        <ul>
+          <li><strong>Anode/Cathode polarity swap:</strong> In a galvanic cell, anode is negative; in an electrolytic cell, anode is positive. Oxidation <em>always</em> occurs at the anode in both.</li>
+          <li><strong>Wrong \(n\) in Nernst or \(\Delta_r G^\circ\):</strong> Always balance the full redox equation first so that electrons cancel; never use \(n = 1\) when \(2\) or \(6\) electrons are transferred.</li>
+          <li><strong>Confusing \(\kappa\) and \(\Lambda_m\) on dilution:</strong> \(\kappa\) decreases on dilution, whereas \(\Lambda_m\) increases on dilution.</li>
+          <li><strong>Unit mismatch in \(\Lambda_m\):</strong> When \(\kappa\) is in \(\mathrm{S\,cm^{-1}}\) and \(c\) is in \(\mathrm{mol\,L^{-1}}\), you must multiply by \(1000\,\mathrm{cm^3\,L^{-1}}\).</li>
+        </ul>
+      </div>
+
+      <div class="card teal">
+        <div class="card-title">Final Recap</div>
+        <p style="margin-bottom:0;">Master the core equations: \(E^\circ_{\mathrm{cell}} = E^\circ_{\mathrm{R}} - E^\circ_{\mathrm{L}}\), \(E_{\mathrm{cell}} = E^\circ_{\mathrm{cell}} - \frac{0.059}{n}\log Q\) (at \(298\,\mathrm{K}\)), \(\Delta_r G^\circ = -nFE^\circ_{\mathrm{cell}} = -RT\ln K_c\), \(\kappa = G^*/R\), \(\Lambda_m = \frac{\kappa \times 1000}{M}\), \(\Lambda_m^\circ = \nu_+\lambda_+^\circ + \nu_-\lambda_-^\circ\), and \(m = \frac{MIt}{nF}\). With these relationships and clear sign conventions, Electrochemistry becomes one of the highest-scoring chapters in NEET UG Physical Chemistry.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

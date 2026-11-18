@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thermodynamics — NEET UG Bilingual Tutorial (English &amp; Bengali)</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --primary-soft: #EFF6FF;
+      --teal: #0D9488;
+      --teal-soft: #F0FDFA;
+      --surface: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #CBD5E1;
+      --warn-bg: #FEF2F2;
+      --warn-border: #DC2626;
+      --warn-ink: #991B1B;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Bengali", "Bangla Sangam MN", "Vrinda", "SolaimanLipi", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 18px 40px 18px;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--ink);
+      line-height: 1.3;
+      margin-top: 1.3em;
+      margin-bottom: 0.5em;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      color: var(--primary);
+      border-left: 4px solid var(--primary);
+      padding-left: 10px;
+      margin-top: 1.8em;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--teal);
+      margin-top: 1.2em;
+    }
+
+    p {
+      margin: 0.6em 0 0.9em 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0.5em 0 1em 0;
+      padding-left: 1.5em;
+    }
+
+    li {
+      margin-bottom: 0.45em;
+    }
+
+    .banner {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge-teal {
+      background-color: var(--teal-soft);
+      color: var(--teal);
+      border: 1px solid #99F6E4;
+    }
+
+    .lang-block {
+      margin-bottom: 16px;
+    }
+
+    .lang-bn {
+      background-color: #FAFCFF;
+      border-left: 3px solid var(--teal);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      background: #E2E8F0;
+      padding: 1px 7px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--teal);
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin: 12px 0;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .diagram-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      margin: 14px 0;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px 0;
+      font-size: 0.92rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--surface);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .example-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--teal);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      margin: 18px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .q-header {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 8px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      background-color: var(--surface);
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      background-color: var(--teal-soft);
+      border: 1px solid #99F6E4;
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 0.94rem;
+    }
+
+    .pitfall-box {
+      background-color: var(--warn-bg);
+      border: 1px solid #FECACA;
+      border-left: 4px solid var(--warn-border);
+      border-radius: 5px;
+      padding: 12px 15px;
+      margin: 14px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .pitfall-title {
+      font-weight: 700;
+      color: var(--warn-ink);
+      margin-bottom: 6px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed var(--border);
+      margin: 14px 0;
+    }
+
+    .mjx-container {
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 14mm 14mm 16mm 14mm;
+    }
+
+    @media print {
+      html, body {
+        font-size: 11pt;
+        background: #FFFFFF;
+        color: #000000;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .banner, .example-card, .question-card, .diagram-card, .pitfall-box, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      h1, h2, h3, h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <!-- 1. TITLE & EXAM CONTEXT -->
+    <header class="banner">
+      <div class="badge-row">
+        <span class="badge">NEET UG Physics</span>
+        <span class="badge badge-teal">Bilingual: English &amp; Bengali (বাংলা)</span>
+      </div>
+
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h1>Thermodynamics: Complete NEET UG Tutorial</h1>
+        <p><strong>Exam Scope &amp; Focus:</strong> Thermodynamics bridges thermal properties of matter with energy conservation and engine limits. For NEET UG, questions frequently test sign conventions in the First Law, work calculation from \(P\)-\(V\) indicator diagrams, comparison of isothermal and adiabatic curves, molar specific heats (\(C_p\), \(C_v\), \(\gamma\)), and Carnot engine efficiency using absolute Kelvin temperatures.</p>
+      </div>
+
+      <hr/>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h1>তাপগতিবিদ্যা: সম্পূর্ণ NEET UG টিউটোরিয়াল</h1>
+        <p><strong>পরীক্ষার পরিধি ও গুরুত্ব:</strong> তাপগতিবিদ্যা পদার্থের তাপীয় ধর্মকে শক্তির সংরক্ষণ এবং তাপীয় ইঞ্জিনের সীমাবদ্ধতার সঙ্গে যুক্ত করে। NEET UG পরীক্ষায় সাধারণত তাপগতিবিদ্যার প্রথম সূত্রের চিহ্ন প্রথা, \(P\)-\(V\) লেখচিত্র থেকে কৃতকার্য নির্ণয়, সমোষ্ণ ও রুদ্ধতাপীয় প্রক্রিয়ার তুলনা, মোলার আপেক্ষিক তাপ (\(C_p\), \(C_v\), \(\gamma\)) এবং কেলভিন স্কেলে কার্নো ইঞ্জিনের কর্মদক্ষতা থেকে প্রশ্ন আসে।</p>
+      </div>
+    </header>
+
+    <!-- 2. LEARNING OBJECTIVES & OVERVIEW -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>1. Learning Objectives &amp; Chapter Roadmap</h2>
+        <ul>
+          <li>Distinguish between macroscopic thermodynamic equilibrium and mechanical equilibrium.</li>
+          <li>Understand how the Zeroth Law defines temperature as a thermal equilibrium indicator.</li>
+          <li>Differentiate state variables (internal energy \(U\), pressure \(P\), volume \(V\), temperature \(T\)) from path-dependent energy transfers (heat \(\Delta Q\) and work \(\Delta W\)).</li>
+          <li>Apply the First Law of Thermodynamics (\(\Delta Q = \Delta U + \Delta W\)) and Mayer's relation (\(C_p - C_v = R\)) to ideal gases and phase transitions.</li>
+          <li>Analyze isothermal, adiabatic, isobaric, isochoric, and cyclic processes on \(P\)-\(V\) diagrams.</li>
+          <li>Apply the Second Law of Thermodynamics and compute the maximum theoretical efficiency of a Carnot engine.</li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>১. শিখন উদ্দেশ্য ও অধ্যায়ের রূপরেখা</h2>
+        <ul>
+          <li>স্থূল (macroscopic) তাপীয় সাম্যাবস্থা এবং বলবিদ্যার সাম্যাবস্থার মধ্যে পার্থক্য নির্ণয় করা।</li>
+          <li>তাপগতিবিদ্যার শূন্যতম সূত্র কীভাবে তাপমাত্রাকে তাপীয় সাম্যের সূচক হিসেবে সংজ্ঞায়িত করে তা বোঝা।</li>
+          <li>অবস্থা-অপেক্ষক চলরাশি (অভ্যন্তরীণ শক্তি \(U\), চাপ \(P\), আয়তন \(V\), তাপমাত্রা \(T\)) এবং পথ-নির্ভর শক্তি স্থানান্তর (তাপ \(\Delta Q\) ও কার্য \(\Delta W\))-এর মধ্যে পার্থক্য করা।</li>
+          <li>আদর্শ গ্যাস ও দশা পরিবর্তনের ক্ষেত্রে তাপগতিবিদ্যার প্রথম সূত্র (\(\Delta Q = \Delta U + \Delta W\)) এবং মেয়ারের সম্পর্ক (\(C_p - C_v = R\)) প্রয়োগ করা।</li>
+          <li>\(P\)-\(V\) লেখচিত্রে সমোষ্ণ, রুদ্ধতাপীয়, সমচাপীয়, সমআয়তন ও চক্রীয় প্রক্রিয়া বিশ্লেষণ করা।</li>
+          <li>তাপগতিবিদ্যার দ্বিতীয় সূত্র প্রয়োগ করা এবং কার্নো ইঞ্জিনের সর্বোচ্চ তাত্ত্বিক কর্মদক্ষতা নির্ণয় করা।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. MODULE 1: THERMAL EQUILIBRIUM & ZEROTH LAW -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>2. Thermal Equilibrium &amp; Zeroth Law of Thermodynamics</h2>
+        <p><strong>Macroscopic Science:</strong> Unlike mechanics (which tracks the motion of a body's centre of mass under net forces) or kinetic theory (which models individual molecular velocities), thermodynamics describes bulk matter using a small set of measurable macroscopic variables such as pressure \(P\), volume \(V\), temperature \(T\), and mass \(m\).</p>
+        <p><strong>Thermodynamic Equilibrium:</strong> A system is in thermodynamic equilibrium when its macroscopic state variables remain constant over time. Whether two systems exchange thermal energy depends on the boundary separating them:</p>
+        <ul>
+          <li><strong>Adiabatic Wall:</strong> An ideal insulating boundary that blocks heat transfer between systems.</li>
+          <li><strong>Diathermic Wall:</strong> A conducting boundary that permits heat flow until both systems reach a common equilibrium state (thermal equilibrium).</li>
+        </ul>
+        <p><strong>Zeroth Law of Thermodynamics:</strong> If system \(A\) and system \(B\) are each separately in thermal equilibrium with a third system \(C\), then \(A\) and \(B\) are also in thermal equilibrium with each other. This establishes the existence of a scalar state variable called <strong>temperature (\(T\))</strong>: systems in thermal equilibrium share the exact same temperature (\(T_A = T_B = T_C\)). Heat naturally flows from higher temperature to lower temperature.</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 560 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zeroth Law of Thermodynamics Schematic">
+            <rect x="10" y="10" width="250" height="170" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="135" y="30" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Step 1: A and B equilibrate with C</text>
+            <rect x="40" y="45" width="190" height="40" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="135" y="70" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">System C (T_C)</text>
+            <rect x="40" y="85" width="190" height="12" fill="#0D9488"/>
+            <text x="135" y="94" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">DIATHERMIC WALL</text>
+            <rect x="40" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="82" y="134" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">A (T_A)</text>
+            <rect x="125" y="97" width="20" height="65" fill="#64748B"/>
+            <rect x="145" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="187" y="134" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">B (T_B)</text>
+            <text x="135" y="174" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">Adiabatic wall between A &amp; B</text>
+
+            <path d="M 268 95 L 292 95" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowB)"/>
+            <defs>
+              <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#2563EB"/>
+              </marker>
+            </defs>
+
+            <rect x="300" y="10" width="250" height="170" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="425" y="30" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Step 2: No change when A meets B</text>
+            <rect x="330" y="45" width="190" height="40" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="425" y="70" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">System C (Isolated)</text>
+            <rect x="330" y="85" width="190" height="12" fill="#64748B"/>
+            <text x="425" y="94" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">ADIABATIC WALL</text>
+            <rect x="330" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="372" y="134" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">A (T_A)</text>
+            <rect x="415" y="97" width="20" height="65" fill="#0D9488"/>
+            <rect x="435" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="477" y="134" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">B (T_B)</text>
+            <text x="425" y="174" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0D9488" font-weight="700">T_A = T_B (Thermal Equilibrium)</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 1: Conceptual illustration of the Zeroth Law of Thermodynamics.</div>
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>২. তাপীয় সাম্যাবস্থা ও তাপগতিবিদ্যার শূন্যতম সূত্র</h2>
+        <p><strong>স্থূল (Macroscopic) বিজ্ঞান:</strong> বলবিদ্যায় (যা লব্ধি বলের প্রভাবে বস্তুর ভরকেন্দ্রের গতি নিয়ে আলোচনা করে) বা গ্যাসের গতিতত্ত্বে (যা প্রতিটি অণুর বেগ বিশ্লেষণ করে) ব্যবহৃত পদ্ধতির বিপরীতে, তাপগতিবিদ্যা কোনো সামগ্রিক পদার্থকে চাপ \(P\), আয়তন \(V\), তাপমাত্রা \(T\) এবং ভর \(m\)-এর মতো কয়েকটি পরিমাপযোগ্য স্থূল চলরাশির মাধ্যমে বর্ণনা করে।</p>
+        <p><strong>তাপগতিীয় সাম্যাবস্থা:</strong> কোনো সংস্থার স্থূল অবস্থা-চলরাশিগুলি সময়ের সাথে অপরিবর্তিত থাকলে তাকে তাপগতিীয় সাম্যাবস্থা বলে। দুটি সংস্থার মধ্যে তাপশক্তির আদান-প্রদান হবে কি না তা নির্ভর করে তাদের মধ্যবর্তী দেওয়ালের প্রকৃতির ওপর:</p>
+        <ul>
+          <li><strong>রুদ্ধতাপীয় দেওয়াল (Adiabatic Wall):</strong> এমন একটি আদর্শ অন্তরক দেওয়াল যা সংস্থাদ্বয়ের মধ্যে তাপের প্রবাহকে সম্পূর্ণরূপে বাধা দেয়।</li>
+          <li><strong>তাপ-সুপরিবাহী দেওয়াল (Diathermic Wall):</strong> এমন একটি পরিবাহী দেওয়াল যা উভয় সংস্থা একই সাম্যাবস্থায় (তাপীয় সাম্যাবস্থায়) না পৌঁছানো পর্যন্ত তাপ প্রবাহিত হতে দেয়।</li>
+        </ul>
+        <p><strong>তাপগতিবিদ্যার শূন্যতম সূত্র:</strong> যদি দুটি সংস্থা \(A\) এবং \(B\) পৃথকভাবে তৃতীয় একটি সংস্থা \(C\)-এর সাথে তাপীয় সাম্যাবস্থায় থাকে, তবে \(A\) এবং \(B\) পরস্পরের সাথেও তাপীয় সাম্যাবস্থায় থাকবে। এই সূত্র থেকে <strong>তাপমাত্রা (\(T\))</strong> নামক স্কেলার অবস্থা-চলরাশির ধারণা পাওয়া যায়: তাপীয় সাম্যাবস্থায় থাকা সংস্থাগুলির তাপমাত্রা সমান হয় (\(T_A = T_B = T_C\))। তাপ সর্বদা উচ্চ তাপমাত্রা থেকে নিম্ন তাপমাত্রার দিকে প্রবাহিত হয়।</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 560 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="তাপগতিবিদ্যার শূন্যতম সূত্রের চিত্র">
+            <rect x="10" y="10" width="250" height="170" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="135" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">ধাপ ১: A ও B পৃথকভাবে C-এর সাথে সাম্যে</text>
+            <rect x="40" y="45" width="190" height="40" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="135" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">সংস্থা C (T_C)</text>
+            <rect x="40" y="85" width="190" height="12" fill="#0D9488"/>
+            <text x="135" y="94" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">তাপ-পরিবাহী দেওয়াল</text>
+            <rect x="40" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="82" y="134" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">A (T_A)</text>
+            <rect x="125" y="97" width="20" height="65" fill="#64748B"/>
+            <rect x="145" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="187" y="134" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">B (T_B)</text>
+            <text x="135" y="174" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">A ও B-এর মাঝে রুদ্ধতাপীয় দেওয়াল</text>
+
+            <path d="M 268 95 L 292 95" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowB2)"/>
+            <defs>
+              <marker id="arrowB2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#2563EB"/>
+              </marker>
+            </defs>
+
+            <rect x="300" y="10" width="250" height="170" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="425" y="30" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">ধাপ ২: A ও B যুক্ত হলেও কোনো পরিবর্তন নেই</text>
+            <rect x="330" y="45" width="190" height="40" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+            <text x="425" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">সংস্থা C (অন্তরিত)</text>
+            <rect x="330" y="85" width="190" height="12" fill="#64748B"/>
+            <text x="425" y="94" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#FFFFFF">রুদ্ধতাপীয় দেওয়াল</text>
+            <rect x="330" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="372" y="134" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">A (T_A)</text>
+            <rect x="415" y="97" width="20" height="65" fill="#0D9488"/>
+            <rect x="435" y="97" width="85" height="65" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="477" y="134" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">B (T_B)</text>
+            <text x="425" y="174" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#0D9488" font-weight="700">T_A = T_B (তাপীয় সাম্যাবস্থা)</text>
+          </svg>
+          <div class="diagram-caption">টিউটোরিয়াল চিত্র ১: তাপগতিবিদ্যার শূন্যতম সূত্রের ধারণাগত চিত্র।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MODULE 2: STATE VARIABLES, INTERNAL ENERGY & FIRST LAW -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>3. State Variables, Internal Energy &amp; First Law of Thermodynamics</h2>
+        <p><strong>State Variables &amp; Equation of State:</strong> Equilibrium states are fully specified by macroscopic state variables. For \(\mu\) moles of an ideal gas, these variables are linked by the ideal gas equation of state:</p>
+        <div class="formula-box">
+          \[P V = \mu R T\]
+        </div>
+        <p>State variables are classified by how they behave if an equilibrium system is mentally divided into two equal halves:</p>
+        <ul>
+          <li><strong>Extensive Variables:</strong> Depend on system size and halve when the system is halved—examples: Volume \(V\), Total Mass \(M\), Internal Energy \(U\), Number of moles \(\mu\).</li>
+          <li><strong>Intensive Variables:</strong> Independent of system size and remain unchanged—examples: Pressure \(P\), Temperature \(T\), Density \(\rho\).</li>
+        </ul>
+
+        <p><strong>Internal Energy (\(U\)):</strong> The total disordered molecular kinetic energy (translational, rotational, vibrational) plus intermolecular potential energy measured in the rest frame of the system's centre of mass. Bulk kinetic energy of a moving container is <em>not</em> part of \(U\). Crucially, \(U\) is a <strong>state function</strong>: \(\Delta U\) depends only on the initial and final states, never on the path taken. For an ideal gas (negligible intermolecular forces), \(U\) depends purely on absolute temperature \(T\).</p>
+
+        <p><strong>Heat (\(\Delta Q\)) and Work (\(\Delta W\)):</strong> Neither heat nor work is a state variable; both are <em>modes of energy transfer</em> (energy in transit). Heat is energy transferred due to a temperature difference; work is energy transferred by mechanical/non-thermal means (such as moving a piston). Both \(\Delta Q\) and \(\Delta W\) depend on the thermodynamic path.</p>
+
+        <div class="formula-box">
+          <strong>First Law of Thermodynamics (Energy Conservation):</strong>
+          \[\Delta Q = \Delta U + \Delta W\]
+          For quasi-static expansion or compression of a gas against pressure \(P\):
+          \[\Delta W = P \Delta V \quad \text{and} \quad W = \int_{V_1}^{V_2} P \, \mathrm{d}V = \text{Area under } P\text{-}V \text{ curve}\]
+        </div>
+
+        <p><strong>Physics Sign Convention (NEET UG Standard):</strong></p>
+        <ul>
+          <li>\(\Delta Q &gt; 0\): Heat absorbed <em>by</em> the system; \(\Delta Q &lt; 0\): Heat rejected <em>by</em> the system.</li>
+          <li>\(\Delta W &gt; 0\): Work done <em>by</em> the system (expansion, \(\Delta V &gt; 0\)); \(\Delta W &lt; 0\): Work done <em>on</em> the system (compression, \(\Delta V &lt; 0\)).</li>
+          <li>\(\Delta U &gt; 0\): Internal energy increases; \(\Delta U &lt; 0\): Internal energy decreases.</li>
+        </ul>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৩. অবস্থা-চলরাশি, অভ্যন্তরীণ শক্তি ও তাপগতিবিদ্যার প্রথম সূত্র</h2>
+        <p><strong>অবস্থা-চলরাশি ও অবস্থার সমীকরণ:</strong> কোনো সংস্থার সাম্যাবস্থা স্থূল অবস্থা-চলরাশির মাধ্যমে সম্পূর্ণভাবে নির্ধারিত হয়। \(\mu\) মোল আদর্শ গ্যাসের জন্য এই চলরাশিগুলি আদর্শ গ্যাস সমীকরণ দ্বারা যুক্ত:</p>
+        <div class="formula-box">
+          \[P V = \mu R T\]
+        </div>
+        <p>সাম্যাবস্থায় থাকা কোনো সংস্থাকে কল্পনায় দুটি সমান ভাগে ভাগ করলে চলরাশিগুলি কীভাবে পরিবর্তিত হয় তার ওপর ভিত্তি করে এদের দুই ভাগে ভাগ করা হয়:</p>
+        <ul>
+          <li><strong>পরিমাণগত চলরাশি (Extensive Variables):</strong> সংস্থার আকারের ওপর নির্ভর করে এবং সংস্থা অর্ধেক করলে এদের মান অর্ধেক হয়—যেমন: আয়তন \(V\), মোট ভর \(M\), অভ্যন্তরীণ শক্তি \(U\), মোল সংখ্যা \(\mu\)।</li>
+          <li><strong>তীব্রতা-সূচক চলরাশি (Intensive Variables):</strong> সংস্থার আকারের ওপর নির্ভর করে না এবং অপরিবর্তিত থাকে—যেমন: চাপ \(P\), তাপমাত্রা \(T\), ঘনত্ব \(\rho\)।</li>
+        </ul>
+
+        <p><strong>অভ্যন্তরীণ শক্তি (\(U\)):</strong> সংস্থার ভরকেন্দ্রের সাপেক্ষে স্থির নির্দেশতন্ত্রে পরিমাপকৃত অণুগুলির এলোমেলো গতিজনিত গতিশক্তি (রৈখিক, ঘূর্ণন, কম্পন) এবং আন্তঃআণবিক স্থিতিশক্তির সমষ্টিকে অভ্যন্তরীণ শক্তি বলে। কোনো গতিশীল পাত্রের সামগ্রিক গতিশক্তি \(U\)-এর অন্তর্ভুক্ত <em>নয়</em>। \(U\) একটি <strong>অবস্থা-অপেক্ষক (state function)</strong>: \(\Delta U\) কেবল প্রাথমিক ও অন্তিম অবস্থার ওপর নির্ভর করে, গৃহীত পথের ওপর নয়। আদর্শ গ্যাসের ক্ষেত্রে (আন্তঃআণবিক বল নগণ্য হওয়ায়) \(U\) শুধুমাত্র পরম তাপমাত্রা \(T\)-এর ওপর নির্ভর করে।</p>
+
+        <p><strong>তাপ (\(\Delta Q\)) ও কার্য (\(\Delta W\)):</strong> তাপ বা কার্য কোনোটিই অবস্থা-চলরাশি নয়; উভয়ই <em>শক্তি স্থানান্তরের মাধ্যম</em>। তাপমাত্রার পার্থক্যের কারণে যে শক্তি স্থানান্তরিত হয় তা হলো তাপ, আর যান্ত্রিক বা অ-তাপীয় উপায়ে (যেমন পিস্টন সরিয়ে) যে শক্তি স্থানান্তরিত হয় তা হলো কার্য। \(\Delta Q\) এবং \(\Delta W\) উভয়ই প্রক্রিয়ার পথের ওপর নির্ভরশীল।</p>
+
+        <div class="formula-box">
+          <strong>তাপগতিবিদ্যার প্রথম সূত্র (শক্তির সংরক্ষণ):</strong>
+          \[\Delta Q = \Delta U + \Delta W\]
+          \(P\) চাপে গ্যাসের ধীর (quasi-static) প্রসারণ বা সংকোচনের ক্ষেত্রে:
+          \[\Delta W = P \Delta V \quad \text{এবং} \quad W = \int_{V_1}^{V_2} P \, \mathrm{d}V = P\text{-}V \text{ লেখচিত্রের নিচের ক্ষেত্রফল}\]
+        </div>
+
+        <p><strong>পদার্থবিজ্ঞানের চিহ্ন প্রথা (NEET UG মানদণ্ড):</strong></p>
+        <ul>
+          <li>\(\Delta Q &gt; 0\): সংস্থা <em>কর্তৃক</em> তাপ গৃহীত হলে; \(\Delta Q &lt; 0\): সংস্থা <em>থেকে</em> তাপ বর্জিত হলে।</li>
+          <li>\(\Delta W &gt; 0\): সংস্থা <em>দ্বারা</em> কৃতকার্য (প্রসারণ, \(\Delta V &gt; 0\)); \(\Delta W &lt; 0\): সংস্থার <em>ওপর</em> কৃতকার্য (সংকোচন, \(\Delta V &lt; 0\))।</li>
+          <li>\(\Delta U &gt; 0\): অভ্যন্তরীণ শক্তি বৃদ্ধি পেলে; \(\Delta U &lt; 0\): অভ্যন্তরীণ শক্তি হ্রাস পেলে।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. MODULE 3: SPECIFIC HEAT CAPACITIES & MAYER'S RELATION -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>4. Specific Heat Capacity &amp; Mayer's Relation</h2>
+        <p>Heat capacity \(S = \frac{\Delta Q}{\Delta T}\) depends on the amount of substance. Dividing by mass \(m\) gives <strong>specific heat capacity</strong> \(s = \frac{1}{m}\frac{\Delta Q}{\Delta T}\) (\(\mathrm{J\,kg^{-1}\,K^{-1}}\)), while dividing by moles \(\mu\) gives <strong>molar specific heat capacity</strong> \(C = \frac{1}{\mu}\frac{\Delta Q}{\Delta T}\) (\(\mathrm{J\,mol^{-1}\,K^{-1}}\)).</p>
+        <ul>
+          <li><strong>Solids (Dulong–Petit Law):</strong> Treating each atom as a 3D harmonic oscillator with average energy \(3k_B T\), 1 mole has \(U = 3RT\). Since volume change in solids is negligible (\(\Delta W \approx 0\)), \(C \approx \frac{\Delta U}{\Delta T} = 3R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}\) at room temperature (carbon is a notable low-value exception due to high Debye temperature).</li>
+          <li><strong>Water &amp; Calorie:</strong> One calorie is the heat required to raise \(1\,\mathrm{g}\) of water from \(14.5\,^\circ\mathrm{C}\) to \(15.5\,^\circ\mathrm{C}\). In SI units, \(1\,\mathrm{cal} = 4.186\,\mathrm{J}\), and specific heat of water is \(s_w = 4186\,\mathrm{J\,kg^{-1}\,K^{-1}}\).</li>
+        </ul>
+        <p><strong>Ideal Gases (\(C_p\) and \(C_v\)):</strong> For 1 mole of an ideal gas, heating at constant volume (\(\Delta V = 0\)) gives \(C_v = \left(\frac{\Delta U}{\Delta T}\right)\). Heating at constant pressure requires extra heat for expansion work: \(C_p = \left(\frac{\Delta U}{\Delta T}\right) + P\left(\frac{\Delta V}{\Delta T}\right)_p\). Using \(PV = RT\), \(P\left(\frac{\Delta V}{\Delta T}\right)_p = R\), yielding <strong>Mayer's Relation</strong>:</p>
+        <div class="formula-box">
+          \[C_p - C_v = R \qquad \text{and} \qquad \gamma = \frac{C_p}{C_v} &gt; 1\]
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৪. আপেক্ষিক তাপ ও মেয়ারের সম্পর্ক</h2>
+        <p>তাপগ্রাহিতা \(S = \frac{\Delta Q}{\Delta T}\) পদার্থের পরিমাণের ওপর নির্ভর করে। ভর \(m\) দিয়ে ভাগ করলে <strong>আপেক্ষিক তাপ</strong> \(s = \frac{1}{m}\frac{\Delta Q}{\Delta T}\) (\(\mathrm{J\,kg^{-1}\,K^{-1}}\)) এবং মোল সংখ্যা \(\mu\) দিয়ে ভাগ করলে <strong>মোলার আপেক্ষিক তাপ</strong> \(C = \frac{1}{\mu}\frac{\Delta Q}{\Delta T}\) (\(\mathrm{J\,mol^{-1}\,K^{-1}}\)) পাওয়া যায়।</p>
+        <ul>
+          <li><strong>কঠিন পদার্থ (ডুলং-পেটিট সূত্র):</strong> প্রতিটি পরমাণুকে ত্রিমাত্রিক সরল দোলক হিসেবে ধরলে গড় শক্তি \(3k_B T\), অর্থাৎ ১ মোলের জন্য \(U = 3RT\)। কঠিনের আয়তন পরিবর্তন নগণ্য (\(\Delta W \approx 0\)) হওয়ায় সাধারণ তাপমাত্রায় \(C \approx \frac{\Delta U}{\Delta T} = 3R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}\) (কার্বন একটি ব্যতিক্রম)।</li>
+          <li><strong>জল ও ক্যালরি:</strong> \(1\,\mathrm{g}\) বিশুদ্ধ জলের তাপমাত্রা \(14.5\,^\circ\mathrm{C}\) থেকে \(15.5\,^\circ\mathrm{C}\)-এ বৃদ্ধি করতে প্রয়োজনীয় তাপকে ১ ক্যালরি বলে। SI এককে, \(1\,\mathrm{cal} = 4.186\,\mathrm{J}\) এবং জলের আপেক্ষিক তাপ \(s_w = 4186\,\mathrm{J\,kg^{-1}\,K^{-1}}\)।</li>
+        </ul>
+        <p><strong>আদর্শ গ্যাস (\(C_p\) ও \(C_v\)):</strong> ১ মোল আদর্শ গ্যাসকে স্থির আয়তনে (\(\Delta V = 0\)) উত্তপ্ত করলে \(C_v = \left(\frac{\Delta U}{\Delta T}\right)\) হয়। কিন্তু স্থির চাপে উত্তপ্ত করলে প্রসারণজনিত কার্যের জন্য অতিরিক্ত তাপ লাগে: \(C_p = \left(\frac{\Delta U}{\Delta T}\right) + P\left(\frac{\Delta V}{\Delta T}\right)_p\)। \(PV = RT\) ব্যবহার করে \(P\left(\frac{\Delta V}{\Delta T}\right)_p = R\) পাওয়া যায়, যা থেকে আসে <strong>মেয়ারের সম্পর্ক</strong>:</p>
+        <div class="formula-box">
+          \[C_p - C_v = R \qquad \text{এবং} \qquad \gamma = \frac{C_p}{C_v} &gt; 1\]
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MODULE 4: THERMODYNAMIC PROCESSES -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>5. Quasi-Static &amp; Special Thermodynamic Processes</h2>
+        <p><strong>Quasi-Static Process:</strong> An idealized, infinitely slow process in which the system stays in thermal and mechanical equilibrium with its surroundings at every intermediate stage (\(\Delta P \to 0\), \(\Delta T \to 0\)). Rapid processes—such as <strong>free expansion</strong> into vacuum or an explosive chemical reaction—pass through non-equilibrium states where \(P\) and \(T\) are undefined.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Process</th>
+              <th>Constraint</th>
+              <th>First Law Form</th>
+              <th>Work Done (\(W\)) by Ideal Gas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Isothermal</strong></td>
+              <td>\(T = \text{const}\) (\(PV = \text{const}\))</td>
+              <td>\(\Delta U = 0 \Rightarrow \Delta Q = \Delta W\)</td>
+              <td>\(W = \mu R T \ln\!\left(\frac{V_2}{V_1}\right)\)</td>
+            </tr>
+            <tr>
+              <td><strong>Adiabatic</strong></td>
+              <td>\(\Delta Q = 0\) (\(PV^\gamma = \text{const}\))</td>
+              <td>\(\Delta U = -\Delta W\)</td>
+              <td>\(W = \frac{P_1 V_1 - P_2 V_2}{\gamma - 1} = \frac{\mu R (T_1 - T_2)}{\gamma - 1}\)</td>
+            </tr>
+            <tr>
+              <td><strong>Isobaric</strong></td>
+              <td>\(P = \text{const}\)</td>
+              <td>\(\Delta Q = \mu C_p \Delta T\)</td>
+              <td>\(W = P(V_2 - V_1) = \mu R (T_2 - T_1)\)</td>
+            </tr>
+            <tr>
+              <td><strong>Isochoric</strong></td>
+              <td>\(V = \text{const}\)</td>
+              <td>\(\Delta W = 0 \Rightarrow \Delta Q = \Delta U = \mu C_v \Delta T\)</td>
+              <td>\(W = 0\)</td>
+            </tr>
+            <tr>
+              <td><strong>Cyclic</strong></td>
+              <td>Initial state = Final state</td>
+              <td>\(\Delta U = 0 \Rightarrow \Delta Q_{\text{net}} = W_{\text{net}}\)</td>
+              <td>Area enclosed by loop (+ve if clockwise)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Crucial Graph Insight:</strong> At any common point \((P, V)\), the slope of an adiabatic curve is \(\left(\frac{\mathrm{d}P}{\mathrm{d}V}\right)_{\text{adia}} = -\gamma \frac{P}{V}\), whereas for an isotherm it is \(\left(\frac{\mathrm{d}P}{\mathrm{d}V}\right)_{\text{iso}} = -\frac{P}{V}\). Because \(\gamma &gt; 1\), the <strong>adiabatic curve is steeper</strong> than the isothermal curve.</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 460 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Isothermal vs Adiabatic Expansion on P-V diagram">
+            <line x1="55" y1="195" x2="420" y2="195" stroke="#1E293B" stroke-width="2"/>
+            <line x1="55" y1="195" x2="55" y2="20" stroke="#1E293B" stroke-width="2"/>
+            <text x="425" y="199" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">V</text>
+            <text x="48" y="16" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">P</text>
+            <text x="42" y="208" font-family="sans-serif" font-size="12" fill="#475569">0</text>
+
+            <!-- Isothermal curve -->
+            <path d="M 100 45 Q 200 105 380 130" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <text x="305" y="108" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">Isothermal (T = const)</text>
+
+            <!-- Adiabatic curve (steeper) -->
+            <path d="M 100 45 Q 165 135 380 172" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-dasharray="6,3"/>
+            <text x="240" y="182" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">Adiabatic (PV^γ = const, steeper)</text>
+
+            <circle cx="100" cy="45" r="4.5" fill="#1E293B"/>
+            <text x="108" y="42" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">Initial (P₁, V₁)</text>
+
+            <line x1="100" y1="195" x2="100" y2="45" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <line x1="380" y1="195" x2="380" y2="130" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <text x="95" y="212" font-family="sans-serif" font-size="11" fill="#475569">V₁</text>
+            <text x="375" y="212" font-family="sans-serif" font-size="11" fill="#475569">V₂</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 2: Comparing isothermal and adiabatic expansion from the same initial state \((P_1, V_1)\) to \(V_2\).</div>
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৫. প্রায়-স্থিতাবস্থা ও বিশেষ তাপগতীয় প্রক্রিয়াসমূহ</h2>
+        <p><strong>প্রায়-স্থিতাবস্থা প্রক্রিয়া (Quasi-Static Process):</strong> এটি এমন একটি আদর্শ ও অত্যন্ত ধীর প্রক্রিয়া যাতে প্রতিটি মধ্যবর্তী ধাপে সংস্থাটি পারিপার্শ্বিকের সাথে তাপীয় এবং যান্ত্রিক সাম্যাবস্থায় থাকে (\(\Delta P \to 0\), \(\Delta T \to 0\))। দ্রুত ঘটা প্রক্রিয়া—যেমন শূন্যস্থানে গ্যাসের <strong>মুক্ত প্রসারণ (free expansion)</strong> বা বিস্ফোরক রাসায়নিক বিক্রিয়া—অসাম্য অবস্থার মধ্য দিয়ে যায়, যেখানে \(P\) ও \(T\) সুনির্দিষ্ট থাকে না।</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>প্রক্রিয়া</th>
+              <th>শর্ত</th>
+              <th>প্রথম সূত্রের রূপ</th>
+              <th>আদর্শ গ্যাস দ্বারা কৃতকার্য (\(W\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>সমোষ্ণ (Isothermal)</strong></td>
+              <td>\(T = \text{ধ্রুবক}\) (\(PV = \text{ধ্রুবক}\))</td>
+              <td>\(\Delta U = 0 \Rightarrow \Delta Q = \Delta W\)</td>
+              <td>\(W = \mu R T \ln\!\left(\frac{V_2}{V_1}\right)\)</td>
+            </tr>
+            <tr>
+              <td><strong>রুদ্ধতাপীয় (Adiabatic)</strong></td>
+              <td>\(\Delta Q = 0\) (\(PV^\gamma = \text{ধ্রুবক}\))</td>
+              <td>\(\Delta U = -\Delta W\)</td>
+              <td>\(W = \frac{P_1 V_1 - P_2 V_2}{\gamma - 1} = \frac{\mu R (T_1 - T_2)}{\gamma - 1}\)</td>
+            </tr>
+            <tr>
+              <td><strong>সমচাপীয় (Isobaric)</strong></td>
+              <td>\(P = \text{ধ্রুবক}\)</td>
+              <td>\(\Delta Q = \mu C_p \Delta T\)</td>
+              <td>\(W = P(V_2 - V_1) = \mu R (T_2 - T_1)\)</td>
+            </tr>
+            <tr>
+              <td><strong>সমআয়তন (Isochoric)</strong></td>
+              <td>\(V = \text{ধ্রুবক}\)</td>
+              <td>\(\Delta W = 0 \Rightarrow \Delta Q = \Delta U = \mu C_v \Delta T\)</td>
+              <td>\(W = 0\)</td>
+            </tr>
+            <tr>
+              <td><strong>চক্রীয় (Cyclic)</strong></td>
+              <td>প্রাথমিক অবস্থা = অন্তিম অবস্থা</td>
+              <td>\(\Delta U = 0 \Rightarrow \Delta Q_{\text{net}} = W_{\text{net}}\)</td>
+              <td>বদ্ধ লুপের ক্ষেত্রফল (ঘড়ির কাঁটার দিকে হলে +ve)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>গুরুত্বপূর্ণ লেখচিত্র বিশ্লেষণ:</strong> যেকোনো সাধারণ বিন্দু \((P, V)\)-তে রুদ্ধতাপীয় লেখের নতি \(\left(\frac{\mathrm{d}P}{\mathrm{d}V}\right)_{\text{adia}} = -\gamma \frac{P}{V}\), যেখানে সমোষ্ণ লেখের নতি \(\left(\frac{\mathrm{d}P}{\mathrm{d}V}\right)_{\text{iso}} = -\frac{P}{V}\)। যেহেতু \(\gamma &gt; 1\), তাই <strong>রুদ্ধতাপীয় লেখটি সমোষ্ণ লেখের তুলনায় বেশি খাড়া</strong>।</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 460 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="P-V লেখচিত্রে সমোষ্ণ ও রুদ্ধতাপীয় প্রসারণের তুলনা">
+            <line x1="55" y1="195" x2="420" y2="195" stroke="#1E293B" stroke-width="2"/>
+            <line x1="55" y1="195" x2="55" y2="20" stroke="#1E293B" stroke-width="2"/>
+            <text x="425" y="199" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">V</text>
+            <text x="48" y="16" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">P</text>
+            <text x="42" y="208" font-family="sans-serif" font-size="12" fill="#475569">0</text>
+
+            <path d="M 100 45 Q 200 105 380 130" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <text x="295" y="108" font-family="sans-serif" font-size="11" font-weight="700" fill="#2563EB">সমোষ্ণ (T = ধ্রুবক)</text>
+
+            <path d="M 100 45 Q 165 135 380 172" fill="none" stroke="#0D9488" stroke-width="2.5" stroke-dasharray="6,3"/>
+            <text x="235" y="182" font-family="sans-serif" font-size="11" font-weight="700" fill="#0D9488">রুদ্ধতাপীয় (PV^γ = ধ্রুবক, বেশি খাড়া)</text>
+
+            <circle cx="100" cy="45" r="4.5" fill="#1E293B"/>
+            <text x="108" y="42" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">প্রাথমিক (P₁, V₁)</text>
+
+            <line x1="100" y1="195" x2="100" y2="45" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <line x1="380" y1="195" x2="380" y2="130" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <text x="95" y="212" font-family="sans-serif" font-size="11" fill="#475569">V₁</text>
+            <text x="375" y="212" font-family="sans-serif" font-size="11" fill="#475569">V₂</text>
+          </svg>
+          <div class="diagram-caption">টিউটোরিয়াল চিত্র ২: একই প্রাথমিক অবস্থা \((P_1, V_1)\) থেকে \(V_2\) পর্যন্ত সমোষ্ণ ও রুদ্ধতাপীয় প্রসারণের তুলনা।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MODULE 5: SECOND LAW, REVERSIBILITY & CARNOT ENGINE -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>6. Second Law of Thermodynamics, Reversibility &amp; Carnot Engine</h2>
+        <p><strong>Why the Second Law is Needed:</strong> Energy conservation alone would allow a table to cool spontaneously and launch a book upward. Nature forbids such one-way conversions via the <strong>Second Law of Thermodynamics</strong>, expressed in two equivalent forms:</p>
+        <ul>
+          <li><strong>Kelvin–Planck Statement:</strong> No process is possible whose sole result is the absorption of heat from a reservoir and its complete conversion into work (efficiency \(\eta\) can never be 100%).</li>
+          <li><strong>Clausius Statement:</strong> No process is possible whose sole result is the transfer of heat from a colder body to a hotter body (refrigerator coefficient of performance can never be infinite).</li>
+        </ul>
+
+        <p><strong>Reversible vs. Irreversible Processes:</strong> A process is <em>reversible</em> only if both the system and surroundings can be restored to their initial states with zero net change elsewhere. This requires two strict conditions: (i) it must be quasi-static, and (ii) there must be no dissipative effects (friction, viscosity, inelasticity). Spontaneous natural processes (free expansion, heat conduction across finite \(\Delta T\), gas diffusion) are always irreversible.</p>
+
+        <p><strong>Carnot Engine:</strong> An ideal reversible heat engine operating between a hot source at temperature \(T_1\) and a cold sink at temperature \(T_2\) (both in Kelvin) using a 4-step cycle: (1→2) Isothermal expansion at \(T_1\) absorbing \(Q_1\); (2→3) Adiabatic expansion from \(T_1\) to \(T_2\); (3→4) Isothermal compression at \(T_2\) rejecting \(Q_2\); (4→1) Adiabatic compression from \(T_2\) to \(T_1\).</p>
+
+        <div class="formula-box">
+          <strong>Carnot Efficiency &amp; Carnot's Theorem:</strong>
+          \[\eta = \frac{W}{Q_1} = 1 - \frac{Q_2}{Q_1} = 1 - \frac{T_2}{T_1} \qquad \text{and} \qquad \frac{Q_1}{Q_2} = \frac{T_1}{T_2}\]
+          <ul>
+            <li>No engine working between \(T_1\) and \(T_2\) can have an efficiency greater than a Carnot engine.</li>
+            <li>Carnot efficiency is independent of the working substance.</li>
+          </ul>
+        </div>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 460 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carnot Cycle P-V Diagram">
+            <line x1="55" y1="195" x2="420" y2="195" stroke="#1E293B" stroke-width="2"/>
+            <line x1="55" y1="195" x2="55" y2="20" stroke="#1E293B" stroke-width="2"/>
+            <text x="425" y="199" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">V</text>
+            <text x="48" y="16" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">P</text>
+
+            <!-- 1->2 Isothermal expansion -->
+            <path d="M 105 45 Q 175 68 255 82" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <!-- 2->3 Adiabatic expansion -->
+            <path d="M 255 82 Q 295 135 375 162" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+            <!-- 3->4 Isothermal compression -->
+            <path d="M 375 162 Q 275 148 185 132" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <!-- 4->1 Adiabatic compression -->
+            <path d="M 185 132 Q 135 92 105 45" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+
+            <circle cx="105" cy="45" r="4" fill="#1E293B"/>
+            <circle cx="255" cy="82" r="4" fill="#1E293B"/>
+            <circle cx="375" cy="162" r="4" fill="#1E293B"/>
+            <circle cx="185" cy="132" r="4" fill="#1E293B"/>
+
+            <text x="95" y="34" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">1 (P₁, V₁, T₁)</text>
+            <text x="262" y="78" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">2 (P₂, V₂, T₁)</text>
+            <text x="325" y="180" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">3 (P₃, V₃, T₂)</text>
+            <text x="112" y="152" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">4 (P₄, V₄, T₂)</text>
+
+            <text x="180" y="54" font-family="sans-serif" font-size="10" font-weight="700" fill="#2563EB">Isothermal (+Q₁)</text>
+            <text x="320" y="120" font-family="sans-serif" font-size="10" font-weight="700" fill="#0D9488">Adiabatic</text>
+            <text x="255" y="164" font-family="sans-serif" font-size="10" font-weight="700" fill="#2563EB">Isothermal (-Q₂)</text>
+            <text x="72" y="102" font-family="sans-serif" font-size="10" font-weight="700" fill="#0D9488">Adiabatic</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 3: The clockwise Carnot cycle on a \(P\)-\(V\) indicator diagram.</div>
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৬. তাপগতিবিদ্যার দ্বিতীয় সূত্র, প্রত্যাবর্তী প্রক্রিয়া ও কার্নো ইঞ্জিন</h2>
+        <p><strong>দ্বিতীয় সূত্রের প্রয়োজনীয়তা:</strong> শুধুমাত্র শক্তির সংরক্ষণ সূত্র মানলে, কোনো টেবিল স্বতঃস্ফূর্তভাবে ঠান্ডা হয়ে তার ওপর রাখা বইকে ওপরে ছুড়ে দিতে পারত। প্রকৃতিতে এমন একমুখী রূপান্তর ঘটে না, যা <strong>তাপগতিবিদ্যার দ্বিতীয় সূত্র</strong> দ্বারা ব্যাখ্যা করা হয়। এর দুটি সমতুল্য বিবৃতি রয়েছে:</p>
+        <ul>
+          <li><strong>কেলভিন-প্ল্যাঙ্ক বিবৃতি:</strong> এমন কোনো প্রক্রিয়া সম্ভব নয় যার একমাত্র ফলাফল হলো কোনো তাপ-আধার থেকে তাপ শোষণ করে তাকে সম্পূর্ণরূপে কার্যে রূপান্তর করা (কর্মদক্ষতা \(\eta\) কখনোই 100% হতে পারে না)।</li>
+          <li><strong>ক্লসিয়াস বিবৃতি:</strong> এমন কোনো প্রক্রিয়া সম্ভব নয় যার একমাত্র ফলাফল হলো শীতলতর বস্তু থেকে উষ্ণতর বস্তুতে তাপের স্থানান্তর (রেফ্রিজারেটরের কার্য-সহগ অসীম হতে পারে না)।</li>
+        </ul>
+
+        <p><strong>প্রত্যাবর্তী ও অপ্রত্যাবর্তী প্রক্রিয়া:</strong> কোনো প্রক্রিয়াকে <em>প্রত্যাবর্তী (reversible)</em> বলা হয় যদি সংস্থা ও পারিপার্শ্বিক উভয়কেই অন্য কোথাও কোনো স্থায়ী পরিবর্তন না ঘটিয়ে প্রাথমিক অবস্থায় ফিরিয়ে আনা যায়। এর জন্য দুটি শর্ত আবশ্যক: (i) প্রক্রিয়াটি প্রায়-স্থিতাবস্থা (quasi-static) হতে হবে, এবং (ii) ঘর্ষণ বা সান্দ্রতার মতো কোনো অপচয়ী বল থাকা চলবে না। প্রকৃতির স্বতঃস্ফূর্ত প্রক্রিয়াগুলি (মুক্ত প্রসারণ, সসীম তাপমাত্রার পার্থক্যে তাপ পরিবহন, গ্যাসের ব্যাপন) সর্বদা অপ্রত্যাবর্তী।</p>
+
+        <p><strong>কার্নো ইঞ্জিন:</strong> এটি \(T_1\) উষ্ণতার উৎস এবং \(T_2\) উষ্ণতার গ্রাহকের (উভয়ই কেলভিনে) মধ্যে কার্যরত একটি আদর্শ প্রত্যাবর্তী তাপীয় ইঞ্জিন, যা ৪টি ধাপে কাজ করে: (1→2) \(T_1\) তাপমাত্রায় সমোষ্ণ প্রসারণ (\(Q_1\) তাপ শোষণ); (2→3) \(T_1\) থেকে \(T_2\)-তে রুদ্ধতাপীয় প্রসারণ; (3→4) \(T_2\) তাপমাত্রায় সমোষ্ণ সংকোচন (\(Q_2\) তাপ বর্জন); (4→1) \(T_2\) থেকে \(T_1\)-এ রুদ্ধতাপীয় সংকোচন।</p>
+
+        <div class="formula-box">
+          <strong>কার্নো ইঞ্জিনের কর্মদক্ষতা ও কার্নোর উপপাদ্য:</strong>
+          \[\eta = \frac{W}{Q_1} = 1 - \frac{Q_2}{Q_1} = 1 - \frac{T_2}{T_1} \qquad \text{এবং} \qquad \frac{Q_1}{Q_2} = \frac{T_1}{T_2}\]
+          <ul>
+            <li>\(T_1\) ও \(T_2\) তাপমাত্রার মধ্যে কার্যরত কোনো ইঞ্জিনের কর্মদক্ষতা কার্নো ইঞ্জিনের চেয়ে বেশি হতে পারে না।</li>
+            <li>কার্নো ইঞ্জিনের কর্মদক্ষতা কার্যনির্বাহী পদার্থের প্রকৃতির ওপর নির্ভর করে না।</li>
+          </ul>
+        </div>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 460 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="P-V লেখচিত্রে কার্নো চক্র">
+            <line x1="55" y1="195" x2="420" y2="195" stroke="#1E293B" stroke-width="2"/>
+            <line x1="55" y1="195" x2="55" y2="20" stroke="#1E293B" stroke-width="2"/>
+            <text x="425" y="199" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">V</text>
+            <text x="48" y="16" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">P</text>
+
+            <path d="M 105 45 Q 175 68 255 82" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <path d="M 255 82 Q 295 135 375 162" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+            <path d="M 375 162 Q 275 148 185 132" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <path d="M 185 132 Q 135 92 105 45" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+
+            <circle cx="105" cy="45" r="4" fill="#1E293B"/>
+            <circle cx="255" cy="82" r="4" fill="#1E293B"/>
+            <circle cx="375" cy="162" r="4" fill="#1E293B"/>
+            <circle cx="185" cy="132" r="4" fill="#1E293B"/>
+
+            <text x="95" y="34" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">1 (P₁, V₁, T₁)</text>
+            <text x="262" y="78" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">2 (P₂, V₂, T₁)</text>
+            <text x="325" y="180" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">3 (P₃, V₃, T₂)</text>
+            <text x="112" y="152" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">4 (P₄, V₄, T₂)</text>
+
+            <text x="180" y="54" font-family="sans-serif" font-size="10" font-weight="700" fill="#2563EB">সমোষ্ণ (+Q₁)</text>
+            <text x="320" y="120" font-family="sans-serif" font-size="10" font-weight="700" fill="#0D9488">রুদ্ধতাপীয়</text>
+            <text x="255" y="164" font-family="sans-serif" font-size="10" font-weight="700" fill="#2563EB">সমোষ্ণ (-Q₂)</text>
+            <text x="68" y="102" font-family="sans-serif" font-size="10" font-weight="700" fill="#0D9488">রুদ্ধতাপীয়</text>
+          </svg>
+          <div class="diagram-caption">টিউটোরিয়াল চিত্র ৩: \(P\)-\(V\) লেখচিত্রে ঘড়ির কাঁটার দিকে কার্নো চক্র।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. WORKED EXAMPLES -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>7. Worked Examples</h2>
+
+        <div class="example-card">
+          <h3>Worked Example 1: First Law During Vaporization</h3>
+          <p><strong>Problem (Assumed Data):</strong> Suppose \(2.0\,\mathrm{g}\) of water at \(100\,^\circ\mathrm{C}\) and constant atmospheric pressure \(P = 1.0 \times 10^5\,\mathrm{Pa}\) is completely vaporized into steam. Assume the latent heat of vaporization is \(2250\,\mathrm{J\,g^{-1}}\), liquid volume is \(2.0\,\mathrm{cm^3}\), and steam volume is \(3340\,\mathrm{cm^3}\). Calculate the change in internal energy \(\Delta U\).</p>
+          <p><strong>Solution:</strong></p>
+          <ol>
+            <li>Heat supplied to the water: \(\Delta Q = m L = 2.0\,\mathrm{g} \times 2250\,\mathrm{J\,g^{-1}} = 4500\,\mathrm{J}\).</li>
+            <li>Volume change: \(\Delta V = (3340 - 2.0)\,\mathrm{cm^3} = 3338 \times 10^{-6}\,\mathrm{m^3}\).</li>
+            <li>Work done against constant pressure:
+              \[\Delta W = P \Delta V = (1.0 \times 10^5\,\mathrm{Pa}) \times (3.338 \times 10^{-3}\,\mathrm{m^3}) = 333.8\,\mathrm{J}\]</li>
+            <li>By the First Law of Thermodynamics:
+              \[\Delta U = \Delta Q - \Delta W = 4500 - 333.8 = 4166.2\,\mathrm{J}\]</li>
+          </ol>
+        </div>
+
+        <div class="example-card">
+          <h3>Worked Example 2: Adiabatic Compression of an Ideal Gas</h3>
+          <p><strong>Problem (Assumed Data):</strong> A cylinder with thermally insulated walls contains \(2\,\mathrm{mol}\) of an ideal diatomic gas (\(\gamma = 1.4\)) initially at temperature \(T_1 = 300\,\mathrm{K}\). It is compressed adiabatically until its volume becomes one-eighth of its initial volume (\(V_2 = V_1 / 8\)). Find the final temperature \(T_2\) and the work done on the gas (take \(R = 8.3\,\mathrm{J\,mol^{-1}\,K^{-1}}\)).</p>
+          <p><strong>Solution:</strong></p>
+          <ol>
+            <li>For a quasi-static adiabatic process, \(T_1 V_1^{\gamma - 1} = T_2 V_2^{\gamma - 1}\):
+              \[T_2 = T_1 \left(\frac{V_1}{V_2}\right)^{\gamma - 1} = 300 \times (8)^{1.4 - 1} = 300 \times 8^{0.4} \approx 300 \times 2.297 \approx 689\,\mathrm{K}\]</li>
+            <li>Work done by the gas:
+              \[W = \frac{\mu R (T_1 - T_2)}{\gamma - 1} = \frac{2 \times 8.3 \times (300 - 689)}{1.4 - 1} = \frac{16.6 \times (-389)}{0.4} \approx -16143.5\,\mathrm{J}\]
+              The negative sign confirms that \(16.14\,\mathrm{kJ}\) of work is done <em>on</em> the gas.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৭. মৌলিক সমাধানকৃত উদাহরণ</h2>
+
+        <div class="example-card">
+          <h3>উদাহরণ ১: বাষ্পীভবনের সময় তাপগতিবিদ্যার প্রথম সূত্র</h3>
+          <p><strong>সমস্যা (অনুমিত তথ্য):</strong> ধরা যাক \(100\,^\circ\mathrm{C}\) তাপমাত্রায় এবং স্থির বায়ুমণ্ডলীয় চাপে (\(P = 1.0 \times 10^5\,\mathrm{Pa}\)) \(2.0\,\mathrm{g}\) জল সম্পূর্ণরূপে বাষ্পে পরিণত হয়। বাষ্পীভবনের লীনতাপ \(2250\,\mathrm{J\,g^{-1}}\), তরলের আয়তন \(2.0\,\mathrm{cm^3}\) এবং বাষ্পের আয়তন \(3340\,\mathrm{cm^3}\) হলে অভ্যন্তরীণ শক্তির পরিবর্তন \(\Delta U\) নির্ণয় করো।</p>
+          <p><strong>সমাধান:</strong></p>
+          <ol>
+            <li>জলে সরবরাহকৃত তাপ: \(\Delta Q = m L = 2.0\,\mathrm{g} \times 2250\,\mathrm{J\,g^{-1}} = 4500\,\mathrm{J}\)।</li>
+            <li>আয়তনের পরিবর্তন: \(\Delta V = (3340 - 2.0)\,\mathrm{cm^3} = 3338 \times 10^{-6}\,\mathrm{m^3}\)।</li>
+            <li>স্থির চাপে কৃতকার্য:
+              \[\Delta W = P \Delta V = (1.0 \times 10^5\,\mathrm{Pa}) \times (3.338 \times 10^{-3}\,\mathrm{m^3}) = 333.8\,\mathrm{J}\]</li>
+            <li>তাপগতিবিদ্যার প্রথম সূত্রানুসারে:
+              \[\Delta U = \Delta Q - \Delta W = 4500 - 333.8 = 4166.2\,\mathrm{J}\]</li>
+          </ol>
+        </div>
+
+        <div class="example-card">
+          <h3>উদাহরণ ২: আদর্শ গ্যাসের রুদ্ধতাপীয় সংকোচন</h3>
+          <p><strong>সমস্যা (অনুমিত তথ্য):</strong> তাপ-অন্তরক দেওয়ালযুক্ত একটি সিলিন্ডারে \(T_1 = 300\,\mathrm{K}\) তাপমাত্রায় \(2\,\mathrm{mol}\) আদর্শ দ্বি-পরমাণুক গ্যাস (\(\gamma = 1.4\)) আছে। গ্যাসটিকে রুদ্ধতাপীয়ভাবে সংকুচিত করে এর আয়তন প্রাথমিক আয়তনের এক-অষ্টমাংশ (\(V_2 = V_1 / 8\)) করা হলো। অন্তিম তাপমাত্রা \(T_2\) এবং গ্যাসের ওপর কৃতকার্য নির্ণয় করো (\(R = 8.3\,\mathrm{J\,mol^{-1}\,K^{-1}}\))।</p>
+          <p><strong>সমাধান:</strong></p>
+          <ol>
+            <li>প্রায়-স্থিতাবস্থা রুদ্ধতাপীয় প্রক্রিয়ার জন্য, \(T_1 V_1^{\gamma - 1} = T_2 V_2^{\gamma - 1}\):
+              \[T_2 = T_1 \left(\frac{V_1}{V_2}\right)^{\gamma - 1} = 300 \times (8)^{1.4 - 1} = 300 \times 8^{0.4} \approx 300 \times 2.297 \approx 689\,\mathrm{K}\]</li>
+            <li>গ্যাস দ্বারা কৃতকার্য:
+              \[W = \frac{\mu R (T_1 - T_2)}{\gamma - 1} = \frac{2 \times 8.3 \times (300 - 689)}{1.4 - 1} = \frac{16.6 \times (-389)}{0.4} \approx -16143.5\,\mathrm{J}\]
+              ঋণাত্মক চিহ্ন নির্দেশ করে যে গ্যাসটির <em>ওপর</em> \(16.14\,\mathrm{kJ}\) কার্য করা হয়েছে।</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NEET UG PRACTICE QUESTIONS -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>8. NEET UG Practice Questions (with Worked Solutions)</h2>
+      </div>
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৮. NEET UG অনুশীলন প্রশ্নোত্তর (সমাধানসহ)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 1 (Single-Correct MCQ)</div>
+          <p>Two thermally insulated vessels \(X\) and \(Y\) are separately brought into thermal contact via diathermic walls with a third reference vessel \(Z\). After equilibrium is reached, \(Z\) is removed and \(X\) is placed in contact with \(Y\) through a conducting wall. Which physical quantity is guaranteed to be identical for \(X\) and \(Y\)?</p>
+          <ul class="options-list">
+            <li>(A) Internal energy</li>
+            <li>(B) Pressure</li>
+            <li>(C) Temperature</li>
+            <li>(D) Heat capacity</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (C) Temperature</strong><br/>
+            <strong>Explanation:</strong> By the Zeroth Law of Thermodynamics, since \(X\) and \(Y\) are separately in thermal equilibrium with \(Z\), they are in thermal equilibrium with each other. The thermodynamic variable that must be equal for systems in thermal equilibrium is temperature \(T\). Internal energy, pressure, and heat capacity depend on mass, volume, and material.
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ১ (একটি সঠিক উত্তরভিত্তিক MCQ)</div>
+          <p>তাপীয়ভাবে অন্তরিত দুটি পাত্র \(X\) এবং \(Y\)-কে পৃথকভাবে তাপ-সুপরিবাহী দেওয়ালের মাধ্যমে তৃতীয় একটি পাত্র \(Z\)-এর সংস্পর্শে আনা হলো। সাম্যাবস্থা অর্জিত হওয়ার পর \(Z\)-কে সরিয়ে \(X\) ও \(Y\)-কে একটি পরিবাহী দেওয়াল দিয়ে যুক্ত করা হলো। \(X\) এবং \(Y\)-এর জন্য কোন ভৌত রাশিটি অবশ্যই সমান হবে?</p>
+          <ul class="options-list">
+            <li>(A) অভ্যন্তরীণ শক্তি</li>
+            <li>(B) চাপ</li>
+            <li>(C) তাপমাত্রা</li>
+            <li>(D) তাপগ্রাহিতা</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (C) তাপমাত্রা</strong><br/>
+            <strong>ব্যাখ্যা:</strong> তাপগতিবিদ্যার শূন্যতম সূত্র অনুসারে, যেহেতু \(X\) এবং \(Y\) পৃথকভাবে \(Z\)-এর সাথে তাপীয় সাম্যাবস্থায় আছে, তাই তারা পরস্পরের সাথেও তাপীয় সাম্যাবস্থায় থাকবে। তাপীয় সাম্যাবস্থায় থাকা দুটি সংস্থার তাপমাত্রা \(T\) সর্বদা সমান হয়। অভ্যন্তরীণ শক্তি, চাপ ও তাপগ্রাহিতা ভর, আয়তন এবং উপাদানের ওপর নির্ভর করে।
+          </div>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 2 (Statement-Based MCQ)</div>
+          <p>Consider the following two statements regarding thermodynamic variables:<br/>
+          <strong>Statement I:</strong> Pressure, temperature, and density are intensive variables because they remain unchanged if a homogeneous equilibrium system is divided into two equal parts.<br/>
+          <strong>Statement II:</strong> Heat (\(\Delta Q\)) and work (\(\Delta W\)) are state variables because their difference \(\Delta Q - \Delta W\) is independent of the path.</p>
+          <ul class="options-list">
+            <li>(A) Both Statement I and Statement II are correct</li>
+            <li>(B) Statement I is correct, but Statement II is incorrect</li>
+            <li>(C) Statement I is incorrect, but Statement II is correct</li>
+            <li>(D) Both Statement I and Statement II are incorrect</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (B) Statement I is correct, but Statement II is incorrect</strong><br/>
+            <strong>Explanation:</strong> Pressure, temperature, and density do not depend on the size of the system, so they are intensive variables (Statement I is correct). However, \(\Delta Q\) and \(\Delta W\) individually depend on the path taken and are <em>not</em> state variables; only their combination \(\Delta U = \Delta Q - \Delta W\) is a state variable (Statement II is incorrect).
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ২ (বিবৃতি-ভিত্তিক MCQ)</div>
+          <p>তাপগতীয় চলরাশি সংক্রান্ত নিচের দুটি বিবৃতি বিবেচনা করো:<br/>
+          <strong>বিবৃতি I:</strong> চাপ, তাপমাত্রা এবং ঘনত্ব হলো তীব্রতা-সূচক (intensive) চলরাশি, কারণ একটি সমসত্ত্ব সাম্যাবস্থায় থাকা সংস্থাকে দুটি সমান ভাগে ভাগ করলে এগুলি অপরিবর্তিত থাকে।<br/>
+          <strong>বিবৃতি II:</strong> তাপ (\(\Delta Q\)) এবং কার্য (\(\Delta W\)) হলো অবস্থা-চলরাশি, কারণ এদের অন্তর \(\Delta Q - \Delta W\) পথের ওপর নির্ভর করে না।</p>
+          <ul class="options-list">
+            <li>(A) বিবৃতি I এবং বিবৃতি II উভয়ই সঠিক</li>
+            <li>(B) বিবৃতি I সঠিক, কিন্তু বিবৃতি II ভুল</li>
+            <li>(C) বিবৃতি I ভুল, কিন্তু বিবৃতি II সঠিক</li>
+            <li>(D) বিবৃতি I এবং বিবৃতি II উভয়ই ভুল</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (B) বিবৃতি I সঠিক, কিন্তু বিবৃতি II ভুল</strong><br/>
+            <strong>ব্যাখ্যা:</strong> চাপ, তাপমাত্রা এবং ঘনত্ব সংস্থার আকারের ওপর নির্ভর করে না, তাই এগুলি তীব্রতা-সূচক চলরাশি (বিবৃতি I সঠিক)। কিন্তু \(\Delta Q\) এবং \(\Delta W\) পৃথকভাবে পথের ওপর নির্ভরশীল এবং এগুলি অবস্থা-চলরাশি <em>নয়</em>; কেবলমাত্র এদের সমন্বয় \(\Delta U = \Delta Q - \Delta W\) একটি অবস্থা-চলরাশি (বিবৃতি II ভুল)।
+          </div>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 3 (Numerical MCQ)</div>
+          <p>When a thermodynamic system moves from state \(A\) to state \(B\) along a path where \(45\,\mathrm{J}\) of heat is supplied to the system, it performs \(18\,\mathrm{J}\) of work on the surroundings. If the system is taken from \(A\) to \(B\) along a different path in which \(12\,\mathrm{J}\) of work is done <em>on</em> the system, how much heat is absorbed or released in the second path?</p>
+          <ul class="options-list">
+            <li>(A) \(39\,\mathrm{J}\) absorbed</li>
+            <li>(B) \(15\,\mathrm{J}\) absorbed</li>
+            <li>(C) \(15\,\mathrm{J}\) released</li>
+            <li>(D) \(39\,\mathrm{J}\) released</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (B) \(15\,\mathrm{J}\) absorbed</strong><br/>
+            <strong>Explanation:</strong> In the first path, \(\Delta Q_1 = +45\,\mathrm{J}\) and \(\Delta W_1 = +18\,\mathrm{J}\). Thus, \(\Delta U = \Delta Q_1 - \Delta W_1 = 45 - 18 = +27\,\mathrm{J}\). Since \(\Delta U\) is path-independent, \(\Delta U = +27\,\mathrm{J}\) for the second path as well. In the second path, work is done <em>on</em> the system, so \(\Delta W_2 = -12\,\mathrm{J}\). Therefore, \(\Delta Q_2 = \Delta U + \Delta W_2 = 27 + (-12) = +15\,\mathrm{J}\) (absorbed).
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ৩ (গাণিতিক MCQ)</div>
+          <p>একটি তাপগতীয় সংস্থা \(A\) অবস্থা থেকে \(B\) অবস্থায় যাওয়ার একটি পথে \(45\,\mathrm{J}\) তাপ শোষণ করে এবং পারিপার্শ্বিকের ওপর \(18\,\mathrm{J}\) কার্য করে। যদি সংস্থাটিকে অন্য একটি পথে \(A\) থেকে \(B\)-তে নিয়ে যাওয়া হয় যেখানে সংস্থার <em>ওপর</em> \(12\,\mathrm{J}\) কার্য করা হয়, তবে দ্বিতীয় পথে কতটুকু তাপ শোষিত বা বর্জিত হবে?</p>
+          <ul class="options-list">
+            <li>(A) \(39\,\mathrm{J}\) শোষিত</li>
+            <li>(B) \(15\,\mathrm{J}\) শোষিত</li>
+            <li>(C) \(15\,\mathrm{J}\) বর্জিত</li>
+            <li>(D) \(39\,\mathrm{J}\) বর্জিত</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (B) \(15\,\mathrm{J}\) শোষিত</strong><br/>
+            <strong>ব্যাখ্যা:</strong> প্রথম পথে, \(\Delta Q_1 = +45\,\mathrm{J}\) এবং \(\Delta W_1 = +18\,\mathrm{J}\)। সুতরাং, \(\Delta U = \Delta Q_1 - \Delta W_1 = 45 - 18 = +27\,\mathrm{J}\)। যেহেতু \(\Delta U\) পথ-নিরপেক্ষ, তাই দ্বিতীয় পথেও \(\Delta U = +27\,\mathrm{J}\)। দ্বিতীয় পথে সংস্থার <em>ওপর</em> কার্য করা হয়েছে, তাই \(\Delta W_2 = -12\,\mathrm{J}\)। অতএব, \(\Delta Q_2 = \Delta U + \Delta W_2 = 27 + (-12) = +15\,\mathrm{J}\) (শোষিত)।
+          </div>
+        </div>
+      </article>
+
+      <!-- Q4 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 4 (Graphical MCQ)</div>
+          <p>An ideal gas undergoes the cyclic process \(P \to Q \to R \to P\) shown in the indicator diagram below. What is the net work done by the gas in one complete cycle?</p>
+          <div class="diagram-card">
+            <svg viewBox="0 0 360 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangular cyclic process P-Q-R">
+              <line x1="50" y1="160" x2="320" y2="160" stroke="#1E293B" stroke-width="1.8"/>
+              <line x1="50" y1="160" x2="50" y2="18" stroke="#1E293B" stroke-width="1.8"/>
+              <text x="325" y="164" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">V (m³)</text>
+              <text x="20" y="15" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">P (N/m²)</text>
+
+              <polygon points="110,45 270,125 110,125" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
+              <text x="115" y="40" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">P</text>
+              <text x="275" y="128" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">Q</text>
+              <text x="95" y="135" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">R</text>
+
+              <line x1="50" y1="45" x2="110" y2="45" stroke="#94A3B8" stroke-dasharray="3,3"/>
+              <line x1="50" y1="125" x2="110" y2="125" stroke="#94A3B8" stroke-dasharray="3,3"/>
+              <line x1="110" y1="125" x2="110" y2="160" stroke="#94A3B8" stroke-dasharray="3,3"/>
+              <line x1="270" y1="125" x2="270" y2="160" stroke="#94A3B8" stroke-dasharray="3,3"/>
+
+              <text x="24" y="49" font-family="sans-serif" font-size="10" fill="#475569">500</text>
+              <text x="24" y="129" font-family="sans-serif" font-size="10" fill="#475569">200</text>
+              <text x="103" y="175" font-family="sans-serif" font-size="10" fill="#475569">1.0</text>
+              <text x="263" y="175" font-family="sans-serif" font-size="10" fill="#475569">4.0</text>
+              <text x="175" y="102" font-family="sans-serif" font-size="10" font-weight="700" fill="#0D9488">Clockwise</text>
+            </svg>
+          </div>
+          <ul class="options-list">
+            <li>(A) \(900\,\mathrm{J}\)</li>
+            <li>(B) \(450\,\mathrm{J}\)</li>
+            <li>(C) \(-450\,\mathrm{J}\)</li>
+            <li>(D) \(300\,\mathrm{J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (B) \(450\,\mathrm{J}\)</strong><br/>
+            <strong>Explanation:</strong> Since the cycle \(P \to Q \to R \to P\) is clockwise, net work done by the gas is positive and equals the area of the triangle:
+            \[W_{\text{net}} = \frac{1}{2} \times \text{base} \times \text{height} = \frac{1}{2} \times (4.0 - 1.0)\,\mathrm{m^3} \times (500 - 200)\,\mathrm{N\,m^{-2}} = \frac{1}{2} \times 3.0 \times 300 = 450\,\mathrm{J}.\]
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ৪ (লেখচিত্র-ভিত্তিক MCQ)</div>
+          <p>একটি আদর্শ গ্যাস নিচের \(P\)-\(V\) লেখচিত্রে প্রদর্শিত \(P \to Q \to R \to P\) চক্রীয় প্রক্রিয়াটি সম্পন্ন করে। একটি পূর্ণ চক্রে গ্যাস দ্বারা কৃত মোট কার্য কত?</p>
+          <div class="diagram-card">
+            <svg viewBox="0 0 360 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ত্রিভুজাকার চক্রীয় প্রক্রিয়া P-Q-R">
+              <line x1="50" y1="160" x2="320" y2="160" stroke="#1E293B" stroke-width="1.8"/>
+              <line x1="50" y1="160" x2="50" y2="18" stroke="#1E293B" stroke-width="1.8"/>
+              <text x="325" y="164" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">V (m³)</text>
+              <text x="20" y="15" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">P (N/m²)</text>
+
+              <polygon points="110,45 270,125 110,125" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.2"/>
+              <text x="115" y="40" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">P</text>
+              <text x="275" y="128" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">Q</text>
+              <text x="95" y="135" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B">R</text>
+
+              <line x1="50" y1="45" x2="110" y2="45" stroke="#94A3B8" stroke-dasharray="3,3"/>
+              <line x1="50" y1="125" x2="110" y2="125" stroke="#94A3B8" stroke-dasharray="3,3"/>
+              <line x1="110" y1="125" x2="110" y2="160" stroke="#94A3B8" stroke-dasharray="3,3"/>
+              <line x1="270" y1="125" x2="270" y2="160" stroke="#94A3B8" stroke-dasharray="3,3"/>
+
+              <text x="24" y="49" font-family="sans-serif" font-size="10" fill="#475569">500</text>
+              <text x="24" y="129" font-family="sans-serif" font-size="10" fill="#475569">200</text>
+              <text x="103" y="175" font-family="sans-serif" font-size="10" fill="#475569">1.0</text>
+              <text x="263" y="175" font-family="sans-serif" font-size="10" fill="#475569">4.0</text>
+              <text x="165" y="102" font-family="sans-serif" font-size="10" font-weight="700" fill="#0D9488">ঘড়ির কাঁটার দিকে</text>
+            </svg>
+          </div>
+          <ul class="options-list">
+            <li>(A) \(900\,\mathrm{J}\)</li>
+            <li>(B) \(450\,\mathrm{J}\)</li>
+            <li>(C) \(-450\,\mathrm{J}\)</li>
+            <li>(D) \(300\,\mathrm{J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (B) \(450\,\mathrm{J}\)</strong><br/>
+            <strong>ব্যাখ্যা:</strong> যেহেতু \(P \to Q \to R \to P\) চক্রটি ঘড়ির কাঁটার দিকে, তাই গ্যাস দ্বারা কৃত মোট কার্য ধনাত্মক এবং ত্রিভুজটির ক্ষেত্রফলের সমান:
+            \[W_{\text{net}} = \frac{1}{2} \times \text{ভূমি} \times \text{উচ্চতা} = \frac{1}{2} \times (4.0 - 1.0)\,\mathrm{m^3} \times (500 - 200)\,\mathrm{N\,m^{-2}} = \frac{1}{2} \times 3.0 \times 300 = 450\,\mathrm{J}\]
+          </div>
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 5 (Numerical MCQ)</div>
+          <p>A monatomic ideal gas (\(\gamma = \frac{5}{3}\)) at initial pressure \(P_0\) and volume \(V_0\) is compressed adiabatically to a volume \(\frac{V_0}{8}\). What is the final pressure of the gas?</p>
+          <ul class="options-list">
+            <li>(A) \(8 P_0\)</li>
+            <li>(B) \(16 P_0\)</li>
+            <li>(C) \(32 P_0\)</li>
+            <li>(D) \(64 P_0\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (C) \(32 P_0\)</strong><br/>
+            <strong>Explanation:</strong> For an adiabatic process, \(P_1 V_1^\gamma = P_2 V_2^\gamma\). Thus,
+            \[P_2 = P_0 \left(\frac{V_0}{V_0 / 8}\right)^{5/3} = P_0 (8)^{5/3} = P_0 (2^3)^{5/3} = 2^5 P_0 = 32 P_0.\]
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ৫ (গাণিতিক MCQ)</div>
+          <p>প্রাথমিক চাপ \(P_0\) এবং আয়তন \(V_0\)-তে থাকা একটি এক-পরমাণুক আদর্শ গ্যাসকে (\(\gamma = \frac{5}{3}\)) রুদ্ধতাপীয়ভাবে সংকুচিত করে \(\frac{V_0}{8}\) আয়তনে আনা হলো। গ্যাসটির অন্তিম চাপ কত?</p>
+          <ul class="options-list">
+            <li>(A) \(8 P_0\)</li>
+            <li>(B) \(16 P_0\)</li>
+            <li>(C) \(32 P_0\)</li>
+            <li>(D) \(64 P_0\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (C) \(32 P_0\)</strong><br/>
+            <strong>ব্যাখ্যা:</strong> রুদ্ধতাপীয় প্রক্রিয়ার জন্য, \(P_1 V_1^\gamma = P_2 V_2^\gamma\)। সুতরাং,
+            \[P_2 = P_0 \left(\frac{V_0}{V_0 / 8}\right)^{5/3} = P_0 (8)^{5/3} = P_0 (2^3)^{5/3} = 2^5 P_0 = 32 P_0\]
+          </div>
+        </div>
+      </article>
+
+      <!-- Q6 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 6 (Numerical MCQ)</div>
+          <p>For \(3\,\mathrm{mol}\) of an ideal gas, \(C_v = \frac{5}{2} R\). How much heat must be supplied to raise its temperature by \(20\,\mathrm{K}\) at constant pressure? (Take \(R = 8.3\,\mathrm{J\,mol^{-1}\,K^{-1}}\))</p>
+          <ul class="options-list">
+            <li>(A) \(1245\,\mathrm{J}\)</li>
+            <li>(B) \(1743\,\mathrm{J}\)</li>
+            <li>(C) \(498\,\mathrm{J}\)</li>
+            <li>(D) \(2490\,\mathrm{J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (B) \(1743\,\mathrm{J}\)</strong><br/>
+            <strong>Explanation:</strong> Using Mayer's relation, \(C_p = C_v + R = \frac{5}{2}R + R = \frac{7}{2}R\). At constant pressure,
+            \[\Delta Q = \mu C_p \Delta T = 3 \times \left(\frac{7}{2} \times 8.3\right) \times 20 = 210 \times 8.3 = 1743\,\mathrm{J}.\]
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ৬ (গাণিতিক MCQ)</div>
+          <p>\(3\,\mathrm{mol}\) আদর্শ গ্যাসের জন্য \(C_v = \frac{5}{2} R\)। স্থির চাপে এই গ্যাসের তাপমাত্রা \(20\,\mathrm{K}\) বৃদ্ধি করতে কত তাপ সরবরাহ করতে হবে? (\(R = 8.3\,\mathrm{J\,mol^{-1}\,K^{-1}}\))</p>
+          <ul class="options-list">
+            <li>(A) \(1245\,\mathrm{J}\)</li>
+            <li>(B) \(1743\,\mathrm{J}\)</li>
+            <li>(C) \(498\,\mathrm{J}\)</li>
+            <li>(D) \(2490\,\mathrm{J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (B) \(1743\,\mathrm{J}\)</strong><br/>
+            <strong>ব্যাখ্যা:</strong> মেয়ারের সম্পর্ক থেকে, \(C_p = C_v + R = \frac{5}{2}R + R = \frac{7}{2}R\)। স্থির চাপে,
+            \[\Delta Q = \mu C_p \Delta T = 3 \times \left(\frac{7}{2} \times 8.3\right) \times 20 = 210 \times 8.3 = 1743\,\mathrm{J}\]
+          </div>
+        </div>
+      </article>
+
+      <!-- Q7 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 7 (Assertion–Reason MCQ)</div>
+          <p><strong>Assertion (A):</strong> Free expansion of an ideal gas into vacuum is an irreversible process.<br/>
+          <strong>Reason (R):</strong> During free expansion, the gas passes through non-equilibrium states where pressure and temperature are not uniformly defined.</p>
+          <ul class="options-list">
+            <li>(A) Both A and R are true, and R is the correct explanation of A</li>
+            <li>(B) Both A and R are true, but R is NOT the correct explanation of A</li>
+            <li>(C) A is true, but R is false</li>
+            <li>(D) A is false, but R is true</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (A) Both A and R are true, and R is the correct explanation of A</strong><br/>
+            <strong>Explanation:</strong> A reversible process must be quasi-static (passing only through equilibrium states) and non-dissipative. Rapid free expansion into vacuum takes the gas through non-equilibrium states, making it strictly irreversible.
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ৭ (বিবৃতি–কারণ MCQ)</div>
+          <p><strong>বিবৃতি (A):</strong> শূন্যস্থানে একটি আদর্শ গ্যাসের মুক্ত প্রসারণ একটি অপ্রত্যাবর্তী প্রক্রিয়া।<br/>
+          <strong>কারণ (R):</strong> মুক্ত প্রসারণের সময় গ্যাসটি এমন অসাম্য অবস্থার মধ্য দিয়ে যায় যেখানে চাপ এবং তাপমাত্রা সর্বত্র সুনির্দিষ্ট থাকে না।</p>
+          <ul class="options-list">
+            <li>(A) A এবং R উভয়ই সত্য, এবং R হলো A-এর সঠিক ব্যাখ্যা</li>
+            <li>(B) A এবং R উভয়ই সত্য, কিন্তু R হলো A-এর সঠিক ব্যাখ্যা নয়</li>
+            <li>(C) A সত্য, কিন্তু R মিথ্যা</li>
+            <li>(D) A মিথ্যা, কিন্তু R সত্য</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (A) A এবং R উভয়ই সত্য, এবং R হলো A-এর সঠিক ব্যাখ্যা</strong><br/>
+            <strong>ব্যাখ্যা:</strong> একটি প্রত্যাবর্তী প্রক্রিয়াকে অবশ্যই প্রায়-স্থিতাবস্থা (অর্থাৎ কেবল সাম্যাবস্থার মধ্য দিয়ে যাওয়া) এবং অপচয়বিহীন হতে হবে। শূন্যস্থানে দ্রুত মুক্ত প্রসারণের সময় গ্যাসটি অসাম্য অবস্থার মধ্য দিয়ে যায়, ফলে প্রক্রিয়াটি সম্পূর্ণরূপে অপ্রত্যাবর্তী হয়।
+          </div>
+        </div>
+      </article>
+
+      <!-- Q8 -->
+      <article class="question-card">
+        <div class="lang-block">
+          <div class="q-header">Practice Question 8 (Numerical MCQ)</div>
+          <p>A Carnot engine operates between a hot reservoir at \(227\,^\circ\mathrm{C}\) and a cold reservoir at \(27\,^\circ\mathrm{C}\). If it absorbs \(1000\,\mathrm{J}\) of heat from the hot reservoir in each cycle, what is the work output per cycle?</p>
+          <ul class="options-list">
+            <li>(A) \(881\,\mathrm{J}\)</li>
+            <li>(B) \(400\,\mathrm{J}\)</li>
+            <li>(C) \(600\,\mathrm{J}\)</li>
+            <li>(D) \(200\,\mathrm{J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>Answer: (B) \(400\,\mathrm{J}\)</strong><br/>
+            <strong>Explanation:</strong> Always convert temperatures to Kelvin first: \(T_1 = 227 + 273 = 500\,\mathrm{K}\) and \(T_2 = 27 + 273 = 300\,\mathrm{K}\). Efficiency:
+            \[\eta = 1 - \frac{T_2}{T_1} = 1 - \frac{300}{500} = 0.4\]
+            Work output: \(W = \eta Q_1 = 0.4 \times 1000\,\mathrm{J} = 400\,\mathrm{J}\).
+          </div>
+        </div>
+        <hr/>
+        <div class="lang-block lang-bn" lang="bn">
+          <div class="q-header">অনুশীলন প্রশ্ন ৮ (গাণিতিক MCQ)</div>
+          <p>একটি কার্নো ইঞ্জিন \(227\,^\circ\mathrm{C}\) উষ্ণতার একটি তাপ-উৎস এবং \(27\,^\circ\mathrm{C}\) উষ্ণতার একটি তাপ-গ্রাহকের মধ্যে কাজ করে। প্রতিটি চক্রে ইঞ্জিনটি উৎস থেকে \(1000\,\mathrm{J}\) তাপ শোষণ করলে, প্রতি চক্রে কৃতকার্যের পরিমাণ কত?</p>
+          <ul class="options-list">
+            <li>(A) \(881\,\mathrm{J}\)</li>
+            <li>(B) \(400\,\mathrm{J}\)</li>
+            <li>(C) \(600\,\mathrm{J}\)</li>
+            <li>(D) \(200\,\mathrm{J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <strong>উত্তর: (B) \(400\,\mathrm{J}\)</strong><br/>
+            <strong>ব্যাখ্যা:</strong> সর্বদা প্রথমে তাপমাত্রাকে কেলভিনে রূপান্তর করতে হবে: \(T_1 = 227 + 273 = 500\,\mathrm{K}\) এবং \(T_2 = 27 + 273 = 300\,\mathrm{K}\)। কর্মদক্ষতা:
+            \[\eta = 1 - \frac{T_2}{T_1} = 1 - \frac{300}{500} = 0.4\]
+            কৃতকার্য: \(W = \eta Q_1 = 0.4 \times 1000\,\mathrm{J} = 400\,\mathrm{J}\)।
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 10. COMMON PITFALLS & REVISION CHECKLIST -->
+    <section>
+      <div class="lang-block">
+        <span class="lang-tag">English</span>
+        <h2>9. Common NEET UG Pitfalls &amp; Revision Recap</h2>
+        <div class="pitfall-box">
+          <div class="pitfall-title">High-Frequency Exam Traps to Avoid</div>
+          <ul>
+            <li><strong>Celsius vs. Kelvin in Carnot Efficiency:</strong> Never plug \(^\circ\mathrm{C}\) directly into \(\eta = 1 - \frac{T_2}{T_1}\). Always add \(273\) (or \(273.15\)) to convert to Kelvin.</li>
+            <li><strong>Physics vs. Chemistry Sign Convention:</strong> In Physics, \(\Delta Q = \Delta U + \Delta W\) where \(\Delta W = P\Delta V\) is work done <em>by</em> the gas. Do not confuse this with Chemistry's \(\Delta U = q + w\).</li>
+            <li><strong>Free Expansion of an Ideal Gas:</strong> In insulated free expansion against vacuum, \(\Delta Q = 0\) and \(\Delta W = 0\), so \(\Delta U = 0\) and \(\Delta T = 0\). Yet it is <em>not</em> a quasi-static isothermal process—it is irreversible!</li>
+            <li><strong>Thermal Equilibrium Mean Temperature Myth:</strong> Two bodies at \(T_1\) and \(T_2\) in contact do <em>not</em> necessarily settle at \(\frac{T_1 + T_2}{2}\) unless their heat capacities (\(m s\)) are equal.</li>
+          </ul>
+        </div>
+        <p><strong>Final Recap:</strong> Master the distinction between state functions (\(P, V, T, U\)) and path functions (\(\Delta Q, \Delta W\)); remember that adiabatic curves are \(\gamma\) times steeper than isotherms; and use Kelvin temperatures for all ideal gas and Carnot calculations.</p>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag">বাংলা (Bengali)</span>
+        <h2>৯. সাধারণ ভুল ও চূড়ান্ত পুনরালোচনা</h2>
+        <div class="pitfall-box">
+          <div class="pitfall-title">পরীক্ষায় যে ভুলগুলি এড়িয়ে চলতে হবে</div>
+          <ul>
+            <li><strong>কার্নো কর্মদক্ষতায় সেলসিয়াস বনাম কেলভিন:</strong> \(\eta = 1 - \frac{T_2}{T_1}\) সূত্রে কখনোই সরাসরি \(^\circ\mathrm{C}\) বসাবে না। সর্বদা \(273\) যোগ করে কেলভিনে রূপান্তর করবে।</li>
+            <li><strong>পদার্থবিজ্ঞান বনাম রসায়নের চিহ্ন প্রথা:</strong> পদার্থবিজ্ঞানে \(\Delta Q = \Delta U + \Delta W\), যেখানে \(\Delta W = P\Delta V\) হলো গ্যাস <em>দ্বারা</em> কৃতকার্য। রসায়নের \(\Delta U = q + w\) প্রথার সাথে গুলিয়ে ফেলো না।</li>
+            <li><strong>আদর্শ গ্যাসের মুক্ত প্রসারণ:</strong> অন্তরিত পাত্রে শূন্যস্থানের বিপরীতে মুক্ত প্রসারণে \(\Delta Q = 0\) ও \(\Delta W = 0\), তাই \(\Delta U = 0\) এবং \(\Delta T = 0\)। তবুও এটি প্রায়-স্থিতাবস্থা সমোষ্ণ প্রক্রিয়া <em>নয়</em>—এটি একটি অপ্রত্যাবর্তী প্রক্রিয়া!</li>
+            <li><strong>গড় তাপমাত্রা সংক্রান্ত ভুল ধারণা:</strong> \(T_1\) ও \(T_2\) তাপমাত্রার দুটি বস্তু সংস্পর্শে এলে তাদের চূড়ান্ত তাপমাত্রা সর্বদা \(\frac{T_1 + T_2}{2}\) হয় <em>না</em>, যদি না তাদের তাপগ্রাহিতা (\(m s\)) সমান হয়।</li>
+          </ul>
+        </div>
+        <p><strong>চূড়ান্ত সারসংক্ষেপ:</strong> অবস্থা-অপেক্ষক (\(P, V, T, U\)) ও পথ-অপেক্ষকের (\(\Delta Q, \Delta W\)) পার্থক্য মনে রাখো; রুদ্ধতাপীয় লেখ সমোষ্ণ লেখের চেয়ে \(\gamma\) গুণ বেশি খাড়া; এবং আদর্শ গ্যাস ও কার্নো ইঞ্জিনের সমস্ত গণনায় কেলভিন তাপমাত্রা ব্যবহার করো।</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

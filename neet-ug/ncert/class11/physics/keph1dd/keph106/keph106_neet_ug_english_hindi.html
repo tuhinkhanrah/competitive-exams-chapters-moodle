@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Systems of Particles and Rotational Motion — NEET UG Bilingual Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --teal: #0D9488;
+      --bg-soft: #F8FAFC;
+      --bg-tint: #EFF6FF;
+      --bg-teal: #F0FDFA;
+      --bg-warn: #FFFBEB;
+      --border: #CBD5E1;
+      --warn-border: #D97706;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #FFFFFF;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Devanagari", "Kohinoor Devanagari", "Mangal", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 4px;
+      background: var(--bg-tint);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+      margin-right: 8px;
+      margin-bottom: 4px;
+    }
+
+    .badge-teal {
+      background: var(--bg-teal);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      margin: 6px 0;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.3;
+      margin: 28px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+      color: var(--primary);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.35;
+      margin: 20px 0 8px 0;
+      color: var(--teal);
+    }
+
+    h4 {
+      font-size: 1.02rem;
+      margin: 14px 0 6px 0;
+      color: var(--ink);
+    }
+
+    p {
+      margin: 0 0 12px 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-block {
+      margin-bottom: 18px;
+    }
+
+    .hi-block {
+      background: var(--bg-soft);
+      border-left: 4px solid var(--teal);
+      padding: 14px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 22px;
+    }
+
+    .en-block {
+      border-left: 4px solid var(--primary);
+      padding: 14px 16px;
+      background: #FFFFFF;
+      border-top: 1px solid #E2E8F0;
+      border-right: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 14px;
+    }
+
+    .formula-box {
+      background: var(--bg-tint);
+      border: 1px solid #BFDBFE;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 12px 0;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .note-box {
+      background: var(--bg-warn);
+      border-left: 4px solid var(--warn-border);
+      padding: 12px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 14px 0;
+    }
+
+    .diagram-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 16px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .diagram-card svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 560px;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.94rem;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    th {
+      background: var(--bg-tint);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background: var(--bg-soft);
+    }
+
+    .example-card, .question-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 18px 0;
+      background: #FFFFFF;
+      max-width: 100%;
+    }
+
+    .example-title, .question-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 14px 0;
+    }
+
+    .options-list li {
+      padding: 6px 10px;
+      margin-bottom: 6px;
+      background: var(--bg-soft);
+      border: 1px solid #E2E8F0;
+      border-radius: 5px;
+    }
+
+    .answer-box {
+      background: var(--bg-teal);
+      border: 1px solid #99F6E4;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-top: 10px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px dashed var(--border);
+      margin: 16px 0;
+    }
+
+    mjx-container {
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 16mm 14mm 16mm 14mm;
+    }
+
+    @media print {
+      html, body {
+        font-size: 10.5pt;
+        line-height: 1.5;
+        background: #FFFFFF;
+        color: #000000;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      .example-card, .question-card, .diagram-card, .formula-box, .note-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      table {
+        font-size: 9pt;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <!-- 1. TITLE AND EXAM CONTEXT -->
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">NEET UG Physics</span>
+        <span class="badge badge-teal">Bilingual: English &amp; हिन्दी</span>
+        <span class="badge">Mechanics — Rotational Dynamics</span>
+      </div>
+      <h1 lang="en">Systems of Particles and Rotational Motion</h1>
+      <h1 lang="hi">कणों के निकाय तथा घूर्णी गति</h1>
+      <p lang="en">A complete, self-contained, exam-oriented tutorial with conceptual derivations, standard results, original worked examples, and NEET UG practice questions with full solutions.</p>
+      <p lang="hi">संकल्पनात्मक व्युत्पत्तियों, मानक परिणामों, मौलिक हल किए गए उदाहरणों और पूर्ण समाधान सहित NEET UG अभ्यास प्रश्नों का एक संपूर्ण, स्व-निहित, परीक्षा-उन्मुख अध्ययन मार्गदर्शक।</p>
+    </header>
+
+    <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+    <section>
+      <h2 lang="en">1. Learning Objectives &amp; Chapter Overview</h2>
+      <div class="en-block" lang="en">
+        <p>Real-world objects are extended bodies made of countless interacting particles. While single-particle kinematics treats an object as a point mass, extended bodies can translate, rotate, or do both simultaneously. Mastering this topic is essential for NEET UG because rotational mechanics tests your command over vectors, conservation laws, and mechanical equilibrium.</p>
+        <ul>
+          <li>Distinguish between pure translation, fixed-axis rotation, and combined rolling motion.</li>
+          <li>Locate the centre of mass (CM) of discrete and symmetric continuous bodies and apply Newton's second law to CM motion.</li>
+          <li>Use vector cross products to relate linear and angular quantities, torque, and angular momentum.</li>
+          <li>Apply translational and rotational equilibrium conditions to levers, beams, and ladders.</li>
+          <li>Compute moments of inertia, apply \(\tau = I\alpha\), and solve conservation of angular momentum problems.</li>
+        </ul>
+      </div>
+
+      <h2 lang="hi">1. अधिगम उद्देश्य एवं अध्याय अवलोकन</h2>
+      <div class="hi-block" lang="hi">
+        <p>वास्तविक संसार की वस्तुएँ अनगिनत परस्पर क्रिया करने वाले कणों से बने विस्तृत पिंड होती हैं। एकल-कण गतिकी में वस्तु को बिंदु द्रव्यमान माना जाता है, जबकि विस्तृत पिंड स्थानांतरीय गति, घूर्णी गति, अथवा दोनों एक साथ कर सकते हैं। NEET UG परीक्षा के लिए यह विषय अत्यंत महत्वपूर्ण है क्योंकि इसमें सदिशों, संरक्षण नियमों और यांत्रिक संतुलन की समझ की परीक्षा होती है।</p>
+        <ul>
+          <li>शुद्ध स्थानांतरीय गति, स्थिर-अक्ष घूर्णन, और संयुक्त लोटनिक गति के बीच अंतर समझना।</li>
+          <li>विविक्त तथा सममित सतत पिंडों के द्रव्यमान केंद्र (CM) का निर्धारण करना और CM गति पर न्यूटन का द्वितीय नियम लागू करना।</li>
+          <li>सदिश गुणनफल (cross product) द्वारा रेखीय एवं कोणीय राशियों, बल आघूर्ण तथा कोणीय संवेग को संबंधित करना।</li>
+          <li>उत्तोलक, धरन (beam) और सीढ़ी पर स्थानांतरीय व घूर्णी संतुलन की शर्तें लागू करना।</li>
+          <li>जड़त्व आघूर्ण की गणना करना, \(\tau = I\alpha\) का उपयोग करना और कोणीय संवेग संरक्षण के प्रश्न हल करना।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. RIGID BODIES AND TYPES OF MOTION -->
+    <section>
+      <h2 lang="en">2. Rigid Bodies &amp; Types of Motion</h2>
+      <div class="en-block" lang="en">
+        <p>An <strong>ideal rigid body</strong> is an extended object whose shape and size remain strictly unchanged under applied forces—meaning the distance between any pair of constituent particles stays constant. Although real solids deform slightly, treating wheels, rods, and flywheels as rigid is an accurate approximation in mechanics.</p>
+        <ul>
+          <li><strong>Pure Translational Motion:</strong> At any instant, every particle of the body has the exact same velocity vector \(\mathbf{v}\). A block sliding straight down an inclined plane without tipping is in pure translation.</li>
+          <li><strong>Rotation About a Fixed Axis:</strong> When a rigid body is constrained along a straight line (the axis of rotation), every particle outside the axis moves in a circle whose plane is perpendicular to the axis and whose centre lies on the axis. Particles lying directly on the axis remain stationary.</li>
+          <li><strong>General Motion (Translation + Rotation):</strong> An unpivoted rigid body, such as a cylinder rolling down a ramp or a thrown wrench, undergoes a combination of translation of its centre of mass and rotation about an axis through the centre of mass. (In special cases like a spinning top or an oscillating table fan, a single point rather than a whole line is fixed, causing the rotation axis itself to precess or sweep a cone.)</li>
+        </ul>
+        <div class="diagram-card">
+          <svg viewBox="0 0 540 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of pure translation and fixed-axis rotation">
+            <rect x="4" y="4" width="256" height="192" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="132" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Pure Translation</text>
+            <polygon points="30,165 230,165 230,85" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <g transform="translate(120,115) rotate(-21.8)">
+              <rect x="-25" y="-22" width="50" height="22" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+              <circle cx="-12" cy="-11" r="2.5" fill="#F8FAFC"/>
+              <circle cx="12" cy="-11" r="2.5" fill="#F8FAFC"/>
+            </g>
+            <line x1="106" y1="112" x2="72" y2="126" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="72,126 80,119 83,126" fill="#1E293B"/>
+            <line x1="128" y1="103" x2="94" y2="117" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="94,117 102,110 105,117" fill="#1E293B"/>
+            <text x="132" y="185" text-anchor="middle" font-size="11" fill="#475569">All particles share identical velocity v</text>
+
+            <rect x="280" y="4" width="256" height="192" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="408" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Fixed-Axis Rotation</text>
+            <line x1="408" y1="36" x2="408" y2="168" stroke="#2563EB" stroke-width="2" stroke-dasharray="5,3"/>
+            <ellipse cx="408" cy="82" rx="68" ry="20" fill="none" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+            <ellipse cx="408" cy="126" rx="42" ry="13" fill="none" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+            <circle cx="408" cy="82" r="3.5" fill="#2563EB"/>
+            <circle cx="476" cy="82" r="4" fill="#1E293B"/>
+            <line x1="408" y1="82" x2="476" y2="82" stroke="#1E293B" stroke-width="1.5"/>
+            <text x="444" y="76" font-size="11" fill="#1E293B">r2</text>
+            <circle cx="408" cy="126" r="3.5" fill="#2563EB"/>
+            <circle cx="450" cy="126" r="4" fill="#1E293B"/>
+            <line x1="408" y1="126" x2="450" y2="126" stroke="#1E293B" stroke-width="1.5"/>
+            <text x="430" y="120" font-size="11" fill="#1E293B">r1</text>
+            <text x="415" y="48" font-size="11" font-weight="700" fill="#2563EB">Axis</text>
+            <text x="408" y="185" text-anchor="middle" font-size="11" fill="#475569">Circular paths centred on fixed axis</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 1: Pure translational motion versus rotational motion about a fixed axis.</div>
+        </div>
+      </div>
+
+      <h2 lang="hi">2. दृढ़ पिंड तथा गति के प्रकार</h2>
+      <div class="hi-block" lang="hi">
+        <p><strong>आदर्श दृढ़ पिंड</strong> वह विस्तृत वस्तु है जिसका आकार एवं आकृति आरोपित बलों के अंतर्गत पूर्णतः अपरिवर्तित रहते हैं—अर्थात् इसके किसी भी कण-युग्म के बीच की दूरी नियत रहती है। यद्यपि वास्तविक ठोसों में सूक्ष्म विरूपण होता है, फिर भी पहियों, छड़ों और गतिपालक चक्रों (flywheels) के लिए दृढ़ पिंड मॉडल अत्यंत सटीक है।</p>
+        <ul>
+          <li><strong>शुद्ध स्थानांतरीय गति:</strong> किसी भी क्षण पिंड के प्रत्येक कण का वेग सदिश \(\mathbf{v}\) समान होता है। आनत तल पर बिना लुढ़के फिसलता हुआ गुटका शुद्ध स्थानांतरीय गति का उदाहरण है।</li>
+          <li><strong>स्थिर अक्ष के परितः घूर्णन:</strong> जब किसी दृढ़ पिंड को एक सीधी रेखा (घूर्णन अक्ष) के अनुदिश कीलित कर दिया जाता है, तो अक्ष के बाहर स्थित प्रत्येक कण ऐसे वृत्ताकार पथ पर घूमता है जिसका तल अक्ष के लंबवत तथा केंद्र अक्ष पर होता है। अक्ष पर स्थित कण स्थिर रहते हैं।</li>
+          <li><strong>व्यापक गति (स्थानांतरण + घूर्णन):</strong> बिना कीलित किया हुआ दृढ़ पिंड, जैसे आनत तल पर लुढ़कता बेलन, द्रव्यमान केंद्र की स्थानांतरीय गति तथा द्रव्यमान केंद्र से गुजरने वाले अक्ष के परितः घूर्णन का संयोजन करता है। (लट्टू या दोलन करते टेबल पंखे में एक रेखा के बजाय केवल एक बिंदु स्थिर रहता है, जिससे घूर्णन अक्ष स्वयं शंक्वाकार पथ पर पुरस्सरण करता है।)</li>
+        </ul>
+        <div class="diagram-card">
+          <svg viewBox="0 0 540 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="शुद्ध स्थानांतरण और स्थिर-अक्ष घूर्णन की तुलना">
+            <rect x="4" y="4" width="256" height="192" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="132" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">शुद्ध स्थानांतरण</text>
+            <polygon points="30,165 230,165 230,85" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+            <g transform="translate(120,115) rotate(-21.8)">
+              <rect x="-25" y="-22" width="50" height="22" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+              <circle cx="-12" cy="-11" r="2.5" fill="#F8FAFC"/>
+              <circle cx="12" cy="-11" r="2.5" fill="#F8FAFC"/>
+            </g>
+            <line x1="106" y1="112" x2="72" y2="126" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="72,126 80,119 83,126" fill="#1E293B"/>
+            <line x1="128" y1="103" x2="94" y2="117" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="94,117 102,110 105,117" fill="#1E293B"/>
+            <text x="132" y="185" text-anchor="middle" font-size="11" fill="#475569">सभी कणों का वेग v समान</text>
+
+            <rect x="280" y="4" width="256" height="192" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="408" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">स्थिर-अक्ष घूर्णन</text>
+            <line x1="408" y1="36" x2="408" y2="168" stroke="#2563EB" stroke-width="2" stroke-dasharray="5,3"/>
+            <ellipse cx="408" cy="82" rx="68" ry="20" fill="none" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+            <ellipse cx="408" cy="126" rx="42" ry="13" fill="none" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+            <circle cx="408" cy="82" r="3.5" fill="#2563EB"/>
+            <circle cx="476" cy="82" r="4" fill="#1E293B"/>
+            <line x1="408" y1="82" x2="476" y2="82" stroke="#1E293B" stroke-width="1.5"/>
+            <text x="444" y="76" font-size="11" fill="#1E293B">r2</text>
+            <circle cx="408" cy="126" r="3.5" fill="#2563EB"/>
+            <circle cx="450" cy="126" r="4" fill="#1E293B"/>
+            <line x1="408" y1="126" x2="450" y2="126" stroke="#1E293B" stroke-width="1.5"/>
+            <text x="430" y="120" font-size="11" fill="#1E293B">r1</text>
+            <text x="415" y="48" font-size="11" font-weight="700" fill="#2563EB">अक्ष</text>
+            <text x="408" y="185" text-anchor="middle" font-size="11" fill="#475569">स्थिर अक्ष पर केंद्रित वृत्ताकार पथ</text>
+          </svg>
+          <div class="diagram-caption">अभ्यास आरेख 1: शुद्ध स्थानांतरीय गति बनाम स्थिर अक्ष के परितः घूर्णी गति।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CENTRE OF MASS AND ITS MOTION -->
+    <section>
+      <h2 lang="en">3. Centre of Mass &amp; Linear Momentum of a System</h2>
+      <div class="en-block" lang="en">
+        <p>The <strong>centre of mass (CM)</strong> of a system of particles is the mass-weighted average position of all particles in the system. It is the unique point that moves as if the entire mass of the system were concentrated there and all external forces acted directly on it.</p>
+        <div class="formula-box">
+          <p><strong>Discrete System (\(n\) particles):</strong></p>
+          \[
+            \mathbf{R} = \frac{\sum_{i=1}^{n} m_i \mathbf{r}_i}{M}, \qquad M = \sum_{i=1}^{n} m_i
+          \]
+          <p>In Cartesian coordinates: \(X = \frac{\sum m_i x_i}{M}\), \(Y = \frac{\sum m_i y_i}{M}\), \(Z = \frac{\sum m_i z_i}{M}\).</p>
+          <p><strong>Continuous Body:</strong></p>
+          \[
+            \mathbf{R} = \frac{1}{M}\int \mathbf{r}\,\mathrm{d}m
+          \]
+        </div>
+        <p><strong>Symmetry Principle:</strong> For homogeneous bodies with reflection or geometric symmetry—such as uniform thin rods, rings, discs, cubes, and spheres—the CM coincides with the geometric centre. Note that the CM need not lie inside the material of the body (for example, the CM of a uniform circular ring is at its empty centre).</p>
+
+        <h3>Motion of CM and Conservation of Linear Momentum</h3>
+        <p>Differentiating \(M\mathbf{R} = \sum m_i \mathbf{r}_i\) with respect to time gives the CM velocity \(\mathbf{V}\) and total linear momentum \(\mathbf{P}\):</p>
+        <div class="formula-box">
+          \[
+            \mathbf{P} = \sum_{i=1}^{n} m_i \mathbf{v}_i = M\mathbf{V}
+          \]
+          \[
+            \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} = M\mathbf{A} = \mathbf{F}_{\mathrm{ext}}
+          \]
+        </div>
+        <p>Internal forces between particles occur in equal and opposite action-reaction pairs (Newton's third law) and cancel out completely. Therefore, <strong>internal forces cannot change the motion of the centre of mass</strong>. If \(\mathbf{F}_{\mathrm{ext}} = \mathbf{0}\), then \(\mathbf{P} = \text{constant}\) and \(\mathbf{V} = \text{constant}\). For example, if a projectile explodes mid-air due to internal chemical forces, its fragments scatter in complex paths, but the CM of all fragments continues along the exact same parabolic trajectory under gravity.</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 540 175" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Projectile explosion and CM trajectory">
+            <line x1="35" y1="150" x2="505" y2="150" stroke="#1E293B" stroke-width="1.8"/>
+            <line x1="45" y1="158" x2="45" y2="15" stroke="#1E293B" stroke-width="1.8"/>
+            <path d="M 45,150 Q 210,10 315,75" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <path d="M 315,75 Q 355,100 390,150" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <line x1="315" y1="75" x2="365" y2="42" stroke="#0D9488" stroke-width="1.8"/>
+            <line x1="315" y1="75" x2="335" y2="128" stroke="#0D9488" stroke-width="1.8"/>
+            <line x1="315" y1="75" x2="275" y2="105" stroke="#0D9488" stroke-width="1.8"/>
+            <circle cx="315" cy="75" r="6" fill="#D97706" stroke="#1E293B" stroke-width="1.5"/>
+            <text x="315" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">Explosion (Internal)</text>
+            <text x="150" y="55" font-size="11" fill="#2563EB" font-weight="700">Original Path</text>
+            <text x="415" y="122" font-size="11" fill="#2563EB" font-weight="700">CM Path</text>
+            <text x="498" y="165" font-size="11" fill="#1E293B">x</text>
+            <text x="30" y="24" font-size="11" fill="#1E293B">y</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 2: Mid-air explosion changes fragment paths, but the CM follows the original parabolic path.</div>
+        </div>
+      </div>
+
+      <h2 lang="hi">3. द्रव्यमान केंद्र तथा निकाय का रेखीय संवेग</h2>
+      <div class="hi-block" lang="hi">
+        <p>किसी कण-निकाय का <strong>द्रव्यमान केंद्र (CM)</strong> निकाय के सभी कणों की स्थितियों का द्रव्यमान-भारित औसत होता है। यह वह अद्वितीय बिंदु है जो इस प्रकार गति करता है मानो संपूर्ण निकाय का द्रव्यमान इसी बिंदु पर केंद्रित हो और सभी बाह्य बल सीधे इसी बिंदु पर लग रहे हों।</p>
+        <div class="formula-box">
+          <p><strong>विविक्त निकाय (\(n\) कण):</strong></p>
+          \[
+            \mathbf{R} = \frac{\sum_{i=1}^{n} m_i \mathbf{r}_i}{M}, \qquad M = \sum_{i=1}^{n} m_i
+          \]
+          <p>कार्तीय निर्देशांकों में: \(X = \frac{\sum m_i x_i}{M}\), \(Y = \frac{\sum m_i y_i}{M}\), \(Z = \frac{\sum m_i z_i}{M}\)।</p>
+          <p><strong>सतत पिंड:</strong></p>
+          \[
+            \mathbf{R} = \frac{1}{M}\int \mathbf{r}\,\mathrm{d}m
+          \]
+        </div>
+        <p><strong>सममिति सिद्धांत:</strong> समांगी तथा सममित पिंडों—जैसे एकसमान पतली छड़, वलय, चकती, घन और गोले—का द्रव्यमान केंद्र उनके ज्यामितीय केंद्र पर स्थित होता है। ध्यान दें कि CM का पिंड के पदार्थ के भीतर होना आवश्यक नहीं है (उदाहरण के लिए, एकसमान वृत्ताकार वलय का CM उसके रिक्त केंद्र पर होता है)।</p>
+
+        <h3>द्रव्यमान केंद्र की गति तथा रेखीय संवेग संरक्षण</h3>
+        <p>\(M\mathbf{R} = \sum m_i \mathbf{r}_i\) का समय के सापेक्ष अवकलन करने पर CM का वेग \(\mathbf{V}\) तथा कुल रेखीय संवेग \(\mathbf{P}\) प्राप्त होता है:</p>
+        <div class="formula-box">
+          \[
+            \mathbf{P} = \sum_{i=1}^{n} m_i \mathbf{v}_i = M\mathbf{V}
+          \]
+          \[
+            \frac{\mathrm{d}\mathbf{P}}{\mathrm{d}t} = M\mathbf{A} = \mathbf{F}_{\mathrm{ext}}
+          \]
+        </div>
+        <p>कणों के बीच लगने वाले आंतरिक बल न्यूटन के तृतीय नियम के अनुसार समान व विपरीत युग्मों में होते हैं, अतः उनका सदिश योग शून्य होता है। इसलिए, <strong>आंतरिक बल द्रव्यमान केंद्र की गति को परिवर्तित नहीं कर सकते</strong>। यदि \(\mathbf{F}_{\mathrm{ext}} = \mathbf{0}\), तो \(\mathbf{P} = \text{नियत}\) और \(\mathbf{V} = \text{नियत}\)। उदाहरणतः, यदि कोई प्रक्षेप्य हवा में आंतरिक बलों के कारण फट जाए, तो टुकड़े विभिन्न दिशाओं में जाते हैं, किंतु संपूर्ण निकाय का द्रव्यमान केंद्र गुरुत्व के अंतर्गत उसी परवलयाकार पथ पर चलता रहता है।</p>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 540 175" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="प्रक्षेप्य विस्फोट और द्रव्यमान केंद्र का पथ">
+            <line x1="35" y1="150" x2="505" y2="150" stroke="#1E293B" stroke-width="1.8"/>
+            <line x1="45" y1="158" x2="45" y2="15" stroke="#1E293B" stroke-width="1.8"/>
+            <path d="M 45,150 Q 210,10 315,75" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+            <path d="M 315,75 Q 355,100 390,150" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <line x1="315" y1="75" x2="365" y2="42" stroke="#0D9488" stroke-width="1.8"/>
+            <line x1="315" y1="75" x2="335" y2="128" stroke="#0D9488" stroke-width="1.8"/>
+            <line x1="315" y1="75" x2="275" y2="105" stroke="#0D9488" stroke-width="1.8"/>
+            <circle cx="315" cy="75" r="6" fill="#D97706" stroke="#1E293B" stroke-width="1.5"/>
+            <text x="315" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">विस्फोट (आंतरिक)</text>
+            <text x="150" y="55" font-size="11" fill="#2563EB" font-weight="700">मूल पथ</text>
+            <text x="422" y="122" font-size="11" fill="#2563EB" font-weight="700">CM का पथ</text>
+            <text x="498" y="165" font-size="11" fill="#1E293B">x</text>
+            <text x="30" y="24" font-size="11" fill="#1E293B">y</text>
+          </svg>
+          <div class="diagram-caption">अभ्यास आरेख 2: हवा में विस्फोट से टुकड़ों के पथ बदलते हैं, पर CM मूल परवलयाकार पथ पर ही रहता है।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. VECTOR PRODUCT & ROTATIONAL KINEMATICS -->
+    <section>
+      <h2 lang="en">4. Vector Product &amp; Rotational Kinematics</h2>
+      <div class="en-block" lang="en">
+        <p>The <strong>vector (cross) product</strong> of two vectors \(\mathbf{a}\) and \(\mathbf{b}\) is a vector \(\mathbf{c} = \mathbf{a} \times \mathbf{b}\) with magnitude \(c = ab\sin\theta\) (where \(\theta &lt; 180°\) is the smaller angle between them) and direction perpendicular to the plane of \(\mathbf{a}\) and \(\mathbf{b}\), given by the right-hand curl/screw rule (curling fingers from \(\mathbf{a}\) to \(\mathbf{b}\), thumb points along \(\mathbf{c}\)).</p>
+        <div class="formula-box">
+          <ul>
+            <li>Anti-commutative: \(\mathbf{a} \times \mathbf{b} = -\mathbf{b} \times \mathbf{a}\)</li>
+            <li>Parallel vectors: \(\mathbf{a} \times \mathbf{a} = \mathbf{0}\), so \(\hat{\mathbf{i}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}} \times \hat{\mathbf{k}} = \mathbf{0}\)</li>
+            <li>Cyclic unit vectors: \(\hat{\mathbf{i}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}}\), \(\hat{\mathbf{j}} \times \hat{\mathbf{k}} = \hat{\mathbf{i}}\), \(\hat{\mathbf{k}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}}\)</li>
+          </ul>
+          \[
+            \mathbf{a} \times \mathbf{b} =
+            \begin{vmatrix}
+              \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\
+              a_x & a_y & a_z \\
+              b_x & b_y & b_z
+            \end{vmatrix}
+          \]
+        </div>
+
+        <h3>Angular Velocity, Linear Velocity &amp; Kinematic Equations</h3>
+        <p>Every particle in a rigid body rotating about a fixed axis shares the same instantaneous angular velocity \(\omega = \frac{\mathrm{d}\theta}{\mathrm{d}t}\) and angular acceleration \(\alpha = \frac{\mathrm{d}\omega}{\mathrm{d}t}\). Vectorially, \(\boldsymbol{\omega}\) points along the axis of rotation (right-hand rule), and the linear velocity of a particle at position \(\mathbf{r}\) from an origin on the axis is:</p>
+        <div class="formula-box">
+          \[
+            \mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}, \qquad v = \omega r_{\perp}
+          \]
+          <p>For rotation about a fixed axis with <strong>constant angular acceleration \(\alpha\)</strong>:</p>
+          \[
+            \omega = \omega_0 + \alpha t, \qquad \theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2, \qquad \omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)
+          \]
+        </div>
+      </div>
+
+      <h2 lang="hi">4. सदिश गुणनफल एवं घूर्णी गतिकी</h2>
+      <div class="hi-block" lang="hi">
+        <p>दो सदिशों \(\mathbf{a}\) तथा \(\mathbf{b}\) का <strong>सदिश (क्रॉस) गुणनफल</strong> एक सदिश \(\mathbf{c} = \mathbf{a} \times \mathbf{b}\) होता है, जिसका परिमाण \(c = ab\sin\theta\) (जहाँ \(\theta &lt; 180°\) दोनों सदिशों के बीच का छोटा कोण है) तथा दिशा \(\mathbf{a}\) और \(\mathbf{b}\) के तल के लंबवत होती है, जिसे दाएँ हाथ के नियम (उँगलियों को \(\mathbf{a}\) से \(\mathbf{b}\) की ओर मोड़ने पर अंगूठा \(\mathbf{c}\) की दिशा में होता है) से ज्ञात किया जाता है।</p>
+        <div class="formula-box">
+          <ul>
+            <li>प्रति-क्रमविनिमेय: \(\mathbf{a} \times \mathbf{b} = -\mathbf{b} \times \mathbf{a}\)</li>
+            <li>समानांतर सदिश: \(\mathbf{a} \times \mathbf{a} = \mathbf{0}\), अतः \(\hat{\mathbf{i}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}} \times \hat{\mathbf{k}} = \mathbf{0}\)</li>
+            <li>चक्रीय एकांक सदिश: \(\hat{\mathbf{i}} \times \hat{\mathbf{j}} = \hat{\mathbf{k}}\), \(\hat{\mathbf{j}} \times \hat{\mathbf{k}} = \hat{\mathbf{i}}\), \(\hat{\mathbf{k}} \times \hat{\mathbf{i}} = \hat{\mathbf{j}}\)</li>
+          </ul>
+          \[
+            \mathbf{a} \times \mathbf{b} =
+            \begin{vmatrix}
+              \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\
+              a_x & a_y & a_z \\
+              b_x & b_y & b_z
+            \end{vmatrix}
+          \]
+        </div>
+
+        <h3>कोणीय वेग, रेखीय वेग एवं गतिकीय समीकरण</h3>
+        <p>स्थिर अक्ष के परितः घूमते दृढ़ पिंड के प्रत्येक कण का तात्क्षणिक कोणीय वेग \(\omega = \frac{\mathrm{d}\theta}{\mathrm{d}t}\) तथा कोणीय त्वरण \(\alpha = \frac{\mathrm{d}\omega}{\mathrm{d}t}\) समान होता है। सदिश रूप में \(\boldsymbol{\omega}\) घूर्णन अक्ष के अनुदिश होता है, तथा अक्ष पर स्थित मूलबिंदु से \(\mathbf{r}\) स्थिति वाले कण का रेखीय वेग है:</p>
+        <div class="formula-box">
+          \[
+            \mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}, \qquad v = \omega r_{\perp}
+          \]
+          <p><strong>नियत कोणीय त्वरण \(\alpha\)</strong> से स्थिर अक्ष के परितः घूर्णन के लिए:</p>
+          \[
+            \omega = \omega_0 + \alpha t, \qquad \theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2, \qquad \omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)
+          \]
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. TORQUE, ANGULAR MOMENTUM & EQUILIBRIUM -->
+    <section>
+      <h2 lang="en">5. Torque, Angular Momentum &amp; Mechanical Equilibrium</h2>
+      <div class="en-block" lang="en">
+        <p><strong>Torque (Moment of Force):</strong> The rotational analogue of force is torque, defined about an origin O as \(\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}\), with magnitude \(\tau = rF\sin\theta = r_{\perp}F = rF_{\perp}\) (SI unit: \(\mathrm{N\cdot m}\); dimensions: \([\mathrm{M L^2 T^{-2}}]\)). Torque vanishes if \(r = 0\), \(F = 0\), or the line of action of \(\mathbf{F}\) passes through O (\(\theta = 0°\) or \(180°\)).</p>
+        <p><strong>Angular Momentum:</strong> The rotational analogue of linear momentum is \(\mathbf{l} = \mathbf{r} \times \mathbf{p}\), with magnitude \(l = rp\sin\theta = r_{\perp}p\) (SI unit: \(\mathrm{J\cdot s}\) or \(\mathrm{kg\cdot m^2/s}\)).</p>
+        <div class="formula-box">
+          \[
+            \frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = \boldsymbol{\tau}_{\mathrm{ext}}
+          \]
+          <p>If \(\boldsymbol{\tau}_{\mathrm{ext}} = \mathbf{0}\), then \(\mathbf{L} = \text{constant}\) (<strong>Conservation of Angular Momentum</strong>). Note that for internal torques to cancel (\(\boldsymbol{\tau}_{\mathrm{int}} = \mathbf{0}\)), internal forces must act along the line joining the interacting particles.</p>
+        </div>
+
+        <h3>Mechanical Equilibrium, Couples &amp; Centre of Gravity</h3>
+        <ul>
+          <li><strong>Complete Mechanical Equilibrium:</strong> Requires both translational equilibrium (\(\sum \mathbf{F}_{\mathrm{ext}} = \mathbf{0}\)) and rotational equilibrium (\(\sum \boldsymbol{\tau}_{\mathrm{ext}} = \mathbf{0}\)). For coplanar forces, this yields three independent scalar equations: \(\sum F_x = 0\), \(\sum F_y = 0\), and \(\sum \tau_z = 0\).</li>
+          <li><strong>Couple:</strong> A pair of equal and opposite forces acting along different parallel lines of action produces zero net force (\(\sum \mathbf{F} = \mathbf{0}\)) but a non-zero net torque (\(\tau = F \times \text{perpendicular separation}\)) that is independent of the choice of origin.</li>
+          <li><strong>Principle of Moments (Ideal Lever):</strong> \(\text{Load} \times \text{Load arm} = \text{Effort} \times \text{Effort arm}\), giving Mechanical Advantage \(\mathrm{M.A.} = \frac{F_{\mathrm{load}}}{F_{\mathrm{effort}}} = \frac{d_{\mathrm{effort}}}{d_{\mathrm{load}}}\).</li>
+          <li><strong>Centre of Gravity (CG):</strong> The point where the total gravitational torque on a body is zero. In a <em>uniform</em> gravitational field, CG coincides with CM; in a non-uniform field, they differ.</li>
+        </ul>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 540 165" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Torque geometry and lever principle">
+            <rect x="4" y="4" width="256" height="157" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="132" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Torque Lever Arm</text>
+            <circle cx="50" cy="120" r="4" fill="#1E293B"/>
+            <text x="38" y="135" font-size="11" font-weight="700" fill="#1E293B">O</text>
+            <line x1="50" y1="120" x2="175" y2="75" stroke="#2563EB" stroke-width="2.2"/>
+            <circle cx="175" cy="75" r="4" fill="#2563EB"/>
+            <text x="110" y="90" font-size="11" font-weight="700" fill="#2563EB">r</text>
+            <line x1="175" y1="75" x2="225" y2="35" stroke="#0D9488" stroke-width="2.4"/>
+            <polygon points="225,35 215,38 220,45" fill="#0D9488"/>
+            <text x="230" y="38" font-size="12" font-weight="700" fill="#0D9488">F</text>
+            <line x1="175" y1="75" x2="115" y2="123" stroke="#94A3B8" stroke-width="1.4" stroke-dasharray="4,3"/>
+            <line x1="50" y1="120" x2="132" y2="109" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <text x="92" y="132" font-size="11" fill="#D97706">r_perp</text>
+
+            <rect x="280" y="4" width="256" height="157" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="408" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Principle of Moments</text>
+            <rect x="305" y="75" width="206" height="8" rx="2" fill="#1E293B"/>
+            <polygon points="375,83 365,103 385,103" fill="#2563EB"/>
+            <line x1="375" y1="75" x2="375" y2="42" stroke="#2563EB" stroke-width="2"/>
+            <polygon points="375,42 371,50 379,50" fill="#2563EB"/>
+            <text x="382" y="50" font-size="11" font-weight="700" fill="#2563EB">R</text>
+            <line x1="312" y1="83" x2="312" y2="128" stroke="#0D9488" stroke-width="2"/>
+            <polygon points="312,128 308,120 316,120" fill="#0D9488"/>
+            <text x="318" y="128" font-size="11" font-weight="700" fill="#0D9488">F1</text>
+            <line x1="504" y1="83" x2="504" y2="128" stroke="#0D9488" stroke-width="2"/>
+            <polygon points="504,128 500,120 508,120" fill="#0D9488"/>
+            <text x="485" y="128" font-size="11" font-weight="700" fill="#0D9488">F2</text>
+            <text x="342" y="68" text-anchor="middle" font-size="11" fill="#475569">d1</text>
+            <text x="440" y="68" text-anchor="middle" font-size="11" fill="#475569">d2</text>
+            <text x="408" y="148" text-anchor="middle" font-size="11" fill="#475569">d1 F1 = d2 F2</text>
+          </svg>
+          <div class="diagram-caption">Tutorial Diagram 3: Perpendicular lever arm in torque and balance of moments about a fulcrum.</div>
+        </div>
+      </div>
+
+      <h2 lang="hi">5. बल आघूर्ण, कोणीय संवेग तथा यांत्रिक संतुलन</h2>
+      <div class="hi-block" lang="hi">
+        <p><strong>बल आघूर्ण (Torque):</strong> रेखीय गति में बल का घूर्णी समतुल्य बल आघूर्ण है, जिसे मूलबिंदु O के सापेक्ष \(\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}\) से परिभाषित किया जाता है। इसका परिमाण \(\tau = rF\sin\theta = r_{\perp}F = rF_{\perp}\) होता है (SI मात्रक: \(\mathrm{N\cdot m}\); विमा: \([\mathrm{M L^2 T^{-2}}]\))। यदि \(r = 0\), \(F = 0\), या \(\mathbf{F}\) की क्रिया-रेखा O से गुजरती है (\(\theta = 0°\) या \(180°\)), तो बल आघूर्ण शून्य होता है।</p>
+        <p><strong>कोणीय संवेग:</strong> रेखीय संवेग का घूर्णी समतुल्य \(\mathbf{l} = \mathbf{r} \times \mathbf{p}\) है, जिसका परिमाण \(l = rp\sin\theta = r_{\perp}p\) होता है (SI मात्रक: \(\mathrm{J\cdot s}\) या \(\mathrm{kg\cdot m^2/s}\))।</p>
+        <div class="formula-box">
+          \[
+            \frac{\mathrm{d}\mathbf{L}}{\mathrm{d}t} = \boldsymbol{\tau}_{\mathrm{ext}}
+          \]
+          <p>यदि \(\boldsymbol{\tau}_{\mathrm{ext}} = \mathbf{0}\), तो \(\mathbf{L} = \text{नियत}\) (<strong>कोणीय संवेग संरक्षण</strong>)। ध्यान दें कि आंतरिक बल आघूर्णों के निरस्त (\(\boldsymbol{\tau}_{\mathrm{int}} = \mathbf{0}\)) होने के लिए आंतरिक बलों का कणों को मिलाने वाली रेखा के अनुदिश होना आवश्यक है।</p>
+        </div>
+
+        <h3>यांत्रिक संतुलन, बल-युग्म तथा गुरुत्व केंद्र</h3>
+        <ul>
+          <li><strong>पूर्ण यांत्रिक संतुलन:</strong> इसके लिए स्थानांतरीय संतुलन (\(\sum \mathbf{F}_{\mathrm{ext}} = \mathbf{0}\)) तथा घूर्णी संतुलन (\(\sum \boldsymbol{\tau}_{\mathrm{ext}} = \mathbf{0}\)) दोनों आवश्यक हैं। समतलीय बलों के लिए तीन अदिश समीकरण प्राप्त होते हैं: \(\sum F_x = 0\), \(\sum F_y = 0\), तथा \(\sum \tau_z = 0\)।</li>
+          <li><strong>बल-युग्म (Couple):</strong> भिन्न समानांतर क्रिया-रेखाओं पर कार्य करने वाले समान और विपरीत बलों का युग्म शून्य कुल बल (\(\sum \mathbf{F} = \mathbf{0}\)) परंतु अशून्य बल आघूर्ण (\(\tau = F \times \text{लंबवत दूरी}\)) उत्पन्न करता है, जो मूलबिंदु के चयन से स्वतंत्र होता है।</li>
+          <li><strong>आघूर्णों का सिद्धांत (आदर्श उत्तोलक):</strong> \(\text{भार} \times \text{भार भुजा} = \text{प्रयास} \times \text{प्रयास भुजा}\), जिससे यांत्रिक लाभ \(\mathrm{M.A.} = \frac{F_{\mathrm{load}}}{F_{\mathrm{effort}}} = \frac{d_{\mathrm{effort}}}{d_{\mathrm{load}}}\) मिलता है।</li>
+          <li><strong>गुरुत्व केंद्र (CG):</strong> वह बिंदु जिसके परितः पिंड पर कुल गुरुत्वीय बल आघूर्ण शून्य होता है। <em>एकसमान</em> गुरुत्वीय क्षेत्र में CG और CM संपाती होते हैं; असमान क्षेत्र में ये भिन्न हो सकते हैं।</li>
+        </ul>
+
+        <div class="diagram-card">
+          <svg viewBox="0 0 540 165" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="बल आघूर्ण भुजा और आघूर्णों का सिद्धांत">
+            <rect x="4" y="4" width="256" height="157" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="132" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">बल आघूर्ण की लंबवत भुजा</text>
+            <circle cx="50" cy="120" r="4" fill="#1E293B"/>
+            <text x="38" y="135" font-size="11" font-weight="700" fill="#1E293B">O</text>
+            <line x1="50" y1="120" x2="175" y2="75" stroke="#2563EB" stroke-width="2.2"/>
+            <circle cx="175" cy="75" r="4" fill="#2563EB"/>
+            <text x="110" y="90" font-size="11" font-weight="700" fill="#2563EB">r</text>
+            <line x1="175" y1="75" x2="225" y2="35" stroke="#0D9488" stroke-width="2.4"/>
+            <polygon points="225,35 215,38 220,45" fill="#0D9488"/>
+            <text x="230" y="38" font-size="12" font-weight="700" fill="#0D9488">F</text>
+            <line x1="175" y1="75" x2="115" y2="123" stroke="#94A3B8" stroke-width="1.4" stroke-dasharray="4,3"/>
+            <line x1="50" y1="120" x2="132" y2="109" stroke="#D97706" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <text x="92" y="132" font-size="11" fill="#D97706">r_लंबवत</text>
+
+            <rect x="280" y="4" width="256" height="157" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="408" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">आघूर्णों का सिद्धांत</text>
+            <rect x="305" y="75" width="206" height="8" rx="2" fill="#1E293B"/>
+            <polygon points="375,83 365,103 385,103" fill="#2563EB"/>
+            <line x1="375" y1="75" x2="375" y2="42" stroke="#2563EB" stroke-width="2"/>
+            <polygon points="375,42 371,50 379,50" fill="#2563EB"/>
+            <text x="382" y="50" font-size="11" font-weight="700" fill="#2563EB">R</text>
+            <line x1="312" y1="83" x2="312" y2="128" stroke="#0D9488" stroke-width="2"/>
+            <polygon points="312,128 308,120 316,120" fill="#0D9488"/>
+            <text x="318" y="128" font-size="11" font-weight="700" fill="#0D9488">F1</text>
+            <line x1="504" y1="83" x2="504" y2="128" stroke="#0D9488" stroke-width="2"/>
+            <polygon points="504,128 500,120 508,120" fill="#0D9488"/>
+            <text x="485" y="128" font-size="11" font-weight="700" fill="#0D9488">F2</text>
+            <text x="342" y="68" text-anchor="middle" font-size="11" fill="#475569">d1</text>
+            <text x="440" y="68" text-anchor="middle" font-size="11" fill="#475569">d2</text>
+            <text x="408" y="148" text-anchor="middle" font-size="11" fill="#475569">d1 F1 = d2 F2</text>
+          </svg>
+          <div class="diagram-caption">अभ्यास आरेख 3: बल आघूर्ण में लंबवत भुजा तथा आलंब के परितः आघूर्ण संतुलन।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. MOMENT OF INERTIA & FIXED-AXIS DYNAMICS -->
+    <section>
+      <h2 lang="en">6. Moment of Inertia &amp; Fixed-Axis Rotational Dynamics</h2>
+      <div class="en-block" lang="en">
+        <p><strong>Moment of Inertia (\(I\)):</strong> The rotational analogue of mass is the moment of inertia, which measures a body's resistance to changes in its rotational state about a given axis:</p>
+        <div class="formula-box">
+          \[
+            I = \sum_{i=1}^{n} m_i r_i^2 = M k^2
+          \]
+          <p>Here \(r_i\) is the perpendicular distance of mass \(m_i\) from the axis, and \(k = \sqrt{I/M}\) is the <strong>radius of gyration</strong>. Unlike mass, \(I\) depends on the mass distribution, shape, size, and the position/orientation of the rotation axis. SI unit: \(\mathrm{kg\cdot m^2}\); dimensions: \([\mathrm{M L^2}]\).</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Uniform Rigid Body</th>
+              <th>Rotation Axis</th>
+              <th>Moment of Inertia (\(I\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Thin circular ring (radius \(R\))</td><td>Perpendicular to plane, through centre</td><td>\(MR^2\)</td></tr>
+            <tr><td>Thin circular ring (radius \(R\))</td><td>Along any diameter</td><td>\(\frac{1}{2}MR^2\)</td></tr>
+            <tr><td>Thin uniform rod (length \(L\))</td><td>Perpendicular to rod, at midpoint</td><td>\(\frac{1}{12}ML^2\)</td></tr>
+            <tr><td>Circular disc (radius \(R\))</td><td>Perpendicular to plane, through centre</td><td>\(\frac{1}{2}MR^2\)</td></tr>
+            <tr><td>Circular disc (radius \(R\))</td><td>Along any diameter</td><td>\(\frac{1}{4}MR^2\)</td></tr>
+            <tr><td>Hollow cylinder (radius \(R\))</td><td>Axis of cylinder</td><td>\(MR^2\)</td></tr>
+            <tr><td>Solid cylinder (radius \(R\))</td><td>Axis of cylinder</td><td>\(\frac{1}{2}MR^2\)</td></tr>
+            <tr><td>Solid sphere (radius \(R\))</td><td>Along any diameter</td><td>\(\frac{2}{5}MR^2\)</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Dynamics &amp; Translational-Rotational Analogues</h3>
+        <p>For rotation about a fixed axis, only the torque component along the axis causes rotation. When the axis is also an axis of symmetry, the total angular momentum aligns with the axis (\(\mathbf{L} = \mathbf{L}_z = I\omega\hat{\mathbf{k}}\)). Otherwise, \(\mathbf{L} = \mathbf{L}_z + \mathbf{L}_\perp\) and \(\mathbf{L}\) is not parallel to \(\boldsymbol{\omega}\).</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Physical Concept</th>
+              <th>Linear Motion</th>
+              <th>Fixed-Axis Rotation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Inertia</td><td>\(M\)</td><td>\(I = \sum m_i r_i^2\)</td></tr>
+            <tr><td>Newton's 2nd Law</td><td>\(F = Ma\)</td><td>\(\tau = I\alpha\)</td></tr>
+            <tr><td>Work Done</td><td>\(\mathrm{d}W = F\,\mathrm{d}s\)</td><td>\(\mathrm{d}W = \tau\,\mathrm{d}\theta\)</td></tr>
+            <tr><td>Kinetic Energy</td><td>\(K = \frac{1}{2}Mv^2\)</td><td>\(K = \frac{1}{2}I\omega^2\)</td></tr>
+            <tr><td>Instantaneous Power</td><td>\(P = Fv\)</td><td>\(P = \tau\omega\)</td></tr>
+            <tr><td>Momentum</td><td>\(p = Mv\)</td><td>\(L_z = I\omega\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 lang="hi">6. जड़त्व आघूर्ण तथा स्थिर-अक्ष घूर्णी गतिकी</h2>
+      <div class="hi-block" lang="hi">
+        <p><strong>जड़त्व आघूर्ण (\(I\)):</strong> रेखीय गति में द्रव्यमान का घूर्णी समतुल्य जड़त्व आघूर्ण है, जो किसी दिए गए अक्ष के परितः घूर्णी अवस्था में परिवर्तन के प्रति पिंड के प्रतिरोध को मापता है:</p>
+        <div class="formula-box">
+          \[
+            I = \sum_{i=1}^{n} m_i r_i^2 = M k^2
+          \]
+          <p>यहाँ \(r_i\) अक्ष से द्रव्यमान \(m_i\) की लंबवत दूरी है, तथा \(k = \sqrt{I/M}\) को <strong>घूर्णन त्रिज्या (radius of gyration)</strong> कहते हैं। द्रव्यमान के विपरीत, \(I\) द्रव्यमान-वितरण, आकार, आकृति तथा घूर्णन अक्ष की स्थिति व अभिविन्यास पर निर्भर करता है। SI मात्रक: \(\mathrm{kg\cdot m^2}\); विमा: \([\mathrm{M L^2}]\)।</p>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>एकसमान दृढ़ पिंड</th>
+              <th>घूर्णन अक्ष</th>
+              <th>जड़त्व आघूर्ण (\(I\))</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>पतली वृत्ताकार वलय (त्रिज्या \(R\))</td><td>तल के लंबवत, केंद्र से गुजरता हुआ</td><td>\(MR^2\)</td></tr>
+            <tr><td>पतली वृत्ताकार वलय (त्रिज्या \(R\))</td><td>किसी व्यास के अनुदिश</td><td>\(\frac{1}{2}MR^2\)</td></tr>
+            <tr><td>पतली एकसमान छड़ (लंबाई \(L\))</td><td>छड़ के लंबवत, मध्यबिंदु से</td><td>\(\frac{1}{12}ML^2\)</td></tr>
+            <tr><td>वृत्ताकार चकती (त्रिज्या \(R\))</td><td>तल के लंबवत, केंद्र से गुजरता हुआ</td><td>\(\frac{1}{2}MR^2\)</td></tr>
+            <tr><td>वृत्ताकार चकती (त्रिज्या \(R\))</td><td>किसी व्यास के अनुदिश</td><td>\(\frac{1}{4}MR^2\)</td></tr>
+            <tr><td>खोखला बेलन (त्रिज्या \(R\))</td><td>बेलन का सममित अक्ष</td><td>\(MR^2\)</td></tr>
+            <tr><td>ठोस बेलन (त्रिज्या \(R\))</td><td>बेलन का सममित अक्ष</td><td>\(\frac{1}{2}MR^2\)</td></tr>
+            <tr><td>ठोस गोला (त्रिज्या \(R\))</td><td>किसी व्यास के अनुदिश</td><td>\(\frac{2}{5}MR^2\)</td></tr>
+          </tbody>
+        </table>
+
+        <h3>गतिकी तथा स्थानांतरीय-घूर्णी समतुल्य राशियाँ</h3>
+        <p>स्थिर अक्ष के परितः घूर्णन में केवल अक्ष के अनुदिश बल आघूर्ण का घटक ही घूर्णन उत्पन्न करता है। जब घूर्णन अक्ष पिंड का सममित अक्ष भी हो, तो कुल कोणीय संवेग अक्ष के अनुदिश होता है (\(\mathbf{L} = \mathbf{L}_z = I\omega\hat{\mathbf{k}}\))। अन्यथा \(\mathbf{L} = \mathbf{L}_z + \mathbf{L}_\perp\) होता है और \(\mathbf{L}\) तथा \(\boldsymbol{\omega}\) समानांतर नहीं होते।</p>
+        <table>
+          <thead>
+            <tr>
+              <th>भौतिक संकल्पना</th>
+              <th>रेखीय गति</th>
+              <th>स्थिर-अक्ष घूर्णन</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>जड़त्व</td><td>\(M\)</td><td>\(I = \sum m_i r_i^2\)</td></tr>
+            <tr><td>न्यूटन का द्वितीय नियम</td><td>\(F = Ma\)</td><td>\(\tau = I\alpha\)</td></tr>
+            <tr><td>किया गया कार्य</td><td>\(\mathrm{d}W = F\,\mathrm{d}s\)</td><td>\(\mathrm{d}W = \tau\,\mathrm{d}\theta\)</td></tr>
+            <tr><td>गतिज ऊर्जा</td><td>\(K = \frac{1}{2}Mv^2\)</td><td>\(K = \frac{1}{2}I\omega^2\)</td></tr>
+            <tr><td>तात्क्षणिक शक्ति</td><td>\(P = Fv\)</td><td>\(P = \tau\omega\)</td></tr>
+            <tr><td>संवेग</td><td>\(p = Mv\)</td><td>\(L_z = I\omega\)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 8. WORKED EXAMPLES -->
+    <section>
+      <h2 lang="en">7. Worked Examples (NEET UG Level)</h2>
+      <h2 lang="hi">7. मौलिक हल किए गए उदाहरण (NEET UG स्तर)</h2>
+
+      <!-- Example 1 -->
+      <div class="example-card">
+        <div class="en-block" lang="en">
+          <div class="example-title">Worked Example 1: Centre of Mass of a Disc with a Circular Cutout</div>
+          <p><strong>Problem:</strong> From a uniform circular disc of radius \(R = 12\,\mathrm{cm}\), a smaller circular hole of radius \(r = 4\,\mathrm{cm}\) is removed. The centre of the hole is at a distance \(d = 6\,\mathrm{cm}\) from the centre of the original disc along the positive \(x\)-axis. Locate the centre of mass of the remaining plate.</p>
+          <p><strong>Solution:</strong> Since the disc is uniform, mass is proportional to area (\(m \propto A = \pi r^2\)). Treating the removed portion as a negative mass placed at \(x_2 = +6\,\mathrm{cm}\), with the original disc centred at \(x_1 = 0\):</p>
+          \[
+            X_{\mathrm{CM}} = \frac{A_1 x_1 - A_2 x_2}{A_1 - A_2} = \frac{\pi(12)^2(0) - \pi(4)^2(6)}{\pi(12^2 - 4^2)} = \frac{-16 \times 6}{144 - 16} = \frac{-96}{128} = -0.75\,\mathrm{cm}
+          \]
+          <p>Thus, the centre of mass shifts by \(0.75\,\mathrm{cm}\) away from the hole (along the negative \(x\)-axis).</p>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="example-title">हल उदाहरण 1: वृत्ताकार छिद्र वाली चकती का द्रव्यमान केंद्र</div>
+          <p><strong>प्रश्न:</strong> त्रिज्या \(R = 12\,\mathrm{cm}\) की एक एकसमान वृत्ताकार चकती से त्रिज्या \(r = 4\,\mathrm{cm}\) का एक छोटा वृत्ताकार छिद्र काटा जाता है। छिद्र का केंद्र मूल चकती के केंद्र से धनात्मक \(x\)-अक्ष के अनुदिश \(d = 6\,\mathrm{cm}\) दूरी पर है। शेष प्लेट का द्रव्यमान केंद्र ज्ञात कीजिए।</p>
+          <p><strong>हल:</strong> चूँकि चकती एकसमान है, द्रव्यमान क्षेत्रफल के समानुपाती होगा (\(m \propto A = \pi r^2\))। मूल चकती का केंद्र \(x_1 = 0\) पर तथा निकाले गए भाग को \(x_2 = +6\,\mathrm{cm}\) पर ऋणात्मक द्रव्यमान मानने पर:</p>
+          \[
+            X_{\mathrm{CM}} = \frac{A_1 x_1 - A_2 x_2}{A_1 - A_2} = \frac{\pi(12)^2(0) - \pi(4)^2(6)}{\pi(12^2 - 4^2)} = \frac{-16 \times 6}{144 - 16} = \frac{-96}{128} = -0.75\,\mathrm{cm}
+          \]
+          <p>अतः द्रव्यमान केंद्र छिद्र से विपरीत दिशा में (ऋणात्मक \(x\)-अक्ष पर) \(0.75\,\mathrm{cm}\) विस्थापित हो जाता है।</p>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="example-card">
+        <div class="en-block" lang="en">
+          <div class="example-title">Worked Example 2: Mechanical Equilibrium of a Supported Beam</div>
+          <p><strong>Problem:</strong> A uniform horizontal beam of length \(4.0\,\mathrm{m}\) and mass \(M = 30\,\mathrm{kg}\) rests on two knife-edge supports: Support A at the left end (\(x = 0\)) and Support B at \(x = 3.0\,\mathrm{m}\). A block of mass \(m = 15\,\mathrm{kg}\) is placed at \(x = 1.0\,\mathrm{m}\). Find the normal reactions \(N_A\) and \(N_B\) (assume \(g = 10\,\mathrm{m/s^2}\)).</p>
+          <p><strong>Solution:</strong> Weight of the beam \(W_b = 30 \times 10 = 300\,\mathrm{N}\) acts at its midpoint \(x = 2.0\,\mathrm{m}\). Weight of the block \(W_m = 15 \times 10 = 150\,\mathrm{N}\) acts at \(x = 1.0\,\mathrm{m}\).</p>
+          <p>For translational equilibrium (\(\sum F_y = 0\)): \(N_A + N_B = 300 + 150 = 450\,\mathrm{N}\).</p>
+          <p>Taking moments about Support A (\(x = 0\)) for rotational equilibrium (\(\sum \tau_A = 0\)):</p>
+          \[
+            N_B(3.0) - 150(1.0) - 300(2.0) = 0 \implies 3.0 N_B = 750 \implies N_B = 250\,\mathrm{N}
+          \]
+          <p>Therefore, \(N_A = 450 - 250 = 200\,\mathrm{N}\).</p>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="example-title">हल उदाहरण 2: आलंबों पर टिकी धरन (Beam) का यांत्रिक संतुलन</div>
+          <p><strong>प्रश्न:</strong> \(4.0\,\mathrm{m}\) लंबी और \(M = 30\,\mathrm{kg}\) द्रव्यमान की एक एकसमान क्षैतिज धरन दो आलंबों पर टिकी है: बाएँ सिरे (\(x = 0\)) पर आलंब A तथा \(x = 3.0\,\mathrm{m}\) पर आलंब B। \(x = 1.0\,\mathrm{m}\) पर \(m = 15\,\mathrm{kg}\) द्रव्यमान का एक गुटका रखा है। आलंबों की अभिलंब प्रतिक्रियाएँ \(N_A\) और \(N_B\) ज्ञात कीजिए (मान लें \(g = 10\,\mathrm{m/s^2}\))।</p>
+          <p><strong>हल:</strong> धरन का भार \(W_b = 30 \times 10 = 300\,\mathrm{N}\) इसके मध्यबिंदु \(x = 2.0\,\mathrm{m}\) पर तथा गुटके का भार \(W_m = 15 \times 10 = 150\,\mathrm{N}\), \(x = 1.0\,\mathrm{m}\) पर कार्य करता है।</p>
+          <p>स्थानांतरीय संतुलन के लिए (\(\sum F_y = 0\)): \(N_A + N_B = 300 + 150 = 450\,\mathrm{N}\)।</p>
+          <p>आलंब A (\(x = 0\)) के परितः घूर्णी संतुलन के लिए (\(\sum \tau_A = 0\)):</p>
+          \[
+            N_B(3.0) - 150(1.0) - 300(2.0) = 0 \implies 3.0 N_B = 750 \implies N_B = 250\,\mathrm{N}
+          \]
+          <p>अतः, \(N_A = 450 - 250 = 200\,\mathrm{N}\)।</p>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="example-card">
+        <div class="en-block" lang="en">
+          <div class="example-title">Worked Example 3: Rotational Dynamics of a Disc Flywheel</div>
+          <p><strong>Problem:</strong> A uniform solid disc of mass \(M = 10\,\mathrm{kg}\) and radius \(R = 0.4\,\mathrm{m}\) is mounted on a frictionless horizontal axle through its centre. A light string wound around its rim is pulled with a constant tangential force \(F = 20\,\mathrm{N}\). Starting from rest, find its angular acceleration and rotational kinetic energy after \(t = 3\,\mathrm{s}\).</p>
+          <p><strong>Solution:</strong> Moment of inertia of the disc about its symmetry axis:</p>
+          \[
+            I = \frac{1}{2}MR^2 = \frac{1}{2}(10)(0.4)^2 = 0.8\,\mathrm{kg\cdot m^2}
+          \]
+          <p>Torque \(\tau = F R = 20 \times 0.4 = 8\,\mathrm{N\cdot m}\). Thus, angular acceleration \(\alpha = \frac{\tau}{I} = \frac{8}{0.8} = 10\,\mathrm{rad/s^2}\).</p>
+          <p>After \(t = 3\,\mathrm{s}\), \(\omega = \omega_0 + \alpha t = 0 + 10(3) = 30\,\mathrm{rad/s}\). The rotational kinetic energy is:</p>
+          \[
+            K = \frac{1}{2}I\omega^2 = \frac{1}{2}(0.8)(30)^2 = 360\,\mathrm{J}
+          \]
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="example-title">हल उदाहरण 3: चकती गतिपालक चक्र की घूर्णी गतिकी</div>
+          <p><strong>प्रश्न:</strong> \(M = 10\,\mathrm{kg}\) द्रव्यमान और \(R = 0.4\,\mathrm{m}\) त्रिज्या की एक एकसमान ठोस चकती अपने केंद्र से गुजरने वाली घर्षणरहित क्षैतिज धुरी पर घूमने के लिए स्वतंत्र है। इसकी परिधि पर लिपटी हल्की डोरी को \(F = 20\,\mathrm{N}\) के नियत स्पर्शरेखीय बल से खींचा जाता है। विरामावस्था से प्रारंभ करके \(t = 3\,\mathrm{s}\) पश्चात् इसका कोणीय त्वरण और घूर्णी गतिज ऊर्जा ज्ञात कीजिए।</p>
+          <p><strong>हल:</strong> चकती का अपने सममित अक्ष के परितः जड़त्व आघूर्ण:</p>
+          \[
+            I = \frac{1}{2}MR^2 = \frac{1}{2}(10)(0.4)^2 = 0.8\,\mathrm{kg\cdot m^2}
+          \]
+          <p>बल आघूर्ण \(\tau = F R = 20 \times 0.4 = 8\,\mathrm{N\cdot m}\)। अतः कोणीय त्वरण \(\alpha = \frac{\tau}{I} = \frac{8}{0.8} = 10\,\mathrm{rad/s^2}\)।</p>
+          <p>\(t = 3\,\mathrm{s}\) बाद, \(\omega = \omega_0 + \alpha t = 0 + 10(3) = 30\,\mathrm{rad/s}\)। घूर्णी गतिज ऊर्जा:</p>
+          \[
+            K = \frac{1}{2}I\omega^2 = \frac{1}{2}(0.8)(30)^2 = 360\,\mathrm{J}
+          \]
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="example-card">
+        <div class="en-block" lang="en">
+          <div class="example-title">Worked Example 4: Conservation of Angular Momentum on a Turntable</div>
+          <p><strong>Problem:</strong> A horizontal turntable of moment of inertia \(I_1 = 4.0\,\mathrm{kg\cdot m^2}\) rotates freely at \(\omega_1 = 6.0\,\mathrm{rad/s}\) about a vertical frictionless axis. A lump of clay of mass \(m = 2.0\,\mathrm{kg}\) drops vertically onto the turntable and sticks at distance \(r = 1.0\,\mathrm{m}\) from the axis. Find the new angular speed \(\omega_2\) and the loss in kinetic energy.</p>
+          <p><strong>Solution:</strong> Since no external torque acts about the vertical axis, angular momentum is conserved (\(I_1\omega_1 = I_2\omega_2\)):</p>
+          \[
+            I_2 = I_1 + mr^2 = 4.0 + 2.0(1.0)^2 = 6.0\,\mathrm{kg\cdot m^2}
+          \]
+          \[
+            4.0 \times 6.0 = 6.0 \times \omega_2 \implies \omega_2 = 4.0\,\mathrm{rad/s}
+          \]
+          <p>Initial KE \(K_i = \frac{1}{2}(4.0)(6.0)^2 = 72\,\mathrm{J}\); Final KE \(K_f = \frac{1}{2}(6.0)(4.0)^2 = 48\,\mathrm{J}\). Loss in KE \(= 72 - 48 = 24\,\mathrm{J}\).</p>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="example-title">हल उदाहरण 4: घूर्णी मंच (Turntable) पर कोणीय संवेग संरक्षण</div>
+          <p><strong>प्रश्न:</strong> \(I_1 = 4.0\,\mathrm{kg\cdot m^2}\) जड़त्व आघूर्ण वाला एक क्षैतिज घूर्णी मंच ऊर्ध्वाधर घर्षणरहित अक्ष के परितः \(\omega_1 = 6.0\,\mathrm{rad/s}\) से स्वतंत्र रूप से घूम रहा है। \(m = 2.0\,\mathrm{kg}\) द्रव्यमान की मिट्टी का एक पिंड ऊर्ध्वाधर नीचे गिरकर अक्ष से \(r = 1.0\,\mathrm{m}\) दूरी पर मंच से चिपक जाता है। नया कोणीय वेग \(\omega_2\) तथा गतिज ऊर्जा में हानि ज्ञात कीजिए।</p>
+          <p><strong>हल:</strong> ऊर्ध्वाधर अक्ष के परितः कोई बाह्य बल आघूर्ण नहीं है, अतः कोणीय संवेग संरक्षित रहेगा (\(I_1\omega_1 = I_2\omega_2\)):</p>
+          \[
+            I_2 = I_1 + mr^2 = 4.0 + 2.0(1.0)^2 = 6.0\,\mathrm{kg\cdot m^2}
+          \]
+          \[
+            4.0 \times 6.0 = 6.0 \times \omega_2 \implies \omega_2 = 4.0\,\mathrm{rad/s}
+          \]
+          <p>प्रारंभिक गतिज ऊर्जा \(K_i = \frac{1}{2}(4.0)(6.0)^2 = 72\,\mathrm{J}\); अंतिम गतिज ऊर्जा \(K_f = \frac{1}{2}(6.0)(4.0)^2 = 48\,\mathrm{J}\)। ऊर्जा हानि \(= 72 - 48 = 24\,\mathrm{J}\)।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NEET UG PRACTICE QUESTIONS -->
+    <section>
+      <h2 lang="en">8. NEET UG Practice Questions</h2>
+      <h2 lang="hi">8. NEET UG अभ्यास प्रश्न</h2>
+
+      <!-- PQ 1 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 1</div>
+          <p>Three particles of masses \(1\,\mathrm{kg}\), \(2\,\mathrm{kg}\), and \(3\,\mathrm{kg}\) are placed at coordinates \((0, 0)\), \((2\,\mathrm{m}, 0)\), and \((0, 2\,\mathrm{m})\) respectively. What is the distance of their centre of mass from the origin?</p>
+          <ul class="options-list">
+            <li>(A) \(\frac{\sqrt{13}}{3}\,\mathrm{m}\)</li>
+            <li>(B) \(\frac{\sqrt{10}}{3}\,\mathrm{m}\)</li>
+            <li>(C) \(\frac{5}{3}\,\mathrm{m}\)</li>
+            <li>(D) \(1\,\mathrm{m}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (A) \(\frac{\sqrt{13}}{3}\,\mathrm{m}\)</p>
+            <p><strong>Solution:</strong> Total mass \(M = 1 + 2 + 3 = 6\,\mathrm{kg}\).</p>
+            \[
+              X = \frac{1(0) + 2(2) + 3(0)}{6} = \frac{4}{6} = \frac{2}{3}\,\mathrm{m}, \qquad Y = \frac{1(0) + 2(0) + 3(2)}{6} = \frac{6}{6} = 1\,\mathrm{m}
+            \]
+            <p>Distance from origin \(= \sqrt{X^2 + Y^2} = \sqrt{\left(\frac{2}{3}\right)^2 + 1^2} = \sqrt{\frac{4}{9} + 1} = \frac{\sqrt{13}}{3}\,\mathrm{m}\).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 1</div>
+          <p>\(1\,\mathrm{kg}\), \(2\,\mathrm{kg}\), और \(3\,\mathrm{kg}\) द्रव्यमान के तीन कण क्रमशः \((0, 0)\), \((2\,\mathrm{m}, 0)\), और \((0, 2\,\mathrm{m})\) निर्देशांकों पर रखे हैं। मूलबिंदु से उनके द्रव्यमान केंद्र की दूरी क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(\frac{\sqrt{13}}{3}\,\mathrm{m}\)</li>
+            <li>(B) \(\frac{\sqrt{10}}{3}\,\mathrm{m}\)</li>
+            <li>(C) \(\frac{5}{3}\,\mathrm{m}\)</li>
+            <li>(D) \(1\,\mathrm{m}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (A) \(\frac{\sqrt{13}}{3}\,\mathrm{m}\)</p>
+            <p><strong>हल:</strong> कुल द्रव्यमान \(M = 1 + 2 + 3 = 6\,\mathrm{kg}\)।</p>
+            \[
+              X = \frac{1(0) + 2(2) + 3(0)}{6} = \frac{4}{6} = \frac{2}{3}\,\mathrm{m}, \qquad Y = \frac{1(0) + 2(0) + 3(2)}{6} = \frac{6}{6} = 1\,\mathrm{m}
+            \]
+            <p>मूलबिंदु से दूरी \(= \sqrt{X^2 + Y^2} = \sqrt{\left(\frac{2}{3}\right)^2 + 1^2} = \sqrt{\frac{4}{9} + 1} = \frac{\sqrt{13}}{3}\,\mathrm{m}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 2 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 2</div>
+          <p>A shell of mass \(4m\) is moving horizontally with speed \(v\) when it explodes into two fragments of masses \(m\) and \(3m\) due to internal chemical forces. Immediately after the explosion, the heavier fragment moves in the same horizontal direction with speed \(\frac{4v}{3}\). What is the speed of the centre of mass of the two-fragment system immediately after the explosion?</p>
+          <ul class="options-list">
+            <li>(A) \(0\)</li>
+            <li>(B) \(\frac{v}{3}\)</li>
+            <li>(C) \(v\)</li>
+            <li>(D) \(\frac{4v}{3}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (C) \(v\)</p>
+            <p><strong>Solution:</strong> The explosion is driven purely by internal forces. Since there is no external horizontal force acting on the system (\(F_{\mathrm{ext}} = 0\)), the acceleration of the centre of mass along the horizontal is zero, and its velocity remains unchanged at \(v\).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 2</div>
+          <p>\(4m\) द्रव्यमान का एक गोला \(v\) चाल से क्षैतिज दिशा में गतिमान है। आंतरिक रासायनिक बलों के कारण यह \(m\) तथा \(3m\) द्रव्यमान के दो टुकड़ों में फट जाता है। विस्फोट के ठीक बाद भारी टुकड़ा उसी क्षैतिज दिशा में \(\frac{4v}{3}\) चाल से चलता है। विस्फोट के ठीक बाद दोनों टुकड़ों के निकाय के द्रव्यमान केंद्र की चाल क्या होगी?</p>
+          <ul class="options-list">
+            <li>(A) \(0\)</li>
+            <li>(B) \(\frac{v}{3}\)</li>
+            <li>(C) \(v\)</li>
+            <li>(D) \(\frac{4v}{3}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (C) \(v\)</p>
+            <p><strong>हल:</strong> विस्फोट केवल आंतरिक बलों के कारण होता है। चूँकि निकाय पर कोई बाह्य क्षैतिज बल नहीं लग रहा है (\(F_{\mathrm{ext}} = 0\)), इसलिए क्षैतिज दिशा में द्रव्यमान केंद्र का त्वरण शून्य होगा और उसका वेग \(v\) ही बना रहेगा।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 3 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 3</div>
+          <p>A rigid body rotates about a fixed axis with angular velocity \(\boldsymbol{\omega} = (2\hat{\mathbf{i}} - 3\hat{\mathbf{j}} + \hat{\mathbf{k}})\,\mathrm{rad/s}\). What is the linear velocity \(\mathbf{v}\) of a particle of the body at position vector \(\mathbf{r} = (\hat{\mathbf{i}} + 2\hat{\mathbf{j}} - \hat{\mathbf{k}})\,\mathrm{m}\) from a point on the axis?</p>
+          <ul class="options-list">
+            <li>(A) \((\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+            <li>(B) \((-\hat{\mathbf{i}} - 3\hat{\mathbf{j}} - 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+            <li>(C) \((\hat{\mathbf{i}} - 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+            <li>(D) \((5\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + \hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (A) \((\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</p>
+            <p><strong>Solution:</strong> Using \(\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}\):</p>
+            \[
+              \mathbf{v} =
+              \begin{vmatrix}
+                \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\
+                2 & -3 & 1 \\
+                1 & 2 & -1
+              \end{vmatrix}
+              = (3 - 2)\hat{\mathbf{i}} - (-2 - 1)\hat{\mathbf{j}} + (4 - (-3))\hat{\mathbf{k}} = (\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}
+            \]
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 3</div>
+          <p>एक दृढ़ पिंड स्थिर अक्ष के परितः \(\boldsymbol{\omega} = (2\hat{\mathbf{i}} - 3\hat{\mathbf{j}} + \hat{\mathbf{k}})\,\mathrm{rad/s}\) कोणीय वेग से घूर्णन कर रहा है। अक्ष पर स्थित किसी बिंदु से \(\mathbf{r} = (\hat{\mathbf{i}} + 2\hat{\mathbf{j}} - \hat{\mathbf{k}})\,\mathrm{m}\) स्थिति सदिश वाले कण का रेखीय वेग \(\mathbf{v}\) क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \((\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+            <li>(B) \((-\hat{\mathbf{i}} - 3\hat{\mathbf{j}} - 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+            <li>(C) \((\hat{\mathbf{i}} - 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+            <li>(D) \((5\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + \hat{\mathbf{k}})\,\mathrm{m/s}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (A) \((\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}\)</p>
+            <p><strong>हल:</strong> \(\mathbf{v} = \boldsymbol{\omega} \times \mathbf{r}\) का उपयोग करने पर:</p>
+            \[
+              \mathbf{v} =
+              \begin{vmatrix}
+                \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\
+                2 & -3 & 1 \\
+                1 & 2 & -1
+              \end{vmatrix}
+              = (3 - 2)\hat{\mathbf{i}} - (-2 - 1)\hat{\mathbf{j}} + (4 - (-3))\hat{\mathbf{k}} = (\hat{\mathbf{i}} + 3\hat{\mathbf{j}} + 7\hat{\mathbf{k}})\,\mathrm{m/s}
+            \]
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 4 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 4</div>
+          <p>A force \(\mathbf{F} = (4\hat{\mathbf{i}} - 2\hat{\mathbf{j}} + 3\hat{\mathbf{k}})\,\mathrm{N}\) acts on a particle located at \(\mathbf{r} = (2\hat{\mathbf{i}} + \hat{\mathbf{j}} - \hat{\mathbf{k}})\,\mathrm{m}\). What is the magnitude of the torque about the origin?</p>
+          <ul class="options-list">
+            <li>(A) \(\sqrt{165}\,\mathrm{N\cdot m}\)</li>
+            <li>(B) \(\sqrt{145}\,\mathrm{N\cdot m}\)</li>
+            <li>(C) \(13\,\mathrm{N\cdot m}\)</li>
+            <li>(D) \(19\,\mathrm{N\cdot m}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (A) \(\sqrt{165}\,\mathrm{N\cdot m}\)</p>
+            <p><strong>Solution:</strong> \(\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}\):</p>
+            \[
+              \boldsymbol{\tau} =
+              \begin{vmatrix}
+                \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\
+                2 & 1 & -1 \\
+                4 & -2 & 3
+              \end{vmatrix}
+              = (3 - 2)\hat{\mathbf{i}} - (6 - (-4))\hat{\mathbf{j}} + (-4 - 4)\hat{\mathbf{k}} = \hat{\mathbf{i}} - 10\hat{\mathbf{j}} - 8\hat{\mathbf{k}}
+            \]
+            <p>Magnitude \(|\boldsymbol{\tau}| = \sqrt{1^2 + (-10)^2 + (-8)^2} = \sqrt{1 + 100 + 64} = \sqrt{165}\,\mathrm{N\cdot m}\).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 4</div>
+          <p>\(\mathbf{r} = (2\hat{\mathbf{i}} + \hat{\mathbf{j}} - \hat{\mathbf{k}})\,\mathrm{m}\) स्थिति पर स्थित एक कण पर \(\mathbf{F} = (4\hat{\mathbf{i}} - 2\hat{\mathbf{j}} + 3\hat{\mathbf{k}})\,\mathrm{N}\) बल कार्य करता है। मूलबिंदु के सापेक्ष बल आघूर्ण का परिमाण क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(\sqrt{165}\,\mathrm{N\cdot m}\)</li>
+            <li>(B) \(\sqrt{145}\,\mathrm{N\cdot m}\)</li>
+            <li>(C) \(13\,\mathrm{N\cdot m}\)</li>
+            <li>(D) \(19\,\mathrm{N\cdot m}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (A) \(\sqrt{165}\,\mathrm{N\cdot m}\)</p>
+            <p><strong>हल:</strong> \(\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}\):</p>
+            \[
+              \boldsymbol{\tau} =
+              \begin{vmatrix}
+                \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\
+                2 & 1 & -1 \\
+                4 & -2 & 3
+              \end{vmatrix}
+              = (3 - 2)\hat{\mathbf{i}} - (6 - (-4))\hat{\mathbf{j}} + (-4 - 4)\hat{\mathbf{k}} = \hat{\mathbf{i}} - 10\hat{\mathbf{j}} - 8\hat{\mathbf{k}}
+            \]
+            <p>परिमाण \(|\boldsymbol{\tau}| = \sqrt{1^2 + (-10)^2 + (-8)^2} = \sqrt{1 + 100 + 64} = \sqrt{165}\,\mathrm{N\cdot m}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 5 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 5 (Assertion–Reason)</div>
+          <p><strong>Assertion (A):</strong> A rigid body acted upon by a couple is in translational equilibrium, yet it is not in rotational equilibrium.</p>
+          <p><strong>Reason (R):</strong> A couple consists of two forces of equal magnitude acting in opposite directions along different lines of action, so the net force is zero while the net torque is non-zero.</p>
+          <ul class="options-list">
+            <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+            <li>(B) Both A and R are true, but R is not the correct explanation of A.</li>
+            <li>(C) A is true, but R is false.</li>
+            <li>(D) A is false, but R is true.</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (A) Both A and R are true, and R is the correct explanation of A.</p>
+            <p><strong>Solution:</strong> Equal and opposite forces sum to zero (\(\sum \mathbf{F} = \mathbf{0}\)), ensuring translational equilibrium. Because their lines of action are separated, their torques add up to a non-zero couple moment, preventing rotational equilibrium.</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 5 (कथन–कारण)</div>
+          <p><strong>कथन (A):</strong> बल-युग्म के अधीन एक दृढ़ पिंड स्थानांतरीय संतुलन में होता है, किंतु घूर्णी संतुलन में नहीं होता।</p>
+          <p><strong>कारण (R):</strong> बल-युग्म में समान परिमाण के दो विपरीत बल भिन्न क्रिया-रेखाओं के अनुदिश कार्य करते हैं, जिससे कुल बल शून्य होता है जबकि कुल बल आघूर्ण अशून्य होता है।</p>
+          <ul class="options-list">
+            <li>(A) A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है।</li>
+            <li>(B) A और R दोनों सत्य हैं, परंतु R, A की सही व्याख्या नहीं है।</li>
+            <li>(C) A सत्य है, परंतु R असत्य है।</li>
+            <li>(D) A असत्य है, परंतु R सत्य है।</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (A) A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है।</p>
+            <p><strong>हल:</strong> समान और विपरीत बलों का योग शून्य (\(\sum \mathbf{F} = \mathbf{0}\)) होने से स्थानांतरीय संतुलन रहता है। चूँकि उनकी क्रिया-रेखाएँ पृथक होती हैं, अतः उनके आघूर्ण जुड़कर एक अशून्य बल आघूर्ण बनाते हैं और घूर्णी संतुलन नहीं रहता।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 6 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 6</div>
+          <p>A solid sphere and a thin circular ring have the same mass \(M\) and the same radius \(R\). What is the ratio of the radius of gyration of the solid sphere about its diameter to that of the ring about an axis perpendicular to its plane passing through its centre?</p>
+          <ul class="options-list">
+            <li>(A) \(2 : 5\)</li>
+            <li>(B) \(\sqrt{2} : \sqrt{5}\)</li>
+            <li>(C) \(\sqrt{5} : \sqrt{2}\)</li>
+            <li>(D) \(1 : \sqrt{2}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (B) \(\sqrt{2} : \sqrt{5}\)</p>
+            <p><strong>Solution:</strong> For the solid sphere, \(I_1 = \frac{2}{5}MR^2 = Mk_1^2 \implies k_1 = \sqrt{\frac{2}{5}}R\). For the ring, \(I_2 = MR^2 = Mk_2^2 \implies k_2 = R\). Hence, \(\frac{k_1}{k_2} = \sqrt{\frac{2}{5}} = \sqrt{2} : \sqrt{5}\).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 6</div>
+          <p>एक ठोस गोले और एक पतली वृत्ताकार वलय का द्रव्यमान \(M\) और त्रिज्या \(R\) समान हैं। ठोस गोले के उसके व्यास के परितः घूर्णन त्रिज्या तथा वलय के उसके तल के लंबवत केंद्र से गुजरने वाले अक्ष के परितः घूर्णन त्रिज्या का अनुपात क्या है?</p>
+          <ul class="options-list">
+            <li>(A) \(2 : 5\)</li>
+            <li>(B) \(\sqrt{2} : \sqrt{5}\)</li>
+            <li>(C) \(\sqrt{5} : \sqrt{2}\)</li>
+            <li>(D) \(1 : \sqrt{2}\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (B) \(\sqrt{2} : \sqrt{5}\)</p>
+            <p><strong>हल:</strong> ठोस गोले के लिए, \(I_1 = \frac{2}{5}MR^2 = Mk_1^2 \implies k_1 = \sqrt{\frac{2}{5}}R\)। वलय के लिए, \(I_2 = MR^2 = Mk_2^2 \implies k_2 = R\)। अतः \(\frac{k_1}{k_2} = \sqrt{\frac{2}{5}} = \sqrt{2} : \sqrt{5}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 7 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 7</div>
+          <p>A ceiling fan slows down uniformly from \(300\,\mathrm{rpm}\) to \(120\,\mathrm{rpm}\) in \(10\,\mathrm{s}\). How many complete revolutions does it make during this \(10\,\mathrm{s}\) interval?</p>
+          <ul class="options-list">
+            <li>(A) \(25\)</li>
+            <li>(B) \(35\)</li>
+            <li>(C) \(50\)</li>
+            <li>(D) \(70\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (B) \(35\)</p>
+            <p><strong>Solution:</strong> Initial speed \(n_0 = \frac{300}{60} = 5\,\mathrm{rev/s}\); final speed \(n = \frac{120}{60} = 2\,\mathrm{rev/s}\). Since angular deceleration is uniform, total revolutions \(N = \left(\frac{n_0 + n}{2}\right)t = \left(\frac{5 + 2}{2}\right) \times 10 = 35\).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 7</div>
+          <p>एक छत का पंखा \(10\,\mathrm{s}\) में एकसमान रूप से मंदित होकर \(300\,\mathrm{rpm}\) से \(120\,\mathrm{rpm}\) पर आ जाता है। इस \(10\,\mathrm{s}\) के अंतराल में वह कितने पूर्ण चक्कर लगाएगा?</p>
+          <ul class="options-list">
+            <li>(A) \(25\)</li>
+            <li>(B) \(35\)</li>
+            <li>(C) \(50\)</li>
+            <li>(D) \(70\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (B) \(35\)</p>
+            <p><strong>हल:</strong> प्रारंभिक चाल \(n_0 = \frac{300}{60} = 5\,\mathrm{rev/s}\); अंतिम चाल \(n = \frac{120}{60} = 2\,\mathrm{rev/s}\)। कोणीय मंदन एकसमान होने के कारण कुल चक्कर \(N = \left(\frac{n_0 + n}{2}\right)t = \left(\frac{5 + 2}{2}\right) \times 10 = 35\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 8 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 8</div>
+          <p>Equal constant torques are applied to a solid cylinder and a hollow cylinder of the same mass \(M\) and radius \(R\), both initially at rest and free to rotate about their respective symmetry axes. After a given time \(t\), how do their angular speeds compare?</p>
+          <ul class="options-list">
+            <li>(A) Both have the same angular speed</li>
+            <li>(B) The solid cylinder has twice the angular speed of the hollow cylinder</li>
+            <li>(C) The hollow cylinder has twice the angular speed of the solid cylinder</li>
+            <li>(D) The solid cylinder has four times the angular speed of the hollow cylinder</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (B) The solid cylinder has twice the angular speed of the hollow cylinder</p>
+            <p><strong>Solution:</strong> Since \(\alpha = \frac{\tau}{I}\) and \(\omega = \alpha t = \frac{\tau t}{I}\), we have \(\omega \propto \frac{1}{I}\). Because \(I_{\mathrm{solid}} = \frac{1}{2}MR^2\) and \(I_{\mathrm{hollow}} = MR^2\), \(\frac{\omega_{\mathrm{solid}}}{\omega_{\mathrm{hollow}}} = \frac{I_{\mathrm{hollow}}}{I_{\mathrm{solid}}} = 2\).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 8</div>
+          <p>समान द्रव्यमान \(M\) और त्रिज्या \(R\) वाले एक ठोस बेलन तथा एक खोखले बेलन पर, जो प्रारंभ में विराम में हैं और अपने-अपने सममित अक्ष के परितः घूमने के लिए स्वतंत्र हैं, समान नियत बल आघूर्ण लगाए जाते हैं। एक निश्चित समय \(t\) के बाद उनके कोणीय वेगों की तुलना कैसे होगी?</p>
+          <ul class="options-list">
+            <li>(A) दोनों का कोणीय वेग समान होगा</li>
+            <li>(B) ठोस बेलन का कोणीय वेग खोखले बेलन के कोणीय वेग का दोगुना होगा</li>
+            <li>(C) खोखले बेलन का कोणीय वेग ठोस बेलन के कोणीय वेग का दोगुना होगा</li>
+            <li>(D) ठोस बेलन का कोणीय वेग खोखले बेलन के कोणीय वेग का चार गुना होगा</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (B) ठोस बेलन का कोणीय वेग खोखले बेलन के कोणीय वेग का दोगुना होगा</p>
+            <p><strong>हल:</strong> चूँकि \(\alpha = \frac{\tau}{I}\) तथा \(\omega = \alpha t = \frac{\tau t}{I}\), अतः \(\omega \propto \frac{1}{I}\)। यहाँ \(I_{\mathrm{solid}} = \frac{1}{2}MR^2\) और \(I_{\mathrm{hollow}} = MR^2\), इसलिए \(\frac{\omega_{\mathrm{solid}}}{\omega_{\mathrm{hollow}}} = \frac{I_{\mathrm{hollow}}}{I_{\mathrm{solid}}} = 2\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 9 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 9</div>
+          <p>An ice skater spinning on frictionless ice with arms outstretched has moment of inertia \(I\) and rotational kinetic energy \(K\). When she pulls her arms inward, her moment of inertia decreases to \(\frac{I}{3}\). What is her new rotational kinetic energy?</p>
+          <ul class="options-list">
+            <li>(A) \(\frac{K}{3}\)</li>
+            <li>(B) \(K\)</li>
+            <li>(C) \(3K\)</li>
+            <li>(D) \(9K\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (C) \(3K\)</p>
+            <p><strong>Solution:</strong> No external torque acts, so angular momentum \(L = I\omega\) is conserved. Using \(K = \frac{L^2}{2I}\), since \(L\) is constant, \(K \propto \frac{1}{I}\). When \(I' = \frac{I}{3}\), \(K' = 3K\) (the extra energy comes from internal muscular work).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 9</div>
+          <p>घर्षणरहित बर्फ पर भुजाएँ फैलाकर घूमती हुई एक स्केटर का जड़त्व आघूर्ण \(I\) तथा घूर्णी गतिज ऊर्जा \(K\) है। जब वह अपनी भुजाओं को भीतर की ओर समेटती है, तो उसका जड़त्व आघूर्ण घटकर \(\frac{I}{3}\) हो जाता है। उसकी नई घूर्णी गतिज ऊर्जा क्या होगी?</p>
+          <ul class="options-list">
+            <li>(A) \(\frac{K}{3}\)</li>
+            <li>(B) \(K\)</li>
+            <li>(C) \(3K\)</li>
+            <li>(D) \(9K\)</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (C) \(3K\)</p>
+            <p><strong>हल:</strong> कोई बाह्य बल आघूर्ण न होने के कारण कोणीय संवेग \(L = I\omega\) संरक्षित रहता है। सूत्र \(K = \frac{L^2}{2I}\) से, नियत \(L\) के लिए \(K \propto \frac{1}{I}\)। जब \(I' = \frac{I}{3}\), तो \(K' = 3K\) होगा (अतिरिक्त ऊर्जा आंतरिक पेशीय कार्य से प्राप्त होती है)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PQ 10 -->
+      <div class="question-card">
+        <div class="en-block" lang="en">
+          <div class="question-title">Practice Question 10 (Statement-Based)</div>
+          <p>Consider the following two statements:</p>
+          <p><strong>Statement I:</strong> The centre of gravity of an extended body coincides with its centre of mass only when the gravitational field is uniform across the entire body.</p>
+          <p><strong>Statement II:</strong> For any rigid body rotating about a fixed axis, the total angular momentum vector \(\mathbf{L}\) is always parallel to the angular velocity vector \(\boldsymbol{\omega}\).</p>
+          <ul class="options-list">
+            <li>(A) Both Statement I and Statement II are correct</li>
+            <li>(B) Both Statement I and Statement II are incorrect</li>
+            <li>(C) Statement I is correct but Statement II is incorrect</li>
+            <li>(D) Statement I is incorrect but Statement II is correct</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>Answer:</strong> (C) Statement I is correct but Statement II is incorrect</p>
+            <p><strong>Solution:</strong> Statement I is true because if \(g\) varies across a huge body, gravitational torque vanishes at a different point than the CM. Statement II is false because \(\mathbf{L} = \mathbf{L}_z + \mathbf{L}_\perp\); \(\mathbf{L}\) is parallel to \(\boldsymbol{\omega}\) only when the fixed axis is an axis of symmetry (\(\mathbf{L}_\perp = \mathbf{0}\)).</p>
+          </div>
+        </div>
+        <hr />
+        <div class="hi-block" lang="hi">
+          <div class="question-title">अभ्यास प्रश्न 10 (कथन-आधारित)</div>
+          <p>निम्नलिखित दो कथनों पर विचार कीजिए:</p>
+          <p><strong>कथन I:</strong> किसी विस्तृत पिंड का गुरुत्व केंद्र उसके द्रव्यमान केंद्र से केवल तभी संपाती होता है जब संपूर्ण पिंड पर गुरुत्वीय क्षेत्र एकसमान हो।</p>
+          <p><strong>कथन II:</strong> स्थिर अक्ष के परितः घूमते किसी भी दृढ़ पिंड के लिए कुल कोणीय संवेग सदिश \(\mathbf{L}\) सदैव कोणीय वेग सदिश \(\boldsymbol{\omega}\) के समानांतर होता है।</p>
+          <ul class="options-list">
+            <li>(A) कथन I और कथन II दोनों सही हैं</li>
+            <li>(B) कथन I और कथन II दोनों गलत हैं</li>
+            <li>(C) कथन I सही है परंतु कथन II गलत है</li>
+            <li>(D) कथन I गलत है परंतु कथन II सही है</li>
+          </ul>
+          <div class="answer-box">
+            <p><strong>उत्तर:</strong> (C) कथन I सही है परंतु कथन II गलत है</p>
+            <p><strong>हल:</strong> कथन I सत्य है क्योंकि विशाल पिंड पर \(g\) परिवर्तित होने पर गुरुत्वीय बल आघूर्ण CM से भिन्न बिंदु पर शून्य होता है। कथन II असत्य है क्योंकि \(\mathbf{L} = \mathbf{L}_z + \mathbf{L}_\perp\); \(\mathbf{L}\) केवल तभी \(\boldsymbol{\omega}\) के समानांतर होता है जब घूर्णन अक्ष सममित अक्ष हो (\(\mathbf{L}_\perp = \mathbf{0}\))।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. COMMON PITFALLS & REVISION CHECKLIST -->
+    <section>
+      <h2 lang="en">9. Common Pitfalls &amp; Revision Checklist</h2>
+      <div class="en-block" lang="en">
+        <div class="note-box">
+          <ul>
+            <li><strong>Torque vs Work Dimensions:</strong> Both have dimensions \([\mathrm{M L^2 T^{-2}}]\), but torque is a vector (\(\mathbf{r} \times \mathbf{F}\), unit \(\mathrm{N\cdot m}\)) while work is a scalar (\(\mathbf{F} \cdot \mathrm{d}\mathbf{r}\), unit \(\mathrm{J}\)).</li>
+            <li><strong>Cross Product Order:</strong> Always compute \(\mathbf{r} \times \mathbf{F}\) and \(\boldsymbol{\omega} \times \mathbf{r}\) in exact order—reversing the order flips the sign!</li>
+            <li><strong>Partial Equilibrium Trap:</strong> \(\sum \mathbf{F} = \mathbf{0}\) does NOT imply \(\sum \boldsymbol{\tau} = \mathbf{0}\), and vice versa.</li>
+            <li><strong>KE Change in Angular Momentum Conservation:</strong> When \(I\) changes with \(\tau_{\mathrm{ext}} = 0\), \(L = I\omega\) stays constant, but \(K = \frac{L^2}{2I}\) changes!</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 lang="hi">9. सामान्य त्रुटियाँ एवं पुनरावृत्ति जाँच-सूची</h2>
+      <div class="hi-block" lang="hi">
+        <div class="note-box">
+          <ul>
+            <li><strong>बल आघूर्ण बनाम कार्य की विमा:</strong> दोनों की विमा \([\mathrm{M L^2 T^{-2}}]\) समान है, परंतु बल आघूर्ण सदिश (\(\mathbf{r} \times \mathbf{F}\), मात्रक \(\mathrm{N\cdot m}\)) और कार्य अदिश (\(\mathbf{F} \cdot \mathrm{d}\mathbf{r}\), मात्रक \(\mathrm{J}\)) है।</li>
+            <li><strong>सदिश गुणनफल का क्रम:</strong> सदैव \(\mathbf{r} \times \mathbf{F}\) और \(\boldsymbol{\omega} \times \mathbf{r}\) का क्रम सही रखें—क्रम बदलने पर चिह्न उलट जाता है!</li>
+            <li><strong>आंशिक संतुलन का भ्रम:</strong> \(\sum \mathbf{F} = \mathbf{0}\) होने का अर्थ \(\sum \boldsymbol{\tau} = \mathbf{0}\) होना नहीं है, और इसका विलोम भी सत्य है।</li>
+            <li><strong>कोणीय संवेग संरक्षण में गतिज ऊर्जा:</strong> जब \(\tau_{\mathrm{ext}} = 0\) पर \(I\) बदलता है, तो \(L = I\omega\) नियत रहता है, परंतु \(K = \frac{L^2}{2I}\) बदल जाती है!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CONCISE FINAL RECAP -->
+    <section>
+      <h2 lang="en">10. Concise Final Recap</h2>
+      <div class="en-block" lang="en">
+        <p>The translational motion of any system is governed by its centre of mass (\(\mathbf{F}_{\mathrm{ext}} = M\mathbf{A}\)), completely unaffected by internal forces. Rotational motion about a fixed axis mirrors linear mechanics with \(\theta \leftrightarrow x\), \(\omega \leftrightarrow v\), \(\alpha \leftrightarrow a\), \(I \leftrightarrow M\), \(\tau \leftrightarrow F\), and \(L_z \leftrightarrow p\). When external torque is zero, \(I\omega\) remains conserved—a core principle frequently tested in NEET UG.</p>
+      </div>
+
+      <h2 lang="hi">10. संक्षिप्त अंतिम सारांश</h2>
+      <div class="hi-block" lang="hi">
+        <p>किसी भी निकाय की स्थानांतरीय गति उसके द्रव्यमान केंद्र द्वारा नियंत्रित होती है (\(\mathbf{F}_{\mathrm{ext}} = M\mathbf{A}\)), जिस पर आंतरिक बलों का कोई प्रभाव नहीं पड़ता। स्थिर अक्ष के परितः घूर्णी गति रेखीय यांत्रिकी के समतुल्य है जहाँ \(\theta \leftrightarrow x\), \(\omega \leftrightarrow v\), \(\alpha \leftrightarrow a\), \(I \leftrightarrow M\), \(\tau \leftrightarrow F\), तथा \(L_z \leftrightarrow p\)। बाह्य बल आघूर्ण शून्य होने पर \(I\omega\) संरक्षित रहता है—जो NEET UG में बार-बार पूछा जाने वाला प्रमुख सिद्धांत है।</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

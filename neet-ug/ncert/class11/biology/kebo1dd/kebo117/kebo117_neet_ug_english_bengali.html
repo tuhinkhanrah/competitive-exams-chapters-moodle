@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locomotion and Movement (চলন ও গমন) — NEET UG Bilingual Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'svg']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --primary-soft: #EFF6FF;
+      --teal: #0D9488;
+      --teal-soft: #F0FDFA;
+      --surface: #F8FAFC;
+      --border: #CBD5E1;
+      --warn-bg: #FEF2F2;
+      --warn-border: #DC2626;
+      --warn-ink: #991B1B;
+    }
+
+    html {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: #FFFFFF;
+    }
+
+    body {
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+      max-width: 920px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Bengali", "SolaimanLipi", "Kalpurush", Arial, sans-serif;
+      color: var(--ink);
+      background-color: #FFFFFF;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    h1, h2, h3, h4 {
+      color: #0F172A;
+      line-height: 1.3;
+      margin-top: 1.5em;
+      margin-bottom: 0.55em;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      margin-top: 0;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.38rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin-top: 2rem;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--teal);
+    }
+
+    p {
+      margin: 0 0 0.85em 0;
+    }
+
+    ul, ol {
+      margin: 0.4em 0 1em 0;
+      padding-left: 1.4em;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge-teal {
+      background-color: var(--teal-soft);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    .lang-block {
+      padding: 16px 18px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: #FFFFFF;
+    }
+
+    .lang-bn {
+      background-color: var(--surface);
+      border-left: 4px solid var(--teal);
+    }
+
+    .lang-en {
+      border-left: 4px solid var(--primary);
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .lang-tag-en {
+      background-color: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .lang-tag-bn {
+      background-color: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .callout {
+      padding: 12px 15px;
+      margin: 12px 0;
+      border-radius: 6px;
+      background-color: var(--primary-soft);
+      border: 1px solid #BFDBFE;
+    }
+
+    .callout-teal {
+      background-color: var(--teal-soft);
+      border-color: #99F6E4;
+    }
+
+    .callout-warn {
+      background-color: var(--warn-bg);
+      border: 1px solid #FECACA;
+      border-left: 4px solid var(--warn-border);
+      color: var(--warn-ink);
+    }
+
+    .formula-box {
+      padding: 12px 14px;
+      margin: 12px 0;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.93rem;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: #F1F5F9;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    .diagram-card {
+      margin: 16px 0;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: #FFFFFF;
+      max-width: 100%;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .example-card, .question-card {
+      margin: 18px 0;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: #FFFFFF;
+    }
+
+    .question-card hr {
+      border: 0;
+      border-top: 2px dashed var(--border);
+      margin: 18px 0;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 14px 0;
+    }
+
+    .options-list li {
+      padding: 6px 10px;
+      margin-bottom: 6px;
+      border: 1px solid #E2E8F0;
+      border-radius: 5px;
+      background-color: var(--surface);
+    }
+
+    .solution-box {
+      padding: 12px 14px;
+      margin-top: 10px;
+      border-radius: 6px;
+      background-color: var(--teal-soft);
+      border: 1px solid #99F6E4;
+    }
+
+    .answer-pill {
+      display: inline-block;
+      font-weight: 700;
+      color: #0F172A;
+      background-color: #CCFBF1;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm 14mm;
+    }
+
+    @media print {
+      body {
+        max-width: 100%;
+        padding: 0;
+        font-size: 10.5pt;
+        line-height: 1.5;
+      }
+
+      .lang-block, .diagram-card, .example-card, .question-card, .callout, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .lang-bn {
+        background-color: #F8FAFC !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+  <header>
+    <div class="badge-row">
+      <span class="badge">Exam Standard: NEET UG</span>
+      <span class="badge badge-teal">Bilingual: English + বাংলা (Bengali)</span>
+      <span class="badge">Human Physiology — Chapter Tutorial</span>
+    </div>
+    <h1>Locomotion and Movement &nbsp;|&nbsp; চলন ও গমন</h1>
+  </header>
+
+  <!-- SECTION: LEARNING OBJECTIVES & OVERVIEW -->
+  <section id="overview">
+    <h2>1. Learning Objectives and Chapter Overview &nbsp;|&nbsp; ১. শিখন উদ্দেশ্য ও অধ্যায়ের সারসংক্ষেপ</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <p>Movement is a fundamental hallmark of living organisms, ranging from intracellular streaming of protoplasm to coordinated whole-body displacement. For <strong>NEET UG</strong>, this chapter bridges cellular physiology (cytoskeleton and contractile proteins) with gross human anatomy (muscles, bones, joints, and clinical disorders).</p>
+      <ul>
+        <li>Distinguish between general <strong>movement</strong> and <strong>locomotion</strong>, and classify cellular modes of movement in humans.</li>
+        <li>Compare the structural, functional, and regulatory features of skeletal, visceral (smooth), and cardiac muscles.</li>
+        <li>Analyze the ultrastructure of a sarcomere and explain the biochemical steps of the <strong>sliding filament theory</strong>.</li>
+        <li>Memorize the exact bone distribution of the <strong>axial (80)</strong> and <strong>appendicular (126)</strong> human skeleton (total 206 bones).</li>
+        <li>Classify joints structurally and identify key musculoskeletal disorders tested in medical entrance exams.</li>
+      </ul>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <p>চলন হলো জীবজগতের একটি মৌলিক বৈশিষ্ট্য, যা কোষের অভ্যন্তরীণ প্রোটোপ্লাজমীয় স্রোত থেকে শুরু করে সমগ্র দেহের স্থানান্তর পর্যন্ত বিস্তৃত। <strong>NEET UG</strong> পরীক্ষার জন্য এই অধ্যায়টি কোষীয় শরীরবিদ্যা (সাইটোস্কেলেটন ও সংকোচনশীল প্রোটিন) এবং মানব অঙ্গসংস্থানের (পেশি, অস্থি, অস্থিসন্ধি ও রোগব্যাধি) মধ্যে সেতুবন্ধন তৈরি করে।</p>
+      <ul>
+        <li>সাধারণ <strong>চলন (Movement)</strong> এবং <strong>গমন (Locomotion)</strong>-এর মধ্যে পার্থক্য নির্ণয় করা এবং মানবদেহের কোষীয় চলনের প্রকারভেদ জানা।</li>
+        <li>কঙ্কাল পেশি, আন্তরযন্ত্রীয় (মসৃণ) পেশি এবং হৃৎপেশির গঠন, কাজ ও নিয়ন্ত্রণের তুলনা করা।</li>
+        <li>সারকোমিয়ারের সূক্ষ্ম গঠন বিশ্লেষণ করা এবং <strong>স্লাইডিং ফিলামেন্ট তত্ত্বের</strong> জৈবরাসায়নিক ধাপসমূহ ব্যাখ্যা করা।</li>
+        <li>মানবদেহের <strong>অক্ষীয় কঙ্কাল (৮০টি)</strong> এবং <strong>উপাঙ্গীয় কঙ্কাল (১২৬টি)</strong>-এর মোট ২০৬টি অস্থির সঠিক বণ্টন মনে রাখা।</li>
+        <li>অস্থিসন্ধির গঠনগত শ্রেণিবিন্যাস করা এবং মেডিকেল প্রবেশিকা পরীক্ষায় আসা প্রধান পেশি ও কঙ্কালতন্ত্রের রোগগুলি শনাক্ত করা।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION: MOVEMENT VS LOCOMOTION -->
+  <section id="types-of-movement">
+    <h2>2. Movement vs. Locomotion &amp; Cellular Modes &nbsp;|&nbsp; ২. চলন বনাম গমন এবং কোষীয় চলন</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <p><strong>Movement</strong> refers to any change in posture, orientation, or position of a cell, organ, or body part. <strong>Locomotion</strong> is a specific subset of voluntary movement that results in a net change of place or location of the entire organism (for example, walking, running, swimming, or flying).</p>
+      <div class="callout">
+        <strong>Core Principle:</strong> All locomotions are movements, but all movements are not locomotions. Furthermore, the same anatomical structure can serve both roles: cilia in <em>Paramoecium</em> propel food into the cytopharynx (movement) and drive swimming (locomotion); tentacles in <em>Hydra</em> capture prey and assist in somersaulting locomotion; human limbs change posture and enable walking.
+      </div>
+      <p>Organisms perform locomotion to find food, shelter, mates, suitable breeding grounds, favorable climates, or to escape predators. At the cellular level, human cells exhibit three primary types of movement (alongside flagellar swimming in spermatozoa):</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Mode of Movement</th>
+            <th>Cellular Mechanism</th>
+            <th>Human &amp; Biological Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Amoeboid</strong></td>
+            <td>Protoplasmic streaming forming pseudopodia, driven by cytoskeletal microfilaments (actin).</td>
+            <td>Human macrophages and leucocytes (white blood cells); unicellular <em>Amoeba</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Ciliary</strong></td>
+            <td>Coordinated beating of hair-like membrane outgrowths (cilia) lining tubular tracts.</td>
+            <td>Human trachea (clearing inhaled dust/foreign particles) and female reproductive tract/oviduct (passage of ova).</td>
+          </tr>
+          <tr>
+            <td><strong>Flagellar</strong></td>
+            <td>Whip-like propulsion by flagella (cell membrane outgrowths).</td>
+            <td>Swimming of human spermatozoa; water current in sponge canal system; locomotion in <em>Euglena</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Muscular</strong></td>
+            <td>Active contraction and relaxation of specialized mesodermal muscle fibres.</td>
+            <td>Movement of human limbs, jaws, tongue, and eyelids; requires coordinated muscular, skeletal, and neural activity.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <p><strong>চলন (Movement)</strong> বলতে কোষ, অঙ্গ বা দেহের কোনো অংশের ভঙ্গি, দিক বা অবস্থানের যেকোনো পরিবর্তনকে বোঝায়। অন্যদিকে, <strong>গমন (Locomotion)</strong> হলো এক বিশেষ ধরনের ঐচ্ছিক চলন যার ফলে সমগ্র জীবদেহের সামগ্রিক স্থান পরিবর্তন ঘটে (যেমন—হাঁটা, দৌড়ানো, সাঁতার কাটা বা ওড়া)।</p>
+      <div class="callout callout-teal">
+        <strong>মূল নীতি:</strong> সকল গমনই চলন, কিন্তু সকল চলন গমন নয়। একই অঙ্গ উভয় কাজেই ব্যবহৃত হতে পারে: <em>Paramoecium</em>-এর সিলিয়া সাইটোফ্যারিংক্সে খাদ্য প্রবেশে (চলন) ও সাঁতারে (গমন) সাহায্য করে; <em>Hydra</em>-র কর্ষিকা শিকার ধরা ও গমন উভয়েই অংশ নেয়; মানুষের হাত-পা দেহভঙ্গি পরিবর্তন ও হাঁটাচলা উভয়েই ব্যবহৃত হয়।
+      </div>
+      <p>খাদ্য, আশ্রয়, সঙ্গী, উপযুক্ত প্রজনন ক্ষেত্র, অনুকূল আবহাওয়া অনুসন্ধান এবং শত্রুর হাত থেকে বাঁচার জন্য প্রাণীরা গমন করে। মানবদেহের কোষসমূহ প্রধানত তিন ধরনের চলন দেখায় (এর পাশাপাশি শুক্রাণুতে ফ্ল্যাজেলার চলন দেখা যায়):</p>
+      <table>
+        <thead>
+          <tr>
+            <th>চলনের প্রকার</th>
+            <th>কোষীয় কৌশল</th>
+            <th>মানবদেহ ও জীবজগতের উদাহরণ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>অ্যামিবয়েড চলন</strong></td>
+            <td>প্রোটোপ্লাজমের স্রোতের মাধ্যমে ক্ষণপদ (pseudopodia) গঠন; সাইটোস্কেলেটনের মাইক্রোফিলামেন্ট এতে অংশ নেয়।</td>
+            <td>মানবদেহের ম্যাক্রোফাজ ও লিউকোসাইট (শ্বেত রক্তকণিকা); এককোষী <em>Amoeba</em>।</td>
+          </tr>
+          <tr>
+            <td><strong>সিলিয়ারি চলন</strong></td>
+            <td>নলাকার অঙ্গের ভেতরের সিলিয়াযুক্ত আবরণী কলার সমন্বিত স্পন্দন।</td>
+            <td>মানুষের শ্বাসনালী বা ট্রাকিয়া (ধূলিকণা ও বহিরাগত কণা অপসারণ) এবং স্ত্রী জনননালী (ডিম্বাণু পরিবহন)।</td>
+          </tr>
+          <tr>
+            <td><strong>ফ্ল্যাজেলার চলন</strong></td>
+            <td>কোষপর্দার বর্ধিত অংশ ফ্ল্যাজেলার চাবুকের মতো সঞ্চালন।</td>
+            <td>মানুষের শুক্রাণুর সাঁতার; স্পঞ্জের নালীতন্ত্রে জলপ্রবাহ বজায় রাখা; <em>Euglena</em>-র গমন।</td>
+          </tr>
+          <tr>
+            <td><strong>পেশীয় চলন</strong></td>
+            <td>মেসোডার্ম উদ্ভূত বিশেষায়িত পেশি তন্তুর সংকোচন ও প্রসারণ।</td>
+            <td>মানুষের হাত-পা, চোয়াল ও জিহ্বার নড়াচড়া; এর জন্য পেশি, কঙ্কাল ও স্নায়ুতন্ত্রের নিখুঁত সমন্বয় প্রয়োজন।</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION: MUSCLE CLASSIFICATION & SARCOMERE -->
+  <section id="muscle-architecture">
+    <h2>3. Muscle Types &amp; Sarcomere Ultrastructure &nbsp;|&nbsp; ৩. পেশির প্রকারভেদ ও সারকোমিয়ারের গঠন</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <p>Muscle is a specialized tissue of <strong>mesodermal origin</strong> contributing roughly <strong>40–50%</strong> of adult human body weight. Its four defining physiological properties are <strong>excitability</strong> (response to stimuli), <strong>contractility</strong> (ability to shorten), <strong>extensibility</strong> (ability to stretch), and <strong>elasticity</strong> (recoil to original length).</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Skeletal Muscle</th>
+            <th>Visceral (Smooth) Muscle</th>
+            <th>Cardiac Muscle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Location</strong></td>
+            <td>Attached to skeletal bones.</td>
+            <td>Inner walls of hollow visceral organs (alimentary canal, reproductive tract).</td>
+            <td>Walls of the heart.</td>
+          </tr>
+          <tr>
+            <td><strong>Appearance</strong></td>
+            <td>Striated (alternate dark and light bands).</td>
+            <td>Non-striated (smooth).</td>
+            <td>Striated; cells assemble in a branching pattern.</td>
+          </tr>
+          <tr>
+            <td><strong>Neural Control</strong></td>
+            <td>Voluntary.</td>
+            <td>Involuntary.</td>
+            <td>Involuntary (not directly controlled by nervous system).</td>
+          </tr>
+          <tr>
+            <td><strong>Primary Role</strong></td>
+            <td>Locomotion and posture changes.</td>
+            <td>Transport of food in gut and gametes in genital tract.</td>
+            <td>Rhythmic pumping of blood.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Structural Hierarchy of a Skeletal Muscle</h3>
+      <ul>
+        <li><strong>Fascia &amp; Fascicles:</strong> An organized skeletal muscle consists of numerous muscle bundles (<strong>fascicles</strong>) bound together by a common collagenous connective tissue layer called <strong>fascia</strong>.</li>
+        <li><strong>Muscle Fibre (Anatomical Unit):</strong> Each fascicle contains many elongated muscle fibres. The plasma membrane is the <strong>sarcolemma</strong>, enclosing the <strong>sarcoplasm</strong>. Because sarcoplasm holds multiple nuclei, a muscle fibre is a <strong>syncytium</strong>. Its specialized endoplasmic reticulum—the <strong>sarcoplasmic reticulum (SR)</strong>—acts as the intracellular reservoir of \(\mathrm{Ca^{2+}}\) ions.</li>
+        <li><strong>Myofibrils &amp; Sarcomere (Functional Unit):</strong> Parallel rod-like filaments called <strong>myofibrils</strong> run inside the sarcoplasm and display alternating bands:
+          <ul>
+            <li><strong>I-band (Isotropic / Light band):</strong> Contains only <strong>thin (actin)</strong> filaments and is bisected at its center by an elastic fibre called the <strong>Z-line</strong>.</li>
+            <li><strong>A-band (Anisotropic / Dark band):</strong> Contains <strong>thick (myosin)</strong> filaments held centrally by a thin fibrous membrane called the <strong>M-line</strong>.</li>
+            <li><strong>H-zone:</strong> The central portion of the A-band where thin filaments do not overlap thick filaments in a resting sarcomere.</li>
+            <li><strong>Sarcomere:</strong> The segment between two successive Z-lines—specifically comprising one complete A-band plus two half I-bands.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <p>পেশি হলো <strong>মেসোডার্ম উদ্ভূত</strong> একটি বিশেষায়িত কলা, যা প্রাপ্তবয়স্ক মানুষের দেহের ওজনের প্রায় <strong>৪০–৫০%</strong> গঠন করে। পেশির চারটি প্রধান ধর্ম হলো: <strong>উত্তেজিতা (excitability)</strong>, <strong>সংকোচনশীলতা (contractility)</strong>, <strong>প্রসারণশীলতা (extensibility)</strong> এবং <strong>স্থিতিস্থাপকতা (elasticity)</strong>।</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>বৈশিষ্ট্য</th>
+            <th>কঙ্কাল পেশি (Skeletal)</th>
+            <th>আন্তরযন্ত্রীয় / মসৃণ পেশি (Visceral)</th>
+            <th>হৃৎপেশি (Cardiac)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>অবস্থান</strong></td>
+            <td>কঙ্কালতন্ত্রের অস্থির সাথে যুক্ত।</td>
+            <td>ফাঁপা আন্তরযন্ত্রীয় অঙ্গের প্রাচীরে (পৌষ্টিকনালী, জনননালী)।</td>
+            <td>হৃৎপিণ্ডের প্রাচীরে।</td>
+          </tr>
+          <tr>
+            <td><strong>গঠন/চেহারা</strong></td>
+            <td>সরেখ (পর্যায়ক্রমে গাঢ় ও হালকা পট্টি)।</td>
+            <td>অরেখ (মসৃণ)।</td>
+            <td>সরেখ এবং কোষগুলি শাখান্বিত বিন্যাসে সজ্জিত।</td>
+          </tr>
+          <tr>
+            <td><strong>স্নায়বিক নিয়ন্ত্রণ</strong></td>
+            <td>ঐচ্ছিক (Voluntary)।</td>
+            <td>অনৈচ্ছিক (Involuntary)।</td>
+            <td>অনৈচ্ছিক (স্নায়ুতন্ত্র সরাসরি নিয়ন্ত্রণ করে না)।</td>
+          </tr>
+          <tr>
+            <td><strong>প্রধান কাজ</strong></td>
+            <td>গমন ও দেহভঙ্গির পরিবর্তন।</td>
+            <td>পৌষ্টিকনালীতে খাদ্য ও জনননালীতে গ্যামেট পরিবহন।</td>
+            <td>ছন্দময় রক্ত সঞ্চালন।</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>কঙ্কাল পেশির গঠনগত বিন্যাস</h3>
+      <ul>
+        <li><strong>ফ্যাসিয়া ও ফ্যাসিকল:</strong> প্রতিটি কঙ্কাল পেশি অসংখ্য পেশি-গুচ্ছ বা <strong>ফ্যাসিকল (fascicle)</strong> নিয়ে গঠিত, যা <strong>ফ্যাসিয়া (fascia)</strong> নামক একটি সাধারণ কোলাজেনময় যোগকলা স্তর দ্বারা আবদ্ধ থাকে।</li>
+        <li><strong>পেশি তন্তু (গঠনগত একক):</strong> প্রতিটি ফ্যাসিকলের ভেতরে অনেক পেশি তন্তু থাকে। এর কোষপর্দাকে <strong>সারকোলেমা</strong> এবং সাইটোপ্লাজমকে <strong>সারকোপ্লাজম</strong> বলে। বহু নিউক্লিয়াস থাকায় এটি একটি <strong>সিনসাইটিয়াম (syncytium)</strong>। এর এন্ডোপ্লাজমিক রেটিকুলাম বা <strong>সারকোপ্লাজমিক রেটিকুলাম (SR)</strong> হলো \(\mathrm{Ca^{2+}}\) আয়নের ভান্ডার।</li>
+        <li><strong>মায়োফাইব্রিল ও সারকোমিয়ার (কার্যকরী একক):</strong> সারকোপ্লাজমে সমান্তরালভাবে সজ্জিত <strong>মায়োফাইব্রিল</strong> তন্তুগুলিতে পর্যায়ক্রমে হালকা ও গাঢ় অঞ্চল দেখা যায়:
+          <ul>
+            <li><strong>I-পট্টি (আইসোট্রপিক / হালকা পট্টি):</strong> এতে কেবল <strong>পাতলা (অ্যাকটিন)</strong> তন্তু থাকে এবং এর মাঝখান দিয়ে <strong>Z-রেখা</strong> নামক স্থিতিস্থাপক তন্তু চলে যায়।</li>
+            <li><strong>A-পট্টি (অ্যানাইসোট্রপিক / গাঢ় পট্টি):</strong> এতে <strong>মোটা (মায়োসিন)</strong> তন্তু থাকে, যা কেন্দ্রে <strong>M-রেখা</strong> নামক তন্তুময় পর্দা দ্বারা যুক্ত থাকে।</li>
+            <li><strong>H-অঞ্চল (H-zone):</strong> বিশ্রাম অবস্থায় A-পট্টির যে কেন্দ্রীয় অংশে পাতলা তন্তু মোটা তন্তুকে আচ্ছাদন করে না।</li>
+            <li><strong>সারকোমিয়ার:</strong> দুটি পরপর Z-রেখার মধ্যবর্তী অংশ—অর্থাৎ একটি সম্পূর্ণ A-পট্টি এবং তার দুই পাশের দুটি অর্ধেক I-পট্টি নিয়ে গঠিত সংকোচনের কার্যকরী একক।</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ORIGINAL SVG DIAGRAM 1: SARCOMERE -->
+    <div class="diagram-card">
+      <svg viewBox="0 0 760 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sarcomere structure in relaxed and contracted states">
+        <rect x="0" y="0" width="760" height="280" fill="#F8FAFC" rx="8" />
+        <!-- Title -->
+        <text x="380" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Tutorial Diagram 1: Sarcomere — Relaxed vs. Contracted State</text>
+
+        <!-- RELAXED STATE -->
+        <text x="20" y="55" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Relaxed (বিশ্রাম অবস্থা)</text>
+
+        <!-- Z lines (Relaxed) -->
+        <line x1="150" y1="68" x2="150" y2="148" stroke="#1E293B" stroke-width="5" />
+        <line x1="610" y1="68" x2="610" y2="148" stroke="#1E293B" stroke-width="5" />
+        <!-- M line -->
+        <line x1="380" y1="74" x2="380" y2="142" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4,3" />
+
+        <!-- Thin filaments (Actin) Relaxed -->
+        <line x1="150" y1="80" x2="320" y2="80" stroke="#0D9488" stroke-width="3" />
+        <line x1="150" y1="108" x2="320" y2="108" stroke="#0D9488" stroke-width="3" />
+        <line x1="150" y1="136" x2="320" y2="136" stroke="#0D9488" stroke-width="3" />
+
+        <line x1="440" y1="80" x2="610" y2="80" stroke="#0D9488" stroke-width="3" />
+        <line x1="440" y1="108" x2="610" y2="108" stroke="#0D9488" stroke-width="3" />
+        <line x1="440" y1="136" x2="610" y2="136" stroke="#0D9488" stroke-width="3" />
+
+        <!-- Thick filaments (Myosin) Relaxed -->
+        <line x1="250" y1="94" x2="510" y2="94" stroke="#2563EB" stroke-width="6" />
+        <line x1="250" y1="122" x2="510" y2="122" stroke="#2563EB" stroke-width="6" />
+
+        <!-- Brackets Relaxed -->
+        <line x1="250" y1="54" x2="510" y2="54" stroke="#2563EB" stroke-width="1.5" />
+        <text x="380" y="49" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">A-band (Constant)</text>
+
+        <line x1="320" y1="158" x2="440" y2="158" stroke="#0D9488" stroke-width="1.5" />
+        <text x="380" y="171" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">H-zone</text>
+
+        <text x="150" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Z-line</text>
+        <text x="610" y="164" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Z-line</text>
+        <text x="200" y="74" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">1/2 I-band</text>
+        <text x="560" y="74" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">1/2 I-band</text>
+
+        <!-- CONTRACTED STATE -->
+        <text x="20" y="205" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">Contracted (সংকুচিত অবস্থা)</text>
+
+        <!-- Z lines moved inward (Contracted) -->
+        <line x1="215" y1="194" x2="215" y2="262" stroke="#1E293B" stroke-width="5" />
+        <line x1="545" y1="194" x2="545" y2="262" stroke="#1E293B" stroke-width="5" />
+        <!-- M line -->
+        <line x1="380" y1="198" x2="380" y2="258" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4,3" />
+
+        <!-- Thin filaments slid inward -->
+        <line x1="215" y1="206" x2="380" y2="206" stroke="#0D9488" stroke-width="3" />
+        <line x1="215" y1="230" x2="380" y2="230" stroke="#0D9488" stroke-width="3" />
+        <line x1="215" y1="254" x2="380" y2="254" stroke="#0D9488" stroke-width="3" />
+
+        <line x1="380" y1="206" x2="545" y2="206" stroke="#0D9488" stroke-width="3" />
+        <line x1="380" y1="230" x2="545" y2="230" stroke="#0D9488" stroke-width="3" />
+        <line x1="380" y1="254" x2="545" y2="254" stroke="#0D9488" stroke-width="3" />
+
+        <!-- Thick filaments unchanged -->
+        <line x1="250" y1="218" x2="510" y2="218" stroke="#2563EB" stroke-width="6" />
+        <line x1="250" y1="242" x2="510" y2="242" stroke="#2563EB" stroke-width="6" />
+
+        <text x="645" y="224" font-family="sans-serif" font-size="11" fill="#1E293B">• A-band: Unchanged</text>
+        <text x="645" y="240" font-family="sans-serif" font-size="11" fill="#1E293B">• I-band: Shortens</text>
+        <text x="645" y="256" font-family="sans-serif" font-size="11" fill="#1E293B">• H-zone: Disappears</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 1: During contraction, Z-lines move inward, I-bands shorten, H-zone narrows/disappears, while the A-band retains its exact length. | টিউটোরিয়াল চিত্র ১: সংকোচনের সময় Z-রেখা ভিতরের দিকে সরে আসে, I-পট্টি ছোট হয় এবং H-অঞ্চল অদৃশ্য হয়, কিন্তু A-পট্টির দৈর্ঘ্য অপরিবর্তিত থাকে।</div>
+    </div>
+  </section>
+
+  <!-- SECTION: CONTRACTILE PROTEINS & SLIDING FILAMENT -->
+  <section id="contraction-mechanism">
+    <h2>4. Contractile Proteins &amp; Sliding Filament Mechanism &nbsp;|&nbsp; ৪. সংকোচনশীল প্রোটিন ও স্লাইডিং ফিলামেন্ট কৌশল</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <h3>Molecular Architecture of Thin and Thick Filaments</h3>
+      <ul>
+        <li><strong>Actin (Thin) Filament:</strong> Built from two helically wound <strong>F-actin</strong> (filamentous) strands, each being a polymer of globular <strong>G-actin</strong> monomers. Two strands of <strong>tropomyosin</strong> run along the F-actin grooves. A trimeric regulatory protein, <strong>troponin</strong>, sits at regular intervals on tropomyosin; in the resting state, a subunit of troponin masks the myosin-binding active sites on actin.</li>
+        <li><strong>Myosin (Thick) Filament:</strong> A polymer of monomeric units called <strong>meromyosins</strong>. Each meromyosin has two domains:
+          <ul>
+            <li><strong>Heavy Meromyosin (HMM):</strong> Globular head + short arm, projecting outward at regular distances and angles as the <strong>cross arm</strong>. The globular head functions as an active <strong>ATPase enzyme</strong> and carries both <strong>ATP-binding sites</strong> and <strong>actin-binding sites</strong>.</li>
+            <li><strong>Light Meromyosin (LMM):</strong> The coiled-coil tail forming the backbone of the thick filament.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Sequence of Excitation–Contraction Coupling</h3>
+      <ol>
+        <li>A motor signal from the Central Nervous System (CNS) travels via a motor neuron (a motor neuron plus all muscle fibres it innervates forms a <strong>motor unit</strong>).</li>
+        <li>At the <strong>neuromuscular junction (motor end plate)</strong>, the neurotransmitter <strong>acetylcholine (ACh)</strong> is released, generating an action potential across the sarcolemma.</li>
+        <li>The impulse spreads inward, triggering the sarcoplasmic reticulum to release \(\mathrm{Ca^{2+}}\) ions into the sarcoplasm.</li>
+        <li>\(\mathrm{Ca^{2+}}\) binds to a subunit of <strong>troponin</strong>, causing a conformational shift that unmasks the active sites on actin.</li>
+        <li>Using energy from <strong>ATP hydrolysis</strong> (\(\mathrm{ATP} \rightarrow \mathrm{ADP} + \mathrm{P_i}\)), the myosin head binds to actin to form a <strong>cross-bridge</strong>.</li>
+        <li>The myosin head rotates, pulling the attached thin filaments toward the center of the A-band (M-line). The Z-lines are pulled inward, shortening the sarcomere.</li>
+        <li><strong>Cross-bridge detachment:</strong> Release of \(\mathrm{ADP}\) and \(\mathrm{P_i}\) returns myosin to its low-energy state; binding of a <strong>new ATP molecule</strong> breaks the cross-bridge. (Lack of ATP after death prevents detachment, causing rigidity/rigor mortis).</li>
+        <li><strong>Relaxation:</strong> When neural stimulation stops, \(\mathrm{Ca^{2+}}\) is actively pumped back into the sarcoplasmic cisternae, troponin re-masks actin, and Z-lines return to their resting positions.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>Muscle Fatigue &amp; Fibre Types:</strong> Repeated rapid stimulation depletes oxygen and causes anaerobic breakdown of glycogen, accumulating <strong>lactic acid</strong> and leading to fatigue. Based on <strong>myoglobin</strong> (red oxygen-storing pigment), skeletal muscles are grouped into:
+        <ul>
+          <li><strong>Red Fibres (Aerobic):</strong> High myoglobin, abundant mitochondria, lower sarcoplasmic reticulum; sustained aerobic ATP production.</li>
+          <li><strong>White Fibres (Anaerobic):</strong> Very low myoglobin (pale), few mitochondria, high sarcoplasmic reticulum; fast bursts via anaerobic glycolysis.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <h3>পাতলা ও মোটা তন্তুর আণবিক গঠন</h3>
+      <ul>
+        <li><strong>অ্যাকটিন (পাতলা) তন্তু:</strong> দুটি সর্পিলভাবে পেঁচানো <strong>F-অ্যাকটিন</strong> তন্তু দিয়ে গঠিত, যার প্রতিটি গ্লোবিউলার <strong>G-অ্যাকটিন</strong> মনোমারের পলিমার। এর পাশাপাশি দুটি <strong>ট্রপোমায়োসিন</strong> তন্তু চলে। ট্রপোমায়োসিনের ওপর নির্দিষ্ট ব্যবধানে <strong>ট্রপোনিন</strong> নামক জটিল প্রোটিন থাকে। বিশ্রাম অবস্থায় ট্রপোনিনের একটি উপ-একক অ্যাকটিনের ওপর থাকা মায়োসিন-সংযোগকারী সক্রিয় স্থানকে ঢেকে রাখে।</li>
+        <li><strong>মায়োসিন (মোটা) তন্তু:</strong> অসংখ্য <strong>মেরোমায়োসিন</strong> মনোমারের পলিমার। প্রতিটি মেরোমায়োসিনের দুটি অংশ:
+          <ul>
+            <li><strong>হেভি মেরোমায়োসিন (HMM):</strong> গ্লোবিউলার মস্তক ও ক্ষুদ্র বাহু, যা নির্দিষ্ট কোণ ও দূরত্বে বাইরে প্রক্ষিপ্ত হয়ে <strong>ক্রস-আর্ম (cross arm)</strong> গঠন করে। গ্লোবিউলার মস্তকটি একটি সক্রিয় <strong>ATPase উৎসেচক</strong> এবং এতে <strong>ATP-সংযোগস্থল</strong> ও <strong>অ্যাকটিন-সংযোগস্থল</strong> উভয়ই থাকে।</li>
+            <li><strong>লাইট মেরোমায়োসিন (LMM):</strong> লেজ অংশ, যা মোটা তন্তুর মূল কাঠামো তৈরি করে।</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>পেশি সংকোচনের ধারাবাহিক ধাপসমূহ</h3>
+      <ol>
+        <li>কেন্দ্রীয় স্নায়ুতন্ত্র (CNS) থেকে মোটর নিউরনের মাধ্যমে সংকেত আসে (একটি মোটর নিউরন ও তার সাথে যুক্ত পেশি তন্তুসমূহকে একত্রে <strong>মোটর ইউনিট</strong> বলে)।</li>
+        <li><strong>নিউরোমাস্কুলার জাংশন (মোটর এন্ড প্লেট)</strong>-এ নিউরোট্রান্সমিটার <strong>অ্যাসিটাইলকোলিন (ACh)</strong> নিঃসৃত হয়, যা সারকোলেমায় অ্যাকশন পটেনশিয়াল সৃষ্টি করে।</li>
+        <li>এই উদ্দীপনা সারকোপ্লাজমিক রেটিকুলাম থেকে সারকোপ্লাজমে \(\mathrm{Ca^{2+}}\) আয়ন মুক্ত করে।</li>
+        <li>\(\mathrm{Ca^{2+}}\) আয়ন <strong>ট্রপোনিনের</strong> সাথে যুক্ত হয়ে অ্যাকটিনের ওপর মায়োসিন বাঁধার সক্রিয় স্থানগুলি উন্মুক্ত করে।</li>
+        <li><strong>ATP আর্দ্রবিশ্লেষণ</strong> (\(\mathrm{ATP} \rightarrow \mathrm{ADP} + \mathrm{P_i}\)) থেকে প্রাপ্ত শক্তি ব্যবহার করে মায়োসিন মস্তক অ্যাকটিনের সাথে যুক্ত হয়ে <strong>ক্রস-ব্রিজ (cross-bridge)</strong> গঠন করে।</li>
+        <li>মায়োসিন মস্তক ঘুরে অ্যাকটিন তন্তুকে A-পট্টির কেন্দ্রের দিকে টানে; ফলে Z-রেখা ভিতরের দিকে সরে আসে ও সারকোমিয়ার সংকুচিত হয়।</li>
+        <li><strong>ক্রস-ব্রিজ বিচ্ছিন্নকরণ:</strong> \(\mathrm{ADP}\) ও \(\mathrm{P_i}\) মুক্ত হওয়ার পর একটি <strong>নতুন ATP অণু</strong> মায়োসিনে যুক্ত হলে ক্রস-ব্রিজ ভেঙে যায়।</li>
+        <li><strong>প্রসারণ (Relaxation):</strong> উদ্দীপনা বন্ধ হলে \(\mathrm{Ca^{2+}}\) পুনরায় সারকোপ্লাজমিক রেটিকুলামে পাম্প হয়ে ফিরে যায়, ট্রপোনিন অ্যাকটিনের সক্রিয় স্থান ঢেকে দেয় এবং Z-রেখা পূর্বের অবস্থানে ফিরে আসে।</li>
+      </ol>
+
+      <div class="callout callout-teal">
+        <strong>পেশির অবসাদ ও তন্তুর প্রকারভেদ:</strong> বারবার উদ্দীপনার ফলে পেশিতে গ্লাইকোজেনের অবাত শ্বসন ঘটে এবং <strong>ল্যাকটিক অ্যাসিড</strong> জমে অবসাদ সৃষ্টি হয়। অক্সিজেন সঞ্চয়কারী লাল রঞ্জক <strong>মায়োগ্লোবিনের</strong> পরিমাণের ওপর ভিত্তি করে পেশি তন্তু দুই প্রকার:
+        <ul>
+          <li><strong>লাল পেশি তন্তু (সবাত):</strong> প্রচুর মায়োগ্লোবিন, অসংখ্য মাইটোকন্ড্রিয়া, কম সারকোপ্লাজমিক রেটিকুলাম।</li>
+          <li><strong>সাদা পেশি তন্তু (অবাত):</strong> খুব কম মায়োগ্লোবিন, কম মাইটোকন্ড্রিয়া, প্রচুর সারকোপ্লাজমিক রেটিকুলাম।</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ORIGINAL SVG DIAGRAM 2: CROSS-BRIDGE CYCLE -->
+    <div class="diagram-card">
+      <svg viewBox="0 0 760 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cross-bridge cycle in muscle contraction">
+        <rect x="0" y="0" width="760" height="210" fill="#F8FAFC" rx="8" />
+        <text x="380" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Tutorial Diagram 2: Cross-Bridge Cycle (ক্রস-ব্রিজ চক্র)</text>
+
+        <!-- Step 1 -->
+        <rect x="20" y="48" width="155" height="130" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" />
+        <text x="97" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">1. Activation</text>
+        <text x="97" y="92" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Ca²⁺ binds Troponin</text>
+        <text x="97" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Actin sites unmasked</text>
+        <text x="97" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Myosin holds ADP + Pi</text>
+
+        <line x1="175" y1="113" x2="202" y2="113" stroke="#1E293B" stroke-width="2" />
+        <polygon points="202,108 212,113 202,118" fill="#1E293B" />
+
+        <!-- Step 2 -->
+        <rect x="212" y="48" width="155" height="130" rx="8" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5" />
+        <text x="289" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">2. Cross-Bridge</text>
+        <text x="289" y="92" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Myosin head binds</text>
+        <text x="289" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">exposed Actin site</text>
+        <text x="289" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Cross-bridge formed</text>
+
+        <line x1="367" y1="113" x2="394" y2="113" stroke="#1E293B" stroke-width="2" />
+        <polygon points="394,108 404,113 394,118" fill="#1E293B" />
+
+        <!-- Step 3 -->
+        <rect x="404" y="48" width="155" height="130" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" />
+        <text x="481" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">3. Power Stroke</text>
+        <text x="481" y="92" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Head rotates; pulls</text>
+        <text x="481" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Actin toward M-line</text>
+        <text x="481" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">ADP + Pi released</text>
+
+        <line x1="559" y1="113" x2="586" y2="113" stroke="#1E293B" stroke-width="2" />
+        <polygon points="586,108 596,113 586,118" fill="#1E293B" />
+
+        <!-- Step 4 -->
+        <rect x="596" y="48" width="144" height="130" rx="8" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5" />
+        <text x="668" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">4. Detachment</text>
+        <text x="668" y="92" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">New ATP binds</text>
+        <text x="668" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1E293B">Cross-bridge breaks</text>
+        <text x="668" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">ATPase hydrolyses ATP</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 2: Four-stage biochemical cycle driving actin filament sliding. | টিউটোরিয়াল চিত্র ২: অ্যাকটিন তন্তুর স্লাইডিং পরিচালনাকারী চার-ধাপের জৈবরাসায়নিক চক্র।</div>
+    </div>
+  </section>
+
+  <!-- SECTION: HUMAN SKELETAL SYSTEM -->
+  <section id="skeletal-system">
+    <h2>5. The Human Skeletal System (206 Bones) &nbsp;|&nbsp; ৫. মানব কঙ্কালতন্ত্র (২০৬টি অস্থি)</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <p>The human skeletal framework consists of <strong>206 bones</strong> and a few cartilages. Both are specialized connective tissues: <strong>bone</strong> has a very hard matrix enriched with <strong>calcium salts</strong>, whereas <strong>cartilage</strong> has a slightly pliable matrix due to <strong>chondroitin salts</strong>.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Division</th>
+            <th>Sub-division</th>
+            <th>Bone Count</th>
+            <th>Key NEET Anatomical Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4"><strong>Axial Skeleton (80)</strong></td>
+            <td>Skull + Associated</td>
+            <td>22 + 7 = 29</td>
+            <td>Cranium (8) + Facial (14) = 22. Single U-shaped <strong>Hyoid</strong> (1) at buccal cavity base + <strong>Ear Ossicles</strong> (Malleus, Incus, Stapes × 2 = 6). Skull is <strong>dicondylic</strong> (2 occipital condyles).</td>
+          </tr>
+          <tr>
+            <td>Vertebral Column</td>
+            <td>26</td>
+            <td>Cervical (7, conserved in almost all mammals; 1st is <strong>Atlas</strong>), Thoracic (12), Lumbar (5), Sacral (1 fused), Coccygeal (1 fused). Central hollow is <strong>neural canal</strong> for spinal cord.</td>
+          </tr>
+          <tr>
+            <td>Sternum</td>
+            <td>1</td>
+            <td>Flat bone on ventral midline of thorax.</td>
+          </tr>
+          <tr>
+            <td>Ribs</td>
+            <td>12 pairs = 24</td>
+            <td><strong>Bicephalic</strong> (2 dorsal articulation surfaces). <strong>True ribs (pairs 1–7):</strong> join sternum via hyaline cartilage. <strong>False / Vertebrochondral (8–10):</strong> join 7th rib via hyaline cartilage. <strong>Floating (11–12):</strong> free ventrally.</td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>Appendicular Skeleton (126)</strong></td>
+            <td>Forelimbs (2 × 30)</td>
+            <td>60</td>
+            <td>Per limb: Humerus (1), Radius (1), Ulna (1), Carpals (8), Metacarpals (5), Phalanges (14).</td>
+          </tr>
+          <tr>
+            <td>Pectoral Girdle</td>
+            <td>4</td>
+            <td>Two halves, each with <strong>Clavicle</strong> (collar bone, 2 curvatures) and <strong>Scapula</strong> (triangular flat bone between 2nd &amp; 7th ribs; spine projects as <strong>acromion</strong>; <strong>glenoid cavity</strong> receives humerus head).</td>
+          </tr>
+          <tr>
+            <td>Hindlimbs (2 × 30)</td>
+            <td>60</td>
+            <td>Per limb: Femur (1, longest bone), Patella (1, cup-shaped knee cap), Tibia (1), Fibula (1), Tarsals (7), Metatarsals (5), Phalanges (14).</td>
+          </tr>
+          <tr>
+            <td>Pelvic Girdle</td>
+            <td>2</td>
+            <td>Two <strong>coxal bones</strong>; each formed by fusion of <strong>ilium, ischium, and pubis</strong>. Fusion site forms <strong>acetabulum</strong> (receives femur). Ventral meeting forms <strong>pubic symphysis</strong> (fibrous cartilage).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <p>মানব কঙ্কালতন্ত্র <strong>২০৬টি অস্থি</strong> এবং কিছু তরুণাস্থি নিয়ে গঠিত। উভয়ই বিশেষায়িত যোগকলা: <strong>অস্থির</strong> ধাত্র (matrix) <strong>ক্যালসিয়াম লবণের</strong> কারণে অত্যন্ত কঠিন, আর <strong>তরুণাস্থির</strong> ধাত্র <strong>কনড্রয়েটিন লবণের</strong> কারণে সামান্য নমনীয়।</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>প্রধান বিভাগ</th>
+            <th>উপ-বিভাগ</th>
+            <th>অস্থি সংখ্যা</th>
+            <th>গুরুত্বপূর্ণ শারীরস্থানিক তথ্য</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4"><strong>অক্ষীয় কঙ্কাল (৮০)</strong></td>
+            <td>করোটি ও সংশ্লিষ্ট অস্থি</td>
+            <td>২২ + ৭ = ২৯</td>
+            <td>করোটিকা (৮) + মুখমণ্ডল (১৪) = ২২। U-আকৃতির একক <strong>হায়য়েড</strong> (১) + <strong>কর্ণাস্থি</strong> (ম্যালিয়াস, ইনকাস, স্টেপিস × ২ = ৬)। করোটি <strong>ডাইকনডাইলিক</strong> (২টি অক্সিপিটাল কনডাইল)।</td>
+          </tr>
+          <tr>
+            <td>মেরুদণ্ড</td>
+            <td>২৬</td>
+            <td>গ্রীবাদেশীয় বা সারভাইকাল (৭টি, প্রথমটি <strong>অ্যাটলাস</strong>), বক্ষদেশীয় (১২), কটিদেশীয় (৫), ত্রিকাস্থি (১টি সংযুক্ত), পুচ্ছাস্থি (১টি সংযুক্ত)। কেন্দ্রীয় গহ্বর হলো <strong>নিউরাল ক্যানাল</strong>।</td>
+          </tr>
+          <tr>
+            <td>স্টার্নাম</td>
+            <td>১</td>
+            <td>বক্ষের অঙ্কীয় মধ্যরেখায় অবস্থিত চ্যাপ্টা অস্থি।</td>
+          </tr>
+          <tr>
+            <td>পঞ্জরাস্থি (Ribs)</td>
+            <td>১২ জোড়া = ২৪</td>
+            <td><strong>বাইসেফালিক</strong> (পৃষ্ঠীয় প্রান্তে ২টি সংযোগতল)। <strong>প্রকৃত (১–৭ জোড়া):</strong> সরাসরি স্টার্নামের সাথে যুক্ত। <strong>অপ্রকৃত (৮–১০):</strong> ৭ম পঞ্জরাস্থির সাথে যুক্ত। <strong>ভাসমান (১১–১২):</strong> অঙ্কীয় দিকে মুক্ত।</td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>উপাঙ্গীয় কঙ্কাল (১২৬)</strong></td>
+            <td>অগ্রপদ (২ × ৩০)</td>
+            <td>৬০</td>
+            <td>প্রতি হাতে: হিউমেরাস (১), রেডিয়াস (১), আলনা (১), কার্পাল (৮), মেটাকার্পাল (৫), ফ্যালাঞ্জেস (১৪)।</td>
+          </tr>
+          <tr>
+            <td>বক্ষ-অস্থিচক্র</td>
+            <td>৪</td>
+            <td>দুটি অর্ধাংশ; প্রতিটিতে ১টি <strong>ক্ল্যাভিকল</strong> ও ১টি <strong>স্ক্যাপুলা</strong> (২য় ও ৭ম পঞ্জরাস্থির মাঝে অবস্থিত; অ্যাক্রোমিয়ন প্রবর্ধক ও <strong>গ্লেনয়েড গহ্বর</strong> থাকে)।</td>
+          </tr>
+          <tr>
+            <td>পশ্চাৎপদ (২ × ৩০)</td>
+            <td>৬০</td>
+            <td>প্রতি পায়ে: ফিমার (১, দীর্ঘতম অস্থি), প্যাটেলা (১), টিবিয়া (১), ফিবুলা (১), টার্সাল (৭), মেটাটার্সাল (৫), ফ্যালাঞ্জেস (১৪)।</td>
+          </tr>
+          <tr>
+            <td>শ্রোণি-অস্থিচক্র</td>
+            <td>২</td>
+            <td>২টি <strong>কক্সাল অস্থি</strong>; প্রতিটি <strong>ইলিয়াম, ইশ্চিয়াম ও পিউবিস</strong> যুক্ত হয়ে গঠিত। সংযোগস্থলে <strong>অ্যাসিটাবুলাম</strong> গহ্বর থাকে। অঙ্কীয় দিকে <strong>পিউবিক সিমফাইসিস</strong> গঠন করে।</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ORIGINAL SVG DIAGRAM 3: SKELETAL TAXONOMY -->
+    <div class="diagram-card">
+      <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Human skeletal system 206 bones breakdown">
+        <rect x="0" y="0" width="760" height="220" fill="#F8FAFC" rx="8" />
+        <text x="380" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Tutorial Diagram 3: Human Skeletal Bone Distribution (Total = 206)</text>
+
+        <!-- Root -->
+        <rect x="290" y="38" width="180" height="32" rx="6" fill="#1E293B" />
+        <text x="380" y="59" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Human Skeleton: 206</text>
+
+        <!-- Branches -->
+        <line x1="330" y1="70" x2="190" y2="98" stroke="#2563EB" stroke-width="2" />
+        <line x1="430" y1="70" x2="570" y2="98" stroke="#0D9488" stroke-width="2" />
+
+        <!-- Axial Box -->
+        <rect x="40" y="98" width="300" height="104" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5" />
+        <text x="190" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Axial Skeleton: 80 Bones</text>
+        <text x="58" y="140" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Skull (8 Cranial + 14 Facial) = 22</text>
+        <text x="58" y="158" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Hyoid (1) + Ear Ossicles (6) = 7</text>
+        <text x="58" y="176" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Vertebral Column = 26</text>
+        <text x="58" y="194" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Sternum (1) + Ribs (24) = 25</text>
+
+        <!-- Appendicular Box -->
+        <rect x="420" y="98" width="300" height="104" rx="8" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5" />
+        <text x="570" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">Appendicular Skeleton: 126 Bones</text>
+        <text x="438" y="140" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Forelimbs (30 × 2) = 60</text>
+        <text x="438" y="158" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Hindlimbs (30 × 2) = 60</text>
+        <text x="438" y="176" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Pectoral Girdle (2 × 2) = 4</text>
+        <text x="438" y="194" font-family="sans-serif" font-size="11.5" fill="#1E293B">• Pelvic Girdle (2 Coxal) = 2</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 3: Complete arithmetic breakdown of the 206 human bones. | টিউটোরিয়াল চিত্র ৩: মানবদেহের ২০৬টি অস্থির সম্পূর্ণ গাণিতিক বিভাজন।</div>
+    </div>
+  </section>
+
+  <!-- SECTION: JOINTS & DISORDERS -->
+  <section id="joints-and-disorders">
+    <h2>6. Joints &amp; Musculoskeletal Disorders &nbsp;|&nbsp; ৬. অস্থিসন্ধি ও পেশি-কঙ্কালতন্ত্রের রোগব্যাধি</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <p>Joints are points of contact between bones, or between bones and cartilages, acting as <strong>fulcrums</strong> for muscle-generated force.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Joint Type</th>
+            <th>Structural Feature &amp; Mobility</th>
+            <th>NEET High-Yield Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fibrous</strong></td>
+            <td>Dense fibrous connective tissue; <strong>immovable</strong>.</td>
+            <td>Sutures between flat skull bones forming the cranium.</td>
+          </tr>
+          <tr>
+            <td><strong>Cartilaginous</strong></td>
+            <td>Joined by cartilage; permits <strong>limited movement</strong>.</td>
+            <td>Between adjacent vertebrae; pubic symphysis.</td>
+          </tr>
+          <tr>
+            <td><strong>Synovial</strong></td>
+            <td>Fluid-filled synovial cavity between articulating surfaces; allows <strong>considerable movement</strong>.</td>
+            <td><strong>Ball &amp; socket:</strong> Humerus–glenoid / Femur–acetabulum; <strong>Hinge:</strong> Knee, phalanges; <strong>Pivot:</strong> Atlas–Axis; <strong>Gliding:</strong> Carpals; <strong>Saddle:</strong> Carpal–metacarpal of thumb.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Disorders of the Muscular &amp; Skeletal System</h3>
+      <ul>
+        <li><strong>Myasthenia gravis:</strong> Autoimmune disorder targeting the neuromuscular junction, causing progressive fatigue, weakening, and paralysis of skeletal muscles.</li>
+        <li><strong>Muscular dystrophy:</strong> Progressive degeneration of skeletal muscle, mostly due to a genetic disorder.</li>
+        <li><strong>Tetany:</strong> Rapid spasms (wild contractions) in muscles triggered by low \(\mathrm{Ca^{2+}}\) levels in body fluids.</li>
+        <li><strong>Arthritis:</strong> Inflammation of joints.</li>
+        <li><strong>Osteoporosis:</strong> Age-related decrease in bone mass with elevated fracture risk; decreased <strong>estrogen</strong> levels are a common cause.</li>
+        <li><strong>Gout:</strong> Joint inflammation caused by accumulation of <strong>uric acid crystals</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <p>অস্থিসন্ধি হলো অস্থি ও অস্থি বা অস্থি ও তরুণাস্থির সংযোগস্থল, যা পেশি দ্বারা সৃষ্ট বলের <strong>আলম্ব (fulcrum)</strong> হিসেবে কাজ করে।</p>
+      <table>
+        <thead>
+          <tr>
+            <th>অস্থিসন্ধির প্রকার</th>
+            <th>গঠন ও সচলতা</th>
+            <th>গুরুত্বপূর্ণ উদাহরণ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>তন্তুময় (Fibrous)</strong></td>
+            <td>ঘন তন্তুময় যোগকলা দ্বারা যুক্ত; <strong>সম্পূর্ণ অচল</strong>।</td>
+            <td>করোটির চ্যাপ্টা অস্থিগুলির মধ্যবর্তী সুচার (Sutures)।</td>
+          </tr>
+          <tr>
+            <td><strong>তরুণাস্থিময় (Cartilaginous)</strong></td>
+            <td>তরুণাস্থি দ্বারা যুক্ত; <strong>সীমিত সচলতা</strong>।</td>
+            <td>দুটি কশেরুকার মধ্যবর্তী সন্ধি; পিউবিক সিমফাইসিস।</td>
+          </tr>
+          <tr>
+            <td><strong>সাইনোভিয়াল (Synovial)</strong></td>
+            <td>তরলপূর্ণ সাইনোভিয়াল গহ্বর থাকে; <strong>যথেষ্ট সচল</strong>।</td>
+            <td><strong>বল ও সকেট:</strong> কাঁধ ও নিতম্ব সন্ধি; <strong>কব্জা (Hinge):</strong> হাঁটু সন্ধি; <strong>পিভট:</strong> অ্যাটলাস ও অ্যাক্সিস; <strong>গ্লাইডিং:</strong> কার্পাল অস্থিসমূহ; <strong>স্যাডল:</strong> বৃদ্ধাঙ্গুলির কার্পাল ও মেটাকার্পাল।</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>পেশি ও কঙ্কালতন্ত্রের রোগব্যাধি</h3>
+      <ul>
+        <li><strong>মায়াস্থেনিয়া গ্রাভিস:</strong> নিউরোমাস্কুলার জাংশনকে আক্রান্তকারী অটোইমিউন রোগ, যা কঙ্কাল পেশির দুর্বলতা, অবসাদ ও পক্ষাঘাত ঘটায়।</li>
+        <li><strong>পেশীয় ডিস্ট্রফি (Muscular dystrophy):</strong> প্রধানত জিনগত কারণে কঙ্কাল পেশির ক্রমাগত ক্ষয়।</li>
+        <li><strong>টিটানি (Tetany):</strong> দেহরসে \(\mathrm{Ca^{2+}}\) আয়নের মাত্রা কমে যাওয়ার ফলে পেশিতে দ্রুত খিঁচুনি।</li>
+        <li><strong>আর্থ্রাইটিস (Arthritis):</strong> অস্থিসন্ধির প্রদাহ।</li>
+        <li><strong>অস্টিওপোরোসিস (Osteoporosis):</strong> বয়সজনিত কারণে অস্থির ঘনত্ব হ্রাস ও ভঙ্গুরতা বৃদ্ধি; <strong>ইস্ট্রোজেন</strong> হরমোনের ঘাটতি এর একটি প্রধান কারণ।</li>
+        <li><strong>গাউট (Gout):</strong> অস্থিসন্ধিতে <strong>ইউরিক অ্যাসিডের কেলাস</strong> জমে প্রদাহ সৃষ্টি।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTION: WORKED EXAMPLES -->
+  <section id="worked-examples">
+    <h2>7. Worked Examples &nbsp;|&nbsp; ৭. সমাধানসহ আদর্শ উদাহরণ</h2>
+
+    <div class="example-card">
+      <div class="lang-block lang-en">
+        <span class="lang-tag lang-tag-en">English — Worked Example 1</span>
+        <p><strong>Scenario (Assumed Values):</strong> Suppose a single resting sarcomere has an A-band length of \(1.6\,\mathrm{µm}\), a total I-band contribution (two half I-bands) of \(0.8\,\mathrm{µm}\), and an H-zone of \(0.4\,\mathrm{µm}\). During maximal contraction, each Z-line moves inward by \(0.2\,\mathrm{µm}\). Calculate the new sarcomere length, A-band length, and H-zone width.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>1. <strong>Resting Sarcomere Length:</strong> \(L_{\text{rest}} = \text{A-band} + \text{two half I-bands} = 1.6\,\mathrm{µm} + 0.8\,\mathrm{µm} = 2.4\,\mathrm{µm}\).</p>
+          <p>2. <strong>Total Shortening:</strong> Since both Z-lines move inward by \(0.2\,\mathrm{µm}\) each, total shortening \(= 2 \times 0.2\,\mathrm{µm} = 0.4\,\mathrm{µm}\). Thus, \(L_{\text{contracted}} = 2.4\,\mathrm{µm} - 0.4\,\mathrm{µm} = 2.0\,\mathrm{µm}\).</p>
+          <p>3. <strong>A-band Length:</strong> Thick filaments do not shorten; hence the A-band remains unchanged at \(1.6\,\mathrm{µm}\).</p>
+          <p>4. <strong>H-zone Width:</strong> Thin filaments slide inward by \(0.2\,\mathrm{µm}\) from each side, reducing the H-zone by \(2 \times 0.2\,\mathrm{µm} = 0.4\,\mathrm{µm}\). New H-zone \(= 0.4\,\mathrm{µm} - 0.4\,\mathrm{µm} = 0\,\mathrm{µm}\) (disappears).</p>
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — সমাধানসহ উদাহরণ ১</span>
+        <p><strong>প্রেক্ষাপট (অনুমিত মান):</strong> ধরা যাক, বিশ্রাম অবস্থায় একটি সারকোমিয়ারের A-পট্টির দৈর্ঘ্য \(1.6\,\mathrm{µm}\), মোট I-পট্টির (দুটি অর্ধেক I-পট্টি) দৈর্ঘ্য \(0.8\,\mathrm{µm}\) এবং H-অঞ্চলের প্রস্থ \(0.4\,\mathrm{µm}\)। সর্বোচ্চ সংকোচনের সময় প্রতিটি Z-রেখা \(0.2\,\mathrm{µm}\) ভিতরের দিকে সরে আসে। নতুন সারকোমিয়ারের দৈর্ঘ্য, A-পট্টির দৈর্ঘ্য এবং H-অঞ্চলের প্রস্থ নির্ণয় করো।</p>
+        <div class="solution-box">
+          <p><strong>সমাধান:</strong></p>
+          <p>১. <strong>বিশ্রাম অবস্থায় সারকোমিয়ারের দৈর্ঘ্য:</strong> \(L_{\text{rest}} = 1.6\,\mathrm{µm} + 0.8\,\mathrm{µm} = 2.4\,\mathrm{µm}\)।</p>
+          <p>২. <strong>মোট সংকোচন:</strong> উভয় Z-রেখা \(0.2\,\mathrm{µm}\) করে ভিতরে সরে আসায় মোট দৈর্ঘ্য কমে \(= 2 \times 0.2\,\mathrm{µm} = 0.4\,\mathrm{µm}\)। সুতরাং সংকুচিত সারকোমিয়ারের দৈর্ঘ্য \(= 2.4 - 0.4 = 2.0\,\mathrm{µm}\)।</p>
+          <p>৩. <strong>A-পট্টির দৈর্ঘ্য:</strong> মোটা তন্তু সংকুচিত হয় না, তাই A-পট্টি \(1.6\,\mathrm{µm}\)-ই থাকবে।</p>
+          <p>৪. <strong>H-অঞ্চল:</strong> দুই দিক থেকে পাতলা তন্তু \(0.2\,\mathrm{µm}\) করে সরে আসায় H-অঞ্চল \(0.4\,\mathrm{µm}\) কমে যায়। নতুন H-অঞ্চল \(= 0.4 - 0.4 = 0\,\mathrm{µm}\) (অদৃশ্য হয়)।</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="lang-block lang-en">
+        <span class="lang-tag lang-tag-en">English — Worked Example 2</span>
+        <p><strong>Scenario:</strong> An anatomy student counts all bones in one complete right upper extremity (right forelimb plus right half of the pectoral girdle) and compares it with the total number of ribs in the human thoracic cage. Find the ratio of bones in the right upper extremity to total ribs.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>• Right forelimb bones: Humerus (1) + Radius (1) + Ulna (1) + Carpals (8) + Metacarpals (5) + Phalanges (14) \(= 30\) bones.</p>
+          <p>• Right pectoral girdle half: Clavicle (1) + Scapula (1) \(= 2\) bones.</p>
+          <p>• Total in right upper extremity \(= 30 + 2 = 32\) bones.</p>
+          <p>• Total ribs in human thoracic cage \(= 12\text{ pairs} = 24\) bones.</p>
+          <p>• Required ratio \(= 32 : 24 = 4 : 3\).</p>
+        </div>
+      </div>
+
+      <div class="lang-block lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — সমাধানসহ উদাহরণ ২</span>
+        <p><strong>প্রেক্ষাপট:</strong> একজন ছাত্র একটি সম্পূর্ণ ডান ঊর্ধ্বাঙ্গের (ডান অগ্রপদ + বক্ষ-অস্থিচক্রের ডান অর্ধাংশ) মোট অস্থি গণনা করে এবং তা মানব বক্ষপিঞ্জরের মোট পঞ্জরাস্থির সংখ্যার সাথে তুলনা করে। ডান ঊর্ধ্বাঙ্গের অস্থি ও মোট পঞ্জরাস্থির অনুপাত নির্ণয় করো।</p>
+        <div class="solution-box">
+          <p><strong>সমাধান:</strong></p>
+          <p>• ডান অগ্রপদের অস্থি: হিউমেরাস (১) + রেডিয়াস (১) + আলনা (১) + কার্পাল (৮) + মেটাকার্পাল (৫) + ফ্যালাঞ্জেস (১৪) \(= 30\) টি।</p>
+          <p>• বক্ষ-অস্থিচক্রের ডান অর্ধাংশ: ক্ল্যাভিকল (১) + স্ক্যাপুলা (১) \(= 2\) টি।</p>
+          <p>• ডান ঊর্ধ্বাঙ্গে মোট অস্থি \(= 30 + 2 = 32\) টি।</p>
+          <p>• মানব বক্ষপিঞ্জরে মোট পঞ্জরাস্থি \(= 12\text{ জোড়া} = 24\) টি।</p>
+          <p>• নির্ণেয় অনুপাত \(= 32 : 24 = 4 : 3\)।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: NEET UG PRACTICE QUESTIONS -->
+  <section id="practice-questions">
+    <h2>8. NEET UG Practice Questions &nbsp;|&nbsp; ৮. NEET UG অনুশীলন প্রশ্নাবলি</h2>
+
+    <!-- Q1 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 1 (Single Correct)</span>
+        <p><strong>Q1.</strong> Which of the following events occurs immediately after an action potential reaches the sarcoplasmic reticulum of a skeletal muscle fibre?</p>
+        <ul class="options-list">
+          <li>(A) Hydrolysis of ATP by the light meromyosin (LMM) tail</li>
+          <li>(B) Release of \(\mathrm{Ca^{2+}}\) ions into the sarcoplasm, which bind to troponin</li>
+          <li>(C) Binding of \(\mathrm{Ca^{2+}}\) ions directly to the myosin head to expose actin</li>
+          <li>(D) Pumping of \(\mathrm{Ca^{2+}}\) ions out of the sarcolemma via acetylcholine</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> An action potential triggers the sarcoplasmic reticulum to release \(\mathrm{Ca^{2+}}\) into the sarcoplasm. \(\mathrm{Ca^{2+}}\) binds to a subunit of troponin on the thin filament, removing the masking of active myosin-binding sites on actin. ATPase activity lies in the HMM globular head, not LMM.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ১ (একক সঠিক উত্তর)</span>
+        <p><strong>প্রশ্ন ১.</strong> কঙ্কাল পেশি তন্তুর সারকোপ্লাজমিক রেটিকুলামে অ্যাকশন পটেনশিয়াল পৌঁছানোর ঠিক পরেই নিচের কোন ঘটনাটি ঘটে?</p>
+        <ul class="options-list">
+          <li>(A) লাইট মেরোমায়োসিন (LMM) লেজ দ্বারা ATP-এর আর্দ্রবিশ্লেষণ</li>
+          <li>(B) সারকোপ্লাজমে \(\mathrm{Ca^{2+}}\) আয়নের মুক্তি, যা ট্রপোনিনের সাথে যুক্ত হয়</li>
+          <li>(C) অ্যাকটিন উন্মুক্ত করতে \(\mathrm{Ca^{2+}}\) আয়নের সরাসরি মায়োসিন মস্তকে যুক্ত হওয়া</li>
+          <li>(D) অ্যাসিটাইলকোলিনের মাধ্যমে সারকোলেমা থেকে \(\mathrm{Ca^{2+}}\) পাম্প করে বের করে দেওয়া</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>ব্যাখ্যা:</strong> অ্যাকশন পটেনশিয়াল সারকোপ্লাজমিক রেটিকুলামকে উদ্দীপিত করে সারকোপ্লাজমে \(\mathrm{Ca^{2+}}\) মুক্ত করে। এই \(\mathrm{Ca^{2+}}\) পাতলা তন্তুর ট্রপোনিনের সাথে যুক্ত হয়ে অ্যাকটিনের সক্রিয় স্থান উন্মুক্ত করে।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 2 (Statement Type)</span>
+        <p><strong>Q2.</strong> Read the following two statements carefully:</p>
+        <p><strong>Statement I:</strong> During maximal contraction of a skeletal muscle sarcomere, the length of the A-band decreases while the I-band remains unchanged.</p>
+        <p><strong>Statement II:</strong> In a resting sarcomere, the central region of the thick filament not overlapped by thin filaments is called the H-zone.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct</li>
+          <li>(B) Both Statement I and Statement II are incorrect</li>
+          <li>(C) Statement I is correct but Statement II is incorrect</li>
+          <li>(D) Statement I is incorrect but Statement II is correct</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (D)</span>
+          <p><strong>Explanation:</strong> During contraction, the A-band retains its constant length while the I-band shortens; hence Statement I is incorrect. Statement II accurately defines the H-zone in a resting sarcomere.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ২ (বিবৃতিভিত্তিক)</span>
+        <p><strong>প্রশ্ন ২.</strong> নিচের দুটি বিবৃতি মনোযোগ দিয়ে পড়ো:</p>
+        <p><strong>বিবৃতি I:</strong> কঙ্কাল পেশির সারকোমিয়ারের সর্বোচ্চ সংকোচনের সময় A-পট্টির দৈর্ঘ্য হ্রাস পায় এবং I-পট্টি অপরিবর্তিত থাকে।</p>
+        <p><strong>বিবৃতি II:</strong> বিশ্রাম অবস্থায় সারকোমিয়ারের মোটা তন্তুর যে কেন্দ্রীয় অংশ পাতলা তন্তু দ্বারা আবৃত থাকে না, তাকে H-অঞ্চল বলে।</p>
+        <ul class="options-list">
+          <li>(A) বিবৃতি I এবং বিবৃতি II উভয়ই সঠিক</li>
+          <li>(B) বিবৃতি I এবং বিবৃতি II উভয়ই ভুল</li>
+          <li>(C) বিবৃতি I সঠিক কিন্তু বিবৃতি II ভুল</li>
+          <li>(D) বিবৃতি I ভুল কিন্তু বিবৃতি II সঠিক</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (D)</span>
+          <p><strong>ব্যাখ্যা:</strong> সংকোচনের সময় A-পট্টির দৈর্ঘ্য অপরিবর্তিত থাকে এবং I-পট্টি ছোট হয়; তাই বিবৃতি I ভুল। বিবৃতি II বিশ্রাম অবস্থায় H-অঞ্চলের সঠিক সংজ্ঞা দেয়।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 3 (Match the Column)</span>
+        <p><strong>Q3.</strong> Match the joints in List I with their corresponding anatomical locations in List II:</p>
+        <table>
+          <thead>
+            <tr><th>List I (Joint Type)</th><th>List II (Location)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(a) Pivot joint</td><td>(i) Between carpal and metacarpal of thumb</td></tr>
+            <tr><td>(b) Saddle joint</td><td>(ii) Between adjacent vertebrae</td></tr>
+            <tr><td>(c) Cartilaginous joint</td><td>(iii) Between atlas and axis</td></tr>
+            <tr><td>(d) Fibrous joint</td><td>(iv) Sutures of flat skull bones</td></tr>
+          </tbody>
+        </table>
+        <ul class="options-list">
+          <li>(A) (a)-(iii), (b)-(i), (c)-(ii), (d)-(iv)</li>
+          <li>(B) (a)-(i), (b)-(iii), (c)-(ii), (d)-(iv)</li>
+          <li>(C) (a)-(iii), (b)-(ii), (c)-(i), (d)-(iv)</li>
+          <li>(D) (a)-(iv), (b)-(i), (c)-(ii), (d)-(iii)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (A)</span>
+          <p><strong>Explanation:</strong> Pivot joint occurs between atlas and axis; saddle joint between carpal and metacarpal of the thumb; cartilaginous joint between adjacent vertebrae; and fibrous joints form cranial sutures.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ৩ (স্তম্ভ মেলানো)</span>
+        <p><strong>প্রশ্ন ৩.</strong> তালিকা I-এর অস্থিসন্ধিগুলির সাথে তালিকা II-এর সঠিক অবস্থান মেলাও:</p>
+        <table>
+          <thead>
+            <tr><th>তালিকা I (সন্ধির প্রকার)</th><th>তালিকা II (অবস্থান)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(a) পিভট সন্ধি</td><td>(i) বৃদ্ধাঙ্গুলির কার্পাল ও মেটাকার্পালের মধ্যে</td></tr>
+            <tr><td>(b) স্যাডল সন্ধি</td><td>(ii) দুটি পাশাপাশি কশেরুকার মধ্যে</td></tr>
+            <tr><td>(c) তরুণাস্থিময় সন্ধি</td><td>(iii) অ্যাটলাস ও অ্যাক্সিসের মধ্যে</td></tr>
+            <tr><td>(d) তন্তুময় সন্ধি</td><td>(iv) করোটির চ্যাপ্টা অস্থির সুচার</td></tr>
+          </tbody>
+        </table>
+        <ul class="options-list">
+          <li>(A) (a)-(iii), (b)-(i), (c)-(ii), (d)-(iv)</li>
+          <li>(B) (a)-(i), (b)-(iii), (c)-(ii), (d)-(iv)</li>
+          <li>(C) (a)-(iii), (b)-(ii), (c)-(i), (d)-(iv)</li>
+          <li>(D) (a)-(iv), (b)-(i), (c)-(ii), (d)-(iii)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (A)</span>
+          <p><strong>ব্যাখ্যা:</strong> পিভট সন্ধি অ্যাটলাস ও অ্যাক্সিসের মাঝে; স্যাডল সন্ধি বৃদ্ধাঙ্গুলির কার্পাল-মেটাকার্পালে; তরুণাস্থিময় সন্ধি কশেরুকার মাঝে এবং তন্তুময় সন্ধি করোটির সুচারে দেখা যায়।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 4 (Assertion–Reason)</span>
+        <p><strong>Q4.</strong> Given below are two statements: one is labelled as Assertion (A) and the other as Reason (R).</p>
+        <p><strong>Assertion (A):</strong> The 8th, 9th, and 10th pairs of ribs in humans are called vertebrochondral (false) ribs.</p>
+        <p><strong>Reason (R):</strong> They do not articulate directly with the sternum, but instead join the 7th rib with the help of hyaline cartilage.</p>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true and (R) is the correct explanation of (A)</li>
+          <li>(B) Both (A) and (R) are true but (R) is NOT the correct explanation of (A)</li>
+          <li>(C) (A) is true but (R) is false</li>
+          <li>(D) (A) is false but (R) is true</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (A)</span>
+          <p><strong>Explanation:</strong> Pairs 8, 9, and 10 attach dorsally to thoracic vertebrae and ventrally to the 7th rib's costal (hyaline) cartilage rather than directly to the sternum, which is precisely why they are termed vertebrochondral or false ribs.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ৪ (বিবৃতি-কারণ)</span>
+        <p><strong>প্রশ্ন ৪.</strong> নিচে দুটি বিবৃতি দেওয়া হলো: একটি হলো দাবি (A) এবং অপরটি হলো কারণ (R)।</p>
+        <p><strong>দাবি (A):</strong> মানুষের অষ্টম, নবম ও দশম জোড়া পঞ্জরাস্থিকে ভার্টিব্রোকনড্রাল (অপ্রকৃত) পঞ্জরাস্থি বলা হয়।</p>
+        <p><strong>কারণ (R):</strong> এরা সরাসরি স্টার্নামের সাথে যুক্ত না হয়ে হায়ালিন তরুণাস্থির সাহায্যে সপ্তম পঞ্জরাস্থির সাথে যুক্ত হয়।</p>
+        <ul class="options-list">
+          <li>(A) (A) এবং (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা</li>
+          <li>(B) (A) এবং (R) উভয়ই সত্য কিন্তু (R), (A)-এর সঠিক ব্যাখ্যা নয়</li>
+          <li>(C) (A) সত্য কিন্তু (R) মিথ্যা</li>
+          <li>(D) (A) মিথ্যা কিন্তু (R) সত্য</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (A)</span>
+          <p><strong>ব্যাখ্যা:</strong> ৮ম, ৯ম ও ১০ম জোড়া পঞ্জরাস্থি সরাসরি স্টার্নামে না মিশে হায়ালিন তরুণাস্থির মাধ্যমে ৭ম পঞ্জরাস্থির সাথে যুক্ত হয়, তাই এদের অপ্রকৃত বা ভার্টিব্রোকনড্রাল পঞ্জরাস্থি বলে।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 5 (Single Correct)</span>
+        <p><strong>Q5.</strong> Which pair of disorders is correctly matched with its underlying physiological cause?</p>
+        <ul class="options-list">
+          <li>(A) Tetany — Accumulation of uric acid crystals in joints</li>
+          <li>(B) Myasthenia gravis — Autoimmune attack on neuromuscular junction</li>
+          <li>(C) Gout — Age-related decline in estrogen causing bone loss</li>
+          <li>(D) Osteoporosis — Rapid muscle spasms due to low \(\mathrm{Ca^{2+}}\) in body fluid</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> Myasthenia gravis is an autoimmune disorder affecting the neuromuscular junction. Tetany is caused by low \(\mathrm{Ca^{2+}}\), Gout by uric acid crystals, and Osteoporosis by decreased bone mass (often linked to low estrogen).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ৫ (একক সঠিক উত্তর)</span>
+        <p><strong>প্রশ্ন ৫.</strong> নিচের কোন রোগ ও তার কারণের জোড়াটি সঠিকভাবে মেলানো হয়েছে?</p>
+        <ul class="options-list">
+          <li>(A) টিটানি — অস্থিসন্ধিতে ইউরিক অ্যাসিডের কেলাস জমা</li>
+          <li>(B) মায়াস্থেনিয়া গ্রাভিস — নিউরোমাস্কুলার জাংশনের অটোইমিউন ব্যাধি</li>
+          <li>(C) গাউট — বয়সজনিত ইস্ট্রোজেন হ্রাসের ফলে অস্থিক্ষয়</li>
+          <li>(D) অস্টিওপোরোসিস — দেহরসে \(\mathrm{Ca^{2+}}\) কমে যাওয়ায় দ্রুত পেশির খিঁচুনি</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>ব্যাখ্যা:</strong> মায়াস্থেনিয়া গ্রাভিস হলো নিউরোমাস্কুলার জাংশনকে আক্রান্তকারী অটোইমিউন রোগ। টিটানি হয় \(\mathrm{Ca^{2+}}\)-এর অভাবে, গাউট হয় ইউরিক অ্যাসিড জমে এবং অস্টিওপোরোসিস হয় অস্থির ঘনত্ব হ্রাসে।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 6 (Single Correct)</span>
+        <p><strong>Q6.</strong> Identify the incorrect statement regarding the human appendicular skeleton:</p>
+        <ul class="options-list">
+          <li>(A) The glenoid cavity of the scapula articulates with the head of the humerus.</li>
+          <li>(B) Each coxal bone is formed by the fusion of ilium, ischium, and pubis.</li>
+          <li>(C) The number of tarsal bones in one hindlimb equals the number of carpal bones in one forelimb.</li>
+          <li>(D) The pubic symphysis contains fibrous cartilage.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (C)</span>
+          <p><strong>Explanation:</strong> One hindlimb has <strong>7 tarsals</strong> (plus 1 patella), whereas one forelimb has <strong>8 carpals</strong>. Therefore, the counts are unequal, making (C) incorrect.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ৬ (একক সঠিক উত্তর)</span>
+        <p><strong>প্রশ্ন ৬.</strong> মানব উপাঙ্গীয় কঙ্কাল সম্পর্কে নিচের কোন বিবৃতিটি ভুল?</p>
+        <ul class="options-list">
+          <li>(A) স্ক্যাপুলার গ্লেনয়েড গহ্বর হিউমেরাসের মস্তকের সাথে যুক্ত হয়।</li>
+          <li>(B) প্রতিটি কক্সাল অস্থি ইলিয়াম, ইশ্চিয়াম ও পিউবিস যুক্ত হয়ে গঠিত।</li>
+          <li>(C) একটি পশ্চাৎপদে টার্সাল অস্থির সংখ্যা একটি অগ্রপদে কার্পাল অস্থির সংখ্যার সমান।</li>
+          <li>(D) পিউবিক সিমফাইসিসে তন্তুময় তরুণাস্থি থাকে।</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (C)</span>
+          <p><strong>ব্যাখ্যা:</strong> একটি পশ্চাৎপদে <strong>৭টি টার্সাল</strong> থাকে, কিন্তু একটি অগ্রপদে <strong>৮টি কার্পাল</strong> থাকে। তাই সংখ্যা দুটি সমান নয়।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 7 (Single Correct)</span>
+        <p><strong>Q7.</strong> Which combination of features accurately characterizes <strong>white muscle fibres</strong> compared to red muscle fibres?</p>
+        <ul class="options-list">
+          <li>(A) High myoglobin, abundant mitochondria, low sarcoplasmic reticulum</li>
+          <li>(B) Low myoglobin, few mitochondria, high sarcoplasmic reticulum</li>
+          <li>(C) High myoglobin, few mitochondria, aerobic ATP generation</li>
+          <li>(D) Low myoglobin, abundant mitochondria, high sarcoplasmic reticulum</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> White muscle fibres contain very little myoglobin (giving a pale appearance), few mitochondria, and a high amount of sarcoplasmic reticulum, relying primarily on anaerobic pathways for energy.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ৭ (একক সঠিক উত্তর)</span>
+        <p><strong>প্রশ্ন ৭.</strong> লাল পেশি তন্তুর তুলনায় <strong>সাদা পেশি তন্তুর</strong> সঠিক বৈশিষ্ট্যগুচ্ছ কোনটি?</p>
+        <ul class="options-list">
+          <li>(A) বেশি মায়োগ্লোবিন, প্রচুর মাইটোকন্ড্রিয়া, কম সারকোপ্লাজমিক রেটিকুলাম</li>
+          <li>(B) কম মায়োগ্লোবিন, কম মাইটোকন্ড্রিয়া, প্রচুর সারকোপ্লাজমিক রেটিকুলাম</li>
+          <li>(C) বেশি মায়োগ্লোবিন, কম মাইটোকন্ড্রিয়া, সবাত ATP উৎপাদন</li>
+          <li>(D) কম মায়োগ্লোবিন, প্রচুর মাইটোকন্ড্রিয়া, প্রচুর সারকোপ্লাজমিক রেটিকুলাম</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>ব্যাখ্যা:</strong> সাদা পেশি তন্তুতে মায়োগ্লোবিন ও মাইটোকন্ড্রিয়া খুব কম থাকে, কিন্তু সারকোপ্লাজমিক রেটিকুলাম প্রচুর পরিমাণে থাকে এবং এরা শক্তির জন্য অবাত প্রক্রিয়ার ওপর নির্ভরশীল।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card">
+      <div class="lang-en">
+        <span class="lang-tag lang-tag-en">English — Practice Question 8 (Single Correct)</span>
+        <p><strong>Q8.</strong> What is the exact sum of cranial bones, cervical vertebrae, and floating ribs (individual bones, not pairs) in a healthy adult human?</p>
+        <ul class="options-list">
+          <li>(A) 17</li>
+          <li>(B) 19</li>
+          <li>(C) 21</li>
+          <li>(D) 23</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> Cranial bones \(= 8\); Cervical vertebrae \(= 7\); Floating ribs \(= 2\text{ pairs} = 4\) individual bones. Total \(= 8 + 7 + 4 = 19\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-bn" lang="bn">
+        <span class="lang-tag lang-tag-bn">বাংলা — অনুশীলন প্রশ্ন ৮ (একক সঠিক উত্তর)</span>
+        <p><strong>প্রশ্ন ৮.</strong> একজন সুস্থ প্রাপ্তবয়স্ক মানুষের করোটিকা অস্থি, গ্রীবাদেশীয় কশেরুকা এবং ভাসমান পঞ্জরাস্থির (জোড়া নয়, মোট অস্থি সংখ্যা) যোগফল কত?</p>
+        <ul class="options-list">
+          <li>(A) ১৭</li>
+          <li>(B) ১৯</li>
+          <li>(C) ২১</li>
+          <li>(D) ২৩</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>ব্যাখ্যা:</strong> করোটিকা অস্থি \(= 8\); গ্রীবাদেশীয় কশেরুকা \(= 7\); ভাসমান পঞ্জরাস্থি \(= 2\text{ জোড়া} = 4\) টি। মোট \(= 8 + 7 + 4 = 19\)।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: PITFALLS, REVISION CHECKLIST & RECAP -->
+  <section id="revision-recap">
+    <h2>9. Common Pitfalls, Revision Checklist &amp; Final Recap &nbsp;|&nbsp; ৯. সাধারণ ভুল, রিভিশন তালিকা ও চূড়ান্ত সারসংক্ষেপ</h2>
+
+    <div class="lang-block lang-en">
+      <span class="lang-tag lang-tag-en">English</span>
+      <div class="callout callout-warn">
+        <strong>Common NEET Pitfalls to Avoid:</strong>
+        <ul>
+          <li><strong>Carpals vs. Tarsals:</strong> Each wrist has <strong>8 carpals</strong>, while each ankle has <strong>7 tarsals</strong> (the 30th leg bone is the <strong>patella</strong>).</li>
+          <li><strong>A-band vs. I-band during contraction:</strong> The A-band NEVER shortens during contraction; only the I-band and H-zone shorten.</li>
+          <li><strong>ATP role:</strong> ATP hydrolysis drives the power stroke, and binding of a <em>new</em> ATP is required to <strong>break</strong> the cross-bridge.</li>
+          <li><strong>Skull count:</strong> Cranial (8) + Facial (14) = 22; adding 1 Hyoid + 6 Ear Ossicles gives 29 bones in the head region.</li>
+        </ul>
+      </div>
+      <p><strong>Final Recap:</strong> Locomotion is voluntary displacement powered by coordinated muscular, skeletal, and neural activity. Skeletal muscle contraction follows the sliding filament mechanism triggered by \(\mathrm{Ca^{2+}}\)-troponin binding and ATPase-driven cross-bridge cycling. The 206 bones (80 axial + 126 appendicular) articulate via fibrous, cartilaginous, and synovial joints to enable precise movement.</p>
+    </div>
+
+    <div class="lang-block lang-bn" lang="bn">
+      <span class="lang-tag lang-tag-bn">বাংলা (Bengali)</span>
+      <div class="callout callout-warn">
+        <strong>পরীক্ষায় এড়িয়ে চলার মতো সাধারণ ভুলসমূহ:</strong>
+        <ul>
+          <li><strong>কার্পাল বনাম টার্সাল:</strong> প্রতিটি কব্জিতে <strong>৮টি কার্পাল</strong> থাকে, কিন্তু গোড়ালিতে <strong>৭টি টার্সাল</strong> থাকে (পায়ের ৩০তম অস্থি হলো <strong>প্যাটেলা</strong>)।</li>
+          <li><strong>সংকোচনে A-পট্টি বনাম I-পট্টি:</strong> সংকোচনের সময় A-পট্টি কখনোই ছোট হয় না; কেবল I-পট্টি ও H-অঞ্চল ছোট হয়।</li>
+          <li><strong>ATP-এর ভূমিকা:</strong> ATP-এর আর্দ্রবিশ্লেষণ শক্তিশালী টান দেয়, আর <em>নতুন</em> ATP যুক্ত হওয়া ক্রস-ব্রিজ <strong>ভাঙার</strong> জন্য প্রয়োজন।</li>
+          <li><strong>করোটির হিসাব:</strong> করোটিকা (৮) + মুখমণ্ডল (১৪) = ২২; এর সাথে ১টি হায়য়েড ও ৬টি কর্ণাস্থি যোগ করলে মাথায় মোট ২৯টি অস্থি হয়।</li>
+        </ul>
+      </div>
+      <p><strong>চূড়ান্ত সারসংক্ষেপ:</strong> গমন হলো পেশি, কঙ্কাল ও স্নায়ুতন্ত্রের সমন্বয়ে সংঘটিত ঐচ্ছিক স্থানান্তর। \(\mathrm{Ca^{2+}}\)-ট্রপোনিন বন্ধন এবং ATPase-নির্ভর ক্রস-ব্রিজ চক্রের মাধ্যমে স্লাইডিং ফিলামেন্ট তত্ত্ব অনুসারে পেশি সংকুচিত হয়। ২০৬টি অস্থি (৮০টি অক্ষীয় + ১২৬টি উপাঙ্গীয়) তন্তুময়, তরুণাস্থিময় ও সাইনোভিয়াল সন্ধির মাধ্যমে যুক্ত হয়ে দেহের সঠিক চলন ও গমন সম্পন্ন করে।</p>
+    </div>
+  </section>
+
+</body>
+</html>

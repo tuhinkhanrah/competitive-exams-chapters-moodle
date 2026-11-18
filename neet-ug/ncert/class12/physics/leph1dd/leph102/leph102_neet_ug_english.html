@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrostatic Potential and Capacitance — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1E293B;
+      background-color: #F8FAFC;
+    }
+
+    body {
+      margin: 0;
+      padding: 1.5rem 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      max-width: 920px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      line-height: 1.25;
+      margin: 0.25rem 0 0.5rem 0;
+      color: #0F172A;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      color: #1E293B;
+      border-left: 4px solid #2563EB;
+      padding-left: 0.75rem;
+      margin-top: 2rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      color: #0D9488;
+      margin-top: 1.35rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 0.9rem 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 1rem 0;
+      padding-left: 1.4rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    .callout {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #0D9488;
+      border-radius: 6px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0 1.25rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .formula-box {
+      background-color: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 0.85rem 0 1.1rem 0;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .diagram-card {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 0.85rem;
+      margin: 1.1rem 0 1.35rem 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .diagram-card svg {
+      max-width: 560px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-top: 0.55rem;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.4rem 0;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 0.55rem 0.7rem;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: #E2E8F0;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .example-card {
+      border: 1px solid #CBD5E1;
+      border-top: 3px solid #0D9488;
+      border-radius: 6px;
+      padding: 1rem 1.1rem;
+      margin: 1.1rem 0;
+      background-color: #FFFFFF;
+    }
+
+    .example-header {
+      font-weight: 700;
+      color: #0D9488;
+      margin-bottom: 0.45rem;
+      font-size: 1rem;
+    }
+
+    .question-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 1rem 1.1rem;
+      margin: 1.1rem 0;
+      background-color: #FFFFFF;
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: #1E293B;
+      margin-bottom: 0.5rem;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0.5rem 0 0.75rem 0;
+    }
+
+    .options-list li {
+      margin-bottom: 0.35rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .solution-box {
+      background-color: #F8FAFC;
+      border-top: 1px dashed #94A3B8;
+      padding-top: 0.65rem;
+      margin-top: 0.65rem;
+      font-size: 0.95rem;
+    }
+
+    .answer-tag {
+      display: inline-block;
+      font-weight: 700;
+      color: #2563EB;
+      margin-bottom: 0.3rem;
+    }
+
+    .pitfall-list li {
+      margin-bottom: 0.55rem;
+    }
+
+    footer.doc-footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 2px solid #E2E8F0;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm 14mm;
+    }
+
+    @media print {
+      html {
+        background-color: #FFFFFF;
+        font-size: 11pt;
+      }
+
+      body {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .callout, .formula-box, .diagram-card, .example-card, .question-card, table, tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .exam-badge {
+        background-color: #1E293B;
+        color: #FFFFFF;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+  <header class="doc-header">
+    <span class="exam-badge">NEET UG Physics</span>
+    <h1>Electrostatic Potential and Capacitance</h1>
+    <p class="subtitle">Complete Concept Tutorial, Derivations, Worked Examples, and Practice Assessment</p>
+  </header>
+
+  <section id="objectives">
+    <h2>1. Learning Objectives and Exam Overview</h2>
+    <p>
+      Electrostatic potential and capacitance form a high-yield pillar of Class 12 Physics for <strong>NEET UG</strong>. Unlike electric field (a vector), electrostatic potential is a scalar, making multi-charge calculations, shell problems, and energy conservation much faster once sign conventions are mastered. In capacitance, NEET UG frequently tests dielectric insertion (with battery connected versus disconnected), equivalent capacitance of mixed networks, and energy dissipation during charge sharing.
+    </p>
+    <div class="callout">
+      <div class="callout-title">After completing this tutorial, you will be able to:</div>
+      <ul>
+        <li>Define electrostatic potential energy and electrostatic potential using the conservative nature of the Coulomb force.</li>
+        <li>Calculate potential due to point charges, charge distributions, charged spherical shells, and electric dipoles.</li>
+        <li>Use equipotential surfaces and the differential relation \(\mathbf{E} = -\nabla V\) (or \(E = -dV/dr\)) to connect field and potential.</li>
+        <li>Apply the electrostatic properties of conductors, including electrostatic shielding and surface charge behavior.</li>
+        <li>Analyze parallel-plate capacitors with full or partial dielectrics, series–parallel networks, and energy storage/sharing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="potential-core">
+    <h2>2. Electrostatic Potential Energy and Potential</h2>
+
+    <h3>2.1 Conservative Nature and Potential Energy</h3>
+    <p>
+      The electrostatic force between stationary charges is a <strong>conservative force</strong>, meaning the work done by the field in moving a test charge \(q\) from an initial point \(R\) to a final point \(P\) depends only on the endpoints and not on the path taken. If an external agent moves \(q\) infinitesimally slowly (without acceleration, so \(\mathbf{F}_{\text{ext}} = -\mathbf{F}_E\)), the work done by the external force is stored as a change in electrostatic potential energy \(\Delta U\):
+    </p>
+    <div class="formula-box">
+      \[
+        \Delta U = U_P - U_R = W_{RP,\text{ext}} = -W_{RP,\text{field}} = -\int_R^P \mathbf{F}_E \cdot d\mathbf{r}
+      \]
+    </div>
+    <p>
+      Only <em>differences</em> in potential energy are physically measurable. By choosing the zero reference of potential energy at infinity (\(U_\infty = 0\)), the potential energy \(U_P\) of a charge \(q\) at point \(P\) equals the external work required to bring \(q\) quasi-statically from infinity to \(P\).
+    </p>
+
+    <h3>2.2 Electrostatic Potential</h3>
+    <p>
+      Dividing the potential energy difference by the test charge \(q\) gives a property of the source field alone—the <strong>electrostatic potential</strong> \(V\):
+    </p>
+    <div class="formula-box">
+      \[
+        V_P - V_R = \frac{U_P - U_R}{q} = \frac{W_{RP,\text{ext}}}{q}
+      \]
+    </div>
+    <p>
+      With \(V_\infty = 0\), the potential at a point is the work done by an external agent per unit positive test charge in bringing it slowly from infinity to that point. Its SI unit is the <strong>volt</strong> (\(1\,\mathrm{V} = 1\,\mathrm{J\,C^{-1}}\)).
+    </p>
+
+    <h3>2.3 Potential Due to a Point Charge and Superposition</h3>
+    <p>
+      Integrating the radial force on a unit positive charge from \(\infty\) to distance \(r\) from a point charge \(Q\) yields:
+    </p>
+    <div class="formula-box">
+      \[
+        V(r) = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r}
+      \]
+    </div>
+    <p>
+      Here \(Q\) must be substituted with its algebraic sign: \(V > 0\) for \(Q > 0\) and \(V < 0\) for \(Q < 0\). Because potential is a scalar, the net potential due to \(n\) discrete charges \(q_1, q_2, \dots, q_n\) at distances \(r_1, r_2, \dots, r_n\) from a point \(P\) is simply the algebraic sum:
+    </p>
+    <div class="formula-box">
+      \[
+        V_P = \frac{1}{4\pi\varepsilon_0} \sum_{i=1}^{n} \frac{q_i}{r_i}
+      \]
+    </div>
+    <p>
+      For a uniformly charged thin spherical shell of radius \(R\) and total charge \(Q\):
+    </p>
+    <ul>
+      <li><strong>Outside the shell (\(r &gt; R\)):</strong> \(V = \dfrac{1}{4\pi\varepsilon_0}\dfrac{Q}{r}\) (behaves as if all charge is at the centre).</li>
+      <li><strong>On or inside the shell (\(r \le R\)):</strong> Since \(E = 0\) inside, no work is done moving a charge inside, so potential is constant throughout the interior and equals the surface value: \(V = \dfrac{1}{4\pi\varepsilon_0}\dfrac{Q}{R}\).</li>
+    </ul>
+
+    <div class="diagram-card">
+      <svg viewBox="0 0 540 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="540" height="240" fill="#F8FAFC" rx="6"/>
+        <!-- Axes -->
+        <line x1="60" y1="200" x2="500" y2="200" stroke="#1E293B" stroke-width="2"/>
+        <line x1="60" y1="200" x2="60" y2="25" stroke="#1E293B" stroke-width="2"/>
+        <!-- Arrowheads -->
+        <polygon points="500,200 492,196 492,204" fill="#1E293B"/>
+        <polygon points="60,25 56,33 64,33" fill="#1E293B"/>
+        <!-- Reference marker at r = 1 -->
+        <line x1="150" y1="200" x2="150" y2="115" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="60" y1="115" x2="150" y2="115" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4,3"/>
+        <circle cx="150" cy="115" r="4" fill="#1E293B"/>
+        <!-- Curve 1: V proportional to 1/r (teal) -->
+        <path d="M 92 35 Q 115 88, 150 115 T 240 157 T 360 175 T 485 184" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+        <!-- Curve 2: E proportional to 1/r^2 (blue) -->
+        <path d="M 108 32 Q 124 82, 150 115 T 220 172 T 330 191 T 485 197" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+        <!-- Labels -->
+        <text x="505" y="204" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">r</text>
+        <text x="20" y="34" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">V, E</text>
+        <text x="145" y="218" font-family="sans-serif" font-size="11" fill="#475569">r = 1</text>
+        <text x="38" y="119" font-family="sans-serif" font-size="11" fill="#475569">1.0</text>
+        <!-- Legend -->
+        <rect x="330" y="32" width="165" height="52" fill="#FFFFFF" stroke="#CBD5E1" rx="4"/>
+        <line x1="342" y1="49" x2="372" y2="49" stroke="#0D9488" stroke-width="2.5"/>
+        <text x="380" y="53" font-family="sans-serif" font-size="12" fill="#1E293B">V (1/r decay)</text>
+        <line x1="342" y1="70" x2="372" y2="70" stroke="#2563EB" stroke-width="2.5"/>
+        <text x="380" y="74" font-family="sans-serif" font-size="12" fill="#1E293B">E (1/r² decay)</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 1: Comparison of electrostatic potential \(V \propto 1/r\) and electric field \(E \propto 1/r^2\) for a positive point charge (in normalized units).</div>
+    </div>
+
+    <h3>2.4 Potential Due to an Electric Dipole</h3>
+    <p>
+      An electric dipole consists of charges \(+q\) and \(-q\) separated by distance \(2a\), with dipole moment \(\mathbf{p}\) of magnitude \(p = 2qa\) directed from \(-q\) to \(+q\). At a point \(P\) with position vector \(\mathbf{r}\) from the dipole centre (where \(r \gg a\)) making angle \(\theta\) with \(\mathbf{p}\), the potential is:
+    </p>
+    <div class="formula-box">
+      \[
+        V(r, \theta) = \frac{1}{4\pi\varepsilon_0} \frac{p \cos\theta}{r^2} = \frac{1}{4\pi\varepsilon_0} \frac{\mathbf{p} \cdot \hat{\mathbf{r}}}{r^2} \quad (r \gg a)
+      \]
+    </div>
+    <ul>
+      <li><strong>Axial line (\(\theta = 0°\) or \(180°\)):</strong> \(V = \pm \dfrac{p}{4\pi\varepsilon_0 r^2}\).</li>
+      <li><strong>Equatorial plane (\(\theta = 90°\)):</strong> \(V = 0\) everywhere on the perpendicular bisector plane (even though \(E \neq 0\)).</li>
+      <li>Unlike a monopole (\(V \propto 1/r\)), a dipole potential falls off as \(1/r^2\) and depends on the angle \(\theta\).</li>
+    </ul>
+
+    <div class="diagram-card">
+      <svg viewBox="0 0 540 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="540" height="220" fill="#F8FAFC" rx="6"/>
+        <!-- Dipole axis -->
+        <line x1="120" y1="35" x2="120" y2="185" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <!-- Charges -->
+        <circle cx="120" cy="60" r="11" fill="#2563EB"/>
+        <text x="115" y="64" font-family="sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">+</text>
+        <text x="90" y="64" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">+q</text>
+
+        <circle cx="120" cy="160" r="11" fill="#0D9488"/>
+        <text x="117" y="164" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">-</text>
+        <text x="90" y="164" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">-q</text>
+
+        <!-- Center O -->
+        <circle cx="120" cy="110" r="3" fill="#1E293B"/>
+        <text x="104" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">O</text>
+
+        <!-- Dipole moment arrow p -->
+        <line x1="138" y1="135" x2="138" y2="85" stroke="#1E293B" stroke-width="2"/>
+        <polygon points="138,80 134,89 142,89" fill="#1E293B"/>
+        <text x="144" y="114" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">p</text>
+
+        <!-- Point P -->
+        <circle cx="430" cy="55" r="4.5" fill="#1E293B"/>
+        <text x="440" y="59" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">P(r, θ)</text>
+
+        <!-- Vectors r, r1, r2 -->
+        <line x1="120" y1="110" x2="426" y2="56" stroke="#1E293B" stroke-width="2"/>
+        <line x1="120" y1="60" x2="426" y2="55" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <line x1="120" y1="160" x2="426" y2="57" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+        <!-- Angle arc -->
+        <path d="M 120 82 A 28 28 0 0 1 147 105" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+        <text x="148" y="88" font-family="sans-serif" font-size="12" fill="#1E293B">θ</text>
+
+        <!-- Distance labels -->
+        <text x="275" y="49" font-family="sans-serif" font-size="12" fill="#2563EB">r₁</text>
+        <text x="275" y="78" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">r</text>
+        <text x="285" y="122" font-family="sans-serif" font-size="12" fill="#0D9488">r₂</text>
+        <text x="64" y="90" font-family="sans-serif" font-size="11" fill="#475569">a</text>
+        <text x="64" y="138" font-family="sans-serif" font-size="11" fill="#475569">a</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 2: Geometry for calculating the electrostatic potential at a point \(P(r,\theta)\) due to an electric dipole.</div>
+    </div>
+  </section>
+
+  <section id="equipotential">
+    <h2>3. Equipotential Surfaces and Field–Potential Relation</h2>
+    <p>
+      An <strong>equipotential surface</strong> is a locus of points all having the exact same electrostatic potential. Key properties tested in NEET UG include:
+    </p>
+    <ul>
+      <li><strong>Zero work:</strong> Moving any charge between two points on the same equipotential surface requires zero external work (\(W = q \Delta V = 0\)).</li>
+      <li><strong>Perpendicularity:</strong> The electric field \(\mathbf{E}\) is always perpendicular to the equipotential surface at every point (otherwise a tangential component would do work along the surface).</li>
+      <li><strong>Never intersect:</strong> Two equipotential surfaces of different potentials cannot cross, because a point cannot have two different potential values simultaneously.</li>
+      <li><strong>Field strength from spacing:</strong> Equipotential surfaces are closer together in regions where the electric field is stronger.</li>
+    </ul>
+
+    <div class="formula-box">
+      \[
+        E = -\frac{dV}{dr} \quad \text{and} \quad dV = -\mathbf{E} \cdot d\mathbf{r}
+      \]
+    </div>
+    <p>
+      The negative sign conveys a fundamental rule: <strong>electric field always points in the direction of steepest decrease of potential</strong>. In Cartesian coordinates, \(E_x = -\partial V/\partial x\), \(E_y = -\partial V/\partial y\), and \(E_z = -\partial V/\partial z\).
+    </p>
+
+    <div class="diagram-card">
+      <svg viewBox="0 0 540 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="540" height="210" fill="#F8FAFC" rx="6"/>
+        <!-- Left panel: Point charge -->
+        <text x="135" y="22" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Point Charge (Spherical)</text>
+        <circle cx="135" cy="112" r="76" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <circle cx="135" cy="112" r="52" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <circle cx="135" cy="112" r="28" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <!-- Radial E-field lines -->
+        <line x1="135" y1="112" x2="135" y2="30" stroke="#2563EB" stroke-width="1.5"/>
+        <polygon points="135,28 131,36 139,36" fill="#2563EB"/>
+        <line x1="135" y1="112" x2="135" y2="194" stroke="#2563EB" stroke-width="1.5"/>
+        <polygon points="135,196 131,188 139,188" fill="#2563EB"/>
+        <line x1="135" y1="112" x2="217" y2="112" stroke="#2563EB" stroke-width="1.5"/>
+        <polygon points="219,112 211,108 211,116" fill="#2563EB"/>
+        <line x1="135" y1="112" x2="53" y2="112" stroke="#2563EB" stroke-width="1.5"/>
+        <polygon points="51,112 59,108 59,116" fill="#2563EB"/>
+        <circle cx="135" cy="112" r="9" fill="#2563EB"/>
+        <text x="130" y="116" font-family="sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">+</text>
+
+        <!-- Divider -->
+        <line x1="270" y1="15" x2="270" y2="195" stroke="#CBD5E1" stroke-width="1.5"/>
+
+        <!-- Right panel: Uniform Field -->
+        <text x="405" y="22" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Uniform Field (Planar)</text>
+        <!-- Equipotential planes -->
+        <line x1="330" y1="45" x2="330" y2="180" stroke="#0D9488" stroke-width="2" stroke-dasharray="5,3"/>
+        <line x1="395" y1="45" x2="395" y2="180" stroke="#0D9488" stroke-width="2" stroke-dasharray="5,3"/>
+        <line x1="460" y1="45" x2="460" y2="180" stroke="#0D9488" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="330" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">V₁</text>
+        <text x="395" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">V₂</text>
+        <text x="460" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">V₃</text>
+        <!-- Field arrows -->
+        <line x1="295" y1="75" x2="500" y2="75" stroke="#2563EB" stroke-width="1.8"/>
+        <polygon points="504,75 496,71 496,79" fill="#2563EB"/>
+        <line x1="295" y1="112" x2="500" y2="112" stroke="#2563EB" stroke-width="1.8"/>
+        <polygon points="504,112 496,108 496,116" fill="#2563EB"/>
+        <line x1="295" y1="149" x2="500" y2="149" stroke="#2563EB" stroke-width="1.8"/>
+        <polygon points="504,149 496,145 496,153" fill="#2563EB"/>
+        <text x="512" y="116" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">E</text>
+        <text x="405" y="40" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">V₁ &gt; V₂ &gt; V₃</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 3: Equipotential surfaces (dashed teal) are everywhere perpendicular to electric field lines (solid blue), and potential decreases along \(\mathbf{E}\).</div>
+    </div>
+  </section>
+
+  <section id="potential-energy">
+    <h2>4. Potential Energy of Charge Systems and Dipoles</h2>
+
+    <h3>4.1 Assembly Energy of Point Charges</h3>
+    <p>
+      The electrostatic potential energy of a system of point charges is the total external work required to assemble them from infinite separation to their final positions:
+    </p>
+    <div class="formula-box">
+      \[
+        U_{12} = \frac{1}{4\pi\varepsilon_0} \frac{q_1 q_2}{r_{12}} \qquad\text{and}\qquad U_{\text{system}} = \frac{1}{4\pi\varepsilon_0} \sum_{i < j} \frac{q_i q_j}{r_{ij}}
+      \]
+    </div>
+    <p>
+      For \(n\) charges, there are \(\frac{n(n-1)}{2}\) unique pairs. Like charges (\(q_1 q_2 &gt; 0\)) have positive potential energy (repulsive), whereas unlike charges (\(q_1 q_2 &lt; 0\)) have negative potential energy (bound/attractive).
+    </p>
+
+    <h3>4.2 Potential Energy in an External Field</h3>
+    <ul>
+      <li><strong>Single charge \(q\) in external potential \(V(\mathbf{r})\):</strong> \(U = qV(\mathbf{r})\). An electron accelerated through \(1\,\mathrm{V}\) gains \(1\,\mathrm{eV} = 1.6 \times 10^{-19}\,\mathrm{J}\).</li>
+      <li><strong>Two charges \(q_1, q_2\) in an external potential:</strong> \(U = q_1 V(\mathbf{r}_1) + q_2 V(\mathbf{r}_2) + \dfrac{1}{4\pi\varepsilon_0}\dfrac{q_1 q_2}{r_{12}}\).</li>
+    </ul>
+
+    <h3>4.3 Electric Dipole in a Uniform External Field</h3>
+    <p>
+      In a uniform electric field \(\mathbf{E}\), the net force on a dipole is zero, but it experiences a restoring torque \(\boldsymbol{\tau} = \mathbf{p} \times \mathbf{E}\) of magnitude \(pE\sin\theta\). Taking \(U = 0\) at \(\theta = 90°\):
+    </p>
+    <div class="formula-box">
+      \[
+        U(\theta) = -\mathbf{p} \cdot \mathbf{E} = -pE\cos\theta
+      \]
+      \[
+        W_{\text{ext}}(\theta_1 \to \theta_2) = U(\theta_2) - U(\theta_1) = pE(\cos\theta_1 - \cos\theta_2)
+      \]
+    </div>
+    <p>
+      At \(\theta = 0°\), \(U = -pE\) (minimum energy, <strong>stable equilibrium</strong>). At \(\theta = 180°\), \(U = +pE\) (maximum energy, <strong>unstable equilibrium</strong>).
+    </p>
+  </section>
+
+  <section id="conductors-dielectrics">
+    <h2>5. Conductors, Electrostatic Shielding, and Dielectrics</h2>
+
+    <h3>5.1 Electrostatics of Metallic Conductors</h3>
+    <p>
+      In electrostatic equilibrium (no net motion of free electrons), every metallic conductor obeys five foundational rules:
+    </p>
+    <ol>
+      <li><strong>Zero interior field:</strong> \(\mathbf{E} = 0\) everywhere inside the conducting material.</li>
+      <li><strong>Zero interior excess charge:</strong> By Gauss's law, any net charge resides strictly on the outer surface.</li>
+      <li><strong>Equipotential volume:</strong> Because \(\mathbf{E} = 0\) inside, \(V\) is constant throughout the volume and equals the surface potential.</li>
+      <li><strong>Normal surface field:</strong> Just outside a charged conductor, \(\mathbf{E}\) is perpendicular to the surface with magnitude \(E = \dfrac{|\sigma|}{\varepsilon_0}\) (outward if \(\sigma &gt; 0\), inward if \(\sigma &lt; 0\)).</li>
+      <li><strong>Electrostatic shielding:</strong> Inside a charge-free cavity carved out of a conductor, \(\mathbf{E} = 0\) regardless of external fields or charges on the outer surface. Sensitive electronics are shielded inside hollow metallic enclosures (Faraday cages).</li>
+    </ol>
+
+    <div class="diagram-card">
+      <svg viewBox="0 0 540 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="540" height="210" fill="#F8FAFC" rx="6"/>
+        <!-- Outer conductor body -->
+        <path d="M 110 105 C 110 45, 220 30, 320 42 C 410 52, 435 100, 415 148 C 395 190, 240 192, 145 168 C 115 158, 110 130, 110 105 Z" fill="#CBD5E1" stroke="#1E293B" stroke-width="2"/>
+        <!-- Inner charge-free cavity -->
+        <ellipse cx="265" cy="112" rx="75" ry="38" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8"/>
+        <!-- Surface charges on outer surface -->
+        <text x="100" y="95" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">-</text>
+        <text x="98" y="115" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">-</text>
+        <text x="102" y="135" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">-</text>
+
+        <text x="424" y="95" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">+</text>
+        <text x="428" y="115" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">+</text>
+        <text x="424" y="135" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">+</text>
+
+        <!-- Normal E arrows outside -->
+        <line x1="440" y1="112" x2="485" y2="112" stroke="#2563EB" stroke-width="2"/>
+        <polygon points="489,112 481,108 481,116" fill="#2563EB"/>
+        <text x="494" y="116" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">E</text>
+
+        <line x1="55" y1="112" x2="94" y2="112" stroke="#2563EB" stroke-width="2"/>
+        <polygon points="98,112 90,108 90,116" fill="#2563EB"/>
+        <text x="38" y="116" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">E</text>
+
+        <!-- Labels inside cavity and conductor -->
+        <text x="265" y="108" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Cavity (no charge)</text>
+        <text x="265" y="125" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#0D9488">E = 0, V = V₀</text>
+        <text x="265" y="62" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B">Conductor: E = 0, ρ = 0, V = V₀</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 4: Electrostatic shielding—inside a charge-free cavity of a conductor, \(\mathbf{E}=0\) and potential is constant at \(V_0\).</div>
+    </div>
+
+    <h3>5.2 Dielectrics and Polarisation</h3>
+    <p>
+      <strong>Dielectrics</strong> are insulators without mobile free charges. In an external electric field \(\mathbf{E}_0\):
+    </p>
+    <ul>
+      <li><strong>Non-polar molecules</strong> (e.g., \(\mathrm{H_2}\), \(\mathrm{O_2}\), \(\mathrm{CO_2}\)) have coinciding positive and negative charge centres; the field stretches them to create an induced dipole moment.</li>
+      <li><strong>Polar molecules</strong> (e.g., \(\mathrm{HCl}\), \(\mathrm{H_2O}\)) possess permanent dipole moments that are randomly oriented at \(E_0 = 0\) due to thermal agitation and partially align with \(\mathbf{E}_0\).</li>
+    </ul>
+    <p>
+      The net dipole moment per unit volume is the <strong>polarisation</strong> \(\mathbf{P} = \varepsilon_0 \chi_e \mathbf{E}\) (for linear isotropic dielectrics, where \(\chi_e\) is electric susceptibility). Polarisation produces bound surface charge densities \(\pm \sigma_p\) that create an opposing field, reducing the net field inside the dielectric from \(E_0\) to \(E = E_0 / K\), where \(K = \varepsilon / \varepsilon_0 &gt; 1\) is the <strong>dielectric constant</strong>.
+    </p>
+  </section>
+
+  <section id="capacitance">
+    <h2>6. Capacitors, Dielectrics, Networks, and Energy</h2>
+
+    <h3>6.1 Capacitance and Parallel-Plate Capacitor</h3>
+    <p>
+      A capacitor consists of two conductors carrying charges \(+Q\) and \(-Q\) separated by an insulator, with potential difference \(V\) between them. Capacitance \(C = Q/V\) (SI unit: farad, \(\mathrm{F}\)) depends purely on geometry and the intervening medium, never on \(Q\) or \(V\). For a parallel-plate capacitor of plate area \(A\) and separation \(d\) (\(d^2 \ll A\)):
+    </p>
+    <div class="formula-box">
+      \[
+        C_0 = \frac{\varepsilon_0 A}{d} \qquad\text{(vacuum/air)}, \qquad\qquad C = \frac{K \varepsilon_0 A}{d} = K C_0 \qquad\text{(fully filled with dielectric } K\text{)}
+      \]
+    </div>
+    <p>
+      If a dielectric slab of thickness \(t &lt; d\) and dielectric constant \(K\) (with area \(A\)) is inserted between the plates, the air gap has thickness \((d - t)\) with field \(E_0\) and the slab has thickness \(t\) with field \(E_0/K\). Thus \(V = E_0(d - t) + \frac{E_0}{K}t\), yielding:
+    </p>
+    <div class="formula-box">
+      \[
+        C = \frac{\varepsilon_0 A}{(d - t) + \dfrac{t}{K}}
+      \]
+    </div>
+
+    <div class="diagram-card">
+      <svg viewBox="0 0 540 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="540" height="200" fill="#F8FAFC" rx="6"/>
+        <!-- Left plate (+Q) -->
+        <rect x="115" y="30" width="14" height="140" fill="#2563EB" rx="2"/>
+        <text x="122" y="22" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">+Q</text>
+        <!-- Right plate (-Q) -->
+        <rect x="365" y="30" width="14" height="140" fill="#1E293B" rx="2"/>
+        <text x="372" y="22" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">-Q</text>
+        <!-- Dielectric slab -->
+        <rect x="185" y="32" width="125" height="136" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <text x="247" y="95" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Dielectric (K)</text>
+        <text x="247" y="114" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0F172A">E = E₀ / K</text>
+        <!-- Air gap E0 labels -->
+        <text x="157" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">E₀</text>
+        <text x="338" y="104" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">E₀</text>
+        <!-- Dimension lines -->
+        <line x1="185" y1="180" x2="310" y2="180" stroke="#0D9488" stroke-width="1.5"/>
+        <text x="247" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">t</text>
+        <line x1="129" y1="188" x2="365" y2="188" stroke="#1E293B" stroke-width="1.2"/>
+        <text x="405" y="192" font-family="sans-serif" font-size="11" fill="#1E293B">total separation d</text>
+      </svg>
+      <div class="diagram-caption">Tutorial Diagram 5: Parallel-plate capacitor of separation \(d\) partially filled with a dielectric slab of thickness \(t\) and constant \(K\).</div>
+    </div>
+
+    <h3>6.2 Effect of Inserting a Dielectric: Battery Connected vs Disconnected</h3>
+    <p>
+      This comparison is one of the most frequently tested concepts in NEET UG. Assume a parallel-plate capacitor of initial capacitance \(C_0\), charge \(Q_0\), voltage \(V_0\), field \(E_0\), and energy \(U_0\) is completely filled with a dielectric of constant \(K\):
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Quantity</th>
+          <th>Battery Disconnected (Isolated)</th>
+          <th>Battery Connected (Constant \(V_0\))</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Capacitance (\(C\))</strong></td>
+          <td>Increases: \(C = K C_0\)</td>
+          <td>Increases: \(C = K C_0\)</td>
+        </tr>
+        <tr>
+          <td><strong>Charge (\(Q\))</strong></td>
+          <td>Remains constant: \(Q = Q_0\)</td>
+          <td>Increases: \(Q = K Q_0\)</td>
+        </tr>
+        <tr>
+          <td><strong>Potential Difference (\(V\))</strong></td>
+          <td>Decreases: \(V = V_0 / K\)</td>
+          <td>Remains constant: \(V = V_0\)</td>
+        </tr>
+        <tr>
+          <td><strong>Electric Field (\(E\))</strong></td>
+          <td>Decreases: \(E = E_0 / K\)</td>
+          <td>Remains constant: \(E = V_0 / d = E_0\)</td>
+        </tr>
+        <tr>
+          <td><strong>Stored Energy (\(U\))</strong></td>
+          <td>Decreases: \(U = U_0 / K\)</td>
+          <td>Increases: \(U = K U_0\)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>6.3 Combination of Capacitors</h3>
+    <ul>
+      <li>
+        <strong>Series combination:</strong> Same charge \(Q\) on every capacitor; potential divides (\(V = V_1 + V_2 + \dots\)):
+        \[
+          \frac{1}{C_{\text{eq}}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n}
+        \]
+        For two capacitors, \(C_{\text{eq}} = \dfrac{C_1 C_2}{C_1 + C_2}\), and \(C_{\text{eq}}\) is always smaller than the smallest individual capacitor.
+      </li>
+      <li>
+        <strong>Parallel combination:</strong> Same potential difference \(V\) across every capacitor; charge divides (\(Q = Q_1 + Q_2 + \dots\)):
+        \[
+          C_{\text{eq}} = C_1 + C_2 + \dots + C_n
+        \]
+      </li>
+    </ul>
+
+    <h3>6.4 Energy Stored, Energy Density, and Charge Sharing</h3>
+    <p>
+      Work done in charging a capacitor from \(0\) to \(Q\) is stored as electrostatic energy in the electric field between its plates:
+    </p>
+    <div class="formula-box">
+      \[
+        U = \frac{1}{2}CV^2 = \frac{Q^2}{2C} = \frac{1}{2}QV \qquad\text{and}\qquad u = \frac{U}{\text{Volume}} = \frac{1}{2}\varepsilon_0 E^2 \quad (\text{in vacuum/air})
+      \]
+    </div>
+    <p>
+      When two capacitors \(C_1\) (charged to \(V_1\)) and \(C_2\) (charged to \(V_2\)) are connected in parallel (positive plate to positive plate), charge is conserved, giving a common potential \(V_c\) and an unavoidable energy loss \(\Delta U\) (dissipated as heat in the wires and electromagnetic radiation):
+    </p>
+    <div class="formula-box">
+      \[
+        V_c = \frac{C_1 V_1 + C_2 V_2}{C_1 + C_2}, \qquad \Delta U = U_i - U_f = \frac{1}{2}\frac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2
+      \]
+    </div>
+  </section>
+
+  <section id="reference-table">
+    <h2>7. Summary of Physical Quantities, Dimensions, and Units</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Physical Quantity</th>
+          <th>Symbol</th>
+          <th>Dimensions</th>
+          <th>SI Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Electrostatic Potential</td>
+          <td>\(V\)</td>
+          <td>\([\mathrm{M^1 L^2 T^{-3} A^{-1}}]\)</td>
+          <td>\(\mathrm{V}\) (\(\mathrm{J\,C^{-1}}\))</td>
+        </tr>
+        <tr>
+          <td>Capacitance</td>
+          <td>\(C\)</td>
+          <td>\([\mathrm{M^{-1} L^{-2} T^4 A^2}]\)</td>
+          <td>\(\mathrm{F}\) (\(\mathrm{C\,V^{-1}}\))</td>
+        </tr>
+        <tr>
+          <td>Polarisation</td>
+          <td>\(\mathbf{P}\)</td>
+          <td>\([\mathrm{L^{-2} A^1 T^1}]\)</td>
+          <td>\(\mathrm{C\,m^{-2}}\)</td>
+        </tr>
+        <tr>
+          <td>Dielectric Constant</td>
+          <td>\(K\)</td>
+          <td>Dimensionless</td>
+          <td>Unitless</td>
+        </tr>
+        <tr>
+          <td>Energy Density (Electric)</td>
+          <td>\(u\)</td>
+          <td>\([\mathrm{M^1 L^{-1} T^{-2}}]\)</td>
+          <td>\(\mathrm{J\,m^{-3}}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="worked-examples">
+    <h2>8. Worked Examples</h2>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 1: Zero-Potential Points on the Line Joining Two Charges</div>
+      <p>
+        <strong>Problem:</strong> Two point charges \(q_1 = +8\,\mathrm{nC}\) and \(q_2 = -2\,\mathrm{nC}\) (assumed values) are fixed on the x-axis at \(x = 0\) and \(x = 30\,\mathrm{cm}\), respectively. Find all positions on the x-axis where the net electrostatic potential is zero, assuming \(V_\infty = 0\).
+      </p>
+      <p>
+        <strong>Solution:</strong> The net potential at any point \(x\) is \(V = \dfrac{1}{4\pi\varepsilon_0}\left(\dfrac{q_1}{|x|} + \dfrac{q_2}{|x - 30|}\right)\). For \(x &lt; 0\), \(q_1\) is both larger in magnitude and closer, so \(V &gt; 0\) everywhere. Thus zero-potential points can only lie in \(0 &lt; x &lt; 30\,\mathrm{cm}\) or \(x &gt; 30\,\mathrm{cm}\):
+      </p>
+      <ul>
+        <li>
+          <strong>Case 1 (\(0 &lt; x &lt; 30\,\mathrm{cm}\)):</strong>
+          \(\dfrac{8}{x} - \dfrac{2}{30 - x} = 0 \implies 8(30 - x) = 2x \implies 240 = 10x \implies x = 24\,\mathrm{cm}\).
+        </li>
+        <li>
+          <strong>Case 2 (\(x &gt; 30\,\mathrm{cm}\)):</strong>
+          \(\dfrac{8}{x} - \dfrac{2}{x - 30} = 0 \implies 8(x - 30) = 2x \implies 6x = 240 \implies x = 40\,\mathrm{cm}\).
+        </li>
+      </ul>
+      <p><strong>Answer:</strong> \(x = 24\,\mathrm{cm}\) and \(x = 40\,\mathrm{cm}\).</p>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 2: Work Done in Rotating an Electric Dipole</div>
+      <p>
+        <strong>Problem:</strong> An electric dipole of moment \(p = 4.0 \times 10^{-8}\,\mathrm{C\cdot m}\) is placed in a uniform electric field \(E = 5.0 \times 10^4\,\mathrm{N\,C^{-1}}\) (assumed values). Calculate the external work required to slowly rotate the dipole from its stable equilibrium orientation (\(\theta_1 = 0°\)) to an angle \(\theta_2 = 120°\) with the field.
+      </p>
+      <p>
+        <strong>Solution:</strong> Using \(W_{\text{ext}} = pE(\cos\theta_1 - \cos\theta_2)\):
+      </p>
+      \[
+        W_{\text{ext}} = (4.0 \times 10^{-8})(5.0 \times 10^4)\left(\cos 0° - \cos 120°\right) = (2.0 \times 10^{-3})\left(1 - (-0.5)\right) = 3.0 \times 10^{-3}\,\mathrm{J} = 3.0\,\mathrm{mJ}
+      \]
+      <p><strong>Answer:</strong> \(3.0\,\mathrm{mJ}\).</p>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 3: Parallel-Plate Capacitor with a Partial Dielectric Slab</div>
+      <p>
+        <strong>Problem:</strong> An air-filled parallel-plate capacitor has capacitance \(C_0 = 20\,\mathrm{pF}\) and plate separation \(d = 6.0\,\mathrm{mm}\). A dielectric slab of thickness \(t = 4.0\,\mathrm{mm}\) and dielectric constant \(K = 4\) (having the same area as the plates; assumed values) is inserted between the plates. Find the new capacitance.
+      </p>
+      <p>
+        <strong>Solution:</strong> Since \(C_0 = \dfrac{\varepsilon_0 A}{d}\), we have \(\varepsilon_0 A = C_0 d\). Substituting into the partial-dielectric formula:
+      </p>
+      \[
+        C = \frac{\varepsilon_0 A}{(d - t) + t/K} = \frac{C_0 d}{(d - t) + t/K} = \frac{20\,\mathrm{pF} \times 6.0\,\mathrm{mm}}{(6.0 - 4.0)\,\mathrm{mm} + \dfrac{4.0\,\mathrm{mm}}{4}} = \frac{120}{2.0 + 1.0}\,\mathrm{pF} = 40\,\mathrm{pF}
+      \]
+      <p><strong>Answer:</strong> \(40\,\mathrm{pF}\).</p>
+    </div>
+
+    <div class="example-card">
+      <div class="example-header">Worked Example 4: Charge Sharing and Energy Loss</div>
+      <p>
+        <strong>Problem:</strong> A \(4\,\mathrm{µF}\) capacitor is charged to \(150\,\mathrm{V}\), disconnected from the battery, and then connected in parallel to an uncharged \(2\,\mathrm{µF}\) capacitor (assumed values). Calculate (a) the common potential difference and (b) the energy dissipated during redistribution.
+      </p>
+      <p>
+        <strong>Solution:</strong>
+      </p>
+      <ul>
+        <li>
+          <strong>(a) Common potential:</strong>
+          \(V_c = \dfrac{C_1 V_1 + C_2 V_2}{C_1 + C_2} = \dfrac{(4\,\mathrm{µF})(150\,\mathrm{V}) + 0}{4\,\mathrm{µF} + 2\,\mathrm{µF}} = \dfrac{600}{6} = 100\,\mathrm{V}\).
+        </li>
+        <li>
+          <strong>(b) Energy dissipated:</strong>
+          \(\Delta U = \dfrac{1}{2}\dfrac{C_1 C_2}{C_1 + C_2}(V_1 - V_2)^2 = \dfrac{1}{2}\left(\dfrac{4 \times 2}{4 + 2} \times 10^{-6}\right)(150 - 0)^2 = \dfrac{2}{3} \times 10^{-6} \times 22500 = 1.5 \times 10^{-2}\,\mathrm{J} = 15\,\mathrm{mJ}\).
+        </li>
+      </ul>
+      <p><strong>Answer:</strong> (a) \(100\,\mathrm{V}\); (b) \(15\,\mathrm{mJ}\).</p>
+    </div>
+  </section>
+
+  <section id="practice-questions">
+    <h2>9. NEET UG Practice Questions</h2>
+    <p>
+      Attempt all 10 original practice questions below. Each question is designed to match NEET UG conceptual depth, numerical style, and question formats (single-correct MCQ, Assertion–Reason, and Statement-based).
+    </p>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 1 (Single-Correct MCQ)</div>
+      <p>
+        A hollow metallic sphere of radius \(10\,\mathrm{cm}\) is given a charge such that the electrostatic potential on its surface is \(80\,\mathrm{V}\). What is the electrostatic potential at a point \(4\,\mathrm{cm}\) from the centre of the sphere?
+      </p>
+      <ul class="options-list">
+        <li>(A) \(0\,\mathrm{V}\)</li>
+        <li>(B) \(32\,\mathrm{V}\)</li>
+        <li>(C) \(80\,\mathrm{V}\)</li>
+        <li>(D) \(200\,\mathrm{V}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (C) \(80\,\mathrm{V}\)</span>
+        <p>
+          <strong>Explanation:</strong> Inside a charged spherical conducting shell, the electric field is zero (\(E = 0\)). Therefore, the electrostatic potential is constant throughout the interior and equals the potential on the surface, which is \(80\,\mathrm{V}\).
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 2 (Single-Correct MCQ)</div>
+      <p>
+        In a certain region, the electrostatic potential varies with position \(x\) (in metres) as \(V(x) = 4x^2 - 8x + 5\) volts. What is the magnitude of the electric field at \(x = 2\,\mathrm{m}\)?
+      </p>
+      <ul class="options-list">
+        <li>(A) \(4\,\mathrm{V\,m^{-1}}\)</li>
+        <li>(B) \(8\,\mathrm{V\,m^{-1}}\)</li>
+        <li>(C) \(12\,\mathrm{V\,m^{-1}}\)</li>
+        <li>(D) \(16\,\mathrm{V\,m^{-1}}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (B) \(8\,\mathrm{V\,m^{-1}}\)</span>
+        <p>
+          <strong>Explanation:</strong> Using \(E_x = -\dfrac{dV}{dx} = -(8x - 8)\). At \(x = 2\,\mathrm{m}\), \(E_x = -(16 - 8) = -8\,\mathrm{V\,m^{-1}}\). Thus, the magnitude is \(|E_x| = 8\,\mathrm{V\,m^{-1}}\).
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 3 (Single-Correct MCQ)</div>
+      <p>
+        Three point charges \(+q\), \(+q\), and \(-2q\) are placed at the three vertices of an equilateral triangle of side \(a\). What is the total electrostatic potential energy of this system?
+      </p>
+      <ul class="options-list">
+        <li>(A) \(-\dfrac{3q^2}{4\pi\varepsilon_0 a}\)</li>
+        <li>(B) \(-\dfrac{2q^2}{4\pi\varepsilon_0 a}\)</li>
+        <li>(C) \(+\dfrac{3q^2}{4\pi\varepsilon_0 a}\)</li>
+        <li>(D) \(0\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (A) \(-\dfrac{3q^2}{4\pi\varepsilon_0 a}\)</span>
+        <p>
+          <strong>Explanation:</strong> Summing over all three pairs at separation \(a\):
+          \[
+            U = \frac{1}{4\pi\varepsilon_0 a}\left[(+q)(+q) + (+q)(-2q) + (+q)(-2q)\right] = \frac{q^2}{4\pi\varepsilon_0 a}(1 - 2 - 2) = -\frac{3q^2}{4\pi\varepsilon_0 a}
+          \]
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 4 (Single-Correct MCQ)</div>
+      <p>
+        A uniform electric field of \(200\,\mathrm{N\,C^{-1}}\) is directed along the positive x-axis. What is the potential difference \(V_B - V_A\) between point \(A(1\,\mathrm{m}, 2\,\mathrm{m})\) and point \(B(4\,\mathrm{m}, 6\,\mathrm{m})\)?
+      </p>
+      <ul class="options-list">
+        <li>(A) \(-600\,\mathrm{V}\)</li>
+        <li>(B) \(+600\,\mathrm{V}\)</li>
+        <li>(C) \(-1000\,\mathrm{V}\)</li>
+        <li>(D) \(+800\,\mathrm{V}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (A) \(-600\,\mathrm{V}\)</span>
+        <p>
+          <strong>Explanation:</strong> The displacement vector is \(\Delta\mathbf{r} = (4 - 1)\hat{\mathbf{i}} + (6 - 2)\hat{\mathbf{j}} = 3\hat{\mathbf{i}} + 4\hat{\mathbf{j}}\,\mathrm{m}\). Since \(\mathbf{E} = 200\hat{\mathbf{i}}\,\mathrm{N\,C^{-1}}\),
+          \[
+            V_B - V_A = -\mathbf{E} \cdot \Delta\mathbf{r} = -(200)(3) = -600\,\mathrm{V}
+          \]
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 5 (Single-Correct MCQ)</div>
+      <p>
+        An electric dipole of dipole moment \(p\) is placed at the origin along the x-axis. At a large distance \(r\) from the origin, what is the ratio of the electrostatic potential on the axis (\(\theta = 0°\)) to the potential at a point at the same distance \(r\) making an angle \(\theta = 60°\) with the dipole axis?
+      </p>
+      <ul class="options-list">
+        <li>(A) \(1 : 2\)</li>
+        <li>(B) \(2 : 1\)</li>
+        <li>(C) \(4 : 1\)</li>
+        <li>(D) \(1 : 1\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (B) \(2 : 1\)</span>
+        <p>
+          <strong>Explanation:</strong> Since \(V(r,\theta) = \dfrac{p\cos\theta}{4\pi\varepsilon_0 r^2}\), at fixed \(r\) we have \(V \propto \cos\theta\). Thus \(\dfrac{V(0°)}{V(60°)} = \dfrac{\cos 0°}{\cos 60°} = \dfrac{1}{0.5} = 2 : 1\).
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 6 (Single-Correct MCQ)</div>
+      <p>
+        A parallel-plate air capacitor is charged by a battery to potential difference \(V_0\) and then disconnected from the battery. A dielectric slab of dielectric constant \(K = 5\) is now inserted to completely fill the space between the plates. Which of the following statements is correct?
+      </p>
+      <ul class="options-list">
+        <li>(A) Charge on the plates becomes \(5\) times, and potential difference remains \(V_0\).</li>
+        <li>(B) Charge on the plates remains unchanged, and energy stored becomes \(1/5\) of the initial value.</li>
+        <li>(C) Electric field between the plates increases by a factor of \(5\).</li>
+        <li>(D) Energy stored increases by a factor of \(5\).</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (B) Charge on the plates remains unchanged, and energy stored becomes \(1/5\) of the initial value.</span>
+        <p>
+          <strong>Explanation:</strong> Because the battery is disconnected, the charge \(Q_0\) is isolated and remains constant. Capacitance increases to \(C = 5C_0\), so \(V = V_0/5\), \(E = E_0/5\), and stored energy \(U = \dfrac{Q_0^2}{2C} = \dfrac{U_0}{5}\).
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 7 (Single-Correct MCQ)</div>
+      <p>
+        Two capacitors of capacitances \(3\,\mathrm{µF}\) and \(6\,\mathrm{µF}\) are connected in series, and this series combination is connected in parallel with a \(4\,\mathrm{µF}\) capacitor across a \(12\,\mathrm{V}\) battery. What is the charge on the \(3\,\mathrm{µF}\) capacitor?
+      </p>
+      <ul class="options-list">
+        <li>(A) \(12\,\mathrm{µC}\)</li>
+        <li>(B) \(24\,\mathrm{µC}\)</li>
+        <li>(C) \(36\,\mathrm{µC}\)</li>
+        <li>(D) \(48\,\mathrm{µC}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (B) \(24\,\mathrm{µC}\)</span>
+        <p>
+          <strong>Explanation:</strong> The equivalent capacitance of the \(3\,\mathrm{µF}\) and \(6\,\mathrm{µF}\) series branch is \(C_s = \dfrac{3 \times 6}{3 + 6} = 2\,\mathrm{µF}\). Since this branch is directly across the \(12\,\mathrm{V}\) supply, the charge flowing into the series branch is \(Q = C_s V = 2\,\mathrm{µF} \times 12\,\mathrm{V} = 24\,\mathrm{µC}\). Both capacitors in series carry the same charge \(24\,\mathrm{µC}\).
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 8 (Assertion–Reason)</div>
+      <p>
+        <strong>Assertion (A):</strong> No work is done in moving a test charge from one point to another on an equipotential surface.<br>
+        <strong>Reason (R):</strong> The electric field at every point on an equipotential surface is perpendicular to the surface.
+      </p>
+      <ul class="options-list">
+        <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+        <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+        <li>(C) (A) is true, but (R) is false.</li>
+        <li>(D) (A) is false, but (R) is true.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</span>
+        <p>
+          <strong>Explanation:</strong> Since \(\mathbf{E}\) is perpendicular to the equipotential surface, \(\mathbf{E} \cdot d\mathbf{r} = 0\) for any displacement \(d\mathbf{r}\) along the surface, which directly explains why \(dW = -q\mathbf{E}\cdot d\mathbf{r} = 0\).
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 9 (Statement-Based)</div>
+      <p>
+        Consider the following two statements regarding a solid metallic conductor in electrostatic equilibrium:<br>
+        <strong>Statement I:</strong> Any excess charge given to the conductor resides entirely on its outer surface.<br>
+        <strong>Statement II:</strong> The electrostatic potential at the centre of the conductor is zero, even if the conductor carries a net positive charge.
+      </p>
+      <ul class="options-list">
+        <li>(A) Both Statement I and Statement II are correct.</li>
+        <li>(B) Both Statement I and Statement II are incorrect.</li>
+        <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+        <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (C) Statement I is correct, but Statement II is incorrect.</span>
+        <p>
+          <strong>Explanation:</strong> Statement I is true by Gauss's law since \(\mathbf{E} = 0\) inside the conductor. Statement II is false because the potential inside a conductor is constant and equal to its surface potential (which is positive for a positively charged isolated conductor), not zero.
+        </p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <div class="q-title">Practice Question 10 (Single-Correct MCQ)</div>
+      <p>
+        The electric field between the plates of an air-filled parallel-plate capacitor is \(E = 2.0 \times 10^5\,\mathrm{V\,m^{-1}}\). If the area of each plate is \(5.0 \times 10^{-3}\,\mathrm{m^2}\) and the plate separation is \(2.0\,\mathrm{mm}\), what is the electrostatic energy stored between the plates? (Take \(\varepsilon_0 = 8.85 \times 10^{-12}\,\mathrm{C^2\,N^{-1}\,m^{-2}}\))
+      </p>
+      <ul class="options-list">
+        <li>(A) \(1.77 \times 10^{-6}\,\mathrm{J}\)</li>
+        <li>(B) \(3.54 \times 10^{-6}\,\mathrm{J}\)</li>
+        <li>(C) \(8.85 \times 10^{-7}\,\mathrm{J}\)</li>
+        <li>(D) \(7.08 \times 10^{-6}\,\mathrm{J}\)</li>
+      </ul>
+      <div class="solution-box">
+        <span class="answer-tag">Answer: (A) \(1.77 \times 10^{-6}\,\mathrm{J}\)</span>
+        <p>
+          <strong>Explanation:</strong> The volume between the plates is \(Ad = (5.0 \times 10^{-3}\,\mathrm{m^2})(2.0 \times 10^{-3}\,\mathrm{m}) = 1.0 \times 10^{-5}\,\mathrm{m^3}\). Using energy density \(u = \frac{1}{2}\varepsilon_0 E^2\):
+          \[
+            U = u \times Ad = \frac{1}{2}(8.85 \times 10^{-12})(2.0 \times 10^5)^2(1.0 \times 10^{-5}) = 0.5 \times 8.85 \times 4.0 \times 10^{-7} = 1.77 \times 10^{-6}\,\mathrm{J}
+          \]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pitfalls">
+    <h2>10. Common Pitfalls and Revision Checklist</h2>
+    <ul class="pitfall-list">
+      <li><strong>Confusing \(E = 0\) with \(V = 0\):</strong> At the midpoint of two equal positive charges or inside a charged conducting shell, \(E = 0\) but \(V \neq 0\). Conversely, on the equatorial plane of a dipole, \(V = 0\) but \(E \neq 0\).</li>
+      <li><strong>Forgetting the sign of charges in scalar formulas:</strong> Always include the algebraic sign of \(q\) when computing \(V\), \(U\), or \(W = q\Delta V\).</li>
+      <li><strong>Mixing up series and parallel capacitor formulas with resistors:</strong> Capacitors add directly in parallel (\(C_{\text{eq}} = C_1 + C_2\)) and reciprocally in series (\(\frac{1}{C_{\text{eq}}} = \frac{1}{C_1} + \frac{1}{C_2}\))—the opposite of resistors.</li>
+      <li><strong>Overlooking battery connection status during dielectric insertion:</strong> Always check first whether the battery is connected (\(V\) constant, \(Q\) changes) or disconnected (\(Q\) constant, \(V\) changes).</li>
+      <li><strong>Ignoring energy loss in charge sharing:</strong> When two capacitors at different potentials are connected, total charge is conserved, but total electrostatic energy always decreases unless \(V_1 = V_2\).</li>
+    </ul>
+  </section>
+
+  <footer class="doc-footer">
+    <strong>Concise Final Recap:</strong> Electrostatic potential \(V = W_{\text{ext}}/q\) is a conservative scalar field related to electric field by \(\mathbf{E} = -\nabla V\), pointing along the steepest drop in potential and normal to equipotential surfaces. Conductors maintain \(\mathbf{E} = 0\) and constant potential throughout their volume, shielding charge-free cavities. Capacitors store energy \(U = \frac{1}{2}CV^2 = \frac{1}{2}\varepsilon_0 E^2 (Ad)\) in the electric field; inserting a dielectric \(K\) boosts capacitance by \(K\), while series and parallel rules govern charge and voltage distribution in networks.
+  </footer>
+
+</body>
+</html>

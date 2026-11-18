@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscillations &amp; Simple Harmonic Motion — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --primary-soft: #EFF6FF;
+      --teal: #0D9488;
+      --teal-soft: #F0FDFA;
+      --amber: #B45309;
+      --amber-soft: #FFFBEB;
+      --border: #CBD5E1;
+      --surface: #F8FAFC;
+      --white: #FFFFFF;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--white);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 24px 20px 48px 20px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      line-height: 1.25;
+      margin: 6px 0 8px 0;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin: 32px 0 14px 0;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.35;
+      color: var(--ink);
+      margin: 22px 0 10px 0;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .card.teal {
+      background-color: var(--teal-soft);
+      border-left-color: var(--teal);
+    }
+
+    .card.amber {
+      background-color: var(--amber-soft);
+      border-left-color: var(--amber);
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    figure.diagram {
+      margin: 20px 0;
+      padding: 14px;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    figure.diagram svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 22px 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--primary-soft);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: var(--surface);
+    }
+
+    .example-block {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: var(--white);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-header {
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .question-block {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 20px 0;
+      background-color: var(--white);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 14px 0;
+    }
+
+    .options-list li {
+      padding: 4px 8px;
+      margin-bottom: 4px;
+      background-color: var(--surface);
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      background-color: var(--teal-soft);
+      border-left: 3px solid var(--teal);
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .answer-tag {
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    mjx-container {
+      max-width: 100%;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm 14mm 16mm 14mm;
+    }
+
+    @media print {
+      html, body {
+        font-size: 11pt;
+        line-height: 1.5;
+        background: #FFFFFF;
+        color: #000000;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .card, .example-block, .question-block, figure.diagram, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <main class="container">
+    <header class="doc-header">
+      <span class="exam-badge">NEET UG Physics &bull; Mechanics &amp; Waves Foundation</span>
+      <h1>Oscillations and Simple Harmonic Motion</h1>
+      <p class="subtitle">A complete conceptual and problem-solving guide aligned to the NEET UG examination standard.</p>
+    </header>
+
+    <section id="overview">
+      <h2>1. Learning Objectives &amp; Exam Overview</h2>
+      <p>Oscillatory motion is one of the highest-yield topics in NEET UG Physics because its mathematical framework underpins mechanical vibrations, sound waves, alternating current circuits, and electromagnetic waves. Questions in the exam frequently test graph interpretation, phase relationships, spring combinations, energy partitioning, and effective gravity in pendulums.</p>
+      <div class="card">
+        <span class="card-title">By the end of this tutorial, you will be able to:</span>
+        <ul>
+          <li>Distinguish between periodic motion, oscillatory motion, and simple harmonic motion (SHM).</li>
+          <li>Represent SHM kinematically using sinusoidal functions and the uniform circular motion (reference circle) model.</li>
+          <li>Relate displacement, velocity, and acceleration in terms of magnitude, direction, and phase difference.</li>
+          <li>Apply the linear restoring force law \(F = -kx\) to determine time periods of spring-block systems.</li>
+          <li>Analyze kinetic, potential, and total mechanical energy as functions of both time and position.</li>
+          <li>Derive and apply the time period of a simple pendulum under standard and accelerating conditions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="periodic-oscillatory">
+      <h2>2. Periodic Motion, Oscillations, and SHM</h2>
+      <p>In mechanics, motions are classified by whether they repeat over time and whether they possess a stable equilibrium point:</p>
+      <ul>
+        <li><strong>Periodic Motion:</strong> Any motion that repeats itself identically after a fixed, smallest interval of time called the <strong>time period</strong> \(T\). Examples include planetary orbits and uniform circular motion.</li>
+        <li><strong>Oscillatory (Vibratory) Motion:</strong> A special type of periodic motion in which a body moves to and fro repeatedly about a fixed <strong>equilibrium (mean) position</strong>. At the mean position, the net external force on the body is zero; displacing the body slightly activates a restoring force pulling it back toward equilibrium. Low-frequency back-and-forth motion is commonly called <em>oscillation</em>, while high-frequency motion is called <em>vibration</em>.</li>
+        <li><strong>Simple Harmonic Motion (SHM):</strong> The simplest mathematical form of oscillatory motion, occurring when the restoring force is directly proportional to the displacement from the mean position and always points toward it.</li>
+      </ul>
+
+      <div class="card teal">
+        <span class="card-title">Key Hierarchy Rule</span>
+        <p style="margin-bottom: 0;">Every simple harmonic motion is oscillatory, and every oscillatory motion is periodic. However, the reverse is not true: uniform circular motion is periodic but <em>not</em> oscillatory, and a ball bouncing elastically on the floor is oscillatory/periodic but <em>not</em> simple harmonic.</p>
+      </div>
+
+      <h3>Period, Frequency, and Angular Frequency</h3>
+      <p>The <strong>frequency</strong> \(\nu\) (or \(f\)) is the number of complete cycles executed per unit time, measured in hertz (\(1\,\mathrm{Hz} = 1\,\mathrm{s}^{-1}\)). The <strong>angular frequency</strong> \(\omega\) measures the rate of change of phase in radians per second:</p>
+      <div class="formula-box">
+        \[
+          \nu = \frac{1}{T}, \qquad \omega = 2\pi\nu = \frac{2\pi}{T}
+        \]
+      </div>
+
+      <h3>Mathematical Representation &amp; Fourier Superposition</h3>
+      <p>In general, "displacement" in oscillations can mean linear position \(x\), angular deflection \(\theta\), pressure variation in a sound wave, or alternating voltage across a capacitor. Any periodic function can be expressed as a superposition of sine and cosine functions of harmonic frequencies (Fourier's theorem).</p>
+      <p>A linear combination of a sine and a cosine of the <em>same</em> angular frequency \(\omega\) always reduces to a single SHM:</p>
+      <div class="formula-box">
+        \[
+          x(t) = A\sin\omega t + B\cos\omega t = R\sin(\omega t + \phi)
+        \]
+        \[
+          \text{where } R = \sqrt{A^2 + B^2} \quad \text{and} \quad \tan\phi = \frac{B}{A}
+        \]
+      </div>
+      <p>In contrast, a sum such as \(\sin\omega t + \cos 2\omega t + \sin 4\omega t\) is <em>periodic</em> (with period equal to the least common multiple of the individual periods, here \(2\pi/\omega\)), but it is <em>not</em> simple harmonic because it contains multiple frequencies. Functions that grow or decay monotonically, like \(e^{-\omega t}\) or \(\log(\omega t)\), are <em>non-periodic</em>.</p>
+    </section>
+
+    <section id="kinematics-reference-circle">
+      <h2>3. Kinematics of SHM &amp; The Reference Circle</h2>
+      <p>A particle oscillating along the \(x\)-axis between \(-A\) and \(+A\) executes SHM if its displacement \(x(t)\) from the origin varies sinusoidally with time:</p>
+      <div class="formula-box">
+        \[
+          x(t) = A\cos(\omega t + \phi)
+        \]
+      </div>
+      <ul>
+        <li><strong>Amplitude (\(A\)):</strong> The maximum magnitude of displacement from the mean position (taken as positive).</li>
+        <li><strong>Phase (\(\omega t + \phi\)):</strong> The time-varying argument of the cosine function that uniquely specifies both the position and direction of motion at instant \(t\).</li>
+        <li><strong>Phase Constant (\(\phi\)):</strong> The initial phase at \(t = 0\), determined by the initial position \(x(0)\) and initial velocity \(v(0)\).</li>
+      </ul>
+
+      <h3>Connection to Uniform Circular Motion</h3>
+      <p>Imagine a reference particle \(P\) moving anticlockwise at constant angular speed \(\omega\) along a circle of radius \(A\) (the <strong>reference circle</strong>). If the radius vector \(OP\) starts at angle \(\phi\) with the positive \(x\)-axis at \(t = 0\), then at time \(t\) it makes an angle \((\omega t + \phi)\). The perpendicular projection \(P'\) of \(P\) onto the \(x\)-diameter has coordinate \(x(t) = A\cos(\omega t + \phi)\), executing exact SHM. Similarly, its projection on the \(y\)-diameter executes SHM given by \(y(t) = A\sin(\omega t + \phi)\), which differs in phase by \(\pi/2\).</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 460 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reference circle showing uniform circular motion projected onto the x-axis as simple harmonic motion">
+          <rect x="0" y="0" width="460" height="240" fill="#FFFFFF"/>
+          <!-- Axes -->
+          <line x1="30" y1="120" x2="250" y2="120" stroke="#475569" stroke-width="1.5"/>
+          <polygon points="250,120 242,116 242,124" fill="#475569"/>
+          <line x1="140" y1="220" x2="140" y2="20" stroke="#475569" stroke-width="1.5"/>
+          <polygon points="140,20 136,28 144,28" fill="#475569"/>
+          <!-- Reference circle -->
+          <circle cx="140" cy="120" r="80" fill="none" stroke="#2563EB" stroke-width="2"/>
+          <!-- Angle arc -->
+          <path d="M 168 120 A 28 28 0 0 0 161.4 102" fill="none" stroke="#0D9488" stroke-width="1.8"/>
+          <!-- Radius vector OP -->
+          <line x1="140" y1="120" x2="201.3" y2="68.6" stroke="#1E293B" stroke-width="2.2"/>
+          <circle cx="201.3" cy="68.6" r="5" fill="#2563EB"/>
+          <!-- Projection line and P' -->
+          <line x1="201.3" y1="68.6" x2="201.3" y2="120" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <circle cx="201.3" cy="120" r="5" fill="#0D9488"/>
+          <!-- Rotation sense arrow -->
+          <path d="M 185 43 A 90 90 0 0 0 155 31" fill="none" stroke="#2563EB" stroke-width="1.6"/>
+          <polygon points="155,31 163,28 161,36" fill="#2563EB"/>
+          <!-- Labels -->
+          <text x="254" y="124" font-family="sans-serif" font-size="13" fill="#1E293B">x</text>
+          <text x="145" y="25" font-family="sans-serif" font-size="13" fill="#1E293B">y</text>
+          <text x="125" y="135" font-family="sans-serif" font-size="13" fill="#1E293B">O</text>
+          <text x="208" y="65" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">P</text>
+          <text x="198" y="138" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">P'</text>
+          <text x="163" y="88" font-family="sans-serif" font-size="12" fill="#1E293B">A</text>
+          <text x="172" y="112" font-family="sans-serif" font-size="11" fill="#0D9488">ωt + φ</text>
+          <text x="172" y="28" font-family="sans-serif" font-size="12" fill="#2563EB">ω</text>
+          <text x="223" y="135" font-family="sans-serif" font-size="11" fill="#475569">+A</text>
+          <text x="45" y="135" font-family="sans-serif" font-size="11" fill="#475569">-A</text>
+          <!-- Summary box on right -->
+          <rect x="275" y="45" width="170" height="145" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+          <text x="288" y="70" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Projection Summary</text>
+          <text x="288" y="95" font-family="sans-serif" font-size="12" fill="#0D9488">x(t) = A cos(ωt + φ)</text>
+          <text x="288" y="118" font-family="sans-serif" font-size="12" fill="#1E293B">Radius = Amplitude A</text>
+          <text x="288" y="140" font-family="sans-serif" font-size="12" fill="#1E293B">Angular speed = ω</text>
+          <text x="288" y="162" font-family="sans-serif" font-size="12" fill="#1E293B">x-projection oscillates</text>
+          <text x="288" y="177" font-family="sans-serif" font-size="12" fill="#1E293B">between -A and +A</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 1:</strong> A reference particle P moving uniformly on a circle of radius A projects onto the x-axis at P', executing simple harmonic motion.</figcaption>
+      </figure>
+
+      <h3>Velocity and Acceleration in SHM</h3>
+      <p>Differentiating \(x(t) = A\cos(\omega t + \phi)\) with respect to time (or projecting the tangential velocity \(\omega A\) and centripetal acceleration \(\omega^2 A\) of the reference particle onto the \(x\)-axis) gives:</p>
+      <div class="formula-box">
+        \[
+          v(t) = \frac{\mathrm{d}x}{\mathrm{d}t} = -\omega A\sin(\omega t + \phi) = \pm\,\omega\sqrt{A^2 - x^2}
+        \]
+        \[
+          a(t) = \frac{\mathrm{d}v}{\mathrm{d}t} = -\omega^2 A\cos(\omega t + \phi) = -\omega^2 x(t)
+        \]
+      </div>
+      <p>Notice the critical phase relationships and extreme values:</p>
+      <ul>
+        <li><strong>Mean Position (\(x = 0\)):</strong> Speed is maximum (\(v_{\max} = \omega A\)) and acceleration is zero.</li>
+        <li><strong>Extreme Positions (\(x = \pm A\)):</strong> Velocity is instantaneously zero and acceleration magnitude is maximum (\(a_{\max} = \omega^2 A\)), directed back toward the origin.</li>
+        <li><strong>Phase Differences:</strong> Velocity leads displacement by \(\pi/2\) radians (\(90^\circ\)), and acceleration leads displacement by \(\pi\) radians (\(180^\circ\)), meaning acceleration is always opposite in sign to displacement.</li>
+      </ul>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 460 285" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graphs of displacement, velocity, and acceleration versus time for simple harmonic motion">
+          <rect x="0" y="0" width="460" height="285" fill="#FFFFFF"/>
+          <!-- Vertical guide lines at 0, T/4, T/2, 3T/4, T -->
+          <!-- x0=80, T=320 => T/4=80px: 80, 160, 240, 320, 400 -->
+          <line x1="160" y1="20" x2="160" y2="255" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="240" y1="20" x2="240" y2="255" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="320" y1="20" x2="320" y2="255" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="400" y1="20" x2="400" y2="255" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Plot 1: x(t) = A cos(wt), center y=52, amp=26 -->
+          <line x1="80" y1="20" x2="80" y2="85" stroke="#475569" stroke-width="1.3"/>
+          <line x1="75" y1="52" x2="420" y2="52" stroke="#475569" stroke-width="1.3"/>
+          <path d="M 80 26 C 110 26, 135 52, 160 52 C 185 52, 210 78, 240 78 C 270 78, 295 52, 320 52 C 345 52, 370 26, 400 26" fill="none" stroke="#2563EB" stroke-width="2.4"/>
+          <text x="14" y="55" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">x(t)</text>
+          <text x="54" y="30" font-family="sans-serif" font-size="11" fill="#475569">+A</text>
+          <text x="56" y="81" font-family="sans-serif" font-size="11" fill="#475569">-A</text>
+          <text x="424" y="56" font-family="sans-serif" font-size="11" fill="#475569">t</text>
+
+          <!-- Plot 2: v(t) = -wA sin(wt), center y=137, amp=26 -->
+          <line x1="80" y1="105" x2="80" y2="170" stroke="#475569" stroke-width="1.3"/>
+          <line x1="75" y1="137" x2="420" y2="137" stroke="#475569" stroke-width="1.3"/>
+          <path d="M 80 137 C 105 137, 130 163, 160 163 C 190 163, 215 137, 240 137 C 265 137, 290 111, 320 111 C 350 111, 375 137, 400 137" fill="none" stroke="#0D9488" stroke-width="2.4"/>
+          <text x="14" y="140" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">v(t)</text>
+          <text x="47" y="115" font-family="sans-serif" font-size="11" fill="#475569">+ωA</text>
+          <text x="49" y="166" font-family="sans-serif" font-size="11" fill="#475569">-ωA</text>
+          <text x="424" y="141" font-family="sans-serif" font-size="11" fill="#475569">t</text>
+
+          <!-- Plot 3: a(t) = -w^2 A cos(wt), center y=222, amp=26 -->
+          <line x1="80" y1="190" x2="80" y2="255" stroke="#475569" stroke-width="1.3"/>
+          <line x1="75" y1="222" x2="420" y2="222" stroke="#475569" stroke-width="1.3"/>
+          <path d="M 80 248 C 110 248, 135 222, 160 222 C 185 222, 210 196, 240 196 C 270 196, 295 222, 320 222 C 345 222, 370 248, 400 248" fill="none" stroke="#1E293B" stroke-width="2.4"/>
+          <text x="14" y="225" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">a(t)</text>
+          <text x="43" y="200" font-family="sans-serif" font-size="11" fill="#475569">+ω²A</text>
+          <text x="45" y="251" font-family="sans-serif" font-size="11" fill="#475569">-ω²A</text>
+          <text x="424" y="226" font-family="sans-serif" font-size="11" fill="#475569">t</text>
+
+          <!-- Time axis ticks at bottom -->
+          <text x="76" y="273" font-family="sans-serif" font-size="11" fill="#1E293B">0</text>
+          <text x="151" y="273" font-family="sans-serif" font-size="11" fill="#1E293B">T/4</text>
+          <text x="231" y="273" font-family="sans-serif" font-size="11" fill="#1E293B">T/2</text>
+          <text x="308" y="273" font-family="sans-serif" font-size="11" fill="#1E293B">3T/4</text>
+          <text x="396" y="273" font-family="sans-serif" font-size="11" fill="#1E293B">T</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 2:</strong> Time variation of displacement, velocity, and acceleration for φ = 0. Velocity leads displacement by π/2, while acceleration is π out of phase with displacement.</figcaption>
+      </figure>
+    </section>
+
+    <section id="force-law">
+      <h2>4. Force Law and Spring-Mass Oscillators</h2>
+      <p>Applying Newton's second law \(F = ma\) to the acceleration relation \(a = -\omega^2 x\) yields the defining force law for a linear harmonic oscillator:</p>
+      <div class="formula-box">
+        \[
+          F(x) = -kx, \qquad \text{where } k = m\omega^2
+        \]
+        \[
+          \omega = \sqrt{\frac{k}{m}}, \qquad T = 2\pi\sqrt{\frac{m}{k}}
+        \]
+      </div>
+      <p>Here \(k\) is the <strong>force constant</strong> (or spring constant, in \(\mathrm{N\,m^{-1}}\)). Notice that the time period \(T\) depends only on inertia (\(m\)) and stiffness (\(k\)); it is completely independent of amplitude \(A\), total energy, or phase constant \(\phi\).</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 440 160" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horizontal spring-block oscillator displaced from equilibrium showing restoring force">
+          <rect x="0" y="0" width="440" height="160" fill="#FFFFFF"/>
+          <!-- Wall and floor -->
+          <rect x="30" y="20" width="12" height="105" fill="#CBD5E1" stroke="#475569" stroke-width="1.5"/>
+          <line x1="42" y1="125" x2="410" y2="125" stroke="#475569" stroke-width="2"/>
+          <!-- Equilibrium dashed block -->
+          <rect x="175" y="75" width="50" height="50" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <line x1="200" y1="125" x2="200" y2="145" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="186" y="154" font-family="sans-serif" font-size="11" fill="#475569">x = 0</text>
+          <!-- Spring (stretched to x=255) -->
+          <polyline points="42,100 62,100 72,88 88,112 104,88 120,112 136,88 152,112 168,88 184,112 200,88 216,112 232,100 255,100" fill="none" stroke="#1E293B" stroke-width="2"/>
+          <!-- Displaced block -->
+          <rect x="255" y="75" width="50" height="50" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+          <text x="274" y="104" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">m</text>
+          <line x1="280" y1="125" x2="280" y2="145" stroke="#2563EB" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="272" y="154" font-family="sans-serif" font-size="11" fill="#2563EB">+x</text>
+          <!-- Displacement arrow -->
+          <line x1="200" y1="55" x2="276" y2="55" stroke="#2563EB" stroke-width="1.8"/>
+          <polygon points="280,55 272,51 272,59" fill="#2563EB"/>
+          <text x="234" y="48" font-family="sans-serif" font-size="12" fill="#2563EB">x</text>
+          <!-- Restoring force arrow -->
+          <line x1="305" y1="100" x2="365" y2="100" stroke="#FFFFFF" stroke-width="1"/>
+          <line x1="252" y1="66" x2="195" y2="66" stroke="#0D9488" stroke-width="2"/>
+          <polygon points="191,66 199,62 199,70" fill="#0D9488"/>
+          <text x="192" y="42" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">F = -kx</text>
+          <text x="115" y="74" font-family="sans-serif" font-size="12" fill="#1E293B">k</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 3:</strong> Displacing a mass m by +x from equilibrium produces a restoring spring force F = -kx directed back toward x = 0.</figcaption>
+      </figure>
+
+      <h3>Common Spring Configurations for NEET UG</h3>
+      <ul>
+        <li><strong>Parallel Combination (or block between two walls):</strong> When a mass \(m\) is connected to two springs \(k_1\) and \(k_2\) such that a displacement \(x\) elongates one by \(x\) and compresses (or elongates) the other by \(x\), both forces act in the same restoring direction: \(k_{\text{eff}} = k_1 + k_2\), giving \(T = 2\pi\sqrt{\frac{m}{k_1 + k_2}}\).</li>
+        <li><strong>Series Combination:</strong> For two springs connected end-to-end, \(\frac{1}{k_{\text{eff}}} = \frac{1}{k_1} + \frac{1}{k_2}\), giving \(k_{\text{eff}} = \frac{k_1 k_2}{k_1 + k_2}\).</li>
+        <li><strong>Two Masses on a Single Spring:</strong> If two equal masses \(m\) are attached to either end of a spring of constant \(k\) on a smooth horizontal surface, the center of mass stays fixed at the midpoint. Each half-spring has stiffness \(2k\), so the oscillation period is \(T = 2\pi\sqrt{\frac{m}{2k}}\) (equivalently using reduced mass \(\mu = \frac{m}{2}\) in \(T = 2\pi\sqrt{\frac{\mu}{k}}\)).</li>
+      </ul>
+    </section>
+
+    <section id="energy-shm">
+      <h2>5. Energy Conservation in SHM</h2>
+      <p>Since the linear restoring force \(F = -kx\) is conservative, the total mechanical energy \(E\) of an undamped harmonic oscillator remains constant at all times, continuously transforming between kinetic energy \(K\) and elastic potential energy \(U\):</p>
+      <div class="formula-box">
+        \[
+          K = \frac{1}{2}mv^2 = \frac{1}{2}k(A^2 - x^2) = \frac{1}{2}kA^2\sin^2(\omega t + \phi)
+        \]
+        \[
+          U = \frac{1}{2}kx^2 = \frac{1}{2}kA^2\cos^2(\omega t + \phi)
+        \]
+        \[
+          E = K + U = \frac{1}{2}kA^2 = \frac{1}{2}m\omega^2 A^2
+        \]
+      </div>
+      <p>Notice that because \(\sin^2(\omega t + \phi) = \frac{1}{2}[1 - \cos 2(\omega t + \phi)]\), both \(K\) and \(U\) oscillate with angular frequency \(2\omega\), meaning their time period is \(T/2\) (they peak twice during every full oscillation of the particle). At \(x = 0\), energy is 100% kinetic; at \(x = \pm A\), energy is 100% potential; and at \(x = \pm A/\sqrt{2}\), \(K = U = E/2\).</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 420 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parabolic curves of kinetic energy, potential energy, and constant total energy versus displacement">
+          <rect x="0" y="0" width="420" height="220" fill="#FFFFFF"/>
+          <!-- Axes -->
+          <line x1="40" y1="185" x2="390" y2="185" stroke="#475569" stroke-width="1.5"/>
+          <polygon points="390,185 382,181 382,189" fill="#475569"/>
+          <line x1="210" y1="195" x2="210" y2="25" stroke="#475569" stroke-width="1.5"/>
+          <polygon points="210,25 206,33 214,33" fill="#475569"/>
+          <!-- Total Energy E line (y=55, from x=110 to x=310) -->
+          <line x1="100" y1="55" x2="320" y2="55" stroke="#1E293B" stroke-width="2.2"/>
+          <!-- U(x) upward parabola: vertex (210, 185), ends (110, 55) and (310, 55) -->
+          <path d="M 110 55 Q 210 315 310 55" fill="none" stroke="#2563EB" stroke-width="2.4"/>
+          <!-- K(x) downward parabola: vertex (210, 55), ends (110, 185) and (310, 185) -->
+          <path d="M 110 185 Q 210 -75 310 185" fill="none" stroke="#0D9488" stroke-width="2.4"/>
+          <!-- Dashed guides at -A and +A -->
+          <line x1="110" y1="55" x2="110" y2="185" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <line x1="310" y1="55" x2="310" y2="185" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <!-- Labels -->
+          <text x="195" y="18" font-family="sans-serif" font-size="12" fill="#1E293B">Energy</text>
+          <text x="394" y="189" font-family="sans-serif" font-size="12" fill="#1E293B">x</text>
+          <text x="103" y="202" font-family="sans-serif" font-size="12" fill="#1E293B">-A</text>
+          <text x="206" y="202" font-family="sans-serif" font-size="12" fill="#1E293B">0</text>
+          <text x="303" y="202" font-family="sans-serif" font-size="12" fill="#1E293B">+A</text>
+          <text x="220" y="47" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">E = K + U (constant)</text>
+          <text x="318" y="88" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">U(x)</text>
+          <text x="318" y="168" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">K(x)</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 4:</strong> Potential energy U(x) and kinetic energy K(x) vary parabolically with displacement x, while their sum E remains constant.</figcaption>
+      </figure>
+    </section>
+
+    <section id="simple-pendulum">
+      <h2>6. The Simple Pendulum &amp; Physical Oscillators</h2>
+      <p>An ideal simple pendulum consists of a point mass (bob) \(m\) suspended from a rigid support by a massless, inextensible string of length \(L\). When displaced by an angle \(\theta\) from the vertical, the gravitational force \(mg\) resolves into two components:</p>
+      <ul>
+        <li><strong>Radial component (\(mg\cos\theta\)):</strong> Balances with tension \(T\) to provide the centripetal acceleration along the circular arc; it produces zero torque about the pivot.</li>
+        <li><strong>Tangential component (\(mg\sin\theta\)):</strong> Acts toward the mean position, producing a restoring torque \(\tau = -mgL\sin\theta\).</li>
+      </ul>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 360 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Free-body diagram of a simple pendulum showing tension and resolved weight components">
+          <rect x="0" y="0" width="360" height="230" fill="#FFFFFF"/>
+          <!-- Rigid support -->
+          <line x1="90" y1="25" x2="270" y2="25" stroke="#1E293B" stroke-width="2.5"/>
+          <line x1="100" y1="25" x2="108" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="120" y1="25" x2="128" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="140" y1="25" x2="148" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="160" y1="25" x2="168" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="180" y1="25" x2="188" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="200" y1="25" x2="208" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="220" y1="25" x2="228" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <line x1="240" y1="25" x2="248" y2="15" stroke="#475569" stroke-width="1.2"/>
+          <!-- Vertical dashed line -->
+          <line x1="180" y1="25" x2="180" y2="195" stroke="#94A3B8" stroke-width="1.4" stroke-dasharray="4,3"/>
+          <!-- Pivot -->
+          <circle cx="180" cy="25" r="3.5" fill="#1E293B"/>
+          <!-- String at ~24 deg: (180,25) to (237, 153), length ~140 -->
+          <line x1="180" y1="25" x2="237" y2="153" stroke="#1E293B" stroke-width="2"/>
+          <!-- Angle arc -->
+          <path d="M 180 65 A 40 40 0 0 0 196.3 61.5" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="188" y="78" font-family="sans-serif" font-size="12" fill="#2563EB">θ</text>
+          <!-- Tension T vector along string upward -->
+          <line x1="237" y1="153" x2="215" y2="104" stroke="#0D9488" stroke-width="2.2"/>
+          <polygon points="213,99 213,108 220,104" fill="#0D9488"/>
+          <text x="200" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">T</text>
+          <!-- mg downward -->
+          <line x1="237" y1="153" x2="237" y2="213" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="237,218 233,210 241,210" fill="#1E293B"/>
+          <text x="231" y="227" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">mg</text>
+          <!-- mg cos theta along string extension -->
+          <line x1="237" y1="153" x2="259" y2="203" stroke="#2563EB" stroke-width="1.8"/>
+          <polygon points="261,208 254,202 261,199" fill="#2563EB"/>
+          <text x="264" y="205" font-family="sans-serif" font-size="11" fill="#2563EB">mg cos θ</text>
+          <!-- mg sin theta tangential -->
+          <line x1="237" y1="153" x2="188" y2="175" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="183,177 192,177 189,170" fill="#2563EB"/>
+          <text x="132" y="183" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">mg sin θ</text>
+          <!-- Bob -->
+          <circle cx="237" cy="153" r="7" fill="#2563EB" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="248" y="152" font-family="sans-serif" font-size="12" fill="#1E293B">m</text>
+          <text x="213" y="88" font-family="sans-serif" font-size="12" fill="#1E293B">L</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 5:</strong> Force resolution on a pendulum bob. The tangential component mg sin θ provides the restoring torque about the pivot.</figcaption>
+      </figure>
+
+      <p>Using \(\tau = I\alpha\) with moment of inertia \(I = mL^2\), we get \(\alpha = -\frac{g}{L}\sin\theta\). For small angular displacements (up to about \(20^\circ\), where \(\sin\theta \approx \theta\) in radians to within 2%), this becomes \(\alpha = -\left(\frac{g}{L}\right)\theta\), which is angular SHM with:</p>
+      <div class="formula-box">
+        \[
+          \omega = \sqrt{\frac{g}{L}}, \qquad T = 2\pi\sqrt{\frac{L}{g}}
+        \]
+      </div>
+      <ul>
+        <li><strong>Seconds Pendulum:</strong> A pendulum with time period \(T = 2\,\mathrm{s}\) (1 second per half-swing). On Earth (\(g \approx 9.8\,\mathrm{m\,s^{-2}}\)), its length is \(L = \frac{gT^2}{4\pi^2} \approx 1\,\mathrm{m}\).</li>
+        <li><strong>Accelerating Frames:</strong> If the pivot accelerates with acceleration \(\vec{a}_0\), replace \(g\) by the magnitude of effective gravity \(g_{\text{eff}} = |\vec{g} - \vec{a}_0|\). For example, in a car turning on a horizontal circle of radius \(R\) at speed \(v\), \(g_{\text{eff}} = \sqrt{g^2 + (v^2/R)^2}\).</li>
+      </ul>
+    </section>
+
+    <section id="formula-summary">
+      <h2>7. Quick-Reference Formula &amp; Dimension Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Physical Quantity</th>
+            <th>Key Relation / Formula</th>
+            <th>SI Unit &amp; Dimensions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Time Period &amp; Frequency</td>
+            <td>\(T = \frac{1}{\nu} = \frac{2\pi}{\omega}\)</td>
+            <td>\(T\): \(\mathrm{s}\), \([\mathrm{T}]\) &bull; \(\nu\): \(\mathrm{Hz}\), \([\mathrm{T}^{-1}]\)</td>
+          </tr>
+          <tr>
+            <td>Displacement in SHM</td>
+            <td>\(x(t) = A\cos(\omega t + \phi)\)</td>
+            <td>\(\mathrm{m}\), \([\mathrm{L}]\)</td>
+          </tr>
+          <tr>
+            <td>Velocity in SHM</td>
+            <td>\(v = -\omega A\sin(\omega t + \phi) = \pm\,\omega\sqrt{A^2 - x^2}\)</td>
+            <td>\(\mathrm{m\,s^{-1}}\), \([\mathrm{L\,T^{-1}}]\)</td>
+          </tr>
+          <tr>
+            <td>Acceleration in SHM</td>
+            <td>\(a = -\omega^2 A\cos(\omega t + \phi) = -\omega^2 x\)</td>
+            <td>\(\mathrm{m\,s^{-2}}\), \([\mathrm{L\,T^{-2}}]\)</td>
+          </tr>
+          <tr>
+            <td>Spring-Mass Period</td>
+            <td>\(T = 2\pi\sqrt{\frac{m}{k}}\), where \(k = m\omega^2\)</td>
+            <td>\(k\): \(\mathrm{N\,m^{-1}}\), \([\mathrm{M\,T^{-2}}]\)</td>
+          </tr>
+          <tr>
+            <td>Mechanical Energy</td>
+            <td>\(K = \frac{1}{2}k(A^2 - x^2)\), \(U = \frac{1}{2}kx^2\), \(E = \frac{1}{2}kA^2\)</td>
+            <td>\(\mathrm{J}\), \([\mathrm{M\,L^2\,T^{-2}}]\)</td>
+          </tr>
+          <tr>
+            <td>Simple Pendulum Period</td>
+            <td>\(T = 2\pi\sqrt{\frac{L}{g_{\text{eff}}}}\) (small \(\theta\))</td>
+            <td>\(\mathrm{s}\), \([\mathrm{T}]\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="worked-examples">
+      <h2>8. Worked Examples</h2>
+
+      <div class="example-block">
+        <div class="example-header">Worked Example 1: Identifying SHM &amp; Period from a Function</div>
+        <p><strong>Problem:</strong> Suppose a particle's position (in assumed SI units) is given by \(x(t) = 3\sin(4\pi t) + 4\cos(4\pi t)\). Determine whether the motion is simple harmonic, and find its amplitude and time period.</p>
+        <p><strong>Solution:</strong> Both terms share the same angular frequency \(\omega = 4\pi\,\mathrm{rad\,s^{-1}}\). Writing the linear combination in single-sine form \(R\sin(\omega t + \phi)\):</p>
+        <p>\[ R = \sqrt{3^2 + 4^2} = 5\,\mathrm{m}, \qquad \tan\phi = \frac{4}{3} \]</p>
+        <p>Since \(x(t) = 5\sin(4\pi t + \phi)\), the motion is <strong>simple harmonic</strong> with amplitude \(A = 5\,\mathrm{m}\) and time period:</p>
+        <p>\[ T = \frac{2\pi}{\omega} = \frac{2\pi}{4\pi} = 0.5\,\mathrm{s} \]</p>
+      </div>
+
+      <div class="example-block">
+        <div class="example-header">Worked Example 2: Finding Amplitude and Phase from Initial Conditions</div>
+        <p><strong>Problem:</strong> (Assumed values) A particle executes SHM along the \(x\)-axis according to \(x(t) = A\cos(\omega t + \phi)\) with angular frequency \(\omega = 2\,\mathrm{rad\,s^{-1}}\). At \(t = 0\), its position is \(x(0) = 2\,\mathrm{cm}\) and its velocity is \(v(0) = -4\sqrt{3}\,\mathrm{cm\,s^{-1}}\). Calculate the amplitude \(A\) and initial phase \(\phi\).</p>
+        <p><strong>Solution:</strong> At \(t = 0\):</p>
+        <p>\[ x(0) = A\cos\phi = 2\,\mathrm{cm} \]</p>
+        <p>\[ v(0) = -\omega A\sin\phi = -2A\sin\phi = -4\sqrt{3}\,\mathrm{cm\,s^{-1}} \implies A\sin\phi = 2\sqrt{3}\,\mathrm{cm} \]</p>
+        <p>Squaring and adding both equations gives:</p>
+        <p>\[ A^2(\cos^2\phi + \sin^2\phi) = 2^2 + (2\sqrt{3})^2 = 4 + 12 = 16 \implies A = 4\,\mathrm{cm} \]</p>
+        <p>Dividing the two relations gives \(\tan\phi = \frac{2\sqrt{3}}{2} = \sqrt{3}\). Since both \(\cos\phi > 0\) and \(\sin\phi > 0\), \(\phi\) lies in the first quadrant, so \(\phi = \frac{\pi}{3}\,\mathrm{rad}\) (\(60^\circ\)).</p>
+      </div>
+
+      <div class="example-block">
+        <div class="example-header">Worked Example 3: Energy Partition in a Spring Oscillator</div>
+        <p><strong>Problem:</strong> (Assumed values) A \(2\,\mathrm{kg}\) block attached to a horizontal spring of stiffness \(k = 200\,\mathrm{N\,m^{-1}}\) oscillates with amplitude \(A = 12\,\mathrm{cm}\) on a frictionless table. Find the kinetic energy and potential energy when the block is \(6\,\mathrm{cm}\) from the equilibrium position.</p>
+        <p><strong>Solution:</strong> Convert distances to metres: \(A = 0.12\,\mathrm{m}\) and \(x = 0.06\,\mathrm{m} = A/2\).</p>
+        <p>Total mechanical energy:</p>
+        <p>\[ E = \frac{1}{2}kA^2 = \frac{1}{2}(200)(0.12)^2 = 1.44\,\mathrm{J} \]</p>
+        <p>Potential energy at \(x = A/2\):</p>
+        <p>\[ U = \frac{1}{2}kx^2 = \frac{1}{2}k\left(\frac{A}{2}\right)^2 = \frac{E}{4} = \frac{1.44}{4} = 0.36\,\mathrm{J} \]</p>
+        <p>Kinetic energy by conservation of energy:</p>
+        <p>\[ K = E - U = 1.44 - 0.36 = 1.08\,\mathrm{J} \]</p>
+      </div>
+
+      <div class="example-block">
+        <div class="example-header">Worked Example 4: Pendulum in an Accelerating Elevator</div>
+        <p><strong>Problem:</strong> (Assumed values) A simple pendulum has a time period of \(2.0\,\mathrm{s}\) when an elevator is stationary (\(g = 10\,\mathrm{m\,s^{-2}}\)). What is its time period when the elevator accelerates upward at \(2.5\,\mathrm{m\,s^{-2}}\)?</p>
+        <p><strong>Solution:</strong> In an upward-accelerating frame, \(g_{\text{eff}} = g + a_0 = 10 + 2.5 = 12.5\,\mathrm{m\,s^{-2}}\). Since \(T \propto \frac{1}{\sqrt{g_{\text{eff}}}}\):</p>
+        <p>\[ \frac{T'}{T} = \sqrt{\frac{g}{g_{\text{eff}}}} = \sqrt{\frac{10}{12.5}} = \sqrt{0.8} = \frac{2}{\sqrt{5}} \approx 0.894 \]</p>
+        <p>\[ T' = 2.0 \times 0.894 \approx 1.79\,\mathrm{s} \]</p>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>9. NEET UG Practice Questions</h2>
+      <p><em>Note: All items below are original practice questions designed for NEET UG preparation.</em></p>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>Which of the following functions of time represents a periodic motion that is <strong>not</strong> simple harmonic?</p>
+        <ul class="options-list">
+          <li>(A) \(\sin\omega t - \cos\omega t\)</li>
+          <li>(B) \(\sin^2\omega t\)</li>
+          <li>(C) \(\cos\omega t + \cos 3\omega t\)</li>
+          <li>(D) \(e^{-\omega^2 t^2}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (C)</span>
+          <p><strong>Explanation:</strong> Option (A) equals \(\sqrt{2}\sin(\omega t - \pi/4)\), which is a single-frequency SHM. Option (B) equals \(\frac{1}{2} - \frac{1}{2}\cos 2\omega t\), which is SHM about \(x = 1/2\) with angular frequency \(2\omega\). Option (D) decays monotonically to zero and is non-periodic. Option (C) is a sum of two different frequencies (\(\omega\) and \(3\omega\)), so it repeats every \(2\pi/\omega\) (periodic) but is not a single-frequency SHM.</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>A particle executes SHM with amplitude \(A\) and angular frequency \(\omega\). At what displacement from the mean position is its kinetic energy equal to three times its potential energy?</p>
+        <ul class="options-list">
+          <li>(A) \(\pm\frac{A}{4}\)</li>
+          <li>(B) \(\pm\frac{A}{2}\)</li>
+          <li>(C) \(\pm\frac{A}{\sqrt{2}}\)</li>
+          <li>(D) \(\pm\frac{\sqrt{3}A}{2}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (B)</span>
+          <p><strong>Explanation:</strong> Given \(K = 3U\), and \(K + U = E = \frac{1}{2}kA^2\). Substituting \(K = 3U\) gives \(4U = \frac{1}{2}kA^2\). Since \(U = \frac{1}{2}kx^2\), we have \(4\left(\frac{1}{2}kx^2\right) = \frac{1}{2}kA^2 \implies x^2 = \frac{A^2}{4} \implies x = \pm\frac{A}{2}\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>A particle moves uniformly in a circle of radius \(4\,\mathrm{cm}\) in the clockwise direction with a time period of \(8\,\mathrm{s}\). At \(t = 0\), its radius vector points along the positive \(y\)-axis. The \(x\)-projection of its motion is given (in \(\mathrm{cm}\)) by:</p>
+        <ul class="options-list">
+          <li>(A) \(x(t) = 4\sin\left(\frac{\pi t}{4}\right)\)</li>
+          <li>(B) \(x(t) = -4\sin\left(\frac{\pi t}{4}\right)\)</li>
+          <li>(C) \(x(t) = 4\cos\left(\frac{\pi t}{4}\right)\)</li>
+          <li>(D) \(x(t) = 4\cos\left(\frac{\pi t}{4} + \frac{\pi}{2}\right)\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> Angular speed \(\omega = \frac{2\pi}{T} = \frac{2\pi}{8} = \frac{\pi}{4}\,\mathrm{rad\,s^{-1}}\). At \(t = 0\), the particle is at angle \(\frac{\pi}{2}\) from the \(+x\)-axis. Moving clockwise, its angle at time \(t\) is \(\left(\frac{\pi}{2} - \omega t\right)\). Thus, \(x(t) = A\cos\left(\frac{\pi}{2} - \frac{\pi t}{4}\right) = 4\sin\left(\frac{\pi t}{4}\right)\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 4 (Single-Correct MCQ)</div>
+        <p>In simple harmonic motion, what is the phase difference between the velocity of the particle and its acceleration?</p>
+        <ul class="options-list">
+          <li>(A) \(0\,\mathrm{rad}\)</li>
+          <li>(B) \(\frac{\pi}{4}\,\mathrm{rad}\)</li>
+          <li>(C) \(\frac{\pi}{2}\,\mathrm{rad}\)</li>
+          <li>(D) \(\pi\,\mathrm{rad}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (C)</span>
+          <p><strong>Explanation:</strong> For \(x = A\cos(\omega t + \phi)\), velocity is \(v = -\omega A\sin(\omega t + \phi) = \omega A\cos(\omega t + \phi + \pi/2)\) and acceleration is \(a = -\omega^2 A\cos(\omega t + \phi) = \omega^2 A\cos(\omega t + \phi + \pi)\). Hence acceleration leads velocity by \(\pi - \pi/2 = \pi/2\,\mathrm{rad}\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 5 (Single-Correct MCQ)</div>
+        <p>A block of mass \(m\) is held between two fixed rigid walls by two identical springs, each of spring constant \(k\), placed on opposite sides of the block on a smooth horizontal surface. What is the angular frequency of small horizontal oscillations of the block?</p>
+        <ul class="options-list">
+          <li>(A) \(\sqrt{\frac{k}{2m}}\)</li>
+          <li>(B) \(\sqrt{\frac{k}{m}}\)</li>
+          <li>(C) \(\sqrt{\frac{2k}{m}}\)</li>
+          <li>(D) \(2\sqrt{\frac{k}{m}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (C)</span>
+          <p><strong>Explanation:</strong> Displacing the block by \(x\) to the right stretches the left spring by \(x\) (pulling left with force \(kx\)) and compresses the right spring by \(x\) (pushing left with force \(kx\)). Net restoring force is \(F = -2kx\), so \(k_{\text{eff}} = 2k\) and \(\omega = \sqrt{\frac{2k}{m}}\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 6 (Single-Correct MCQ)</div>
+        <p>A particle executes SHM with time period \(T = 12\,\mathrm{s}\). What is the minimum time taken by the particle to move from the mean position \(x = 0\) to half its amplitude \(x = +A/2\)?</p>
+        <ul class="options-list">
+          <li>(A) \(1\,\mathrm{s}\)</li>
+          <li>(B) \(1.5\,\mathrm{s}\)</li>
+          <li>(C) \(2\,\mathrm{s}\)</li>
+          <li>(D) \(3\,\mathrm{s}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> Starting from \(x = 0\) toward \(+A\), we can use \(x(t) = A\sin\omega t\). Setting \(A/2 = A\sin\omega t\) gives \(\sin\omega t = 1/2 \implies \omega t = \pi/6\). Since \(\omega = 2\pi/T\), we get \(\frac{2\pi}{T}t = \frac{\pi}{6} \implies t = \frac{T}{12} = \frac{12}{12} = 1\,\mathrm{s}\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 7 (Assertion–Reason)</div>
+        <p><strong>Assertion (A):</strong> The time period of a simple pendulum oscillating with a small angular amplitude is independent of the mass of the bob.</p>
+        <p><strong>Reason (R):</strong> The restoring torque on the bob is proportional to the mass of the bob, and the moment of inertia about the support is also proportional to the mass of the bob.</p>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+          <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+          <li>(C) (A) is true, but (R) is false.</li>
+          <li>(D) (A) is false, but (R) is true.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> From \(\tau = I\alpha\), we have \(-mgL\theta = (mL^2)\alpha\). The mass \(m\) cancels from both sides, yielding \(\alpha = -(g/L)\theta\), so \(T = 2\pi\sqrt{L/g}\) is independent of \(m\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 8 (Single-Correct MCQ)</div>
+        <p>A simple pendulum has a time period of \(4.0\,\mathrm{s}\) on Earth (\(g_E = 9.8\,\mathrm{m\,s^{-2}}\)). If taken to a planet where the acceleration due to gravity is \(g_P = 2.45\,\mathrm{m\,s^{-2}}\), what will be its new time period?</p>
+        <ul class="options-list">
+          <li>(A) \(2.0\,\mathrm{s}\)</li>
+          <li>(B) \(4.0\,\mathrm{s}\)</li>
+          <li>(C) \(8.0\,\mathrm{s}\)</li>
+          <li>(D) \(16.0\,\mathrm{s}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (C)</span>
+          <p><strong>Explanation:</strong> Since \(T \propto \frac{1}{\sqrt{g}}\) for fixed length \(L\), we have \(\frac{T_P}{T_E} = \sqrt{\frac{g_E}{g_P}} = \sqrt{\frac{9.8}{2.45}} = \sqrt{4} = 2\). Therefore, \(T_P = 2 \times 4.0\,\mathrm{s} = 8.0\,\mathrm{s}\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 9 (Single-Correct MCQ)</div>
+        <p>A body oscillates with SHM according to \(x = 0.25\cos(8\pi t + \pi/6)\), where \(x\) is in metres and \(t\) is in seconds. What is the maximum speed of the body?</p>
+        <ul class="options-list">
+          <li>(A) \(0.25\pi\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(B) \(2\pi\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(C) \(4\pi\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(D) \(8\pi\,\mathrm{m\,s^{-1}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (B)</span>
+          <p><strong>Explanation:</strong> Comparing with \(x = A\cos(\omega t + \phi)\), we identify \(A = 0.25\,\mathrm{m}\) and \(\omega = 8\pi\,\mathrm{rad\,s^{-1}}\). Maximum speed is \(v_{\max} = \omega A = 8\pi \times 0.25 = 2\pi\,\mathrm{m\,s^{-1}}\).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-title">Practice Question 10 (Single-Correct MCQ)</div>
+        <p>A solid cylindrical block of height \(h = 20\,\mathrm{cm}\) and density \(\rho = 0.6\,\mathrm{g\,cm^{-3}}\) floats vertically in a liquid of density \(\rho_l = 1.2\,\mathrm{g\,cm^{-3}}\). If depressed slightly and released, it oscillates vertically. Taking \(g = 10\,\mathrm{m\,s^{-2}}\), what is the time period of oscillation? (Neglect damping.)</p>
+        <ul class="options-list">
+          <li>(A) \(\frac{\pi}{5}\,\mathrm{s}\)</li>
+          <li>(B) \(\frac{2\pi}{5}\,\mathrm{s}\)</li>
+          <li>(C) \(\frac{2\pi}{10}\,\mathrm{s}\)</li>
+          <li>(D) \(\frac{\pi}{10}\,\mathrm{s}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> When depressed by \(x\), the extra buoyant force is \(F = -A x \rho_l g\), so \(k_{\text{eff}} = A\rho_l g\). The mass of the cylinder is \(m = A h \rho\). Hence \(T = 2\pi\sqrt{\frac{m}{k_{\text{eff}}}} = 2\pi\sqrt{\frac{h\rho}{\rho_l g}} = 2\pi\sqrt{\frac{0.20 \times 0.6}{1.2 \times 10}} = 2\pi\sqrt{\frac{0.12}{12}} = 2\pi\sqrt{0.01} = 2\pi(0.1) = \frac{\pi}{5}\,\mathrm{s}\).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls-checklist">
+      <h2>10. Common Pitfalls &amp; Revision Checklist</h2>
+      <div class="card amber">
+        <span class="card-title">Watch Out for These Frequent Exam Traps:</span>
+        <ul>
+          <li><strong>Degrees vs. Radians:</strong> In \(\alpha = -(g/L)\theta\), \(\theta\) must be in <em>radians</em>. If no unit is written inside a trigonometric argument like \(\cos(2\pi t + 1.5)\), it is always in radians.</li>
+          <li><strong>Frequency of Energy:</strong> If a particle oscillates with frequency \(\nu\), its kinetic energy \(K\) and potential energy \(U\) oscillate with frequency \(2\nu\) (time period \(T/2\)).</li>
+          <li><strong>Unequal Half-Quarter Times:</strong> A particle takes \(T/12\) to go from \(0\) to \(A/2\), but \(T/6\) (twice as long!) to go from \(A/2\) to \(A\) because it slows down near the extreme.</li>
+          <li><strong>Sign of Restoring Force:</strong> Always verify the negative sign in \(a = -\omega^2 x\) and \(F = -kx\). An equation like \(a = +10x\) represents exponential runaway, <em>not</em> SHM.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="final-recap">
+      <h2>11. Concise Final Recap</h2>
+      <p>Simple harmonic motion is governed by the linear restoring law \(F = -kx\), producing sinusoidal displacement \(x(t) = A\cos(\omega t + \phi)\) with angular frequency \(\omega = \sqrt{k/m}\) and period \(T = 2\pi/\omega\) independent of amplitude. Velocity leads displacement by \(\pi/2\), acceleration leads by \(\pi\), total mechanical energy \(E = \frac{1}{2}kA^2\) stays constant, and a simple pendulum approximates SHM for small angles with \(T = 2\pi\sqrt{L/g_{\text{eff}}}\).</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Molecular Basis of Inheritance — NEET UG Complete Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-soft: #F1F5F9;
+      --bg-accent: #EFF6FF;
+      --bg-teal: #F0FDFA;
+      --bg-warn: #FFFBEB;
+      --text-main: #1E293B;
+      --text-muted: #475569;
+      --primary: #2563EB;
+      --teal: #0D9488;
+      --amber: #B45309;
+      --border: #CBD5E1;
+      --border-soft: #E2E8F0;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 18px 48px 18px;
+    }
+
+    header.hero {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--primary);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      background-color: var(--bg-accent);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge.teal {
+      background-color: var(--bg-teal);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 1.95rem;
+      line-height: 1.25;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    h2 {
+      margin: 32px 0 14px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary);
+      font-size: 1.42rem;
+      line-height: 1.3;
+      color: var(--text-main);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      margin: 22px 0 10px 0;
+      font-size: 1.16rem;
+      line-height: 1.35;
+      color: var(--primary);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h4 {
+      margin: 16px 0 8px 0;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: var(--bg-accent);
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      margin: 16px 0;
+    }
+
+    .callout.teal {
+      border-left-color: var(--teal);
+      background-color: var(--bg-teal);
+    }
+
+    .callout.warn {
+      border-left-color: var(--amber);
+      background-color: var(--bg-warn);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .formula-box {
+      background-color: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .diagram-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 18px 0;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.92rem;
+      background-color: var(--bg-card);
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--bg-soft);
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .codon-table th, .codon-table td {
+      text-align: center;
+      padding: 6px 5px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .example-card, .question-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-header, .question-header {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.03rem;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      background-color: var(--bg-soft);
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      border-top: 1px dashed var(--border);
+      margin-top: 12px;
+      padding-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .answer-tag {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92em;
+      background-color: var(--bg-soft);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .checklist li {
+      list-style-type: "✓ ";
+      padding-left: 4px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 10.5pt;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      header.hero, .card, .example-card, .question-card, .diagram-box, .callout {
+        box-shadow: none;
+        border-color: #94A3B8;
+      }
+
+      .example-card, .question-card, .diagram-box, .callout, .formula-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2, h3, h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      table {
+        font-size: 9pt;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <header class="hero">
+      <div class="badge-row">
+        <span class="badge">NEET UG Biology</span>
+        <span class="badge teal">Genetics &amp; Molecular Biology</span>
+      </div>
+      <h1>Molecular Basis of Inheritance</h1>
+      <p class="subtitle">A complete, exam-oriented tutorial covering nucleic acid architecture, genetic proof experiments, replication, transcription, the genetic code, translation, operon regulation, genomics, and DNA fingerprinting.</p>
+    </header>
+
+    <section id="overview">
+      <h2>1. Learning Objectives &amp; Exam Context</h2>
+      <div class="card">
+        <p>This unit bridges classical Mendelian genetics with molecular biochemistry. For <strong>NEET UG</strong>, questions frequently test exact numerical relationships (Chargaff's rules, DNA length, nucleosome counts, Meselson–Stahl generation ratios), enzyme specificity, strand polarity (<span class="mono">5′→3′</span> vs. <span class="mono">3′→5′</span>), eukaryotic RNA processing, genetic code properties, and <em>lac</em> operon logic.</p>
+        <h4>By completing this tutorial, you will be able to:</h4>
+        <ul>
+          <li>Distinguish nucleosides from nucleotides and explain the antiparallel, complementary double-helix geometry of DNA.</li>
+          <li>Calculate DNA lengths, base percentages, and nucleosome counts using standard biological constants.</li>
+          <li>Evaluate the experimental proofs that established DNA as the primary genetic material and semiconservative replication as its copying mechanism.</li>
+          <li>Trace the flow of genetic information from DNA to mRNA (transcription and splicing) and from mRNA to polypeptides (genetic code and translation).</li>
+          <li>Predict the transcriptional state of the bacterial <em>lac</em> operon under varying nutrient conditions.</li>
+          <li>Explain the principles, methodologies, and applications of the Human Genome Project and VNTR-based DNA fingerprinting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="dna-structure">
+      <h2>2. Chemical Architecture of Nucleic Acids &amp; DNA Packaging</h2>
+
+      <h3>2.1 Building Blocks: Nucleosides and Nucleotides</h3>
+      <p>Living cells contain two types of nucleic acids: <strong>deoxyribonucleic acid (DNA)</strong> and <strong>ribonucleic acid (RNA)</strong>. Both are long polymers of nucleotide monomers.</p>
+      <ul>
+        <li><strong>Three Components of a Nucleotide:</strong> (1) a nitrogenous base, (2) a pentose sugar (ribose in RNA; 2′-deoxyribose in DNA), and (3) a phosphate group.</li>
+        <li><strong>Nitrogenous Bases:</strong>
+          <ul>
+            <li><em>Purines (double-ring):</em> Adenine (A) and Guanine (G) — found in both DNA and RNA.</li>
+            <li><em>Pyrimidines (single-ring):</em> Cytosine (C) is common to both; Thymine (T, chemically 5-methyl uracil) occurs in DNA, whereas Uracil (U) replaces thymine in RNA.</li>
+          </ul>
+        </li>
+        <li><strong>Linkages:</strong> A nitrogenous base attaches to the <span class="mono">1′</span> carbon of the pentose sugar via an <strong>N-glycosidic linkage</strong> to form a <em>nucleoside</em> (e.g., adenosine, deoxyadenosine, guanosine, cytidine, uridine, deoxythymidine). Adding a phosphate group to the <span class="mono">5′</span>-OH of a nucleoside via a <strong>phosphoester linkage</strong> yields a <em>nucleotide</em>. Adjacent nucleotides join through <strong>3′–5′ phosphodiester linkages</strong>, creating a sugar–phosphate backbone with a free <span class="mono">5′</span>-phosphate at one terminus and a free <span class="mono">3′</span>-OH at the other.</li>
+      </ul>
+
+      <h3>2.2 The DNA Double Helix &amp; Chargaff's Rules</h3>
+      <p>DNA was first isolated in 1869 as an acidic nuclear substance named <em>nuclein</em> by Friedrich Meischer. In 1953, James Watson and Francis Crick integrated X-ray diffraction data from Maurice Wilkins and Rosalind Franklin with Erwin Chargaff's base-composition rules to propose the double-helix model.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Structural Feature</th>
+            <th>Key Quantitative / Molecular Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Strand Polarity</td>
+            <td>Two polynucleotide chains run <strong>antiparallel</strong>: one in <span class="mono">5′→3′</span> direction, the other in <span class="mono">3′→5′</span> direction.</td>
+          </tr>
+          <tr>
+            <td>Base Pairing &amp; H-Bonds</td>
+            <td>Purine always pairs with pyrimidine: <strong>A = T</strong> (2 hydrogen bonds) and <strong>G ≡ C</strong> (3 hydrogen bonds), maintaining uniform helix diameter.</td>
+          </tr>
+          <tr>
+            <td>Chargaff's Equivalence</td>
+            <td>In dsDNA, \([\mathrm{A}] = [\mathrm{T}]\), \([\mathrm{G}] = [\mathrm{C}]\), and \(\frac{\mathrm{A}+\mathrm{G}}{\mathrm{T}+\mathrm{C}} = 1\).</td>
+          </tr>
+          <tr>
+            <td>Helical Geometry</td>
+            <td>Right-handed coil; pitch = \(3.4\,\mathrm{nm}\) (\(34\,\mathrm{Å}\)); ~\(10\,\mathrm{bp}\) per turn; distance between adjacent bp = \(0.34\,\mathrm{nm}\) (\(3.4\,\mathrm{Å}\)).</td>
+          </tr>
+          <tr>
+            <td>Stabilizing Forces</td>
+            <td>Hydrogen bonds between complementary bases plus hydrophobic <strong>base-stacking</strong> interactions between adjacent base-pair planes.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout teal">
+        <div class="callout-title">Characteristic Genome Sizes (High-Yield NEET Facts)</div>
+        <ul>
+          <li>Bacteriophage \(\phi \times 174\): \(5386\) nucleotides (single-stranded DNA)</li>
+          <li>Bacteriophage \(\lambda\): \(48{,}502\,\mathrm{bp}\)</li>
+          <li><em>Escherichia coli</em>: \(4.6 \times 10^6\,\mathrm{bp}\) (approximate physical length \(1.36\,\mathrm{mm}\))</li>
+          <li>Human haploid genome: \(3.3 \times 10^9\,\mathrm{bp}\) (diploid: \(6.6 \times 10^9\,\mathrm{bp}\), physical length \(\approx 2.2\,\mathrm{m}\))</li>
+        </ul>
+      </div>
+
+      <h3>2.3 Packaging of DNA into Chromatin</h3>
+      <p>A diploid human cell contains roughly \(2.2\,\mathrm{m}\) of DNA packed inside a nucleus of diameter \(\approx 10^{-6}\,\mathrm{m}\) (\(1\,\mathrm{µm}\)).</p>
+      <ul>
+        <li><strong>Prokaryotes (e.g., <em>E. coli</em>):</strong> Lack a membrane-bound nucleus. Negatively charged DNA is organized into large loops held by positively charged proteins in a central region called the <strong>nucleoid</strong>.</li>
+        <li><strong>Eukaryotes:</strong> Negatively charged DNA wraps around a positively charged <strong>histone octamer</strong> (eight histone molecules rich in basic amino acids <strong>lysine</strong> and <strong>arginine</strong>) to form a <strong>nucleosome</strong>. Each typical nucleosome encloses ~\(200\,\mathrm{bp}\) of DNA helix, stabilized by linker histone H1. Under an electron microscope, repeating nucleosomes appear as a <em>"beads-on-string"</em> chromatin fiber.</li>
+        <li><strong>Higher-Order Condensation:</strong> Coiling chromatin fibers into metaphase chromosomes requires additional <strong>Non-Histone Chromosomal (NHC) proteins</strong>.</li>
+        <li><strong>Euchromatin vs. Heterochromatin:</strong> Loosely packed, lightly staining, transcriptionally <em>active</em> chromatin is <strong>euchromatin</strong>; densely packed, darkly staining, transcriptionally <em>inactive</em> chromatin is <strong>heterochromatin</strong>.</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 760 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Antiparallel DNA double strand and nucleosome packaging">
+          <rect x="0" y="0" width="760" height="240" fill="#F8FAFC" rx="8"/>
+          <!-- Left panel: Antiparallel DNA -->
+          <text x="190" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">A. Antiparallel Complementary Strands</text>
+          <line x1="40" y1="68" x2="340" y2="68" stroke="#2563EB" stroke-width="4"/>
+          <line x1="40" y1="168" x2="340" y2="168" stroke="#0D9488" stroke-width="4"/>
+          <text x="26" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">5′</text>
+          <text x="354" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">3′</text>
+          <text x="26" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#0D9488">3′</text>
+          <text x="354" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#0D9488">5′</text>
+          <!-- Base pairs -->
+          <rect x="85" y="72" width="22" height="26" fill="#DBEAFE" stroke="#2563EB" rx="3"/>
+          <text x="96" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">A</text>
+          <line x1="92" y1="98" x2="92" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="100" y1="98" x2="100" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <rect x="85" y="138" width="22" height="26" fill="#CCFBF1" stroke="#0D9488" rx="3"/>
+          <text x="96" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">T</text>
+
+          <rect x="165" y="72" width="22" height="26" fill="#DBEAFE" stroke="#2563EB" rx="3"/>
+          <text x="176" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">G</text>
+          <line x1="170" y1="98" x2="170" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="176" y1="98" x2="176" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="182" y1="98" x2="182" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <rect x="165" y="138" width="22" height="26" fill="#CCFBF1" stroke="#0D9488" rx="3"/>
+          <text x="176" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">C</text>
+
+          <rect x="245" y="72" width="22" height="26" fill="#DBEAFE" stroke="#2563EB" rx="3"/>
+          <text x="256" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">C</text>
+          <line x1="250" y1="98" x2="250" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="256" y1="98" x2="256" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="262" y1="98" x2="262" y2="138" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <rect x="245" y="138" width="22" height="26" fill="#CCFBF1" stroke="#0D9488" rx="3"/>
+          <text x="256" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">G</text>
+
+          <text x="190" y="206" text-anchor="middle" font-size="11" fill="#475569">2 H-bonds (A=T) | 3 H-bonds (G≡C) | 0.34 nm rise/bp</text>
+
+          <!-- Divider -->
+          <line x1="385" y1="18" x2="385" y2="222" stroke="#CBD5E1" stroke-width="1.5"/>
+
+          <!-- Right panel: Nucleosome -->
+          <text x="572" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">B. Nucleosome Packaging (~200 bp)</text>
+          <circle cx="555" cy="122" r="44" fill="#CCFBF1" stroke="#0D9488" stroke-width="2.5"/>
+          <text x="555" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">Histone</text>
+          <text x="555" y="133" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">Octamer (+)</text>
+          <!-- DNA wrap -->
+          <path d="M 435 105 C 480 65, 625 65, 630 105 C 632 135, 495 140, 495 118" fill="none" stroke="#2563EB" stroke-width="4.5"/>
+          <path d="M 495 130 C 495 170, 625 175, 675 145" fill="none" stroke="#2563EB" stroke-width="4.5"/>
+          <!-- H1 histone -->
+          <rect x="612" y="88" width="14" height="68" rx="7" fill="#2563EB" opacity="0.85"/>
+          <text x="648" y="82" font-size="11" font-weight="700" fill="#2563EB">H1 linker</text>
+          <line x1="624" y1="95" x2="645" y2="85" stroke="#2563EB" stroke-width="1.2"/>
+          <text x="452" y="170" font-size="11" font-weight="600" fill="#1E293B">DNA (-)</text>
+          <text x="572" y="206" text-anchor="middle" font-size="11" fill="#475569">Lysine &amp; Arginine rich histones bind acidic DNA</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 1:</strong> (A) Antiparallel DNA strands with complementary hydrogen bonding; (B) Eukaryotic nucleosome core particle with histone octamer and H1 protein.</div>
+      </div>
+    </section>
+
+    <section id="genetic-material">
+      <h2>3. Proving DNA is the Genetic Material &amp; The RNA World</h2>
+
+      <h3>3.1 Landmark Experiments</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Experiment &amp; Scientists</th>
+            <th>Model System</th>
+            <th>Key Observation &amp; Conclusion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Transforming Principle</strong><br>Frederick Griffith (1928)</td>
+            <td><em>Streptococcus pneumoniae</em> (S-strain: smooth, mucous coat, virulent; R-strain: rough, non-virulent) &amp; mice</td>
+            <td>Heat-killed S + live R killed mice; live S bacteria were recovered. A chemical <em>transforming principle</em> passed from dead S to live R, though its biochemical identity remained unknown.</td>
+          </tr>
+          <tr>
+            <td><strong>Biochemical Characterization</strong><br>Avery, MacLeod &amp; McCarty (1933–44)</td>
+            <td>Purified fractions (DNA, RNA, protein) from heat-killed S cells + hydrolytic enzymes</td>
+            <td>Proteases and RNases did <em>not</em> stop transformation, whereas <strong>DNase</strong> abolished transformation. Proved DNA is the transforming hereditary substance.</td>
+          </tr>
+          <tr>
+            <td><strong>Unequivocal Proof</strong><br>Alfred Hershey &amp; Martha Chase (1952)</td>
+            <td>T2 Bacteriophage &amp; <em>E. coli</em>; radioactive \(^{32}\mathrm{P}\) (labels DNA) and \(^{35}\mathrm{S}\) (labels protein coat)</td>
+            <td>After infection, blending, and centrifugation: \(^{32}\mathrm{P}\) appeared inside bacterial cells (pellet), while \(^{35}\mathrm{S}\) remained in the supernatant. Proved DNA, not protein, enters the host.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>3.2 Properties of Genetic Material: DNA vs. RNA</h3>
+      <p>Any molecule serving as genetic material must: (1) replicate accurately, (2) remain chemically and structurally stable, (3) permit slow mutations for evolution, and (4) express itself as Mendelian traits.</p>
+      <ul>
+        <li><strong>Why DNA is Superior for Storage:</strong> RNA carries a reactive <span class="mono">2′-OH</span> group on every ribose sugar, making it labile and catalytic (ribozyme activity). DNA lacks <span class="mono">2′-OH</span> and uses thymine instead of uracil, conferring greater chemical stability and enabling error repair.</li>
+        <li><strong>Why RNA Mutates Faster:</strong> Because RNA is less stable, RNA-genome viruses (such as Tobacco Mosaic Virus and Q\(\beta\) bacteriophage) mutate and evolve rapidly.</li>
+        <li><strong>The RNA World Hypothesis:</strong> RNA was the first genetic material, acting both as information carrier and catalyst for primitive metabolism, splicing, and translation. DNA evolved later from RNA as a more stable storage archive.</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">Central Dogma of Molecular Biology (Francis Crick)</div>
+        <p>Genetic information normally flows unidirectionally: <strong>DNA \(\xrightarrow{\text{transcription}}\) mRNA \(\xrightarrow{\text{translation}}\) Protein</strong>, with DNA also templating its own <strong>replication</strong>. In retroviruses (RNA viruses), information flows in reverse (<strong>RNA \(\rightarrow\) DNA</strong>) via reverse transcription.</p>
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 760 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hershey-Chase experiment logic and Central Dogma">
+          <rect x="0" y="0" width="760" height="200" fill="#F8FAFC" rx="8"/>
+          <text x="190" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Hershey–Chase Differential Labelling</text>
+          <rect x="25" y="42" width="150" height="58" rx="6" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
+          <text x="100" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#B45309">35S-Phage (Protein)</text>
+          <text x="100" y="84" text-anchor="middle" font-size="11" fill="#1E293B">Supernatant = Radioactive</text>
+          <rect x="195" y="42" width="155" height="58" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="272" y="64" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">32P-Phage (DNA)</text>
+          <text x="272" y="84" text-anchor="middle" font-size="11" fill="#1E293B">Pellet (Cells) = Radioactive</text>
+          <text x="187" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">Steps: 1. Infection → 2. Blending → 3. Centrifugation</text>
+          <rect x="55" y="144" width="265" height="34" rx="5" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="187" y="165" text-anchor="middle" font-size="12" font-weight="700" fill="#0D9488">Conclusion: DNA is the genetic material</text>
+
+          <line x1="380" y1="18" x2="380" y2="182" stroke="#CBD5E1" stroke-width="1.5"/>
+
+          <text x="570" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">Central Dogma Flow</text>
+          <rect x="420" y="80" width="76" height="36" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.8"/>
+          <text x="458" y="103" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">DNA</text>
+          <!-- Self replication loop -->
+          <path d="M 442 80 C 425 46, 491 46, 474 80" fill="none" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="474,80 469,71 479,73" fill="#2563EB"/>
+          <text x="458" y="48" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">Replication</text>
+
+          <!-- Transcription -->
+          <line x1="496" y1="98" x2="550" y2="98" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="554,98 545,93 545,103" fill="#1E293B"/>
+          <text x="524" y="88" text-anchor="middle" font-size="10.5" fill="#475569">Transcription</text>
+
+          <rect x="554" y="80" width="76" height="36" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.8"/>
+          <text x="592" y="103" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">mRNA</text>
+
+          <!-- Translation -->
+          <line x1="630" y1="98" x2="674" y2="98" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="678,98 669,93 669,103" fill="#1E293B"/>
+          <text x="654" y="88" text-anchor="middle" font-size="10.5" fill="#475569">Translation</text>
+
+          <rect x="678" y="80" width="66" height="36" rx="6" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.8"/>
+          <text x="711" y="103" text-anchor="middle" font-size="12" font-weight="700" fill="#1E293B">Protein</text>
+
+          <!-- Reverse transcription -->
+          <path d="M 592 116 C 592 152, 458 152, 458 120" fill="none" stroke="#B45309" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <polygon points="458,116 453,125 463,125" fill="#B45309"/>
+          <text x="525" y="164" text-anchor="middle" font-size="10.5" font-weight="600" fill="#B45309">Reverse Transcription (some viruses)</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 2:</strong> Summary of Hershey–Chase isotopic tracing and the Central Dogma of molecular biology.</div>
+      </div>
+    </section>
+
+    <section id="replication">
+      <h2>4. Semiconservative DNA Replication &amp; Enzymatic Machinery</h2>
+
+      <h3>4.1 Experimental Proof: Meselson &amp; Stahl (1958)</h3>
+      <p>Watson and Crick predicted that each parental strand serves as a template for a new complementary strand, producing daughter duplexes with one old and one new strand (<strong>semiconservative replication</strong>). Matthew Meselson and Franklin Stahl proved this in <em>E. coli</em> (generation time = \(20\,\mathrm{min}\)):</p>
+      <ol>
+        <li>Cells were grown for many generations in heavy nitrogen medium (\(^{15}\mathrm{NH}_4\mathrm{Cl}\)), yielding heavy DNA (\(^{15}\mathrm{N}/^{15}\mathrm{N}\)). Note: \(^{15}\mathrm{N}\) is a <strong>heavy (non-radioactive) isotope</strong> separated from \(^{14}\mathrm{N}\) by <strong>cesium chloride (CsCl) equilibrium density gradient centrifugation</strong>.</li>
+        <li>Cells were transferred to normal \(^{14}\mathrm{NH}_4\mathrm{Cl}\) medium and sampled across generations:
+          <ul>
+            <li><strong>Generation I (\(20\,\mathrm{min}\)):</strong> 100% hybrid/intermediate density DNA (\(^{15}\mathrm{N}/^{14}\mathrm{N}\)).</li>
+            <li><strong>Generation II (\(40\,\mathrm{min}\)):</strong> 50% hybrid DNA (\(^{15}\mathrm{N}/^{14}\mathrm{N}\)) and 50% light DNA (\(^{14}\mathrm{N}/^{14}\mathrm{N}\)).</li>
+            <li><strong>Generation \(n\):</strong> Out of \(2^n\) DNA duplexes, exactly \(2\) remain hybrid and \(2^n - 2\) are light.</li>
+          </ul>
+        </li>
+      </ol>
+      <p>In the same year (1958), Taylor and colleagues used radioactive thymidine in <em>Vicia faba</em> (faba beans) to demonstrate semiconservative replication in eukaryotic chromosomes.</p>
+
+      <h3>4.2 Enzymology &amp; The Replication Fork</h3>
+      <ul>
+        <li><strong>Origin of Replication (<em>ori</em>):</strong> Replication initiates at a specific DNA sequence, not randomly. Recombinant DNA plasmids require an <em>ori</em> to replicate inside host cells.</li>
+        <li><strong>Dual Role of dNTPs:</strong> Deoxyribonucleoside triphosphates (dATP, dGTP, dCTP, dTTP) act both as <strong>substrates</strong> and as <strong>energy donors</strong> (via cleavage of their two terminal high-energy phosphate bonds).</li>
+        <li><strong>DNA-dependent DNA Polymerase:</strong> Catalyzes nucleotide polymerization strictly in the <strong>5′→3′ direction</strong>. In <em>E. coli</em>, it polymerizes ~\(2000\,\mathrm{bp/s}\), duplicating \(4.6 \times 10^6\,\mathrm{bp}\) in ~\(18\,\mathrm{min}\) with high proofreading fidelity.</li>
+        <li><strong>Leading vs. Lagging Strand at the Replication Fork:</strong> Because unwinding the entire helix at once is energetically prohibitive, replication proceeds at a local Y-shaped <strong>replication fork</strong>:
+          <ul>
+            <li>On the <strong>3′→5′ template strand</strong>, synthesis is <strong>continuous</strong> (leading strand, <span class="mono">5′→3′</span>).</li>
+            <li>On the <strong>5′→3′ template strand</strong>, synthesis is <strong>discontinuous</strong> (lagging strand, <span class="mono">5′→3′</span> fragments), and the fragments are later sealed by <strong>DNA ligase</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Cell-Cycle Coordination:</strong> In eukaryotes, DNA replication occurs during the <strong>S-phase</strong>. DNA replication without subsequent cell division leads to <strong>polyploidy</strong>.</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Replication fork polarity and Meselson-Stahl CsCl bands">
+          <rect x="0" y="0" width="760" height="220" fill="#F8FAFC" rx="8"/>
+          <!-- Left: Replication Fork -->
+          <text x="195" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">A. Replication Fork Polarity</text>
+          <!-- Parental duplex top -->
+          <line x1="180" y1="42" x2="180" y2="95" stroke="#1E293B" stroke-width="3"/>
+          <line x1="210" y1="42" x2="210" y2="95" stroke="#1E293B" stroke-width="3"/>
+          <text x="165" y="52" font-size="11" font-weight="700" fill="#1E293B">5′</text>
+          <text x="220" y="52" font-size="11" font-weight="700" fill="#1E293B">3′</text>
+          <!-- Fork arms -->
+          <line x1="180" y1="95" x2="90" y2="188" stroke="#1E293B" stroke-width="3"/>
+          <line x1="210" y1="95" x2="300" y2="188" stroke="#1E293B" stroke-width="3"/>
+          <text x="76" y="192" font-size="11" font-weight="700" fill="#1E293B">3′</text>
+          <text x="308" y="192" font-size="11" font-weight="700" fill="#1E293B">5′</text>
+
+          <!-- Continuous leading strand -->
+          <line x1="112" y1="185" x2="182" y2="112" stroke="#2563EB" stroke-width="3"/>
+          <polygon points="186,108 176,112 183,119" fill="#2563EB"/>
+          <text x="108" y="203" font-size="11" font-weight="700" fill="#2563EB">5′</text>
+          <text x="188" y="122" font-size="11" font-weight="700" fill="#2563EB">3′</text>
+          <text x="72" y="135" text-anchor="middle" font-size="10.5" font-weight="600" fill="#2563EB">Continuous</text>
+          <text x="72" y="148" text-anchor="middle" font-size="10.5" font-weight="600" fill="#2563EB">(Leading)</text>
+
+          <!-- Discontinuous lagging strand -->
+          <line x1="212" y1="114" x2="230" y2="133" stroke="#0D9488" stroke-width="3"/>
+          <polygon points="234,137 224,133 231,126" fill="#0D9488"/>
+          <line x1="242" y1="145" x2="260" y2="164" stroke="#0D9488" stroke-width="3"/>
+          <polygon points="264,168 254,164 261,157" fill="#0D9488"/>
+          <line x1="270" y1="174" x2="282" y2="186" stroke="#0D9488" stroke-width="3"/>
+          <text x="206" y="108" font-size="11" font-weight="700" fill="#0D9488">5′</text>
+          <text x="285" y="202" font-size="11" font-weight="700" fill="#0D9488">3′</text>
+          <text x="320" y="135" text-anchor="middle" font-size="10.5" font-weight="600" fill="#0D9488">Discontinuous</text>
+          <text x="320" y="148" text-anchor="middle" font-size="10.5" font-weight="600" fill="#0D9488">(Ligase joins)</text>
+
+          <line x1="390" y1="18" x2="390" y2="202" stroke="#CBD5E1" stroke-width="1.5"/>
+
+          <!-- Right: Meselson-Stahl -->
+          <text x="575" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">B. Meselson–Stahl CsCl Gradient</text>
+          <!-- Tube 0 -->
+          <rect x="425" y="55" width="54" height="105" rx="8" fill="#FFFFFF" stroke="#475569" stroke-width="1.5"/>
+          <rect x="427" y="130" width="50" height="10" fill="#B45309"/>
+          <text x="452" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">0 min</text>
+          <text x="452" y="195" text-anchor="middle" font-size="10" fill="#475569">100% Heavy</text>
+
+          <!-- Tube 1 -->
+          <rect x="545" y="55" width="54" height="105" rx="8" fill="#FFFFFF" stroke="#475569" stroke-width="1.5"/>
+          <rect x="547" y="102" width="50" height="10" fill="#2563EB"/>
+          <text x="572" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">20 min (I)</text>
+          <text x="572" y="195" text-anchor="middle" font-size="10" fill="#475569">100% Hybrid</text>
+
+          <!-- Tube 2 -->
+          <rect x="665" y="55" width="54" height="105" rx="8" fill="#FFFFFF" stroke="#475569" stroke-width="1.5"/>
+          <rect x="667" y="75" width="50" height="10" fill="#0D9488"/>
+          <rect x="667" y="102" width="50" height="10" fill="#2563EB"/>
+          <text x="692" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">40 min (II)</text>
+          <text x="692" y="195" text-anchor="middle" font-size="10" fill="#475569">50% Light : 50% Hybrid</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 3:</strong> (A) Continuous vs. discontinuous synthesis at the replication fork; (B) CsCl density bands across generations in Meselson–Stahl's experiment.</div>
+      </div>
+    </section>
+
+    <section id="transcription">
+      <h2>5. Transcription &amp; Eukaryotic RNA Processing</h2>
+
+      <h3>5.1 Why Only One DNA Strand is Transcribed</h3>
+      <p>Transcription copies a specific DNA segment into RNA using <strong>DNA-dependent RNA polymerase</strong> (which polymerizes in the <span class="mono">5′→3′</span> direction, pairing A with U). Both strands are never copied simultaneously from the same region because: (1) they would produce two RNA molecules with different sequences coding for two different proteins, complicating regulation; and (2) the two complementary RNAs would hybridize into double-stranded RNA, blocking translation.</p>
+
+      <h3>5.2 The Transcription Unit &amp; Strand Naming</h3>
+      <ul>
+        <li><strong>Template Strand (<span class="mono">3′→5′</span>):</strong> Read by RNA polymerase to synthesize complementary RNA.</li>
+        <li><strong>Coding Strand (<span class="mono">5′→3′</span>):</strong> Not transcribed, yet its base sequence matches the newly made RNA (except T replaces U). All positional references (upstream/downstream) use the coding strand's polarity.</li>
+        <li><strong>Promoter:</strong> Located at the <span class="mono">5′</span> (upstream) end of the coding strand; binds RNA polymerase and defines which strand acts as template.</li>
+        <li><strong>Terminator:</strong> Located at the <span class="mono">3′</span> (downstream) end of the coding strand; signals transcription termination.</li>
+      </ul>
+
+      <h3>5.3 Prokaryotic vs. Eukaryotic Transcription</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Prokaryotes (Bacteria)</th>
+            <th>Eukaryotes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gene Organization</td>
+            <td><strong>Polycistronic</strong> (multiple polypeptides encoded by one mRNA; uninterrupted coding sequence).</td>
+            <td><strong>Monocistronic</strong> (split genes: coding <strong>exons</strong> interrupted by non-coding <strong>introns</strong>).</td>
+          </tr>
+          <tr>
+            <td>RNA Polymerases</td>
+            <td>Single DNA-dependent RNA polymerase transcribes mRNA, tRNA, and rRNA.</td>
+            <td>Three nuclear polymerases:<br>• <strong>Pol I:</strong> rRNAs (28S, 18S, 5.8S)<br>• <strong>Pol II:</strong> hnRNA (pre-mRNA)<br>• <strong>Pol III:</strong> tRNA, 5S rRNA, snRNAs</td>
+          </tr>
+          <tr>
+            <td>Initiation &amp; Termination</td>
+            <td>Core enzyme performs elongation; associates transiently with <strong>sigma (\(\sigma\)) factor</strong> for initiation and <strong>rho (\(\rho\)) factor</strong> for termination.</td>
+            <td>Requires transcription factors; complex promoter and terminator regulation.</td>
+          </tr>
+          <tr>
+            <td>Post-Transcriptional Processing</td>
+            <td>None needed; mRNA is immediately functional. Transcription and translation are <strong>coupled</strong> in the cytosol.</td>
+            <td>Primary transcript (hnRNA) undergoes: (1) <strong>5′ Capping</strong> (methyl guanosine triphosphate), (2) <strong>3′ Tailing</strong> (200–300 adenylate residues, template-independent), and (3) <strong>Splicing</strong> (introns removed, exons joined).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 760 205" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Transcription unit polarity and eukaryotic hnRNA processing">
+          <rect x="0" y="0" width="760" height="205" fill="#F8FAFC" rx="8"/>
+          <text x="190" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">A. Transcription Unit Polarity</text>
+          <rect x="48" y="54" width="66" height="44" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="81" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#2563EB">Promoter</text>
+          <rect x="266" y="54" width="74" height="44" rx="4" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="303" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#0D9488">Terminator</text>
+          <!-- Template & Coding strands -->
+          <line x1="30" y1="64" x2="355" y2="64" stroke="#1E293B" stroke-width="2.5"/>
+          <line x1="30" y1="88" x2="355" y2="88" stroke="#475569" stroke-width="2.5"/>
+          <text x="18" y="68" font-size="11" font-weight="700" fill="#1E293B">3′</text>
+          <text x="364" y="68" font-size="11" font-weight="700" fill="#1E293B">5′</text>
+          <text x="18" y="92" font-size="11" font-weight="700" fill="#475569">5′</text>
+          <text x="364" y="92" font-size="11" font-weight="700" fill="#475569">3′</text>
+          <text x="190" y="48" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1E293B">Template Strand</text>
+          <text x="190" y="112" text-anchor="middle" font-size="10.5" font-weight="600" fill="#475569">Coding Strand (reference)</text>
+          <text x="190" y="150" text-anchor="middle" font-size="11" fill="#1E293B">RNA Pol synthesizes 5′→3′ mRNA</text>
+          <text x="190" y="168" text-anchor="middle" font-size="10.5" fill="#475569">matching Coding Strand (U instead of T)</text>
+
+          <line x1="392" y1="18" x2="392" y2="188" stroke="#CBD5E1" stroke-width="1.5"/>
+
+          <text x="576" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B">B. Eukaryotic hnRNA → mRNA</text>
+          <!-- Primary hnRNA -->
+          <text x="415" y="62" font-size="11" font-weight="700" fill="#1E293B">hnRNA:</text>
+          <rect x="468" y="48" width="52" height="18" fill="#2563EB" rx="2"/>
+          <rect x="520" y="48" width="40" height="18" fill="#CBD5E1" rx="2"/>
+          <rect x="560" y="48" width="52" height="18" fill="#2563EB" rx="2"/>
+          <rect x="612" y="48" width="40" height="18" fill="#CBD5E1" rx="2"/>
+          <rect x="652" y="48" width="52" height="18" fill="#2563EB" rx="2"/>
+          <text x="494" y="61" text-anchor="middle" font-size="10" fill="#FFFFFF">Exon</text>
+          <text x="540" y="61" text-anchor="middle" font-size="10" fill="#1E293B">Intron</text>
+          <text x="586" y="61" text-anchor="middle" font-size="10" fill="#FFFFFF">Exon</text>
+          <text x="632" y="61" text-anchor="middle" font-size="10" fill="#1E293B">Intron</text>
+          <text x="678" y="61" text-anchor="middle" font-size="10" fill="#FFFFFF">Exon</text>
+
+          <!-- Arrow down -->
+          <line x1="586" y1="74" x2="586" y2="112" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="586,116 581,107 591,107" fill="#1E293B"/>
+          <text x="596" y="96" font-size="10.5" font-weight="600" fill="#0D9488">Capping + Splicing + Poly-A Tailing</text>
+
+          <!-- Mature mRNA -->
+          <text x="415" y="144" font-size="11" font-weight="700" fill="#1E293B">mRNA:</text>
+          <rect x="460" y="130" width="38" height="20" fill="#B45309" rx="3"/>
+          <text x="479" y="144" text-anchor="middle" font-size="9.5" font-weight="700" fill="#FFFFFF">5′ Cap</text>
+          <rect x="498" y="130" width="156" height="20" fill="#2563EB" rx="2"/>
+          <text x="576" y="144" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">Joined Exons</text>
+          <rect x="654" y="130" width="68" height="20" fill="#0D9488" rx="3"/>
+          <text x="688" y="144" text-anchor="middle" font-size="9.5" font-weight="700" fill="#FFFFFF">Poly-A 3′</text>
+          <text x="576" y="176" text-anchor="middle" font-size="10.5" fill="#475569">Exported to cytoplasm for translation</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 4:</strong> (A) Reference polarity of a transcription unit; (B) Post-transcriptional maturation of eukaryotic hnRNA into functional mRNA.</div>
+      </div>
+    </section>
+
+    <section id="genetic-code">
+      <h2>6. The Genetic Code, Mutations &amp; Translation</h2>
+
+      <h3>6.1 Deciphering &amp; Features of the Genetic Code</h3>
+      <p>George Gamow deduced that with 4 RNA bases coding for 20 amino acids, each codon must be a triplet (\(4^3 = 64\) codons). Har Gobind Khorana synthesized defined RNA homopolymers and copolymers; Marshall Nirenberg used a cell-free translation system to decode them; and Severo Ochoa's enzyme (<strong>polynucleotide phosphorylase</strong>) polymerized RNA in a template-independent manner.</p>
+
+      <table class="codon-table">
+        <thead>
+          <tr>
+            <th>1st Base</th>
+            <th>2nd: U</th>
+            <th>2nd: C</th>
+            <th>2nd: A</th>
+            <th>2nd: G</th>
+            <th>3rd Base</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4"><strong>U</strong></td>
+            <td>UUU Phe</td><td>UCU Ser</td><td>UAU Tyr</td><td>UGU Cys</td><td><strong>U</strong></td>
+          </tr>
+          <tr>
+            <td>UUC Phe</td><td>UCC Ser</td><td>UAC Tyr</td><td>UGC Cys</td><td><strong>C</strong></td>
+          </tr>
+          <tr>
+            <td>UUA Leu</td><td>UCA Ser</td><td><strong>UAA Stop</strong></td><td><strong>UGA Stop</strong></td><td><strong>A</strong></td>
+          </tr>
+          <tr>
+            <td>UUG Leu</td><td>UCG Ser</td><td><strong>UAG Stop</strong></td><td>UGG Trp</td><td><strong>G</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>C</strong></td>
+            <td>CUU Leu</td><td>CCU Pro</td><td>CAU His</td><td>CGU Arg</td><td><strong>U</strong></td>
+          </tr>
+          <tr>
+            <td>CUC Leu</td><td>CCC Pro</td><td>CAC His</td><td>CGC Arg</td><td><strong>C</strong></td>
+          </tr>
+          <tr>
+            <td>CUA Leu</td><td>CCA Pro</td><td>CAA Gln</td><td>CGA Arg</td><td><strong>A</strong></td>
+          </tr>
+          <tr>
+            <td>CUG Leu</td><td>CCG Pro</td><td>CAG Gln</td><td>CGG Arg</td><td><strong>G</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>A</strong></td>
+            <td>AUU Ile</td><td>ACU Thr</td><td>AAU Asn</td><td>AGU Ser</td><td><strong>U</strong></td>
+          </tr>
+          <tr>
+            <td>AUC Ile</td><td>ACC Thr</td><td>AAC Asn</td><td>AGC Ser</td><td><strong>C</strong></td>
+          </tr>
+          <tr>
+            <td>AUA Ile</td><td>ACA Thr</td><td>AAA Lys</td><td>AGA Arg</td><td><strong>A</strong></td>
+          </tr>
+          <tr>
+            <td><strong>AUG Met</strong></td><td>ACG Thr</td><td>AAG Lys</td><td>AGG Arg</td><td><strong>G</strong></td>
+          </tr>
+          <tr>
+            <td rowspan="4"><strong>G</strong></td>
+            <td>GUU Val</td><td>GCU Ala</td><td>GAU Asp</td><td>GGU Gly</td><td><strong>U</strong></td>
+          </tr>
+          <tr>
+            <td>GUC Val</td><td>GCC Ala</td><td>GAC Asp</td><td>GGC Gly</td><td><strong>C</strong></td>
+          </tr>
+          <tr>
+            <td>GUA Val</td><td>GCA Ala</td><td>GAA Glu</td><td>GGA Gly</td><td><strong>A</strong></td>
+          </tr>
+          <tr>
+            <td>GUG Val</td><td>GCG Ala</td><td>GAG Glu</td><td>GGG Gly</td><td><strong>G</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul>
+        <li><strong>Triplet &amp; Unambiguous:</strong> 61 sense codons specify amino acids; 3 stop/nonsense codons (<strong>UAA, UAG, UGA</strong>) terminate translation. Each codon specifies only one amino acid.</li>
+        <li><strong>Degenerate:</strong> Most amino acids are encoded by more than one codon (exceptions: Met = AUG, Trp = UGG).</li>
+        <li><strong>Contiguous (Commaless):</strong> Read continuously without punctuation.</li>
+        <li><strong>Nearly Universal:</strong> Identical from bacteria to humans (e.g., UUU = Phe), with minor exceptions in mitochondrial codons and certain protozoans.</li>
+        <li><strong>Dual Role of AUG:</strong> Codes for Methionine (Met) and acts as the <strong>initiator codon</strong>.</li>
+      </ul>
+
+      <h3>6.2 Point Mutations vs. Frameshift Mutations</h3>
+      <ul>
+        <li><strong>Point Mutation (Single-Base Substitution):</strong> Example — in <em>sickle-cell anemia</em>, a single base-pair change in the \(\beta\)-globin gene converts a glutamate codon to a valine codon.</li>
+        <li><strong>Frameshift Insertion/Deletion:</strong> Inserting or deleting 1 or 2 bases shifts the entire downstream triplet reading frame. Inserting or deleting <strong>3 bases (or a multiple of 3)</strong> adds or removes one or more complete amino acids while preserving the downstream reading frame.</li>
+      </ul>
+
+      <h3>6.3 tRNA (The Adapter Molecule) &amp; Translation</h3>
+      <p>Francis Crick proposed an adapter molecule to link codons to amino acids. <strong>tRNA</strong> (earlier called soluble RNA or sRNA) has a 2D <em>cloverleaf</em> secondary structure and a compact 3D <em>inverted-L</em> shape. Its <strong>anticodon loop</strong> pairs with the mRNA codon, while its <span class="mono">3′</span> acceptor end binds a specific amino acid. There are no tRNAs for stop codons.</p>
+      <ol>
+        <li><strong>Charging (Aminoacylation) of tRNA:</strong> Amino acids are activated using <strong>ATP</strong> and linked to their cognate tRNAs.</li>
+        <li><strong>Ribosome Binding &amp; Initiation:</strong> The ribosome (structural rRNAs + ~80 proteins) binds mRNA at the start codon (AUG), recognized by initiator tRNA. Flanking <strong>Untranslated Regions (5′ UTR and 3′ UTR)</strong> enhance translational efficiency.</li>
+        <li><strong>Elongation &amp; Ribozyme Catalysis:</strong> Charged tRNAs enter the large subunit's sites sequentially. In bacteria, <strong>23S rRNA</strong> acts as a <strong>ribozyme</strong> (peptidyl transferase) catalyzing peptide bond formation.</li>
+        <li><strong>Termination:</strong> When a stop codon enters, a <strong>release factor</strong> binds and releases the completed polypeptide.</li>
+      </ol>
+    </section>
+
+    <section id="lac-operon">
+      <h2>7. Regulation of Gene Expression: The Lac Operon</h2>
+      <p>In eukaryotes, gene expression is regulated at four levels: (1) transcriptional, (2) processing/splicing, (3) mRNA transport from nucleus to cytoplasm, and (4) translational. In prokaryotes, control of <strong>transcriptional initiation</strong> predominates via <strong>operons</strong>—clusters of polycistronic structural genes sharing a common promoter and operator.</p>
+
+      <h3>7.1 Components &amp; Logic of the Lac Operon (Jacob &amp; Monod)</h3>
+      <ul>
+        <li><strong>Regulatory gene (<em>i</em>):</strong> Derived from <em>inhibitor</em> (not inducer); constitutively expresses the <strong>lac repressor protein</strong>.</li>
+        <li><strong>Promoter (<em>p</em>) &amp; Operator (<em>o</em>):</strong> RNA polymerase binds <em>p</em>; the repressor binds <em>o</em> to block transcription.</li>
+        <li><strong>Structural genes:</strong>
+          <ul>
+            <li><strong><em>lac z</em></strong> \(\rightarrow\) <strong>\(\beta\)-galactosidase</strong> (hydrolyzes lactose into galactose + glucose).</li>
+            <li><strong><em>lac y</em></strong> \(\rightarrow\) <strong>Permease</strong> (increases cell permeability to \(\beta\)-galactosides; a basal low-level expression is always present so initial lactose can enter).</li>
+            <li><strong><em>lac a</em></strong> \(\rightarrow\) <strong>Transacetylase</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Inducer (Lactose / Allolactose):</strong> In the <em>absence</em> of lactose, active repressor binds <em>o</em> and halts transcription (<strong>negative regulation</strong>). In the <em>presence</em> of lactose, the inducer binds and inactivates the repressor, allowing RNA polymerase to transcribe <em>z, y, a</em>. Once lactose is consumed, free repressor re-binds <em>o</em> and shuts the operon off. Note: <strong>glucose or galactose cannot act as inducers</strong>.</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lac operon OFF and ON states">
+          <rect x="0" y="0" width="760" height="220" fill="#F8FAFC" rx="8"/>
+          <!-- Top: OFF -->
+          <text x="18" y="26" font-size="12" font-weight="700" fill="#B45309">1. Absence of Inducer (Lactose) → Operon OFF</text>
+          <rect x="30" y="40" width="42" height="28" fill="#E2E8F0" stroke="#1E293B"/>
+          <text x="51" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">p</text>
+          <rect x="72" y="40" width="90" height="28" fill="#DBEAFE" stroke="#2563EB"/>
+          <text x="117" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">i (repressor)</text>
+          <rect x="162" y="40" width="42" height="28" fill="#E2E8F0" stroke="#1E293B"/>
+          <text x="183" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">p</text>
+          <rect x="204" y="40" width="48" height="28" fill="#FEF3C7" stroke="#B45309"/>
+          <text x="228" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">o</text>
+          <rect x="252" y="40" width="120" height="28" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="312" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">z</text>
+          <rect x="372" y="40" width="80" height="28" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="412" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">y</text>
+          <rect x="452" y="40" width="60" height="28" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="482" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">a</text>
+          <!-- Active repressor binding o -->
+          <ellipse cx="228" cy="54" rx="16" ry="20" fill="#B45309" opacity="0.85"/>
+          <text x="535" y="58" font-size="11" font-weight="600" fill="#B45309">Repressor blocks RNA Pol (No mRNA)</text>
+
+          <!-- Bottom: ON -->
+          <text x="18" y="122" font-size="12" font-weight="700" fill="#0D9488">2. Presence of Inducer (Lactose) → Operon ON</text>
+          <rect x="30" y="136" width="42" height="28" fill="#E2E8F0" stroke="#1E293B"/>
+          <text x="51" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">p</text>
+          <rect x="72" y="136" width="90" height="28" fill="#DBEAFE" stroke="#2563EB"/>
+          <text x="117" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">i (repressor)</text>
+          <rect x="162" y="136" width="42" height="28" fill="#E2E8F0" stroke="#1E293B"/>
+          <text x="183" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">p</text>
+          <rect x="204" y="136" width="48" height="28" fill="#FEF3C7" stroke="#B45309"/>
+          <text x="228" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">o</text>
+          <rect x="252" y="136" width="120" height="28" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="312" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">z</text>
+          <rect x="372" y="136" width="80" height="28" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="412" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">y</text>
+          <rect x="452" y="136" width="60" height="28" fill="#CCFBF1" stroke="#0D9488"/>
+          <text x="482" y="155" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">a</text>
+
+          <!-- Inactive repressor + inducer -->
+          <ellipse cx="117" cy="196" rx="18" ry="12" fill="#94A3B8"/>
+          <circle cx="135" cy="196" r="7" fill="#0D9488"/>
+          <text x="228" y="199" text-anchor="middle" font-size="10.5" fill="#475569">Inducer + Repressor (Inactive)</text>
+          <!-- Transcription arrow -->
+          <line x1="252" y1="184" x2="508" y2="184" stroke="#2563EB" stroke-width="2.5"/>
+          <polygon points="512,184 503,179 503,189" fill="#2563EB"/>
+          <text x="535" y="155" font-size="11" font-weight="600" fill="#0D9488">lac mRNA → β-gal, Permease, Transacetylase</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 5:</strong> Negative inducible regulation of the bacterial <em>lac</em> operon.</div>
+      </div>
+    </section>
+
+    <section id="genomics-fingerprinting">
+      <h2>8. Human Genome Project (HGP) &amp; DNA Fingerprinting</h2>
+
+      <h3>8.1 Human Genome Project (1990–2003)</h3>
+      <p>Launched in 1990 and completed in 2003 (with Chromosome 1 finished in May 2006), HGP was a 13-year international mega-project (~US $9 billion estimated cost; spawned <strong>Bioinformatics</strong> and addressed <strong>ELSI</strong>—Ethical, Legal, and Social Issues). Non-human models sequenced include bacteria, yeast, <em>Caenorhabditis elegans</em>, <em>Drosophila</em>, rice, and <em>Arabidopsis</em>.</p>
+      <ul>
+        <li><strong>Two Methodologies:</strong> (1) <strong>Expressed Sequence Tags (ESTs)</strong>—identifying all genes expressed as RNA; (2) <strong>Sequence Annotation</strong>—sequencing the entire coding and non-coding genome, then assigning functions.</li>
+        <li><strong>Cloning &amp; Sequencing:</strong> Random DNA fragments were cloned in bacteria/yeast using <strong>BAC</strong> (Bacterial Artificial Chromosomes) and <strong>YAC</strong> (Yeast Artificial Chromosomes), sequenced by automated <strong>Sanger sequencers</strong>, and aligned computationally using overlapping regions.</li>
+        <li><strong>Salient Features of the Human Genome:</strong>
+          <ul>
+            <li>Contains <strong>\(3164.7\,\mathrm{million\ bp}\)</strong>; ~<strong>\(30{,}000\)</strong> total genes.</li>
+            <li>Average gene size = \(3000\) bases; largest known human gene = <strong>dystrophin</strong> (\(2.4\,\mathrm{million\ bases}\)).</li>
+            <li><strong>\(99.9\%\)</strong> of nucleotide bases are identical across all humans; <strong>\(&lt; 2\%\)</strong> of the genome codes for proteins.</li>
+            <li>Functions remain unknown for <strong>\(&gt; 50\%\)</strong> of discovered genes.</li>
+            <li><strong>Chromosome 1</strong> has the most genes (\(2968\)); the <strong>Y chromosome</strong> has the fewest (\(231\)).</li>
+            <li>~<strong>\(1.4\,\mathrm{million}\) SNPs</strong> (Single Nucleotide Polymorphisms) identified.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>8.2 DNA Fingerprinting (Alec Jeffreys)</h3>
+      <p>DNA fingerprinting exploits the \(0.1\%\) sequence variation among humans by analyzing <strong>repetitive DNA</strong> (separated from bulk DNA as <strong>satellite DNA</strong> peaks during density gradient centrifugation). <strong>DNA polymorphism</strong> refers to heritable mutations occurring at a locus with a population frequency \(&gt; 0.01\) (more frequent in non-coding regions).</p>
+      <ul>
+        <li><strong>VNTR (Variable Number of Tandem Repeats):</strong> A class of <strong>mini-satellite</strong> DNA (\(0.1\) to \(20\,\mathrm{kb}\)) showing high copy-number polymorphism between paternal/maternal chromosomes and among individuals (identical only in <strong>monozygotic twins</strong>).</li>
+        <li><strong>Six Steps of Classical Southern Blotting:</strong> (1) DNA isolation \(\rightarrow\) (2) Digestion with <strong>restriction endonucleases</strong> \(\rightarrow\) (3) Gel electrophoresis \(\rightarrow\) (4) Blotting onto nitrocellulose/nylon membrane \(\rightarrow\) (5) Hybridization with radiolabeled VNTR probe \(\rightarrow\) (6) Detection by <strong>autoradiography</strong>.</li>
+        <li><strong>Sensitivity &amp; Uses:</strong> <strong>PCR</strong> amplification allows profiling from a single cell. Used in forensics (identical across blood, hair follicle, skin, saliva, sperm), paternity testing, and biodiversity studies.</li>
+      </ul>
+    </section>
+
+    <section id="worked-examples">
+      <h2>9. Worked Examples</h2>
+
+      <div class="example-card">
+        <div class="example-header">Worked Example 1: Chargaff's Rule Calculation (Hypothetical Assumption)</div>
+        <p><strong>Problem:</strong> Assume a hypothetical double-stranded DNA molecule extracted from a newly cultured bacterium contains \(18\%\) Guanine. Calculate the percentage of Adenine and total Pyrimidines in this DNA.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong> By Chargaff's equivalence in dsDNA, \([\mathrm{G}] = [\mathrm{C}]\) and \([\mathrm{A}] = [\mathrm{T}]\).</p>
+          \[
+          [\mathrm{G}] = 18\% \implies [\mathrm{C}] = 18\%
+          \]
+          \[
+          [\mathrm{A}] + [\mathrm{T}] = 100\% - (18\% + 18\%) = 64\%
+          \]
+          \[
+          [\mathrm{A}] = \frac{64\%}{2} = 32\%
+          \]
+          <p>Total Pyrimidines \(= [\mathrm{C}] + [\mathrm{T}] = 18\% + 32\% = 50\%\). (In any dsDNA, purines \(= 50\%\) and pyrimidines \(= 50\%\).)</p>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">Worked Example 2: DNA Length &amp; Nucleosome Count (Hypothetical Assumption)</div>
+        <p><strong>Problem:</strong> Assume a hypothetical eukaryotic chromosome fragment has a DNA length of \(6.8 \times 10^{-4}\,\mathrm{m}\). Using standard constants (\(0.34\,\mathrm{nm/bp}\) and \(200\,\mathrm{bp/nucleosome}\)), estimate the number of base pairs and nucleosomes in this fragment.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          \[
+          \text{Number of bp} = \frac{6.8 \times 10^{-4}\,\mathrm{m}}{0.34 \times 10^{-9}\,\mathrm{m/bp}} = 2.0 \times 10^{6}\,\mathrm{bp}
+          \]
+          \[
+          \text{Number of nucleosomes} = \frac{2.0 \times 10^{6}\,\mathrm{bp}}{200\,\mathrm{bp/nucleosome}} = 1.0 \times 10^{4}\text{ nucleosomes}
+          \]
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">Worked Example 3: Meselson–Stahl Generation Ratio (Hypothetical Assumption)</div>
+        <p><strong>Problem:</strong> Suppose heavy (\(^{15}\mathrm{N}/^{15}\mathrm{N}\)) <em>E. coli</em> cells are transferred to \(^{14}\mathrm{N}\) medium and allowed to divide for \(80\,\mathrm{min}\) (assuming a \(20\,\mathrm{min}\) generation time). What percentage of DNA molecules will be hybrid (\(^{15}\mathrm{N}/^{14}\mathrm{N}\)) and what percentage will be light (\(^{14}\mathrm{N}/^{14}\mathrm{N}\))?</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong> Number of generations \(n = \frac{80}{20} = 4\). Total DNA duplexes formed from one parental duplex \(= 2^4 = 16\).</p>
+          <p>Because replication is semiconservative, the two original \(^{15}\mathrm{N}\) strands remain intact in exactly \(2\) hybrid duplexes; the remaining \(16 - 2 = 14\) duplexes are completely light.</p>
+          \[
+          \text{Hybrid} = \frac{2}{16} \times 100\% = 12.5\%, \qquad \text{Light} = \frac{14}{16} \times 100\% = 87.5\%
+          \]
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">Worked Example 4: Predicting mRNA from a Transcription Unit (Hypothetical Assumption)</div>
+        <p><strong>Problem:</strong> Assume a hypothetical transcription unit has the template strand <span class="mono">3′-TACCGTAGCAAT-5′</span>. Write the sequence and polarity of the coding strand and the transcribed mRNA.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <ul>
+            <li><strong>Coding strand</strong> (antiparallel and complementary to template): <span class="mono">5′-ATGGCATCGTTA-3′</span></li>
+            <li><strong>Transcribed mRNA</strong> (identical to coding strand, with U replacing T): <span class="mono">5′-AUGGCAUCGUUA-3′</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>10. NEET UG Practice Questions</h2>
+      <p><em>Note: All questions below are original practice questions designed to match NEET UG style and difficulty.</em></p>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>Which of the following statements correctly distinguishes a nucleoside from a nucleotide?</p>
+        <ul class="options-list">
+          <li>(1) A nucleoside contains a pentose sugar and phosphate, whereas a nucleotide lacks phosphate.</li>
+          <li>(2) A nucleoside has a nitrogenous base linked to <span class="mono">1′</span>C of pentose sugar via N-glycosidic linkage, while a nucleotide additionally has a phosphate at <span class="mono">5′</span>C via phosphoester linkage.</li>
+          <li>(3) A nucleoside is joined to the next nucleoside by a <span class="mono">3′–5′</span> phosphodiester bond.</li>
+          <li>(4) Uracil is a nucleoside, whereas uridine is a nitrogenous base.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (2)</span>
+          <p><strong>Explanation:</strong> A nucleoside = Nitrogenous base + Pentose sugar (N-glycosidic bond at <span class="mono">1′</span>C). Adding a phosphate group at <span class="mono">5′</span>C via a phosphoester linkage forms a nucleotide. Uracil is a base; uridine is its nucleoside.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 2 (Numerical MCQ)</div>
+        <p>In a double-stranded DNA sample, if Cytosine constitutes \(28\%\) of the total bases, what is the percentage of Thymine in this DNA?</p>
+        <ul class="options-list">
+          <li>(1) \(28\%\)</li>
+          <li>(2) \(44\%\)</li>
+          <li>(3) \(22\%\)</li>
+          <li>(4) \(56\%\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (3)</span>
+          <p><strong>Explanation:</strong> By Chargaff's rule, \([\mathrm{C}] = [\mathrm{G}] = 28\%\). Thus, \([\mathrm{C}] + [\mathrm{G}] = 56\%\). The remaining \(100\% - 56\% = 44\%\) is shared equally between Adenine and Thymine, giving \([\mathrm{T}] = 22\%\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>In the Avery, MacLeod, and McCarty experiment, which enzyme treatment prevented the transformation of live R-strain <em>Streptococcus pneumoniae</em> into virulent S-strain?</p>
+        <ul class="options-list">
+          <li>(1) Protease</li>
+          <li>(2) RNase</li>
+          <li>(3) Lipase</li>
+          <li>(4) DNase</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (4)</span>
+          <p><strong>Explanation:</strong> Proteases and RNases did not affect transformation, ruling out protein and RNA. Digestion with DNase destroyed DNA and inhibited transformation, proving DNA is the transforming principle.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 4 (Statement I &amp; II)</div>
+        <p><strong>Statement I:</strong> In the Hershey–Chase experiment, radioactivity was detected inside <em>E. coli</em> cells when bacteriophages were grown on \(^{32}\mathrm{P}\) medium.<br>
+        <strong>Statement II:</strong> DNA contains phosphorus but lacks sulfur, whereas proteins contain sulfur but lack phosphorus.</p>
+        <ul class="options-list">
+          <li>(1) Both Statement I and Statement II are correct.</li>
+          <li>(2) Both Statement I and Statement II are incorrect.</li>
+          <li>(3) Statement I is correct but Statement II is incorrect.</li>
+          <li>(4) Statement I is incorrect but Statement II is correct.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (1)</span>
+          <p><strong>Explanation:</strong> \(^{32}\mathrm{P}\) specifically labels phage DNA, which enters the bacterial cell during infection. \(^{35}\mathrm{S}\) labels the protein coat, which stays outside in the supernatant after blending and centrifugation.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 5 (Single-Correct MCQ)</div>
+        <p>Why is DNA preferred over RNA for long-term storage of genetic information in most organisms?</p>
+        <ul class="options-list">
+          <li>(1) DNA has a reactive <span class="mono">2′-OH</span> group that speeds up catalysis.</li>
+          <li>(2) DNA lacks a <span class="mono">2′-OH</span> group and has thymine instead of uracil, making it chemically more stable.</li>
+          <li>(3) RNA cannot replicate by complementary base pairing.</li>
+          <li>(4) DNA can directly translate into proteins without any intermediate.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (2)</span>
+          <p><strong>Explanation:</strong> The <span class="mono">2′-OH</span> group in RNA makes it labile and reactive. DNA's deoxyribose sugar and thymine (5-methyl uracil) provide superior chemical stability and repair capability.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 6 (Single-Correct MCQ)</div>
+        <p>During DNA replication at a replication fork, which statement is accurate?</p>
+        <ul class="options-list">
+          <li>(1) DNA polymerase synthesizes the leading strand in <span class="mono">3′→5′</span> direction.</li>
+          <li>(2) Both strands are synthesized continuously by DNA ligase.</li>
+          <li>(3) Synthesis is continuous on the <span class="mono">3′→5′</span> template and discontinuous on the <span class="mono">5′→3′</span> template.</li>
+          <li>(4) dNTPs provide substrates only, while ATP provides all polymerization energy.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (3)</span>
+          <p><strong>Explanation:</strong> DNA-dependent DNA polymerase always polymerizes in the <span class="mono">5′→3′</span> direction. Therefore, it moves continuously along the <span class="mono">3′→5′</span> template and discontinuously along the <span class="mono">5′→3′</span> template (fragments joined by DNA ligase). dNTPs provide both substrate and energy.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 7 (Match the Following)</div>
+        <p>Match the eukaryotic RNA polymerase with its primary transcribed product:</p>
+        <table>
+          <thead>
+            <tr><th>Column I (Enzyme)</th><th>Column II (Product)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A. RNA Polymerase I</td><td>i. hnRNA (precursor of mRNA)</td></tr>
+            <tr><td>B. RNA Polymerase II</td><td>ii. 28S, 18S, 5.8S rRNAs</td></tr>
+            <tr><td>C. RNA Polymerase III</td><td>iii. tRNA, 5S rRNA, snRNAs</td></tr>
+          </tbody>
+        </table>
+        <ul class="options-list">
+          <li>(1) A–ii, B–i, C–iii</li>
+          <li>(2) A–i, B–ii, C–iii</li>
+          <li>(3) A–iii, B–i, C–ii</li>
+          <li>(4) A–ii, B–iii, C–i</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (1)</span>
+          <p><strong>Explanation:</strong> In eukaryotes, Pol I transcribes large rRNAs (28S, 18S, 5.8S); Pol II transcribes hnRNA; Pol III transcribes tRNA, 5S rRNA, and snRNAs.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 8 (Single-Correct MCQ)</div>
+        <p>During eukaryotic hnRNA maturation, what occurs during <em>capping</em> and <em>tailing</em>?</p>
+        <ul class="options-list">
+          <li>(1) Methyl guanosine triphosphate is added at the <span class="mono">3′</span>-end; 200–300 adenylate residues at the <span class="mono">5′</span>-end.</li>
+          <li>(2) Methyl guanosine triphosphate is added at the <span class="mono">5′</span>-end; 200–300 adenylate residues at the <span class="mono">3′</span>-end in a template-independent manner.</li>
+          <li>(3) Introns are added to the <span class="mono">5′</span>-end and exons are removed from the <span class="mono">3′</span>-end.</li>
+          <li>(4) Rho factor caps the <span class="mono">5′</span>-end and sigma factor tails the <span class="mono">3′</span>-end.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (2)</span>
+          <p><strong>Explanation:</strong> Capping adds methyl guanosine triphosphate to the <span class="mono">5′</span>-end; tailing (polyadenylation) adds 200–300 adenylate residues to the <span class="mono">3′</span>-end independently of a template.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 9 (Assertion–Reason)</div>
+        <p><strong>Assertion (A):</strong> Deletion of three consecutive nucleotides in a coding gene does not alter the reading frame of downstream codons.<br>
+        <strong>Reason (R):</strong> The genetic code is a contiguous triplet code without punctuation.</p>
+        <ul class="options-list">
+          <li>(1) Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+          <li>(2) Both (A) and (R) are true but (R) is not the correct explanation of (A).</li>
+          <li>(3) (A) is true but (R) is false.</li>
+          <li>(4) (A) is false but (R) is true.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (1)</span>
+          <p><strong>Explanation:</strong> Because codons are read in contiguous triplets, deleting 3 bases removes exactly one codon (one amino acid) while keeping all subsequent triplet groupings intact.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 10 (Single-Correct MCQ)</div>
+        <p>Which molecule acts as a ribozyme to catalyze peptide bond formation on bacterial ribosomes?</p>
+        <ul class="options-list">
+          <li>(1) 5S rRNA</li>
+          <li>(2) 16S rRNA</li>
+          <li>(3) 23S rRNA</li>
+          <li>(4) Initiator tRNA</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (3)</span>
+          <p><strong>Explanation:</strong> In bacteria, the 23S rRNA component of the large ribosomal subunit acts as a catalytic RNA (ribozyme) for peptide bond formation.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 11 (Single-Correct MCQ)</div>
+        <p>In the <em>lac</em> operon of <em>E. coli</em>, if a mutation inactivates the <em>i</em> gene so it cannot produce functional repressor protein, what will happen in the absence of lactose?</p>
+        <ul class="options-list">
+          <li>(1) The structural genes <em>z</em>, <em>y</em>, and <em>a</em> will remain permanently switched off.</li>
+          <li>(2) The structural genes <em>z</em>, <em>y</em>, and <em>a</em> will be constitutively transcribed.</li>
+          <li>(3) Only <em>lac z</em> will be transcribed, while <em>y</em> and <em>a</em> remain off.</li>
+          <li>(4) Glucose will act as an inducer to turn off the operon.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (2)</span>
+          <p><strong>Explanation:</strong> Without a functional repressor to bind the operator (<em>o</em>), RNA polymerase freely accesses the promoter and continuously transcribes <em>z</em>, <em>y</em>, and <em>a</em> even without lactose.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 12 (Single-Correct MCQ)</div>
+        <p>Which of the following statements about the Human Genome Project (HGP) is <strong>incorrect</strong>?</p>
+        <ul class="options-list">
+          <li>(1) Less than \(2\%\) of the human genome codes for proteins.</li>
+          <li>(2) Chromosome 1 contains the highest number of genes (\(2968\)), whereas the Y chromosome has the fewest (\(231\)).</li>
+          <li>(3) Over \(90\%\) of the human genome consists of protein-coding exons.</li>
+          <li>(4) The largest known human gene is dystrophin at \(2.4\,\mathrm{million}\) bases.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (3)</span>
+          <p><strong>Explanation:</strong> Less than \(2\%\) of the human genome codes for proteins; a very large fraction consists of repetitive sequences.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 13 (Single-Correct MCQ)</div>
+        <p>In DNA fingerprinting, VNTRs are used as probes because they:</p>
+        <ul class="options-list">
+          <li>(1) Code for essential housekeeping enzymes in every tissue.</li>
+          <li>(2) Show high degree of copy-number polymorphism and vary from individual to individual (except monozygotic twins).</li>
+          <li>(3) Are identical in all members of a human population.</li>
+          <li>(4) Cannot be amplified by PCR.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Correct Answer: (2)</span>
+          <p><strong>Explanation:</strong> Variable Number of Tandem Repeats (VNTRs) are non-coding mini-satellite sequences (\(0.1\text{–}20\,\mathrm{kb}\)) with high heritable polymorphism, generating unique banding patterns for every individual except identical twins.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls-recap">
+      <h2>11. Common Pitfalls, Revision Checklist &amp; Final Recap</h2>
+
+      <div class="callout warn">
+        <div class="callout-title">Common NEET UG Pitfalls to Avoid</div>
+        <ul>
+          <li><strong>\(^{15}\mathrm{N}\) is NOT radioactive:</strong> Meselson and Stahl used density gradient centrifugation (CsCl), whereas Hershey and Chase used radioactive \(^{32}\mathrm{P}\) and \(^{35}\mathrm{S}\).</li>
+          <li><strong>Coding strand does NOT code for RNA:</strong> RNA polymerase reads the <span class="mono">3′→5′</span> <em>template</em> strand; the <span class="mono">5′→3′</span> <em>coding</em> strand is merely the reference strand whose sequence matches the RNA (with T in place of U).</li>
+          <li><strong><em>lac i</em> stands for inhibitor, not inducer:</strong> The inducer is lactose (or allolactose), never glucose or galactose.</li>
+          <li><strong>Stop codons have no tRNAs:</strong> UAA, UAG, and UGA are recognized by protein release factors, not tRNA anticodons.</li>
+        </ul>
+      </div>
+
+      <h3>High-Yield Revision Checklist</h3>
+      <ul class="checklist">
+        <li>DNA pitch = \(3.4\,\mathrm{nm}\), rise/bp = \(0.34\,\mathrm{nm}\), ~\(10\,\mathrm{bp}\)/turn; nucleosome = \(200\,\mathrm{bp}\) + histone octamer (Lys, Arg rich).</li>
+        <li>A=T (2 H-bonds), G≡C (3 H-bonds); Chargaff: \([\mathrm{A}]=[\mathrm{T}]\), \([\mathrm{G}]=[\mathrm{C}]\).</li>
+        <li>Replication: \(5′\rightarrow 3′\) by DNA Pol; leading = continuous, lagging = discontinuous + DNA ligase.</li>
+        <li>Prokaryotic RNA Pol: \(\sigma\) initiates, \(\rho\) terminates; Eukaryotic: Pol I (rRNA), Pol II (hnRNA), Pol III (tRNA, 5S rRNA, snRNA).</li>
+        <li>Genetic code: 61 sense + 3 stop (UAA, UAG, UGA); AUG = Met + start; 23S rRNA = bacterial ribozyme.</li>
+        <li>HGP: \(3164.7\,\mathrm{Mbp}\), ~\(30{,}000\) genes, \(&lt;2\%\) coding, \(99.9\%\) identical, \(1.4\,\mathrm{M}\) SNPs, Chr 1 (2968), Chr Y (231).</li>
+      </ul>
+
+      <div class="card">
+        <h3>Concise Final Recap</h3>
+        <p>DNA stores hereditary information as a stable, antiparallel, complementary double helix packaged around basic histone octamers into chromatin. Semiconservative replication copies the genome with high fidelity using <span class="mono">5′→3′</span> DNA polymerases, while transcription selectively copies one strand into RNA (requiring capping, splicing, and tailing in eukaryotes). The contiguous triplet genetic code is decoded by tRNA adapters on ribosomes to synthesize polypeptides, tightly governed by regulatory switches like the inducible <em>lac</em> operon. Modern genomics (HGP) and VNTR-based DNA fingerprinting harness this sequence architecture for medicine, forensics, and evolutionary biology.</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oscillations (दोलन) — NEET UG Bilingual Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --teal: #0D9488;
+      --bg: #FFFFFF;
+      --surface: #F8FAFC;
+      --border: #CBD5E1;
+      --accent-soft: #EFF6FF;
+      --teal-soft: #F0FDFA;
+      --warn-soft: #FEF2F2;
+      --warn-border: #FCA5A5;
+      --warn-ink: #991B1B;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Sans', 'Noto Sans Devanagari', 'Kohinoor Devanagari', 'Mangal', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    main {
+      max-width: 920px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px 48px 20px;
+    }
+
+    header.doc-header {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--primary);
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background-color: var(--accent-soft);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge.teal {
+      background-color: var(--teal-soft);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+      margin: 0 0 8px 0;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 32px 0 14px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary);
+      color: var(--ink);
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.4;
+      margin: 20px 0 10px 0;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 12px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-block {
+      margin-bottom: 18px;
+    }
+
+    .lang-block.hi {
+      background-color: var(--surface);
+      border-left: 4px solid var(--teal);
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .callout {
+      background-color: var(--accent-soft);
+      border: 1px solid #BFDBFE;
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .callout.pitfall {
+      background-color: var(--warn-soft);
+      border-color: var(--warn-border);
+      border-left-color: #DC2626;
+    }
+
+    .callout.pitfall strong {
+      color: var(--warn-ink);
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      max-width: 100%;
+    }
+
+    .figure-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 16px 0;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .figure-card svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .figure-caption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--surface);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .example-card, .question-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: var(--bg);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-card {
+      border-top: 4px solid var(--teal);
+    }
+
+    .question-card {
+      border-top: 4px solid var(--primary);
+    }
+
+    .q-header {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      background-color: var(--surface);
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      background-color: var(--teal-soft);
+      border: 1px solid #99F6E4;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed var(--border);
+      margin: 16px 0;
+    }
+
+    mjx-container {
+      max-width: 100%;
+      overflow-x: visible;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm;
+    }
+
+    @media print {
+      body {
+        font-size: 11pt;
+        line-height: 1.5;
+        background: #FFFFFF;
+        color: #000000;
+      }
+
+      main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .example-card, .question-card, .figure-card, .callout, .formula-box, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .lang-block.hi {
+        background-color: #F8FAFC;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<main>
+
+  <!-- 1. TITLE AND EXAM CONTEXT -->
+  <header class="doc-header">
+    <div class="badge-row">
+      <span class="badge">NEET UG Physics</span>
+      <span class="badge teal">Bilingual: English + हिन्दी</span>
+      <span class="badge">Mechanics: Oscillations</span>
+    </div>
+    <h1>Oscillations and Simple Harmonic Motion (SHM)</h1>
+    <p><strong>Exam Context:</strong> Comprehensive, standalone tutorial and practice assessment aligned to the NEET UG Physics syllabus.</p>
+    <hr />
+    <h1 lang="hi">दोलन एवं सरल आवर्त गति (SHM)</h1>
+    <p lang="hi"><strong>परीक्षा संदर्भ:</strong> NEET UG भौतिक विज्ञान पाठ्यक्रम के अनुरूप संपूर्ण, स्वतंत्र ट्यूटोरियल एवं अभ्यास मूल्यांकन।</p>
+  </header>
+
+  <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+  <section id="objectives">
+    <h2>1. Learning Objectives &amp; Chapter Overview</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p>Oscillatory motion appears across physics—from vibrating atoms in a crystal lattice and alternating-current circuits to mechanical springs and pendulums. In NEET UG, this topic tests both conceptual clarity (identifying SHM, phase relations, energy graphs) and rapid numerical problem-solving (time periods of springs and pendulums under modified gravity).</p>
+      <p>By completing this tutorial, you will be able to:</p>
+      <ul>
+        <li>Distinguish between periodic motion, oscillatory motion, and Simple Harmonic Motion (SHM).</li>
+        <li>Write and interpret the displacement, velocity, and acceleration equations of SHM using amplitude, angular frequency, and phase constant.</li>
+        <li>Connect SHM to the projection of uniform circular motion on a diameter.</li>
+        <li>Apply the linear restoring force law \(F = -kx\) and energy conservation \(E = K + U = \frac{1}{2}kA^2\).</li>
+        <li>Derive and use the time-period formulas for spring-mass systems and simple pendulums, including effective-gravity cases.</li>
+      </ul>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <h2 style="margin-top: 4px; font-size: 1.25rem; border-bottom-color: var(--teal);">1. अधिगम उद्देश्य एवं अध्याय अवलोकन</h2>
+      <p>दोलन गति भौतिक विज्ञान के अनेक क्षेत्रों में दिखाई देती है—जैसे क्रिस्टल जालक में कंपन करते परमाणु, प्रत्यावर्ती धारा (AC) परिपथ, यांत्रिक स्प्रिंग और लोलक। NEET UG परीक्षा में इस विषय से अवधारणात्मक स्पष्टता (SHM की पहचान, कला संबंध, ऊर्जा ग्राफ) तथा त्वरित संख्यात्मक प्रश्न (स्प्रिंग और परिवर्तित गुरुत्व में लोलक का आवर्तकाल) दोनों पूछे जाते हैं।</p>
+      <p>इस ट्यूटोरियल को पूरा करने के बाद आप सक्षम होंगे:</p>
+      <ul>
+        <li>आवर्ती गति, दोलन गति और सरल आवर्त गति (SHM) के बीच अंतर स्पष्ट करने में।</li>
+        <li>आयाम, कोणीय आवृत्ति और कला नियतांक का उपयोग करके SHM के विस्थापन, वेग और त्वरण के समीकरण लिखने तथा समझने में।</li>
+        <li>एकसमान वृत्तीय गति के व्यास पर प्रक्षेप को SHM से जोड़ने में।</li>
+        <li>रैखिक प्रत्यानयन बल नियम \(F = -kx\) और ऊर्जा संरक्षण \(E = K + U = \frac{1}{2}kA^2\) को लागू करने में।</li>
+        <li>स्प्रिंग-द्रव्यमान निकायों तथा सरल लोलक के आवर्तकाल के सूत्रों (प्रभावी गुरुत्व के मामलों सहित) का उपयोग करने में।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. PERIODIC, OSCILLATORY, AND SIMPLE HARMONIC MOTION -->
+  <section id="periodic-shm">
+    <h2>2. Periodic Motion, Oscillatory Motion &amp; Kinematics of SHM</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <h3>2.1 Periodic vs. Oscillatory Motion</h3>
+      <p>Any motion that repeats itself identically after a fixed interval of time is called <strong>periodic motion</strong>. The smallest time interval after which the motion repeats is the <strong>time period</strong> \(T\) (SI unit: \(\mathrm{s}\)). The number of repetitions per unit time is the <strong>frequency</strong> \(\nu = 1/T\) (SI unit: \(\mathrm{Hz}\) or \(\mathrm{s^{-1}}\)).</p>
+      <p>When a body moves back and forth (to and fro) about a stable equilibrium position, the motion is called <strong>oscillatory motion</strong>. Every oscillatory motion is periodic, but not every periodic motion is oscillatory (for instance, uniform circular motion or planetary orbital motion is periodic without moving to and fro about a mean point).</p>
+
+      <h3>2.2 Defining Simple Harmonic Motion (SHM)</h3>
+      <p><strong>Simple Harmonic Motion (SHM)</strong> is the simplest form of oscillatory motion, in which the restoring force (and acceleration) is directly proportional to the displacement from the equilibrium (mean) position and is always directed toward the mean position. Mathematically, the displacement \(x(t)\) from the mean position \(x = 0\) is a single sinusoidal function of time:</p>
+      <div class="formula-box">
+        \[x(t) = A \cos(\omega t + \phi) \quad \text{or} \quad x(t) = A \sin(\omega t + \phi')\]
+      </div>
+      <ul>
+        <li><strong>Amplitude (\(A\)):</strong> Maximum magnitude of displacement on either side of the mean position (\(A &gt; 0\)).</li>
+        <li><strong>Angular Frequency (\(\omega\)):</strong> Rate of change of phase, related to period and frequency by \(\omega = \frac{2\pi}{T} = 2\pi\nu\) (SI unit: \(\mathrm{rad\,s^{-1}}\)).</li>
+        <li><strong>Phase (\(\omega t + \phi\)):</strong> Time-dependent argument that specifies both the position and direction of motion at instant \(t\).</li>
+        <li><strong>Phase Constant (\(\phi\)):</strong> Value of phase at \(t = 0\), determined by initial position \(x(0)\) and initial velocity \(v(0)\).</li>
+      </ul>
+      <p><em>Important mathematical note:</em> Any linear combination of sine and cosine of the same angular frequency, \(f(t) = a\sin(\omega t) + b\cos(\omega t)\), can be written as \(D\sin(\omega t + \phi)\) with \(D = \sqrt{a^2 + b^2}\) and \(\tan\phi = b/a\), so it represents pure SHM of period \(2\pi/\omega\). However, sums of harmonics with different frequencies such as \(\cos(\omega t) + \cos(2\omega t)\) are periodic (with period equal to the LCM of individual periods) but <strong>not</strong> simple harmonic.</p>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <h2 style="margin-top: 4px; font-size: 1.25rem; border-bottom-color: var(--teal);">2. आवर्ती गति, दोलन गति एवं SHM की गतिकी</h2>
+      <h3>2.1 आवर्ती बनाम दोलन गति</h3>
+      <p>ऐसी कोई भी गति जो एक निश्चित समय अंतराल के बाद स्वयं को हूबहू दोहराती है, <strong>आवर्ती गति (Periodic Motion)</strong> कहलाती है। वह न्यूनतम समय अंतराल जिसके बाद गति की पुनरावृत्ति होती है, <strong>आवर्तकाल</strong> \(T\) (SI मात्रक: \(\mathrm{s}\)) कहलाता है। प्रति एकांक समय में होने वाले दोलनों की संख्या को <strong>आवृत्ति</strong> \(\nu = 1/T\) (SI मात्रक: \(\mathrm{Hz}\) या \(\mathrm{s^{-1}}\)) कहते हैं।</p>
+      <p>जब कोई पिंड किसी स्थायी साम्यावस्था (माध्य स्थिति) के इधर-उधर आगे-पीछे गति करता है, तो इसे <strong>दोलन गति (Oscillatory Motion)</strong> कहते हैं। प्रत्येक दोलन गति आवर्ती होती है, परंतु प्रत्येक आवर्ती गति दोलन नहीं होती (जैसे एकसमान वृत्तीय गति या ग्रहों की कक्षीय गति आवर्ती है, पर माध्य बिंदु के इधर-उधर दोलन नहीं है)।</p>
+
+      <h3>2.2 सरल आवर्त गति (SHM) की परिभाषा</h3>
+      <p><strong>सरल आवर्त गति (SHM)</strong> दोलन गति का सबसे सरल रूप है, जिसमें प्रत्यानयन बल (तथा त्वरण) साम्यावस्था से विस्थापन के अनुक्रमानुपाती होता है और सदैव माध्य स्थिति की ओर दिष्ट रहता है। गणितीय रूप से माध्य स्थिति \(x = 0\) से विस्थापन \(x(t)\) समय का एकल ज्यावक्रीय (sinusoidal) फलन होता है:</p>
+      <div class="formula-box">
+        \[x(t) = A \cos(\omega t + \phi) \quad \text{या} \quad x(t) = A \sin(\omega t + \phi')\]
+      </div>
+      <ul>
+        <li><strong>आयाम (\(A\)):</strong> माध्य स्थिति के दोनों ओर अधिकतम विस्थापन का परिमाण (\(A &gt; 0\))।</li>
+        <li><strong>कोणीय आवृत्ति (\(\omega\)):</strong> कला के परिवर्तन की दर, जो आवर्तकाल और आवृत्ति से \(\omega = \frac{2\pi}{T} = 2\pi\nu\) द्वारा संबंधित होती है (SI मात्रक: \(\mathrm{rad\,s^{-1}}\))।</li>
+        <li><strong>कला (\(\omega t + \phi\)):</strong> समय पर निर्भर वह कोण जो क्षण \(t\) पर कण की स्थिति और गति की दिशा दोनों बताता है।</li>
+        <li><strong>कला नियतांक (\(\phi\)):</strong> \(t = 0\) पर कला का मान, जो प्रारंभिक स्थिति \(x(0)\) और प्रारंभिक वेग \(v(0)\) से निर्धारित होता है।</li>
+      </ul>
+      <p><em>महत्वपूर्ण गणितीय तथ्य:</em> समान कोणीय आवृत्ति वाले ज्या और कोज्या का कोई भी रैखिक संयोजन \(f(t) = a\sin(\omega t) + b\cos(\omega t)\) सदैव \(D\sin(\omega t + \phi)\) के रूप में लिखा जा सकता है, जहाँ \(D = \sqrt{a^2 + b^2}\) तथा \(\tan\phi = b/a\); अतः यह \(2\pi/\omega\) आवर्तकाल की शुद्ध SHM है। किंतु भिन्न आवृत्तियों का योग, जैसे \(\cos(\omega t) + \cos(2\omega t)\), आवर्ती तो है (आवर्तकाल व्यक्तिगत आवर्तकालों के ल.स.प. के बराबर), पर <strong>सरल आवर्त नहीं</strong> है।</p>
+    </div>
+  </section>
+
+  <!-- 4. REFERENCE CIRCLE, VELOCITY, AND ACCELERATION -->
+  <section id="reference-circle">
+    <h2>3. Uniform Circular Motion Projection, Velocity &amp; Acceleration</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <h3>3.1 SHM as Projection of Uniform Circular Motion</h3>
+      <p>Consider a reference particle \(P\) moving counterclockwise on a circle of radius \(A\) with constant angular speed \(\omega\). If its radius vector makes an angle \(\phi\) with the positive \(x\)-axis at \(t = 0\), then at time \(t\) the angle is \(\omega t + \phi\). The projection \(P'\) of \(P\) onto the \(x\)-axis has position \(x(t) = A\cos(\omega t + \phi)\), which is exact SHM. Similarly, its projection onto the \(y\)-axis is \(y(t) = A\sin(\omega t + \phi)\).</p>
+
+      <div class="figure-card">
+        <svg viewBox="0 0 560 270" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reference circle diagram showing projection onto x-axis">
+          <rect x="0" y="0" width="560" height="270" fill="#F8FAFC" rx="6" />
+          <!-- Axes -->
+          <line x1="60" y1="140" x2="320" y2="140" stroke="#1E293B" stroke-width="1.5" />
+          <line x1="190" y1="25" x2="190" y2="255" stroke="#1E293B" stroke-width="1.5" />
+          <polygon points="320,140 312,136 312,144" fill="#1E293B" />
+          <polygon points="190,25 186,33 194,33" fill="#1E293B" />
+          <text x="326" y="144" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">x</text>
+          <text x="195" y="30" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">y</text>
+          <text x="174" y="156" font-family="sans-serif" font-size="13" fill="#1E293B">O</text>
+
+          <!-- Reference Circle -->
+          <circle cx="190" cy="140" r="90" fill="none" stroke="#2563EB" stroke-width="2" />
+          <!-- Radius vector at angle 40 deg -->
+          <line x1="190" y1="140" x2="259" y2="82" stroke="#1E293B" stroke-width="2" />
+          <!-- Projection line -->
+          <line x1="259" y1="82" x2="259" y2="140" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,4" />
+          <!-- Angle arc -->
+          <path d="M 222 140 A 32 32 0 0 0 214 119" fill="none" stroke="#2563EB" stroke-width="1.5" />
+          <text x="227" y="129" font-family="sans-serif" font-size="12" fill="#2563EB">ωt + φ</text>
+
+          <!-- Points P and P' -->
+          <circle cx="259" cy="82" r="5" fill="#2563EB" />
+          <text x="267" y="79" font-family="sans-serif" font-size="13" fill="#2563EB" font-weight="bold">P</text>
+          <circle cx="259" cy="140" r="5" fill="#0D9488" />
+          <text x="254" y="158" font-family="sans-serif" font-size="13" fill="#0D9488" font-weight="bold">P'</text>
+          <text x="215" y="103" font-family="sans-serif" font-size="12" fill="#1E293B">A</text>
+
+          <!-- Amplitude limits -->
+          <text x="284" y="156" font-family="sans-serif" font-size="12" fill="#475569">+A</text>
+          <text x="78" y="156" font-family="sans-serif" font-size="12" fill="#475569">-A</text>
+
+          <!-- Summary box on right -->
+          <rect x="350" y="55" width="190" height="160" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+          <text x="364" y="80" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Reference Circle</text>
+          <text x="364" y="105" font-family="sans-serif" font-size="12" fill="#475569">Radius = Amplitude A</text>
+          <text x="364" y="128" font-family="sans-serif" font-size="12" fill="#475569">Angular speed = ω</text>
+          <text x="364" y="151" font-family="sans-serif" font-size="12" fill="#0D9488">Projection P' on x-axis:</text>
+          <text x="364" y="172" font-family="sans-serif" font-size="12" fill="#0D9488" font-weight="bold">x(t) = A cos(ωt + φ)</text>
+          <text x="364" y="198" font-family="sans-serif" font-size="12" fill="#2563EB">Speed of P = ωA</text>
+        </svg>
+        <p class="figure-caption">Tutorial Diagram 1: Uniform circular motion of reference particle P and its SHM projection P' along the x-axis.</p>
+      </div>
+
+      <h3>3.2 Velocity and Acceleration in SHM</h3>
+      <p>Differentiating \(x(t) = A\cos(\omega t + \phi)\) with respect to time gives instantaneous velocity \(v(t)\) and instantaneous acceleration \(a(t)\):</p>
+      <div class="formula-box">
+        \[v(t) = \frac{dx}{dt} = -\omega A \sin(\omega t + \phi) = \omega A \cos\!\left(\omega t + \phi + \frac{\pi}{2}\right)\]
+        \[a(t) = \frac{dv}{dt} = -\omega^2 A \cos(\omega t + \phi) = -\omega^2 x(t) = \omega^2 A \cos(\omega t + \phi + \pi)\]
+      </div>
+      <p>Eliminating time \(t\) using \(\sin^2\theta + \cos^2\theta = 1\) yields the key NEET relation between speed and position:</p>
+      <div class="formula-box">
+        \[v = \pm\omega\sqrt{A^2 - x^2}\]
+      </div>
+      <ul>
+        <li><strong>At mean position (\(x = 0\)):</strong> Speed is maximum (\(v_{\max} = \omega A\)) and acceleration is zero (\(a = 0\)).</li>
+        <li><strong>At extreme positions (\(x = \pm A\)):</strong> Velocity is zero (\(v = 0\)) and magnitude of acceleration is maximum (\(a_{\max} = \omega^2 A\)), directed toward the origin.</li>
+        <li><strong>Phase relationships:</strong> Velocity leads displacement by \(\pi/2\) radians, and acceleration leads velocity by \(\pi/2\) radians (so acceleration is out of phase with displacement by \(\pi\) radians).</li>
+      </ul>
+
+      <div class="figure-card">
+        <svg viewBox="0 0 560 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plots of displacement, velocity, and acceleration against time">
+          <rect x="0" y="0" width="560" height="240" fill="#F8FAFC" rx="6" />
+          <!-- Axis -->
+          <line x1="60" y1="120" x2="520" y2="120" stroke="#1E293B" stroke-width="1.5" />
+          <line x1="60" y1="25" x2="60" y2="215" stroke="#1E293B" stroke-width="1.5" />
+          <text x="526" y="124" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold">t</text>
+          <text x="48" y="124" font-family="sans-serif" font-size="12" fill="#1E293B">0</text>
+
+          <!-- Vertical guide lines for T/4, T/2, 3T/4, T -->
+          <line x1="160" y1="30" x2="160" y2="210" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3" />
+          <line x1="260" y1="30" x2="260" y2="210" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3" />
+          <line x1="360" y1="30" x2="360" y2="210" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3" />
+          <line x1="460" y1="30" x2="460" y2="210" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,3" />
+          <text x="150" y="226" font-family="sans-serif" font-size="11" fill="#475569">T/4</text>
+          <text x="250" y="226" font-family="sans-serif" font-size="11" fill="#475569">T/2</text>
+          <text x="348" y="226" font-family="sans-serif" font-size="11" fill="#475569">3T/4</text>
+          <text x="456" y="226" font-family="sans-serif" font-size="11" fill="#475569">T</text>
+
+          <!-- x(t) = cos(t) in Blue -->
+          <path d="M 60 55 C 100 55, 130 90, 160 120 C 190 150, 220 185, 260 185 C 300 185, 330 150, 360 120 C 390 90, 420 55, 460 55" fill="none" stroke="#2563EB" stroke-width="2.5" />
+          <!-- v(t) = -sin(t) in Teal -->
+          <path d="M 60 120 C 90 155, 120 195, 160 195 C 200 195, 230 155, 260 120 C 290 85, 320 45, 360 45 C 400 45, 430 85, 460 120" fill="none" stroke="#0D9488" stroke-width="2.2" stroke-dasharray="6,3" />
+          <!-- a(t) = -cos(t) in Dark Slate -->
+          <path d="M 60 185 C 100 185, 130 150, 160 120 C 190 90, 220 55, 260 55 C 300 55, 330 90, 360 120 C 390 150, 420 185, 460 185" fill="none" stroke="#1E293B" stroke-width="2" />
+
+          <!-- Legend -->
+          <rect x="468" y="28" width="84" height="66" rx="4" fill="#FFFFFF" stroke="#CBD5E1" />
+          <line x1="474" y1="43" x2="494" y2="43" stroke="#2563EB" stroke-width="2.5" />
+          <text x="498" y="47" font-family="sans-serif" font-size="11" fill="#2563EB">x(t)</text>
+          <line x1="474" y1="62" x2="494" y2="62" stroke="#0D9488" stroke-width="2.2" stroke-dasharray="4,2" />
+          <text x="498" y="66" font-family="sans-serif" font-size="11" fill="#0D9488">v(t)</text>
+          <line x1="474" y1="81" x2="494" y2="81" stroke="#1E293B" stroke-width="2" />
+          <text x="498" y="85" font-family="sans-serif" font-size="11" fill="#1E293B">a(t)</text>
+        </svg>
+        <p class="figure-caption">Tutorial Diagram 2: Phase relation among displacement x(t), velocity v(t), and acceleration a(t) for φ = 0.</p>
+      </div>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <h2 style="margin-top: 4px; font-size: 1.25rem; border-bottom-color: var(--teal);">3. एकसमान वृत्तीय गति का प्रक्षेप, वेग एवं त्वरण</h2>
+      <h3>3.1 एकसमान वृत्तीय गति के प्रक्षेप के रूप में SHM</h3>
+      <p>मान लीजिए एक संदर्भ कण \(P\), \(A\) त्रिज्या के वृत्त पर नियत कोणीय चाल \(\omega\) से वामावर्त दिशा में घूम रहा है। यदि \(t = 0\) पर इसका त्रिज्या सदिश धनात्मक \(x\)-अक्ष से \(\phi\) कोण बनाता है, तो समय \(t\) पर यह कोण \(\omega t + \phi\) होगा। \(x\)-अक्ष पर कण \(P\) के प्रक्षेप \(P'\) की स्थिति \(x(t) = A\cos(\omega t + \phi)\) होती है, जो सटीक SHM है। इसी प्रकार \(y\)-अक्ष पर प्रक्षेप \(y(t) = A\sin(\omega t + \phi)\) होता है।</p>
+
+      <div class="figure-card">
+        <svg viewBox="0 0 560 270" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="संदर्भ वृत्त आरेख जो x-अक्ष पर प्रक्षेप दर्शाता है">
+          <rect x="0" y="0" width="560" height="270" fill="#F8FAFC" rx="6" />
+          <line x1="60" y1="140" x2="320" y2="140" stroke="#1E293B" stroke-width="1.5" />
+          <line x1="190" y1="25" x2="190" y2="255" stroke="#1E293B" stroke-width="1.5" />
+          <polygon points="320,140 312,136 312,144" fill="#1E293B" />
+          <polygon points="190,25 186,33 194,33" fill="#1E293B" />
+          <text x="326" y="144" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">x</text>
+          <text x="195" y="30" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">y</text>
+          <text x="174" y="156" font-family="sans-serif" font-size="13" fill="#1E293B">O</text>
+
+          <circle cx="190" cy="140" r="90" fill="none" stroke="#2563EB" stroke-width="2" />
+          <line x1="190" y1="140" x2="259" y2="82" stroke="#1E293B" stroke-width="2" />
+          <line x1="259" y1="82" x2="259" y2="140" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,4" />
+          <path d="M 222 140 A 32 32 0 0 0 214 119" fill="none" stroke="#2563EB" stroke-width="1.5" />
+          <text x="227" y="129" font-family="sans-serif" font-size="12" fill="#2563EB">ωt + φ</text>
+
+          <circle cx="259" cy="82" r="5" fill="#2563EB" />
+          <text x="267" y="79" font-family="sans-serif" font-size="13" fill="#2563EB" font-weight="bold">P</text>
+          <circle cx="259" cy="140" r="5" fill="#0D9488" />
+          <text x="254" y="158" font-family="sans-serif" font-size="13" fill="#0D9488" font-weight="bold">P'</text>
+          <text x="215" y="103" font-family="sans-serif" font-size="12" fill="#1E293B">A</text>
+
+          <text x="284" y="156" font-family="sans-serif" font-size="12" fill="#475569">+A</text>
+          <text x="78" y="156" font-family="sans-serif" font-size="12" fill="#475569">-A</text>
+
+          <rect x="348" y="55" width="194" height="160" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" />
+          <text x="360" y="80" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">संदर्भ वृत्त (Reference)</text>
+          <text x="360" y="105" font-family="sans-serif" font-size="12" fill="#475569">त्रिज्या = आयाम A</text>
+          <text x="360" y="128" font-family="sans-serif" font-size="12" fill="#475569">कोणीय चाल = ω</text>
+          <text x="360" y="151" font-family="sans-serif" font-size="12" fill="#0D9488">x-अक्ष पर प्रक्षेप P':</text>
+          <text x="360" y="172" font-family="sans-serif" font-size="12" fill="#0D9488" font-weight="bold">x(t) = A cos(ωt + φ)</text>
+          <text x="360" y="198" font-family="sans-serif" font-size="12" fill="#2563EB">P की चाल = ωA</text>
+        </svg>
+        <p class="figure-caption">ट्यूटोरियल आरेख 1: संदर्भ कण P की एकसमान वृत्तीय गति तथा x-अक्ष पर इसका SHM प्रक्षेप P'।</p>
+      </div>
+
+      <h3>3.2 SHM में वेग और त्वरण</h3>
+      <p>विस्थापन \(x(t) = A\cos(\omega t + \phi)\) का समय के सापेक्ष अवकलन करने पर तात्क्षणिक वेग \(v(t)\) तथा तात्क्षणिक त्वरण \(a(t)\) प्राप्त होते हैं:</p>
+      <div class="formula-box">
+        \[v(t) = \frac{dx}{dt} = -\omega A \sin(\omega t + \phi) = \omega A \cos\!\left(\omega t + \phi + \frac{\pi}{2}\right)\]
+        \[a(t) = \frac{dv}{dt} = -\omega^2 A \cos(\omega t + \phi) = -\omega^2 x(t) = \omega^2 A \cos(\omega t + \phi + \pi)\]
+      </div>
+      <p>सर्वसमिका \(\sin^2\theta + \cos^2\theta = 1\) से समय \(t\) का विलोपन करने पर चाल और स्थिति के बीच महत्वपूर्ण संबंध मिलता है:</p>
+      <div class="formula-box">
+        \[v = \pm\omega\sqrt{A^2 - x^2}\]
+      </div>
+      <ul>
+        <li><strong>माध्य स्थिति (\(x = 0\)) पर:</strong> चाल अधिकतम (\(v_{\max} = \omega A\)) और त्वरण शून्य (\(a = 0\)) होता है।</li>
+        <li><strong>चरम स्थितियों (\(x = \pm A\)) पर:</strong> वेग शून्य (\(v = 0\)) और त्वरण का परिमाण अधिकतम (\(a_{\max} = \omega^2 A\)) होता है, जिसकी दिशा मूल बिंदु की ओर होती है।</li>
+        <li><strong>कला संबंध:</strong> वेग, विस्थापन से \(\pi/2\) रेडियन आगे रहता है, तथा त्वरण, वेग से \(\pi/2\) रेडियन आगे रहता है (अर्थात् त्वरण और विस्थापन में \(\pi\) रेडियन का कलांतर होता है)।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. FORCE LAW AND ENERGY IN SHM -->
+  <section id="force-energy">
+    <h2>4. Force Law, Spring Systems &amp; Energy in SHM</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <h3>4.1 Linear Restoring Force Law</h3>
+      <p>By Newton's second law, a particle of mass \(m\) executing SHM experiences a net restoring force:</p>
+      <div class="formula-box">
+        \[F(t) = ma(t) = -m\omega^2 x(t) = -kx(t)\]
+      </div>
+      <p>Here \(k = m\omega^2\) is the <strong>force constant</strong> (or spring constant, SI unit: \(\mathrm{N\,m^{-1}}\)). Consequently, the angular frequency and time period of a linear harmonic oscillator depend only on \(k\) and \(m\), and <strong>never on amplitude \(A\)</strong>:</p>
+      <div class="formula-box">
+        \[\omega = \sqrt{\frac{k}{m}}, \qquad T = 2\pi\sqrt{\frac{m}{k}}\]
+      </div>
+      <p><strong>Spring Combinations (High-Yield for NEET UG):</strong></p>
+      <ul>
+        <li><strong>Parallel (or symmetric double-spring between walls):</strong> Effective force constant \(k_{\mathrm{eff}} = k_1 + k_2\).</li>
+        <li><strong>Series:</strong> \(\frac{1}{k_{\mathrm{eff}}} = \frac{1}{k_1} + \frac{1}{k_2}\), i.e., \(k_{\mathrm{eff}} = \frac{k_1 k_2}{k_1 + k_2}\).</li>
+        <li><strong>Two-body spring system:</strong> If two masses \(m_1\) and \(m_2\) are attached to the two ends of a spring of constant \(k\) on a frictionless surface, they oscillate about their centre of mass with reduced mass \(\mu = \frac{m_1 m_2}{m_1 + m_2}\) and \(T = 2\pi\sqrt{\frac{\mu}{k}}\). (For equal masses \(m_1 = m_2 = m\), \(\mu = m/2\) so \(T = 2\pi\sqrt{\frac{m}{2k}}\).)</li>
+      </ul>
+
+      <h3>4.2 Kinetic, Potential &amp; Total Mechanical Energy</h3>
+      <p>Because the restoring force \(F = -kx\) is conservative, mechanical energy is conserved in the absence of damping:</p>
+      <div class="formula-box">
+        \[K(x) = \frac{1}{2}mv^2 = \frac{1}{2}k(A^2 - x^2) = \frac{1}{2}kA^2\sin^2(\omega t + \phi)\]
+        \[U(x) = \frac{1}{2}kx^2 = \frac{1}{2}kA^2\cos^2(\omega t + \phi)\]
+        \[E = K + U = \frac{1}{2}kA^2 = \frac{1}{2}m\omega^2 A^2\]
+      </div>
+      <p>Notice that both \(K(t)\) and \(U(t)\) vary between \(0\) and \(E\), peaking twice in every oscillation cycle \(T\). Thus, if the particle oscillates with frequency \(\nu\) and period \(T\), both \(K\) and \(U\) oscillate with <strong>period \(T/2\)</strong> and <strong>frequency \(2\nu\)</strong>.</p>
+
+      <div class="figure-card">
+        <svg viewBox="0 0 560 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Potential energy, kinetic energy, and total energy vs displacement x">
+          <rect x="0" y="0" width="560" height="230" fill="#F8FAFC" rx="6" />
+          <!-- Axes -->
+          <line x1="90" y1="190" x2="470" y2="190" stroke="#1E293B" stroke-width="1.5" />
+          <line x1="280" y1="25" x2="280" y2="205" stroke="#1E293B" stroke-width="1.5" />
+          <text x="476" y="194" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">x</text>
+          <text x="276" y="210" font-family="sans-serif" font-size="12" fill="#1E293B">0</text>
+          <text x="150" y="208" font-family="sans-serif" font-size="12" fill="#1E293B">-A</text>
+          <text x="395" y="208" font-family="sans-serif" font-size="12" fill="#1E293B">+A</text>
+          <text x="215" y="34" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold">Energy</text>
+
+          <!-- Total Energy E line -->
+          <line x1="160" y1="55" x2="400" y2="55" stroke="#1E293B" stroke-width="2" />
+          <text x="408" y="59" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold">E = K + U</text>
+
+          <!-- U(x) upward parabola (280,190) to (160,55) and (400,55) -->
+          <path d="M 160 55 Q 280 325 400 55" fill="none" stroke="#2563EB" stroke-width="2.5" />
+          <text x="115" y="75" font-family="sans-serif" font-size="12" fill="#2563EB" font-weight="bold">U(x)</text>
+
+          <!-- K(x) downward parabola (280,55) to (160,190) and (400,190) -->
+          <path d="M 160 190 Q 280 -80 400 190" fill="none" stroke="#0D9488" stroke-width="2.5" />
+          <text x="355" y="135" font-family="sans-serif" font-size="12" fill="#0D9488" font-weight="bold">K(x)</text>
+        </svg>
+        <p class="figure-caption">Tutorial Diagram 3: Variation of potential energy U(x), kinetic energy K(x), and total energy E with displacement x.</p>
+      </div>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <h2 style="margin-top: 4px; font-size: 1.25rem; border-bottom-color: var(--teal);">4. बल नियम, स्प्रिंग निकाय एवं SHM में ऊर्जा</h2>
+      <h3>4.1 रैखिक प्रत्यानयन बल नियम</h3>
+      <p>न्यूटन के द्वितीय नियम से, SHM करते हुए \(m\) द्रव्यमान के कण पर कार्यरत नेट प्रत्यानयन बल:</p>
+      <div class="formula-box">
+        \[F(t) = ma(t) = -m\omega^2 x(t) = -kx(t)\]
+      </div>
+      <p>यहाँ \(k = m\omega^2\) को <strong>बल नियतांक</strong> (या स्प्रिंग नियतांक, SI मात्रक: \(\mathrm{N\,m^{-1}}\)) कहते हैं। अतः रैखिक सरल आवर्ती दोलक की कोणीय आवृत्ति और आवर्तकाल केवल \(k\) तथा \(m\) पर निर्भर करते हैं, <strong>आयाम \(A\) पर निर्भर नहीं करते</strong>:</p>
+      <div class="formula-box">
+        \[\omega = \sqrt{\frac{k}{m}}, \qquad T = 2\pi\sqrt{\frac{m}{k}}\]
+      </div>
+      <p><strong>स्प्रिंग संयोजन (NEET UG के लिए अत्यंत उपयोगी):</strong></p>
+      <ul>
+        <li><strong>समांतर क्रम (या दीवारों के बीच सममित दो स्प्रिंग):</strong> प्रभावी बल नियतांक \(k_{\mathrm{eff}} = k_1 + k_2\)।</li>
+        <li><strong>श्रेणी क्रम:</strong> \(\frac{1}{k_{\mathrm{eff}}} = \frac{1}{k_1} + \frac{1}{k_2}\), अर्थात् \(k_{\mathrm{eff}} = \frac{k_1 k_2}{k_1 + k_2}\)।</li>
+        <li><strong>द्वि-पिंड स्प्रिंग निकाय:</strong> यदि घर्षणरहित सतह पर \(k\) नियतांक वाली स्प्रिंग के दोनों सिरों से \(m_1\) व \(m_2\) द्रव्यमान जुड़े हों, तो वे अपने द्रव्यमान केंद्र के सापेक्ष समानीत द्रव्यमान \(\mu = \frac{m_1 m_2}{m_1 + m_2}\) के साथ \(T = 2\pi\sqrt{\frac{\mu}{k}}\) आवर्तकाल से दोलन करते हैं। (समान द्रव्यमान \(m_1 = m_2 = m\) के लिए \(\mu = m/2\), अतः \(T = 2\pi\sqrt{\frac{m}{2k}}\)।)</li>
+      </ul>
+
+      <h3>4.2 गतिज, स्थितिज एवं कुल यांत्रिक ऊर्जा</h3>
+      <p>चूँकि प्रत्यानयन बल \(F = -kx\) एक संरक्षी बल है, अवमंदन की अनुपस्थिति में कुल यांत्रिक ऊर्जा संरक्षित रहती है:</p>
+      <div class="formula-box">
+        \[K(x) = \frac{1}{2}mv^2 = \frac{1}{2}k(A^2 - x^2) = \frac{1}{2}kA^2\sin^2(\omega t + \phi)\]
+        \[U(x) = \frac{1}{2}kx^2 = \frac{1}{2}kA^2\cos^2(\omega t + \phi)\]
+        \[E = K + U = \frac{1}{2}kA^2 = \frac{1}{2}m\omega^2 A^2\]
+      </div>
+      <p>ध्यान दें कि \(K(t)\) और \(U(t)\) दोनों \(0\) से \(E\) के बीच बदलते हैं और प्रत्येक दोलन चक्र \(T\) में दो बार अधिकतम होते हैं। अतः यदि कण \(\nu\) आवृत्ति व \(T\) आवर्तकाल से दोलन करता है, तो \(K\) व \(U\) दोनों <strong>\(T/2\) आवर्तकाल</strong> और <strong>\(2\nu\) आवृत्ति</strong> से परिवर्तित होते हैं।</p>
+    </div>
+  </section>
+
+  <!-- 6. THE SIMPLE PENDULUM -->
+  <section id="pendulum">
+    <h2>5. The Simple Pendulum &amp; Effective Gravity</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p>An ideal simple pendulum consists of a point bob of mass \(m\) suspended by an inextensible, massless string of length \(L\) from a rigid support. When displaced by a small angle \(\theta\) (in radians) from the vertical, the radial force \(T - mg\cos\theta\) provides centripetal acceleration, while the tangential component \(mg\sin\theta\) provides the restoring torque about the support:</p>
+      <div class="formula-box">
+        \[\tau = -mgL\sin\theta = I\alpha \implies \alpha = -\frac{mgL}{mL^2}\sin\theta = -\frac{g}{L}\sin\theta\]
+      </div>
+      <p>For small angular displacements (\(\theta \ll 1\,\mathrm{rad}\)), \(\sin\theta \approx \theta\), giving \(\alpha \approx -\frac{g}{L}\theta\). Comparing with \(\alpha = -\omega^2\theta\), the motion is simple harmonic with:</p>
+      <div class="formula-box">
+        \[\omega = \sqrt{\frac{g}{L}}, \qquad T = 2\pi\sqrt{\frac{L}{g}}\]
+      </div>
+      <p><strong>Seconds Pendulum:</strong> A simple pendulum with \(T = 2\,\mathrm{s}\) (one second per half-swing) has length \(L \approx 1\,\mathrm{m}\) on Earth (\(g = 9.8\,\mathrm{m\,s^{-2}}\)).</p>
+      <p><strong>Effective Gravity (\(g_{\mathrm{eff}}\)):</strong> If the pendulum is inside an accelerating frame (such as an elevator or a vehicle moving on a curve), replace \(g\) with \(g_{\mathrm{eff}} = |\vec{g} - \vec{a}|\):</p>
+      <ul>
+        <li>Lift accelerating upward with \(a\): \(g_{\mathrm{eff}} = g + a\).</li>
+        <li>Lift accelerating downward with \(a &lt; g\): \(g_{\mathrm{eff}} = g - a\).</li>
+        <li>Vehicle moving horizontally with acceleration \(a\) (or circular motion with \(a_c = v^2/R\)): \(g_{\mathrm{eff}} = \sqrt{g^2 + a^2}\).</li>
+      </ul>
+
+      <div class="figure-card">
+        <svg viewBox="0 0 480 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Free body diagram of a simple pendulum">
+          <rect x="0" y="0" width="480" height="240" fill="#F8FAFC" rx="6" />
+          <!-- Support -->
+          <line x1="120" y1="30" x2="280" y2="30" stroke="#1E293B" stroke-width="3" />
+          <line x1="200" y1="30" x2="200" y2="210" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,5" />
+          <!-- String -->
+          <line x1="200" y1="30" x2="265" y2="170" stroke="#1E293B" stroke-width="2" />
+          <!-- Angle theta -->
+          <path d="M 200 75 A 45 45 0 0 0 219 71" fill="none" stroke="#2563EB" stroke-width="1.5" />
+          <text x="206" y="92" font-family="sans-serif" font-size="12" fill="#2563EB">θ</text>
+          <text x="236" y="100" font-family="sans-serif" font-size="12" fill="#1E293B">L</text>
+
+          <!-- Bob -->
+          <circle cx="265" cy="170" r="9" fill="#2563EB" />
+          <text x="278" y="168" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold">m</text>
+
+          <!-- Tension T -->
+          <line x1="265" y1="170" x2="242" y2="120" stroke="#0D9488" stroke-width="2.2" />
+          <polygon points="242,120 241,129 249,125" fill="#0D9488" />
+          <text x="230" y="128" font-family="sans-serif" font-size="12" fill="#0D9488" font-weight="bold">T</text>
+
+          <!-- Weight mg -->
+          <line x1="265" y1="170" x2="265" y2="225" stroke="#1E293B" stroke-width="2" />
+          <polygon points="265,225 261,217 269,217" fill="#1E293B" />
+          <text x="270" y="224" font-family="sans-serif" font-size="12" fill="#1E293B">mg</text>
+
+          <!-- Tangential restoring force mg sin theta -->
+          <line x1="265" y1="170" x2="225" y2="189" stroke="#DC2626" stroke-width="2.2" />
+          <polygon points="225,189 234,189 230,182" fill="#DC2626" />
+          <text x="165" y="198" font-family="sans-serif" font-size="12" fill="#DC2626" font-weight="bold">mg sin θ</text>
+
+          <!-- Note box -->
+          <rect x="320" y="55" width="145" height="125" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+          <text x="332" y="80" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Small Angle SHM</text>
+          <text x="332" y="102" font-family="sans-serif" font-size="11.5" fill="#475569">sin θ ≈ θ (in rad)</text>
+          <text x="332" y="125" font-family="sans-serif" font-size="11.5" fill="#0D9488">Restoring torque:</text>
+          <text x="332" y="143" font-family="sans-serif" font-size="11.5" fill="#1E293B">τ = -mgLθ</text>
+          <text x="332" y="166" font-family="sans-serif" font-size="11.5" fill="#2563EB" font-weight="bold">T = 2π √(L / g)</text>
+        </svg>
+        <p class="figure-caption">Tutorial Diagram 4: Forces on a simple pendulum bob displaced by small angle θ.</p>
+      </div>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <h2 style="margin-top: 4px; font-size: 1.25rem; border-bottom-color: var(--teal);">5. सरल लोलक एवं प्रभावी गुरुत्व</h2>
+      <p>एक आदर्श सरल लोलक में \(m\) द्रव्यमान का बिंदु गोलक \(L\) लंबाई की अवितान्य तथा द्रव्यमानरहित डोरी से दृढ़ आधार पर लटका होता है। ऊर्ध्वाधर से छोटे कोण \(\theta\) (रेडियन में) तक विस्थापित करने पर त्रिज्य बल \(T - mg\cos\theta\) अभिकेंद्रीय त्वरण प्रदान करता है, जबकि स्पर्शरेखीय घटक \(mg\sin\theta\) आधार के सापेक्ष प्रत्यानयन बल आघूर्ण देता है:</p>
+      <div class="formula-box">
+        \[\tau = -mgL\sin\theta = I\alpha \implies \alpha = -\frac{mgL}{mL^2}\sin\theta = -\frac{g}{L}\sin\theta\]
+      </div>
+      <p>लघु कोणीय विस्थापन (\(\theta \ll 1\,\mathrm{rad}\)) के लिए \(\sin\theta \approx \theta\), जिससे \(\alpha \approx -\frac{g}{L}\theta\) प्राप्त होता है। \(\alpha = -\omega^2\theta\) से तुलना करने पर गति सरल आवर्त है और:</p>
+      <div class="formula-box">
+        \[\omega = \sqrt{\frac{g}{L}}, \qquad T = 2\pi\sqrt{\frac{L}{g}}\]
+      </div>
+      <p><strong>सेकंड लोलक:</strong> वह सरल लोलक जिसका आवर्तकाल \(T = 2\,\mathrm{s}\) (प्रत्येक अर्ध-दोलन में 1 सेकंड) हो, पृथ्वी पर उसकी लंबाई \(L \approx 1\,\mathrm{m}\) (\(g = 9.8\,\mathrm{m\,s^{-2}}\)) होती है।</p>
+      <p><strong>प्रभावी गुरुत्व (\(g_{\mathrm{eff}}\)):</strong> यदि लोलक किसी त्वरित निर्देश तंत्र (जैसे लिफ्ट या मोड़ पर चलती गाड़ी) में हो, तो \(g\) के स्थान पर \(g_{\mathrm{eff}} = |\vec{g} - \vec{a}|\) का उपयोग करें:</p>
+      <ul>
+        <li>ऊपर की ओर \(a\) त्वरण से जाती लिफ्ट: \(g_{\mathrm{eff}} = g + a\)।</li>
+        <li>नीचे की ओर \(a &lt; g\) त्वरण से जाती लिफ्ट: \(g_{\mathrm{eff}} = g - a\)।</li>
+        <li>क्षैतिज दिशा में \(a\) त्वरण से गतिमान वाहन (या \(a_c = v^2/R\) से वृत्तीय पथ पर): \(g_{\mathrm{eff}} = \sqrt{g^2 + a^2}\)।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. FORMULA SUMMARY TABLE -->
+  <section id="formula-table">
+    <h2>6. Quick-Reference Formula Table</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <table>
+        <thead>
+          <tr>
+            <th>Physical Quantity</th>
+            <th>Equation / Expression</th>
+            <th>Key Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SHM Displacement</td>
+            <td>\(x(t) = A\cos(\omega t + \phi)\)</td>
+            <td>\(A\): amplitude, \(\omega = 2\pi/T\)</td>
+          </tr>
+          <tr>
+            <td>Velocity in SHM</td>
+            <td>\(v = \pm\omega\sqrt{A^2 - x^2}\)</td>
+            <td>\(v_{\max} = \omega A\) at \(x = 0\)</td>
+          </tr>
+          <tr>
+            <td>Acceleration in SHM</td>
+            <td>\(a = -\omega^2 x\)</td>
+            <td>\(a_{\max} = \omega^2 A\) at \(x = \pm A\)</td>
+          </tr>
+          <tr>
+            <td>Spring-Mass Period</td>
+            <td>\(T = 2\pi\sqrt{m/k}\)</td>
+            <td>Independent of \(g\) and \(A\)</td>
+          </tr>
+          <tr>
+            <td>Simple Pendulum Period</td>
+            <td>\(T = 2\pi\sqrt{L/g_{\mathrm{eff}}}\)</td>
+            <td>Valid for small \(\theta\); independent of \(m\)</td>
+          </tr>
+          <tr>
+            <td>Mechanical Energy</td>
+            <td>\(E = \frac{1}{2}kA^2 = K + U\)</td>
+            <td>\(K, U\) oscillate with period \(T/2\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <table>
+        <thead>
+          <tr>
+            <th>भौतिक राशि</th>
+            <th>समीकरण / व्यंजक</th>
+            <th>मुख्य बिंदु</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SHM विस्थापन</td>
+            <td>\(x(t) = A\cos(\omega t + \phi)\)</td>
+            <td>\(A\): आयाम, \(\omega = 2\pi/T\)</td>
+          </tr>
+          <tr>
+            <td>SHM में वेग</td>
+            <td>\(v = \pm\omega\sqrt{A^2 - x^2}\)</td>
+            <td>\(x = 0\) पर \(v_{\max} = \omega A\)</td>
+          </tr>
+          <tr>
+            <td>SHM में त्वरण</td>
+            <td>\(a = -\omega^2 x\)</td>
+            <td>\(x = \pm A\) पर \(a_{\max} = \omega^2 A\)</td>
+          </tr>
+          <tr>
+            <td>स्प्रिंग-द्रव्यमान आवर्तकाल</td>
+            <td>\(T = 2\pi\sqrt{m/k}\)</td>
+            <td>\(g\) तथा \(A\) से स्वतंत्र</td>
+          </tr>
+          <tr>
+            <td>सरल लोलक आवर्तकाल</td>
+            <td>\(T = 2\pi\sqrt{L/g_{\mathrm{eff}}}\)</td>
+            <td>लघु \(\theta\) हेतु; \(m\) से स्वतंत्र</td>
+          </tr>
+          <tr>
+            <td>यांत्रिक ऊर्जा</td>
+            <td>\(E = \frac{1}{2}kA^2 = K + U\)</td>
+            <td>\(K\) व \(U\) का आवर्तकाल \(T/2\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 8. WORKED EXAMPLES -->
+  <section id="worked-examples">
+    <h2>7. Worked Examples</h2>
+
+    <!-- Example 1 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h3>Worked Example 1: Phase Constant &amp; Kinematics from Initial Conditions</h3>
+        <p><strong>Problem (Assumed Data):</strong> A particle executes SHM along the \(x\)-axis with amplitude \(A = 0.08\,\mathrm{m}\) and time period \(T = 0.4\,\mathrm{s}\). At \(t = 0\), it is located at \(x = +0.04\,\mathrm{m}\) and moving toward the negative \(x\)-direction. Determine its displacement equation, and calculate its position, velocity, and acceleration at \(t = 0.1\,\mathrm{s}\).</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>Angular frequency: \(\omega = \frac{2\pi}{T} = \frac{2\pi}{0.4} = 5\pi\,\mathrm{rad\,s^{-1}}\).</li>
+          <li>Let \(x(t) = A\cos(\omega t + \phi)\). At \(t = 0\), \(0.04 = 0.08\cos\phi \implies \cos\phi = \frac{1}{2}\).</li>
+          <li>Velocity is \(v(t) = -\omega A\sin(\omega t + \phi)\). Since \(v(0) &lt; 0\), we need \(\sin\phi &gt; 0\), which gives \(\phi = +\frac{\pi}{3}\,\mathrm{rad}\).</li>
+          <li>Thus, \(x(t) = 0.08\cos\!\left(5\pi t + \frac{\pi}{3}\right)\,\mathrm{m}\).</li>
+          <li>At \(t = 0.1\,\mathrm{s}\), the phase is \(5\pi(0.1) + \frac{\pi}{3} = \frac{\pi}{2} + \frac{\pi}{3} = \frac{5\pi}{6}\).
+            <ul>
+              <li>Position: \(x(0.1) = 0.08\cos\!\left(\frac{5\pi}{6}\right) = -0.04\sqrt{3}\,\mathrm{m} \approx -0.069\,\mathrm{m}\).</li>
+              <li>Velocity: \(v(0.1) = -(5\pi)(0.08)\sin\!\left(\frac{5\pi}{6}\right) = -0.4\pi\left(\frac{1}{2}\right) = -0.2\pi\,\mathrm{m\,s^{-1}} \approx -0.628\,\mathrm{m\,s^{-1}}\).</li>
+              <li>Acceleration: \(a(0.1) = -\omega^2 x(0.1) = -(25\pi^2)(-0.04\sqrt{3}) = +\pi^2\sqrt{3}\,\mathrm{m\,s^{-2}} \approx +17.1\,\mathrm{m\,s^{-2}}\).</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h3>हल किया गया उदाहरण 1: प्रारंभिक स्थितियों से कला नियतांक एवं गतिकी</h3>
+        <p><strong>प्रश्न (कल्पित मान):</strong> एक कण \(x\)-अक्ष के अनुदिश \(A = 0.08\,\mathrm{m}\) आयाम तथा \(T = 0.4\,\mathrm{s}\) आवर्तकाल से SHM कर रहा है। \(t = 0\) पर यह \(x = +0.04\,\mathrm{m}\) पर है और ऋणात्मक \(x\)-दिशा में गतिमान है। इसका विस्थापन समीकरण ज्ञात कीजिए तथा \(t = 0.1\,\mathrm{s}\) पर इसकी स्थिति, वेग और त्वरण की गणना कीजिए।</p>
+        <p><strong>हल:</strong></p>
+        <ol>
+          <li>कोणीय आवृत्ति: \(\omega = \frac{2\pi}{T} = \frac{2\pi}{0.4} = 5\pi\,\mathrm{rad\,s^{-1}}\)।</li>
+          <li>मान लीजिए \(x(t) = A\cos(\omega t + \phi)\) है। \(t = 0\) पर, \(0.04 = 0.08\cos\phi \implies \cos\phi = \frac{1}{2}\)।</li>
+          <li>वेग \(v(t) = -\omega A\sin(\omega t + \phi)\) है। चूँकि \(v(0) &lt; 0\), अतः \(\sin\phi &gt; 0\) होना चाहिए, जिससे \(\phi = +\frac{\pi}{3}\,\mathrm{rad}\) प्राप्त होता है।</li>
+          <li>अतः समीकरण: \(x(t) = 0.08\cos\!\left(5\pi t + \frac{\pi}{3}\right)\,\mathrm{m}\)।</li>
+          <li>\(t = 0.1\,\mathrm{s}\) पर कला \(5\pi(0.1) + \frac{\pi}{3} = \frac{\pi}{2} + \frac{\pi}{3} = \frac{5\pi}{6}\) होगी।
+            <ul>
+              <li>स्थिति: \(x(0.1) = 0.08\cos\!\left(\frac{5\pi}{6}\right) = -0.04\sqrt{3}\,\mathrm{m} \approx -0.069\,\mathrm{m}\)।</li>
+              <li>वेग: \(v(0.1) = -(5\pi)(0.08)\sin\!\left(\frac{5\pi}{6}\right) = -0.4\pi\left(\frac{1}{2}\right) = -0.2\pi\,\mathrm{m\,s^{-1}} \approx -0.628\,\mathrm{m\,s^{-1}}\)।</li>
+              <li>त्वरण: \(a(0.1) = -\omega^2 x(0.1) = -(25\pi^2)(-0.04\sqrt{3}) = +\pi^2\sqrt{3}\,\mathrm{m\,s^{-2}} \approx +17.1\,\mathrm{m\,s^{-2}}\)।</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Example 2 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h3>Worked Example 2: Energy Partition in a Spring-Block Oscillator</h3>
+        <p><strong>Problem (Assumed Data):</strong> A block of mass \(m = 2.0\,\mathrm{kg}\) attached to a horizontal spring of force constant \(k = 200\,\mathrm{N\,m^{-1}}\) oscillates on a frictionless table with amplitude \(A = 0.10\,\mathrm{m}\). Find (a) the total mechanical energy, (b) the displacement \(x\) where kinetic energy equals three times potential energy (\(K = 3U\)), and (c) the speed of the block at that displacement.</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>Total energy: \(E = \frac{1}{2}kA^2 = \frac{1}{2}(200)(0.10)^2 = 1.0\,\mathrm{J}\).</li>
+          <li>Given \(K = 3U\). Since \(K + U = E\), we get \(4U = E \implies 4\left(\frac{1}{2}kx^2\right) = \frac{1}{2}kA^2 \implies x^2 = \frac{A^2}{4}\), so \(x = \pm\frac{A}{2} = \pm 0.05\,\mathrm{m}\).</li>
+          <li>At this position, \(K = \frac{3}{4}E = 0.75\,\mathrm{J}\). Using \(\frac{1}{2}mv^2 = 0.75\):
+            \[v = \sqrt{\frac{2 \times 0.75}{2.0}} = \sqrt{0.75} = \frac{\sqrt{3}}{2}\,\mathrm{m\,s^{-1}} \approx 0.866\,\mathrm{m\,s^{-1}}\]
+          </li>
+        </ol>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h3>हल किया गया उदाहरण 2: स्प्रिंग-ब्लॉक दोलक में ऊर्जा विभाजन</h3>
+        <p><strong>प्रश्न (कल्पित मान):</strong> घर्षणरहित मेज़ पर \(k = 200\,\mathrm{N\,m^{-1}}\) बल नियतांक वाली क्षैतिज स्प्रिंग से जुड़ा \(m = 2.0\,\mathrm{kg}\) द्रव्यमान का ब्लॉक \(A = 0.10\,\mathrm{m}\) आयाम से दोलन करता है। ज्ञात कीजिए: (a) कुल यांत्रिक ऊर्जा, (b) वह विस्थापन \(x\) जहाँ गतिज ऊर्जा, स्थितिज ऊर्जा की तीन गुनी (\(K = 3U\)) हो, तथा (c) उस विस्थापन पर ब्लॉक की चाल।</p>
+        <p><strong>हल:</strong></p>
+        <ol>
+          <li>कुल ऊर्जा: \(E = \frac{1}{2}kA^2 = \frac{1}{2}(200)(0.10)^2 = 1.0\,\mathrm{J}\)।</li>
+          <li>दिया है \(K = 3U\)। चूँकि \(K + U = E\), अतः \(4U = E \implies 4\left(\frac{1}{2}kx^2\right) = \frac{1}{2}kA^2 \implies x^2 = \frac{A^2}{4}\), जिससे \(x = \pm\frac{A}{2} = \pm 0.05\,\mathrm{m}\)।</li>
+          <li>इस स्थिति पर \(K = \frac{3}{4}E = 0.75\,\mathrm{J}\)। \(\frac{1}{2}mv^2 = 0.75\) से:
+            \[v = \sqrt{\frac{2 \times 0.75}{2.0}} = \sqrt{0.75} = \frac{\sqrt{3}}{2}\,\mathrm{m\,s^{-1}} \approx 0.866\,\mathrm{m\,s^{-1}}\]
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Example 3 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h3>Worked Example 3: Simple Pendulum in an Accelerating Elevator</h3>
+        <p><strong>Problem (Assumed Data):</strong> A simple pendulum has a time period \(T_1 = 2.0\,\mathrm{s}\) when at rest on Earth's surface (\(g = 9.8\,\mathrm{m\,s^{-2}}\)). What is its time period when placed inside an elevator accelerating upward at \(a = 2.45\,\mathrm{m\,s^{-2}}\)?</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>Effective acceleration due to gravity inside the upward-accelerating elevator is:
+            \[g_{\mathrm{eff}} = g + a = 9.8 + 2.45 = 12.25\,\mathrm{m\,s^{-2}}\]
+          </li>
+          <li>Since \(T \propto \frac{1}{\sqrt{g_{\mathrm{eff}}}}\), we have:
+            \[\frac{T_2}{T_1} = \sqrt{\frac{g}{g_{\mathrm{eff}}}} = \sqrt{\frac{9.8}{12.25}} = \sqrt{\frac{4}{5}} = \frac{2}{\sqrt{5}}\]
+          </li>
+          <li>Therefore, \(T_2 = 2.0 \times \frac{2}{\sqrt{5}} = \frac{4}{\sqrt{5}}\,\mathrm{s} \approx 1.79\,\mathrm{s}\).</li>
+        </ol>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <span class="lang-tag">हिन्दी</span>
+        <h3>हल किया गया उदाहरण 3: त्वरित लिफ्ट में सरल लोलक</h3>
+        <p><strong>प्रश्न (कल्पित मान):</strong> पृथ्वी की सतह (\(g = 9.8\,\mathrm{m\,s^{-2}}\)) पर विरामावस्था में एक सरल लोलक का आवर्तकाल \(T_1 = 2.0\,\mathrm{s}\) है। यदि इसे \(a = 2.45\,\mathrm{m\,s^{-2}}\) त्वरण से ऊपर की ओर जाती हुई लिफ्ट में रखा जाए, तो इसका आवर्तकाल क्या होगा?</p>
+        <p><strong>हल:</strong></p>
+        <ol>
+          <li>ऊपर की ओर त्वरित लिफ्ट के भीतर प्रभावी गुरुत्वीय त्वरण:
+            \[g_{\mathrm{eff}} = g + a = 9.8 + 2.45 = 12.25\,\mathrm{m\,s^{-2}}\]
+          </li>
+          <li>चूँकि \(T \propto \frac{1}{\sqrt{g_{\mathrm{eff}}}}\), अतः:
+            \[\frac{T_2}{T_1} = \sqrt{\frac{g}{g_{\mathrm{eff}}}} = \sqrt{\frac{9.8}{12.25}} = \sqrt{\frac{4}{5}} = \frac{2}{\sqrt{5}}\]
+          </li>
+          <li>इसलिए, \(T_2 = 2.0 \times \frac{2}{\sqrt{5}} = \frac{4}{\sqrt{5}}\,\mathrm{s} \approx 1.79\,\mathrm{s}\)।</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. NEET UG PRACTICE QUESTIONS -->
+  <section id="practice-questions">
+    <h2>8. NEET UG Practice Questions (with Worked Solutions)</h2>
+    <div class="lang-block en">
+      <p><em>Note: The following are original practice questions designed at the NEET UG standard.</em></p>
+    </div>
+    <div class="lang-block hi" lang="hi">
+      <p><em>नोट: निम्नलिखित प्रश्न NEET UG स्तर के अनुरूप तैयार किए गए मौलिक अभ्यास प्रश्न हैं।</em></p>
+    </div>
+
+    <!-- Q1 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>Which of the following functions of time \(t\) (where \(\omega\) is a positive constant) represents a motion that is <strong>periodic but NOT simple harmonic</strong>?</p>
+        <ul class="options-list">
+          <li>(A) \(\sin(\omega t) + \cos(\omega t)\)</li>
+          <li>(B) \(4\cos(3\omega t - \pi/6)\)</li>
+          <li>(C) \(\cos(\omega t) + \cos(2\omega t)\)</li>
+          <li>(D) \(e^{-\omega t}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (C)</p>
+          <p><strong>Worked Solution:</strong> Function (A) equals \(\sqrt{2}\sin(\omega t + \pi/4)\), which is SHM. Function (B) is a single cosine term, so it is SHM. Function (D) decreases monotonically and never repeats, so it is non-periodic. Function (C) is a sum of two periodic terms with periods \(2\pi/\omega\) and \(\pi/\omega\); it repeats after \(2\pi/\omega\) (periodic), but cannot be reduced to a single sinusoidal term, so it is not SHM.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 1 (एकल-सही बहुविकल्पीय)</div>
+        <p>समय \(t\) का निम्नलिखित में से कौन-सा फलन (जहाँ \(\omega\) एक धनात्मक नियतांक है) ऐसी गति को निरूपित करता है जो <strong>आवर्ती है परंतु सरल आवर्त नहीं</strong> है?</p>
+        <ul class="options-list">
+          <li>(A) \(\sin(\omega t) + \cos(\omega t)\)</li>
+          <li>(B) \(4\cos(3\omega t - \pi/6)\)</li>
+          <li>(C) \(\cos(\omega t) + \cos(2\omega t)\)</li>
+          <li>(D) \(e^{-\omega t}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (C)</p>
+          <p><strong>हल:</strong> फलन (A) को \(\sqrt{2}\sin(\omega t + \pi/4)\) लिखा जा सकता है, जो SHM है। फलन (B) एकल कोज्या पद है, अतः यह भी SHM है। फलन (D) एकदिष्ट रूप से घटता है और कभी नहीं दोहराता, अतः यह अनावर्ती है। फलन (C) क्रमशः \(2\pi/\omega\) और \(\pi/\omega\) आवर्तकाल वाले दो पदों का योग है; यह \(2\pi/\omega\) के बाद दोहराता है (आवर्ती), किंतु एकल ज्यावक्रीय पद में नहीं बदला जा सकता, इसलिए यह SHM नहीं है।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>A particle executes SHM with amplitude \(A\) and time period \(T\). What is the minimum time taken by the particle to travel from the mean position (\(x = 0\)) to \(x = A/2\)?</p>
+        <ul class="options-list">
+          <li>(A) \(T/4\)</li>
+          <li>(B) \(T/6\)</li>
+          <li>(C) \(T/8\)</li>
+          <li>(D) \(T/12\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (D)</p>
+          <p><strong>Worked Solution:</strong> Taking \(x(t) = A\sin(\omega t)\) with \(x = 0\) at \(t = 0\): setting \(x = A/2\) gives \(\sin(\omega t) = 1/2\), so \(\omega t = \pi/6\). Since \(\omega = 2\pi/T\), we obtain \(\frac{2\pi}{T}t = \frac{\pi}{6} \implies t = \frac{T}{12}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 2 (एकल-सही बहुविकल्पीय)</div>
+        <p>एक कण \(A\) आयाम तथा \(T\) आवर्तकाल के साथ SHM करता है। कण को माध्य स्थिति (\(x = 0\)) से \(x = A/2\) तक जाने में न्यूनतम कितना समय लगेगा?</p>
+        <ul class="options-list">
+          <li>(A) \(T/4\)</li>
+          <li>(B) \(T/6\)</li>
+          <li>(C) \(T/8\)</li>
+          <li>(D) \(T/12\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (D)</p>
+          <p><strong>हल:</strong> \(t = 0\) पर \(x = 0\) मानते हुए \(x(t) = A\sin(\omega t)\) लेने पर, \(x = A/2\) रखने से \(\sin(\omega t) = 1/2 \implies \omega t = \pi/6\)। चूँकि \(\omega = 2\pi/T\), अतः \(\frac{2\pi}{T}t = \frac{\pi}{6} \implies t = \frac{T}{12}\)।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>A particle executing SHM has a maximum speed of \(40\,\mathrm{cm\,s^{-1}}\) and a maximum acceleration of \(80\,\mathrm{cm\,s^{-2}}\). Its time period of oscillation is:</p>
+        <ul class="options-list">
+          <li>(A) \(\pi\,\mathrm{s}\)</li>
+          <li>(B) \(2\pi\,\mathrm{s}\)</li>
+          <li>(C) \(\pi/2\,\mathrm{s}\)</li>
+          <li>(D) \(4\pi\,\mathrm{s}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (A)</p>
+          <p><strong>Worked Solution:</strong> \(v_{\max} = \omega A = 40\,\mathrm{cm\,s^{-1}}\) and \(a_{\max} = \omega^2 A = 80\,\mathrm{cm\,s^{-2}}\). Dividing the two gives \(\omega = \frac{a_{\max}}{v_{\max}} = \frac{80}{40} = 2\,\mathrm{rad\,s^{-1}}\). Hence \(T = \frac{2\pi}{\omega} = \frac{2\pi}{2} = \pi\,\mathrm{s}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 3 (एकल-सही बहुविकल्पीय)</div>
+        <p>SHM करते हुए एक कण की अधिकतम चाल \(40\,\mathrm{cm\,s^{-1}}\) और अधिकतम त्वरण \(80\,\mathrm{cm\,s^{-2}}\) है। इसके दोलन का आवर्तकाल है:</p>
+        <ul class="options-list">
+          <li>(A) \(\pi\,\mathrm{s}\)</li>
+          <li>(B) \(2\pi\,\mathrm{s}\)</li>
+          <li>(C) \(\pi/2\,\mathrm{s}\)</li>
+          <li>(D) \(4\pi\,\mathrm{s}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (A)</p>
+          <p><strong>हल:</strong> \(v_{\max} = \omega A = 40\,\mathrm{cm\,s^{-1}}\) तथा \(a_{\max} = \omega^2 A = 80\,\mathrm{cm\,s^{-2}}\)। भाग देने पर \(\omega = \frac{a_{\max}}{v_{\max}} = \frac{80}{40} = 2\,\mathrm{rad\,s^{-1}}\)। अतः \(T = \frac{2\pi}{\omega} = \frac{2\pi}{2} = \pi\,\mathrm{s}\)।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 4 (Single-Correct MCQ)</div>
+        <p>In simple harmonic motion of amplitude \(A\), at what displacement \(x\) is the potential energy equal to one-fourth of the total mechanical energy?</p>
+        <ul class="options-list">
+          <li>(A) \(\pm A/4\)</li>
+          <li>(B) \(\pm A/2\)</li>
+          <li>(C) \(\pm A/\sqrt{2}\)</li>
+          <li>(D) \(\pm \sqrt{3}A/2\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (B)</p>
+          <p><strong>Worked Solution:</strong> \(U = \frac{1}{2}kx^2\) and \(E = \frac{1}{2}kA^2\). Setting \(U = \frac{1}{4}E\) gives \(\frac{1}{2}kx^2 = \frac{1}{4}\left(\frac{1}{2}kA^2\right) \implies x^2 = \frac{A^2}{4} \implies x = \pm\frac{A}{2}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 4 (एकल-सही बहुविकल्पीय)</div>
+        <p>\(A\) आयाम की सरल आवर्त गति में, किस विस्थापन \(x\) पर स्थितिज ऊर्जा कुल यांत्रिक ऊर्जा की एक-चौथाई होगी?</p>
+        <ul class="options-list">
+          <li>(A) \(\pm A/4\)</li>
+          <li>(B) \(\pm A/2\)</li>
+          <li>(C) \(\pm A/\sqrt{2}\)</li>
+          <li>(D) \(\pm \sqrt{3}A/2\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (B)</p>
+          <p><strong>हल:</strong> \(U = \frac{1}{2}kx^2\) तथा \(E = \frac{1}{2}kA^2\)। \(U = \frac{1}{4}E\) रखने पर \(\frac{1}{2}kx^2 = \frac{1}{4}\left(\frac{1}{2}kA^2\right) \implies x^2 = \frac{A^2}{4} \implies x = \pm\frac{A}{2}\)।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 5 (Single-Correct MCQ)</div>
+        <p>A block of mass \(m\) is held between two identical springs of spring constant \(k\) fixed to opposite rigid walls on a frictionless horizontal surface. If the block is displaced slightly along the line of the springs and released, its frequency of oscillation is:</p>
+        <ul class="options-list">
+          <li>(A) \(\frac{1}{2\pi}\sqrt{\frac{k}{m}}\)</li>
+          <li>(B) \(\frac{1}{2\pi}\sqrt{\frac{k}{2m}}\)</li>
+          <li>(C) \(\frac{1}{2\pi}\sqrt{\frac{2k}{m}}\)</li>
+          <li>(D) \(\frac{1}{\pi}\sqrt{\frac{k}{m}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (C)</p>
+          <p><strong>Worked Solution:</strong> When the block is displaced by \(x\) to the right, the left spring stretches by \(x\) (pulling left with \(-kx\)) and the right spring compresses by \(x\) (pushing left with \(-kx\)). Thus \(F_{\mathrm{net}} = -2kx\), giving \(k_{\mathrm{eff}} = 2k\) and \(\nu = \frac{1}{2\pi}\sqrt{\frac{2k}{m}}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 5 (एकल-सही बहुविकल्पीय)</div>
+        <p>घर्षणरहित क्षैतिज सतह पर \(m\) द्रव्यमान का एक ब्लॉक विपरीत दृढ़ दीवारों से जुड़ी \(k\) बल नियतांक वाली दो समान स्प्रिंगों के बीच स्थित है। यदि ब्लॉक को स्प्रिंगों की रेखा के अनुदिश थोड़ा विस्थापित कर छोड़ दिया जाए, तो इसके दोलन की आवृत्ति होगी:</p>
+        <ul class="options-list">
+          <li>(A) \(\frac{1}{2\pi}\sqrt{\frac{k}{m}}\)</li>
+          <li>(B) \(\frac{1}{2\pi}\sqrt{\frac{k}{2m}}\)</li>
+          <li>(C) \(\frac{1}{2\pi}\sqrt{\frac{2k}{m}}\)</li>
+          <li>(D) \(\frac{1}{\pi}\sqrt{\frac{k}{m}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (C)</p>
+          <p><strong>हल:</strong> ब्लॉक को दाईं ओर \(x\) विस्थापित करने पर बाईं स्प्रिंग \(x\) खिंचती है (बल \(-kx\)) और दाईं स्प्रिंग \(x\) संपीडित होती है (बल \(-kx\))। अतः नेट बल \(F_{\mathrm{net}} = -2kx\), जिससे \(k_{\mathrm{eff}} = 2k\) तथा आवृत्ति \(\nu = \frac{1}{2\pi}\sqrt{\frac{2k}{m}}\) प्राप्त होती है।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 6 (Single-Correct MCQ)</div>
+        <p>A simple pendulum of length \(L\) is suspended from the ceiling of a car moving on a horizontal circular track of radius \(R\) with uniform speed \(v\). For small radial oscillations about its equilibrium position, its time period is:</p>
+        <ul class="options-list">
+          <li>(A) \(2\pi\sqrt{\frac{L}{g}}\)</li>
+          <li>(B) \(2\pi\sqrt{\frac{L}{g + v^2/R}}\)</li>
+          <li>(C) \(2\pi\sqrt{\frac{L}{\sqrt{g^2 + v^4/R^2}}}\)</li>
+          <li>(D) \(2\pi\sqrt{\frac{L}{\sqrt{g^2 - v^4/R^2}}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (C)</p>
+          <p><strong>Worked Solution:</strong> In the car's frame, the bob experiences downward gravity \(g\) and outward radial centrifugal acceleration \(a_c = v^2/R\) perpendicular to \(g\). Therefore, \(g_{\mathrm{eff}} = \sqrt{g^2 + (v^2/R)^2} = \sqrt{g^2 + v^4/R^2}\), and \(T = 2\pi\sqrt{L/g_{\mathrm{eff}}}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 6 (एकल-सही बहुविकल्पीय)</div>
+        <p>\(L\) लंबाई का एक सरल लोलक \(R\) त्रिज्या के क्षैतिज वृत्तीय पथ पर एकसमान चाल \(v\) से चलती कार की छत से लटका है। साम्यावस्था के सापेक्ष छोटे त्रिज्य दोलनों के लिए इसका आवर्तकाल होगा:</p>
+        <ul class="options-list">
+          <li>(A) \(2\pi\sqrt{\frac{L}{g}}\)</li>
+          <li>(B) \(2\pi\sqrt{\frac{L}{g + v^2/R}}\)</li>
+          <li>(C) \(2\pi\sqrt{\frac{L}{\sqrt{g^2 + v^4/R^2}}}\)</li>
+          <li>(D) \(2\pi\sqrt{\frac{L}{\sqrt{g^2 - v^4/R^2}}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (C)</p>
+          <p><strong>हल:</strong> कार के निर्देश तंत्र में गोलक पर नीचे की ओर गुरुत्वीय त्वरण \(g\) तथा उसके लंबवत बाहर की ओर अपकेंद्रीय त्वरण \(a_c = v^2/R\) कार्य करता है। अतः \(g_{\mathrm{eff}} = \sqrt{g^2 + (v^2/R)^2} = \sqrt{g^2 + v^4/R^2}\), और \(T = 2\pi\sqrt{L/g_{\mathrm{eff}}}\)।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 7 (Assertion–Reason MCQ)</div>
+        <p><strong>Assertion (A):</strong> The time period of a linear simple harmonic oscillator is independent of its amplitude of oscillation.</p>
+        <p><strong>Reason (R):</strong> In linear SHM, the restoring force is directly proportional to the displacement from the mean position (\(F = -kx\)), so the angular frequency \(\omega = \sqrt{k/m}\) depends only on \(k\) and \(m\).</p>
+        <ul class="options-list">
+          <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+          <li>(B) Both A and R are true, but R is not the correct explanation of A.</li>
+          <li>(C) A is true, but R is false.</li>
+          <li>(D) Both A and R are false.</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (A)</p>
+          <p><strong>Worked Solution:</strong> Because \(F = -kx\) is linear in \(x\), the equation of motion \(\frac{d^2x}{dt^2} + \frac{k}{m}x = 0\) yields \(\omega = \sqrt{k/m}\) and \(T = 2\pi\sqrt{m/k}\), neither of which contains amplitude \(A\). Thus both A and R are true and R correctly explains A.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 7 (कथन-कारण बहुविकल्पीय)</div>
+        <p><strong>कथन (A):</strong> रैखिक सरल आवर्ती दोलक का आवर्तकाल उसके दोलन के आयाम से स्वतंत्र होता है।</p>
+        <p><strong>कारण (R):</strong> रैखिक SHM में प्रत्यानयन बल माध्य स्थिति से विस्थापन के अनुक्रमानुपाती (\(F = -kx\)) होता है, जिससे कोणीय आवृत्ति \(\omega = \sqrt{k/m}\) केवल \(k\) तथा \(m\) पर निर्भर करती है।</p>
+        <ul class="options-list">
+          <li>(A) A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है।</li>
+          <li>(B) A और R दोनों सत्य हैं, परंतु R, A की सही व्याख्या नहीं है।</li>
+          <li>(C) A सत्य है, परंतु R असत्य है।</li>
+          <li>(D) A और R दोनों असत्य हैं।</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (A)</p>
+          <p><strong>हल:</strong> चूँकि \(F = -kx\) विस्थापन \(x\) में रैखिक है, गति का समीकरण \(\frac{d^2x}{dt^2} + \frac{k}{m}x = 0\) हमें \(\omega = \sqrt{k/m}\) और \(T = 2\pi\sqrt{m/k}\) देता है, जिनमें आयाम \(A\) नहीं आता। अतः A और R दोनों सत्य हैं और R, A की सही व्याख्या है।</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card">
+      <div class="lang-block en">
+        <div class="q-header">Practice Question 8 (Statement-Based MCQ)</div>
+        <p><strong>Statement I:</strong> If a particle executes SHM with frequency \(\nu\), both its kinetic energy and potential energy oscillate with frequency \(2\nu\).</p>
+        <p><strong>Statement II:</strong> In SHM, the phase difference between instantaneous velocity and instantaneous acceleration is \(\pi\) radians.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are true.</li>
+          <li>(B) Both Statement I and Statement II are false.</li>
+          <li>(C) Statement I is true, but Statement II is false.</li>
+          <li>(D) Statement I is false, but Statement II is true.</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (C)</p>
+          <p><strong>Worked Solution:</strong> \(K \propto \sin^2(\omega t + \phi)\) and \(U \propto \cos^2(\omega t + \phi)\); since \(\sin^2\theta = \frac{1 - \cos 2\theta}{2}\), both energies oscillate at angular frequency \(2\omega\), i.e., frequency \(2\nu\). Thus Statement I is true. However, velocity leads displacement by \(\pi/2\) and acceleration leads displacement by \(\pi\), so the phase difference between velocity and acceleration is \(\pi - \pi/2 = \pi/2\) radians, not \(\pi\). Thus Statement II is false.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block hi" lang="hi">
+        <div class="q-header">अभ्यास प्रश्न 8 (कथन-आधारित बहुविकल्पीय)</div>
+        <p><strong>कथन I:</strong> यदि कोई कण \(\nu\) आवृत्ति से SHM करता है, तो उसकी गतिज ऊर्जा और स्थितिज ऊर्जा दोनों \(2\nu\) आवृत्ति से दोलन करती हैं।</p>
+        <p><strong>कथन II:</strong> SHM में तात्क्षणिक वेग तथा तात्क्षणिक त्वरण के बीच कलांतर \(\pi\) रेडियन होता है।</p>
+        <ul class="options-list">
+          <li>(A) कथन I और कथन II दोनों सत्य हैं।</li>
+          <li>(B) कथन I और कथन II दोनों असत्य हैं।</li>
+          <li>(C) कथन I सत्य है, परंतु कथन II असत्य है।</li>
+          <li>(D) कथन I असत्य है, परंतु कथन II सत्य है।</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>उत्तर:</strong> (C)</p>
+          <p><strong>हल:</strong> \(K \propto \sin^2(\omega t + \phi)\) और \(U \propto \cos^2(\omega t + \phi)\); चूँकि \(\sin^2\theta = \frac{1 - \cos 2\theta}{2}\), दोनों ऊर्जाएँ \(2\omega\) कोणीय आवृत्ति अर्थात् \(2\nu\) आवृत्ति से दोलन करती हैं। अतः कथन I सत्य है। परंतु वेग, विस्थापन से \(\pi/2\) आगे होता है और त्वरण \(\pi\) आगे होता है, इसलिए वेग व त्वरण के बीच कलांतर \(\pi - \pi/2 = \pi/2\) रेडियन होता है, न कि \(\pi\)। अतः कथन II असत्य है।</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 10. COMMON PITFALLS AND REVISION CHECKLIST -->
+  <section id="pitfalls">
+    <h2>9. Common Pitfalls &amp; Revision Checklist</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <div class="callout pitfall">
+        <p><strong>Common Exam Pitfalls to Avoid:</strong></p>
+        <ul>
+          <li><strong>Assuming SHM has constant speed:</strong> Speed is NOT uniform; it varies from \(0\) at extremes to \(\omega A\) at the mean position, so the time from \(0\) to \(A/2\) is \(T/12\), whereas from \(A/2\) to \(A\) it is \(T/6\) (not \(T/8\) each!).</li>
+          <li><strong>Confusing energy frequency with particle frequency:</strong> \(K\) and \(U\) repeat every \(T/2\) (frequency \(2\nu\)), while \(x, v, a\) repeat every \(T\) (frequency \(\nu\)).</li>
+          <li><strong>Using degrees instead of radians in \(\sin\theta \approx \theta\):</strong> The small-angle pendulum approximation holds only when \(\theta\) is expressed in radians.</li>
+          <li><strong>Forgetting \(g_{\mathrm{eff}}\) in non-inertial frames:</strong> Always take the vector difference \(\vec{g}_{\mathrm{eff}} = \vec{g} - \vec{a}\) when a pendulum is in an accelerating lift or turning vehicle.</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <p><strong>NEET UG Revision Checklist:</strong></p>
+        <ul>
+          <li>Can you identify SHM vs. non-SHM periodic functions at a glance?</li>
+          <li>Do you remember \(v = \pm\omega\sqrt{A^2 - x^2}\) and \(a = -\omega^2 x\)?</li>
+          <li>Can you compute \(k_{\mathrm{eff}}\) for series, parallel, and symmetric double-spring setups?</li>
+          <li>Can you find the displacement \(x\) for any given ratio \(K/U\) using \(K/U = (A^2 - x^2)/x^2\)?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <div class="callout pitfall">
+        <p><strong>परीक्षा में बचने योग्य सामान्य त्रुटियाँ:</strong></p>
+        <ul>
+          <li><strong>SHM में चाल को नियत मान लेना:</strong> चाल एकसमान नहीं होती; यह चरम पर \(0\) और माध्य स्थिति पर \(\omega A\) होती है, अतः \(0\) से \(A/2\) तक जाने में \(T/12\) समय लगता है, जबकि \(A/2\) से \(A\) तक \(T/6\) लगता है (प्रत्येक में \(T/8\) नहीं!)।</li>
+          <li><strong>ऊर्जा की आवृत्ति को कण की आवृत्ति समझना:</strong> \(K\) और \(U\) प्रत्येक \(T/2\) में दोहराते हैं (आवृत्ति \(2\nu\)), जबकि \(x, v, a\) प्रत्येक \(T\) में दोहराते हैं (आवृत्ति \(\nu\))।</li>
+          <li><strong>\(\sin\theta \approx \theta\) में डिग्री का प्रयोग:</strong> सरल लोलक का लघु-कोण सन्निकटन केवल तभी वैध है जब \(\theta\) रेडियन में हो।</li>
+          <li><strong>अजड़त्वीय तंत्र में \(g_{\mathrm{eff}}\) भूल जाना:</strong> त्वरित लिफ्ट या मुड़ते वाहन में लोलक के लिए सदैव सदिश अंतर \(\vec{g}_{\mathrm{eff}} = \vec{g} - \vec{a}\) लें।</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <p><strong>NEET UG पुनरावृत्ति जाँच-सूची:</strong></p>
+        <ul>
+          <li>क्या आप SHM तथा गैर-SHM आवर्ती फलनों को तुरंत पहचान सकते हैं?</li>
+          <li>क्या आपको \(v = \pm\omega\sqrt{A^2 - x^2}\) और \(a = -\omega^2 x\) याद हैं?</li>
+          <li>क्या आप श्रेणी, समांतर और सममित द्वि-स्प्रिंग निकायों के लिए \(k_{\mathrm{eff}}\) निकाल सकते हैं?</li>
+          <li>क्या आप \(K/U = (A^2 - x^2)/x^2\) से किसी भी अनुपात के लिए विस्थापन \(x\) ज्ञात कर सकते हैं?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. CONCISE FINAL RECAP -->
+  <section id="recap">
+    <h2>10. Concise Final Recap</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p>Simple harmonic motion is governed by the linear restoring force \(F = -kx\), producing sinusoidal displacement \(x(t) = A\cos(\omega t + \phi)\) with angular frequency \(\omega = \sqrt{k/m}\) and amplitude-independent period \(T = 2\pi\sqrt{m/k}\). Total mechanical energy \(E = \frac{1}{2}kA^2\) remains constant as kinetic and potential energies interchange twice per cycle (frequency \(2\nu\)). For small angular displacements, a simple pendulum executes SHM with period \(T = 2\pi\sqrt{L/g_{\mathrm{eff}}}\).</p>
+    </div>
+    <div class="lang-block hi" lang="hi">
+      <span class="lang-tag">हिन्दी</span>
+      <p>सरल आवर्त गति रैखिक प्रत्यानयन बल \(F = -kx\) द्वारा नियंत्रित होती है, जिससे \(x(t) = A\cos(\omega t + \phi)\) के रूप में ज्यावक्रीय विस्थापन उत्पन्न होता है; इसकी कोणीय आवृत्ति \(\omega = \sqrt{k/m}\) तथा आयाम से स्वतंत्र आवर्तकाल \(T = 2\pi\sqrt{m/k}\) होता है। कुल यांत्रिक ऊर्जा \(E = \frac{1}{2}kA^2\) नियत रहती है, जबकि गतिज एवं स्थितिज ऊर्जाएँ प्रति चक्र दो बार (\(2\nu\) आवृत्ति से) परस्पर रूपांतरित होती हैं। लघु कोणीय विस्थापन के लिए सरल लोलक \(T = 2\pi\sqrt{L/g_{\mathrm{eff}}}\) आवर्तकाल से SHM करता है।</p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

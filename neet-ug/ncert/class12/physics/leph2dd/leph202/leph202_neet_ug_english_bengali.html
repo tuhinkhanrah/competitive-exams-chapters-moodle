@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wave Optics — NEET UG Bilingual Tutorial (English &amp; Bengali)</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --teal: #0D9488;
+      --bg: #FFFFFF;
+      --surface: #F8FAFC;
+      --border: #CBD5E1;
+      --accent-bg: #EFF6FF;
+      --teal-bg: #F0FDFA;
+      --warn-bg: #FFFBEB;
+      --warn-border: #D97706;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Sans Bengali', 'Hind Siliguri', 'Bangla Sangam MN', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      font-size: 15.5px;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 18px 40px 18px;
+    }
+
+    header.doc-header {
+      background-color: var(--surface);
+      border: 1.5px solid var(--border);
+      border-left: 6px solid var(--primary);
+      border-radius: 6px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .badge.teal {
+      background-color: var(--teal);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+      margin: 6px 0 8px 0;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 28px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary);
+      color: var(--ink);
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.4;
+      margin: 18px 0 8px 0;
+      color: var(--primary);
+    }
+
+    h4 {
+      font-size: 1.02rem;
+      line-height: 1.4;
+      margin: 14px 0 6px 0;
+      color: var(--teal);
+    }
+
+    p {
+      margin: 0 0 10px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 12px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .lang-block {
+      margin-bottom: 16px;
+    }
+
+    .lang-block.bn {
+      background-color: var(--surface);
+      border-left: 4px solid var(--teal);
+      padding: 14px 16px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      background-color: #E2E8F0;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+    }
+
+    .formula-box {
+      background-color: var(--accent-bg);
+      border: 1px solid #BFDBFE;
+      border-left: 4px solid var(--primary);
+      border-radius: 5px;
+      padding: 12px 14px;
+      margin: 12px 0;
+      max-width: 100%;
+    }
+
+    .callout {
+      background-color: var(--teal-bg);
+      border: 1px solid #99F6E4;
+      border-left: 4px solid var(--teal);
+      border-radius: 5px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+
+    .pitfall-box {
+      background-color: var(--warn-bg);
+      border: 1px solid #FDE68A;
+      border-left: 4px solid var(--warn-border);
+      border-radius: 5px;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+
+    .diagram-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .diagram-box svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: left;
+    }
+
+    .table-wrap {
+      width: 100%;
+      max-width: 100%;
+      margin: 12px 0 16px 0;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: #E2E8F0;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: var(--surface);
+    }
+
+    .example-card, .question-card {
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      margin: 16px 0;
+      background-color: #FFFFFF;
+    }
+
+    .example-card {
+      border-top: 4px solid var(--teal);
+    }
+
+    .question-card {
+      border-top: 4px solid var(--primary);
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.03rem;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 4px;
+      margin: 10px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 4px 8px;
+      margin-bottom: 5px;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+      background-color: var(--surface);
+    }
+
+    .solution-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 10px 14px;
+      margin-top: 10px;
+    }
+
+    .ans-pill {
+      display: inline-block;
+      background-color: var(--teal);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 2px 9px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1.5px dashed var(--border);
+      margin: 16px 0;
+    }
+
+    mjx-container {
+      max-width: 100%;
+      white-space: normal;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      body {
+        font-size: 11pt;
+        line-height: 1.5;
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      h2, h3, h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .example-card, .question-card, .diagram-box, .formula-box, .callout, .pitfall-box, .table-wrap {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .lang-block.bn {
+        background-color: #F8FAFC !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+  <!-- 1. TITLE & EXAM CONTEXT -->
+  <header class="doc-header">
+    <div class="badge-row">
+      <span class="badge">NEET UG Physics</span>
+      <span class="badge teal">Bilingual: English &amp; বাংলা</span>
+    </div>
+    <h1>Wave Optics — Complete Conceptual &amp; Exam-Oriented Tutorial<br />
+      <span lang="bn">তরঙ্গ আলোকবিজ্ঞান — সম্পূর্ণ ধারণা ও পরীক্ষামুখী টিউটোরিয়াল</span>
+    </h1>
+    <p><strong>Exam Scope:</strong> NEET UG (Single-Correct MCQs, Statement-Based &amp; Assertion-Reason Questions, Formula Applications)</p>
+    <p lang="bn"><strong>পরীক্ষার পরিধি:</strong> NEET UG (একক-সঠিক MCQ, বিবৃতি-ভিত্তিক ও যুক্তি-বিবৃতি প্রশ্ন, সূত্র প্রয়োগ)</p>
+  </header>
+
+  <!-- 2. LEARNING OBJECTIVES & OVERVIEW -->
+  <section>
+    <h2>1. Learning Objectives &amp; Chapter Overview</h2>
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p>Wave optics treats light as a propagating electromagnetic wave rather than a collection of rays. While geometrical (ray) optics works well when obstacles are much larger than the wavelength of visible light (around \(0.4\,\mathrm{µm}\) to \(0.7\,\mathrm{µm}\)), wave optics becomes essential to explain interference, diffraction, and polarisation.</p>
+      <ul>
+        <li>Understand wavefronts and apply Huygens' principle to derive the laws of reflection and refraction.</li>
+        <li>Distinguish between coherent and incoherent superposition and compute resultant intensities.</li>
+        <li>Master Young's double-slit experiment (YDSE): path difference, phase difference, and fringe width.</li>
+        <li>Analyse single-slit diffraction patterns and compare them with double-slit interference.</li>
+        <li>Apply Malus' law to linearly polarised light passing through polaroids.</li>
+      </ul>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <p>তরঙ্গ আলোকবিজ্ঞানে আলোকে কেবল সরলরৈখিক রশ্মি হিসেবে না দেখে একটি প্রবহমান তড়িৎচুম্বকীয় তরঙ্গ হিসেবে বিবেচনা করা হয়। যখন বাধার আকার দৃশ্যমান আলোর তরঙ্গদৈর্ঘ্যের (প্রায় \(0.4\,\mathrm{µm}\) থেকে \(0.7\,\mathrm{µm}\)) তুলনায় অনেক বড় হয়, তখন জ্যামিতিক আলোকবিজ্ঞান প্রযোজ্য হয়; কিন্তু ব্যতিচার, অপবর্তন ও সমবর্তন ব্যাখ্যা করতে তরঙ্গ আলোকবিজ্ঞান অপরিহার্য।</p>
+      <ul>
+        <li>তরঙ্গমুখ (wavefront) সম্পর্কে ধারণা লাভ এবং হাইগেনসের নীতির সাহায্যে প্রতিফলন ও প্রতিসরণের সূত্র প্রতিপাদন।</li>
+        <li>সুসঙ্গত (coherent) ও অসঙ্গত (incoherent) উপরিপাতনের পার্থক্য বোঝা এবং লব্ধি তীব্রতা নির্ণয়।</li>
+        <li>ইয়ং-এর দ্বি-রেখাছিদ্র পরীক্ষায় (YDSE) পথ-পার্থক্য, দশা-পার্থক্য ও ঝালর প্রস্থ (fringe width) নির্ণয়।</li>
+        <li>একক-রেখাছিদ্র অপবর্তন (diffraction) বিশ্লেষণ এবং ব্যতিচারের সাথে তুলনা।</li>
+        <li>পোলারয়েডের মধ্য দিয়ে সমবর্তিত আলোর ক্ষেত্রে ম্যালুসের সূত্র (Malus' law) প্রয়োগ।</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. CORE CONCEPTS: MODELS & WAVEFRONTS -->
+  <section>
+    <h2>2. Evolution of Light Models &amp; Wavefront Geometry<br />
+      <span lang="bn">২. আলোর তত্ত্বের বিবর্তন ও তরঙ্গমুখের জ্যামিতি</span>
+    </h2>
+
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <h3>2.1 Historical Models of Light</h3>
+      <p>The corpuscular model (developed by Descartes and Newton) treated light as tiny particles and predicted that light travels faster in a denser medium if it bends toward the normal. In contrast, Christiaan Huygens' wave theory (1678) predicted that light slows down in a denser medium—a prediction later confirmed by Foucault's speed-of-light measurement in water (1850). Thomas Young's interference experiment (1801) established the wave nature of light, and James Clerk Maxwell proved theoretically that light is a transverse electromagnetic wave capable of propagating through vacuum without a material medium.</p>
+
+      <h3>2.2 Wavefronts and Rays</h3>
+      <p>A <strong>wavefront</strong> is the locus of all points in a medium that oscillate in the same phase at a given instant. Energy propagates perpendicular to the wavefront along lines called <strong>rays</strong>.</p>
+      <ul>
+        <li><strong>Spherical Wavefront:</strong> Produced by a point source emitting uniformly in all directions in an isotropic medium.</li>
+        <li><strong>Plane Wavefront:</strong> A small portion of a spherical wavefront at a very large distance from the source (such as sunlight reaching Earth), or light emerging from a convex lens with a point source at its focus.</li>
+        <li><strong>Cylindrical Wavefront:</strong> Produced by a narrow linear slit source at finite distances.</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spherical and Plane Wavefronts">
+          <rect x="0" y="0" width="640" height="230" fill="#F8FAFC" rx="6" />
+          <!-- Left: Spherical Wavefront -->
+          <text x="155" y="24" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Spherical Wavefront</text>
+          <circle cx="155" cy="120" r="6" fill="#2563EB" />
+          <text x="155" y="142" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Point Source</text>
+          <circle cx="155" cy="120" r="38" fill="none" stroke="#2563EB" stroke-width="1.8" />
+          <circle cx="155" cy="120" r="66" fill="none" stroke="#2563EB" stroke-width="1.8" />
+          <circle cx="155" cy="120" r="92" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,4" />
+          <!-- Rays -->
+          <line x1="155" y1="120" x2="255" y2="120" stroke="#0D9488" stroke-width="1.6" />
+          <polygon points="255,120 247,116 247,124" fill="#0D9488" />
+          <line x1="155" y1="120" x2="155" y2="28" stroke="#0D9488" stroke-width="1.6" />
+          <polygon points="155,28 151,36 159,36" fill="#0D9488" />
+          <line x1="155" y1="120" x2="225" y2="50" stroke="#0D9488" stroke-width="1.6" />
+          <polygon points="225,50 217,53 222,58" fill="#0D9488" />
+          <text x="242" y="108" font-family="sans-serif" font-size="11" fill="#0D9488">Ray</text>
+
+          <!-- Divider -->
+          <line x1="320" y1="16" x2="320" y2="214" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4,4" />
+
+          <!-- Right: Plane Wavefront -->
+          <text x="480" y="24" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">Plane Wavefront (Far Field)</text>
+          <line x1="380" y1="55" x2="380" y2="195" stroke="#2563EB" stroke-width="2.2" />
+          <line x1="440" y1="55" x2="440" y2="195" stroke="#2563EB" stroke-width="2.2" />
+          <line x1="500" y1="55" x2="500" y2="195" stroke="#2563EB" stroke-width="2.2" />
+          <line x1="560" y1="55" x2="560" y2="195" stroke="#2563EB" stroke-width="2.2" stroke-dasharray="5,4" />
+          <!-- Parallel Rays -->
+          <line x1="355" y1="80" x2="595" y2="80" stroke="#0D9488" stroke-width="1.8" />
+          <polygon points="595,80 587,76 587,84" fill="#0D9488" />
+          <line x1="355" y1="125" x2="595" y2="125" stroke="#0D9488" stroke-width="1.8" />
+          <polygon points="595,125 587,121 587,129" fill="#0D9488" />
+          <line x1="355" y1="170" x2="595" y2="170" stroke="#0D9488" stroke-width="1.8" />
+          <polygon points="595,170 587,166 587,174" fill="#0D9488" />
+          <text x="470" y="213" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Rays are always perpendicular to wavefronts</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 1 (EN):</strong> Spherical wavefronts diverge radially from a point source, whereas at large distances a small segment behaves as a plane wavefront with parallel rays.</div>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <h3>২.১ আলোর তত্ত্বের সংক্ষিপ্ত ইতিহাস</h3>
+      <p>দেকার্তে ও নিউটনের কণিকা তত্ত্ব (corpuscular model) অনুযায়ী আলো ক্ষুদ্র কণার স্রোত এবং ঘন মাধ্যমে অভিলম্বের দিকে বেঁকে গেলে আলোর বেগ বৃদ্ধি পাওয়ার কথা। কিন্তু ১৬৭৮ সালে ক্রিশ্চিয়ান হাইগেনস-এর তরঙ্গ তত্ত্ব ভবিষ্যদ্বাণী করে যে ঘন মাধ্যমে আলোর বেগ হ্রাস পায়—যা ১৮৫০ সালে ফুকো (Foucault) জলে আলোর বেগ পরিমাপের মাধ্যমে প্রমাণ করেন। ১৮০১ সালে টমাস ইয়ং-এর ব্যতিচার পরীক্ষা আলোর তরঙ্গ ধর্ম প্রতিষ্ঠা করে এবং ম্যাক্সওয়েল প্রমাণ করেন যে আলো একটি তির্যক তড়িৎচুম্বকীয় তরঙ্গ, যা শূন্যস্থানেও চলতে পারে।</p>
+
+      <h3>২.২ তরঙ্গমুখ ও রশ্মি</h3>
+      <p>কোনো মুহূর্তে মাধ্যমের যে সমস্ত বিন্দু একই দশায় (same phase) কম্পিত হয়, তাদের সঞ্চারপথকে <strong>তরঙ্গমুখ (wavefront)</strong> বলে। তরঙ্গের শক্তি সর্বদা তরঙ্গমুখের সাথে লম্ব দিকে অগ্রসর হয়; এই দিকনির্দেশক রেখাকে <strong>রশ্মি (ray)</strong> বলে।</p>
+      <ul>
+        <li><strong>গোলীয় তরঙ্গমুখ (Spherical Wavefront):</strong> সমসত্ত্ব মাধ্যমে একটি বিন্দু উৎস থেকে চারদিকে সমানভাবে ছড়িয়ে পড়া তরঙ্গ।</li>
+        <li><strong>সমতল তরঙ্গমুখ (Plane Wavefront):</strong> উৎস থেকে বহু দূরে গোলীয় তরঙ্গমুখের একটি ক্ষুদ্র অংশ (যেমন পৃথিবীতে আসা নক্ষত্রের আলো) বা উত্তল লেন্সের ফোকাসে রাখা বিন্দু উৎস থেকে নির্গত আলো।</li>
+        <li><strong>চোঙাকৃতি তরঙ্গমুখ (Cylindrical Wavefront):</strong> একটি সরু রৈখিক রেখাছিদ্র উৎস থেকে সৃষ্ট তরঙ্গমুখ।</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="গোলীয় ও সমতল তরঙ্গমুখ">
+          <rect x="0" y="0" width="640" height="230" fill="#F8FAFC" rx="6" />
+          <text x="155" y="24" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">গোলীয় তরঙ্গমুখ</text>
+          <circle cx="155" cy="120" r="6" fill="#2563EB" />
+          <text x="155" y="142" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">বিন্দু উৎস</text>
+          <circle cx="155" cy="120" r="38" fill="none" stroke="#2563EB" stroke-width="1.8" />
+          <circle cx="155" cy="120" r="66" fill="none" stroke="#2563EB" stroke-width="1.8" />
+          <circle cx="155" cy="120" r="92" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,4" />
+          <line x1="155" y1="120" x2="255" y2="120" stroke="#0D9488" stroke-width="1.6" />
+          <polygon points="255,120 247,116 247,124" fill="#0D9488" />
+          <line x1="155" y1="120" x2="155" y2="28" stroke="#0D9488" stroke-width="1.6" />
+          <polygon points="155,28 151,36 159,36" fill="#0D9488" />
+          <line x1="155" y1="120" x2="225" y2="50" stroke="#0D9488" stroke-width="1.6" />
+          <polygon points="225,50 217,53 222,58" fill="#0D9488" />
+          <text x="242" y="108" font-family="sans-serif" font-size="11" fill="#0D9488">রশ্মি</text>
+
+          <line x1="320" y1="16" x2="320" y2="214" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4,4" />
+
+          <text x="480" y="24" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">সমতল তরঙ্গমুখ (দূরবর্তী অঞ্চল)</text>
+          <line x1="380" y1="55" x2="380" y2="195" stroke="#2563EB" stroke-width="2.2" />
+          <line x1="440" y1="55" x2="440" y2="195" stroke="#2563EB" stroke-width="2.2" />
+          <line x1="500" y1="55" x2="500" y2="195" stroke="#2563EB" stroke-width="2.2" />
+          <line x1="560" y1="55" x2="560" y2="195" stroke="#2563EB" stroke-width="2.2" stroke-dasharray="5,4" />
+          <line x1="355" y1="80" x2="595" y2="80" stroke="#0D9488" stroke-width="1.8" />
+          <polygon points="595,80 587,76 587,84" fill="#0D9488" />
+          <line x1="355" y1="125" x2="595" y2="125" stroke="#0D9488" stroke-width="1.8" />
+          <polygon points="595,125 587,121 587,129" fill="#0D9488" />
+          <line x1="355" y1="170" x2="595" y2="170" stroke="#0D9488" stroke-width="1.8" />
+          <polygon points="595,170 587,166 587,174" fill="#0D9488" />
+          <text x="470" y="213" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">রশ্মি সর্বদা তরঙ্গমুখের সাথে লম্ব থাকে</text>
+        </svg>
+        <div class="diagram-caption"><strong>টিউটোরিয়াল চিত্র ১ (BN):</strong> বিন্দু উৎস থেকে গোলীয় তরঙ্গমুখ ব্যাসার্ধ বরাবর ছড়িয়ে পড়ে, কিন্তু বহু দূরে এর ক্ষুদ্র অংশ সমান্তরাল রশ্মিসহ সমতল তরঙ্গমুখে পরিণত হয়।</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HUYGENS' PRINCIPLE & REFRACTION/REFLECTION -->
+  <section>
+    <h2>3. Huygens' Principle: Reflection &amp; Refraction<br />
+      <span lang="bn">৩. হাইগেনসের নীতি: প্রতিফলন ও প্রতিসরণ</span>
+    </h2>
+
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p><strong>Huygens' Principle</strong> is a geometrical method to find the new position of a wavefront at a later time \(\tau\):</p>
+      <ol>
+        <li>Every point on a primary wavefront acts as a fresh source of <strong>secondary wavelets</strong> that spread out in all directions with the speed of the wave \(v\) in that medium.</li>
+        <li>The common forward tangent surface (envelope) drawn to all secondary spheres of radius \(v\tau\) gives the new wavefront at time \(t = \tau\).</li>
+      </ol>
+      <p><em>Note on the backward wave:</em> Geometrical construction also permits a backward envelope, which does not exist physically. Huygens assumed zero backward amplitude; rigorous electromagnetic wave theory later justified this.</p>
+
+      <div class="formula-box">
+        <strong>Snell's Law &amp; Wave Relations during Refraction (Medium 1 &rarr; Medium 2):</strong>
+        \[\frac{\sin i}{\sin r} = \frac{v_1}{v_2} = \frac{n_2}{n_1} = \frac{\lambda_1}{\lambda_2}\]
+        <p>Where \(n_1 = c/v_1\) and \(n_2 = c/v_2\). Crucially, <strong>frequency \(\nu = v/\lambda\) remains unchanged</strong> during both reflection and refraction, because atomic oscillators in the medium are forced to oscillate at the incident frequency. Energy carried by a wave depends on amplitude, not wave speed.</p>
+      </div>
+
+      <p><strong>Critical Angle (\(i_c\)):</strong> When light travels from a denser medium (\(n_1\)) to a rarer medium (\(n_2 < n_1\)), total internal reflection occurs for \(i > i_c\), where:</p>
+      \[\sin i_c = \frac{n_2}{n_1}\]
+
+      <p><strong>Wavefront Shaping by Optical Elements:</strong></p>
+      <ul>
+        <li><strong>Thin Prism:</strong> The lower part of a plane wavefront travels through a greater thickness of glass (slower speed) and lags behind, tilting the emerging plane wavefront toward the base.</li>
+        <li><strong>Convex Lens:</strong> The central part traverses the thickest glass and is delayed most, turning an incident plane wavefront into a converging spherical wavefront of radius \(f\).</li>
+        <li><strong>Concave Mirror:</strong> Reflects a plane wavefront into a converging spherical wavefront of radius \(R/2\) centred at the focus \(F\).</li>
+      </ul>
+      <p>In all imaging systems, the total travel time from an object point to its image point is identical along every ray.</p>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Huygens Refraction">
+          <rect x="0" y="0" width="640" height="240" fill="#F8FAFC" rx="6" />
+          <!-- Medium 2 shading -->
+          <rect x="20" y="115" width="600" height="110" fill="#E0F2FE" />
+          <!-- Interface -->
+          <line x1="20" y1="115" x2="620" y2="115" stroke="#1E293B" stroke-width="2" />
+          <text x="45" y="102" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Medium 1 (v₁, n₁)</text>
+          <text x="45" y="135" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Medium 2 (v₂ &lt; v₁, n₂ &gt; n₁)</text>
+
+          <!-- Normal at A -->
+          <line x1="210" y1="35" x2="210" y2="215" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+          <!-- Point A and C -->
+          <circle cx="210" cy="115" r="3.5" fill="#1E293B" />
+          <text x="195" y="129" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">A</text>
+          <circle cx="470" cy="115" r="3.5" fill="#1E293B" />
+          <text x="478" y="129" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">C</text>
+
+          <!-- Incident Ray to A -->
+          <line x1="150" y1="30" x2="210" y2="115" stroke="#0D9488" stroke-width="1.8" />
+          <!-- Incident Wavefront AB -->
+          <line x1="210" y1="115" x2="365" y2="35" stroke="#2563EB" stroke-width="2.2" />
+          <text x="275" y="65" font-family="sans-serif" font-size="11" fill="#2563EB">Incident WF (AB)</text>
+          <!-- BC = v1*tau -->
+          <line x1="365" y1="35" x2="470" y2="115" stroke="#0D9488" stroke-width="1.8" />
+          <text x="430" y="68" font-family="sans-serif" font-size="11" fill="#0D9488">BC = v₁τ</text>
+
+          <!-- Secondary wavelet arc from A of radius v2*tau -->
+          <path d="M 185 188 A 82 82 0 0 0 285 175" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4,3" />
+          <!-- AE = v2*tau -->
+          <line x1="210" y1="115" x2="248" y2="188" stroke="#0D9488" stroke-width="1.8" />
+          <circle cx="248" cy="188" r="3.5" fill="#1E293B" />
+          <text x="242" y="205" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">E</text>
+          <text x="165" y="168" font-family="sans-serif" font-size="11" fill="#0D9488">AE = v₂τ</text>
+
+          <!-- Refracted Wavefront CE -->
+          <line x1="248" y1="188" x2="470" y2="115" stroke="#2563EB" stroke-width="2.2" />
+          <text x="365" y="176" font-family="sans-serif" font-size="11" fill="#2563EB">Refracted WF (CE)</text>
+
+          <!-- Angle labels -->
+          <text x="245" y="108" font-family="sans-serif" font-size="12" fill="#1E293B">i</text>
+          <text x="422" y="128" font-family="sans-serif" font-size="12" fill="#1E293B">r</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 2 (EN):</strong> Huygens' construction for refraction into a denser medium (\(v_2 < v_1\)), showing \(BC = v_1\tau\) and \(AE = v_2\tau\).</div>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <p><strong>হাইগেনসের নীতি (Huygens' Principle)</strong> হলো একটি জ্যামিতিক পদ্ধতি, যার সাহায্যে \(\tau\) সময় পরে তরঙ্গমুখের নতুন অবস্থান নির্ণয় করা যায়:</p>
+      <ol>
+        <li>প্রাথমিক তরঙ্গমুখের প্রতিটি বিন্দু একটি নতুন <strong>গৌণ অণুতরঙ্গের (secondary wavelets)</strong> উৎস হিসেবে কাজ করে এবং ওই মাধ্যমে তরঙ্গের বেগ \(v\)-তে চারদিকে ছড়িয়ে পড়ে।</li>
+        <li>\(\tau\) সময়ে \(v\tau\) ব্যাসার্ধের সমস্ত গৌণ গোলকের সম্মুখ স্পর্শক-তল (forward envelope) আঁকলে নতুন তরঙ্গমুখের অবস্থান পাওয়া যায়।</li>
+      </ol>
+      <p><em>পশ্চাৎ তরঙ্গের অনুপস্থিতি:</em> জ্যামিতিকভাবে পেছনের দিকেও একটি স্পর্শক-তল পাওয়া যায়, কিন্তু বাস্তবে পশ্চাৎ তরঙ্গ থাকে না। হাইগেনস পেছনের দিকে বিস্তার শূন্য ধরেছিলেন; পরবর্তীকালে তড়িৎচুম্বকীয় তরঙ্গ তত্ত্ব দ্বারা এটি প্রমাণিত হয়।</p>
+
+      <div class="formula-box">
+        <strong>প্রতিসরণের সময় স্নেলের সূত্র ও তরঙ্গ সম্পর্ক (মাধ্যম ১ &rarr; মাধ্যম ২):</strong>
+        \[\frac{\sin i}{\sin r} = \frac{v_1}{v_2} = \frac{n_2}{n_1} = \frac{\lambda_1}{\lambda_2}\]
+        <p>যেখানে \(n_1 = c/v_1\) এবং \(n_2 = c/v_2\)। মনে রাখা জরুরি যে, প্রতিফলন ও প্রতিসরণ উভয় ক্ষেত্রেই <strong>কম্পাঙ্ক \(\nu = v/\lambda\) অপরিবর্তিত থাকে</strong>, কারণ মাধ্যমের পরমাণুগুলো আপতিত আলোর কম্পাঙ্কেই পরবশ কম্পনে (forced oscillation) আন্দোলিত হয়। তরঙ্গের শক্তি বিস্তারের ওপর নির্ভর করে, বেগের ওপর নয়।</p>
+      </div>
+
+      <p><strong>সংকট কোণ (\(i_c\)):</strong> আলো ঘন মাধ্যম (\(n_1\)) থেকে লঘু মাধ্যমে (\(n_2 < n_1\)) যাওয়ার সময় আপতন কোণ \(i > i_c\) হলে পূর্ণ অভ্যন্তরীণ প্রতিফলন ঘটে, যেখানে:</p>
+      \[\sin i_c = \frac{n_2}{n_1}\]
+
+      <p><strong>আলোকীয় যন্ত্রে তরঙ্গমুখের পরিবর্তন:</strong></p>
+      <ul>
+        <li><strong>পাতলা প্রিজম:</strong> সমতল তরঙ্গমুখের নিচের অংশ কাচের বেশি পুরুত্বের মধ্য দিয়ে যাওয়ায় বেশি বিলম্বিত হয়, ফলে নির্গত তরঙ্গমুখ ভূমির দিকে বেঁকে যায়।</li>
+        <li><strong>উত্তল লেন্স:</strong> তরঙ্গমুখের মাঝের অংশ সবচেয়ে পুরু কাচ ভেদ করে বেশি বিলম্বিত হয়, ফলে সমতল তরঙ্গমুখ \(f\) ব্যাসার্ধের অভিসারী গোলীয় তরঙ্গমুখে পরিণত হয়।</li>
+        <li><strong>অবতল দর্পণ:</strong> সমতল তরঙ্গমুখকে প্রতিফলিত করে ফোকাস \(F\)-কেন্দ্রিক \(R/2\) ব্যাসার্ধের অভিসারী গোলীয় তরঙ্গমুখে রূপান্তরিত করে।</li>
+      </ul>
+      <p>বস্তুবিন্দু থেকে প্রতিবিম্ব বিন্দুতে পৌঁছাতে প্রতিটি রশ্মির ক্ষেত্রে মোট অতিক্রান্ত সময় সমান থাকে।</p>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="হাইগেনসের নীতিতে প্রতিসরণ">
+          <rect x="0" y="0" width="640" height="240" fill="#F8FAFC" rx="6" />
+          <rect x="20" y="115" width="600" height="110" fill="#E0F2FE" />
+          <line x1="20" y1="115" x2="620" y2="115" stroke="#1E293B" stroke-width="2" />
+          <text x="45" y="102" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">মাধ্যম ১ (v₁, n₁)</text>
+          <text x="45" y="135" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">মাধ্যম ২ (v₂ &lt; v₁, n₂ &gt; n₁)</text>
+
+          <line x1="210" y1="35" x2="210" y2="215" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+          <circle cx="210" cy="115" r="3.5" fill="#1E293B" />
+          <text x="195" y="129" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">A</text>
+          <circle cx="470" cy="115" r="3.5" fill="#1E293B" />
+          <text x="478" y="129" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">C</text>
+
+          <line x1="150" y1="30" x2="210" y2="115" stroke="#0D9488" stroke-width="1.8" />
+          <line x1="210" y1="115" x2="365" y2="35" stroke="#2563EB" stroke-width="2.2" />
+          <text x="275" y="65" font-family="sans-serif" font-size="11" fill="#2563EB">আপতিত তরঙ্গমুখ (AB)</text>
+          <line x1="365" y1="35" x2="470" y2="115" stroke="#0D9488" stroke-width="1.8" />
+          <text x="430" y="68" font-family="sans-serif" font-size="11" fill="#0D9488">BC = v₁τ</text>
+
+          <path d="M 185 188 A 82 82 0 0 0 285 175" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4,3" />
+          <line x1="210" y1="115" x2="248" y2="188" stroke="#0D9488" stroke-width="1.8" />
+          <circle cx="248" cy="188" r="3.5" fill="#1E293B" />
+          <text x="242" y="205" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">E</text>
+          <text x="165" y="168" font-family="sans-serif" font-size="11" fill="#0D9488">AE = v₂τ</text>
+
+          <line x1="248" y1="188" x2="470" y2="115" stroke="#2563EB" stroke-width="2.2" />
+          <text x="365" y="176" font-family="sans-serif" font-size="11" fill="#2563EB">প্রতিসৃত তরঙ্গমুখ (CE)</text>
+
+          <text x="245" y="108" font-family="sans-serif" font-size="12" fill="#1E293B">i</text>
+          <text x="422" y="128" font-family="sans-serif" font-size="12" fill="#1E293B">r</text>
+        </svg>
+        <div class="diagram-caption"><strong>টিউটোরিয়াল চিত্র ২ (BN):</strong> হাইগেনসের নীতি অনুযায়ী ঘন মাধ্যমে প্রতিসরণ (\(v_2 < v_1\)), যেখানে \(BC = v_1\tau\) এবং \(AE = v_2\tau\)।</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. COHERENCE, SUPERPOSITION & YDSE -->
+  <section>
+    <h2>4. Interference of Light &amp; Young's Double-Slit Experiment (YDSE)<br />
+      <span lang="bn">৪. আলোর ব্যতিচার ও ইয়ং-এর দ্বি-রেখাছিদ্র পরীক্ষা (YDSE)</span>
+    </h2>
+
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <h3>4.1 Coherent vs Incoherent Superposition</h3>
+      <p>Two light sources are <strong>coherent</strong> if they emit waves of the same frequency with a constant (time-independent) phase difference. Two independent ordinary lamps (such as two sodium lamps) undergo random abrupt phase changes in roughly \(10^{-10}\,\mathrm{s}\), making them <strong>incoherent</strong>; their intensities simply add up uniformly as \(I_{\mathrm{avg}} = I_1 + I_2\) (or \(2I_0\) if equal) without forming stable fringes.</p>
+
+      <div class="formula-box">
+        <strong>General Interference Intensity Formula:</strong>
+        <p>For two coherent waves of individual intensities \(I_1\) and \(I_2\) with phase difference \(\phi\) (corresponding to path difference \(\Delta x = \frac{\lambda}{2\pi}\phi\)):</p>
+        \[I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos\phi\]
+        <p>If \(I_1 = I_2 = I_0\):</p>
+        \[I = 4I_0 \cos^2\!\left(\frac{\phi}{2}\right)\]
+        <ul>
+          <li><strong>Constructive Interference (Maxima):</strong> \(\phi = 2n\pi\) or \(\Delta x = n\lambda\) (\(n = 0, 1, 2, \dots\)); \(I_{\max} = (\sqrt{I_1} + \sqrt{I_2})^2\) (or \(4I_0\)).</li>
+          <li><strong>Destructive Interference (Minima):</strong> \(\phi = (2n + 1)\pi\) or \(\Delta x = \left(n + \frac{1}{2}\right)\lambda\); \(I_{\min} = (\sqrt{I_1} - \sqrt{I_2})^2\) (or \(0\)).</li>
+        </ul>
+      </div>
+
+      <h3>4.2 Young's Double-Slit Experiment (YDSE)</h3>
+      <p>Thomas Young achieved coherence by illuminating two closely spaced slits \(S_1\) and \(S_2\) (separated by distance \(d\)) using a single primary slit \(S\). For a screen placed at distance \(D \gg d\), the path difference at a point \(P\) at distance \(x\) from the central axis \(O\) is \(\Delta x \approx \frac{xd}{D}\).</p>
+      <ul>
+        <li><strong>Position of \(n\)-th Bright Fringe:</strong> \(x_n = \dfrac{n\lambda D}{d}\) (\(n = 0, \pm 1, \pm 2, \dots\))</li>
+        <li><strong>Position of \(n\)-th Dark Fringe:</strong> \(x_n = \left(n + \dfrac{1}{2}\right)\dfrac{\lambda D}{d}\) (\(n = 0, \pm 1, \pm 2, \dots\))</li>
+        <li><strong>Fringe Width (\(\beta\)):</strong> Distance between two consecutive bright (or dark) fringes is constant:
+          \[\beta = \frac{\lambda D}{d}\]
+        </li>
+        <li><strong>Angular Fringe Width (\(\theta_{\mathrm{fringe}}\)):</strong> \(\theta_{\mathrm{fringe}} = \dfrac{\beta}{D} = \dfrac{\lambda}{d}\) (independent of screen distance \(D\)).</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YDSE Geometry">
+          <rect x="0" y="0" width="640" height="220" fill="#F8FAFC" rx="6" />
+          <!-- Primary slit S -->
+          <line x1="70" y1="30" x2="70" y2="105" stroke="#1E293B" stroke-width="3" />
+          <line x1="70" y1="115" x2="70" y2="190" stroke="#1E293B" stroke-width="3" />
+          <text x="52" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">S</text>
+
+          <!-- Double slit screen -->
+          <line x1="210" y1="25" x2="210" y2="75" stroke="#1E293B" stroke-width="3" />
+          <line x1="210" y1="85" x2="210" y2="135" stroke="#1E293B" stroke-width="3" />
+          <line x1="210" y1="145" x2="210" y2="195" stroke="#1E293B" stroke-width="3" />
+          <text x="190" y="84" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">S₁</text>
+          <text x="190" y="144" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">S₂</text>
+          <!-- d brace -->
+          <line x1="222" y1="80" x2="222" y2="140" stroke="#64748B" stroke-width="1.2" />
+          <text x="230" y="114" font-family="sans-serif" font-size="12" fill="#1E293B">d</text>
+
+          <!-- Viewing screen -->
+          <line x1="530" y1="20" x2="530" y2="200" stroke="#1E293B" stroke-width="3" />
+          <text x="540" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Screen</text>
+
+          <!-- Central axis -->
+          <line x1="70" y1="110" x2="530" y2="110" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4" />
+          <circle cx="530" cy="110" r="3" fill="#1E293B" />
+          <text x="540" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">O (Central Max)</text>
+
+          <!-- Rays from S to S1, S2 -->
+          <line x1="70" y1="110" x2="210" y2="80" stroke="#0D9488" stroke-width="1.4" />
+          <line x1="70" y1="110" x2="210" y2="140" stroke="#0D9488" stroke-width="1.4" />
+
+          <!-- Rays from S1, S2 to P -->
+          <circle cx="530" cy="52" r="3.5" fill="#2563EB" />
+          <text x="540" y="56" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">P</text>
+          <line x1="210" y1="80" x2="530" y2="52" stroke="#2563EB" stroke-width="1.6" />
+          <line x1="210" y1="140" x2="530" y2="52" stroke="#2563EB" stroke-width="1.6" />
+
+          <!-- x label -->
+          <line x1="518" y1="52" x2="518" y2="110" stroke="#0D9488" stroke-width="1.4" />
+          <text x="502" y="84" font-family="sans-serif" font-size="12" fill="#0D9488">x</text>
+
+          <!-- D label -->
+          <line x1="210" y1="205" x2="530" y2="205" stroke="#1E293B" stroke-width="1.2" />
+          <text x="370" y="200" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">D</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 3 (EN):</strong> Young's double-slit setup showing coherent division of wavefront at \(S_1\) and \(S_2\) and interference at point \(P\).</div>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <h3>৪.১ সুসঙ্গত ও অসঙ্গত উপরিপাতন</h3>
+      <p>দুটি আলোক উৎসকে <strong>সুসঙ্গত (coherent)</strong> বলা হয় যদি তারা একই কম্পাঙ্কের তরঙ্গ নিঃসরণ করে এবং তাদের মধ্যবর্তী দশা-পার্থক্য সময়ের সাথে স্থির থাকে। দুটি পৃথক সাধারণ বাতি (যেমন দুটি সোডিয়াম বাতি) প্রায় \(10^{-10}\,\mathrm{s}\) সময়ে হঠাৎ দশা পরিবর্তন করে, তাই তারা <strong>অসঙ্গত (incoherent)</strong>; এক্ষেত্রে পর্দায় কোনো স্থায়ী ঝালর তৈরি হয় না এবং সর্বত্র গড় তীব্রতা \(I_{\mathrm{avg}} = I_1 + I_2\) (সমান হলে \(2I_0\)) হয়।</p>
+
+      <div class="formula-box">
+        <strong>ব্যতিচারের সাধারণ তীব্রতার সূত্র:</strong>
+        <p>\(I_1\) এবং \(I_2\) তীব্রতার দুটি সুসঙ্গত তরঙ্গ \(\phi\) দশা-পার্থক্যে (অর্থাৎ পথ-পার্থক্য \(\Delta x = \frac{\lambda}{2\pi}\phi\)) উপরিপাতিত হলে লব্ধি তীব্রতা:</p>
+        \[I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos\phi\]
+        <p>যদি \(I_1 = I_2 = I_0\) হয়:</p>
+        \[I = 4I_0 \cos^2\!\left(\frac{\phi}{2}\right)\]
+        <ul>
+          <li><strong>গঠনমূলক ব্যতিচার (উজ্জ্বল ঝালর):</strong> \(\phi = 2n\pi\) বা \(\Delta x = n\lambda\) (\(n = 0, 1, 2, \dots\)); \(I_{\max} = (\sqrt{I_1} + \sqrt{I_2})^2\) (বা \(4I_0\))।</li>
+          <li><strong>ধ্বংসাত্মক ব্যতিচার (অন্ধকার ঝালর):</strong> \(\phi = (2n + 1)\pi\) বা \(\Delta x = \left(n + \frac{1}{2}\right)\lambda\); \(I_{\min} = (\sqrt{I_1} - \sqrt{I_2})^2\) (বা \(0\))।</li>
+        </ul>
+      </div>
+
+      <h3>৪.২ ইয়ং-এর দ্বি-রেখাছিদ্র পরীক্ষা (YDSE)</h3>
+      <p>টমাস ইয়ং একটি প্রাথমিক ছিদ্র \(S\) থেকে আসা আলো দিয়ে \(d\) ব্যবধানে থাকা দুটি ছিদ্র \(S_1\) ও \(S_2\)-কে আলোকিত করে সুসঙ্গত উৎস তৈরি করেন। \(D \gg d\) দূরত্বে থাকা পর্দার কেন্দ্র \(O\) থেকে \(x\) দূরত্বে কোনো বিন্দু \(P\)-তে পথ-পার্থক্য \(\Delta x \approx \frac{xd}{D}\)।</p>
+      <ul>
+        <li><strong>\(n\)-তম উজ্জ্বল ঝালরের অবস্থান:</strong> \(x_n = \dfrac{n\lambda D}{d}\) (\(n = 0, \pm 1, \pm 2, \dots\))</li>
+        <li><strong>\(n\)-তম অন্ধকার ঝালরের অবস্থান:</strong> \(x_n = \left(n + \dfrac{1}{2}\right)\dfrac{\lambda D}{d}\) (\(n = 0, \pm 1, \pm 2, \dots\))</li>
+        <li><strong>ঝালর প্রস্থ (\(\beta\)):</strong> পরপর দুটি উজ্জ্বল বা অন্ধকার ঝালরের মধ্যবর্তী দূরত্ব সমান:
+          \[\beta = \frac{\lambda D}{d}\]
+        </li>
+        <li><strong>কৌণিক ঝালর প্রস্থ (\(\theta_{\mathrm{fringe}}\)):</strong> \(\theta_{\mathrm{fringe}} = \dfrac{\beta}{D} = \dfrac{\lambda}{d}\) (পর্দার দূরত্ব \(D\)-এর ওপর নির্ভরশীল নয়)।</li>
+      </ul>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YDSE জ্যামিতি">
+          <rect x="0" y="0" width="640" height="220" fill="#F8FAFC" rx="6" />
+          <line x1="70" y1="30" x2="70" y2="105" stroke="#1E293B" stroke-width="3" />
+          <line x1="70" y1="115" x2="70" y2="190" stroke="#1E293B" stroke-width="3" />
+          <text x="52" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">S</text>
+
+          <line x1="210" y1="25" x2="210" y2="75" stroke="#1E293B" stroke-width="3" />
+          <line x1="210" y1="85" x2="210" y2="135" stroke="#1E293B" stroke-width="3" />
+          <line x1="210" y1="145" x2="210" y2="195" stroke="#1E293B" stroke-width="3" />
+          <text x="190" y="84" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">S₁</text>
+          <text x="190" y="144" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">S₂</text>
+          <line x1="222" y1="80" x2="222" y2="140" stroke="#64748B" stroke-width="1.2" />
+          <text x="230" y="114" font-family="sans-serif" font-size="12" fill="#1E293B">d</text>
+
+          <line x1="530" y1="20" x2="530" y2="200" stroke="#1E293B" stroke-width="3" />
+          <text x="540" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">পর্দা</text>
+
+          <line x1="70" y1="110" x2="530" y2="110" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="5,4" />
+          <circle cx="530" cy="110" r="3" fill="#1E293B" />
+          <text x="540" y="114" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">O (কেন্দ্রীয় চরম)</text>
+
+          <line x1="70" y1="110" x2="210" y2="80" stroke="#0D9488" stroke-width="1.4" />
+          <line x1="70" y1="110" x2="210" y2="140" stroke="#0D9488" stroke-width="1.4" />
+
+          <circle cx="530" cy="52" r="3.5" fill="#2563EB" />
+          <text x="540" y="56" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">P</text>
+          <line x1="210" y1="80" x2="530" y2="52" stroke="#2563EB" stroke-width="1.6" />
+          <line x1="210" y1="140" x2="530" y2="52" stroke="#2563EB" stroke-width="1.6" />
+
+          <line x1="518" y1="52" x2="518" y2="110" stroke="#0D9488" stroke-width="1.4" />
+          <text x="502" y="84" font-family="sans-serif" font-size="12" fill="#0D9488">x</text>
+
+          <line x1="210" y1="205" x2="530" y2="205" stroke="#1E293B" stroke-width="1.2" />
+          <text x="370" y="200" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">D</text>
+        </svg>
+        <div class="diagram-caption"><strong>টিউটোরিয়াল চিত্র ৩ (BN):</strong> ইয়ং-এর দ্বি-রেখাছিদ্র পরীক্ষার জ্যামিতি, যেখানে \(S_1\) ও \(S_2\) সুসঙ্গত উৎস হিসেবে কাজ করে পর্দার \(P\) বিন্দুতে ব্যতিচার সৃষ্টি করে।</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. DIFFRACTION AT A SINGLE SLIT -->
+  <section>
+    <h2>5. Single-Slit Diffraction &amp; Comparison with Interference<br />
+      <span lang="bn">৫. একক-রেখাছিদ্রে অপবর্তন ও ব্যতিচারের সাথে তুলনা</span>
+    </h2>
+
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p><strong>Diffraction</strong> is the bending or spreading of waves around obstacles or through narrow apertures comparable in size to the wavelength \(\lambda\). When a plane wavefront falls normally on a single slit of width \(a\), different parts of the slit act as coherent secondary sources (Huygens–Fresnel principle).</p>
+
+      <div class="formula-box">
+        <strong>Single-Slit Diffraction Conditions (Slit width \(a\), small angle \(\theta\)):</strong>
+        <ul>
+          <li><strong>Central Maximum (\(\theta = 0\)):</strong> All secondary wavelets arrive in phase, producing the brightest and widest central band.</li>
+          <li><strong>Minima (Zero Intensity):</strong> \(a\sin\theta = n\lambda \implies \theta \approx \dfrac{n\lambda}{a}\) (\(n = \pm 1, \pm 2, \pm 3, \dots\)).</li>
+          <li><strong>Secondary Maxima:</strong> \(a\sin\theta \approx \left(n + \dfrac{1}{2}\right)\lambda \implies \theta \approx \left(n + \dfrac{1}{2}\right)\dfrac{\lambda}{a}\) (\(n = \pm 1, \pm 2, \dots\)), with rapidly decreasing intensity.</li>
+          <li><strong>Angular Width of Central Maximum:</strong> \(\Delta\theta_{\mathrm{central}} = \dfrac{2\lambda}{a}\).</li>
+          <li><strong>Linear Width of Central Maximum (at screen distance \(D\)):</strong> \(W_{\mathrm{central}} = \dfrac{2\lambda D}{a}\).</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <strong>Conservation of Energy:</strong> In both interference and diffraction, total light energy is conserved—energy is merely redistributed from dark regions to bright regions.
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Single Slit Diffraction Intensity">
+          <rect x="0" y="0" width="640" height="190" fill="#F8FAFC" rx="6" />
+          <!-- Axes -->
+          <line x1="40" y1="150" x2="600" y2="150" stroke="#1E293B" stroke-width="1.6" />
+          <line x1="320" y1="20" x2="320" y2="150" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+          <text x="328" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">Central Max (I₀)</text>
+
+          <!-- Intensity curve -->
+          <path d="M 60 150 Q 90 142, 120 150 Q 155 130, 190 150 Q 255 32, 320 32 Q 385 32, 450 150 Q 485 130, 520 150 Q 550 142, 580 150" fill="none" stroke="#2563EB" stroke-width="2.4" />
+
+          <!-- Ticks -->
+          <text x="120" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">-2λ/a</text>
+          <text x="190" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">-λ/a</text>
+          <text x="320" y="168" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">0</text>
+          <text x="450" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">+λ/a</text>
+          <text x="520" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">+2λ/a</text>
+          <text x="588" y="145" font-family="sans-serif" font-size="11" fill="#1E293B">θ</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 4 (EN):</strong> Intensity profile of single-slit diffraction. Notice the central maximum is twice as wide as the secondary fringes.</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Double-Slit Interference</th>
+              <th>Single-Slit Diffraction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Origin</td>
+              <td>Superposition from two distinct coherent slits</td>
+              <td>Superposition of wavelets from different parts of one slit</td>
+            </tr>
+            <tr>
+              <td>Fringe Width</td>
+              <td>All bright and dark fringes have equal width (\(\beta = \lambda D/d\))</td>
+              <td>Central maximum is twice as wide (\(2\lambda D/a\)) as secondary maxima</td>
+            </tr>
+            <tr>
+              <td>Intensity of Maxima</td>
+              <td>All bright fringes have equal intensity (\(4I_0\))</td>
+              <td>Intensity decreases rapidly away from the central maximum</td>
+            </tr>
+            <tr>
+              <td>First Minimum Angle</td>
+              <td>\(\theta = \lambda/(2d)\)</td>
+              <td>\(\theta = \lambda/a\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <p>তরঙ্গদৈর্ঘ্য \(\lambda\)-এর সমতুল্য কোনো প্রতিবন্ধক বা সরু ছিদ্রের কিনারায় আলোর বেঁকে যাওয়া বা ছড়িয়ে পড়াকে <strong>অপবর্তন (diffraction)</strong> বলে। \(a\) প্রস্থের একটি একক রেখাছিদ্রে সমতল তরঙ্গমুখ লম্বভাবে আপতিত হলে ছিদ্রের বিভিন্ন অংশ সুসঙ্গত গৌণ উৎস হিসেবে কাজ করে (হাইগেনস-ফ্রেনেল নীতি)।</p>
+
+      <div class="formula-box">
+        <strong>একক-রেখাছিদ্র অপবর্তনের শর্তাবলি (ছিদ্র প্রস্থ \(a\), ক্ষুদ্র কোণ \(\theta\)):</strong>
+        <ul>
+          <li><strong>কেন্দ্রীয় চরম (\(\theta = 0\)):</strong> সমস্ত গৌণ অণুতরঙ্গ সমদশায় মিলিত হয়ে সবচেয়ে উজ্জ্বল ও প্রশস্ত পটি তৈরি করে।</li>
+          <li><strong>অবম বিন্দু (শূন্য তীব্রতা):</strong> \(a\sin\theta = n\lambda \implies \theta \approx \dfrac{n\lambda}{a}\) (\(n = \pm 1, \pm 2, \pm 3, \dots\))।</li>
+          <li><strong>গৌণ চরম:</strong> \(a\sin\theta \approx \left(n + \dfrac{1}{2}\right)\lambda \implies \theta \approx \left(n + \dfrac{1}{2}\right)\dfrac{\lambda}{a}\) (\(n = \pm 1, \pm 2, \dots\)), যাদের তীব্রতা কেন্দ্র থেকে দূরে দ্রুত কমতে থাকে।</li>
+          <li><strong>কেন্দ্রীয় চরমের কৌণিক প্রস্থ:</strong> \(\Delta\theta_{\mathrm{central}} = \dfrac{2\lambda}{a}\)।</li>
+          <li><strong>কেন্দ্রীয় চরমের রৈখিক প্রস্থ (\(D\) দূরত্বে পর্দায়):</strong> \(W_{\mathrm{central}} = \dfrac{2\lambda D}{a}\)।</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <strong>শক্তির সংরক্ষণ নীতি:</strong> ব্যতিচার ও অপবর্তন উভয় ক্ষেত্রেই মোট আলোকশক্তি সংরক্ষিত থাকে—অন্ধকার অঞ্চল থেকে শক্তি কেবল উজ্জ্বল অঞ্চলে পুনর্বণ্টিত হয়।
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="একক রেখাছিদ্রে অপবর্তন তীব্রতা">
+          <rect x="0" y="0" width="640" height="190" fill="#F8FAFC" rx="6" />
+          <line x1="40" y1="150" x2="600" y2="150" stroke="#1E293B" stroke-width="1.6" />
+          <line x1="320" y1="20" x2="320" y2="150" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+          <text x="328" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">কেন্দ্রীয় চরম (I₀)</text>
+
+          <path d="M 60 150 Q 90 142, 120 150 Q 155 130, 190 150 Q 255 32, 320 32 Q 385 32, 450 150 Q 485 130, 520 150 Q 550 142, 580 150" fill="none" stroke="#2563EB" stroke-width="2.4" />
+
+          <text x="120" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">-2λ/a</text>
+          <text x="190" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">-λ/a</text>
+          <text x="320" y="168" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">0</text>
+          <text x="450" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">+λ/a</text>
+          <text x="520" y="168" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">+2λ/a</text>
+          <text x="588" y="145" font-family="sans-serif" font-size="11" fill="#1E293B">θ</text>
+        </svg>
+        <div class="diagram-caption"><strong>টিউটোরিয়াল চিত্র ৪ (BN):</strong> একক-রেখাছিদ্রে অপবর্তনের তীব্রতা বণ্টন। কেন্দ্রীয় চরমের প্রস্থ গৌণ পটির দ্বিগুণ।</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>বৈশিষ্ট্য</th>
+              <th>দ্বি-রেখাছিদ্র ব্যতিচার</th>
+              <th>একক-রেখাছিদ্র অপবর্তন</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>উৎপত্তি</td>
+              <td>দুটি পৃথক সুসঙ্গত উৎস থেকে আগত তরঙ্গের উপরিপাতন</td>
+              <td>একই ছিদ্রের বিভিন্ন অংশের গৌণ অণুতরঙ্গের উপরিপাতন</td>
+            </tr>
+            <tr>
+              <td>ঝালরের প্রস্থ</td>
+              <td>সকল উজ্জ্বল ও অন্ধকার ঝালরের প্রস্থ সমান (\(\beta = \lambda D/d\))</td>
+              <td>কেন্দ্রীয় চরমের প্রস্থ (\(2\lambda D/a\)) গৌণ পটির দ্বিগুণ</td>
+            </tr>
+            <tr>
+              <td>চরমের তীব্রতা</td>
+              <td>সকল উজ্জ্বল ঝালরের তীব্রতা সমান (\(4I_0\))</td>
+              <td>কেন্দ্র থেকে দূরে তীব্রতা দ্রুত হ্রাস পায়</td>
+            </tr>
+            <tr>
+              <td>প্রথম অবমের কোণ</td>
+              <td>\(\theta = \lambda/(2d)\)</td>
+              <td>\(\theta = \lambda/a\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. POLARISATION & MALUS' LAW -->
+  <section>
+    <h2>6. Polarisation of Light &amp; Malus' Law<br />
+      <span lang="bn">৬. আলোর সমবর্তন ও ম্যালুসের সূত্র</span>
+    </h2>
+
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <p>While interference and diffraction occur for both longitudinal and transverse waves, <strong>polarisation is exclusive to transverse waves</strong>. In natural (unpolarised) light, the electric field vector \(\vec{E}\) oscillates rapidly and randomly in all directions perpendicular to the direction of propagation.</p>
+      <p>A <strong>polaroid</strong> contains aligned long-chain molecules that absorb the electric field component parallel to the molecular chains and transmit only the component perpendicular to them—this transmission direction is called the <strong>pass-axis</strong>.</p>
+
+      <div class="formula-box">
+        <strong>Key Polarisation Laws:</strong>
+        <ul>
+          <li><strong>Unpolarised Light through One Polaroid:</strong> Exactly half of the incident intensity is transmitted:
+            \[I_1 = \frac{I_{\mathrm{unpol}}}{2}\]
+            Rotating a single polaroid does not change this transmitted intensity.
+          </li>
+          <li><strong>Malus' Law (Polarised Light through an Analyser):</strong> If linearly polarised light of intensity \(I_0\) passes through a second polaroid whose pass-axis makes an angle \(\theta\) with the first, the transmitted intensity is:
+            \[I = I_0 \cos^2\theta\]
+          </li>
+          <li><strong>Crossed Polaroids with an Intermediate Polaroid:</strong> If a polaroid \(P_2\) is placed at angle \(\theta\) between two crossed polaroids \(P_1\) and \(P_3\) (axes at \(90^\circ\)) and light of intensity \(I_0\) emerges from \(P_1\), then the final emerging intensity is:
+            \[I = I_0 \cos^2\theta \cos^2(90^\circ - \theta) = I_0 \cos^2\theta \sin^2\theta = \frac{I_0}{4}\sin^2(2\theta)\]
+            Maximum transmission (\(I_0/4\)) occurs at \(\theta = 45^\circ\).
+          </li>
+        </ul>
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 175" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Polariser and Analyser">
+          <rect x="0" y="0" width="640" height="175" fill="#F8FAFC" rx="6" />
+          <!-- Propagation axis -->
+          <line x1="35" y1="90" x2="600" y2="90" stroke="#64748B" stroke-width="1.5" />
+          <polygon points="600,90 592,86 592,94" fill="#64748B" />
+
+          <!-- Unpolarised light -->
+          <line x1="80" y1="68" x2="80" y2="112" stroke="#2563EB" stroke-width="1.8" />
+          <line x1="65" y1="75" x2="95" y2="105" stroke="#2563EB" stroke-width="1.5" />
+          <line x1="65" y1="105" x2="95" y2="75" stroke="#2563EB" stroke-width="1.5" />
+          <text x="80" y="138" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Unpolarised (Iᵢ)</text>
+
+          <!-- Polariser P1 -->
+          <polygon points="180,40 210,25 210,140 180,155" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+          <line x1="195" y1="45" x2="195" y2="135" stroke="#0D9488" stroke-width="1.6" stroke-dasharray="3,2" />
+          <text x="195" y="166" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB" text-anchor="middle">Polariser P₁</text>
+
+          <!-- Linearly polarised light -->
+          <line x1="295" y1="65" x2="295" y2="115" stroke="#0D9488" stroke-width="2.2" />
+          <polygon points="295,60 291,68 299,68" fill="#0D9488" />
+          <polygon points="295,120 291,112 299,112" fill="#0D9488" />
+          <text x="295" y="138" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">I₀ = Iᵢ / 2</text>
+
+          <!-- Analyser P2 tilted by theta -->
+          <polygon points="395,40 425,25 425,140 395,155" fill="#F0FDFA" stroke="#0D9488" stroke-width="2" />
+          <line x1="398" y1="125" x2="422" y2="55" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="3,2" />
+          <text x="410" y="166" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488" text-anchor="middle">Analyser P₂ (angle θ)</text>
+
+          <!-- Final light -->
+          <line x1="510" y1="108" x2="526" y2="72" stroke="#2563EB" stroke-width="2.2" />
+          <text x="520" y="138" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">I = I₀ cos²θ</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 5 (EN):</strong> Unpolarised light reduces to \(I_0 = I_i/2\) after \(P_1\), and then varies as \(I_0\cos^2\theta\) after passing through analyser \(P_2\).</div>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <p>ব্যতিচার ও অপবর্তন অনুদৈর্ঘ্য ও তির্যক উভয় তরঙ্গের ক্ষেত্রে ঘটলেও <strong>সমবর্তন (polarisation) কেবল তির্যক তরঙ্গেরই বৈশিষ্ট্য</strong>। সাধারণ অসমবর্তিত আলোতে তড়িৎক্ষেত্র ভেক্টর \(\vec{E}\) তরঙ্গের গতির অভিমুখের সাথে লম্ব তলে সব দিকেই এলোমেলোভাবে কম্পিত হয়।</p>
+      <p><strong>পোলারয়েড</strong> হলো বিশেষ সারিবদ্ধ দীর্ঘ-শৃঙ্খল অণুবিশিষ্ট পাত, যা অণুর অক্ষের সমান্তরাল তড়িৎক্ষেত্র উপাংশকে শোষণ করে এবং লম্ব উপাংশকে যেতে দেয়—এই অতিক্রমের দিককে <strong>পাস-অক্ষ (pass-axis)</strong> বলে।</p>
+
+      <div class="formula-box">
+        <strong>সমবর্তনের প্রধান সূত্রাবলি:</strong>
+        <ul>
+          <li><strong>একটি পোলারয়েডের মধ্য দিয়ে অসমবর্তিত আলো:</strong> আপতিত তীব্রতার ঠিক অর্ধেক নির্গত হয়:
+            \[I_1 = \frac{I_{\mathrm{unpol}}}{2}\]
+            একটি মাত্র পোলারয়েড ঘোরালেও নির্গত তীব্রতার কোনো পরিবর্তন হয় না।
+          </li>
+          <li><strong>ম্যালুসের সূত্র (Malus' Law):</strong> \(I_0\) তীব্রতার সমবর্তিত আলো প্রথম পোলারয়েডের পাস-অক্ষের সাথে \(\theta\) কোণে থাকা দ্বিতীয় পোলারয়েডের (বিশ্লেষক) মধ্য দিয়ে গেলে নির্গত তীব্রতা হয়:
+            \[I = I_0 \cos^2\theta\]
+          </li>
+          <li><strong>দুটি পরস্পর লম্ব (crossed) পোলারয়েডের মাঝে তৃতীয় পোলারয়েড:</strong> \(P_1\) ও \(P_3\) পরস্পর \(90^\circ\) কোণে থাকলে এবং তাদের মাঝে \(P_2\) পোলারয়েড \(\theta\) কোণে স্থাপন করলে (\(P_1\) থেকে নির্গত তীব্রতা \(I_0\) হলে) চূড়ান্ত নির্গত তীব্রতা:
+            \[I = I_0 \cos^2\theta \cos^2(90^\circ - \theta) = I_0 \cos^2\theta \sin^2\theta = \frac{I_0}{4}\sin^2(2\theta)\]
+            \(\theta = 45^\circ\) হলে সর্বোচ্চ তীব্রতা (\(I_0/4\)) পাওয়া যায়।
+          </li>
+        </ul>
+      </div>
+
+      <div class="diagram-box">
+        <svg viewBox="0 0 640 175" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="সমবর্তক ও বিশ্লেষক">
+          <rect x="0" y="0" width="640" height="175" fill="#F8FAFC" rx="6" />
+          <line x1="35" y1="90" x2="600" y2="90" stroke="#64748B" stroke-width="1.5" />
+          <polygon points="600,90 592,86 592,94" fill="#64748B" />
+
+          <line x1="80" y1="68" x2="80" y2="112" stroke="#2563EB" stroke-width="1.8" />
+          <line x1="65" y1="75" x2="95" y2="105" stroke="#2563EB" stroke-width="1.5" />
+          <line x1="65" y1="105" x2="95" y2="75" stroke="#2563EB" stroke-width="1.5" />
+          <text x="80" y="138" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">অসমবর্তিত (Iᵢ)</text>
+
+          <polygon points="180,40 210,25 210,140 180,155" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+          <line x1="195" y1="45" x2="195" y2="135" stroke="#0D9488" stroke-width="1.6" stroke-dasharray="3,2" />
+          <text x="195" y="166" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB" text-anchor="middle">সমবর্তক P₁</text>
+
+          <line x1="295" y1="65" x2="295" y2="115" stroke="#0D9488" stroke-width="2.2" />
+          <polygon points="295,60 291,68 299,68" fill="#0D9488" />
+          <polygon points="295,120 291,112 299,112" fill="#0D9488" />
+          <text x="295" y="138" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">I₀ = Iᵢ / 2</text>
+
+          <polygon points="395,40 425,25 425,140 395,155" fill="#F0FDFA" stroke="#0D9488" stroke-width="2" />
+          <line x1="398" y1="125" x2="422" y2="55" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="3,2" />
+          <text x="410" y="166" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488" text-anchor="middle">বিশ্লেষক P₂ (কোণ θ)</text>
+
+          <line x1="510" y1="108" x2="526" y2="72" stroke="#2563EB" stroke-width="2.2" />
+          <text x="520" y="138" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">I = I₀ cos²θ</text>
+        </svg>
+        <div class="diagram-caption"><strong>টিউটোরিয়াল চিত্র ৫ (BN):</strong> অসমবর্তিত আলো \(P_1\) পেরিয়ে \(I_0 = I_i/2\) হয় এবং বিশ্লেষক \(P_2\) পেরিয়ে \(I_0\cos^2\theta\) তীব্রতায় নির্গত হয়।</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. WORKED EXAMPLES -->
+  <section>
+    <h2>7. Worked Examples (NEET UG Level)<br />
+      <span lang="bn">৭. মৌলিক সমাধানকৃত উদাহরণ (NEET UG মানের)</span>
+    </h2>
+
+    <!-- Worked Example 1 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h4>Worked Example 1: Wave Parameters during Refraction</h4>
+        <p><em>(Assumed hypothetical values):</em> Monochromatic green light of wavelength \(550\,\mathrm{nm}\) in air enters a transparent oil of refractive index \(n = 1.25\). Calculate the speed, frequency, and wavelength of the refracted light in oil. (Take \(c = 3.0 \times 10^8\,\mathrm{m\,s^{-1}}\)).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>1. Speed in oil: \(v = \dfrac{c}{n} = \dfrac{3.0 \times 10^8}{1.25} = 2.4 \times 10^8\,\mathrm{m\,s^{-1}}\).</p>
+          <p>2. Frequency remains unchanged during refraction:
+            \[\nu = \frac{c}{\lambda_{\mathrm{air}}} = \frac{3.0 \times 10^8}{550 \times 10^{-9}} \approx 5.45 \times 10^{14}\,\mathrm{Hz}\]
+          </p>
+          <p>3. Wavelength in oil: \(\lambda_{\mathrm{oil}} = \dfrac{\lambda_{\mathrm{air}}}{n} = \dfrac{550\,\mathrm{nm}}{1.25} = 440\,\mathrm{nm}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <span class="lang-tag">বাংলা</span>
+        <h4>সমাধানকৃত উদাহরণ ১: প্রতিসরণের সময় তরঙ্গের রাশিমালা</h4>
+        <p><em>(অনুমিত কাল্পনিক মান):</em> বায়ুতে \(550\,\mathrm{nm}\) তরঙ্গদৈর্ঘ্যের একবর্ণী সবুজ আলো \(n = 1.25\) প্রতিসরাঙ্কের একটি স্বচ্ছ তেলে প্রবেশ করে। তেলে প্রতিসৃত আলোর বেগ, কম্পাঙ্ক ও তরঙ্গদৈর্ঘ্য নির্ণয় করো। (\(c = 3.0 \times 10^8\,\mathrm{m\,s^{-1}}\))।</p>
+        <div class="solution-box">
+          <p><strong>সমাধান:</strong></p>
+          <p>১. তেলে আলোর বেগ: \(v = \dfrac{c}{n} = \dfrac{3.0 \times 10^8}{1.25} = 2.4 \times 10^8\,\mathrm{m\,s^{-1}}\)।</p>
+          <p>২. প্রতিসরণে কম্পাঙ্ক অপরিবর্তিত থাকে:
+            \[\nu = \frac{c}{\lambda_{\mathrm{air}}} = \frac{3.0 \times 10^8}{550 \times 10^{-9}} \approx 5.45 \times 10^{14}\,\mathrm{Hz}\]
+          </p>
+          <p>৩. তেলে তরঙ্গদৈর্ঘ্য: \(\lambda_{\mathrm{oil}} = \dfrac{\lambda_{\mathrm{air}}}{n} = \dfrac{550\,\mathrm{nm}}{1.25} = 440\,\mathrm{nm}\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Worked Example 2 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h4>Worked Example 2: Intensity at a Given Path Difference in YDSE</h4>
+        <p><em>(Assumed hypothetical values):</em> In a Young's double-slit experiment with two identical coherent sources, the maximum intensity on the screen is \(I_{\max}\). Find the intensity at a point where the path difference between the two waves is \(\lambda/4\).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>For equal-intensity sources, \(I = I_{\max}\cos^2(\phi/2)\). A path difference \(\Delta x = \lambda/4\) corresponds to a phase difference:</p>
+          \[\phi = \frac{2\pi}{\lambda}\Delta x = \frac{2\pi}{\lambda}\left(\frac{\lambda}{4}\right) = \frac{\pi}{2}\]
+          <p>Therefore, the resultant intensity is:</p>
+          \[I = I_{\max}\cos^2\!\left(\frac{\pi}{4}\right) = I_{\max}\left(\frac{1}{\sqrt{2}}\right)^2 = \frac{I_{\max}}{2}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <span class="lang-tag">বাংলা</span>
+        <h4>সমাধানকৃত উদাহরণ ২: YDSE-তে নির্দিষ্ট পথ-পার্থক্যে তীব্রতা</h4>
+        <p><em>(অনুমিত কাল্পনিক মান):</em> দুটি অভিন্ন সুসঙ্গত উৎসসহ একটি ইয়ং-এর দ্বি-রেখাছিদ্র পরীক্ষায় পর্দায় সর্বোচ্চ তীব্রতা \(I_{\max}\)। যে বিন্দুতে দুটি তরঙ্গের পথ-পার্থক্য \(\lambda/4\), সেখানে তীব্রতা কত হবে?</p>
+        <div class="solution-box">
+          <p><strong>সমাধান:</strong></p>
+          <p>সমান তীব্রতার উৎসের ক্ষেত্রে, \(I = I_{\max}\cos^2(\phi/2)\)। পথ-পার্থক্য \(\Delta x = \lambda/4\) হলে দশা-পার্থক্য হবে:</p>
+          \[\phi = \frac{2\pi}{\lambda}\Delta x = \frac{2\pi}{\lambda}\left(\frac{\lambda}{4}\right) = \frac{\pi}{2}\]
+          <p>সুতরাং, লব্ধি তীব্রতা:</p>
+          \[I = I_{\max}\cos^2\!\left(\frac{\pi}{4}\right) = I_{\max}\left(\frac{1}{\sqrt{2}}\right)^2 = \frac{I_{\max}}{2}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Worked Example 3 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h4>Worked Example 3: Single-Slit Diffraction Central Maximum</h4>
+        <p><em>(Assumed hypothetical values):</em> Light of wavelength \(600\,\mathrm{nm}\) falls normally on a single slit of width \(0.30\,\mathrm{mm}\). A screen is placed \(1.5\,\mathrm{m}\) away. Find the linear width of the central bright maximum.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>Given \(\lambda = 600 \times 10^{-9}\,\mathrm{m}\), \(a = 0.30 \times 10^{-3}\,\mathrm{m}\), and \(D = 1.5\,\mathrm{m}\).</p>
+          \[W_{\mathrm{central}} = \frac{2\lambda D}{a} = \frac{2 \times 600 \times 10^{-9} \times 1.5}{0.30 \times 10^{-3}} = 6.0 \times 10^{-3}\,\mathrm{m} = 6.0\,\mathrm{mm}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <span class="lang-tag">বাংলা</span>
+        <h4>সমাধানকৃত উদাহরণ ৩: একক-রেখাছিদ্রে কেন্দ্রীয় চরমের প্রস্থ</h4>
+        <p><em>(অনুমিত কাল্পনিক মান):</em> \(600\,\mathrm{nm}\) তরঙ্গদৈর্ঘ্যের আলো \(0.30\,\mathrm{mm}\) প্রস্থের একটি একক রেখাছিদ্রে লম্বভাবে আপতিত হয়। ছিদ্র থেকে \(1.5\,\mathrm{m}\) দূরে একটি পর্দা রাখা আছে। কেন্দ্রীয় উজ্জ্বল চরমের রৈখিক প্রস্থ নির্ণয় করো।</p>
+        <div class="solution-box">
+          <p><strong>সমাধান:</strong></p>
+          <p>প্রদত্ত \(\lambda = 600 \times 10^{-9}\,\mathrm{m}\), \(a = 0.30 \times 10^{-3}\,\mathrm{m}\), এবং \(D = 1.5\,\mathrm{m}\)।</p>
+          \[W_{\mathrm{central}} = \frac{2\lambda D}{a} = \frac{2 \times 600 \times 10^{-9} \times 1.5}{0.30 \times 10^{-3}} = 6.0 \times 10^{-3}\,\mathrm{m} = 6.0\,\mathrm{mm}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Worked Example 4 -->
+    <div class="example-card">
+      <div class="lang-block en">
+        <span class="lang-tag">English</span>
+        <h4>Worked Example 4: Polarisation through Three Polaroids</h4>
+        <p><em>(Assumed hypothetical values):</em> Unpolarised light of intensity \(64\,\mathrm{W\,m^{-2}}\) passes through a polariser \(P_1\), then through \(P_2\) whose pass-axis is at \(30^\circ\) to \(P_1\), and finally through \(P_3\) whose pass-axis is perpendicular to \(P_1\). Find the final emerging intensity.</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>After \(P_1\): \(I_1 = \dfrac{64}{2} = 32\,\mathrm{W\,m^{-2}}\).</p>
+          <p>After \(P_2\) (angle \(30^\circ\) with \(P_1\)): \(I_2 = I_1 \cos^2 30^\circ = 32 \times \left(\dfrac{\sqrt{3}}{2}\right)^2 = 32 \times \dfrac{3}{4} = 24\,\mathrm{W\,m^{-2}}\).</p>
+          <p>Angle between \(P_2\) and \(P_3\) is \(90^\circ - 30^\circ = 60^\circ\). Thus after \(P_3\):</p>
+          \[I_3 = I_2 \cos^2 60^\circ = 24 \times \left(\frac{1}{2}\right)^2 = 6\,\mathrm{W\,m^{-2}}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <span class="lang-tag">বাংলা</span>
+        <h4>সমাধানকৃত উদাহরণ ৪: তিনটি পোলারয়েডের মধ্য দিয়ে সমবর্তন</h4>
+        <p><em>(অনুমিত কাল্পনিক মান):</em> \(64\,\mathrm{W\,m^{-2}}\) তীব্রতার অসমবর্তিত আলো প্রথমে \(P_1\) পোলারয়েড, এরপর \(P_1\)-এর সাথে \(30^\circ\) কোণে থাকা \(P_2\) পোলারয়েড এবং অবশেষে \(P_1\)-এর সাথে লম্বভাবে থাকা \(P_3\) পোলারয়েডের মধ্য দিয়ে যায়। চূড়ান্ত নির্গত তীব্রতা কত?</p>
+        <div class="solution-box">
+          <p><strong>সমাধান:</strong></p>
+          <p>\(P_1\) অতিক্রম করার পর: \(I_1 = \dfrac{64}{2} = 32\,\mathrm{W\,m^{-2}}\)।</p>
+          <p>\(P_2\) অতিক্রম করার পর (\(P_1\)-এর সাথে \(30^\circ\) কোণ): \(I_2 = I_1 \cos^2 30^\circ = 32 \times \left(\dfrac{\sqrt{3}}{2}\right)^2 = 32 \times \dfrac{3}{4} = 24\,\mathrm{W\,m^{-2}}\)।</p>
+          <p>\(P_2\) এবং \(P_3\)-এর মধ্যবর্তী কোণ \(90^\circ - 30^\circ = 60^\circ\)। সুতরাং \(P_3\) অতিক্রম করার পর:</p>
+          \[I_3 = I_2 \cos^2 60^\circ = 24 \times \left(\frac{1}{2}\right)^2 = 6\,\mathrm{W\,m^{-2}}\]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. NEET UG PRACTICE QUESTIONS -->
+  <section>
+    <h2>8. NEET UG Practice Questions (with Answers &amp; Worked Solutions)<br />
+      <span lang="bn">৮. NEET UG অনুশীলনী প্রশ্ন (উত্তর ও সম্পূর্ণ সমাধানসহ)</span>
+    </h2>
+
+    <!-- Practice Question 1 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>A plane wavefront of light of wavelength \(\lambda_0\) in vacuum enters a glass slab of refractive index \(1.5\). Which of the following statements is correct regarding the refracted wave inside the glass?</p>
+        <ul class="options-list">
+          <li>(A) Both frequency and wavelength decrease by a factor of \(1.5\).</li>
+          <li>(B) Speed increases by a factor of \(1.5\), while frequency remains constant.</li>
+          <li>(C) Frequency remains unchanged, while both speed and wavelength become \(\frac{2}{3}\) of their vacuum values.</li>
+          <li>(D) Wavelength remains unchanged, while speed becomes \(\frac{2}{3}\) of its vacuum value.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (C)</span>
+          <p><strong>Explanation:</strong> During refraction into a medium of refractive index \(n = 1.5 = 3/2\), the frequency \(\nu\) remains invariant because it is determined by the source and forced atomic oscillations. Speed becomes \(v = c/n = \frac{2}{3}c\) and wavelength becomes \(\lambda = \lambda_0/n = \frac{2}{3}\lambda_0\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ১ (একক-সঠিক MCQ)</div>
+        <p>শূন্যস্থানে \(\lambda_0\) তরঙ্গদৈর্ঘ্যের একটি সমতল আলোক তরঙ্গমুখ \(1.5\) প্রতিসরাঙ্কের একটি কাচের ফলকে প্রবেশ করে। কাচের ভেতরে প্রতিসৃত তরঙ্গ সম্পর্কে নিচের কোন বিবৃতিটি সঠিক?</p>
+        <ul class="options-list">
+          <li>(A) কম্পাঙ্ক ও তরঙ্গদৈর্ঘ্য উভয়ই \(1.5\) গুণ হ্রাস পায়।</li>
+          <li>(B) বেগ \(1.5\) গুণ বৃদ্ধি পায়, কিন্তু কম্পাঙ্ক স্থির থাকে।</li>
+          <li>(C) কম্পাঙ্ক অপরিবর্তিত থাকে, কিন্তু বেগ ও তরঙ্গদৈর্ঘ্য উভয়ই শূন্যস্থানের মানের \(\frac{2}{3}\) অংশ হয়।</li>
+          <li>(D) তরঙ্গদৈর্ঘ্য অপরিবর্তিত থাকে, কিন্তু বেগ শূন্যস্থানের মানের \(\frac{2}{3}\) অংশ হয়।</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (C)</span>
+          <p><strong>সমাধান:</strong> \(n = 1.5 = 3/2\) প্রতিসরাঙ্কের মাধ্যমে প্রতিসরণের সময় কম্পাঙ্ক \(\nu\) অপরিবর্তিত থাকে। বেগ হয় \(v = c/n = \frac{2}{3}c\) এবং তরঙ্গদৈর্ঘ্য হয় \(\lambda = \lambda_0/n = \frac{2}{3}\lambda_0\)।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 2 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>Two coherent light waves have intensities in the ratio \(9 : 4\). What is the ratio of the maximum intensity to the minimum intensity in their interference pattern?</p>
+        <ul class="options-list">
+          <li>(A) \(13 : 5\)</li>
+          <li>(B) \(25 : 1\)</li>
+          <li>(C) \(5 : 1\)</li>
+          <li>(D) \(81 : 16\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> Let \(I_1 = 9I_0\) and \(I_2 = 4I_0\). Then \(\sqrt{I_1} = 3\sqrt{I_0}\) and \(\sqrt{I_2} = 2\sqrt{I_0}\).</p>
+          \[\frac{I_{\max}}{I_{\min}} = \left(\frac{\sqrt{I_1} + \sqrt{I_2}}{\sqrt{I_1} - \sqrt{I_2}}\right)^2 = \left(\frac{3 + 2}{3 - 2}\right)^2 = \frac{25}{1}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ২ (একক-সঠিক MCQ)</div>
+        <p>দুটি সুসঙ্গত আলোক তরঙ্গের তীব্রতার অনুপাত \(9 : 4\)। তাদের ব্যতিচার চিত্রে সর্বোচ্চ তীব্রতা ও সর্বনিম্ন তীব্রতার অনুপাত কত?</p>
+        <ul class="options-list">
+          <li>(A) \(13 : 5\)</li>
+          <li>(B) \(25 : 1\)</li>
+          <li>(C) \(5 : 1\)</li>
+          <li>(D) \(81 : 16\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>সমাধান:</strong> ধরি \(I_1 = 9I_0\) এবং \(I_2 = 4I_0\)। তাহলে \(\sqrt{I_1} = 3\sqrt{I_0}\) এবং \(\sqrt{I_2} = 2\sqrt{I_0}\)।</p>
+          \[\frac{I_{\max}}{I_{\min}} = \left(\frac{\sqrt{I_1} + \sqrt{I_2}}{\sqrt{I_1} - \sqrt{I_2}}\right)^2 = \left(\frac{3 + 2}{3 - 2}\right)^2 = \frac{25}{1}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 3 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>In a Young's double-slit experiment, the slit separation is \(0.40\,\mathrm{mm}\) and the screen is \(1.2\,\mathrm{m}\) away. If the distance between the central bright fringe and the fifth bright fringe is \(9.0\,\mathrm{mm}\), the wavelength of light used is:</p>
+        <ul class="options-list">
+          <li>(A) \(500\,\mathrm{nm}\)</li>
+          <li>(B) \(550\,\mathrm{nm}\)</li>
+          <li>(C) \(600\,\mathrm{nm}\)</li>
+          <li>(D) \(650\,\mathrm{nm}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (C)</span>
+          <p><strong>Explanation:</strong> The position of the \(n\)-th bright fringe is \(x_n = \dfrac{n\lambda D}{d}\). With \(n = 5\), \(x_5 = 9.0 \times 10^{-3}\,\mathrm{m}\), \(d = 0.40 \times 10^{-3}\,\mathrm{m}\), and \(D = 1.2\,\mathrm{m}\):</p>
+          \[\lambda = \frac{x_5 d}{5 D} = \frac{(9.0 \times 10^{-3}) \times (0.40 \times 10^{-3})}{5 \times 1.2} = \frac{3.6 \times 10^{-6}}{6.0} = 6.0 \times 10^{-7}\,\mathrm{m} = 600\,\mathrm{nm}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ৩ (একক-সঠিক MCQ)</div>
+        <p>ইয়ং-এর একটি দ্বি-রেখাছিদ্র পরীক্ষায় ছিদ্র দুটির মধ্যবর্তী দূরত্ব \(0.40\,\mathrm{mm}\) এবং পর্দা \(1.2\,\mathrm{m}\) দূরে রাখা আছে। কেন্দ্রীয় উজ্জ্বল ঝালর থেকে পঞ্চম উজ্জ্বল ঝালরের দূরত্ব \(9.0\,\mathrm{mm}\) হলে ব্যবহৃত আলোর তরঙ্গদৈর্ঘ্য কত?</p>
+        <ul class="options-list">
+          <li>(A) \(500\,\mathrm{nm}\)</li>
+          <li>(B) \(550\,\mathrm{nm}\)</li>
+          <li>(C) \(600\,\mathrm{nm}\)</li>
+          <li>(D) \(650\,\mathrm{nm}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (C)</span>
+          <p><strong>সমাধান:</strong> \(n\)-তম উজ্জ্বল ঝালরের অবস্থান \(x_n = \dfrac{n\lambda D}{d}\)। এখানে \(n = 5\), \(x_5 = 9.0 \times 10^{-3}\,\mathrm{m}\), \(d = 0.40 \times 10^{-3}\,\mathrm{m}\) এবং \(D = 1.2\,\mathrm{m}\):</p>
+          \[\lambda = \frac{x_5 d}{5 D} = \frac{(9.0 \times 10^{-3}) \times (0.40 \times 10^{-3})}{5 \times 1.2} = \frac{3.6 \times 10^{-6}}{6.0} = 6.0 \times 10^{-7}\,\mathrm{m} = 600\,\mathrm{nm}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 4 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 4 (Single-Correct MCQ)</div>
+        <p>A Young's double-slit experiment is performed simultaneously with two wavelengths \(\lambda_1 = 600\,\mathrm{nm}\) and \(\lambda_2 = 450\,\mathrm{nm}\). If \(d = 1.0\,\mathrm{mm}\) and \(D = 1.5\,\mathrm{m}\), what is the least non-zero distance from the central maximum where bright fringes of both wavelengths coincide?</p>
+        <ul class="options-list">
+          <li>(A) \(1.8\,\mathrm{mm}\)</li>
+          <li>(B) \(2.7\,\mathrm{mm}\)</li>
+          <li>(C) \(3.6\,\mathrm{mm}\)</li>
+          <li>(D) \(0.9\,\mathrm{mm}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> Coincidence occurs when \(n_1 \lambda_1 = n_2 \lambda_2\), so:</p>
+          \[\frac{n_1}{n_2} = \frac{\lambda_2}{\lambda_1} = \frac{450}{600} = \frac{3}{4}\]
+          <p>The smallest positive integers are \(n_1 = 3\) and \(n_2 = 4\). Hence, the least distance is:</p>
+          \[x = \frac{3 \lambda_1 D}{d} = \frac{3 \times 600 \times 10^{-9} \times 1.5}{1.0 \times 10^{-3}} = 2.7 \times 10^{-3}\,\mathrm{m} = 2.7\,\mathrm{mm}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ৪ (একক-সঠিক MCQ)</div>
+        <p>ইয়ং-এর একটি দ্বি-রেখাছিদ্র পরীক্ষায় একই সাথে \(\lambda_1 = 600\,\mathrm{nm}\) এবং \(\lambda_2 = 450\,\mathrm{nm}\) তরঙ্গদৈর্ঘ্যের আলো ব্যবহার করা হলো। যদি \(d = 1.0\,\mathrm{mm}\) এবং \(D = 1.5\,\mathrm{m}\) হয়, তবে কেন্দ্রীয় চরম থেকে ন্যূনতম কত দূরত্বে উভয় তরঙ্গদৈর্ঘ্যের উজ্জ্বল ঝালর একে অপরের ওপর সমাপতিত হবে?</p>
+        <ul class="options-list">
+          <li>(A) \(1.8\,\mathrm{mm}\)</li>
+          <li>(B) \(2.7\,\mathrm{mm}\)</li>
+          <li>(C) \(3.6\,\mathrm{mm}\)</li>
+          <li>(D) \(0.9\,\mathrm{mm}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>সমাধান:</strong> সমাপতনের শর্ত \(n_1 \lambda_1 = n_2 \lambda_2\), অর্থাৎ:</p>
+          \[\frac{n_1}{n_2} = \frac{\lambda_2}{\lambda_1} = \frac{450}{600} = \frac{3}{4}\]
+          <p>ক্ষুদ্রতম ধনাত্মক পূর্ণসংখ্যা \(n_1 = 3\) ও \(n_2 = 4\)। অতএব ন্যূনতম দূরত্ব:</p>
+          \[x = \frac{3 \lambda_1 D}{d} = \frac{3 \times 600 \times 10^{-9} \times 1.5}{1.0 \times 10^{-3}} = 2.7 \times 10^{-3}\,\mathrm{m} = 2.7\,\mathrm{mm}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 5 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 5 (Single-Correct MCQ)</div>
+        <p>In a single-slit diffraction experiment, the first minimum for red light of wavelength \(650\,\mathrm{nm}\) coincides with the first secondary maximum of another monochromatic light of wavelength \(\lambda'\). What is \(\lambda'\)?</p>
+        <ul class="options-list">
+          <li>(A) \(325\,\mathrm{nm}\)</li>
+          <li>(B) \(433.3\,\mathrm{nm}\)</li>
+          <li>(C) \(487.5\,\mathrm{nm}\)</li>
+          <li>(D) \(975\,\mathrm{nm}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> First minimum for \(\lambda = 650\,\mathrm{nm}\) is at \(\theta_1 = \dfrac{\lambda}{a}\). First secondary maximum for \(\lambda'\) is at \(\theta'_1 \approx \dfrac{3\lambda'}{2a}\). Equating them:</p>
+          \[\frac{650}{a} = \frac{3\lambda'}{2a} \implies \lambda' = \frac{2 \times 650}{3} \approx 433.3\,\mathrm{nm}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <span class="lang-tag">বাংলা</span>
+        <div class="q-title">অনুশীলনী প্রশ্ন ৫ (একক-সঠিক MCQ)</div>
+        <p>একক-রেখাছিদ্র অপবর্তন পরীক্ষায় \(650\,\mathrm{nm}\) তরঙ্গদৈর্ঘ্যের লাল আলোর প্রথম অবম বিন্দু অপর একটি একবর্ণী আলোর (\(\lambda'\)) প্রথম গৌণ চরমের সাথে মিলে যায়। \(\lambda'\)-এর মান কত?</p>
+        <ul class="options-list">
+          <li>(A) \(325\,\mathrm{nm}\)</li>
+          <li>(B) \(433.3\,\mathrm{nm}\)</li>
+          <li>(C) \(487.5\,\mathrm{nm}\)</li>
+          <li>(D) \(975\,\mathrm{nm}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>সমাধান:</strong> \(\lambda = 650\,\mathrm{nm}\)-এর প্রথম অবম কোণ \(\theta_1 = \dfrac{\lambda}{a}\) এবং \(\lambda'\)-এর প্রথম গৌণ চরম কোণ \(\theta'_1 \approx \dfrac{3\lambda'}{2a}\)। শর্তানুযায়ী:</p>
+          \[\frac{650}{a} = \frac{3\lambda'}{2a} \implies \lambda' = \frac{2 \times 650}{3} \approx 433.3\,\mathrm{nm}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 6 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 6 (Single-Correct MCQ)</div>
+        <p>Unpolarised light of intensity \(I_0\) is incident on a system of two polaroids whose pass-axes are inclined at \(60^\circ\) to each other. The intensity of light emerging from the second polaroid is:</p>
+        <ul class="options-list">
+          <li>(A) \(\dfrac{I_0}{2}\)</li>
+          <li>(B) \(\dfrac{I_0}{4}\)</li>
+          <li>(C) \(\dfrac{I_0}{8}\)</li>
+          <li>(D) \(\dfrac{3I_0}{8}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (C)</span>
+          <p><strong>Explanation:</strong> After the first polaroid, the unpolarised light becomes linearly polarised with intensity \(I_1 = I_0/2\). By Malus' law, after the second polaroid at \(\theta = 60^\circ\):</p>
+          \[I_2 = I_1 \cos^2 60^\circ = \frac{I_0}{2} \times \left(\frac{1}{2}\right)^2 = \frac{I_0}{8}\]
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ৬ (একক-সঠিক MCQ)</div>
+        <p>\(I_0\) তীব্রতার অসমবর্তিত আলো পরস্পরের সাথে \(60^\circ\) কোণে থাকা দুটি পোলারয়েডের মধ্য দিয়ে যায়। দ্বিতীয় পোলারয়েড থেকে নির্গত আলোর তীব্রতা কত?</p>
+        <ul class="options-list">
+          <li>(A) \(\dfrac{I_0}{2}\)</li>
+          <li>(B) \(\dfrac{I_0}{4}\)</li>
+          <li>(C) \(\dfrac{I_0}{8}\)</li>
+          <li>(D) \(\dfrac{3I_0}{8}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (C)</span>
+          <p><strong>সমাধান:</strong> প্রথম পোলারয়েড অতিক্রম করার পর তীব্রতা হয় \(I_1 = I_0/2\)। ম্যালুসের সূত্রানুযায়ী \(\theta = 60^\circ\) কোণে থাকা দ্বিতীয় পোলারয়েড থেকে নির্গত তীব্রতা:</p>
+          \[I_2 = I_1 \cos^2 60^\circ = \frac{I_0}{2} \times \left(\frac{1}{2}\right)^2 = \frac{I_0}{8}\]
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 7 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 7 (Statement-Based MCQ)</div>
+        <p>Consider the following two statements regarding wave optics:</p>
+        <p><strong>Statement I:</strong> Polarisation can be observed in longitudinal waves such as sound waves in air.</p>
+        <p><strong>Statement II:</strong> In interference and diffraction, total energy is conserved and merely redistributed between dark and bright regions.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct.</li>
+          <li>(B) Both Statement I and Statement II are incorrect.</li>
+          <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+          <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (D)</span>
+          <p><strong>Explanation:</strong> Statement I is false because polarisation is strictly a property of transverse waves (like light), not longitudinal waves (like sound in air). Statement II is true because interference and diffraction redistribute energy without any creation or destruction of energy.</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ৭ (বিবৃতি-ভিত্তিক MCQ)</div>
+        <p>তরঙ্গ আলোকবিজ্ঞান সংক্রান্ত নিচের দুটি বিবৃতি বিবেচনা করো:</p>
+        <p><strong>বিবৃতি I:</strong> বায়ুতে শব্দ তরঙ্গের মতো অনুদৈর্ঘ্য তরঙ্গেও সমবর্তন (polarisation) দেখা যায়।</p>
+        <p><strong>বিবৃতি II:</strong> ব্যতিচার ও অপবর্তনে মোট শক্তি সংরক্ষিত থাকে এবং অন্ধকার ও উজ্জ্বল অঞ্চলের মধ্যে কেবল শক্তির পুনর্বণ্টন ঘটে।</p>
+        <ul class="options-list">
+          <li>(A) বিবৃতি I এবং বিবৃতি II উভয়ই সঠিক।</li>
+          <li>(B) বিবৃতি I এবং বিবৃতি II উভয়ই ভুল।</li>
+          <li>(C) বিবৃতি I সঠিক, কিন্তু বিবৃতি II ভুল।</li>
+          <li>(D) বিবৃতি I ভুল, কিন্তু বিবৃতি II সঠিক।</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (D)</span>
+          <p><strong>সমাধান:</strong> বিবৃতি I ভুল, কারণ সমবর্তন কেবল তির্যক তরঙ্গের (যেমন আলো) ধর্ম, অনুদৈর্ঘ্য শব্দ তরঙ্গে সমবর্তন ঘটে না। বিবৃতি II সঠিক, কারণ ব্যতিচার ও অপবর্তনে শক্তির কোনো ক্ষয় বা সৃষ্টি হয় না, কেবল পুনর্বণ্টন ঘটে।</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practice Question 8 -->
+    <div class="question-card">
+      <div class="lang-block en">
+        <div class="q-title">Practice Question 8 (Single-Correct MCQ)</div>
+        <p>If a Young's double-slit apparatus is completely immersed in water of refractive index \(n = 4/3\), how does the fringe width \(\beta_{\mathrm{water}}\) compare with the fringe width in air \(\beta_{\mathrm{air}}\)?</p>
+        <ul class="options-list">
+          <li>(A) \(\beta_{\mathrm{water}} = \dfrac{4}{3}\beta_{\mathrm{air}}\)</li>
+          <li>(B) \(\beta_{\mathrm{water}} = \dfrac{3}{4}\beta_{\mathrm{air}}\)</li>
+          <li>(C) \(\beta_{\mathrm{water}} = \beta_{\mathrm{air}}\)</li>
+          <li>(D) \(\beta_{\mathrm{water}} = \dfrac{9}{16}\beta_{\mathrm{air}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">Correct Answer: (B)</span>
+          <p><strong>Explanation:</strong> Fringe width is \(\beta = \dfrac{\lambda D}{d}\). In water of refractive index \(n = 4/3\), the wavelength decreases to \(\lambda_{\mathrm{water}} = \dfrac{\lambda_{\mathrm{air}}}{n} = \dfrac{3}{4}\lambda_{\mathrm{air}}\). Thus, \(\beta_{\mathrm{water}} = \dfrac{3}{4}\beta_{\mathrm{air}}\).</p>
+        </div>
+      </div>
+      <hr />
+      <div class="lang-block bn" lang="bn">
+        <div class="q-title">অনুশীলনী প্রশ্ন ৮ (একক-সঠিক MCQ)</div>
+        <p>ইয়ং-এর দ্বি-রেখাছিদ্র পরীক্ষার সম্পূর্ণ ব্যবস্থাটিকে \(n = 4/3\) প্রতিসরাঙ্কের জলের মধ্যে ডুবিয়ে দিলে জলে ঝালর প্রস্থ \(\beta_{\mathrm{water}}\) এবং বায়ুতে ঝালর প্রস্থ \(\beta_{\mathrm{air}}\)-এর সম্পর্ক কী হবে?</p>
+        <ul class="options-list">
+          <li>(A) \(\beta_{\mathrm{water}} = \dfrac{4}{3}\beta_{\mathrm{air}}\)</li>
+          <li>(B) \(\beta_{\mathrm{water}} = \dfrac{3}{4}\beta_{\mathrm{air}}\)</li>
+          <li>(C) \(\beta_{\mathrm{water}} = \beta_{\mathrm{air}}\)</li>
+          <li>(D) \(\beta_{\mathrm{water}} = \dfrac{9}{16}\beta_{\mathrm{air}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="ans-pill">সঠিক উত্তর: (B)</span>
+          <p><strong>সমাধান:</strong> ঝালর প্রস্থ \(\beta = \dfrac{\lambda D}{d}\)। \(n = 4/3\) প্রতিসরাঙ্কের জলে তরঙ্গদৈর্ঘ্য কমে \(\lambda_{\mathrm{water}} = \dfrac{\lambda_{\mathrm{air}}}{n} = \dfrac{3}{4}\lambda_{\mathrm{air}}\) হয়। ফলে \(\beta_{\mathrm{water}} = \dfrac{3}{4}\beta_{\mathrm{air}}\) হবে।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. COMMON PITFALLS, REVISION CHECKLIST & FINAL RECAP -->
+  <section>
+    <h2>9. Common Pitfalls, Revision Checklist &amp; Final Recap<br />
+      <span lang="bn">৯. সাধারণ ভুল, রিভিশন তালিকা ও সংক্ষিপ্ত সারসংক্ষেপ</span>
+    </h2>
+
+    <div class="lang-block en">
+      <span class="lang-tag">English</span>
+      <div class="pitfall-box">
+        <strong>Common NEET UG Pitfalls to Avoid:</strong>
+        <ul>
+          <li><strong>Forgetting the factor of \(1/2\) for unpolarised light:</strong> Always halve the intensity after the first polaroid before applying Malus' law \(I = I_0\cos^2\theta\) to the second polaroid.</li>
+          <li><strong>Confusing Interference vs Diffraction minima:</strong> In YDSE, the first minimum is at \(\theta = \lambda/(2d)\); in single-slit diffraction, the first minimum is at \(\theta = \lambda/a\) (and the central maximum width is \(2\lambda/a\)).</li>
+          <li><strong>Assuming frequency changes on refraction:</strong> Frequency never changes on reflection or refraction; only \(v\) and \(\lambda\) scale by \(1/n\).</li>
+          <li><strong>Adding intensities of coherent waves directly:</strong> Coherent waves add in <em>amplitude</em> (with phase \(\phi\)); only incoherent waves add directly in <em>intensity</em>.</li>
+        </ul>
+      </div>
+
+      <h3>Quick Revision Checklist</h3>
+      <ul>
+        <li>Snell's Law (wave form): \(\dfrac{\sin i}{\sin r} = \dfrac{v_1}{v_2} = \dfrac{\lambda_1}{\lambda_2} = \dfrac{n_2}{n_1}\).</li>
+        <li>YDSE fringe width: \(\beta = \dfrac{\lambda D}{d}\), angular width: \(\dfrac{\lambda}{d}\).</li>
+        <li>Single-slit diffraction central maximum width: \(\dfrac{2\lambda D}{a}\) (angular: \(\dfrac{2\lambda}{a}\)).</li>
+        <li>Malus' Law: \(I = I_0\cos^2\theta\); three-polaroid crossed setup: \(I = \dfrac{I_0}{4}\sin^2(2\theta)\).</li>
+      </ul>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag">বাংলা</span>
+      <div class="pitfall-box">
+        <strong>NEET UG পরীক্ষায় যে সাধারণ ভুলগুলো এড়িয়ে চলবে:</strong>
+        <ul>
+          <li><strong>অসমবর্তিত আলোর ক্ষেত্রে \(1/2\) গুণ করতে ভুলে যাওয়া:</strong> দ্বিতীয় পোলারয়েডে ম্যালুসের সূত্র \(I = I_0\cos^2\theta\) প্রয়োগের আগে প্রথম পোলারয়েডের পর তীব্রতা অবশ্যই অর্ধেক করতে হবে।</li>
+          <li><strong>ব্যতিচার ও অপবর্তনের অবম শর্ত গুলিয়ে ফেলা:</strong> YDSE-তে প্রথম অবম \(\theta = \lambda/(2d)\) কোণে, কিন্তু একক-রেখাছিদ্রে প্রথম অবম \(\theta = \lambda/a\) কোণে (এবং কেন্দ্রীয় চরমের কৌণিক প্রস্থ \(2\lambda/a\))।</li>
+          <li><strong>প্রতিসরণে কম্পাঙ্ক পরিবর্তিত হয় ভাবা:</strong> প্রতিফলন বা প্রতিসরণে কম্পাঙ্ক কখনো বদলায় না; কেবল \(v\) এবং \(\lambda\) মাধ্যমের প্রতিসরাঙ্ক \(n\) দ্বারা ভাগ হয়।</li>
+          <li><strong>সুসঙ্গত তরঙ্গের তীব্রতা সরাসরি যোগ করা:</strong> সুসঙ্গত তরঙ্গের ক্ষেত্রে দশা \(\phi\) সহকারে <em>বিস্তার</em> যোগ হয়; কেবল অসঙ্গত তরঙ্গের ক্ষেত্রে সরাসরি <em>তীব্রতা</em> যোগ হয়।</li>
+        </ul>
+      </div>
+
+      <h3>দ্রুত রিভিশন তালিকা</h3>
+      <ul>
+        <li>স্নেলের সূত্র (তরঙ্গ রূপ): \(\dfrac{\sin i}{\sin r} = \dfrac{v_1}{v_2} = \dfrac{\lambda_1}{\lambda_2} = \dfrac{n_2}{n_1}\)।</li>
+        <li>YDSE ঝালর প্রস্থ: \(\beta = \dfrac{\lambda D}{d}\), কৌণিক প্রস্থ: \(\dfrac{\lambda}{d}\)।</li>
+        <li>একক-রেখাছিদ্র অপবর্তনে কেন্দ্রীয় চরমের প্রস্থ: \(\dfrac{2\lambda D}{a}\) (কৌণিক: \(\dfrac{2\lambda}{a}\))।</li>
+        <li>ম্যালুসের সূত্র: \(I = I_0\cos^2\theta\); লম্ব পোলারয়েডের মাঝে তৃতীয় পোলারয়েড: \(I = \dfrac{I_0}{4}\sin^2(2\theta)\)।</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

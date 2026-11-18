@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principles of Inheritance and Variation — NEET UG Biology Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: #1E293B;
+      background-color: #F8FAFC;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 20px;
+      background-color: #FFFFFF;
+    }
+
+    header.tutorial-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: #DBEAFE;
+      color: #1E40AF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      line-height: 1.25;
+      color: #0F172A;
+      margin: 6px 0 8px 0;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.38rem;
+      line-height: 1.3;
+      color: #0F172A;
+      border-left: 4px solid #2563EB;
+      padding-left: 12px;
+      margin-top: 32px;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: #1E293B;
+      margin-top: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .callout-box {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #0D9488;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0F766E;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+
+    .formula-box {
+      background-color: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .warning-box {
+      background-color: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-left: 4px solid #D97706;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+    }
+
+    .warning-title {
+      font-weight: 700;
+      color: #B45309;
+      margin-bottom: 6px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: #F1F5F9;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    figure.svg-figure {
+      margin: 20px 0;
+      padding: 14px;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      background-color: #FFFFFF;
+      max-width: 100%;
+    }
+
+    figure.svg-figure svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: #475569;
+      text-align: center;
+    }
+
+    .example-card {
+      border: 1px solid #CBD5E1;
+      border-top: 3px solid #0D9488;
+      border-radius: 6px;
+      padding: 16px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+    }
+
+    .example-label {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0F766E;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
+    }
+
+    .question-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 16px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+    }
+
+    .question-header {
+      font-weight: 700;
+      color: #1E40AF;
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 14px 0;
+    }
+
+    .options-list li {
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .solution-block {
+      background-color: #F1F5F9;
+      border-left: 3px solid #2563EB;
+      padding: 10px 14px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-size: 0.94rem;
+    }
+
+    .answer-line {
+      font-weight: 700;
+      color: #0F766E;
+      margin-bottom: 4px;
+    }
+
+    .recap-grid {
+      display: block;
+      margin: 14px 0;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm 14mm 14mm 14mm;
+      }
+
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 10.5pt;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      h2 {
+        margin-top: 20px;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+
+      .callout-box,
+      .formula-box,
+      .warning-box,
+      figure.svg-figure,
+      .example-card,
+      .question-card,
+      table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .exam-badge {
+        border: 1px solid #1E40AF;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    <header class="tutorial-header">
+      <div class="exam-badge">NEET UG Biology • Genetics &amp; Evolution</div>
+      <h1>Principles of Inheritance and Variation</h1>
+      <p class="subtitle">Comprehensive conceptual guide, quantitative genetics methods, pedigree logic, and NEET UG practice assessment.</p>
+    </header>
+
+    <section id="objectives">
+      <h2>1. Learning Objectives and Exam Overview</h2>
+      <p>Genetics investigates two complementary biological phenomena: <strong>inheritance</strong> (the faithful transmission of traits from parents to offspring) and <strong>variation</strong> (the degree by which progeny differ from their parents and from each other). For the NEET UG examination, this unit demands both conceptual precision—such as distinguishing incomplete dominance from co-dominance or qualitative from quantitative globin defects—and rapid problem-solving fluency using probability, Punnett squares, linkage maps, and pedigree trees.</p>
+      <div class="callout-box">
+        <div class="callout-title">Core Competencies Targeted</div>
+        <ul>
+          <li>Apply Mendel's Laws of Dominance, Segregation, and Independent Assortment to monohybrid, dihybrid, and multi-locus crosses.</li>
+          <li>Distinguish classical dominance from incomplete dominance, co-dominance, multiple allelism, pleiotropy, and polygenic inheritance.</li>
+          <li>Connect meiotic chromosome behaviour to the Chromosomal Theory of Inheritance, linkage, and recombination-based gene mapping.</li>
+          <li>Compare chromosomal (XX–XY, XX–XO, ZZ–ZW) and haplodiploid sex-determination systems.</li>
+          <li>Diagnose Mendelian and chromosomal disorders from molecular mechanisms, karyotypes, and family pedigrees.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="mendelian-foundations">
+      <h2>2. Mendelian Genetics and Single-Gene Inheritance</h2>
+      <h3>2.1 Experimental Foundations</h3>
+      <p>Between 1856 and 1863, Gregor Mendel conducted controlled hybridisation experiments on garden pea (<em>Pisum sativum</em>). Unlike earlier breeders who lacked quantitative records, Mendel used large sample sizes, tracked traits across successive generations, and applied statistical logic to reveal discrete rules of heredity.</p>
+      <p>Mendel began with 14 <strong>true-breeding</strong> pea lines—varieties that produced uniform offspring over multiple generations of self-pollination—arranged as 7 pairs differing in a single contrasting character.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Character</th>
+            <th>Dominant Trait</th>
+            <th>Recessive Trait</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Stem height</td><td>Tall</td><td>Dwarf</td></tr>
+          <tr><td>Flower colour</td><td>Violet</td><td>White</td></tr>
+          <tr><td>Flower position</td><td>Axial</td><td>Terminal</td></tr>
+          <tr><td>Pod shape</td><td>Inflated (Full)</td><td>Constricted</td></tr>
+          <tr><td>Pod colour</td><td>Green</td><td>Yellow</td></tr>
+          <tr><td>Seed shape</td><td>Round</td><td>Wrinkled</td></tr>
+          <tr><td>Seed colour</td><td>Yellow</td><td>Green</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2.2 Key Genetic Terminology</h3>
+      <ul>
+        <li><strong>Gene (Mendel's "factor"):</strong> A discrete unit of heredity carrying information for a trait.</li>
+        <li><strong>Alleles:</strong> Alternative forms of the same gene located at the same locus on homologous chromosomes (e.g., <em>T</em> and <em>t</em> for stem height).</li>
+        <li><strong>Homozygous vs. Heterozygous:</strong> An organism with identical alleles (<em>TT</em> or <em>tt</em>) is homozygous; one with dissimilar alleles (<em>Tt</em>) is heterozygous.</li>
+        <li><strong>Genotype vs. Phenotype:</strong> Genotype is the genetic constitution (<em>TT</em>, <em>Tt</em>, <em>tt</em>), whereas phenotype is the observable physical or biochemical expression (tall or dwarf).</li>
+      </ul>
+
+      <h3>2.3 Monohybrid Cross, Laws of Inheritance, and Test Cross</h3>
+      <p>When Mendel crossed a true-breeding tall plant (<em>TT</em>) with a true-breeding dwarf plant (<em>tt</em>), all first filial (F<sub>1</sub>) hybrids (<em>Tt</em>) were tall, showing no intermediate blending. Self-pollination of F<sub>1</sub> plants produced F<sub>2</sub> progeny in a <strong>3 : 1 phenotypic ratio</strong> (3/4 tall : 1/4 dwarf) and a <strong>1 : 2 : 1 genotypic ratio</strong> (1/4 <em>TT</em> : 1/2 <em>Tt</em> : 1/4 <em>tt</em>).</p>
+      <p>Mathematically, random union of gametes carrying <em>T</em> and <em>t</em> at equal frequency (1/2 each) follows the binomial expansion:</p>
+      <div class="formula-box">
+        \[ \left(\frac{1}{2}T + \frac{1}{2}t\right)^2 = \frac{1}{4}TT + \frac{1}{2}Tt + \frac{1}{4}tt \]
+      </div>
+
+      <ul>
+        <li><strong>Law of Dominance:</strong> Characters are controlled by discrete paired factors; in a dissimilar pair, one factor (dominant) masks the expression of the other (recessive) in the F<sub>1</sub> heterozygote.</li>
+        <li><strong>Law of Segregation:</strong> Alleles do not blend; during gamete formation (meiosis), the two alleles of a pair separate cleanly so each gamete receives only one allele with 50% probability.</li>
+        <li><strong>Test Cross:</strong> Because <em>TT</em> and <em>Tt</em> share the same tall phenotype, an individual displaying a dominant phenotype is crossed with a <strong>homozygous recessive</strong> parent (<em>tt</em>) to determine its genotype. If all progeny show the dominant trait, the tested parent is homozygous (<em>TT</em>); if progeny split in a <strong>1 : 1 ratio</strong>, the tested parent is heterozygous (<em>Tt</em>).</li>
+      </ul>
+
+      <figure class="svg-figure">
+        <svg viewBox="0 0 760 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of F1 selfing and test cross outcomes">
+          <rect x="0" y="0" width="760" height="280" fill="#F8FAFC" rx="8"/>
+          <!-- Left Panel: F1 Selfing -->
+          <rect x="16" y="16" width="356" height="248" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="194" y="42" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Monohybrid F1 Selfing (Tt × Tt)</text>
+          <text x="194" y="64" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">Gametes: T (50%), t (50%)</text>
+          <!-- Punnett Grid Left -->
+          <rect x="130" y="82" width="64" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+          <rect x="194" y="82" width="64" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+          <rect x="130" y="126" width="64" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+          <rect x="194" y="126" width="64" height="44" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <text x="162" y="76" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">T</text>
+          <text x="226" y="76" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">t</text>
+          <text x="116" y="108" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">T</text>
+          <text x="116" y="152" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">t</text>
+          <text x="162" y="109" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">TT (Tall)</text>
+          <text x="226" y="109" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">Tt (Tall)</text>
+          <text x="162" y="153" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">Tt (Tall)</text>
+          <text x="226" y="153" font-family="sans-serif" font-size="13" font-weight="700" fill="#0F766E" text-anchor="middle">tt (Dwarf)</text>
+          <text x="194" y="200" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#1E293B" text-anchor="middle">Phenotypic Ratio = 3 Tall : 1 Dwarf</text>
+          <text x="194" y="222" font-family="sans-serif" font-size="12.5" fill="#475569" text-anchor="middle">Genotypic Ratio = 1 TT : 2 Tt : 1 tt</text>
+
+          <!-- Right Panel: Test Cross -->
+          <rect x="388" y="16" width="356" height="248" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="6"/>
+          <text x="566" y="42" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Heterozygous Test Cross (Tt × tt)</text>
+          <text x="566" y="64" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">Unknown Tall (Tt) × Homozygous Recessive (tt)</text>
+          <!-- Punnett Grid Right -->
+          <rect x="502" y="82" width="64" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+          <rect x="566" y="82" width="64" height="44" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <rect x="502" y="126" width="64" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+          <rect x="566" y="126" width="64" height="44" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+          <text x="534" y="76" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">T</text>
+          <text x="598" y="76" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">t</text>
+          <text x="488" y="108" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">t</text>
+          <text x="488" y="152" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">t</text>
+          <text x="534" y="109" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">Tt (Tall)</text>
+          <text x="598" y="109" font-family="sans-serif" font-size="13" font-weight="700" fill="#0F766E" text-anchor="middle">tt (Dwarf)</text>
+          <text x="534" y="153" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">Tt (Tall)</text>
+          <text x="598" y="153" font-family="sans-serif" font-size="13" font-weight="700" fill="#0F766E" text-anchor="middle">tt (Dwarf)</text>
+          <text x="566" y="200" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#1E293B" text-anchor="middle">Phenotypic Ratio = 1 Tall : 1 Dwarf</text>
+          <text x="566" y="222" font-family="sans-serif" font-size="12.5" fill="#475569" text-anchor="middle">Genotypic Ratio = 1 Tt : 1 tt</text>
+        </svg>
+        <figcaption>Tutorial Diagram 1: Comparison of an F<sub>1</sub> monohybrid self-cross (3:1 phenotypic ratio) and a diagnostic heterozygous test cross (1:1 phenotypic and genotypic ratio).</figcaption>
+      </figure>
+    </section>
+
+    <section id="extensions-mendel">
+      <h2>3. Deviations from Classical Dominance and Pleiotropy</h2>
+      <h3>3.1 Molecular Basis of Dominance</h3>
+      <p>Dominance is not an intrinsic property of an allele in isolation; it reflects how gene products function to produce a phenotype. Consider a gene encoding an enzyme that converts substrate S to product P. A modified (mutant) allele may produce: (i) a normal or slightly less efficient enzyme (functionally equivalent, still dominant), (ii) a non-functional enzyme, or (iii) no enzyme at all. In cases (ii) and (iii), the phenotype depends solely on the unmodified functional allele, making the unmodified allele <strong>dominant</strong> and the loss-of-function allele <strong>recessive</strong>.</p>
+
+      <h3>3.2 Incomplete Dominance vs. Co-dominance</h3>
+      <ul>
+        <li><strong>Incomplete Dominance:</strong> Neither allele completely masks the other, so the F<sub>1</sub> heterozygote displays an intermediate phenotype. In snapdragon (<em>Antirrhinum</em> sp.), crossing true-breeding red (<em>RR</em>) and white (<em>rr</em>) plants yields pink F<sub>1</sub> (<em>Rr</em>) flowers. Selfing F<sub>1</sub> produces F<sub>2</sub> in a <strong>1 Red (<em>RR</em>) : 2 Pink (<em>Rr</em>) : 1 White (<em>rr</em>)</strong> ratio—making the phenotypic and genotypic ratios identical (1 : 2 : 1).</li>
+        <li><strong>Co-dominance and Multiple Alleles:</strong> Both alleles express simultaneously and independently in the heterozygote. The human <strong>ABO blood group</strong> is governed by gene <em>I</em>, which has three alleles in the population: \(I^A\), \(I^B\), and \(i\) (an example of <strong>multiple allelism</strong>, though any diploid individual carries only two alleles). Alleles \(I^A\) and \(I^B\) produce distinct surface sugar polymers on red blood cells and are completely dominant over \(i\) (which produces no sugar). When \(I^A\) and \(I^B\) occur together (\(I^AI^B\)), both sugars are expressed, yielding blood group AB.</li>
+      </ul>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Blood Group (Phenotype)</th>
+            <th>Possible Genotypes</th>
+            <th>Surface Sugar Antigen</th>
+            <th>Inheritance Relationship</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>A</td><td>\(I^AI^A,\; I^Ai\)</td><td>A-type sugar</td><td>\(I^A\) dominant over \(i\)</td></tr>
+          <tr><td>B</td><td>\(I^BI^B,\; I^Bi\)</td><td>B-type sugar</td><td>\(I^B\) dominant over \(i\)</td></tr>
+          <tr><td>AB</td><td>\(I^AI^B\)</td><td>Both A and B sugars</td><td>Co-dominance</td></tr>
+          <tr><td>O</td><td>\(ii\)</td><td>None</td><td>Homozygous recessive</td></tr>
+        </tbody>
+      </table>
+      <p>Notice that 3 alleles generate \(\frac{n(n+1)}{2} = \frac{3 \times 4}{2} = 6\) genotypes and 4 phenotypes.</p>
+
+      <h3>3.3 Pleiotropy and Context-Dependent Dominance</h3>
+      <p>A <strong>pleiotropic gene</strong> influences multiple seemingly unrelated phenotypes, usually because its product participates in a shared metabolic pathway. For example:</p>
+      <ul>
+        <li><strong>Phenylketonuria (PKU):</strong> Mutation in the single gene encoding phenylalanine hydroxylase causes mental retardation as well as reduced hair and skin pigmentation.</li>
+        <li><strong>Starch synthesis in pea seeds:</strong> Controlled by one gene with alleles <em>B</em> and <em>b</em>. Homozygous <em>BB</em> seeds produce large starch grains and are round; <em>bb</em> seeds produce small starch grains and become wrinkled upon drying. Heterozygous <em>Bb</em> seeds are round (so <em>B</em> is dominant for seed shape), yet their starch grains are intermediate in size (incomplete dominance at the starch-grain level). Thus, dominance depends on which phenotype is observed.</li>
+      </ul>
+    </section>
+
+    <section id="dihybrid-linkage">
+      <h2>4. Two-Gene Inheritance, Chromosomal Theory, and Linkage</h2>
+      <h3>4.1 Dihybrid Cross and Independent Assortment</h3>
+      <p>When Mendel crossed pea plants differing in two traits—round yellow seeds (<em>RRYY</em>) × wrinkled green seeds (<em>rryy</em>)—all F<sub>1</sub> seeds were round and yellow (<em>RrYy</em>). Selfing the F<sub>1</sub> produced four phenotypic classes in F<sub>2</sub> in a <strong>9 : 3 : 3 : 1</strong> ratio. Mathematically, this is the product of two independent monohybrid ratios:</p>
+      <div class="formula-box">
+        \[ (3\text{ Round} : 1\text{ Wrinkled}) \times (3\text{ Yellow} : 1\text{ Green}) = 9\text{ Round Yellow} : 3\text{ Round Green} : 3\text{ Wrinkled Yellow} : 1\text{ Wrinkled Green} \]
+      </div>
+      <p>This led to the <strong>Law of Independent Assortment</strong>: when two pairs of traits are combined in a hybrid, the segregation of one pair of alleles is independent of the other pair. For an individual heterozygous at \(n\) independently assorting loci, the number of distinct gamete types is \(2^n\), and the number of F<sub>2</sub> genotypes upon selfing is \(3^n\) (for \(n = 2\): 4 gamete types and 9 genotypes in a \(1:2:1:2:4:2:1:2:1\) ratio).</p>
+
+      <h3>4.2 Chromosomal Theory of Inheritance</h3>
+      <p>Mendel's 1865 paper remained unrecognized until 1900, when de Vries, Correns, and von Tschermak independently rediscovered his laws. In 1902, <strong>Walter Sutton and Theodor Boveri</strong> noted that chromosomes—like Mendelian factors—occur in homologous pairs, segregate during meiosis so each gamete receives one member of each pair, and assort independently during Metaphase I / Anaphase I alignment. Sutton unified chromosomal behaviour with Mendelian principles as the <strong>Chromosomal Theory of Inheritance</strong>.</p>
+
+      <h3>4.3 Linkage, Recombination, and Gene Mapping</h3>
+      <p><strong>Thomas Hunt Morgan</strong> experimentally verified the chromosomal theory using the fruit fly <em>Drosophila melanogaster</em>, chosen for its short (~2-week) life cycle, large progeny numbers, simple synthetic diet, clear sexual dimorphism, and easily visible hereditary variations.</p>
+      <p>In dihybrid crosses involving sex-linked genes on the X chromosome, Morgan observed that F<sub>2</sub> ratios deviated sharply from 9 : 3 : 3 : 1, with parental combinations far exceeding non-parental combinations. He defined:</p>
+      <ul>
+        <li><strong>Linkage:</strong> The physical association of two or more genes located on the same chromosome, causing them to be inherited together.</li>
+        <li><strong>Recombination:</strong> The generation of non-parental gene combinations via crossing over during meiosis.</li>
+      </ul>
+      <p>Morgan found that linkage strength varies with physical distance: <em>yellow</em> (<em>y</em>) and <em>white</em> (<em>w</em>) are tightly linked (98.7% parental, only 1.3% recombination), whereas <em>white</em> (<em>w</em>) and <em>miniature wing</em> (<em>m</em>) are loosely linked (62.8% parental, 37.2% recombination). Morgan's student <strong>Alfred Sturtevant</strong> used recombination frequency as a measure of distance between genes to construct the first <strong>genetic linkage maps</strong> (1% recombination = 1 map unit or centimorgan, cM).</p>
+
+      <figure class="svg-figure">
+        <svg viewBox="0 0 760 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tight linkage versus loose linkage on a chromosome">
+          <rect x="0" y="0" width="760" height="210" fill="#F8FAFC" rx="8"/>
+          <!-- Chromosome Bar -->
+          <text x="380" y="34" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Genetic Distance and Recombination Frequency on the X Chromosome</text>
+          <rect x="80" y="78" width="600" height="20" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+          <!-- Loci markers -->
+          <line x1="140" y1="68" x2="140" y2="108" stroke="#0F172A" stroke-width="2.5"/>
+          <line x1="175" y1="68" x2="175" y2="108" stroke="#0F172A" stroke-width="2.5"/>
+          <line x1="560" y1="68" x2="560" y2="108" stroke="#0F172A" stroke-width="2.5"/>
+          <!-- Labels -->
+          <text x="140" y="60" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">y</text>
+          <text x="175" y="60" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E40AF" text-anchor="middle">w</text>
+          <text x="560" y="60" font-family="sans-serif" font-size="13" font-weight="700" fill="#0F766E" text-anchor="middle">m</text>
+          <!-- Distance Brackets -->
+          <line x1="140" y1="126" x2="175" y2="126" stroke="#2563EB" stroke-width="2"/>
+          <line x1="140" y1="120" x2="140" y2="132" stroke="#2563EB" stroke-width="2"/>
+          <line x1="175" y1="120" x2="175" y2="132" stroke="#2563EB" stroke-width="2"/>
+          <text x="157" y="148" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E40AF" text-anchor="middle">1.3% Rec.</text>
+          <text x="157" y="166" font-family="sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">(Tight linkage)</text>
+
+          <line x1="175" y1="126" x2="560" y2="126" stroke="#0D9488" stroke-width="2"/>
+          <line x1="175" y1="120" x2="175" y2="132" stroke="#0D9488" stroke-width="2"/>
+          <line x1="560" y1="120" x2="560" y2="132" stroke="#0D9488" stroke-width="2"/>
+          <text x="368" y="148" font-family="sans-serif" font-size="12" font-weight="700" fill="#0F766E" text-anchor="middle">37.2% Recombination (37.2 map units)</text>
+          <text x="368" y="166" font-family="sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">(Loose linkage — higher probability of crossing over)</text>
+
+          <text x="380" y="194" font-family="sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">y = yellow body, w = white eye, m = miniature wing</text>
+        </svg>
+        <figcaption>Tutorial Diagram 2: Relationship between physical distance on a chromosome, linkage strength, and recombination frequency.</figcaption>
+      </figure>
+    </section>
+
+    <section id="polygenic-sex">
+      <h2>5. Polygenic Inheritance and Sex Determination</h2>
+      <h3>5.1 Polygenic Inheritance</h3>
+      <p>Traits showing continuous variation across a gradient—such as human height or human skin colour—are <strong>polygenic traits</strong> controlled by three or more genes and influenced by the environment. Each dominant allele contributes an equal, additive increment to the phenotype. Modeling human skin colour with three loci (<em>A</em>, <em>B</em>, <em>C</em>), <em>AABBCC</em> produces the darkest pigmentation, <em>aabbcc</em> produces the lightest, and <em>AaBbCc</em> (three dominant and three recessive alleles) produces an intermediate tone.</p>
+
+      <h3>5.2 Chromosomal and Haplodiploid Sex Determination</h3>
+      <p>Sex chromosomes (allosomes) differ between sexes, whereas autosomes are identical in both sexes. Tracing back to Henking's 1891 discovery of the "X body" in insect spermatogenesis, four major genetic mechanisms are tested in NEET UG:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mechanism</th>
+            <th>Female</th>
+            <th>Male</th>
+            <th>Heterogametic Sex</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>XX–XO type</td><td>AA + XX</td><td>AA + XO</td><td>Male (X or 0 sperm)</td><td>Grasshopper</td></tr>
+          <tr><td>XX–XY type</td><td>AA + XX</td><td>AA + XY</td><td>Male (X or Y sperm)</td><td>Humans, <em>Drosophila</em></td></tr>
+          <tr><td>ZZ–ZW type</td><td>AA + ZW</td><td>AA + ZZ</td><td>Female (Z or W ovum)</td><td>Birds (e.g., fowl)</td></tr>
+          <tr><td>Haplodiploidy</td><td>Diploid (2n = 32)</td><td>Haploid (n = 16)</td><td>Neither (ploidy-based)</td><td>Honey bee</td></tr>
+        </tbody>
+      </table>
+
+      <p>In humans (22 pairs of autosomes + 1 pair of sex chromosomes), every ovum carries an X chromosome, while 50% of sperm carry X and 50% carry Y. Therefore, the <strong>sperm's genetic makeup determines the sex of the child</strong>, with an equal 50% probability of a boy or girl in each pregnancy. In honey bees, fertilised eggs develop into diploid females (queen or worker, \(2n = 32\)), whereas unfertilised eggs develop via <strong>parthenogenesis</strong> into haploid males (drones, \(n = 16\)). Drones produce sperm by <strong>mitosis</strong>, have no father and cannot have sons, but have a grandfather and can have grandsons.</p>
+
+      <figure class="svg-figure">
+        <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Haplodiploid sex determination in honey bee">
+          <rect x="0" y="0" width="760" height="220" fill="#F8FAFC" rx="8"/>
+          <text x="380" y="30" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Haplodiploid Sex Determination in Honey Bee</text>
+          <!-- Female Parent -->
+          <rect x="70" y="48" width="180" height="44" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="160" y="68" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#1E40AF" text-anchor="middle">Female (Queen) ♀</text>
+          <text x="160" y="84" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="middle">Diploid: 2n = 32</text>
+
+          <!-- Male Parent -->
+          <rect x="510" y="48" width="180" height="44" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="600" y="68" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#0F766E" text-anchor="middle">Male (Drone) ♂</text>
+          <text x="600" y="84" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="middle">Haploid: n = 16</text>
+
+          <!-- Arrows to Gametes -->
+          <line x1="160" y1="92" x2="160" y2="122" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="172" y="112" font-family="sans-serif" font-size="11" fill="#475569">Meiosis</text>
+          <line x1="600" y1="92" x2="600" y2="122" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="612" y="112" font-family="sans-serif" font-size="11" fill="#475569">Mitosis</text>
+
+          <!-- Gametes -->
+          <circle cx="120" cy="142" r="18" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="120" y="146" font-family="sans-serif" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="middle">n=16</text>
+          <circle cx="200" cy="142" r="18" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="200" y="146" font-family="sans-serif" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="middle">n=16</text>
+
+          <circle cx="600" cy="142" r="18" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="600" y="146" font-family="sans-serif" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="middle">n=16</text>
+
+          <!-- Outcomes -->
+          <line x1="120" y1="160" x2="120" y2="184" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="120" y="200" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E40AF" text-anchor="middle">Parthenogenesis → Male (16)</text>
+
+          <line x1="200" y1="142" x2="400" y2="180" stroke="#0D9488" stroke-width="1.5"/>
+          <line x1="600" y1="142" x2="400" y2="180" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="400" y="200" font-family="sans-serif" font-size="12" font-weight="700" fill="#0F766E" text-anchor="middle">Fertilisation → Female (2n = 32)</text>
+        </svg>
+        <figcaption>Tutorial Diagram 3: Haplodiploid sex determination showing meiosis in females, mitosis in haploid males, and parthenogenetic drone development.</figcaption>
+      </figure>
+    </section>
+
+    <section id="mutation-disorders">
+      <h2>6. Mutation, Pedigree Analysis, and Genetic Disorders</h2>
+      <h3>6.1 Mutations</h3>
+      <p><strong>Mutation</strong> is an alteration of DNA sequences that modifies genotype and phenotype. Loss (deletion) or gain (insertion/duplication) of DNA segments alters chromosomes (chromosomal aberrations, frequently seen in cancer cells). A change in a single base pair is a <strong>point mutation</strong> (e.g., sickle-cell anaemia), whereas insertions or deletions of base pairs cause <strong>frameshift mutations</strong>. Physical or chemical agents that induce mutations (such as UV radiation) are called <strong>mutagens</strong>.</p>
+
+      <h3>6.2 Pedigree Analysis</h3>
+      <p>Because controlled matings cannot be performed in humans, <strong>pedigree analysis</strong> traces a trait across multiple generations of a family tree using standardized symbols.</p>
+
+      <figure class="svg-figure">
+        <svg viewBox="0 0 760 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Standard pedigree symbols">
+          <rect x="0" y="0" width="760" height="190" fill="#F8FAFC" rx="8"/>
+          <text x="380" y="28" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Standard Symbols Used in Human Pedigree Analysis</text>
+
+          <!-- Row 1 -->
+          <rect x="42" y="48" width="24" height="24" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="76" y="65" font-family="sans-serif" font-size="12" fill="#1E293B">Unaffected Male</text>
+
+          <circle cx="234" cy="60" r="12" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="256" y="65" font-family="sans-serif" font-size="12" fill="#1E293B">Unaffected Female</text>
+
+          <polygon points="414,46 428,60 414,74 400,60" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="438" y="65" font-family="sans-serif" font-size="12" fill="#1E293B">Sex Unspecified</text>
+
+          <rect x="572" y="48" width="22" height="22" fill="#DC2626" stroke="#991B1B" stroke-width="2"/>
+          <circle cx="612" cy="59" r="11" fill="#DC2626" stroke="#991B1B" stroke-width="2"/>
+          <text x="632" y="65" font-family="sans-serif" font-size="12" fill="#1E293B">Affected</text>
+
+          <!-- Row 2 -->
+          <rect x="42" y="108" width="22" height="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="64" y1="119" x2="92" y2="119" stroke="#1E293B" stroke-width="2"/>
+          <circle cx="103" cy="119" r="11" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="124" y="124" font-family="sans-serif" font-size="12" fill="#1E293B">Mating</text>
+
+          <rect x="230" y="108" width="22" height="22" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="252" y1="116" x2="280" y2="116" stroke="#1E293B" stroke-width="1.8"/>
+          <line x1="252" y1="122" x2="280" y2="122" stroke="#1E293B" stroke-width="1.8"/>
+          <circle cx="291" cy="119" r="11" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="312" y="124" font-family="sans-serif" font-size="12" fill="#1E293B">Consanguineous Mating</text>
+
+          <polygon points="534,104 550,120 534,136 518,120" fill="#FFFFFF" stroke="#1E293B" stroke-width="2"/>
+          <text x="534" y="124" font-family="sans-serif" font-size="11.5" font-weight="700" fill="#1E293B" text-anchor="middle">5</text>
+          <text x="560" y="124" font-family="sans-serif" font-size="12" fill="#1E293B">5 Unaffected Offspring</text>
+
+          <text x="380" y="170" font-family="sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">Pedigree rule of thumb: Affected child from two unaffected parents indicates a recessive trait; affected parents having an unaffected child indicates a dominant trait.</text>
+        </svg>
+        <figcaption>Tutorial Diagram 4: Standard pedigree symbols and core diagnostic rules for dominance vs. recessiveness.</figcaption>
+      </figure>
+
+      <h3>6.3 Mendelian Disorders (Single-Gene Mutations)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Disorder</th>
+            <th>Inheritance</th>
+            <th>Molecular / Genetic Basis &amp; Key Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Colour Blindness</strong></td>
+            <td>X-linked recessive</td>
+            <td>Defect in red or green cone cells of the eye; affects ~8% of males vs. ~0.4% of females. Carrier mother transmits to 50% of sons.</td>
+          </tr>
+          <tr>
+            <td><strong>Haemophilia</strong></td>
+            <td>X-linked recessive</td>
+            <td>Defect in a single protein of the blood-clotting cascade, causing prolonged bleeding from minor cuts. Transmitted from unaffected carrier female to sons; affected females are extremely rare.</td>
+          </tr>
+          <tr>
+            <td><strong>Sickle-cell Anaemia</strong></td>
+            <td>Autosomal recessive</td>
+            <td>Point mutation in β-globin gene (GAG → GUG) substituting Glutamic acid (Glu) with Valine (Val) at the 6th position. Polymerisation under low O<sub>2</sub> tension deforms RBCs into sickle shapes (qualitative defect).</td>
+          </tr>
+          <tr>
+            <td><strong>Phenylketonuria (PKU)</strong></td>
+            <td>Autosomal recessive</td>
+            <td>Lack of enzyme converting phenylalanine to tyrosine; phenylalanine accumulates as phenylpyruvic acid, causing mental retardation and urinary excretion.</td>
+          </tr>
+          <tr>
+            <td><strong>Thalassemia</strong></td>
+            <td>Autosomal recessive</td>
+            <td>Reduced synthesis rate of α-globin (controlled by <em>HBA1</em> and <em>HBA2</em> on chromosome 16; 4 alleles) or β-globin (controlled by <em>HBB</em> on chromosome 11; 2 alleles). A quantitative defect.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>6.4 Chromosomal Disorders</h3>
+      <p>Chromosomal disorders arise from <strong>aneuploidy</strong> (gain or loss of one or more chromosomes due to failure of chromatid segregation during cell division) or <strong>polyploidy</strong> (gain of a whole chromosome set due to failure of cytokinesis after telophase, common in plants).</p>
+      <ul>
+        <li><strong>Down's Syndrome (47, +21):</strong> Trisomy of chromosome 21. Features include short stature, small round head, furrowed tongue, partially open mouth, broad palm with characteristic palm crease, congenital heart defects, and retarded physical, psychomotor, and mental development.</li>
+        <li><strong>Klinefelter's Syndrome (47, XXY):</strong> Extra X chromosome in a male. Overall masculine development with feminine features such as breast development (gynaecomastia); individuals are sterile.</li>
+        <li><strong>Turner's Syndrome (45, XO):</strong> Monosomy of X chromosome in a female. Short stature, rudimentary ovaries (sterile), and underdeveloped secondary sexual characters.</li>
+      </ul>
+    </section>
+
+    <section id="worked-examples">
+      <h2>7. Worked Examples</h2>
+
+      <div class="example-card">
+        <div class="example-label">Worked Example 1 • Multi-Locus Cross Probability (Assumed Scenario)</div>
+        <p><strong>Problem:</strong> Suppose a botanist crosses two garden pea plants with genotypes \(AaBbCc \times AaBbcc\), where all three loci assort independently. Assuming complete dominance at each locus, what fraction of the progeny will have the genotype \(AABbcc\)?</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>Treat each independently assorting gene separately:
+            <ul>
+              <li>Cross \(Aa \times Aa\): Probability of \(AA = \frac{1}{4}\).</li>
+              <li>Cross \(Bb \times Bb\): Probability of \(Bb = \frac{2}{4} = \frac{1}{2}\).</li>
+              <li>Cross \(Cc \times cc\): Probability of \(cc = \frac{1}{2}\).</li>
+            </ul>
+          </li>
+          <li>Multiply the independent probabilities:
+            \[ P(AABbcc) = \frac{1}{4} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{16} \]
+          </li>
+        </ol>
+        <p><strong>Answer:</strong> \(\frac{1}{16}\) (or 6.25%).</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-label">Worked Example 2 • ABO Blood Group Inheritance (Assumed Scenario)</div>
+        <p><strong>Problem:</strong> In a hypothetical family, a father has blood group A and a mother has blood group B. Their first child has blood group O. Determine the genotypes of the parents and the probability that their second child will have blood group AB.</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>A child with blood group O has genotype \(ii\) and must receive one \(i\) allele from each parent.</li>
+          <li>Since the father is blood group A and carries \(i\), his genotype is \(I^Ai\). Since the mother is blood group B and carries \(i\), her genotype is \(I^Bi\).</li>
+          <li>Crossing \(I^Ai \times I^Bi\) yields four equally likely genotypes: \(I^AI^B\) (AB), \(I^Ai\) (A), \(I^Bi\) (B), and \(ii\) (O).</li>
+        </ol>
+        <p><strong>Answer:</strong> Parental genotypes are \(I^Ai\) and \(I^Bi\); the probability of the second child having blood group AB is \(\frac{1}{4}\) (25%).</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-label">Worked Example 3 • Linkage and Recombination Frequency (Assumed Scenario)</div>
+        <p><strong>Problem:</strong> In a hypothetical test cross of a dihybrid insect heterozygous for two X-linked genes <em>P</em> and <em>Q</em> (\(P^+Q^+ / pq\)), 1,000 progeny are scored: 440 are \(P^+Q^+\), 440 are \(pq\), 60 are \(P^+q\), and 60 are \(pQ^+\). Calculate the recombination frequency and map distance between <em>P</em> and <em>Q</em>.</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>Identify recombinant progeny (non-parental combinations): \(60 + 60 = 120\).</li>
+          <li>Total progeny = \(440 + 440 + 60 + 60 = 1000\).</li>
+          <li>Recombination frequency:
+            \[ \text{RF} = \frac{120}{1000} \times 100\% = 12\% \]
+          </li>
+        </ol>
+        <p><strong>Answer:</strong> 12% recombination frequency, corresponding to a genetic distance of 12 map units (centimorgans).</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-label">Worked Example 4 • X-Linked Recessive Pedigree Risk (Assumed Scenario)</div>
+        <p><strong>Problem:</strong> A phenotypically normal couple has a son affected with haemophilia (an X-linked recessive disorder). What is the probability that their next child will be an affected son?</p>
+        <p><strong>Solution:</strong></p>
+        <ol>
+          <li>An affected son has genotype \(X^hY\) and inherits his X chromosome from his mother. Since the mother is phenotypically normal, she must be a carrier (\(X^HX^h\)).</li>
+          <li>The normal father has genotype \(X^HY\).</li>
+          <li>From \(X^HX^h \times X^HY\), the possible offspring genotypes are \(X^HX^H\) (normal daughter), \(X^HX^h\) (carrier daughter), \(X^HY\) (normal son), and \(X^hY\) (affected son), each with probability \(\frac{1}{4}\).</li>
+        </ol>
+        <p><strong>Answer:</strong> \(\frac{1}{4}\) (25% of all pregnancies; note that among sons specifically, it is \(\frac{1}{2}\)).</p>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>8. NEET UG Practice Questions</h2>
+      <p>Solve the following original practice questions under exam conditions, then verify your reasoning against the worked solutions.</p>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>A diploid plant is heterozygous at 3 independently assorting loci (<em>AaBbCc</em>) and homozygous at 2 loci (<em>DDee</em>). How many genetically distinct types of gametes can it produce?</p>
+        <ul class="options-list">
+          <li>(A) 4</li>
+          <li>(B) 8</li>
+          <li>(C) 16</li>
+          <li>(D) 32</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (B) 8</div>
+          <p><strong>Worked Solution:</strong> Only heterozygous loci contribute to gamete variety. Using \(2^n\) where \(n\) is the number of heterozygous loci (\(n = 3\) for <em>Aa</em>, <em>Bb</em>, and <em>Cc</em>; <em>DD</em> and <em>ee</em> each produce only one allele type), the number of gamete types is \(2^3 = 8\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>In snapdragon plants, red flower colour (<em>RR</em>) shows incomplete dominance over white flower colour (<em>rr</em>). If a pink-flowered plant is crossed with a white-flowered plant, what will be the phenotypic ratio of the progeny?</p>
+        <ul class="options-list">
+          <li>(A) 3 Red : 1 White</li>
+          <li>(B) 1 Red : 2 Pink : 1 White</li>
+          <li>(C) 1 Pink : 1 White</li>
+          <li>(D) All Pink</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C) 1 Pink : 1 White</div>
+          <p><strong>Worked Solution:</strong> Crossing pink (<em>Rr</em>) with white (<em>rr</em>) yields gametes <em>R</em> and <em>r</em> from the pink parent and only <em>r</em> from the white parent. Progeny genotypes are 50% <em>Rr</em> (Pink) and 50% <em>rr</em> (White), giving a 1 : 1 ratio.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>Which statement accurately distinguishes thalassemia from sickle-cell anaemia?</p>
+        <ul class="options-list">
+          <li>(A) Thalassemia is X-linked recessive, whereas sickle-cell anaemia is autosomal recessive.</li>
+          <li>(B) Thalassemia is a quantitative problem of synthesising too few globin chains, whereas sickle-cell anaemia is a qualitative problem of synthesising an incorrectly functioning globin.</li>
+          <li>(C) Both disorders result from a single base substitution changing glutamic acid to valine.</li>
+          <li>(D) β-thalassemia is controlled by four alleles on chromosome 16.</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (B)</div>
+          <p><strong>Worked Solution:</strong> Both are autosomal recessive blood disorders. Sickle-cell anaemia is a qualitative defect (Glu → Val at position 6 of β-globin), whereas thalassemia is a quantitative defect (reduced synthesis of α-globin controlled by <em>HBA1</em>/<em>HBA2</em> on chromosome 16 or β-globin controlled by <em>HBB</em> on chromosome 11).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 4 (Assertion–Reason)</div>
+        <p><strong>Assertion (A):</strong> In birds, the female is the heterogametic sex.<br>
+        <strong>Reason (R):</strong> Female birds possess one Z and one W chromosome, producing two types of ova with respect to sex chromosomes.</p>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+          <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+          <li>(C) (A) is true, but (R) is false.</li>
+          <li>(D) (A) is false, but (R) is true.</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (A)</div>
+          <p><strong>Worked Solution:</strong> Birds exhibit ZZ–ZW sex determination, where males are homogametic (ZZ) and females are heterogametic (ZW), producing Z-bearing and W-bearing ova in equal proportions. Thus, (R) directly explains (A).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 5 (Match the Following)</div>
+        <p>Match Column I (Genetic Disorder) with Column II (Chromosomal Constitution / Cause):</p>
+        <table>
+          <thead>
+            <tr><th>Column I</th><th>Column II</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>(i) Down's syndrome</td><td>(p) 45, XO</td></tr>
+            <tr><td>(ii) Klinefelter's syndrome</td><td>(q) Trisomy of chromosome 21</td></tr>
+            <tr><td>(iii) Turner's syndrome</td><td>(r) Point mutation in β-globin gene</td></tr>
+            <tr><td>(iv) Sickle-cell anaemia</td><td>(s) 47, XXY</td></tr>
+          </tbody>
+        </table>
+        <ul class="options-list">
+          <li>(A) (i)–(q), (ii)–(s), (iii)–(p), (iv)–(r)</li>
+          <li>(B) (i)–(s), (ii)–(q), (iii)–(p), (iv)–(r)</li>
+          <li>(C) (i)–(q), (ii)–(p), (iii)–(s), (iv)–(r)</li>
+          <li>(D) (i)–(r), (ii)–(s), (iii)–(p), (iv)–(q)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (A)</div>
+          <p><strong>Worked Solution:</strong> Down's syndrome is trisomy 21 (q); Klinefelter's syndrome is 47, XXY (s); Turner's syndrome is 45, XO (p); sickle-cell anaemia is caused by a single base substitution (GAG → GUG) in the β-globin gene (r).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 6 (Multiple-Statement Evaluation)</div>
+        <p>Read the following statements regarding honey bee sex determination and identify how many are correct:<br>
+        1. Male drones are haploid (\(n = 16\)) and develop from unfertilised eggs by parthenogenesis.<br>
+        2. Male drones produce sperm by meiosis.<br>
+        3. Female workers and queens are diploid (\(2n = 32\)).<br>
+        4. A drone has no father, yet has a grandfather.</p>
+        <ul class="options-list">
+          <li>(A) One</li>
+          <li>(B) Two</li>
+          <li>(C) Three</li>
+          <li>(D) Four</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C) Three</div>
+          <p><strong>Worked Solution:</strong> Statements 1, 3, and 4 are correct. Statement 2 is incorrect because haploid drones produce sperm by <strong>mitosis</strong>, not meiosis.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 7 (Single-Correct MCQ)</div>
+        <p>In a test cross involving pea plants, 50% of the offspring show violet flowers and 50% show white flowers. Given that violet (<em>V</em>) is dominant over white (<em>v</em>), what is the genotype of the violet-flowered parent?</p>
+        <ul class="options-list">
+          <li>(A) <em>VV</em></li>
+          <li>(B) <em>Vv</em></li>
+          <li>(C) <em>vv</em></li>
+          <li>(D) Cannot be determined</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (B) <em>Vv</em></div>
+          <p><strong>Worked Solution:</strong> A test cross mates the dominant-phenotype parent with a homozygous recessive parent (<em>vv</em>). Obtaining a 1 : 1 ratio (50% violet <em>Vv</em> : 50% white <em>vv</em>) proves the tested violet parent produced both <em>V</em> and <em>v</em> gametes and is therefore heterozygous (<em>Vv</em>).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 8 (Single-Correct MCQ)</div>
+        <p>Which of the following is an example of a pleiotropic gene in humans?</p>
+        <ul class="options-list">
+          <li>(A) Gene <em>I</em> controlling ABO blood groups</li>
+          <li>(B) Genes <em>A</em>, <em>B</em>, and <em>C</em> controlling skin colour</li>
+          <li>(C) Gene encoding phenylalanine hydroxylase in phenylketonuria</li>
+          <li>(D) Gene for red-green colour blindness on the X chromosome</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p><strong>Worked Solution:</strong> A pleiotropic gene produces multiple phenotypic effects from a single gene mutation. In PKU, mutation of the phenylalanine hydroxylase gene causes mental retardation as well as reduced hair and skin pigmentation. ABO blood group illustrates multiple alleles/co-dominance, while skin colour illustrates polygenic inheritance.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 9 (Single-Correct MCQ)</div>
+        <p>In Morgan's <em>Drosophila</em> experiments, two X-linked genes <em>A</em> and <em>B</em> showed 8% recombination, whereas genes <em>A</em> and <em>C</em> showed 28% recombination. Which statement is correct?</p>
+        <ul class="options-list">
+          <li>(A) Genes <em>A</em> and <em>C</em> are more tightly linked than genes <em>A</em> and <em>B</em>.</li>
+          <li>(B) Genes <em>A</em> and <em>B</em> are located closer together on the chromosome than genes <em>A</em> and <em>C</em>.</li>
+          <li>(C) Genes <em>A</em> and <em>B</em> assort completely independently.</li>
+          <li>(D) Crossing over occurs more frequently between <em>A</em> and <em>B</em> than between <em>A</em> and <em>C</em>.</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (B)</div>
+          <p><strong>Worked Solution:</strong> Recombination frequency is directly proportional to physical distance between linked genes and inversely proportional to linkage strength. Since 8% &lt; 28%, genes <em>A</em> and <em>B</em> are closer together (8 map units) and more tightly linked than <em>A</em> and <em>C</em> (28 map units).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 10 (Single-Correct MCQ)</div>
+        <p>Two phenotypically normal parents have three children: one unaffected son, one unaffected daughter, and one daughter affected with an inherited metabolic disorder. What is the most likely mode of inheritance of this disorder?</p>
+        <ul class="options-list">
+          <li>(A) Autosomal dominant</li>
+          <li>(B) Autosomal recessive</li>
+          <li>(C) X-linked dominant</li>
+          <li>(D) Y-linked</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (B) Autosomal recessive</div>
+          <p><strong>Worked Solution:</strong> Unaffected parents having an affected child rules out dominant inheritance (trait skips a generation, so it is recessive; both parents are heterozygous carriers). Because a daughter is affected while her father is phenotypically normal, it cannot be X-linked recessive (an affected X-linked recessive daughter requires an affected father) or Y-linked. Hence, it is autosomal recessive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls-checklist">
+      <h2>9. Common Pitfalls and NEET UG Revision Checklist</h2>
+      <div class="warning-box">
+        <div class="warning-title">Frequent Exam Traps to Avoid</div>
+        <ul>
+          <li><strong>Confusing Incomplete Dominance and Co-dominance:</strong> Incomplete dominance gives an <em>intermediate</em> phenotype (pink = between red and white), whereas co-dominance expresses <em>both</em> parental phenotypes simultaneously (AB blood group has both A and B sugars).</li>
+          <li><strong>Polygenic vs. Pleiotropic:</strong> <em>Polygenic</em> = many genes → 1 trait (e.g., skin colour); <em>Pleiotropic</em> = 1 gene → many traits (e.g., PKU).</li>
+          <li><strong>Thalassemia Chromosome Numbers:</strong> α-thalassemia is on <strong>chromosome 16</strong> (2 linked genes <em>HBA1</em>, <em>HBA2</em> = 4 alleles); β-thalassemia is on <strong>chromosome 11</strong> (1 gene <em>HBB</em> = 2 alleles).</li>
+          <li><strong>Sickle-cell Codon Change:</strong> mRNA codon changes from <strong>GAG → GUG</strong> (Glu → Val at position 6 of β-globin), not GUG → GAG.</li>
+          <li><strong>Gamete Formation in Honey Bee Drones:</strong> Drones are haploid and form sperm by <strong>mitosis</strong>, while queens are diploid and form eggs by <strong>meiosis</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="final-recap">
+      <h2>10. Concise Final Recap</h2>
+      <p>Mendel established that traits are governed by paired discrete factors (genes) that segregate cleanly during gamete formation (Law of Segregation) and assort independently when on separate chromosomes (Law of Independent Assortment). Extensions such as incomplete dominance, co-dominance, multiple alleles, pleiotropy, and polygenic inheritance explain richer phenotypic patterns without violating allelic segregation. Sutton and Boveri linked genes to chromosomes, and Morgan's <em>Drosophila</em> crosses revealed linkage and recombination-based genetic mapping. Finally, understanding sex-determination systems, pedigree logic, and the molecular/chromosomal basis of Mendelian and aneuploid disorders equips you to solve both conceptual and quantitative NEET UG genetics questions with confidence.</p>
+    </section>
+  </div>
+</body>
+</html>
