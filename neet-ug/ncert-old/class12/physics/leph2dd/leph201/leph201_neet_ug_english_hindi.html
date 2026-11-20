@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ray Optics and Optical Instruments — NEET UG Bilingual Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #1E293B;
+      font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans Devanagari", "Kohinoor Devanagari", "Mangal", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 18px 36px 18px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+      background-color: #F8FAFC;
+      padding: 18px;
+      border-radius: 6px;
+      border-left: 6px solid #2563EB;
+    }
+
+    .badge-row {
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #2563EB;
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-right: 6px;
+      letter-spacing: 0.4px;
+    }
+
+    .badge-teal {
+      background-color: #0D9488;
+    }
+
+    h1 {
+      font-size: 1.75em;
+      line-height: 1.3;
+      margin: 8px 0 6px 0;
+      color: #0F172A;
+    }
+
+    h2 {
+      font-size: 1.35em;
+      line-height: 1.35;
+      margin: 28px 0 10px 0;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #CBD5E1;
+      color: #1E293B;
+    }
+
+    h3 {
+      font-size: 1.12em;
+      line-height: 1.35;
+      margin: 20px 0 8px 0;
+      color: #2563EB;
+    }
+
+    h4 {
+      font-size: 1.02em;
+      line-height: 1.35;
+      margin: 14px 0 6px 0;
+      color: #0D9488;
+    }
+
+    p {
+      margin: 0 0 10px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 12px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .lang-en {
+      margin-bottom: 14px;
+    }
+
+    .lang-hi {
+      background-color: #F8FAFC;
+      border-left: 4px solid #0D9488;
+      padding: 12px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+    }
+
+    .lang-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #475569;
+      background-color: #E2E8F0;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .formula-box {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #2563EB;
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 4px;
+      max-width: 100%;
+    }
+
+    .callout {
+      background-color: #F0FDFA;
+      border: 1px solid #99F6E4;
+      border-left: 4px solid #0D9488;
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-radius: 4px;
+      break-inside: avoid;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      color: #0F766E;
+      margin-bottom: 4px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.94em;
+      break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #E2E8F0;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .svg-wrap {
+      margin: 14px 0;
+      padding: 10px;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+    }
+
+    .svg-wrap svg {
+      max-width: 560px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .svg-caption {
+      font-size: 0.88em;
+      color: #475569;
+      margin-top: 6px;
+    }
+
+    .example-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+    }
+
+    .question-card {
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+    }
+
+    .question-unit {
+      break-inside: avoid;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 8px;
+      margin: 8px 0 12px 0;
+    }
+
+    .options-list li {
+      margin-bottom: 5px;
+    }
+
+    .solution-box {
+      background-color: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 10px 12px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed #94A3B8;
+      margin: 14px 0;
+    }
+
+    mjx-container {
+      max-width: 100%;
+      white-space: normal;
+    }
+
+    @page {
+      size: A4;
+      margin: 14mm 14mm 16mm 14mm;
+    }
+
+    @media print {
+      body {
+        font-size: 11pt;
+        color: #000000;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      h2 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      h3, h4 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .example-card, .question-card, .question-unit, .callout, .svg-wrap, table {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .lang-hi {
+        background-color: #F8FAFC !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .badge {
+        border: 1px solid #1E293B;
+        color: #000000;
+        background-color: #E2E8F0 !important;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <!-- 1. TITLE AND EXAM CONTEXT -->
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">NEET UG PHYSICS</span>
+        <span class="badge badge-teal">BILINGUAL: ENGLISH + HINDI</span>
+      </div>
+      <h1>Ray Optics and Optical Instruments</h1>
+      <p lang="hi"><strong>किरण प्रकाशिकी एवं प्रकाशिक यंत्र</strong> — NEET UG भौतिक विज्ञान ट्यूटोरियल</p>
+      <p>Comprehensive conceptual guide, high-yield formulas, worked examples, and exam-aligned practice questions with full solutions.</p>
+      <p lang="hi">संपूर्ण अवधारणात्मक मार्गदर्शिका, महत्वपूर्ण सूत्र, हल किए गए उदाहरण तथा पूर्ण समाधान सहित परीक्षा-उन्मुख अभ्यास प्रश्न।</p>
+    </header>
+
+    <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+    <section id="objectives">
+      <h2>Learning Objectives &amp; Chapter Overview</h2>
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p>Light is electromagnetic radiation in the visible wavelength range of approximately \(400\,\mathrm{nm}\) to \(750\,\mathrm{nm}\), travelling in vacuum at \(c = 2.99792458 \times 10^8\,\mathrm{m\,s^{-1}}\) (commonly taken as \(3 \times 10^8\,\mathrm{m\,s^{-1}}\)). When light interacts with objects much larger than its wavelength, wave diffraction effects are negligible, and light can be modelled as travelling along straight-line paths called <strong>rays</strong>.</p>
+        <p>By completing this tutorial, you will be able to:</p>
+        <ul>
+          <li>Apply the Cartesian sign convention accurately to spherical mirrors, single refracting surfaces, and thin lenses.</li>
+          <li>Use the mirror equation, magnification relations, and Snell's law to locate and characterize real and virtual images.</li>
+          <li>Calculate critical angles and analyse Total Internal Reflection (TIR) in prisms and optical fibres.</li>
+          <li>Derive and apply the Lens Maker's formula, lens power, and combinations of thin lenses in contact.</li>
+          <li>Determine prism deviation, minimum deviation, and refractive index using the prism relation.</li>
+          <li>Calculate magnifying power and tube length for simple microscopes, compound microscopes, and astronomical telescopes.</li>
+        </ul>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p>प्रकाश लगभग \(400\,\mathrm{nm}\) से \(750\,\mathrm{nm}\) तरंगदैर्ध्य परास की दृश्य विद्युतचुंबकीय विकिरण है, जो निर्वात में \(c = 2.99792458 \times 10^8\,\mathrm{m\,s^{-1}}\) (सामान्यतः \(3 \times 10^8\,\mathrm{m\,s^{-1}}\)) की चाल से गमन करती है। जब प्रकाश अपनी तरंगदैर्ध्य से बहुत बड़े आकार की वस्तुओं से टकराता है, तो विवर्तन प्रभाव नगण्य होते हैं और प्रकाश को सीधी रेखा में चलने वाली <strong>किरणों (rays)</strong> के रूप में माना जा सकता है।</p>
+        <p>इस ट्यूटोरियल को पूरा करने के बाद आप निम्न में सक्षम होंगे:</p>
+        <ul>
+          <li>गोलीय दर्पणों, एकल अपवर्तक पृष्ठों और पतले लेंसों पर कार्तीय चिह्न परिपाटी का सटीक उपयोग करना।</li>
+          <li>दर्पण समीकरण, आवर्धन संबंधों और स्नेल के नियम द्वारा वास्तविक व आभासी प्रतिबिंबों की स्थिति और प्रकृति ज्ञात करना।</li>
+          <li>प्रिज्म और प्रकाशिक तंतुओं (optical fibres) में क्रांतिक कोण तथा पूर्ण आंतरिक परावर्तन (TIR) का विश्लेषण करना।</li>
+          <li>लेंस निर्माता सूत्र, लेंस की क्षमता और संपर्क में रखे पतले लेंसों के संयोजन का उपयोग करना।</li>
+          <li>प्रिज्म विचलन, न्यूनतम विचलन और प्रिज्म के अपवर्तनांक की गणना करना।</li>
+          <li>सरल सूक्ष्मदर्शी, संयुक्त सूक्ष्मदर्शी और खगोलीय दूरदर्शी की आवर्धन क्षमता तथा नली की लंबाई ज्ञात करना।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. REFLECTION AT SPHERICAL MIRRORS -->
+    <section id="spherical-mirrors">
+      <h2>Reflection at Spherical Mirrors &amp; Sign Convention</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p>At any smooth reflecting surface (plane or curved), the laws of reflection hold at the point of incidence: (1) the angle of incidence \(i\) equals the angle of reflection \(r\), and (2) the incident ray, reflected ray, and the normal at the point of incidence lie in the same plane. For a spherical mirror, the normal at any point passes through the <strong>centre of curvature</strong> \(C\). The geometric centre of the mirror is the <strong>pole</strong> \(P\), and the line joining \(P\) and \(C\) is the <strong>principal axis</strong>.</p>
+
+        <h3>Cartesian Sign Convention</h3>
+        <ul>
+          <li>All distances are measured from the pole \(P\) (for mirrors) or optical centre \(O\) (for lenses).</li>
+          <li>Distances measured <strong>along the direction of incident light</strong> are taken as <strong>positive</strong>; distances measured <strong>opposite to the direction of incident light</strong> are <strong>negative</strong>.</li>
+          <li>Heights measured <strong>upwards</strong> perpendicular to the principal axis are <strong>positive</strong>; heights measured <strong>downwards</strong> are <strong>negative</strong>.</li>
+        </ul>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 540 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="540" height="210" fill="#F8FAFC" rx="6" />
+            <!-- Principal axis -->
+            <line x1="20" y1="115" x2="520" y2="115" stroke="#1E293B" stroke-width="1.8" />
+            <polygon points="520,115 510,110 510,120" fill="#1E293B" />
+            <text x="485" y="106" font-family="sans-serif" font-size="12" fill="#1E293B">+x axis</text>
+
+            <!-- Concave Mirror -->
+            <path d="M 320 35 Q 350 115 320 195" fill="none" stroke="#2563EB" stroke-width="4" />
+            <text x="305" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Mirror</text>
+            <circle cx="335" cy="115" r="3.5" fill="#1E293B" />
+            <text x="342" y="130" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">P</text>
+
+            <!-- Incident light arrow -->
+            <line x1="150" y1="55" x2="260" y2="55" stroke="#0D9488" stroke-width="2" />
+            <polygon points="260,55 250,50 250,60" fill="#0D9488" />
+            <text x="155" y="45" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Incident light (+)</text>
+
+            <!-- Object arrow -->
+            <line x1="95" y1="115" x2="95" y2="60" stroke="#1E293B" stroke-width="2.5" />
+            <polygon points="95,60 90,70 100,70" fill="#1E293B" />
+            <text x="30" y="80" font-family="sans-serif" font-size="11" fill="#1E293B">Upward (+)</text>
+
+            <!-- Downward height -->
+            <line x1="175" y1="115" x2="175" y2="165" stroke="#1E293B" stroke-width="2" />
+            <polygon points="175,165 170,155 180,155" fill="#1E293B" />
+            <text x="125" y="182" font-family="sans-serif" font-size="11" fill="#1E293B">Downward (-)</text>
+
+            <!-- Distance arrows from P -->
+            <line x1="335" y1="145" x2="235" y2="145" stroke="#2563EB" stroke-width="1.8" />
+            <polygon points="235,145 245,140 245,150" fill="#2563EB" />
+            <text x="230" y="162" font-family="sans-serif" font-size="11" fill="#2563EB">Opposite (-)</text>
+
+            <line x1="335" y1="145" x2="435" y2="145" stroke="#0D9488" stroke-width="1.8" />
+            <polygon points="435,145 425,140 425,150" fill="#0D9488" />
+            <text x="355" y="162" font-family="sans-serif" font-size="11" fill="#0D9488">Along light (+)</text>
+          </svg>
+          <div class="svg-caption">Tutorial Diagram 1: Cartesian sign convention for spherical mirrors and lenses.</div>
+        </div>
+
+        <h3>Focal Length, Mirror Equation &amp; Magnification</h3>
+        <p>For <strong>paraxial rays</strong> (rays close to the principal axis making small angles with it), the focal length \(f\) is half the radius of curvature \(R\):</p>
+        <div class="formula-box">
+          \[f = \frac{R}{2}, \qquad \frac{1}{v} + \frac{1}{u} = \frac{1}{f}, \qquad m = \frac{h'}{h} = -\frac{v}{u} = \frac{f}{f - u} = \frac{f - v}{f}\]
+        </div>
+        <p>Here \(u\) is the object distance, \(v\) is the image distance, \(f\) is negative for a concave mirror and positive for a convex mirror. A negative magnification (\(m &lt; 0\)) indicates an inverted (real for a real object) image, while \(m &gt; 0\) indicates an erect (virtual for a real object) image.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Mirror Type</th>
+              <th>Object Position (Real Object)</th>
+              <th>Image Position</th>
+              <th>Nature &amp; Size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Concave (\(f &lt; 0\))</td>
+              <td>At \(\infty\)</td>
+              <td>At \(F\)</td>
+              <td>Real, inverted, point-sized</td>
+            </tr>
+            <tr>
+              <td>Concave (\(f &lt; 0\))</td>
+              <td>Beyond \(C\) (\(u &lt; -2f\))</td>
+              <td>Between \(F\) and \(C\)</td>
+              <td>Real, inverted, diminished (\(|m| &lt; 1\))</td>
+            </tr>
+            <tr>
+              <td>Concave (\(f &lt; 0\))</td>
+              <td>At \(C\) (\(u = -2f\))</td>
+              <td>At \(C\) (\(v = -2f\))</td>
+              <td>Real, inverted, same size (\(m = -1\))</td>
+            </tr>
+            <tr>
+              <td>Concave (\(f &lt; 0\))</td>
+              <td>Between \(C\) and \(F\)</td>
+              <td>Beyond \(C\)</td>
+              <td>Real, inverted, magnified (\(|m| &gt; 1\))</td>
+            </tr>
+            <tr>
+              <td>Concave (\(f &lt; 0\))</td>
+              <td>Between \(F\) and \(P\)</td>
+              <td>Behind mirror (\(v &gt; 0\))</td>
+              <td>Virtual, erect, magnified (\(m &gt; +1\))</td>
+            </tr>
+            <tr>
+              <td>Convex (\(f &gt; 0\))</td>
+              <td>Anywhere in front of mirror</td>
+              <td>Between \(P\) and \(F\) (\(v &gt; 0\))</td>
+              <td>Virtual, erect, diminished (\(0 &lt; m &lt; 1\))</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <div class="callout-title">NEET UG Conceptual Insight: Partial Covering of a Mirror or Lens</div>
+          If the lower half of a concave mirror (or convex lens) is covered with an opaque black paper, the <strong>complete image</strong> of the object is still formed because rays from every point of the object reflect/refract from the remaining uncovered half. However, since the reflecting/refracting area is halved, the <strong>brightness (intensity)</strong> of the image reduces to half.
+        </div>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p>किसी भी चिकने परावर्तक पृष्ठ (समतल या वक्र) पर आपतन बिंदु पर परावर्तन के नियम लागू होते हैं: (1) आपतन कोण \(i\) परावर्तन कोण \(r\) के बराबर होता है, और (2) आपतित किरण, परावर्तित किरण तथा आपतन बिंदु पर अभिलंब एक ही तल में होते हैं। गोलीय दर्पण के किसी भी बिंदु पर अभिलंब उसके <strong>वक्रता केंद्र</strong> \(C\) से होकर गुजरता है। दर्पण के ज्यामितीय केंद्र को <strong>ध्रुव</strong> \(P\) तथा \(P\) और \(C\) को मिलाने वाली रेखा को <strong>मुख्य अक्ष</strong> कहते हैं।</p>
+
+        <h3>कार्तीय चिह्न परिपाटी (Cartesian Sign Convention)</h3>
+        <ul>
+          <li>सभी दूरियाँ दर्पण के ध्रुव \(P\) (या लेंस के प्रकाशिक केंद्र \(O\)) से मापी जाती हैं।</li>
+          <li><strong>आपतित प्रकाश की दिशा में</strong> मापी गई दूरियाँ <strong>धनात्मक</strong> तथा आपतित प्रकाश की <strong>विपरीत दिशा में</strong> मापी गई दूरियाँ <strong>ऋणात्मक</strong> ली जाती हैं।</li>
+          <li>मुख्य अक्ष के लंबवत <strong>ऊपर की ओर</strong> मापी गई ऊँचाइयाँ <strong>धनात्मक</strong> तथा <strong>नीचे की ओर</strong> मापी गई ऊँचाइयाँ <strong>ऋणात्मक</strong> होती हैं।</li>
+        </ul>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 540 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="540" height="210" fill="#F8FAFC" rx="6" />
+            <line x1="20" y1="115" x2="520" y2="115" stroke="#1E293B" stroke-width="1.8" />
+            <polygon points="520,115 510,110 510,120" fill="#1E293B" />
+            <text x="475" y="106" font-family="sans-serif" font-size="12" fill="#1E293B">+x अक्ष</text>
+
+            <path d="M 320 35 Q 350 115 320 195" fill="none" stroke="#2563EB" stroke-width="4" />
+            <text x="305" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">दर्पण</text>
+            <circle cx="335" cy="115" r="3.5" fill="#1E293B" />
+            <text x="342" y="130" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">P</text>
+
+            <line x1="145" y1="55" x2="260" y2="55" stroke="#0D9488" stroke-width="2" />
+            <polygon points="260,55 250,50 250,60" fill="#0D9488" />
+            <text x="135" y="45" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">आपतित प्रकाश (+)</text>
+
+            <line x1="95" y1="115" x2="95" y2="60" stroke="#1E293B" stroke-width="2.5" />
+            <polygon points="95,60 90,70 100,70" fill="#1E293B" />
+            <text x="25" y="80" font-family="sans-serif" font-size="11" fill="#1E293B">ऊपर (+)</text>
+
+            <line x1="175" y1="115" x2="175" y2="165" stroke="#1E293B" stroke-width="2" />
+            <polygon points="175,165 170,155 180,155" fill="#1E293B" />
+            <text x="135" y="182" font-family="sans-serif" font-size="11" fill="#1E293B">नीचे (-)</text>
+
+            <line x1="335" y1="145" x2="235" y2="145" stroke="#2563EB" stroke-width="1.8" />
+            <polygon points="235,145 245,140 245,150" fill="#2563EB" />
+            <text x="225" y="162" font-family="sans-serif" font-size="11" fill="#2563EB">विपरीत (-)</text>
+
+            <line x1="335" y1="145" x2="435" y2="145" stroke="#0D9488" stroke-width="1.8" />
+            <polygon points="435,145 425,140 425,150" fill="#0D9488" />
+            <text x="355" y="162" font-family="sans-serif" font-size="11" fill="#0D9488">प्रकाश की दिशा (+)</text>
+          </svg>
+          <div class="svg-caption">ट्यूटोरियल आरेख 1: गोलीय दर्पणों और लेंसों के लिए कार्तीय चिह्न परिपाटी।</div>
+        </div>
+
+        <h3>फोकस दूरी, दर्पण समीकरण एवं आवर्धन</h3>
+        <p><strong>उपाक्षीय किरणों (paraxial rays)</strong> के लिए फोकस दूरी \(f\) वक्रता त्रिज्या \(R\) की आधी होती है:</p>
+        <div class="formula-box">
+          \[f = \frac{R}{2}, \qquad \frac{1}{v} + \frac{1}{u} = \frac{1}{f}, \qquad m = \frac{h'}{h} = -\frac{v}{u} = \frac{f}{f - u} = \frac{f - v}{f}\]
+        </div>
+        <p>यहाँ \(u\) बिंब दूरी, \(v\) प्रतिबिंब दूरी है। अवतल दर्पण के लिए \(f\) ऋणात्मक तथा उत्तल दर्पण के लिए \(f\) धनात्मक होता है। ऋणात्मक आवर्धन (\(m &lt; 0\)) उल्टा प्रतिबिंब दर्शाता है, जबकि धनात्मक आवर्धन (\(m &gt; 0\)) सीधा प्रतिबिंब दर्शाता है।</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>दर्पण का प्रकार</th>
+              <th>बिंब की स्थिति (वास्तविक बिंब)</th>
+              <th>प्रतिबिंब की स्थिति</th>
+              <th>प्रकृति एवं आकार</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>अवतल (\(f &lt; 0\))</td>
+              <td>अनंत (\(\infty\)) पर</td>
+              <td>\(F\) पर</td>
+              <td>वास्तविक, उल्टा, बिंदु आकार</td>
+            </tr>
+            <tr>
+              <td>अवतल (\(f &lt; 0\))</td>
+              <td>\(C\) से परे (\(u &lt; -2f\))</td>
+              <td>\(F\) और \(C\) के बीच</td>
+              <td>वास्तविक, उल्टा, छोटा (\(|m| &lt; 1\))</td>
+            </tr>
+            <tr>
+              <td>अवतल (\(f &lt; 0\))</td>
+              <td>\(C\) पर (\(u = -2f\))</td>
+              <td>\(C\) पर (\(v = -2f\))</td>
+              <td>वास्तविक, उल्टा, समान आकार (\(m = -1\))</td>
+            </tr>
+            <tr>
+              <td>अवतल (\(f &lt; 0\))</td>
+              <td>\(C\) और \(F\) के बीच</td>
+              <td>\(C\) से परे</td>
+              <td>वास्तविक, उल्टा, आवर्धित (\(|m| &gt; 1\))</td>
+            </tr>
+            <tr>
+              <td>अवतल (\(f &lt; 0\))</td>
+              <td>\(F\) और \(P\) के बीच</td>
+              <td>दर्पण के पीछे (\(v &gt; 0\))</td>
+              <td>आभासी, सीधा, आवर्धित (\(m &gt; +1\))</td>
+            </tr>
+            <tr>
+              <td>उत्तल (\(f &gt; 0\))</td>
+              <td>दर्पण के सामने कहीं भी</td>
+              <td>\(P\) और \(F\) के बीच (\(v &gt; 0\))</td>
+              <td>आभासी, सीधा, छोटा (\(0 &lt; m &lt; 1\))</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          <div class="callout-title">NEET UG मुख्य बिंदु: दर्पण या लेंस को आंशिक रूप से ढकना</div>
+          यदि अवतल दर्पण (या उत्तल लेंस) का निचला आधा भाग अपारदर्शी काले कागज़ से ढक दिया जाए, तब भी वस्तु का <strong>पूर्ण प्रतिबिंब</strong> बनेगा, क्योंकि वस्तु के प्रत्येक बिंदु से आने वाली किरणें खुले आधे भाग से परावर्तित/अपवर्तित होती हैं। यद्यपि, परावर्तक क्षेत्रफल आधा होने के कारण प्रतिबिंब की <strong>चमक (तीव्रता)</strong> आधी हो जाती है।
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. REFRACTION AND TOTAL INTERNAL REFLECTION -->
+    <section id="refraction-tir">
+      <h2>Refraction, Apparent Depth &amp; Total Internal Reflection</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p>When an obliquely incident ray crosses the boundary between two transparent media, its direction changes due to a change in speed of light. According to <strong>Snell's Law</strong>:</p>
+        <div class="formula-box">
+          \[n_1 \sin i = n_2 \sin r \quad \Longrightarrow \quad \frac{\sin i}{\sin r} = n_{21} = \frac{n_2}{n_1} = \frac{v_1}{v_2}\]
+        </div>
+        <p>Here \(n_{21}\) is the refractive index of medium 2 with respect to medium 1, and \(n_{12} = 1/n_{21}\). Remember that <strong>optical density</strong> (determined by refractive index \(n = c/v\)) is distinct from <strong>mass density</strong>: for example, turpentine has a lower mass density than water, yet its optical density (\(n \approx 1.47\)) is higher than that of water (\(n = 1.33\)).</p>
+
+        <h3>Parallel Slab, Lateral Shift &amp; Apparent Depth</h3>
+        <ul>
+          <li><strong>Parallel-sided glass slab:</strong> The emergent ray is parallel to the incident ray (zero net angular deviation), but undergoes a <strong>lateral shift</strong>.</li>
+          <li><strong>Apparent depth (near-normal viewing):</strong> An object at real depth \(h_{\text{real}}\) in a medium of refractive index \(n_1\) viewed from a medium of refractive index \(n_2\) appears at depth \(h_{\text{app}} = h_{\text{real}} \cdot \frac{n_2}{n_1}\). For viewing from air (\(n_2 = 1\)) into a medium of index \(n\):
+            \[h_{\text{app}} = \frac{h_{\text{real}}}{n}, \qquad \text{Normal shift } (\Delta t) = t \left(1 - \frac{1}{n}\right)\]
+          </li>
+        </ul>
+
+        <h3>Total Internal Reflection (TIR)</h3>
+        <p>When light travels from an optically <strong>denser medium</strong> (\(n_1\)) to an optically <strong>rarer medium</strong> (\(n_2 &lt; n_1\)), the refracted ray bends away from the normal. As the angle of incidence \(i\) increases, the angle of refraction \(r\) reaches \(90^\circ\) at a specific angle called the <strong>critical angle</strong> \(i_c\):</p>
+        <div class="formula-box">
+          \[\sin i_c = \frac{n_2}{n_1} = n_{21} \quad (n_1 &gt; n_2)\]
+        </div>
+        <p>For \(i &gt; i_c\), no refraction occurs and the entire incident light is reflected back into the denser medium—this is <strong>Total Internal Reflection (TIR)</strong>. Unlike ordinary mirror reflection, TIR involves zero transmission loss.</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 540 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="540" height="220" fill="#F8FAFC" rx="6" />
+            <!-- Denser medium -->
+            <rect x="20" y="110" width="500" height="95" fill="#E0F2FE" />
+            <line x1="20" y1="110" x2="520" y2="110" stroke="#1E293B" stroke-width="2" />
+            <text x="30" y="32" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Rarer medium (n₂)</text>
+            <text x="30" y="195" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">Denser medium (n₁ &gt; n₂)</text>
+
+            <!-- Source O -->
+            <circle cx="90" cy="185" r="4" fill="#1E293B" />
+            <text x="72" y="198" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">O</text>
+
+            <!-- Ray 1: i < ic -->
+            <line x1="170" y1="55" x2="170" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="90" y1="185" x2="170" y2="110" stroke="#2563EB" stroke-width="2" />
+            <line x1="170" y1="110" x2="225" y2="35" stroke="#0D9488" stroke-width="2" />
+            <text x="135" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">i &lt; i_c</text>
+
+            <!-- Ray 2: i = ic -->
+            <line x1="290" y1="55" x2="290" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="90" y1="185" x2="290" y2="110" stroke="#2563EB" stroke-width="2" />
+            <line x1="290" y1="110" x2="365" y2="110" stroke="#0D9488" stroke-width="2.5" />
+            <polygon points="365,110 355,105 355,115" fill="#0D9488" />
+            <text x="255" y="138" font-family="sans-serif" font-size="11" fill="#1E293B">i = i_c</text>
+            <text x="310" y="98" font-family="sans-serif" font-size="11" fill="#0D9488">r = 90°</text>
+
+            <!-- Ray 3: i > ic (TIR) -->
+            <line x1="420" y1="55" x2="420" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="90" y1="185" x2="420" y2="110" stroke="#2563EB" stroke-width="2" />
+            <line x1="420" y1="110" x2="500" y2="132" stroke="#2563EB" stroke-width="2.2" />
+            <polygon points="500,132 490,125 493,135" fill="#2563EB" />
+            <text x="385" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">i &gt; i_c</text>
+            <text x="445" y="148" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">TIR</text>
+          </svg>
+          <div class="svg-caption">Tutorial Diagram 2: Refraction, critical angle (r = 90°), and Total Internal Reflection (i &gt; i_c).</div>
+        </div>
+
+        <p><strong>Key Applications of TIR:</strong></p>
+        <ul>
+          <li><strong>Totally reflecting prisms:</strong> Right-angled isosceles prisms (\(45^\circ\text{–}90^\circ\text{–}45^\circ\)) made of crown or flint glass (\(i_c &lt; 45^\circ\)) bend light by \(90^\circ\) or \(180^\circ\) with virtually \(100\%\) efficiency.</li>
+          <li><strong>Optical fibres:</strong> Consist of a high-index glass/quartz <strong>core</strong> surrounded by a lower-index <strong>cladding</strong> (\(n_{\text{core}} &gt; n_{\text{cladding}}\)), guiding light signals over long distances via repeated TIR even along curved paths.</li>
+          <li><strong>Diamond:</strong> High refractive index (\(n \approx 2.42\)) gives a very small critical angle (\(i_c \approx 24.4^\circ\)), causing light to undergo multiple internal reflections and sparkle brilliantly.</li>
+        </ul>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p>जब कोई तिर्यक् आपतित किरण दो पारदर्शी माध्यमों की सीमा को पार करती है, तो प्रकाश की चाल बदलने के कारण उसकी दिशा बदल जाती है। <strong>स्नेल के नियम (Snell's Law)</strong> के अनुसार:</p>
+        <div class="formula-box">
+          \[n_1 \sin i = n_2 \sin r \quad \Longrightarrow \quad \frac{\sin i}{\sin r} = n_{21} = \frac{n_2}{n_1} = \frac{v_1}{v_2}\]
+        </div>
+        <p>यहाँ \(n_{21}\) माध्यम 1 के सापेक्ष माध्यम 2 का अपवर्तनांक है, तथा \(n_{12} = 1/n_{21}\)। ध्यान दें कि <strong>प्रकाशिक घनत्व</strong> (अपवर्तनांक \(n = c/v\) से निर्धारित) <strong>द्रव्यमान घनत्व</strong> से भिन्न होता है: उदाहरण के लिए, तारपीन का द्रव्यमान घनत्व जल से कम है, परंतु इसका प्रकाशिक घनत्व (\(n \approx 1.47\)) जल (\(n = 1.33\)) से अधिक होता है।</p>
+
+        <h3>समांतर पट्टिका, पार्श्विक विस्थापन एवं आभासी गहराई</h3>
+        <ul>
+          <li><strong>समांतर फलकों वाला काँच का स्लैब:</strong> निर्गत किरण आपतित किरण के समांतर होती है (कोणीय विचलन शून्य), परंतु इसमें <strong>पार्श्विक विस्थापन (lateral shift)</strong> होता है।</li>
+          <li><strong>आभासी गहराई (अभिलंबवत देखने पर):</strong> वायु (\(n_2 = 1\)) से अपवर्तनांक \(n\) वाले माध्यम में \(h_{\text{real}}\) वास्तविक गहराई पर स्थित वस्तु की आभासी गहराई:
+            \[h_{\text{app}} = \frac{h_{\text{real}}}{n}, \qquad \text{अभिलंब विस्थापन } (\Delta t) = t \left(1 - \frac{1}{n}\right)\]
+          </li>
+        </ul>
+
+        <h3>पूर्ण आंतरिक परावर्तन (Total Internal Reflection - TIR)</h3>
+        <p>जब प्रकाश प्रकाशिक <strong>सघन माध्यम</strong> (\(n_1\)) से <strong>विरल माध्यम</strong> (\(n_2 &lt; n_1\)) में प्रवेश करता है, तो अपवर्तित किरण अभिलंब से दूर हटती है। आपतन कोण \(i\) बढ़ाने पर एक विशेष कोण पर अपवर्तन कोण \(r = 90^\circ\) हो जाता है, जिसे <strong>क्रांतिक कोण</strong> \(i_c\) कहते हैं:</p>
+        <div class="formula-box">
+          \[\sin i_c = \frac{n_2}{n_1} = n_{21} \quad (n_1 &gt; n_2)\]
+        </div>
+        <p>\(i &gt; i_c\) के लिए कोई अपवर्तन नहीं होता और संपूर्ण आपतित प्रकाश सघन माध्यम में ही परावर्तित हो जाता है — इसे <strong>पूर्ण आंतरिक परावर्तन (TIR)</strong> कहते हैं।</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 540 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="540" height="220" fill="#F8FAFC" rx="6" />
+            <rect x="20" y="110" width="500" height="95" fill="#E0F2FE" />
+            <line x1="20" y1="110" x2="520" y2="110" stroke="#1E293B" stroke-width="2" />
+            <text x="30" y="32" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">विरल माध्यम (n₂)</text>
+            <text x="30" y="195" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">सघन माध्यम (n₁ &gt; n₂)</text>
+
+            <circle cx="90" cy="185" r="4" fill="#1E293B" />
+            <text x="72" y="198" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">O</text>
+
+            <line x1="170" y1="55" x2="170" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="90" y1="185" x2="170" y2="110" stroke="#2563EB" stroke-width="2" />
+            <line x1="170" y1="110" x2="225" y2="35" stroke="#0D9488" stroke-width="2" />
+            <text x="135" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">i &lt; i_c</text>
+
+            <line x1="290" y1="55" x2="290" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="90" y1="185" x2="290" y2="110" stroke="#2563EB" stroke-width="2" />
+            <line x1="290" y1="110" x2="365" y2="110" stroke="#0D9488" stroke-width="2.5" />
+            <polygon points="365,110 355,105 355,115" fill="#0D9488" />
+            <text x="255" y="138" font-family="sans-serif" font-size="11" fill="#1E293B">i = i_c</text>
+            <text x="310" y="98" font-family="sans-serif" font-size="11" fill="#0D9488">r = 90°</text>
+
+            <line x1="420" y1="55" x2="420" y2="165" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="90" y1="185" x2="420" y2="110" stroke="#2563EB" stroke-width="2" />
+            <line x1="420" y1="110" x2="500" y2="132" stroke="#2563EB" stroke-width="2.2" />
+            <polygon points="500,132 490,125 493,135" fill="#2563EB" />
+            <text x="385" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">i &gt; i_c</text>
+            <text x="445" y="148" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2563EB">पूर्ण परावर्तन</text>
+          </svg>
+          <div class="svg-caption">ट्यूटोरियल आरेख 2: अपवर्तन, क्रांतिक कोण (r = 90°) एवं पूर्ण आंतरिक परावर्तन (i &gt; i_c)।</div>
+        </div>
+
+        <p><strong>TIR के प्रमुख अनुप्रयोग:</strong></p>
+        <ul>
+          <li><strong>पूर्ण परावर्तक प्रिज्म:</strong> क्राउन या फ्लिंट काँच के समकोण समद्विबाहु प्रिज्म (\(45^\circ\text{–}90^\circ\text{–}45^\circ\), जहाँ \(i_c &lt; 45^\circ\)) प्रकाश को बिना तीव्रता हानि के \(90^\circ\) या \(180^\circ\) मोड़ते हैं।</li>
+          <li><strong>प्रकाशिक तंतु (Optical fibres):</strong> इसमें उच्च अपवर्तनांक का <strong>क्रोड (core)</strong> और निम्न अपवर्तनांक का <strong>आवरण (cladding)</strong> होता है (\(n_{\text{core}} &gt; n_{\text{cladding}}\)), जिससे प्रकाश बार-बार पूर्ण आंतरिक परावर्तन द्वारा मुड़े हुए मार्ग से भी संचरित होता है।</li>
+          <li><strong>हीरा:</strong> उच्च अपवर्तनांक (\(n \approx 2.42\)) के कारण क्रांतिक कोण बहुत छोटा (\(i_c \approx 24.4^\circ\)) होता है, जिससे बहु-आंतरिक परावर्तन के कारण हीरा चमकता है।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 5. SPHERICAL SURFACES AND THIN LENSES -->
+    <section id="lenses">
+      <h2>Refraction at Spherical Surfaces &amp; Thin Lenses</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p>For paraxial rays refracting from a medium of refractive index \(n_1\) into a medium of refractive index \(n_2\) across a spherical surface of radius of curvature \(R\):</p>
+        <div class="formula-box">
+          \[\frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}\]
+        </div>
+
+        <h3>Lens Maker's Formula, Thin Lens Equation &amp; Power</h3>
+        <p>Applying this relation successively to the two surfaces of a thin lens (material index \(n_2\), surrounding medium index \(n_1\), radii of curvature \(R_1\) and \(R_2\)) gives the <strong>Lens Maker's Formula</strong> and the <strong>Thin Lens Formula</strong>:</p>
+        <div class="formula-box">
+          \[\frac{1}{f} = \left(\frac{n_2}{n_1} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right), \qquad \frac{1}{v} - \frac{1}{u} = \frac{1}{f}, \qquad m = \frac{h'}{h} = \frac{v}{u} = \frac{f}{f + u} = \frac{f - v}{f}\]
+        </div>
+        <p>The <strong>power \(P\)</strong> of a lens is \(P = \frac{1}{f\text{ (in m)}}\) (or \(P = \frac{n_1}{f}\) if surrounding medium is not air, though in standard problems in air \(P = 1/f\)), measured in <strong>dioptre (D)</strong>, where \(1\,\mathrm{D} = 1\,\mathrm{m^{-1}}\). Power is positive for a converging lens and negative for a diverging lens.</p>
+
+        <h3>Combination of Thin Lenses in Contact</h3>
+        <p>When thin lenses of focal lengths \(f_1, f_2, f_3, \dots\) are placed coaxially in contact:</p>
+        <div class="formula-box">
+          \[\frac{1}{f_{\text{eq}}} = \frac{1}{f_1} + \frac{1}{f_2} + \frac{1}{f_3} + \dots, \qquad P_{\text{eq}} = P_1 + P_2 + P_3 + \dots, \qquad m_{\text{total}} = m_1 \cdot m_2 \cdot m_3 \dots\]
+        </div>
+        <p>If two thin lenses of focal lengths \(f_1\) and \(f_2\) are separated by a distance \(d\) in air, the equivalent focal length is given by \(\frac{1}{f_{\text{eq}}} = \frac{1}{f_1} + \frac{1}{f_2} - \frac{d}{f_1 f_2}\).</p>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p>वक्रता त्रिज्या \(R\) वाले गोलीय पृष्ठ से अपवर्तनांक \(n_1\) के माध्यम से अपवर्तनांक \(n_2\) के माध्यम में उपाक्षीय किरणों के अपवर्तन के लिए:</p>
+        <div class="formula-box">
+          \[\frac{n_2}{v} - \frac{n_1}{u} = \frac{n_2 - n_1}{R}\]
+        </div>
+
+        <h3>लेंस निर्माता सूत्र, पतले लेंस का सूत्र एवं क्षमता</h3>
+        <p>पतले लेंस (पदार्थ का अपवर्तनांक \(n_2\), बाहरी माध्यम \(n_1\), वक्रता त्रिज्याएँ \(R_1\) व \(R_2\)) के दोनों पृष्ठों पर यह सूत्र लगाने पर <strong>लेंस निर्माता सूत्र</strong> तथा <strong>पतले लेंस का सूत्र</strong> प्राप्त होते हैं:</p>
+        <div class="formula-box">
+          \[\frac{1}{f} = \left(\frac{n_2}{n_1} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right), \qquad \frac{1}{v} - \frac{1}{u} = \frac{1}{f}, \qquad m = \frac{h'}{h} = \frac{v}{u} = \frac{f}{f + u} = \frac{f - v}{f}\]
+        </div>
+        <p>लेंस की <strong>क्षमता \(P\)</strong>, \(P = \frac{1}{f\text{ (मीटर में)}}\) होती है, जिसका SI मात्रक <strong>डायोप्टर (D)</strong> है (\(1\,\mathrm{D} = 1\,\mathrm{m^{-1}}\))। अभिसारी (उत्तल) लेंस की क्षमता धनात्मक और अपसारी (अवतल) लेंस की क्षमता ऋणात्मक होती है।</p>
+
+        <h3>संपर्क में रखे पतले लेंसों का संयोजन</h3>
+        <p>जब \(f_1, f_2, f_3, \dots\) फोकस दूरी के पतले लेंस समाक्षीय रूप से संपर्क में रखे जाते हैं:</p>
+        <div class="formula-box">
+          \[\frac{1}{f_{\text{eq}}} = \frac{1}{f_1} + \frac{1}{f_2} + \frac{1}{f_3} + \dots, \qquad P_{\text{eq}} = P_1 + P_2 + P_3 + \dots, \qquad m_{\text{total}} = m_1 \cdot m_2 \cdot m_3 \dots\]
+        </div>
+        <p>यदि \(f_1\) व \(f_2\) फोकस दूरी के दो पतले लेंस वायु में \(d\) दूरी पर रखे हों, तो तुल्य फोकस दूरी \(\frac{1}{f_{\text{eq}}} = \frac{1}{f_1} + \frac{1}{f_2} - \frac{d}{f_1 f_2}\) होती है।</p>
+      </div>
+    </section>
+
+    <!-- 6. REFRACTION THROUGH A PRISM -->
+    <section id="prism">
+      <h2>Refraction Through a Triangular Prism</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p>Consider a triangular glass prism of refracting angle \(A\) and refractive index \(n_{21} = n_2/n_1\). A ray incident at angle \(i\) refracts at angle \(r_1\) on the first face, strikes the second face at angle \(r_2\), and emerges at angle \(e\).</p>
+        <div class="formula-box">
+          \[r_1 + r_2 = A, \qquad \delta = i + e - A\]
+        </div>
+        <p>Because \(i\) and \(e\) appear symmetrically in \(\delta = i + e - A\), any deviation \(\delta &gt; D_m\) corresponds to two angles of incidence (\(i_1\) and \(i_2\) such that \(i_2 = e_1\)). At the <strong>angle of minimum deviation \(D_m\)</strong>, the ray passes symmetrically through the prism:</p>
+        <div class="formula-box">
+          \[i = e, \quad r_1 = r_2 = \frac{A}{2}, \qquad i = \frac{A + D_m}{2} \quad \Longrightarrow \quad n_{21} = \frac{\sin\left(\frac{A + D_m}{2}\right)}{\sin\left(\frac{A}{2}\right)}\]
+        </div>
+        <p>For a <strong>thin prism</strong> (small refracting angle \(A\), typically \(\le 10^\circ\)), \(\sin \theta \approx \theta\) gives \(D_m = (n_{21} - 1)A\), which is independent of the angle of incidence (for small \(i\)).</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 540 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="540" height="210" fill="#F8FAFC" rx="6" />
+            <!-- Prism -->
+            <polygon points="150,35 70,175 230,175" fill="#E0F2FE" stroke="#1E293B" stroke-width="2" />
+            <text x="145" y="27" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">A</text>
+            <text x="55" y="182" font-family="sans-serif" font-size="12" fill="#1E293B">B</text>
+            <text x="234" y="182" font-family="sans-serif" font-size="12" fill="#1E293B">C</text>
+
+            <!-- Ray path -->
+            <line x1="35" y1="130" x2="110" y2="105" stroke="#2563EB" stroke-width="2" />
+            <line x1="110" y1="105" x2="190" y2="105" stroke="#2563EB" stroke-width="2" />
+            <line x1="190" y1="105" x2="265" y2="130" stroke="#2563EB" stroke-width="2" />
+            <!-- Extended rays for deviation -->
+            <line x1="110" y1="105" x2="180" y2="82" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="190" y1="105" x2="130" y2="85" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <text x="65" y="108" font-family="sans-serif" font-size="11" fill="#1E293B">i</text>
+            <text x="225" y="108" font-family="sans-serif" font-size="11" fill="#1E293B">e</text>
+            <text x="147" y="80" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">δ</text>
+
+            <!-- Graph: delta vs i -->
+            <line x1="320" y1="175" x2="510" y2="175" stroke="#1E293B" stroke-width="1.8" />
+            <line x1="320" y1="175" x2="320" y2="30" stroke="#1E293B" stroke-width="1.8" />
+            <path d="M 345 45 Q 395 160 485 70" fill="none" stroke="#2563EB" stroke-width="2.5" />
+            <circle cx="403" cy="117" r="3.5" fill="#0D9488" />
+            <line x1="320" y1="117" x2="403" y2="117" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="403" y1="117" x2="403" y2="175" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3" />
+            <text x="295" y="121" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">D_m</text>
+            <text x="392" y="190" font-family="sans-serif" font-size="11" fill="#0D9488">i = e</text>
+            <text x="485" y="190" font-family="sans-serif" font-size="12" fill="#1E293B">i</text>
+            <text x="303" y="42" font-family="sans-serif" font-size="12" fill="#1E293B">δ</text>
+          </svg>
+          <div class="svg-caption">Tutorial Diagram 3: Ray path through a prism and the variation of deviation δ with angle of incidence i.</div>
+        </div>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p>अपवर्तक कोण \(A\) तथा सापेक्ष अपवर्तनांक \(n_{21} = n_2/n_1\) वाले त्रिभुजाकार काँच के प्रिज्म पर विचार करें। पहले पृष्ठ पर कोण \(i\) पर आपतित किरण कोण \(r_1\) पर अपवर्तित होती है, दूसरे पृष्ठ पर कोण \(r_2\) पर आपतित होकर कोण \(e\) पर निर्गत होती है:</p>
+        <div class="formula-box">
+          \[r_1 + r_2 = A, \qquad \delta = i + e - A\]
+        </div>
+        <p>\(\delta = i + e - A\) में \(i\) और \(e\) की सममिति के कारण, \(\delta &gt; D_m\) के किसी भी मान के लिए आपतन कोण के दो मान संभव होते हैं। <strong>न्यूनतम विचलन कोण \(D_m\)</strong> की स्थिति में किरण प्रिज्म से सममित रूप से गुजरती है:</p>
+        <div class="formula-box">
+          \[i = e, \quad r_1 = r_2 = \frac{A}{2}, \qquad i = \frac{A + D_m}{2} \quad \Longrightarrow \quad n_{21} = \frac{\sin\left(\frac{A + D_m}{2}\right)}{\sin\left(\frac{A}{2}\right)}\]
+        </div>
+        <p><strong>पतले प्रिज्म</strong> (छोटा कोण \(A \le 10^\circ\)) के लिए \(\sin \theta \approx \theta\) रखने पर \(D_m = (n_{21} - 1)A\) प्राप्त होता है।</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 540 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="540" height="210" fill="#F8FAFC" rx="6" />
+            <polygon points="150,35 70,175 230,175" fill="#E0F2FE" stroke="#1E293B" stroke-width="2" />
+            <text x="145" y="27" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">A</text>
+            <text x="55" y="182" font-family="sans-serif" font-size="12" fill="#1E293B">B</text>
+            <text x="234" y="182" font-family="sans-serif" font-size="12" fill="#1E293B">C</text>
+
+            <line x1="35" y1="130" x2="110" y2="105" stroke="#2563EB" stroke-width="2" />
+            <line x1="110" y1="105" x2="190" y2="105" stroke="#2563EB" stroke-width="2" />
+            <line x1="190" y1="105" x2="265" y2="130" stroke="#2563EB" stroke-width="2" />
+            <line x1="110" y1="105" x2="180" y2="82" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="190" y1="105" x2="130" y2="85" stroke="#64748B" stroke-width="1.2" stroke-dasharray="4,3" />
+            <text x="65" y="108" font-family="sans-serif" font-size="11" fill="#1E293B">i</text>
+            <text x="225" y="108" font-family="sans-serif" font-size="11" fill="#1E293B">e</text>
+            <text x="147" y="80" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">δ</text>
+
+            <line x1="320" y1="175" x2="510" y2="175" stroke="#1E293B" stroke-width="1.8" />
+            <line x1="320" y1="175" x2="320" y2="30" stroke="#1E293B" stroke-width="1.8" />
+            <path d="M 345 45 Q 395 160 485 70" fill="none" stroke="#2563EB" stroke-width="2.5" />
+            <circle cx="403" cy="117" r="3.5" fill="#0D9488" />
+            <line x1="320" y1="117" x2="403" y2="117" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3" />
+            <line x1="403" y1="117" x2="403" y2="175" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3" />
+            <text x="295" y="121" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">D_m</text>
+            <text x="392" y="190" font-family="sans-serif" font-size="11" fill="#0D9488">i = e</text>
+            <text x="485" y="190" font-family="sans-serif" font-size="12" fill="#1E293B">i</text>
+            <text x="303" y="42" font-family="sans-serif" font-size="12" fill="#1E293B">δ</text>
+          </svg>
+          <div class="svg-caption">ट्यूटोरियल आरेख 3: प्रिज्म से किरण पथ तथा आपतन कोण i के साथ विचलन δ का परिवर्तन।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. OPTICAL INSTRUMENTS -->
+    <section id="optical-instruments">
+      <h2>Optical Instruments: Microscopes &amp; Telescopes</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p>Optical instruments increase the visual angle subtended by an object at the eye. The least distance of distinct vision (near point) for a normal human eye is \(D = 25\,\mathrm{cm}\).</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>Final Image at Near Point (\(D = 25\,\mathrm{cm}\))</th>
+              <th>Final Image at Infinity (Relaxed Eye)</th>
+              <th>Key Design Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Simple Microscope</strong> (1 convex lens, focal length \(f\))</td>
+              <td>\(m = 1 + \frac{D}{f}\)</td>
+              <td>\(m = \frac{D}{f}\)</td>
+              <td>Small \(f\); object placed within \(f\)</td>
+            </tr>
+            <tr>
+              <td><strong>Compound Microscope</strong> (Objective \(f_o\), Eyepiece \(f_e\))</td>
+              <td>\(m = -\frac{v_o}{u_o}\left(1 + \frac{D}{f_e}\right)\) <br/>Tube length: \(v_o + u_e\)</td>
+              <td>\(m = -\frac{v_o}{u_o}\left(\frac{D}{f_e}\right) \approx -\frac{L}{f_o}\frac{D}{f_e}\) <br/>Tube length: \(v_o + f_e\)</td>
+              <td>Both \(f_o\) and \(f_e\) are small; \(f_e &gt; f_o\); \(L\) is distance between \(F'_o\) and \(F_e\)</td>
+            </tr>
+            <tr>
+              <td><strong>Astronomical Telescope</strong> (Objective \(f_o\), Eyepiece \(f_e\))</td>
+              <td>\(m = -\frac{f_o}{f_e}\left(1 + \frac{f_e}{D}\right)\) <br/>Tube length: \(f_o + u_e\)</td>
+              <td>\(m = -\frac{f_o}{f_e}\) <br/>Tube length: \(f_o + f_e\)</td>
+              <td>Large \(f_o\) and large aperture (for light gathering &amp; resolution); small \(f_e\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Reflecting Telescopes (Cassegrain Type):</strong> Modern large telescopes use a parabolic concave primary mirror and a convex secondary mirror instead of a large glass lens. Advantages include: (1) complete absence of <strong>chromatic aberration</strong>, (2) lighter weight and easier mechanical support across the entire back surface, and (3) reduced spherical aberration.</p>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p>प्रकाशिक यंत्र आँख पर वस्तु द्वारा अंतरित दर्शन कोण को बढ़ाते हैं। सामान्य मानव नेत्र के लिए स्पष्ट दर्शन की न्यूनतम दूरी (निकट बिंदु) \(D = 25\,\mathrm{cm}\) होती है।</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>प्रकाशिक यंत्र</th>
+              <th>अंतिम प्रतिबिंब निकट बिंदु (\(D = 25\,\mathrm{cm}\)) पर</th>
+              <th>अंतिम प्रतिबिंब अनंत पर (श्रांत नेत्र)</th>
+              <th>प्रमुख संरचनात्मक बिंदु</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>सरल सूक्ष्मदर्शी</strong> (1 उत्तल लेंस, फोकस दूरी \(f\))</td>
+              <td>\(m = 1 + \frac{D}{f}\)</td>
+              <td>\(m = \frac{D}{f}\)</td>
+              <td>कम फोकस दूरी \(f\); वस्तु \(f\) के भीतर</td>
+            </tr>
+            <tr>
+              <td><strong>संयुक्त सूक्ष्मदर्शी</strong> (अभिदृश्यक \(f_o\), नेत्रिका \(f_e\))</td>
+              <td>\(m = -\frac{v_o}{u_o}\left(1 + \frac{D}{f_e}\right)\) <br/>नली की लंबाई: \(v_o + u_e\)</td>
+              <td>\(m = -\frac{v_o}{u_o}\left(\frac{D}{f_e}\right) \approx -\frac{L}{f_o}\frac{D}{f_e}\) <br/>नली की लंबाई: \(v_o + f_e\)</td>
+              <td>\(f_o\) और \(f_e\) दोनों छोटे; \(f_e &gt; f_o\); \(L\) दोनों फोकसों के बीच की दूरी है</td>
+            </tr>
+            <tr>
+              <td><strong>खगोलीय दूरदर्शी</strong> (अभिदृश्यक \(f_o\), नेत्रिका \(f_e\))</td>
+              <td>\(m = -\frac{f_o}{f_e}\left(1 + \frac{f_e}{D}\right)\) <br/>नली की लंबाई: \(f_o + u_e\)</td>
+              <td>\(m = -\frac{f_o}{f_e}\) <br/>नली की लंबाई: \(f_o + f_e\)</td>
+              <td>बड़ा \(f_o\) और बड़ा द्वारक (प्रकाश संग्रहण व विभेदन हेतु); छोटा \(f_e\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>परावर्ती दूरदर्शी (कैसग्रेन प्रकार):</strong> आधुनिक बड़े दूरदर्शियों में लेंस के स्थान पर परवलयाकार अवतल प्राथमिक दर्पण और उत्तल द्वितीयक दर्पण का उपयोग होता है। इसके लाभ: (1) <strong>वर्ण विपथन (chromatic aberration)</strong> पूर्णतः अनुपस्थित होता है, (2) भार कम होता है तथा दर्पण को पीछे से आसानी से सहारा दिया जा सकता है, और (3) गोलीय विपथन कम होता है।</p>
+      </div>
+    </section>
+
+    <!-- 8. WORKED EXAMPLES -->
+    <section id="worked-examples">
+      <h2>Worked Examples</h2>
+      <h2 lang="hi">हल किए गए उदाहरण</h2>
+
+      <!-- Example 1 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-label">English</span>
+          <h3>Example 1: Applying the Mirror Equation and Magnification</h3>
+          <p><strong>Problem (Assumed values):</strong> A small object of height \(2.0\,\mathrm{cm}\) is placed at a distance of \(24\,\mathrm{cm}\) in front of a concave mirror of radius of curvature \(32\,\mathrm{cm}\). Find the position, nature, and height of the image.</p>
+          <p><strong>Solution:</strong></p>
+          <p>Using the Cartesian sign convention, for a concave mirror:</p>
+          <p>\(R = -32\,\mathrm{cm} \implies f = \frac{R}{2} = -16\,\mathrm{cm}\), and \(u = -24\,\mathrm{cm}\), \(h = +2.0\,\mathrm{cm}\).</p>
+          <p>Applying the mirror equation \(\frac{1}{v} + \frac{1}{u} = \frac{1}{f}\):</p>
+          \[ \frac{1}{v} = \frac{1}{-16} - \frac{1}{-24} = -\frac{1}{16} + \frac{1}{24} = \frac{-3 + 2}{48} = -\frac{1}{48} \implies v = -48\,\mathrm{cm} \]
+          <p>Linear magnification: \(m = -\frac{v}{u} = -\frac{(-48)}{(-24)} = -2\).</p>
+          <p>Image height: \(h' = m \cdot h = (-2)(2.0\,\mathrm{cm}) = -4.0\,\mathrm{cm}\).</p>
+          <p><strong>Result:</strong> The image is formed \(48\,\mathrm{cm}\) in front of the mirror, and is <strong>real, inverted, and magnified</strong> with height \(4.0\,\mathrm{cm}\).</p>
+        </div>
+
+        <hr/>
+
+        <div class="lang-hi" lang="hi">
+          <span class="lang-label">हिन्दी (Hindi)</span>
+          <h3>उदाहरण 1: दर्पण समीकरण और आवर्धन का अनुप्रयोग</h3>
+          <p><strong>प्रश्न (काल्पनिक मान):</strong> \(32\,\mathrm{cm}\) वक्रता त्रिज्या वाले अवतल दर्पण के सामने \(24\,\mathrm{cm}\) की दूरी पर \(2.0\,\mathrm{cm}\) ऊँचाई की एक छोटी वस्तु रखी है। प्रतिबिंब की स्थिति, प्रकृति और ऊँचाई ज्ञात कीजिए।</p>
+          <p><strong>हल:</strong></p>
+          <p>कार्तीय चिह्न परिपाटी के अनुसार, अवतल दर्पण के लिए:</p>
+          <p>\(R = -32\,\mathrm{cm} \implies f = \frac{R}{2} = -16\,\mathrm{cm}\), तथा \(u = -24\,\mathrm{cm}\), \(h = +2.0\,\mathrm{cm}\)।</p>
+          <p>दर्पण समीकरण \(\frac{1}{v} + \frac{1}{u} = \frac{1}{f}\) से:</p>
+          \[ \frac{1}{v} = \frac{1}{-16} - \frac{1}{-24} = -\frac{1}{16} + \frac{1}{24} = \frac{-3 + 2}{48} = -\frac{1}{48} \implies v = -48\,\mathrm{cm} \]
+          <p>रैखिक आवर्धन: \(m = -\frac{v}{u} = -\frac{(-48)}{(-24)} = -2\)।</p>
+          <p>प्रतिबिंब की ऊँचाई: \(h' = m \cdot h = (-2)(2.0\,\mathrm{cm}) = -4.0\,\mathrm{cm}\)।</p>
+          <p><strong>परिणाम:</strong> प्रतिबिंब दर्पण के सामने \(48\,\mathrm{cm}\) पर बनता है, तथा यह <strong>वास्तविक, उल्टा और आवर्धित</strong> (\(4.0\,\mathrm{cm}\) ऊँचा) है।</p>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-label">English</span>
+          <h3>Example 2: Total Internal Reflection and Area of Emergence</h3>
+          <p><strong>Problem (Assumed values):</strong> A point light source is placed at the bottom of a tank filled with a transparent liquid of refractive index \(n = \sqrt{2}\) up to a depth of \(h = 1.0\,\mathrm{m}\). Find the area of the liquid surface through which light can emerge into air (\(n_{\text{air}} = 1\)).</p>
+          <p><strong>Solution:</strong></p>
+          <p>Light emerges only within a cone whose half-angle equals the critical angle \(i_c\):</p>
+          \[ \sin i_c = \frac{1}{n} = \frac{1}{\sqrt{2}} \implies i_c = 45^\circ \]
+          <p>The radius \(r\) of the circular patch on the surface is:</p>
+          \[ r = h \tan i_c = (1.0\,\mathrm{m}) \tan 45^\circ = 1.0\,\mathrm{m} \]
+          <p>Therefore, the area of emergence is:</p>
+          \[ A = \pi r^2 = \pi (1.0)^2 = \pi\,\mathrm{m^2} \approx 3.14\,\mathrm{m^2} \]
+        </div>
+
+        <hr/>
+
+        <div class="lang-hi" lang="hi">
+          <span class="lang-label">हिन्दी (Hindi)</span>
+          <h3>उदाहरण 2: पूर्ण आंतरिक परावर्तन और निर्गत प्रकाश का क्षेत्रफल</h3>
+          <p><strong>प्रश्न (काल्पनिक मान):</strong> \(n = \sqrt{2}\) अपवर्तनांक वाले पारदर्शी द्रव से \(h = 1.0\,\mathrm{m}\) गहराई तक भरे टैंक की तली पर एक बिंदु प्रकाश स्रोत रखा है। द्रव की सतह का वह क्षेत्रफल ज्ञात कीजिए जिससे प्रकाश वायु (\(n_{\text{air}} = 1\)) में बाहर निकल सकता है।</p>
+          <p><strong>हल:</strong></p>
+          <p>प्रकाश केवल उसी शंकु के भीतर बाहर निकलेगा जिसका अर्ध-शीर्ष कोण क्रांतिक कोण \(i_c\) के बराबर है:</p>
+          \[ \sin i_c = \frac{1}{n} = \frac{1}{\sqrt{2}} \implies i_c = 45^\circ \]
+          <p>सतह पर बने वृत्ताकार क्षेत्र की त्रिज्या \(r\):</p>
+          \[ r = h \tan i_c = (1.0\,\mathrm{m}) \tan 45^\circ = 1.0\,\mathrm{m} \]
+          <p>अतः निर्गत प्रकाश का क्षेत्रफल:</p>
+          \[ A = \pi r^2 = \pi (1.0)^2 = \pi\,\mathrm{m^2} \approx 3.14\,\mathrm{m^2} \]
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-label">English</span>
+          <h3>Example 3: Focal Length of a Lens Immersed in a Liquid</h3>
+          <p><strong>Problem (Assumed values):</strong> A biconvex glass lens (\(n_g = 1.5\)) has a focal length of \(+15\,\mathrm{cm}\) in air (\(n_a = 1\)). What is its focal length when completely immersed in a liquid of refractive index \(n_l = 1.25\)?</p>
+          <p><strong>Solution:</strong></p>
+          <p>Using the Lens Maker's formula in air and in the liquid:</p>
+          \[ \frac{1}{f_{\text{air}}} = (n_g - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) = (1.5 - 1)K = 0.5\,K \]
+          \[ \frac{1}{f_{\text{liq}}} = \left(\frac{n_g}{n_l} - 1\right)K = \left(\frac{1.5}{1.25} - 1\right)K = (1.2 - 1)K = 0.2\,K \]
+          <p>Dividing the first equation by the second:</p>
+          \[ \frac{f_{\text{liq}}}{f_{\text{air}}} = \frac{0.5}{0.2} = 2.5 \implies f_{\text{liq}} = 2.5 \times 15\,\mathrm{cm} = +37.5\,\mathrm{cm} \]
+        </div>
+
+        <hr/>
+
+        <div class="lang-hi" lang="hi">
+          <span class="lang-label">हिन्दी (Hindi)</span>
+          <h3>उदाहरण 3: द्रव में डुबोए गए लेंस की फोकस दूरी</h3>
+          <p><strong>प्रश्न (काल्पनिक मान):</strong> काँच (\(n_g = 1.5\)) के एक द्वि-उत्तल लेंस की वायु (\(n_a = 1\)) में फोकस दूरी \(+15\,\mathrm{cm}\) है। यदि इसे \(n_l = 1.25\) अपवर्तनांक वाले द्रव में पूर्णतः डुबो दिया जाए, तो इसकी नई फोकस दूरी क्या होगी?</p>
+          <p><strong>हल:</strong></p>
+          <p>वायु और द्रव में लेंस निर्माता सूत्र लगाने पर:</p>
+          \[ \frac{1}{f_{\text{air}}} = (n_g - 1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) = (1.5 - 1)K = 0.5\,K \]
+          \[ \frac{1}{f_{\text{liq}}} = \left(\frac{n_g}{n_l} - 1\right)K = \left(\frac{1.5}{1.25} - 1\right)K = (1.2 - 1)K = 0.2\,K \]
+          <p>प्रथम समीकरण को द्वितीय से भाग देने पर:</p>
+          \[ \frac{f_{\text{liq}}}{f_{\text{air}}} = \frac{0.5}{0.2} = 2.5 \implies f_{\text{liq}} = 2.5 \times 15\,\mathrm{cm} = +37.5\,\mathrm{cm} \]
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="example-card">
+        <div class="lang-en">
+          <span class="lang-label">English</span>
+          <h3>Example 4: Minimum Deviation in a Prism</h3>
+          <p><strong>Problem (Assumed values):</strong> An equilateral prism (\(A = 60^\circ\)) is made of glass of refractive index \(n = \sqrt{3}\). Calculate the angle of minimum deviation \(D_m\) and the angle of incidence at minimum deviation.</p>
+          <p><strong>Solution:</strong></p>
+          <p>From the prism formula:</p>
+          \[ n = \frac{\sin\left(\frac{A + D_m}{2}\right)}{\sin\left(\frac{A}{2}\right)} \implies \sqrt{3} = \frac{\sin\left(\frac{60^\circ + D_m}{2}\right)}{\sin 30^\circ} \]
+          <p>Since \(\sin 30^\circ = \frac{1}{2}\):</p>
+          \[ \sin\left(\frac{60^\circ + D_m}{2}\right) = \frac{\sqrt{3}}{2} = \sin 60^\circ \implies \frac{60^\circ + D_m}{2} = 60^\circ \implies D_m = 60^\circ \]
+          <p>Angle of incidence at minimum deviation: \(i = \frac{A + D_m}{2} = \frac{60^\circ + 60^\circ}{2} = 60^\circ\).</p>
+        </div>
+
+        <hr/>
+
+        <div class="lang-hi" lang="hi">
+          <span class="lang-label">हिन्दी (Hindi)</span>
+          <h3>उदाहरण 4: प्रिज्म में न्यूनतम विचलन कोण</h3>
+          <p><strong>प्रश्न (काल्पनिक मान):</strong> एक समबाहु प्रिज्म (\(A = 60^\circ\)) काँच का बना है जिसका अपवर्तनांक \(n = \sqrt{3}\) है। न्यूनतम विचलन कोण \(D_m\) तथा न्यूनतम विचलन की स्थिति में आपतन कोण ज्ञात कीजिए।</p>
+          <p><strong>हल:</strong></p>
+          <p>प्रिज्म सूत्र से:</p>
+          \[ n = \frac{\sin\left(\frac{A + D_m}{2}\right)}{\sin\left(\frac{A}{2}\right)} \implies \sqrt{3} = \frac{\sin\left(\frac{60^\circ + D_m}{2}\right)}{\sin 30^\circ} \]
+          <p>चूँकि \(\sin 30^\circ = \frac{1}{2}\):</p>
+          \[ \sin\left(\frac{60^\circ + D_m}{2}\right) = \frac{\sqrt{3}}{2} = \sin 60^\circ \implies \frac{60^\circ + D_m}{2} = 60^\circ \implies D_m = 60^\circ \]
+          <p>न्यूनतम विचलन पर आपतन कोण: \(i = \frac{A + D_m}{2} = \frac{60^\circ + 60^\circ}{2} = 60^\circ\)।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NEET UG PRACTICE QUESTIONS -->
+    <section id="practice-questions">
+      <h2>NEET UG Practice Questions</h2>
+      <h2 lang="hi">NEET UG अभ्यास प्रश्न</h2>
+      <p><em>Note: These are original practice questions designed for NEET UG preparation, not reproductions of past-paper items.</em></p>
+      <p lang="hi"><em>नोट: ये NEET UG की तैयारी के लिए बनाए गए मौलिक अभ्यास प्रश्न हैं, किसी विगत परीक्षा के प्रश्न नहीं।</em></p>
+
+      <!-- Question 1 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 1</span>
+            <p><strong>Q1.</strong> A convex mirror has a focal length of \(20\,\mathrm{cm}\). A real object is placed at a distance of \(20\,\mathrm{cm}\) in front of the mirror. The position and magnification of the image are:</p>
+            <ul class="options-list">
+              <li>(A) \(10\,\mathrm{cm}\) behind the mirror, \(m = +0.5\)</li>
+              <li>(B) \(10\,\mathrm{cm}\) in front of the mirror, \(m = -0.5\)</li>
+              <li>(C) At infinity, \(m = \infty\)</li>
+              <li>(D) \(20\,\mathrm{cm}\) behind the mirror, \(m = +1.0\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (A)</p>
+              <p><strong>Solution:</strong> For a convex mirror, \(f = +20\,\mathrm{cm}\) and \(u = -20\,\mathrm{cm}\). Using \(\frac{1}{v} + \frac{1}{u} = \frac{1}{f}\):
+              \[\frac{1}{v} = \frac{1}{20} - \frac{1}{-20} = \frac{2}{20} = \frac{1}{10} \implies v = +10\,\mathrm{cm}\]
+              Positive \(v\) means \(10\,\mathrm{cm}\) behind the mirror. Magnification \(m = -\frac{v}{u} = -\frac{10}{-20} = +0.5\).</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 1</span>
+            <p><strong>प्र. 1.</strong> एक उत्तल दर्पण की फोकस दूरी \(20\,\mathrm{cm}\) है। दर्पण के सामने \(20\,\mathrm{cm}\) की दूरी पर एक वास्तविक वस्तु रखी है। प्रतिबिंब की स्थिति और आवर्धन हैं:</p>
+            <ul class="options-list">
+              <li>(A) दर्पण के पीछे \(10\,\mathrm{cm}\), \(m = +0.5\)</li>
+              <li>(B) दर्पण के सामने \(10\,\mathrm{cm}\), \(m = -0.5\)</li>
+              <li>(C) अनंत पर, \(m = \infty\)</li>
+              <li>(D) दर्पण के पीछे \(20\,\mathrm{cm}\), \(m = +1.0\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (A)</p>
+              <p><strong>हल:</strong> उत्तल दर्पण के लिए \(f = +20\,\mathrm{cm}\) और \(u = -20\,\mathrm{cm}\)। दर्पण सूत्र \(\frac{1}{v} + \frac{1}{u} = \frac{1}{f}\) से:
+              \[\frac{1}{v} = \frac{1}{20} - \frac{1}{-20} = \frac{2}{20} = \frac{1}{10} \implies v = +10\,\mathrm{cm}\]
+              धनात्मक \(v\) का अर्थ है दर्पण के पीछे \(10\,\mathrm{cm}\)। आवर्धन \(m = -\frac{v}{u} = -\frac{10}{-20} = +0.5\)।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 2</span>
+            <p><strong>Q2.</strong> A coin lies at the bottom of a beaker filled with water (\(n = 4/3\)) to a depth of \(12\,\mathrm{cm}\), and above water is a layer of oil (\(n = 1.5\)) of thickness \(6\,\mathrm{cm}\). When viewed normally from air above the oil, the apparent depth of the coin from the top oil surface is:</p>
+            <ul class="options-list">
+              <li>(A) \(12\,\mathrm{cm}\)</li>
+              <li>(B) \(13\,\mathrm{cm}\)</li>
+              <li>(C) \(14\,\mathrm{cm}\)</li>
+              <li>(D) \(15\,\mathrm{cm}\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (B)</p>
+              <p><strong>Solution:</strong> Total apparent depth from air is the sum of apparent depths of each layer:
+              \[h_{\text{app}} = \frac{h_1}{n_1} + \frac{h_2}{n_2} = \frac{12}{4/3} + \frac{6}{1.5} = 9\,\mathrm{cm} + 4\,\mathrm{cm} = 13\,\mathrm{cm}\]</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 2</span>
+            <p><strong>प्र. 2.</strong> एक बीकर में \(12\,\mathrm{cm}\) गहराई तक जल (\(n = 4/3\)) भरा है और उसके ऊपर \(6\,\mathrm{cm}\) मोटाई की तेल (\(n = 1.5\)) की परत है। बीकर की तली पर रखे सिक्के को तेल की ऊपरी सतह के ठीक ऊपर वायु से अभिलंबवत देखने पर उसकी आभासी गहराई होगी:</p>
+            <ul class="options-list">
+              <li>(A) \(12\,\mathrm{cm}\)</li>
+              <li>(B) \(13\,\mathrm{cm}\)</li>
+              <li>(C) \(14\,\mathrm{cm}\)</li>
+              <li>(D) \(15\,\mathrm{cm}\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (B)</p>
+              <p><strong>हल:</strong> वायु से देखने पर कुल आभासी गहराई दोनों परतों की आभासी गहराइयों का योग होगी:
+              \[h_{\text{app}} = \frac{h_1}{n_1} + \frac{h_2}{n_2} = \frac{12}{4/3} + \frac{6}{1.5} = 9\,\mathrm{cm} + 4\,\mathrm{cm} = 13\,\mathrm{cm}\]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 3</span>
+            <p><strong>Q3.</strong> Light travels from medium A (refractive index \(1.6\)) to medium B (refractive index \(1.2\)). The critical angle for total internal reflection at the interface is:</p>
+            <ul class="options-list">
+              <li>(A) \(\sin^{-1}(3/4)\)</li>
+              <li>(B) \(\sin^{-1}(4/5)\)</li>
+              <li>(C) \(\sin^{-1}(2/3)\)</li>
+              <li>(D) \(\sin^{-1}(1/2)\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (A)</p>
+              <p><strong>Solution:</strong> Since light travels from denser medium A (\(n_1 = 1.6\)) to rarer medium B (\(n_2 = 1.2\)):
+              \[\sin i_c = \frac{n_2}{n_1} = \frac{1.2}{1.6} = \frac{3}{4} \implies i_c = \sin^{-1}\left(\frac{3}{4}\right)\]</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 3</span>
+            <p><strong>प्र. 3.</strong> प्रकाश माध्यम A (अपवर्तनांक \(1.6\)) से माध्यम B (अपवर्तनांक \(1.2\)) में जाता है। अंतरापृष्ठ पर पूर्ण आंतरिक परावर्तन के लिए क्रांतिक कोण होगा:</p>
+            <ul class="options-list">
+              <li>(A) \(\sin^{-1}(3/4)\)</li>
+              <li>(B) \(\sin^{-1}(4/5)\)</li>
+              <li>(C) \(\sin^{-1}(2/3)\)</li>
+              <li>(D) \(\sin^{-1}(1/2)\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (A)</p>
+              <p><strong>हल:</strong> चूँकि प्रकाश सघन माध्यम A (\(n_1 = 1.6\)) से विरल माध्यम B (\(n_2 = 1.2\)) में जा रहा है:
+              \[\sin i_c = \frac{n_2}{n_1} = \frac{1.2}{1.6} = \frac{3}{4} \implies i_c = \sin^{-1}\left(\frac{3}{4}\right)\]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 4</span>
+            <p><strong>Q4.</strong> Two thin lenses of powers \(+4.5\,\mathrm{D}\) and \(-2.5\,\mathrm{D}\) are placed coaxially in contact. The focal length and nature of the combination are:</p>
+            <ul class="options-list">
+              <li>(A) \(+50\,\mathrm{cm}\), converging</li>
+              <li>(B) \(-50\,\mathrm{cm}\), diverging</li>
+              <li>(C) \(+20\,\mathrm{cm}\), converging</li>
+              <li>(D) \(+2.0\,\mathrm{cm}\), converging</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (A)</p>
+              <p><strong>Solution:</strong> Net power \(P = P_1 + P_2 = +4.5\,\mathrm{D} + (-2.5\,\mathrm{D}) = +2.0\,\mathrm{D}\).
+              Focal length \(f = \frac{1}{P} = \frac{1}{2.0}\,\mathrm{m} = +0.50\,\mathrm{m} = +50\,\mathrm{cm}\). Since \(f &gt; 0\), the combination behaves as a converging lens.</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 4</span>
+            <p><strong>प्र. 4.</strong> \(+4.5\,\mathrm{D}\) तथा \(-2.5\,\mathrm{D}\) क्षमता के दो पतले लेंस समाक्षीय रूप से संपर्क में रखे गए हैं। संयोजन की फोकस दूरी एवं प्रकृति क्या होगी?</p>
+            <ul class="options-list">
+              <li>(A) \(+50\,\mathrm{cm}\), अभिसारी</li>
+              <li>(B) \(-50\,\mathrm{cm}\), अपसारी</li>
+              <li>(C) \(+20\,\mathrm{cm}\), अभिसारी</li>
+              <li>(D) \(+2.0\,\mathrm{cm}\), अभिसारी</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (A)</p>
+              <p><strong>हल:</strong> कुल क्षमता \(P = P_1 + P_2 = +4.5\,\mathrm{D} + (-2.5\,\mathrm{D}) = +2.0\,\mathrm{D}\)।
+              फोकस दूरी \(f = \frac{1}{P} = \frac{1}{2.0}\,\mathrm{m} = +0.50\,\mathrm{m} = +50\,\mathrm{cm}\)। चूँकि \(f &gt; 0\), अतः संयोजन अभिसारी लेंस की तरह कार्य करेगा।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 5</span>
+            <p><strong>Q5.</strong> Given below are two statements:</p>
+            <p><strong>Statement I:</strong> A convex lens made of glass (\(n = 1.5\)) behaves as a diverging lens when immersed in carbon disulphide (\(n = 1.65\)).</p>
+            <p><strong>Statement II:</strong> When a lens is placed in a medium of refractive index greater than that of the lens material, the focal length changes sign.</p>
+            <p>In the light of the above statements, choose the correct option:</p>
+            <ul class="options-list">
+              <li>(A) Both Statement I and Statement II are true.</li>
+              <li>(B) Both Statement I and Statement II are false.</li>
+              <li>(C) Statement I is true, but Statement II is false.</li>
+              <li>(D) Statement I is false, but Statement II is true.</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (A)</p>
+              <p><strong>Solution:</strong> From the Lens Maker's formula, \(\frac{1}{f} = \left(\frac{n_2}{n_1} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)\). For a convex lens, \(\left(\frac{1}{R_1} - \frac{1}{R_2}\right) &gt; 0\). When \(n_1 = 1.65 &gt; n_2 = 1.5\), the factor \(\left(\frac{n_2}{n_1} - 1\right)\) becomes negative, making \(f &lt; 0\) (diverging). Thus both statements are true.</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 5</span>
+            <p><strong>प्र. 5.</strong> नीचे दो कथन दिए गए हैं:</p>
+            <p><strong>कथन I:</strong> काँच (\(n = 1.5\)) का बना एक उत्तल लेंस कार्बन डाइसल्फ़ाइड (\(n = 1.65\)) में डुबोने पर अपसारी लेंस की तरह व्यवहार करता है।</p>
+            <p><strong>कथन II:</strong> जब किसी लेंस को उसके पदार्थ से अधिक अपवर्तनांक वाले माध्यम में रखा जाता है, तो उसकी फोकस दूरी का चिह्न बदल जाता है।</p>
+            <p>उपर्युक्त कथनों के आधार पर सही विकल्प चुनिए:</p>
+            <ul class="options-list">
+              <li>(A) कथन I और कथन II दोनों सत्य हैं।</li>
+              <li>(B) कथन I और कथन II दोनों असत्य हैं।</li>
+              <li>(C) कथन I सत्य है, लेकिन कथन II असत्य है।</li>
+              <li>(D) कथन I असत्य है, लेकिन कथन II सत्य है।</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (A)</p>
+              <p><strong>हल:</strong> लेंस निर्माता सूत्र \(\frac{1}{f} = \left(\frac{n_2}{n_1} - 1\right)\left(\frac{1}{R_1} - \frac{1}{R_2}\right)\) से, उत्तल लेंस के लिए \(\left(\frac{1}{R_1} - \frac{1}{R_2}\right) &gt; 0\) होता है। जब \(n_1 = 1.65 &gt; n_2 = 1.5\), तो \(\left(\frac{n_2}{n_1} - 1\right)\) ऋणात्मक हो जाता है, जिससे \(f &lt; 0\) (अपसारी) हो जाता है। अतः दोनों कथन सत्य हैं।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 6</span>
+            <p><strong>Q6.</strong> A thin prism of refracting angle \(6^\circ\) produces a minimum deviation of \(3^\circ\). The refractive index of the material of the prism is:</p>
+            <ul class="options-list">
+              <li>(A) \(1.33\)</li>
+              <li>(B) \(1.50\)</li>
+              <li>(C) \(1.60\)</li>
+              <li>(D) \(1.75\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (B)</p>
+              <p><strong>Solution:</strong> For a thin prism, \(D_m = (n - 1)A\). Substituting \(D_m = 3^\circ\) and \(A = 6^\circ\):
+              \[3^\circ = (n - 1) \times 6^\circ \implies n - 1 = 0.5 \implies n = 1.50\]</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 6</span>
+            <p><strong>प्र. 6.</strong> \(6^\circ\) अपवर्तक कोण वाला एक पतला प्रिज्म \(3^\circ\) का न्यूनतम विचलन उत्पन्न करता है। प्रिज्म के पदार्थ का अपवर्तनांक है:</p>
+            <ul class="options-list">
+              <li>(A) \(1.33\)</li>
+              <li>(B) \(1.50\)</li>
+              <li>(C) \(1.60\)</li>
+              <li>(D) \(1.75\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (B)</p>
+              <p><strong>हल:</strong> पतले प्रिज्म के लिए \(D_m = (n - 1)A\)। मान रखने पर:
+              \[3^\circ = (n - 1) \times 6^\circ \implies n - 1 = 0.5 \implies n = 1.50\]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 7</span>
+            <p><strong>Q7.</strong> An astronomical telescope in normal adjustment has a magnifying power of \(20\) and a tube length of \(105\,\mathrm{cm}\). The focal lengths of the objective and eyepiece are, respectively:</p>
+            <ul class="options-list">
+              <li>(A) \(100\,\mathrm{cm}\) and \(5\,\mathrm{cm}\)</li>
+              <li>(B) \(95\,\mathrm{cm}\) and \(10\,\mathrm{cm}\)</li>
+              <li>(C) \(80\,\mathrm{cm}\) and \(25\,\mathrm{cm}\)</li>
+              <li>(D) \(105\,\mathrm{cm}\) and \(5\,\mathrm{cm}\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (A)</p>
+              <p><strong>Solution:</strong> In normal adjustment, \(m = \frac{f_o}{f_e} = 20 \implies f_o = 20 f_e\), and tube length \(L = f_o + f_e = 105\,\mathrm{cm}\).
+              Substituting \(f_o = 20 f_e\): \(21 f_e = 105 \implies f_e = 5\,\mathrm{cm}\), and \(f_o = 20 \times 5 = 100\,\mathrm{cm}\).</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 7</span>
+            <p><strong>प्र. 7.</strong> सामान्य समायोजन में एक खगोलीय दूरदर्शी की आवर्धन क्षमता \(20\) तथा नली की लंबाई \(105\,\mathrm{cm}\) है। अभिदृश्यक और नेत्रिका की फोकस दूरियाँ क्रमशः हैं:</p>
+            <ul class="options-list">
+              <li>(A) \(100\,\mathrm{cm}\) तथा \(5\,\mathrm{cm}\)</li>
+              <li>(B) \(95\,\mathrm{cm}\) तथा \(10\,\mathrm{cm}\)</li>
+              <li>(C) \(80\,\mathrm{cm}\) तथा \(25\,\mathrm{cm}\)</li>
+              <li>(D) \(105\,\mathrm{cm}\) तथा \(5\,\mathrm{cm}\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (A)</p>
+              <p><strong>हल:</strong> सामान्य समायोजन में, \(m = \frac{f_o}{f_e} = 20 \implies f_o = 20 f_e\), और नली की लंबाई \(L = f_o + f_e = 105\,\mathrm{cm}\)।
+              \(f_o = 20 f_e\) रखने पर: \(21 f_e = 105 \implies f_e = 5\,\mathrm{cm}\), तथा \(f_o = 20 \times 5 = 100\,\mathrm{cm}\)।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question-card">
+        <div class="question-unit">
+          <div class="lang-en">
+            <span class="lang-label">English — Practice Question 8</span>
+            <p><strong>Q8.</strong> In a compound microscope, the focal lengths of the objective and eyepiece are \(1.5\,\mathrm{cm}\) and \(5.0\,\mathrm{cm}\), respectively. If the tube length (distance between \(F'_o\) and \(F_e\)) is \(15\,\mathrm{cm}\) and the final image is formed at infinity, the magnifying power is (take \(D = 25\,\mathrm{cm}\)):</p>
+            <ul class="options-list">
+              <li>(A) \(30\)</li>
+              <li>(B) \(50\)</li>
+              <li>(C) \(75\)</li>
+              <li>(D) \(100\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>Answer:</strong> (B)</p>
+              <p><strong>Solution:</strong> Using the compound microscope magnification formula for final image at infinity:
+              \[|m| = \left(\frac{L}{f_o}\right)\left(\frac{D}{f_e}\right) = \left(\frac{15}{1.5}\right)\left(\frac{25}{5.0}\right) = 10 \times 5 = 50\]</p>
+            </div>
+          </div>
+          <hr/>
+          <div class="lang-hi" lang="hi">
+            <span class="lang-label">हिन्दी (Hindi) — अभ्यास प्रश्न 8</span>
+            <p><strong>प्र. 8.</strong> एक संयुक्त सूक्ष्मदर्शी के अभिदृश्यक और नेत्रिका की फोकस दूरियाँ क्रमशः \(1.5\,\mathrm{cm}\) और \(5.0\,\mathrm{cm}\) हैं। यदि नली की लंबाई (\(F'_o\) व \(F_e\) के बीच की दूरी) \(15\,\mathrm{cm}\) है और अंतिम प्रतिबिंब अनंत पर बनता है, तो आवर्धन क्षमता होगी (\(D = 25\,\mathrm{cm}\) लें):</p>
+            <ul class="options-list">
+              <li>(A) \(30\)</li>
+              <li>(B) \(50\)</li>
+              <li>(C) \(75\)</li>
+              <li>(D) \(100\)</li>
+            </ul>
+            <div class="solution-box">
+              <p><strong>उत्तर:</strong> (B)</p>
+              <p><strong>हल:</strong> अंतिम प्रतिबिंब अनंत पर बनने की स्थिति में संयुक्त सूक्ष्मदर्शी की आवर्धन क्षमता:
+              \[|m| = \left(\frac{L}{f_o}\right)\left(\frac{D}{f_e}\right) = \left(\frac{15}{1.5}\right)\left(\frac{25}{5.0}\right) = 10 \times 5 = 50\]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. COMMON PITFALLS AND REVISION CHECKLIST -->
+    <section id="pitfalls">
+      <h2>Common Pitfalls &amp; Revision Checklist</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <ul>
+          <li><strong>Sign Convention Mix-ups:</strong> Never substitute signs into an algebraic formula twice. Always assign signs once to known numerical values (\(u, v, f, R\)), leaving the unknown variable without an assumed sign.</li>
+          <li><strong>Optical vs. Mass Density:</strong> Higher mass density does not guarantee a higher refractive index. Always compare \(n\) values directly.</li>
+          <li><strong>TIR Direction Trap:</strong> Total Internal Reflection occurs <em>only</em> when light travels from a denser medium to a rarer medium (\(n_{\text{incident}} &gt; n_{\text{refracted}}\)) and \(i &gt; i_c\).</li>
+          <li><strong>Prism Maximum Angle for No Emergence:</strong> No ray can emerge from the second face of a prism of any angle of incidence if \(A &gt; 2 i_c\).</li>
+          <li><strong>Microscope vs. Telescope Lenses:</strong> In a microscope, both \(f_o\) and \(f_e\) are small (with \(f_e &gt; f_o\)). In a telescope, \(f_o\) is very large (and aperture is large) while \(f_e\) is small.</li>
+        </ul>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <ul>
+          <li><strong>चिह्न परिपाटी में त्रुटि:</strong> किसी सूत्र में चिह्न दो बार न लगाएँ। केवल ज्ञात राशियों (\(u, v, f, R\)) के संख्यात्मक मानों में एक बार चिह्न रखें, तथा अज्ञात राशि को बिना चिह्न माने हल करें।</li>
+          <li><strong>प्रकाशिक बनाम द्रव्यमान घनत्व:</strong> अधिक द्रव्यमान घनत्व का अर्थ सदैव अधिक अपवर्तनांक नहीं होता। हमेशा \(n\) के मानों की तुलना करें।</li>
+          <li><strong>TIR की दिशा:</strong> पूर्ण आंतरिक परावर्तन <em>केवल</em> तभी होता है जब प्रकाश सघन माध्यम से विरल माध्यम में जाए (\(n_{\text{आपतित}} &gt; n_{\text{अपवर्तित}}\)) और \(i &gt; i_c\) हो।</li>
+          <li><strong>प्रिज्म से निर्गमन न होने की शर्त:</strong> यदि \(A &gt; 2 i_c\) हो, तो किसी भी आपतन कोण के लिए प्रिज्म के दूसरे पृष्ठ से कोई किरण बाहर नहीं निकलेगी।</li>
+          <li><strong>सूक्ष्मदर्शी बनाम दूरदर्शी के लेंस:</strong> सूक्ष्मदर्शी में \(f_o\) व \(f_e\) दोनों छोटे होते हैं (\(f_e &gt; f_o\)), जबकि दूरदर्शी में \(f_o\) बहुत बड़ा (और द्वारक बड़ा) तथा \(f_e\) छोटा होता है।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 11. CONCISE FINAL RECAP -->
+    <section id="recap">
+      <h2>Concise Final Recap</h2>
+
+      <div class="lang-en">
+        <span class="lang-label">English</span>
+        <p><strong>Key Equations at a Glance:</strong> Mirror: \(\frac{1}{v}+\frac{1}{u}=\frac{1}{f}\), \(m=-\frac{v}{u}\); Snell's Law: \(n_1 \sin i = n_2 \sin r\); Critical Angle: \(\sin i_c = \frac{n_{\text{rarer}}}{n_{\text{denser}}}\); Spherical Surface: \(\frac{n_2}{v}-\frac{n_1}{u}=\frac{n_2-n_1}{R}\); Lens Maker: \(\frac{1}{f}=\left(\frac{n_2}{n_1}-1\right)\left(\frac{1}{R_1}-\frac{1}{R_2}\right)\); Thin Lens: \(\frac{1}{v}-\frac{1}{u}=\frac{1}{f}\), \(P=\frac{1}{f(\mathrm{m})}\); Prism: \(A = r_1+r_2\), \(\delta = i+e-A\), \(n = \frac{\sin[(A+D_m)/2]}{\sin(A/2)}\); Instruments (relaxed eye): Simple \(m = D/f\), Compound \(m \approx \frac{L}{f_o}\frac{D}{f_e}\), Telescope \(m = f_o/f_e\).</p>
+      </div>
+
+      <div class="lang-hi" lang="hi">
+        <span class="lang-label">हिन्दी (Hindi)</span>
+        <p><strong>प्रमुख सूत्र संक्षेप में:</strong> दर्पण: \(\frac{1}{v}+\frac{1}{u}=\frac{1}{f}\), \(m=-\frac{v}{u}\); स्नेल नियम: \(n_1 \sin i = n_2 \sin r\); क्रांतिक कोण: \(\sin i_c = \frac{n_{\text{विरल}}}{n_{\text{सघन}}}\); गोलीय पृष्ठ: \(\frac{n_2}{v}-\frac{n_1}{u}=\frac{n_2-n_1}{R}\); लेंस निर्माता: \(\frac{1}{f}=\left(\frac{n_2}{n_1}-1\right)\left(\frac{1}{R_1}-\frac{1}{R_2}\right)\); पतला लेंस: \(\frac{1}{v}-\frac{1}{u}=\frac{1}{f}\), \(P=\frac{1}{f(\mathrm{m})}\); प्रिज्म: \(A = r_1+r_2\), \(\delta = i+e-A\), \(n = \frac{\sin[(A+D_m)/2]}{\sin(A/2)}\); यंत्र (श्रांत नेत्र): सरल \(m = D/f\), संयुक्त \(m \approx \frac{L}{f_o}\frac{D}{f_e}\), दूरदर्शी \(m = f_o/f_e\)।</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

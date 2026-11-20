@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thermodynamics — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --accent: #0D9488;
+      --bg: #FFFFFF;
+      --surface: #F8FAFC;
+      --border: #CBD5E1;
+      --warn-bg: #FEF2F2;
+      --warn-border: #DC2626;
+      --tip-bg: #F0FDFA;
+      --tip-border: #0D9488;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--bg);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: #EFF6FF;
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      line-height: 1.3;
+      margin: 34px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+      color: var(--ink);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.35;
+      margin: 22px 0 10px;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 14px;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 16px;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+    }
+
+    .card.tip {
+      background-color: var(--tip-bg);
+      border-left-color: var(--tip-border);
+    }
+
+    .card.warning {
+      background-color: var(--warn-bg);
+      border-left-color: var(--warn-border);
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 16px 0;
+      text-align: center;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .formula-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: #EFF6FF;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    figure.diagram {
+      margin: 22px 0;
+      padding: 14px;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      max-width: 100%;
+    }
+
+    figure.diagram svg {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .example-block {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+    }
+
+    .example-block h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .question-block {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      background-color: #FFFFFF;
+    }
+
+    .question-stem {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 8px;
+      margin: 0;
+    }
+
+    .options-list li {
+      margin-bottom: 6px;
+    }
+
+    .answer-key-grid {
+      display: block;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+
+    .solution-item {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .solution-item:last-child {
+      border-bottom: none;
+    }
+
+    .mjx-container {
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
+
+      body {
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: #000000;
+        background: #FFFFFF;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .card, .formula-box, figure.diagram, .example-block, .question-block, .solution-item, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .exam-badge {
+        border: 1px solid #000000;
+        color: #000000;
+        background: #F8FAFC;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    <header class="doc-header">
+      <div class="exam-badge">NEET UG Physics &bull; Core Thermal Physics</div>
+      <h1>Thermodynamics: Laws, Processes, and Heat Engines</h1>
+      <p class="subtitle">A complete conceptual and problem-solving guide to thermal equilibrium, the First and Second Laws of Thermodynamics, ideal gas processes, and Carnot cycles.</p>
+    </header>
+
+    <section id="objectives">
+      <h2>Learning Objectives and Overview</h2>
+      <p>Thermodynamics investigates how thermal energy (heat) and mechanical energy (work) are interconverted in bulk matter. Unlike mechanics, which tracks the motion of a body as a whole, thermodynamics focuses on the <strong>internal macroscopic state</strong> of a system.</p>
+      <ul>
+        <li>Distinguish between thermodynamic equilibrium, mechanical equilibrium, and thermal equilibrium using the Zeroth Law.</li>
+        <li>Classify thermodynamic quantities into state variables versus path functions, and intensive versus extensive variables.</li>
+        <li>Apply the First Law of Thermodynamics with accurate sign conventions to isochoric, isobaric, isothermal, adiabatic, and cyclic processes.</li>
+        <li>Relate molar specific heat capacities of ideal gases via Mayer's relation (\(C_P - C_V = R\)) and analyze \(P\)–\(V\) indicator diagrams.</li>
+        <li>Understand the limitations imposed by the Second Law of Thermodynamics, reversibility, and the maximum efficiency of a Carnot engine.</li>
+      </ul>
+    </section>
+
+    <section id="equilibrium-zeroth">
+      <h2>Thermal Equilibrium and the Zeroth Law</h2>
+      <p>A macroscopic system is in <strong>thermodynamic equilibrium</strong> when its observable properties—such as pressure (\(P\)), volume (\(V\)), temperature (\(T\)), mass, and chemical composition—remain constant over time. Whether two systems exchange energy depends on the boundary separating them:</p>
+      <ul>
+        <li><strong>Adiabatic wall:</strong> An insulating boundary that prevents any heat flow between the system and its surroundings.</li>
+        <li><strong>Diathermic wall:</strong> A conducting boundary that permits heat transfer until both sides reach the same thermal state.</li>
+      </ul>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 640 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zeroth Law of Thermodynamics schematic">
+          <rect x="0" y="0" width="640" height="210" fill="#F8FAFC" rx="6" />
+          <!-- Left Panel: A and B separately in contact with C -->
+          <text x="155" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">(a) Separate Equilibrium with C</text>
+          <rect x="45" y="40" width="220" height="44" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+          <text x="155" y="67" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">System C</text>
+          <!-- Diathermic wall between C and A/B -->
+          <rect x="45" y="84" width="220" height="12" fill="#0D9488" />
+          <text x="155" y="94" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle">Diathermic Wall</text>
+          <!-- System A -->
+          <rect x="45" y="96" width="98" height="72" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" />
+          <text x="94" y="137" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">A</text>
+          <!-- Adiabatic wall between A and B -->
+          <rect x="143" y="96" width="24" height="72" fill="#CBD5E1" stroke="#475569" stroke-width="1.5" />
+          <text x="155" y="136" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="middle" transform="rotate(-90 155 136)">Adiabatic</text>
+          <!-- System B -->
+          <rect x="167" y="96" width="98" height="72" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" />
+          <text x="216" y="137" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">B</text>
+          <text x="155" y="192" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">TA = TC and TB = TC</text>
+
+          <!-- Divider -->
+          <line x1="320" y1="20" x2="320" y2="195" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+
+          <!-- Right Panel: A and B in contact -->
+          <text x="485" y="24" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">(b) Mutual Equilibrium (TA = TB)</text>
+          <rect x="375" y="40" width="220" height="44" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" />
+          <text x="485" y="67" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">System C</text>
+          <!-- Adiabatic wall between C and A/B -->
+          <rect x="375" y="84" width="220" height="12" fill="#CBD5E1" stroke="#475569" stroke-width="1" />
+          <text x="485" y="94" font-family="sans-serif" font-size="10" font-weight="700" fill="#1E293B" text-anchor="middle">Adiabatic Wall</text>
+          <!-- System A -->
+          <rect x="375" y="96" width="98" height="72" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" />
+          <text x="424" y="137" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">A</text>
+          <!-- Diathermic wall between A and B -->
+          <rect x="473" y="96" width="24" height="72" fill="#0D9488" />
+          <text x="485" y="136" font-family="sans-serif" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" transform="rotate(-90 485 136)">Diathermic</text>
+          <!-- System B -->
+          <rect x="497" y="96" width="98" height="72" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" />
+          <text x="546" y="137" font-family="sans-serif" font-size="15" font-weight="700" fill="#1E293B" text-anchor="middle">B</text>
+          <text x="485" y="192" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">No further state change: TA = TB</text>
+        </svg>
+        <figcaption>Tutorial Diagram 1: Operational meaning of the Zeroth Law of Thermodynamics using adiabatic and diathermic walls.</figcaption>
+      </figure>
+
+      <div class="card">
+        <div class="card-title">Zeroth Law of Thermodynamics</div>
+        <p style="margin-bottom:0;">If two systems \(A\) and \(B\) are each separately in thermal equilibrium with a third system \(C\), then \(A\) and \(B\) are in thermal equilibrium with each other. This law establishes <strong>temperature (\(T\))</strong> as the universal state variable that has the same value for systems in thermal equilibrium.</p>
+      </div>
+
+      <h3>State Variables and Classification</h3>
+      <p>An equilibrium state of a fixed mass of an ideal gas is governed by its <strong>equation of state</strong>:</p>
+      <div class="formula-box">
+        \[P V = \mu R T\]
+      </div>
+      <p>where \(\mu\) is the number of moles and \(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\) is the universal gas constant. To test whether a state variable is <strong>intensive</strong> or <strong>extensive</strong>, mentally divide a uniform equilibrium system into two equal halves: variables that stay unchanged are intensive, while those that halve are extensive.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Classification</th>
+            <th>Definition</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Intensive Variables</strong></td>
+            <td>Independent of system size or mass</td>
+            <td>Pressure (\(P\)), Temperature (\(T\)), Density (\(\rho\)), Molar heat capacity (\(C\))</td>
+          </tr>
+          <tr>
+            <td><strong>Extensive Variables</strong></td>
+            <td>Proportional to the size or mass of the system</td>
+            <td>Volume (\(V\)), Mass (\(M\)), Internal energy (\(U\)), Heat capacity (\(S\))</td>
+          </tr>
+          <tr>
+            <td><strong>Path Functions</strong></td>
+            <td>Depend on the process path, not just endpoints</td>
+            <td>Heat transferred (\(\Delta Q\)), Work done (\(\Delta W\))</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="first-law">
+      <h2>Internal Energy, Heat, Work, and the First Law</h2>
+      <p><strong>Internal energy (\(U\))</strong> is the sum of the random kinetic energies (translational, rotational, vibrational) and intermolecular potential energies of all molecules in the frame where the system's centre of mass is at rest. Bulk kinetic energy of a moving container does <em>not</em> contribute to \(U\). For an ideal gas (negligible intermolecular forces), \(U\) depends <strong>solely on temperature \(T\)</strong>.</p>
+      <p><strong>Heat (\(Q\))</strong> and <strong>Work (\(W\))</strong> are not properties stored inside a system; they are <em>modes of energy in transit</em> across the system boundary. Heat flows due to a temperature difference, whereas work is energy transfer via macroscopic mechanical displacement (such as moving a piston).</p>
+
+      <div class="formula-box">
+        <span class="formula-label">First Law of Thermodynamics (Energy Conservation)</span>
+        \[\Delta Q = \Delta U + \Delta W\]
+      </div>
+
+      <p>For a gas expanding quasi-statically against a pressure \(P\) by a small volume \(dV\), the work done by the gas is \(dW = P\,dV\), giving the differential form:</p>
+      <div class="formula-box">
+        \[dQ = dU + P\,dV \qquad \text{and} \qquad W = \int_{V_1}^{V_2} P\,dV\]
+      </div>
+
+      <div class="card tip">
+        <div class="card-title">Standard Physics Sign Convention (NEET UG)</div>
+        <ul style="margin-bottom:0;">
+          <li>\(\Delta Q &gt; 0\): Heat absorbed <strong>by</strong> the system; &nbsp; \(\Delta Q &lt; 0\): Heat released <strong>by</strong> the system.</li>
+          <li>\(\Delta W &gt; 0\): Work done <strong>by</strong> the system (expansion, \(\Delta V &gt; 0\)); &nbsp; \(\Delta W &lt; 0\): Work done <strong>on</strong> the system (compression, \(\Delta V &lt; 0\)).</li>
+          <li>\(\Delta U &gt; 0\): Internal energy increases (temperature rises for an ideal gas).</li>
+          <li><strong>Path independence:</strong> Although \(\Delta Q\) and \(\Delta W\) depend on the path, their difference \(\Delta Q - \Delta W = \Delta U\) depends <em>only</em> on the initial and final states.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="specific-heat">
+      <h2>Specific Heat Capacities and Mayer's Relation</h2>
+      <p>The heat \(\Delta Q\) needed to raise the temperature of a substance by \(\Delta T\) defines its heat capacity \(S = \Delta Q / \Delta T\). Dividing by mass \(m\) gives <strong>specific heat capacity</strong> \(s\), while dividing by moles \(\mu\) gives <strong>molar specific heat capacity</strong> \(C\):</p>
+      <div class="formula-box">
+        \[s = \frac{1}{m}\frac{\Delta Q}{\Delta T} \quad (\mathrm{J\,kg^{-1}\,K^{-1}}) \qquad \text{and} \qquad C = \frac{1}{\mu}\frac{\Delta Q}{\Delta T} \quad (\mathrm{J\,mol^{-1}\,K^{-1}})\]
+      </div>
+      <ul>
+        <li><strong>Water and the calorie:</strong> One calorie is the heat required to raise \(1\,\mathrm{g}\) of water from \(14.5\,^\circ\mathrm{C}\) to \(15.5\,^\circ\mathrm{C}\). In SI units, \(1\,\mathrm{cal} = 4.186\,\mathrm{J}\), and the specific heat capacity of water is \(4186\,\mathrm{J\,kg^{-1}\,K^{-1}}\).</li>
+        <li><strong>Solids (Dulong-Petit prediction):</strong> Treating each atom in a solid as a 3D harmonic oscillator with average energy \(3k_B T\), one mole has \(U = 3RT\). Since \(\Delta V\) is negligible for solids, \(C \approx \frac{\Delta U}{\Delta T} = 3R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}\) at room temperature (carbon is a notable low-value exception at room temperature).</li>
+      </ul>
+
+      <h3>Molar Specific Heats of an Ideal Gas</h3>
+      <p>Because heat capacity depends on the process path, two standard conditions are defined for gases: constant volume (\(C_V\)) and constant pressure (\(C_P\)).</p>
+      <ul>
+        <li>At constant volume (\(\Delta V = 0\)): \(\Delta Q = \Delta U \implies C_V = \left(\frac{\Delta U}{\Delta T}\right)_V = \frac{dU}{dT}\) (for 1 mole of an ideal gas).</li>
+        <li>At constant pressure: \(\Delta Q = \Delta U + P\Delta V\). Using \(PV = RT\) for 1 mole gives \(P\Delta V = R\Delta T\), which yields <strong>Mayer's relation</strong>:</li>
+      </ul>
+      <div class="formula-box">
+        \[C_P - C_V = R \qquad \text{and} \qquad \gamma = \frac{C_P}{C_V}\]
+      </div>
+      <p>For an ideal gas with \(f\) degrees of freedom: \(C_V = \frac{f}{2}R\), \(C_P = \left(\frac{f}{2}+1\right)R\), and \(\gamma = 1 + \frac{2}{f}\). (Monatomic: \(f=3, \gamma = \frac{5}{3}\); Diatomic rigid: \(f=5, \gamma = \frac{7}{5}\)).</p>
+    </section>
+
+    <section id="processes">
+      <h2>Thermodynamic Processes and \(P\)–\(V\) Analysis</h2>
+      <p>A <strong>quasi-static process</strong> proceeds infinitely slowly so that the system remains in mechanical and thermal equilibrium with its surroundings at every intermediate stage, allowing it to be traced as a continuous curve on a \(P\)–\(V\) diagram. Rapid processes—such as <strong>free expansion</strong> of a gas into vacuum or an explosive combustion—pass through non-equilibrium states where \(P\) and \(T\) are not uniformly defined.</p>
+
+      <div class="card">
+        <div class="card-title">Free Expansion of an Ideal Gas</div>
+        <p style="margin-bottom:0;">When an ideal gas expands freely into an evacuated, thermally insulated chamber, there is no heat exchange (\(\Delta Q = 0\)) and no external pressure to push against (\(\Delta W = 0\)). By the First Law, \(\Delta U = 0\), so the <strong>initial and final equilibrium temperatures are equal</strong> (\(T_f = T_i\)).</p>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Process</th>
+            <th>Condition</th>
+            <th>Gas Relation</th>
+            <th>Work Done (\(W\))</th>
+            <th>First Law (\(\Delta Q\))</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Isochoric</strong></td>
+            <td>\(V = \text{const}\)</td>
+            <td>\(\frac{P}{T} = \text{const}\)</td>
+            <td>\(0\)</td>
+            <td>\(\Delta Q = \Delta U = \mu C_V \Delta T\)</td>
+          </tr>
+          <tr>
+            <td><strong>Isobaric</strong></td>
+            <td>\(P = \text{const}\)</td>
+            <td>\(\frac{V}{T} = \text{const}\)</td>
+            <td>\(P(V_2 - V_1) = \mu R \Delta T\)</td>
+            <td>\(\Delta Q = \mu C_P \Delta T\)</td>
+          </tr>
+          <tr>
+            <td><strong>Isothermal</strong></td>
+            <td>\(T = \text{const}\)</td>
+            <td>\(PV = \text{const}\)</td>
+            <td>\(\mu R T \ln\!\left(\frac{V_2}{V_1}\right)\)</td>
+            <td>\(\Delta U = 0 \implies \Delta Q = W\)</td>
+          </tr>
+          <tr>
+            <td><strong>Adiabatic</strong></td>
+            <td>\(\Delta Q = 0\)</td>
+            <td>\(PV^\gamma = \text{const}\)</td>
+            <td>\(\frac{P_1 V_1 - P_2 V_2}{\gamma - 1} = \frac{\mu R (T_1 - T_2)}{\gamma - 1}\)</td>
+            <td>\(\Delta U = -W\)</td>
+          </tr>
+          <tr>
+            <td><strong>Cyclic</strong></td>
+            <td>Returns to initial state</td>
+            <td>\(\Delta U = 0\)</td>
+            <td>Area enclosed by loop</td>
+            <td>\(Q_{\text{net}} = W_{\text{net}}\)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 520 290" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of isothermal and adiabatic curves on a P-V diagram">
+          <rect x="0" y="0" width="520" height="290" fill="#F8FAFC" rx="6" />
+          <!-- Axes -->
+          <line x1="70" y1="240" x2="470" y2="240" stroke="#1E293B" stroke-width="2" />
+          <line x1="70" y1="240" x2="70" y2="30" stroke="#1E293B" stroke-width="2" />
+          <polygon points="470,235 480,240 470,245" fill="#1E293B" />
+          <polygon points="65,30 70,20 75,30" fill="#1E293B" />
+          <text x="485" y="245" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B">V</text>
+          <text x="65" y="15" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B">P</text>
+
+          <!-- Dashed guide lines -->
+          <line x1="140" y1="70" x2="140" y2="240" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1="390" y1="142" x2="390" y2="240" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+          <text x="140" y="258" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">V₁</text>
+          <text x="390" y="258" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">V₂</text>
+
+          <!-- Isothermal curve: P ~ 1/V -->
+          <path d="M 140 70 Q 240 120 390 142" fill="none" stroke="#2563EB" stroke-width="3" />
+          <!-- Adiabatic curve: steeper drop -->
+          <path d="M 140 70 Q 230 155 390 198" fill="none" stroke="#0D9488" stroke-width="3" />
+
+          <!-- Points -->
+          <circle cx="140" cy="70" r="4.5" fill="#1E293B" />
+          <circle cx="390" cy="142" r="4.5" fill="#2563EB" />
+          <circle cx="390" cy="198" r="4.5" fill="#0D9488" />
+
+          <!-- Labels -->
+          <text x="148" y="62" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Initial State (P₁, V₁, T₁)</text>
+          <text x="320" y="122" font-family="sans-serif" font-size="13" font-weight="700" fill="#2563EB">Isothermal (T₁)</text>
+          <text x="295" y="216" font-family="sans-serif" font-size="13" font-weight="700" fill="#0D9488">Adiabatic (T₂ &lt; T₁)</text>
+        </svg>
+        <figcaption>Tutorial Diagram 2: Starting from the same state, an adiabatic expansion has a steeper negative slope than an isothermal expansion, resulting in lower final pressure and less work done.</figcaption>
+      </figure>
+
+      <p>Notice the slope relationship on a \(P\)–\(V\) diagram: for an isothermal curve, \(\left(\frac{dP}{dV}\right)_{\text{iso}} = -\frac{P}{V}\), whereas for an adiabatic curve, \(\left(\frac{dP}{dV}\right)_{\text{adi}} = -\gamma\frac{P}{V}\). Since \(\gamma &gt; 1\), the adiabatic curve is always \(\gamma\) times steeper than the isothermal curve at the point of intersection.</p>
+    </section>
+
+    <section id="second-law-carnot">
+      <h2>The Second Law, Reversibility, and the Carnot Engine</h2>
+      <p>The First Law permits any process that conserves energy, yet many energy-conserving processes never occur spontaneously—for instance, a book on a table never cools the table to launch itself upward. The <strong>Second Law of Thermodynamics</strong> specifies the allowed direction of natural processes through two equivalent statements:</p>
+      <ul>
+        <li><strong>Kelvin–Planck Statement:</strong> No cyclic process is possible whose sole result is the absorption of heat from a single reservoir and its complete conversion into work. (A heat engine cannot have \(100\%\) efficiency.)</li>
+        <li><strong>Clausius Statement:</strong> No process is possible whose sole result is the transfer of heat from a colder body to a hotter body without external work. (A refrigerator cannot have an infinite coefficient of performance.)</li>
+      </ul>
+
+      <h3>Reversible vs. Irreversible Processes</h3>
+      <p>A process is <strong>reversible</strong> only if both the system and its surroundings can be restored to their exact initial states without leaving any change elsewhere in the universe. Reversibility requires two strict idealizations: (1) the process must be <strong>quasi-static</strong>, and (2) there must be <strong>no dissipative effects</strong> such as friction, viscosity, or inelasticity. All spontaneous natural processes (free expansion, heat conduction across a finite temperature gap, diffusion, combustion) are irreversible.</p>
+
+      <h3>The Carnot Engine</h3>
+      <p>Proposed by Sadi Carnot, the Carnot engine is an idealized reversible heat engine operating between a hot reservoir (source) at absolute temperature \(T_1\) and a cold reservoir (sink) at absolute temperature \(T_2\). Its cycle consists of four reversible steps:</p>
+      <ol>
+        <li><strong>1 &rarr; 2 (Isothermal expansion at \(T_1\)):</strong> Gas absorbs heat \(Q_1 = \mu R T_1 \ln(V_2 / V_1)\) from the source and performs work \(W_{1\to 2} = Q_1\).</li>
+        <li><strong>2 &rarr; 3 (Adiabatic expansion from \(T_1\) to \(T_2\)):</strong> Insulated expansion; temperature drops from \(T_1\) to \(T_2\).</li>
+        <li><strong>3 &rarr; 4 (Isothermal compression at \(T_2\)):</strong> Gas rejects heat \(Q_2 = \mu R T_2 \ln(V_3 / V_4)\) to the sink.</li>
+        <li><strong>4 &rarr; 1 (Adiabatic compression from \(T_2\) to \(T_1\)):</strong> Insulated compression restores the gas to \((P_1, V_1, T_1)\).</li>
+      </ol>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 540 310" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carnot cycle P-V indicator diagram">
+          <rect x="0" y="0" width="540" height="310" fill="#F8FAFC" rx="6" />
+          <!-- Axes -->
+          <line x1="65" y1="265" x2="495" y2="265" stroke="#1E293B" stroke-width="2" />
+          <line x1="65" y1="265" x2="65" y2="25" stroke="#1E293B" stroke-width="2" />
+          <polygon points="495,260 505,265 495,270" fill="#1E293B" />
+          <polygon points="60,25 65,15 70,25" fill="#1E293B" />
+          <text x="512" y="270" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B">V</text>
+          <text x="60" y="14" font-family="sans-serif" font-size="14" font-weight="700" fill="#1E293B">P</text>
+
+          <!-- Shaded work area -->
+          <path d="M 130 60 Q 220 75 300 100 Q 350 175 430 225 Q 310 212 220 185 Q 155 125 130 60 Z" fill="#EFF6FF" />
+
+          <!-- 1 -> 2 Isothermal expansion -->
+          <path d="M 130 60 Q 220 75 300 100" fill="none" stroke="#2563EB" stroke-width="3" />
+          <!-- 2 -> 3 Adiabatic expansion -->
+          <path d="M 300 100 Q 350 175 430 225" fill="none" stroke="#0D9488" stroke-width="3" />
+          <!-- 3 -> 4 Isothermal compression -->
+          <path d="M 430 225 Q 310 212 220 185" fill="none" stroke="#2563EB" stroke-width="3" />
+          <!-- 4 -> 1 Adiabatic compression -->
+          <path d="M 220 185 Q 155 125 130 60" fill="none" stroke="#0D9488" stroke-width="3" />
+
+          <!-- Direction arrows -->
+          <polygon points="216,71 226,76 215,80" fill="#2563EB" />
+          <polygon points="363,164 368,175 356,170" fill="#0D9488" />
+          <polygon points="325,213 314,209 326,204" fill="#2563EB" />
+          <polygon points="168,128 164,117 175,123" fill="#0D9488" />
+
+          <!-- Vertices -->
+          <circle cx="130" cy="60" r="4.5" fill="#1E293B" />
+          <circle cx="300" cy="100" r="4.5" fill="#1E293B" />
+          <circle cx="430" cy="225" r="4.5" fill="#1E293B" />
+          <circle cx="220" cy="185" r="4.5" fill="#1E293B" />
+
+          <!-- State Labels -->
+          <text x="135" y="48" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">1 (P₁, V₁, T₁)</text>
+          <text x="308" y="96" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">2 (P₂, V₂, T₁)</text>
+          <text x="436" y="230" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">3 (P₃, V₃, T₂)</text>
+          <text x="128" y="196" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">4 (P₄, V₄, T₂)</text>
+
+          <!-- Process Labels -->
+          <text x="215" y="64" font-family="sans-serif" font-size="11" font-weight="700" fill="#2563EB" text-anchor="middle">Isothermal (Q₁ in)</text>
+          <text x="392" y="155" font-family="sans-serif" font-size="11" font-weight="700" fill="#0D9488">Adiabatic</text>
+          <text x="325" y="232" font-family="sans-serif" font-size="11" font-weight="700" fill="#2563EB" text-anchor="middle">Isothermal (Q₂ out)</text>
+          <text x="115" y="128" font-family="sans-serif" font-size="11" font-weight="700" fill="#0D9488">Adiabatic</text>
+        </svg>
+        <figcaption>Tutorial Diagram 3: The clockwise Carnot cycle on a P–V diagram. The shaded area represents the net work W = Q₁ − Q₂ delivered per cycle.</figcaption>
+      </figure>
+
+      <p>Using the adiabatic relations \(T_1 V_2^{\gamma - 1} = T_2 V_3^{\gamma - 1}\) and \(T_1 V_1^{\gamma - 1} = T_2 V_4^{\gamma - 1}\), we obtain \(\frac{V_2}{V_1} = \frac{V_3}{V_4}\), which simplifies the <strong>Carnot efficiency (\(\eta\))</strong> to:</p>
+      <div class="formula-box">
+        \[\eta = \frac{W}{Q_1} = 1 - \frac{Q_2}{Q_1} = 1 - \frac{T_2}{T_1} \qquad \text{and} \qquad \frac{Q_1}{Q_2} = \frac{T_1}{T_2}\]
+      </div>
+      <p><strong>Carnot's Theorem:</strong> Between two given reservoir temperatures \(T_1\) and \(T_2\), no engine can exceed the efficiency of a reversible Carnot engine, and this maximum efficiency is completely independent of the working substance.</p>
+    </section>
+
+    <section id="worked-examples">
+      <h2>Worked Examples</h2>
+
+      <div class="example-block">
+        <h3>Example 1: Applying the First Law to Isobaric Heating</h3>
+        <p><strong>Problem:</strong> Suppose \(2.0\,\mathrm{mol}\) of a monatomic ideal gas (\(C_V = \frac{3}{2}R\), assumed) is heated at constant pressure from \(300\,\mathrm{K}\) to \(400\,\mathrm{K}\). Taking \(R = 8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\), calculate the change in internal energy, the work done by the gas, and the total heat supplied.</p>
+        <p><strong>Solution:</strong></p>
+        <p>The temperature change is \(\Delta T = 400\,\mathrm{K} - 300\,\mathrm{K} = 100\,\mathrm{K}\).</p>
+        <p>1. Change in internal energy (depends only on \(\Delta T\) for an ideal gas):</p>
+        \[\Delta U = \mu C_V \Delta T = 2.0 \times \frac{3}{2} \times 8.314 \times 100 = 2494.2\,\mathrm{J}\]
+        <p>2. Work done by the gas at constant pressure:</p>
+        \[\Delta W = P\Delta V = \mu R \Delta T = 2.0 \times 8.314 \times 100 = 1662.8\,\mathrm{J}\]
+        <p>3. By the First Law of Thermodynamics, total heat supplied is:</p>
+        \[\Delta Q = \Delta U + \Delta W = 2494.2 + 1662.8 = 4157.0\,\mathrm{J}\]
+      </div>
+
+      <div class="example-block">
+        <h3>Example 2: Calculating Net Work from a Cyclic \(P\)–\(V\) Diagram</h3>
+        <p><strong>Problem:</strong> An ideal gas undergoes a hypothetical clockwise cyclic process \(A \to C \to B \to A\) as shown below, where pressures are in \(\mathrm{kPa}\) and volumes are in litres (\(1\,\mathrm{L} = 10^{-3}\,\mathrm{m^3}\)). Find the net work done by the gas and the net heat absorbed in one complete cycle.</p>
+        <figure class="diagram">
+          <svg viewBox="0 0 460 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triangular cyclic process A-C-B-A on P-V diagram">
+            <rect x="0" y="0" width="460" height="250" fill="#F8FAFC" rx="6" />
+            <!-- Axes -->
+            <line x1="75" y1="205" x2="410" y2="205" stroke="#1E293B" stroke-width="2" />
+            <line x1="75" y1="205" x2="75" y2="25" stroke="#1E293B" stroke-width="2" />
+            <polygon points="410,200 420,205 410,210" fill="#1E293B" />
+            <polygon points="70,25 75,15 80,25" fill="#1E293B" />
+            <text x="425" y="210" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">V (L)</text>
+            <text x="20" y="22" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">P (kPa)</text>
+
+            <!-- Grid / Guides -->
+            <line x1="75" y1="55" x2="145" y2="55" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+            <line x1="75" y1="155" x2="145" y2="155" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+            <line x1="145" y1="155" x2="145" y2="205" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+            <line x1="355" y1="155" x2="355" y2="205" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4" />
+
+            <!-- Axis ticks -->
+            <text x="65" y="60" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="end">600</text>
+            <text x="65" y="160" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="end">200</text>
+            <text x="145" y="223" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">1.0</text>
+            <text x="355" y="223" font-family="sans-serif" font-size="12" fill="#475569" text-anchor="middle">4.0</text>
+
+            <!-- Triangle A(145,155) -> C(145,55) -> B(355,155) -> A -->
+            <polygon points="145,155 145,55 355,155" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5" />
+            <!-- Arrows -->
+            <polygon points="140,108 145,98 150,108" fill="#2563EB" />
+            <polygon points="246,108 258,109 251,99" fill="#2563EB" />
+            <polygon points="255,150 245,155 255,160" fill="#2563EB" />
+
+            <!-- Vertices -->
+            <circle cx="145" cy="155" r="4" fill="#1E293B" />
+            <circle cx="145" cy="55" r="4" fill="#1E293B" />
+            <circle cx="355" cy="155" r="4" fill="#1E293B" />
+            <text x="130" y="172" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">A</text>
+            <text x="130" y="50" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">C</text>
+            <text x="364" y="158" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B">B</text>
+          </svg>
+        </figure>
+        <p><strong>Solution:</strong></p>
+        <p>Because the cycle is traversed <strong>clockwise</strong> on the \(P\)–\(V\) diagram, the net work done by the gas is positive and equals the area enclosed by the triangle:</p>
+        \[\Delta V = 4.0\,\mathrm{L} - 1.0\,\mathrm{L} = 3.0\,\mathrm{L} = 3.0 \times 10^{-3}\,\mathrm{m^3}\]
+        \[\Delta P = 600\,\mathrm{kPa} - 200\,\mathrm{kPa} = 400\,\mathrm{kPa} = 4.0 \times 10^{5}\,\mathrm{Pa}\]
+        \[W_{\text{net}} = \frac{1}{2} \times \Delta V \times \Delta P = \frac{1}{2} \times (3.0 \times 10^{-3}) \times (4.0 \times 10^{5}) = 600\,\mathrm{J}\]
+        <p>For any complete cyclic process, \(\Delta U = 0\). Therefore, net heat absorbed is \(Q_{\text{net}} = W_{\text{net}} = 600\,\mathrm{J}\).</p>
+      </div>
+
+      <div class="example-block">
+        <h3>Example 3: Adiabatic Compression and Temperature Rise</h3>
+        <p><strong>Problem:</strong> Assume \(1.0\,\mathrm{mol}\) of a monatomic ideal gas (\(\gamma = \frac{5}{3}\)) initially at \(300\,\mathrm{K}\) is compressed adiabatically to one-eighth of its initial volume (\(V_2 = V_1 / 8\)). Find its final temperature and the work done on the gas. (Take \(R = 8.3\,\mathrm{J\,mol^{-1}\,K^{-1}}\).)</p>
+        <p><strong>Solution:</strong></p>
+        <p>For a reversible adiabatic process, \(T_1 V_1^{\gamma - 1} = T_2 V_2^{\gamma - 1}\), where \(\gamma - 1 = \frac{5}{3} - 1 = \frac{2}{3}\):</p>
+        \[T_2 = T_1 \left(\frac{V_1}{V_2}\right)^{\gamma - 1} = 300 \times (8)^{2/3} = 300 \times 4 = 1200\,\mathrm{K}\]
+        <p>Work done by the gas in an adiabatic process is:</p>
+        \[W = \frac{\mu R (T_1 - T_2)}{\gamma - 1} = \frac{1.0 \times 8.3 \times (300 - 1200)}{2/3} = \frac{8.3 \times (-900) \times 3}{2} = -11205\,\mathrm{J}\]
+        <p>The negative sign confirms that \(11205\,\mathrm{J}\) of work is done <strong>on</strong> the gas.</p>
+      </div>
+
+      <div class="example-block">
+        <h3>Example 4: Carnot Engine Efficiency and Heat Rejection</h3>
+        <p><strong>Problem:</strong> A hypothetical Carnot engine operates between a hot reservoir at \(527\,^\circ\mathrm{C}\) and a cold reservoir at \(127\,^\circ\mathrm{C}\). If it absorbs \(2000\,\mathrm{J}\) of heat from the hot reservoir per cycle, determine its efficiency, work output per cycle, and heat rejected to the cold reservoir.</p>
+        <p><strong>Solution:</strong></p>
+        <p>Convert both temperatures to Kelvin first:</p>
+        \[T_1 = 527 + 273 = 800\,\mathrm{K}, \qquad T_2 = 127 + 273 = 400\,\mathrm{K}\]
+        <p>Efficiency of the Carnot engine:</p>
+        \[\eta = 1 - \frac{T_2}{T_1} = 1 - \frac{400}{800} = 0.50 \quad (50\%)\]
+        <p>Work output per cycle: \(W = \eta Q_1 = 0.50 \times 2000\,\mathrm{J} = 1000\,\mathrm{J}\).</p>
+        <p>Heat rejected to the cold reservoir: \(Q_2 = Q_1 - W = 2000 - 1000 = 1000\,\mathrm{J}\).</p>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>NEET UG Practice Questions</h2>
+      <p>Attempt all eight original practice questions below before checking the answer key and worked solutions.</p>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 1: Which of the following pairs consists exclusively of intensive thermodynamic variables?</div>
+        <ul class="options-list">
+          <li>(A) Internal energy and pressure</li>
+          <li>(B) Volume and temperature</li>
+          <li>(C) Pressure and density</li>
+          <li>(D) Mass and molar specific heat capacity</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 2: A thermodynamic system absorbs \(420\,\mathrm{J}\) of heat from its surroundings while \(180\,\mathrm{J}\) of work is done <em>on</em> the system. What is the change in its internal energy?</div>
+        <ul class="options-list">
+          <li>(A) \(+240\,\mathrm{J}\)</li>
+          <li>(B) \(+600\,\mathrm{J}\)</li>
+          <li>(C) \(-240\,\mathrm{J}\)</li>
+          <li>(D) \(-600\,\mathrm{J}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 3: An ideal gas is confined to one half of a rigid, thermally insulated container, while the other half is completely evacuated. The partition is suddenly ruptured, allowing the gas to fill the entire container. In the final equilibrium state, which statement is correct?</div>
+        <ul class="options-list">
+          <li>(A) The temperature decreases and internal energy decreases.</li>
+          <li>(B) Positive work is done by the gas and temperature remains constant.</li>
+          <li>(C) The internal energy and temperature both remain unchanged.</li>
+          <li>(D) Heat is absorbed from the walls to maintain constant temperature.</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 4: For \(1\,\mathrm{mol}\) of an ideal diatomic gas (assumed rigid, \(\gamma = \frac{7}{5}\)) heated at constant pressure, what fraction of the supplied heat is used to increase its internal energy?</div>
+        <ul class="options-list">
+          <li>(A) \(\frac{2}{7}\)</li>
+          <li>(B) \(\frac{5}{7}\)</li>
+          <li>(C) \(\frac{3}{5}\)</li>
+          <li>(D) \(\frac{2}{5}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 5: An ideal gas starting from the same initial state \((P_0, V_0, T_0)\) is expanded to double its volume (\(2V_0\)) in two separate experiments: once isothermally and once adiabatically. Which of the following correctly compares the final pressures and work done?</div>
+        <ul class="options-list">
+          <li>(A) \(P_{\text{iso}} &gt; P_{\text{adi}}\) and \(W_{\text{iso}} &gt; W_{\text{adi}}\)</li>
+          <li>(B) \(P_{\text{iso}} &lt; P_{\text{adi}}\) and \(W_{\text{iso}} &lt; W_{\text{adi}}\)</li>
+          <li>(C) \(P_{\text{iso}} &gt; P_{\text{adi}}\) and \(W_{\text{iso}} &lt; W_{\text{adi}}\)</li>
+          <li>(D) \(P_{\text{iso}} = P_{\text{adi}}\) and \(W_{\text{iso}} &gt; W_{\text{adi}}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 6: An ideal gas is taken through a rectangular cyclic process in a \(P\)–\(V\) diagram in the <em>anticlockwise</em> direction between pressures \(2.0 \times 10^{5}\,\mathrm{Pa}\) and \(5.0 \times 10^{5}\,\mathrm{Pa}\), and volumes \(1.0 \times 10^{-3}\,\mathrm{m^3}\) and \(3.0 \times 10^{-3}\,\mathrm{m^3}\). The net heat exchanged by the gas in one cycle is:</div>
+        <ul class="options-list">
+          <li>(A) \(600\,\mathrm{J}\) absorbed</li>
+          <li>(B) \(600\,\mathrm{J}\) released</li>
+          <li>(C) \(1400\,\mathrm{J}\) absorbed</li>
+          <li>(D) \(1400\,\mathrm{J}\) released</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 7: A Carnot engine has an efficiency of \(25\%\) when its sink is at \(27\,^\circ\mathrm{C}\). By how many kelvin must the sink temperature be lowered (keeping the source temperature fixed) to increase the efficiency to \(40\%\)?</div>
+        <ul class="options-list">
+          <li>(A) \(40\,\mathrm{K}\)</li>
+          <li>(B) \(60\,\mathrm{K}\)</li>
+          <li>(C) \(80\,\mathrm{K}\)</li>
+          <li>(D) \(100\,\mathrm{K}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-block">
+        <div class="question-stem">Practice Question 8 (Assertion–Reason):<br>
+          <strong>Assertion (A):</strong> The efficiency of a reversible Carnot engine is independent of the working substance.<br>
+          <strong>Reason (R):</strong> A Carnot engine operates between two fixed temperatures using only quasi-static, non-dissipative isothermal and adiabatic processes.
+        </div>
+        <ul class="options-list">
+          <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+          <li>(B) Both A and R are true, but R is not the correct explanation of A.</li>
+          <li>(C) A is true, but R is false.</li>
+          <li>(D) A is false, but R is true.</li>
+        </ul>
+      </div>
+
+      <h3>Answer Key</h3>
+      <div class="answer-key-grid">
+        <strong>1.</strong> (C) &nbsp;|&nbsp;
+        <strong>2.</strong> (B) &nbsp;|&nbsp;
+        <strong>3.</strong> (C) &nbsp;|&nbsp;
+        <strong>4.</strong> (B) &nbsp;|&nbsp;
+        <strong>5.</strong> (A) &nbsp;|&nbsp;
+        <strong>6.</strong> (B) &nbsp;|&nbsp;
+        <strong>7.</strong> (B) &nbsp;|&nbsp;
+        <strong>8.</strong> (A)
+      </div>
+
+      <h3>Worked Solutions</h3>
+      <div class="solution-item">
+        <p><strong>Solution 1 (C):</strong> Pressure and density do not change when an equilibrium system is divided into two equal halves, so both are intensive. Internal energy, volume, and mass are extensive.</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 2 (B):</strong> Heat absorbed gives \(\Delta Q = +420\,\mathrm{J}\). Work done <em>on</em> the system gives \(\Delta W = -180\,\mathrm{J}\). By the First Law, \(\Delta U = \Delta Q - \Delta W = 420 - (-180) = +600\,\mathrm{J}\).</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 3 (C):</strong> Free expansion into vacuum against zero external pressure means \(\Delta W = 0\). Because the container is thermally insulated, \(\Delta Q = 0\). Thus \(\Delta U = 0\), and for an ideal gas \(T\) remains unchanged.</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 4 (B):</strong> At constant pressure, \(\Delta Q = \mu C_P \Delta T\) and \(\Delta U = \mu C_V \Delta T\). Therefore, the fraction is \(\frac{\Delta U}{\Delta Q} = \frac{C_V}{C_P} = \frac{1}{\gamma} = \frac{5}{7}\).</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 5 (A):</strong> During expansion (\(V_2 &gt; V_1\)), the adiabatic curve drops more steeply than the isothermal curve because \(\gamma &gt; 1\). Hence at \(2V_0\), \(P_{\text{iso}} &gt; P_{\text{adi}}\), and the area under the isothermal curve is larger, so \(W_{\text{iso}} &gt; W_{\text{adi}}\).</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 6 (B):</strong> Area of the rectangle is \(\Delta P \times \Delta V = (5.0 - 2.0) \times 10^{5} \times (3.0 - 1.0) \times 10^{-3} = 600\,\mathrm{J}\). Because the cycle is <em>anticlockwise</em>, \(W_{\text{net}} = -600\,\mathrm{J}\). Since \(\Delta U = 0\), \(Q_{\text{net}} = W_{\text{net}} = -600\,\mathrm{J}\), meaning \(600\,\mathrm{J}\) of heat is released.</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 7 (B):</strong> Initial sink temperature \(T_2 = 27 + 273 = 300\,\mathrm{K}\). With \(\eta_1 = 0.25 = 1 - \frac{300}{T_1}\), we get \(\frac{300}{T_1} = 0.75 \implies T_1 = 400\,\mathrm{K}\). For \(\eta_2 = 0.40 = 1 - \frac{T_2'}{400}\), we find \(\frac{T_2'}{400} = 0.60 \implies T_2' = 240\,\mathrm{K}\). The sink must be lowered by \(300 - 240 = 60\,\mathrm{K}\).</p>
+      </div>
+      <div class="solution-item">
+        <p><strong>Solution 8 (A):</strong> Both statements are true, and the reversible nature of the four-step Carnot cycle between two fixed temperatures guarantees (by Carnot's theorem) that \(\eta = 1 - T_2/T_1\) depends only on \(T_1\) and \(T_2\), not on the working substance.</p>
+      </div>
+    </section>
+
+    <section id="pitfalls-checklist">
+      <h2>Common Pitfalls and Revision Checklist</h2>
+      <div class="card warning">
+        <div class="card-title">High-Yield NEET UG Traps to Avoid</div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Celsius vs. Kelvin in Carnot Efficiency:</strong> Always convert temperatures to Kelvin before computing \(\eta = 1 - T_2/T_1\). Using \(^\circ\mathrm{C}\) is a classic error.</li>
+          <li><strong>Confusing Heat with Internal Energy:</strong> A system possesses internal energy \(U\), never "heat". Heat \(Q\) and work \(W\) exist only during energy transfer.</li>
+          <li><strong>Sign of Work in Compression:</strong> When work is done <em>on</em> the gas, \(\Delta W\) is negative in \(\Delta Q = \Delta U + \Delta W\).</li>
+          <li><strong>Loop Direction on \(P\)–\(V\) Diagrams:</strong> Clockwise cycles yield positive net work; anticlockwise cycles yield negative net work.</li>
+          <li><strong>Isothermal vs. Free Expansion:</strong> Both have \(\Delta U = 0\) for an ideal gas, but in isothermal expansion \(\Delta Q = \Delta W \neq 0\), whereas in free expansion \(\Delta Q = \Delta W = 0\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="final-recap">
+      <h2>Concise Final Recap</h2>
+      <ul>
+        <li><strong>Zeroth Law:</strong> Defines temperature \(T\) as the common property of systems in thermal equilibrium.</li>
+        <li><strong>First Law:</strong> \(\Delta Q = \Delta U + \Delta W\), with \(\Delta U = \mu C_V \Delta T\) for any process of an ideal gas.</li>
+        <li><strong>Mayer's Relation:</strong> \(C_P - C_V = R\) and \(\gamma = C_P / C_V\).</li>
+        <li><strong>Second Law &amp; Carnot Engine:</strong> No engine can convert \(100\%\) of absorbed heat into work; maximum efficiency between \(T_1\) and \(T_2\) is \(\eta_{\max} = 1 - \frac{T_2}{T_1}\).</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

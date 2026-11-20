@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemical Thermodynamics — NEET UG Bilingual Tutorial (English &amp; Bengali)</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --accent: #2563EB;
+      --teal: #0D9488;
+      --surface: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #CBD5E1;
+      --warn-bg: #FEF2F2;
+      --warn-border: #DC2626;
+      --info-bg: #EFF6FF;
+      --bn-bg: #F0FDF4;
+      --bn-border: #0D9488;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--surface);
+      color: var(--ink);
+      font-family: 'Noto Sans Bengali', 'Bangla Sangam MN', 'Vrinda', 'Lohit Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header.hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--info-bg);
+      color: var(--accent);
+      border: 1px solid #BFDBFE;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 6px 0 8px;
+      font-size: 1.85rem;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    h2 {
+      margin: 32px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent);
+      font-size: 1.4rem;
+      color: var(--ink);
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 1.15rem;
+      color: var(--accent);
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 12px;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .en-block, .bn-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      max-width: 100%;
+    }
+
+    .bn-block {
+      background: var(--bn-bg);
+      border-left: 4px solid var(--bn-border);
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .lang-tag.en {
+      background: #E0E7FF;
+      color: #1E40AF;
+    }
+
+    .lang-tag.bn {
+      background: #CCFBF1;
+      color: #0F766E;
+    }
+
+    .formula-box {
+      background: #F1F5F9;
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 4px;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .callout-warn {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background: #E2E8F0;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .svg-wrap {
+      margin: 16px 0;
+      padding: 12px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .svg-caption {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .example-card, .question-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-card hr {
+      border: 0;
+      border-top: 2px dashed var(--border);
+      margin: 18px 0;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 4px;
+      margin: 10px 0 14px;
+    }
+
+    .options-list li {
+      margin-bottom: 6px;
+      padding: 4px 8px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+
+    .solution-box {
+      background: #F8FAFC;
+      border-left: 4px solid var(--teal);
+      padding: 12px 14px;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm 14mm;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+      .en-block, .bn-block, .example-card, .question-card, header.hero {
+        box-shadow: none;
+        border-color: #94A3B8;
+      }
+      .bn-block {
+        background: #F8FAFC;
+      }
+      h2, h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .example-card, .question-card, .svg-wrap, .formula-box {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <!-- 1. TITLE AND EXAM CONTEXT -->
+    <header class="hero">
+      <div class="badge">NEET UG Chemistry &bull; Bilingual Tutorial (English &amp; Bengali)</div>
+      <h1>Chemical Thermodynamics: Energy, Enthalpy, Entropy &amp; Spontaneity</h1>
+      <p><strong>Exam Alignment:</strong> NEET UG (Single-Correct MCQs, Assertion-Reason, and Statement-Based Assessments)</p>
+      <hr style="border:0; border-top:1px solid #CBD5E1; margin:14px 0;" />
+      <div lang="bn">
+        <div class="badge" style="background:#CCFBF1; color:#0F766E; border-color:#99F6E4;">NEET UG রসায়ন &bull; দ্বিভাষিক টিউটোরিয়াল (ইংরেজি ও বাংলা)</div>
+        <h1 style="font-size:1.65rem;">রাসায়নিক তাপগতিবিদ্যা: শক্তি, এনথ্যালপি, এনট্রপি ও স্বতঃস্ফূর্ততা</h1>
+        <p><strong>পরীক্ষার মান:</strong> NEET UG (একক-সঠিক বহুনির্বাচনি প্রশ্ন, বিবৃতি-কারণ এবং বিবৃতি-ভিত্তিক মূল্যায়ন)</p>
+      </div>
+    </header>
+
+    <!-- 2. LEARNING OBJECTIVES AND OVERVIEW -->
+    <section>
+      <h2>1. Learning Objectives &amp; Big Picture / শিখন উদ্দেশ্য ও সামগ্রিক ধারণা</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>Chemical thermodynamics studies energy transformations during physical and chemical changes in macroscopic systems containing huge numbers of particles. Unlike chemical kinetics, thermodynamics does not tell us <em>how fast</em> a reaction occurs; instead, it answers three fundamental questions:</p>
+        <ul>
+          <li>How much heat or work is exchanged when reactants transform into products?</li>
+          <li>In which direction will a physical or chemical process proceed spontaneously?</li>
+          <li>To what extent will a reversible reaction proceed before reaching equilibrium?</li>
+        </ul>
+        <p><strong>After completing this tutorial, you will be able to:</strong></p>
+        <ul>
+          <li>Classify thermodynamic systems (open, closed, isolated) and distinguish state functions from path functions, as well as extensive from intensive properties.</li>
+          <li>Apply the First Law of Thermodynamics (\(\Delta U = q + w\)) using IUPAC sign conventions and compute pressure-volume work in reversible, irreversible, and free-expansion processes.</li>
+          <li>Relate enthalpy change (\(\Delta H\)) and internal energy change (\(\Delta U\)), and interpret constant-volume and constant-pressure calorimetry.</li>
+          <li>Calculate reaction enthalpies using standard enthalpies of formation, bond enthalpies, Born-Haber cycles, and Hess's Law.</li>
+          <li>Predict reaction spontaneity and equilibrium constants using entropy (\(\Delta S\)), the Second and Third Laws, and Gibbs free energy (\(\Delta G = \Delta H - T\Delta S\)).</li>
+        </ul>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p>রাসায়নিক তাপগতিবিদ্যা বিপুল সংখ্যক কণাযুক্ত স্থূল (macroscopic) সিস্টেমে ভৌত ও রাসায়নিক পরিবর্তনের সময় শক্তির রূপান্তর নিয়ে আলোচনা করে। রাসায়নিক গতিবিদ্যার মতো এটি বিক্রিয়ার <em>বেগ</em> নির্ণয় করে না; বরং এটি তিনটি মৌলিক প্রশ্নের উত্তর দেয়:</p>
+        <ul>
+          <li>বিক্রিয়ক পদার্থ উৎপাদে পরিণত হওয়ার সময় কতটা তাপ বা কার্যের বিনিময় ঘটে?</li>
+          <li>কোন দিকে একটি ভৌত বা রাসায়নিক প্রক্রিয়া স্বতঃস্ফূর্তভাবে অগ্রসর হবে?</li>
+          <li>সাম্যাবস্থায় পৌঁছানোর আগে একটি উভমুখী বিক্রিয়া কতদূর পর্যন্ত অগ্রসর হবে?</li>
+        </ul>
+        <p><strong>এই টিউটোরিয়ালটি সম্পূর্ণ করার পর তুমি সক্ষম হবে:</strong></p>
+        <ul>
+          <li>তাপগতিবিদ্যার সিস্টেম (মুক্ত, বদ্ধ, বিচ্ছিন্ন) শ্রেণিবিন্যাস করতে এবং অবস্থা-অপেক্ষক ও পথ-অপেক্ষক, পাশাপাশি পরিমাণগত (extensive) ও তীব্রতাগত (intensive) ধর্মের পার্থক্য করতে।</li>
+          <li>IUPAC চিহ্ন-রীতি ব্যবহার করে তাপগতিবিদ্যার প্রথম সূত্র (\(\Delta U = q + w\)) প্রয়োগ করতে এবং পরাবর্তী, অপরাবর্তী ও মুক্ত প্রসারণে চাপ-আয়তন কার্য গণনা করতে।</li>
+          <li>এনথ্যালপি পরিবর্তন (\(\Delta H\)) ও অভ্যন্তরীণ শক্তি পরিবর্তনের (\(\Delta U\)) মধ্যে সম্পর্ক স্থাপন করতে এবং স্থির-আয়তন ও স্থির-চাপ ক্যালোরিমিটি ব্যাখ্যা করতে।</li>
+          <li>প্রমাণ গঠন এনথ্যালপি, বন্ধন এনথ্যালপি, বর্ন-হ্যাবার চক্র এবং হেস-এর সূত্র ব্যবহার করে বিক্রিয়া এনথ্যালপি নির্ণয় করতে।</li>
+          <li>এনট্রপি (\(\Delta S\)), দ্বিতীয় ও তৃতীয় সূত্র এবং গিবস মুক্ত শক্তি (\(\Delta G = \Delta H - T\Delta S\)) ব্যবহার করে বিক্রিয়ার স্বতঃস্ফূর্ততা ও সাম্যধ্রুবক নির্ধারণ করতে।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. SYSTEMS, BOUNDARIES, AND STATE VARIABLES -->
+    <section>
+      <h2>2. Systems, Boundaries &amp; Thermodynamic Properties / সিস্টেম, সীমানা ও তাপগতিীয় ধর্ম</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>In thermodynamics, the <strong>system</strong> is the specific part of the universe under observation, while everything else capable of interacting with it is the <strong>surroundings</strong>. A real or imaginary <strong>boundary</strong> separates the two:</p>
+        <div class="formula-box">
+          \[\text{Universe} = \text{System} + \text{Surroundings}\]
+        </div>
+        <ul>
+          <li><strong>Open System:</strong> Exchanges both <em>matter</em> and <em>energy</em> with the surroundings (e.g., reactants in an open beaker).</li>
+          <li><strong>Closed System:</strong> Exchanges <em>energy</em> (as heat or work) but <em>no matter</em> with the surroundings (e.g., reactants sealed in a conducting steel vessel).</li>
+          <li><strong>Isolated System:</strong> Exchanges neither <em>matter</em> nor <em>energy</em> with the surroundings (e.g., a reaction inside a perfectly insulated thermos flask).</li>
+        </ul>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of Open, Closed, and Isolated Systems">
+            <rect x="0" y="0" width="760" height="220" fill="#F8FAFC" rx="8"/>
+            <!-- Open System -->
+            <rect x="25" y="45" width="210" height="145" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6,4" rx="6"/>
+            <line x1="25" y1="45" x2="235" y2="45" stroke="#F8FAFC" stroke-width="4"/>
+            <text x="130" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Open System</text>
+            <rect x="45" y="105" width="170" height="70" fill="#DBEAFE" rx="4"/>
+            <text x="130" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">Matter + Energy</text>
+            <!-- Arrows for Open -->
+            <path d="M 105 70 L 105 35" stroke="#0D9488" stroke-width="2.5"/>
+            <polygon points="105,28 100,38 110,38" fill="#0D9488"/>
+            <path d="M 155 35 L 155 70" stroke="#0D9488" stroke-width="2.5"/>
+            <polygon points="155,77 150,67 160,67" fill="#0D9488"/>
+            <text x="130" y="93" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">Matter Exchange</text>
+            <path d="M 215 135 L 250 135" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="256,135 247,130 247,140" fill="#2563EB"/>
+            <text x="130" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Energy &amp; Matter cross boundary</text>
+
+            <!-- Closed System -->
+            <rect x="275" y="45" width="210" height="145" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5" rx="6"/>
+            <text x="380" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Closed System</text>
+            <rect x="295" y="105" width="170" height="70" fill="#DBEAFE" rx="4"/>
+            <text x="380" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">Fixed Matter</text>
+            <path d="M 465 135 L 500 135" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="506,135 497,130 497,140" fill="#2563EB"/>
+            <text x="380" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#DC2626">No Matter Exchange</text>
+            <text x="380" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Only Energy crosses boundary</text>
+
+            <!-- Isolated System -->
+            <rect x="525" y="45" width="210" height="145" fill="#FFFFFF" stroke="#1E293B" stroke-width="5" rx="6"/>
+            <text x="630" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Isolated System</text>
+            <rect x="545" y="105" width="170" height="70" fill="#E2E8F0" rx="4"/>
+            <text x="630" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">Adiabatic &amp; Sealed</text>
+            <text x="630" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#DC2626">q = 0, w = 0, Δm = 0</text>
+            <text x="630" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">No Energy or Matter exchange</text>
+          </svg>
+          <div class="svg-caption">Tutorial Diagram 1: Classification of thermodynamic systems based on boundary permeability.</div>
+        </div>
+
+        <h3>State Functions vs. Path Functions &amp; Extensive vs. Intensive Properties</h3>
+        <p>The macroscopic condition of a system is defined by <strong>state variables</strong> such as pressure (\(P\)), volume (\(V\)), temperature (\(T\)), and amount (\(n\)).</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Definition</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>State Functions</strong></td>
+              <td>Depend <em>only</em> on the initial and final states, independent of the path taken.</td>
+              <td>\(P, V, T, U, H, S, G\)</td>
+            </tr>
+            <tr>
+              <td><strong>Path Functions</strong></td>
+              <td>Depend on the specific route or process used to move between states.</td>
+              <td>Heat (\(q\)), Work (\(w\))</td>
+            </tr>
+            <tr>
+              <td><strong>Extensive Properties</strong></td>
+              <td>Depend on the quantity or size of matter in the system (additive).</td>
+              <td>Mass, \(V, U, H, S, G\), Heat capacity (\(C\))</td>
+            </tr>
+            <tr>
+              <td><strong>Intensive Properties</strong></td>
+              <td>Independent of the amount of matter (non-additive; ratio of two extensive properties is intensive).</td>
+              <td>\(T, P\), Density, Molar properties (\(V_m, C_m, \Delta_r H^\circ\))</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p>তাপগতিবিদ্যায় মহাবিশ্বের যে নির্দিষ্ট অংশটিকে পর্যবেক্ষণ করা হয় তাকে <strong>সিস্টেম (System)</strong> বলে এবং এর বাইরের যে অংশ সিস্টেমের সাথে ক্রিয়া-প্রতিক্রিয়া করতে পারে তাকে <strong>পরিবেশ বা সারাউন্ডিংস (Surroundings)</strong> বলে। একটি বাস্তব বা কাল্পনিক <strong>সীমানা (Boundary)</strong> এদের পৃথক করে:</p>
+        <div class="formula-box">
+          \[\text{Universe} = \text{System} + \text{Surroundings}\]
+        </div>
+        <ul>
+          <li><strong>মুক্ত সিস্টেম (Open System):</strong> পরিবেশের সাথে <em>পদার্থ</em> এবং <em>শক্তি</em> উভয়েরই বিনিময় ঘটে (যেমন: খোলা বিকারে রাখা বিক্রিয়ক)।</li>
+          <li><strong>বদ্ধ সিস্টেম (Closed System):</strong> পরিবেশের সাথে <em>শক্তির</em> (তাপ বা কার্য রূপে) বিনিময় ঘটে, কিন্তু <em>পদার্থের</em> বিনিময় ঘটে না (যেমন: তাপ-পরিবাহী বন্ধ স্টিলের পাত্রে রাখা বিক্রিয়ক)।</li>
+          <li><strong>বিচ্ছিন্ন সিস্টেম (Isolated System):</strong> পরিবেশের সাথে <em>পদার্থ</em> বা <em>শক্তি</em> কোনোটিরই বিনিময় ঘটে না (যেমন: নিখুঁত তাপ-নিরোধক থার্মোফ্লাস্কে সংঘটিত বিক্রিয়া)।</li>
+        </ul>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 760 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="মুক্ত, বদ্ধ ও বিচ্ছিন্ন সিস্টেমের তুলনা">
+            <rect x="0" y="0" width="760" height="220" fill="#F8FAFC" rx="8"/>
+            <rect x="25" y="45" width="210" height="145" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="6,4" rx="6"/>
+            <line x1="25" y1="45" x2="235" y2="45" stroke="#F8FAFC" stroke-width="4"/>
+            <text x="130" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">মুক্ত সিস্টেম</text>
+            <rect x="45" y="105" width="170" height="70" fill="#DBEAFE" rx="4"/>
+            <text x="130" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">পদার্থ + শক্তি</text>
+            <path d="M 105 70 L 105 35" stroke="#0D9488" stroke-width="2.5"/>
+            <polygon points="105,28 100,38 110,38" fill="#0D9488"/>
+            <path d="M 155 35 L 155 70" stroke="#0D9488" stroke-width="2.5"/>
+            <polygon points="155,77 150,67 160,67" fill="#0D9488"/>
+            <text x="130" y="93" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#0D9488">পদার্থ বিনিময়</text>
+            <path d="M 215 135 L 250 135" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="256,135 247,130 247,140" fill="#2563EB"/>
+            <text x="130" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">শক্তি ও পদার্থ উভয়ই অতিক্রম করে</text>
+
+            <rect x="275" y="45" width="210" height="145" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.5" rx="6"/>
+            <text x="380" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">বদ্ধ সিস্টেম</text>
+            <rect x="295" y="105" width="170" height="70" fill="#DBEAFE" rx="4"/>
+            <text x="380" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">নির্দিষ্ট পদার্থ</text>
+            <path d="M 465 135 L 500 135" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="506,135 497,130 497,140" fill="#2563EB"/>
+            <text x="380" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#DC2626">পদার্থ বিনিময় নেই</text>
+            <text x="380" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">শুধু শক্তি সীমানা অতিক্রম করে</text>
+
+            <rect x="525" y="45" width="210" height="145" fill="#FFFFFF" stroke="#1E293B" stroke-width="5" rx="6"/>
+            <text x="630" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">বিচ্ছিন্ন সিস্টেম</text>
+            <rect x="545" y="105" width="170" height="70" fill="#E2E8F0" rx="4"/>
+            <text x="630" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">রুদ্ধতাপীয় ও সিল করা</text>
+            <text x="630" y="82" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#DC2626">q = 0, w = 0, Δm = 0</text>
+            <text x="630" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">শক্তি বা পদার্থের বিনিময় নেই</text>
+          </svg>
+          <div class="svg-caption">টিউটোরিয়াল চিত্র ১: সীমানার ভেদ্যতার ওপর ভিত্তি করে তাপগতিীয় সিস্টেমের শ্রেণিবিন্যাস।</div>
+        </div>
+
+        <h3>অবস্থা-অপেক্ষক বনাম পথ-অপেক্ষক এবং পরিমাণগত বনাম তীব্রতাগত ধর্ম</h3>
+        <p>সিস্টেমের স্থূল অবস্থা চাপ (\(P\)), আয়তন (\(V\)), উষ্ণতা (\(T\)) এবং মোল-সংখ্যা (\(n\)) ইত্যাদি <strong>অবস্থা-চলক (state variables)</strong> দ্বারা বর্ণিত হয়।</p>
+        <table>
+          <thead>
+            <tr>
+              <th>শ্রেণি</th>
+              <th>সংজ্ঞা</th>
+              <th>উদাহরণ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>অবস্থা-অপেক্ষক (State Functions)</strong></td>
+              <td>কেবল প্রারম্ভিক ও অন্তিম অবস্থার ওপর নির্ভর করে, গৃহীত পথের ওপর নয়।</td>
+              <td>\(P, V, T, U, H, S, G\)</td>
+            </tr>
+            <tr>
+              <td><strong>পথ-অপেক্ষক (Path Functions)</strong></td>
+              <td>এক অবস্থা থেকে অন্য অবস্থায় যাওয়ার নির্দিষ্ট পথ বা প্রক্রিয়ার ওপর নির্ভর করে।</td>
+              <td>তাপ (\(q\)), কার্য (\(w\))</td>
+            </tr>
+            <tr>
+              <td><strong>পরিমাণগত ধর্ম (Extensive)</strong></td>
+              <td>সিস্টেমে উপস্থিত পদার্থের পরিমাণ বা আকারের ওপর নির্ভর করে (যোগাত্মক)।</td>
+              <td>ভর, \(V, U, H, S, G\), তাপগ্রাহিতা (\(C\))</td>
+            </tr>
+            <tr>
+              <td><strong>তীব্রতাগত ধর্ম (Intensive)</strong></td>
+              <td>পদার্থের পরিমাণের ওপর নির্ভর করে না (দুটি পরিমাণগত ধর্মের অনুপাত সর্বদা তীব্রতাগত)।</td>
+              <td>\(T, P\), ঘনত্ব, মোলার ধর্ম (\(V_m, C_m, \Delta_r H^\circ\))</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. FIRST LAW OF THERMODYNAMICS -->
+    <section>
+      <h2>3. The First Law of Thermodynamics &amp; Pressure-Volume Work / তাপগতিবিদ্যার প্রথম সূত্র ও চাপ-আয়তন কার্য</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p><strong>Internal Energy (\(U\))</strong> represents the sum of all microscopic kinetic and potential energies of the particles in a system. While the absolute value of \(U\) cannot be measured, its change (\(\Delta U = U_2 - U_1\)) is measurable and is a state function. The <strong>First Law of Thermodynamics</strong> (conservation of energy) states that the energy of an isolated system is constant, and for a closed system:</p>
+        <div class="formula-box">
+          \[\Delta U = q + w\]
+        </div>
+        <p><strong>IUPAC Sign Conventions (Crucial for NEET UG):</strong></p>
+        <ul>
+          <li>\(q > 0\): Heat is <strong>absorbed</strong> by the system; \(q < 0\): Heat is <strong>released</strong> by the system.</li>
+          <li>\(w > 0\): Work is done <strong>on</strong> the system (compression); \(w < 0\): Work is done <strong>by</strong> the system (expansion).</li>
+          <li><strong>Adiabatic Process:</strong> No heat crosses the boundary (\(q = 0\)), so \(\Delta U = w_{\mathrm{ad}}\).</li>
+          <li><strong>Isochoric Process:</strong> Constant volume (\(\Delta V = 0 \implies w = 0\)), so \(\Delta U = q_v\).</li>
+          <li><strong>Isothermal Ideal Gas Process:</strong> Constant temperature (\(\Delta T = 0 \implies \Delta U = 0\)), so \(q = -w\).</li>
+        </ul>
+
+        <h3>Pressure-Volume (\(P\text{-}V\)) Work</h3>
+        <p>When a gas expands or is compressed against an external pressure \(P_{\mathrm{ex}}\) from initial volume \(V_i\) to final volume \(V_f\):</p>
+        <div class="formula-box">
+          \[w_{\mathrm{irrev}} = -P_{\mathrm{ex}} \Delta V = -P_{\mathrm{ex}}(V_f - V_i)\]
+          \[w_{\mathrm{rev}} = -\int_{V_i}^{V_f} P_{\mathrm{in}}\,dV = -nRT \ln\left(\frac{V_f}{V_i}\right) = -2.303\,nRT \log_{10}\left(\frac{V_f}{V_i}\right) = -2.303\,nRT \log_{10}\left(\frac{P_i}{P_f}\right)\]
+        </div>
+        <p>For <strong>free expansion</strong> into a vacuum (\(P_{\mathrm{ex}} = 0\)), \(w = 0\) whether reversible or irreversible. For an ideal gas undergoing isothermal free expansion, \(w = 0\), \(\Delta U = 0\), and \(q = 0\).</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 700 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="P-V diagrams comparing irreversible and reversible compression">
+            <rect x="0" y="0" width="700" height="230" fill="#F8FAFC" rx="8"/>
+            <!-- Left Plot: Irreversible -->
+            <line x1="60" y1="185" x2="310" y2="185" stroke="#1E293B" stroke-width="2"/>
+            <line x1="60" y1="185" x2="60" y2="30" stroke="#1E293B" stroke-width="2"/>
+            <rect x="115" y="65" width="145" height="120" fill="#BFDBFE" stroke="#2563EB" stroke-width="1.5"/>
+            <line x1="60" y1="65" x2="290" y2="65" stroke="#2563EB" stroke-width="2" stroke-dasharray="4,3"/>
+            <text x="45" y="69" text-anchor="end" font-family="sans-serif" font-size="12" fill="#1E293B">P_ex</text>
+            <text x="115" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_f</text>
+            <text x="260" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_i</text>
+            <text x="187" y="125" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E40AF">|w| = P_ex ΔV</text>
+            <text x="185" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Single-Step Irreversible Compression</text>
+            <text x="40" y="105" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B" transform="rotate(-90 40 105)">Pressure (P)</text>
+
+            <!-- Right Plot: Reversible -->
+            <line x1="390" y1="185" x2="650" y2="185" stroke="#1E293B" stroke-width="2"/>
+            <line x1="390" y1="185" x2="390" y2="30" stroke="#1E293B" stroke-width="2"/>
+            <path d="M 445 55 Q 495 140 615 162 L 615 185 L 445 185 Z" fill="#CCFBF1"/>
+            <path d="M 445 55 Q 495 140 615 162" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+            <line x1="445" y1="55" x2="445" y2="185" stroke="#1E293B" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="615" y1="162" x2="615" y2="185" stroke="#1E293B" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="445" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_f</text>
+            <text x="615" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_i</text>
+            <text x="535" y="160" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">Area = |w_rev|</text>
+            <text x="520" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Reversible Isothermal Compression</text>
+            <text x="370" y="105" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B" transform="rotate(-90 370 105)">Pressure (P)</text>
+          </svg>
+          <div class="svg-caption">Tutorial Diagram 2: Magnitude of compression work equals the shaded area under the P-V curve.</div>
+        </div>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p><strong>অভ্যন্তরীণ শক্তি (\(U\))</strong> হলো সিস্টেমের কণাগুলোর সমস্ত অণুবীক্ষণিক গতিশক্তি ও স্থিতিশক্তির সমষ্টি। \(U\)-এর পরম মান পরিমাপ করা না গেলেও এর পরিবর্তন (\(\Delta U = U_2 - U_1\)) পরিমাপযোগ্য এবং এটি একটি অবস্থা-অপেক্ষক। <strong>তাপগতিবিদ্যার প্রথম সূত্র</strong> (শক্তির নিত্যতা সূত্র) অনুসারে বিচ্ছিন্ন সিস্টেমের মোট শক্তি ধ্রুবক এবং বদ্ধ সিস্টেমের ক্ষেত্রে:</p>
+        <div class="formula-box">
+          \[\Delta U = q + w\]
+        </div>
+        <p><strong>IUPAC চিহ্ন-রীতি (NEET UG-এর জন্য অত্যন্ত গুরুত্বপূর্ণ):</strong></p>
+        <ul>
+          <li>\(q > 0\): সিস্টেম দ্বারা তাপ <strong>শোষিত</strong> হয়; \(q < 0\): সিস্টেম দ্বারা তাপ <strong>বর্জিত</strong> হয়।</li>
+          <li>\(w > 0\): সিস্টেমের <strong>ওপর</strong> কার্য করা হয় (সংকোচন); \(w < 0\): সিস্টেম <strong>দ্বারা</strong> কার্য করা হয় (প্রসারণ)।</li>
+          <li><strong>রুদ্ধতাপীয় প্রক্রিয়া (Adiabatic):</strong> সীমানার মধ্য দিয়ে তাপের আদান-প্রদান হয় না (\(q = 0\)), তাই \(\Delta U = w_{\mathrm{ad}}\)।</li>
+          <li><strong>সমআয়তন প্রক্রিয়া (Isochoric):</strong> স্থির আয়তন (\(\Delta V = 0 \implies w = 0\)), তাই \(\Delta U = q_v\)।</li>
+          <li><strong>আদর্শ গ্যাসের সমোষ্ণ প্রক্রিয়া (Isothermal):</strong> স্থির উষ্ণতা (\(\Delta T = 0 \implies \Delta U = 0\)), তাই \(q = -w\)।</li>
+        </ul>
+
+        <h3>চাপ-আয়তন (\(P\text{-}V\)) কার্য</h3>
+        <p>বাহ্যিক চাপ \(P_{\mathrm{ex}}\)-এর বিরুদ্ধে কোনো গ্যাস প্রারম্ভিক আয়তন \(V_i\) থেকে অন্তিম আয়তন \(V_f\)-এ প্রসারিত বা সংকুচিত হলে:</p>
+        <div class="formula-box">
+          \[w_{\mathrm{irrev}} = -P_{\mathrm{ex}} \Delta V = -P_{\mathrm{ex}}(V_f - V_i)\]
+          \[w_{\mathrm{rev}} = -\int_{V_i}^{V_f} P_{\mathrm{in}}\,dV = -nRT \ln\left(\frac{V_f}{V_i}\right) = -2.303\,nRT \log_{10}\left(\frac{V_f}{V_i}\right) = -2.303\,nRT \log_{10}\left(\frac{P_i}{P_f}\right)\]
+        </div>
+        <p>শূন্যস্থানে <strong>মুক্ত প্রসারণের (free expansion)</strong> ক্ষেত্রে (\(P_{\mathrm{ex}} = 0\)), প্রক্রিয়াটি পরাবর্তী বা অপরাবর্তী যাই হোক না কেন, \(w = 0\) হয়। আদর্শ গ্যাসের সমোষ্ণ মুক্ত প্রসারণে \(w = 0\), \(\Delta U = 0\) এবং \(q = 0\)।</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 700 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="অপরাবর্তী ও পরাবর্তী সংকোচনের P-V লেখচিত্র">
+            <rect x="0" y="0" width="700" height="230" fill="#F8FAFC" rx="8"/>
+            <line x1="60" y1="185" x2="310" y2="185" stroke="#1E293B" stroke-width="2"/>
+            <line x1="60" y1="185" x2="60" y2="30" stroke="#1E293B" stroke-width="2"/>
+            <rect x="115" y="65" width="145" height="120" fill="#BFDBFE" stroke="#2563EB" stroke-width="1.5"/>
+            <line x1="60" y1="65" x2="290" y2="65" stroke="#2563EB" stroke-width="2" stroke-dasharray="4,3"/>
+            <text x="45" y="69" text-anchor="end" font-family="sans-serif" font-size="12" fill="#1E293B">P_ex</text>
+            <text x="115" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_f</text>
+            <text x="260" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_i</text>
+            <text x="187" y="125" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E40AF">|w| = P_ex ΔV</text>
+            <text x="185" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">এক-ধাপ অপরাবর্তী সংকোচন</text>
+            <text x="40" y="105" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B" transform="rotate(-90 40 105)">চাপ (P)</text>
+
+            <line x1="390" y1="185" x2="650" y2="185" stroke="#1E293B" stroke-width="2"/>
+            <line x1="390" y1="185" x2="390" y2="30" stroke="#1E293B" stroke-width="2"/>
+            <path d="M 445 55 Q 495 140 615 162 L 615 185 L 445 185 Z" fill="#CCFBF1"/>
+            <path d="M 445 55 Q 495 140 615 162" fill="none" stroke="#0D9488" stroke-width="2.5"/>
+            <line x1="445" y1="55" x2="445" y2="185" stroke="#1E293B" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="615" y1="162" x2="615" y2="185" stroke="#1E293B" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="445" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_f</text>
+            <text x="615" y="203" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">V_i</text>
+            <text x="535" y="160" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ক্ষেত্রফল = |w_rev|</text>
+            <text x="520" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">পরাবর্তী সমোষ্ণ সংকোচন</text>
+            <text x="370" y="105" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B" transform="rotate(-90 370 105)">চাপ (P)</text>
+          </svg>
+          <div class="svg-caption">টিউটোরিয়াল চিত্র ২: সংকোচন কার্যের মান P-V লেখচিত্রের নিচের ছায়াবৃত ক্ষেত্রফলের সমান।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ENTHALPY, HEAT CAPACITY, AND CALORIMETRY -->
+    <section>
+      <h2>4. Enthalpy, Heat Capacity &amp; Calorimetry / এনথ্যালপি, তাপগ্রাহিতা ও ক্যালোরিমিটি</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>Most laboratory reactions occur in open vessels at constant atmospheric pressure rather than constant volume. <strong>Enthalpy (\(H\))</strong> is a state function defined as:</p>
+        <div class="formula-box">
+          \[H = U + PV \qquad \implies \qquad \Delta H = \Delta U + P\Delta V = q_p \quad (\text{at constant } P)\]
+        </div>
+        <p>For reactions involving ideal gases at constant \(T\) and \(P\), \(P\Delta V = \Delta n_g RT\), where \(\Delta n_g = (\text{moles of gaseous products}) - (\text{moles of gaseous reactants})\):</p>
+        <div class="formula-box">
+          \[\Delta H = \Delta U + \Delta n_g RT\]
+        </div>
+        <ul>
+          <li>If \(\Delta H < 0\): <strong>Exothermic</strong> (heat released). If \(\Delta H > 0\): <strong>Endothermic</strong> (heat absorbed).</li>
+          <li>For solids and liquids only, \(\Delta V\) is negligible, so \(\Delta H \approx \Delta U\).</li>
+        </ul>
+
+        <h3>Heat Capacity &amp; Calorimetry</h3>
+        <p>Heat transferred is related to temperature change by \(q = C\Delta T = m \cdot c \cdot \Delta T = n \cdot C_m \cdot \Delta T\), where \(C\) is heat capacity, \(c\) is specific heat capacity, and \(C_m\) is molar heat capacity. For 1 mole of an ideal gas:</p>
+        <div class="formula-box">
+          \[q_v = C_v \Delta T = \Delta U, \qquad q_p = C_p \Delta T = \Delta H, \qquad C_p - C_v = R\]
+        </div>
+        <p><strong>Calorimetry:</strong> A sealed <strong>bomb calorimeter</strong> operates at constant volume (\(\Delta V = 0\)), directly measuring \(q_v = \Delta U = -C_{\mathrm{cal}}\Delta T\). A coffee-cup or open calorimeter operates at constant atmospheric pressure, measuring \(q_p = \Delta H\).</p>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p>পরীক্ষাগারে অধিকাংশ রাসায়নিক বিক্রিয়া স্থির আয়তনের পরিবর্তে স্থির বায়ুমণ্ডলীয় চাপে খোলা পাত্রে ঘটে। <strong>এনথ্যালপি (\(H\))</strong> হলো একটি অবস্থা-অপেক্ষক, যার সংজ্ঞা:</p>
+        <div class="formula-box">
+          \[H = U + PV \qquad \implies \qquad \Delta H = \Delta U + P\Delta V = q_p \quad (\text{স্থির চাপে})\]
+        </div>
+        <p>স্থির উষ্ণতা \(T\) ও চাপ \(P\)-তে আদর্শ গ্যাস জড়িত বিক্রিয়ার ক্ষেত্রে \(P\Delta V = \Delta n_g RT\), যেখানে \(\Delta n_g = (\text{গ্যাসীয় উৎপাদের মোল-সংখ্যা}) - (\text{গ্যাসীয় বিক্রিয়কের মোল-সংখ্যা})\):</p>
+        <div class="formula-box">
+          \[\Delta H = \Delta U + \Delta n_g RT\]
+        </div>
+        <ul>
+          <li>\(\Delta H < 0\) হলে: <strong>তাপমোচী (Exothermic)</strong> বিক্রিয়া (তাপ নির্গত হয়)। \(\Delta H > 0\) হলে: <strong>তাপগ্রাহী (Endothermic)</strong> বিক্রিয়া (তাপ শোষিত হয়)।</li>
+          <li>শুধুমাত্র কঠিন ও তরল পদার্থের ক্ষেত্রে \(\Delta V\) নগণ্য হওয়ায় \(\Delta H \approx \Delta U\) হয়।</li>
+        </ul>
+
+        <h3>তাপগ্রাহিতা ও ক্যালোরিমিটি</h3>
+        <p>উষ্ণতা পরিবর্তনের সাথে সঞ্চালিত তাপের সম্পর্ক হলো \(q = C\Delta T = m \cdot c \cdot \Delta T = n \cdot C_m \cdot \Delta T\), যেখানে \(C\) হলো তাপগ্রাহিতা, \(c\) আপেক্ষিক তাপ এবং \(C_m\) মোলার তাপগ্রাহিতা। ১ মোল আদর্শ গ্যাসের জন্য:</p>
+        <div class="formula-box">
+          \[q_v = C_v \Delta T = \Delta U, \qquad q_p = C_p \Delta T = \Delta H, \qquad C_p - C_v = R\]
+        </div>
+        <p><strong>ক্যালোরিমিটি:</strong> একটি সিল করা <strong>বম্ব ক্যালোরিমিটার (bomb calorimeter)</strong> স্থির আয়তনে (\(\Delta V = 0\)) কাজ করে এবং সরাসরি \(q_v = \Delta U = -C_{\mathrm{cal}}\Delta T\) পরিমাপ করে। অন্যদিকে, খোলা বা কফি-কাপ ক্যালোরিমিটার স্থির বায়ুমণ্ডলীয় চাপে কাজ করে এবং \(q_p = \Delta H\) পরিমাপ করে।</p>
+      </div>
+    </section>
+
+    <!-- 6. THERMOCHEMISTRY & HESS'S LAW -->
+    <section>
+      <h2>5. Thermochemistry, Enthalpy Types &amp; Hess's Law / তাপরসায়ন, এনথ্যালপির প্রকারভেদ ও হেস-এর সূত্র</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>A <strong>thermochemical equation</strong> is a balanced equation specifying physical states (and allotropes) along with \(\Delta_r H^\circ\). Standard state (\(^\circ\)) means the pure substance at \(1\text{ bar}\) pressure and a specified temperature (usually \(298\text{ K}\)). Reversing an equation reverses the sign of \(\Delta_r H^\circ\), and multiplying by a factor multiplies \(\Delta_r H^\circ\) by the same factor.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Enthalpy Term</th>
+              <th>Definition &amp; Key Formula / Convention</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Standard Enthalpy of Formation (\(\Delta_f H^\circ\))</strong></td>
+              <td>Enthalpy change when 1 mol of a compound forms from its constituent elements in their most stable reference states (e.g., \(\mathrm{C(graphite)}\), \(\mathrm{O_2(g)}\), \(\mathrm{S(rhombic)}\)). By convention, \(\Delta_f H^\circ(\text{reference element}) = 0\).<br />\(\Delta_r H^\circ = \sum a_i \Delta_f H^\circ(\text{products}) - \sum b_i \Delta_f H^\circ(\text{reactants})\)</td>
+            </tr>
+            <tr>
+              <td><strong>Standard Enthalpy of Combustion (\(\Delta_c H^\circ\))</strong></td>
+              <td>Enthalpy change when 1 mol of a substance undergoes complete combustion in excess \(\mathrm{O_2}\) under standard conditions. Always negative (exothermic).</td>
+            </tr>
+            <tr>
+              <td><strong>Phase Transitions (\(\Delta_{\mathrm{fus}}H^\circ, \Delta_{\mathrm{vap}}H^\circ, \Delta_{\mathrm{sub}}H^\circ\))</strong></td>
+              <td>Enthalpy absorbed to melt, vaporize, or sublime 1 mol of a substance at constant \(T\) and \(1\text{ bar}\). All are positive (endothermic), and \(\Delta_{\mathrm{sub}}H^\circ = \Delta_{\mathrm{fus}}H^\circ + \Delta_{\mathrm{vap}}H^\circ\).</td>
+            </tr>
+            <tr>
+              <td><strong>Atomization (\(\Delta_a H^\circ\)) &amp; Bond Enthalpy</strong></td>
+              <td>\(\Delta_a H^\circ\): breaking 1 mol of bonds completely into gaseous atoms. For gas-phase reactions:<br />\(\Delta_r H^\circ \approx \sum \text{Bond Enthalpies}_{\mathrm{reactants}} - \sum \text{Bond Enthalpies}_{\mathrm{products}}\)</td>
+            </tr>
+            <tr>
+              <td><strong>Lattice (\(\Delta_{\mathrm{lattice}}H^\circ\)) &amp; Solution (\(\Delta_{\mathrm{sol}}H^\circ\))</strong></td>
+              <td>\(\Delta_{\mathrm{lattice}}H^\circ\): 1 mol of ionic solid dissociating into gaseous ions (determined indirectly via the <strong>Born-Haber cycle</strong>).<br />\(\Delta_{\mathrm{sol}}H^\circ = \Delta_{\mathrm{lattice}}H^\circ + \Delta_{\mathrm{hyd}}H^\circ\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Hess's Law of Constant Heat Summation</h3>
+        <p>Because enthalpy is a state function, the total enthalpy change of a reaction is identical whether it occurs in one step or in multiple intermediate steps at the same temperature: \(\Delta_r H^\circ = \Delta_r H_1^\circ + \Delta_r H_2^\circ + \Delta_r H_3^\circ + \dots\)</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hess's Law multi-step enthalpy pathway">
+            <rect x="0" y="0" width="680" height="210" fill="#F8FAFC" rx="8"/>
+            <rect x="60" y="35" width="140" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2" rx="6"/>
+            <text x="130" y="62" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Reactants (A)</text>
+
+            <rect x="480" y="35" width="140" height="44" fill="#CCFBF1" stroke="#0D9488" stroke-width="2" rx="6"/>
+            <text x="550" y="62" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Products (B)</text>
+
+            <rect x="170" y="140" width="140" height="44" fill="#FFFFFF" stroke="#475569" stroke-width="2" rx="6"/>
+            <text x="240" y="167" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">Intermediate C</text>
+
+            <rect x="370" y="140" width="140" height="44" fill="#FFFFFF" stroke="#475569" stroke-width="2" rx="6"/>
+            <text x="440" y="167" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">Intermediate D</text>
+
+            <!-- Direct Arrow -->
+            <line x1="205" y1="57" x2="470" y2="57" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="478,57 468,52 468,62" fill="#2563EB"/>
+            <text x="340" y="45" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Direct Route: ΔH</text>
+
+            <!-- Multi-step Arrows -->
+            <line x1="130" y1="79" x2="200" y2="134" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="206,139 195,136 201,128" fill="#0D9488"/>
+            <text x="142" y="122" text-anchor="end" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ΔH₁</text>
+
+            <line x1="310" y1="162" x2="362" y2="162" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="369,162 359,157 359,167" fill="#0D9488"/>
+            <text x="340" y="152" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ΔH₂</text>
+
+            <line x1="480" y1="140" x2="545" y2="85" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="551,80 540,83 546,91" fill="#0D9488"/>
+            <text x="532" y="122" text-anchor="start" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ΔH₃</text>
+          </svg>
+          <div class="svg-caption">Tutorial Diagram 3: Hess's Law — ΔH = ΔH₁ + ΔH₂ + ΔH₃ regardless of the reaction pathway.</div>
+        </div>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p><strong>তাপরাসায়নিক সমীকরণ (Thermochemical equation)</strong> হলো এমন একটি সমতাযুক্ত রাসায়নিক সমীকরণ যেখানে পদার্থের ভৌত অবস্থা (ও রূপভেদ) এবং \(\Delta_r H^\circ\)-এর মান উল্লেখ থাকে। প্রমাণ অবস্থা (\(^\circ\)) বলতে \(1\text{ bar}\) চাপ এবং নির্দিষ্ট উষ্ণতায় (সাধারণত \(298\text{ K}\)) বিশুদ্ধ পদার্থকে বোঝায়। সমীকরণ উল্টে দিলে \(\Delta_r H^\circ\)-এর চিহ্ন বিপরীত হয় এবং কোনো সংখ্যা দিয়ে গুণ করলে \(\Delta_r H^\circ\)-ও সেই সংখ্যা দ্বারা গুণিত হয়।</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>এনথ্যালপির প্রকারভেদ</th>
+              <th>সংজ্ঞা ও মূল সূত্র / রীতি</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>প্রমাণ গঠন এনথ্যালপি (\(\Delta_f H^\circ\))</strong></td>
+              <td>প্রমাণ অবস্থায় সুস্থিত উপাদান মৌল (যেমন \(\mathrm{C(graphite)}\), \(\mathrm{O_2(g)}\), \(\mathrm{S(rhombic)}\)) থেকে ১ মোল যৌগ গঠিত হওয়ার এনথ্যালপি পরিবর্তন। রীতি অনুসারে, \(\Delta_f H^\circ(\text{প্রমাণ মৌল}) = 0\)।<br />\(\Delta_r H^\circ = \sum a_i \Delta_f H^\circ(\text{উৎপাদ}) - \sum b_i \Delta_f H^\circ(\text{বিক্রিয়ক})\)</td>
+            </tr>
+            <tr>
+              <td><strong>প্রমাণ দহন এনথ্যালপি (\(\Delta_c H^\circ\))</strong></td>
+              <td>প্রমাণ অবস্থায় ১ মোল পদার্থের অতিরিক্ত \(\mathrm{O_2}\)-তে সম্পূর্ণ দহনে এনথ্যালপি পরিবর্তন। এটি সর্বদা ঋণাত্মক (তাপমোচী)।</td>
+            </tr>
+            <tr>
+              <td><strong>দশা পরিবর্তন (\(\Delta_{\mathrm{fus}}H^\circ, \Delta_{\mathrm{vap}}H^\circ, \Delta_{\mathrm{sub}}H^\circ\))</strong></td>
+              <td>স্থির \(T\) ও \(1\text{ bar}\) চাপে ১ মোল পদার্থের গলন, বাষ্পীভবন বা ঊর্ধ্বপাতনে শোষিত তাপ। এগুলি সর্বদা ধনাত্মক এবং \(\Delta_{\mathrm{sub}}H^\circ = \Delta_{\mathrm{fus}}H^\circ + \Delta_{\mathrm{vap}}H^\circ\)।</td>
+            </tr>
+            <tr>
+              <td><strong>পরমাণুকরণ (\(\Delta_a H^\circ\)) ও বন্ধন এনথ্যালপি</strong></td>
+              <td>\(\Delta_a H^\circ\): ১ মোল বন্ধন সম্পূর্ণভাবে ভেঙে গ্যাসীয় পরমাণু তৈরির এনথ্যালপি। গ্যাসীয় বিক্রিয়ার ক্ষেত্রে:<br />\(\Delta_r H^\circ \approx \sum \text{বন্ধন এনথ্যালপি}_{\mathrm{বিক্রিয়ক}} - \sum \text{বন্ধন এনথ্যালপি}_{\mathrm{উৎপাদ}}\)</td>
+            </tr>
+            <tr>
+              <td><strong>ল্যাটিস (\(\Delta_{\mathrm{lattice}}H^\circ\)) ও দ্রবণ এনথ্যালপি (\(\Delta_{\mathrm{sol}}H^\circ\))</strong></td>
+              <td>\(\Delta_{\mathrm{lattice}}H^\circ\): ১ মোল আয়নীয় কঠিন ভেঙে গ্যাসীয় আয়নে পরিণত হওয়ার এনথ্যালপি (<strong>বর্ন-হ্যাবার চক্রের</strong> সাহায্যে নির্ণীত)।<br />\(\Delta_{\mathrm{sol}}H^\circ = \Delta_{\mathrm{lattice}}H^\circ + \Delta_{\mathrm{hyd}}H^\circ\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>হেস-এর ধ্রুব তাপ সমষ্টির সূত্র (Hess's Law)</h3>
+        <p>এনথ্যালপি একটি অবস্থা-অপেক্ষক হওয়ায়, একই উষ্ণতায় কোনো বিক্রিয়া এক ধাপে ঘটুক বা একাধিক অন্তর্বর্তী ধাপে ঘটুক, মোট এনথ্যালপি পরিবর্তন সর্বদা সমান থাকে: \(\Delta_r H^\circ = \Delta_r H_1^\circ + \Delta_r H_2^\circ + \Delta_r H_3^\circ + \dots\)</p>
+
+        <div class="svg-wrap">
+          <svg viewBox="0 0 680 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="হেস-এর সূত্রের বহু-ধাপ এনথ্যালপি পথ">
+            <rect x="0" y="0" width="680" height="210" fill="#F8FAFC" rx="8"/>
+            <rect x="60" y="35" width="140" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2" rx="6"/>
+            <text x="130" y="62" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">বিক্রিয়ক (A)</text>
+
+            <rect x="480" y="35" width="140" height="44" fill="#CCFBF1" stroke="#0D9488" stroke-width="2" rx="6"/>
+            <text x="550" y="62" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">উৎপাদ (B)</text>
+
+            <rect x="170" y="140" width="140" height="44" fill="#FFFFFF" stroke="#475569" stroke-width="2" rx="6"/>
+            <text x="240" y="167" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">অন্তর্বর্তী C</text>
+
+            <rect x="370" y="140" width="140" height="44" fill="#FFFFFF" stroke="#475569" stroke-width="2" rx="6"/>
+            <text x="440" y="167" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">অন্তর্বর্তী D</text>
+
+            <line x1="205" y1="57" x2="470" y2="57" stroke="#2563EB" stroke-width="2.5"/>
+            <polygon points="478,57 468,52 468,62" fill="#2563EB"/>
+            <text x="340" y="45" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">সরাসরি পথ: ΔH</text>
+
+            <line x1="130" y1="79" x2="200" y2="134" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="206,139 195,136 201,128" fill="#0D9488"/>
+            <text x="142" y="122" text-anchor="end" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ΔH₁</text>
+
+            <line x1="310" y1="162" x2="362" y2="162" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="369,162 359,157 359,167" fill="#0D9488"/>
+            <text x="340" y="152" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ΔH₂</text>
+
+            <line x1="480" y1="140" x2="545" y2="85" stroke="#0D9488" stroke-width="2.2"/>
+            <polygon points="551,80 540,83 546,91" fill="#0D9488"/>
+            <text x="532" y="122" text-anchor="start" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0F766E">ΔH₃</text>
+          </svg>
+          <div class="svg-caption">টিউটোরিয়াল চিত্র ৩: হেস-এর সূত্র — বিক্রিয়ার পথ যাই হোক না কেন, ΔH = ΔH₁ + ΔH₂ + ΔH₃।</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SPONTANEITY, ENTROPY, AND SECOND/THIRD LAWS -->
+    <section>
+      <h2>6. Spontaneity, Entropy &amp; the Second and Third Laws / স্বতঃস্ফূর্ততা, এনট্রপি ও দ্বিতীয় ও তৃতীয় সূত্র</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>A <strong>spontaneous process</strong> has the potential to proceed on its own without continuous external assistance (thermodynamics does not predict its speed). Decreasing enthalpy (\(\Delta H < 0\)) favours spontaneity, but it is neither necessary nor sufficient because many endothermic processes (such as ice melting at \(298\text{ K}\) or gas diffusion) are spontaneous.</p>
+        <p><strong>Entropy (\(S\))</strong> is a state function measuring the degree of molecular disorder or randomness (\(S_{\mathrm{gas}} > S_{\mathrm{liquid}} > S_{\mathrm{solid}}\)). Heat added reversibly at temperature \(T\) changes entropy by:</p>
+        <div class="formula-box">
+          \[\Delta S = \frac{q_{\mathrm{rev}}}{T} \qquad \text{(Units: }\mathrm{J\,K^{-1}\,mol^{-1}}\text{)}\]
+        </div>
+        <ul>
+          <li><strong>Second Law of Thermodynamics:</strong> For any spontaneous process, the total entropy of the universe increases:
+            \[\Delta S_{\mathrm{total}} = \Delta S_{\mathrm{sys}} + \Delta S_{\mathrm{surr}} > 0\]
+            At equilibrium, \(\Delta S_{\mathrm{total}} = 0\) (entropy reaches a maximum in an isolated system). Also, at constant \(T\) and \(P\), \(\Delta S_{\mathrm{surr}} = -\Delta H_{\mathrm{sys}}/T\).</li>
+          <li><strong>Third Law of Thermodynamics:</strong> The entropy of any pure, perfectly crystalline substance approaches zero as the temperature approaches absolute zero (\(0\text{ K}\)). This allows calculation of absolute standard entropies.</li>
+        </ul>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p><strong>স্বতঃস্ফূর্ত প্রক্রিয়া (Spontaneous process)</strong> হলো এমন একটি প্রক্রিয়া যা কোনো নিরবচ্ছিন্ন বাহ্যিক সাহায্য ছাড়াই নিজে থেকে ঘটার প্রবণতা রাখে (তাপগতিবিদ্যা এর বেগ নির্ধারণ করে না)। এনথ্যালপি হ্রাস (\(\Delta H < 0\)) স্বতঃস্ফূর্ততার অনুকূল হলেও তা একমাত্র শর্ত নয়, কারণ অনেক তাপগ্রাহী প্রক্রিয়াও (যেমন \(298\text{ K}\)-এ বরফের গলন বা গ্যাসের ব্যাপন) স্বতঃস্ফূর্ত।</p>
+        <p><strong>এনট্রপি (\(S\))</strong> হলো একটি অবস্থা-অপেক্ষক যা সিস্টেমের অণুগুলোর বিশৃঙ্খলা বা এলোমেলো অবস্থার পরিমাপ করে (\(S_{\mathrm{gas}} > S_{\mathrm{liquid}} > S_{\mathrm{solid}}\))। \(T\) উষ্ণতায় পরাবর্তীভাবে তাপ যোগ করলে এনট্রপির পরিবর্তন হয়:</p>
+        <div class="formula-box">
+          \[\Delta S = \frac{q_{\mathrm{rev}}}{T} \qquad \text{(একক: }\mathrm{J\,K^{-1}\,mol^{-1}}\text{)}\]
+        </div>
+        <ul>
+          <li><strong>তাপগতিবিদ্যার দ্বিতীয় সূত্র:</strong> যেকোনো স্বতঃস্ফূর্ত প্রক্রিয়ায় মহাবিশ্বের মোট এনট্রপি বৃদ্ধি পায়:
+            \[\Delta S_{\mathrm{total}} = \Delta S_{\mathrm{sys}} + \Delta S_{\mathrm{surr}} > 0\]
+            সাম্যাবস্থায় \(\Delta S_{\mathrm{total}} = 0\) হয় (বিচ্ছিন্ন সিস্টেমে এনট্রপি সর্বোচ্চ হয়)। স্থির \(T\) ও \(P\)-তে \(\Delta S_{\mathrm{surr}} = -\Delta H_{\mathrm{sys}}/T\)।</li>
+          <li><strong>তাপগতিবিদ্যার তৃতীয় সূত্র:</strong> পরম শূন্য উষ্ণতায় (\(0\text{ K}\)) যেকোনো বিশুদ্ধ, নিখুঁত কেলাসিত কঠিন পদার্থের এনট্রপি শূন্যের দিকে অগ্রসর হয়। এর সাহায্যে পরম প্রমাণ এনট্রপি গণনা করা যায়।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. GIBBS FREE ENERGY AND EQUILIBRIUM -->
+    <section>
+      <h2>7. Gibbs Free Energy &amp; Chemical Equilibrium / গিবস মুক্ত শক্তি ও রাসায়নিক সাম্যাবস্থা</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>To judge spontaneity using system properties alone at constant \(T\) and \(P\), we define <strong>Gibbs energy (\(G\))</strong>, an extensive state function representing the maximum non-expansion useful work available from a process:</p>
+        <div class="formula-box">
+          \[G = H - TS \qquad \implies \qquad \Delta G = \Delta H - T\Delta S \quad (\text{constant } T, P)\]
+        </div>
+        <p><strong>Spontaneity Criteria:</strong> \(\Delta G < 0\) (spontaneous); \(\Delta G = 0\) (equilibrium); \(\Delta G > 0\) (non-spontaneous in the forward direction).</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>\(\Delta H\)</th>
+              <th>\(\Delta S\)</th>
+              <th>\(\Delta G = \Delta H - T\Delta S\)</th>
+              <th>Spontaneity Behaviour</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>\(-\)</td><td>\(+\)</td><td>Always \(-\)</td><td>Spontaneous at all temperatures</td></tr>
+            <tr><td>\(+\)</td><td>\(-\)</td><td>Always \(+\)</td><td>Non-spontaneous at all temperatures</td></tr>
+            <tr><td>\(-\)</td><td>\(-\)</td><td>\(-\) at low \(T\); \(+\) at high \(T\)</td><td>Spontaneous at low \(T\) (\(T < \Delta H / \Delta S\))</td></tr>
+            <tr><td>\(+\)</td><td>\(+\)</td><td>\(+\) at low \(T\); \(-\) at high \(T\)</td><td>Spontaneous at high \(T\) (\(T > \Delta H / \Delta S\))</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Relation to the Equilibrium Constant (\(K\))</h3>
+        <p>Under standard conditions, \(\Delta_r G^\circ\) is directly linked to the thermodynamic equilibrium constant \(K\):</p>
+        <div class="formula-box">
+          \[\Delta_r G^\circ = -RT \ln K = -2.303\,RT \log_{10} K\]
+        </div>
+        <p>When \(\Delta_r G^\circ < 0\), \(K > 1\) (products favoured); when \(\Delta_r G^\circ > 0\), \(K < 1\) (reactants favoured).</p>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p>স্থির \(T\) ও \(P\)-তে কেবল সিস্টেমের ধর্ম ব্যবহার করে স্বতঃস্ফূর্ততা বিচার করার জন্য <strong>গিবস শক্তি (\(G\))</strong> সংজ্ঞায়িত করা হয়। এটি একটি পরিমাণগত অবস্থা-অপেক্ষক যা প্রক্রিয়া থেকে প্রাপ্ত সর্বোচ্চ কার্যকরী (অ-প্রসারণ) কার্যকে নির্দেশ করে:</p>
+        <div class="formula-box">
+          \[G = H - TS \qquad \implies \qquad \Delta G = \Delta H - T\Delta S \quad (\text{স্থির } T, P)\]
+        </div>
+        <p><strong>স্বতঃস্ফূর্ততার শর্ত:</strong> \(\Delta G < 0\) (স্বতঃস্ফূর্ত); \(\Delta G = 0\) (সাম্যাবস্থা); \(\Delta G > 0\) (সম্মুখ দিকে অস্বতঃস্ফূর্ত)।</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>\(\Delta H\)</th>
+              <th>\(\Delta S\)</th>
+              <th>\(\Delta G = \Delta H - T\Delta S\)</th>
+              <th>স্বতঃস্ফূর্ততার প্রকৃতি</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>\(-\)</td><td>\(+\)</td><td>সর্বদা \(-\)</td><td>সকল উষ্ণতায় স্বতঃস্ফূর্ত</td></tr>
+            <tr><td>\(+\)</td><td>\(-\)</td><td>সর্বদা \(+\)</td><td>কোনো উষ্ণতাতেই স্বতঃস্ফূর্ত নয়</td></tr>
+            <tr><td>\(-\)</td><td>\(-\)</td><td>নিম্ন \(T\)-তে \(-\); উচ্চ \(T\)-তে \(+\)</td><td>নিম্ন উষ্ণতায় স্বতঃস্ফূর্ত (\(T < \Delta H / \Delta S\))</td></tr>
+            <tr><td>\(+\)</td><td>\(+\)</td><td>নিম্ন \(T\)-তে \(+\); উচ্চ \(T\)-তে \(-\)</td><td>উচ্চ উষ্ণতায় স্বতঃস্ফূর্ত (\(T > \Delta H / \Delta S\))</td></tr>
+          </tbody>
+        </table>
+
+        <h3>সাম্যধ্রুবক (\(K\))-এর সাথে সম্পর্ক</h3>
+        <p>প্রমাণ অবস্থায় \(\Delta_r G^\circ\) সরাসরি তাপগতিীয় সাম্যধ্রুবক \(K\)-এর সাথে সম্পর্কিত:</p>
+        <div class="formula-box">
+          \[\Delta_r G^\circ = -RT \ln K = -2.303\,RT \log_{10} K\]
+        </div>
+        <p>\(\Delta_r G^\circ < 0\) হলে \(K > 1\) (উৎপাদ অনুকূল); \(\Delta_r G^\circ > 0\) হলে \(K < 1\) (বিক্রিয়ক অনুকূল)।</p>
+      </div>
+    </section>
+
+    <!-- 9. WORKED EXAMPLES (Exact required heading) -->
+    <section>
+      <h2>Worked Examples / সমাধানকৃত উদাহরণ</h2>
+
+      <!-- Example 1 -->
+      <div class="example-card">
+        <h3>1. Calculating Work and Heat in Isothermal Reversible Expansion</h3>
+        <p><strong>Problem:</strong> Assume \(2.0\text{ mol}\) of an ideal gas expands isothermally and reversibly at \(300\text{ K}\) from an initial volume of \(5.0\text{ L}\) to \(20.0\text{ L}\). Calculate \(w\), \(\Delta U\), and \(q\). (Given: \(R = 8.314\text{ J K}^{-1}\text{ mol}^{-1}\), \(\log_{10} 4 = 0.6021\)).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>For an isothermal reversible expansion of an ideal gas:</p>
+          \[w_{\mathrm{rev}} = -2.303\,nRT \log_{10}\left(\frac{V_f}{V_i}\right) = -2.303 \times 2.0 \times 8.314 \times 300 \times \log_{10}\left(\frac{20.0}{5.0}\right)\]
+          \[w_{\mathrm{rev}} = -2.303 \times 4988.4 \times 0.6021 \approx -6917\text{ J} = -6.92\text{ kJ}\]
+          <p>Since the gas is ideal and temperature is constant (\(\Delta T = 0\)), \(\Delta U = 0\). From the First Law (\(\Delta U = q + w\)):</p>
+          \[q = -w_{\mathrm{rev}} = +6.92\text{ kJ}\]
+        </div>
+        <hr style="border:0; border-top:1px dashed #CBD5E1; margin:16px 0;" />
+        <div lang="bn">
+          <h3>১. সমোষ্ণ পরাবর্তী প্রসারণে কার্য ও তাপ গণনা</h3>
+          <p><strong>সমস্যা:</strong> ধরি, \(300\text{ K}\) উষ্ণতায় \(2.0\text{ mol}\) একটি আদর্শ গ্যাস সমোষ্ণ ও পরাবর্তী প্রক্রিয়ায় \(5.0\text{ L}\) থেকে \(20.0\text{ L}\) আয়তনে প্রসারিত হয়। \(w\), \(\Delta U\) এবং \(q\) নির্ণয় করো। (প্রদত্ত: \(R = 8.314\text{ J K}^{-1}\text{ mol}^{-1}\), \(\log_{10} 4 = 0.6021\))।</p>
+          <div class="solution-box">
+            <p><strong>সমাধান:</strong></p>
+            <p>আদর্শ গ্যাসের সমোষ্ণ পরাবর্তী প্রসারণের ক্ষেত্রে:</p>
+            \[w_{\mathrm{rev}} = -2.303\,nRT \log_{10}\left(\frac{V_f}{V_i}\right) = -2.303 \times 2.0 \times 8.314 \times 300 \times \log_{10}\left(\frac{20.0}{5.0}\right)\]
+            \[w_{\mathrm{rev}} = -2.303 \times 4988.4 \times 0.6021 \approx -6917\text{ J} = -6.92\text{ kJ}\]
+            <p>যেহেতু গ্যাসটি আদর্শ এবং উষ্ণতা স্থির (\(\Delta T = 0\)), তাই \(\Delta U = 0\)। প্রথম সূত্র (\(\Delta U = q + w\)) থেকে:</p>
+            \[q = -w_{\mathrm{rev}} = +6.92\text{ kJ}\]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="example-card">
+        <h3>2. Relating Enthalpy and Internal Energy Changes in Combustion</h3>
+        <p><strong>Problem:</strong> Suppose complete combustion of \(1\text{ mol}\) of liquid propanol (\(\mathrm{C_3H_7OH(l)}\)) in a bomb calorimeter at \(298\text{ K}\) yields \(\Delta U = -2010.0\text{ kJ mol}^{-1}\). Calculate \(\Delta H\) for this combustion at \(298\text{ K}\). (\(R = 8.314\text{ J K}^{-1}\text{ mol}^{-1}\)).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>Balanced combustion equation: \(\mathrm{C_3H_7OH(l) + \frac{9}{2}O_2(g) \rightarrow 3CO_2(g) + 4H_2O(l)}\)</p>
+          <p>Number of moles of gaseous products minus reactants: \(\Delta n_g = 3 - \frac{9}{2} = -1.5\).</p>
+          \[\Delta n_g RT = (-1.5)(8.314\text{ J K}^{-1}\text{ mol}^{-1})(298\text{ K}) = -3716.4\text{ J mol}^{-1} \approx -3.72\text{ kJ mol}^{-1}\]
+          \[\Delta H = \Delta U + \Delta n_g RT = -2010.0 + (-3.72) = -2013.72\text{ kJ mol}^{-1}\]
+        </div>
+        <hr style="border:0; border-top:1px dashed #CBD5E1; margin:16px 0;" />
+        <div lang="bn">
+          <h3>২. দহন বিক্রিয়ায় এনথ্যালপি ও অভ্যন্তরীণ শক্তি পরিবর্তনের সম্পর্ক</h3>
+          <p><strong>সমস্যা:</strong> ধরি, \(298\text{ K}\) উষ্ণতায় একটি বম্ব ক্যালোরিমিটারে \(1\text{ mol}\) তরল প্রোপানল (\(\mathrm{C_3H_7OH(l)}\))-এর সম্পূর্ণ দহনে \(\Delta U = -2010.0\text{ kJ mol}^{-1}\) পাওয়া গেল। \(298\text{ K}\) উষ্ণতায় এই দহনের \(\Delta H\) নির্ণয় করো। (\(R = 8.314\text{ J K}^{-1}\text{ mol}^{-1}\))।</p>
+          <div class="solution-box">
+            <p><strong>সমাধান:</strong></p>
+            <p>সমতাযুক্ত দহন সমীকরণ: \(\mathrm{C_3H_7OH(l) + \frac{9}{2}O_2(g) \rightarrow 3CO_2(g) + 4H_2O(l)}\)</p>
+            <p>গ্যাসীয় উৎপাদ ও বিক্রিয়কের মোল-সংখ্যার পার্থক্য: \(\Delta n_g = 3 - \frac{9}{2} = -1.5\)।</p>
+            \[\Delta n_g RT = (-1.5)(8.314\text{ J K}^{-1}\text{ mol}^{-1})(298\text{ K}) = -3716.4\text{ J mol}^{-1} \approx -3.72\text{ kJ mol}^{-1}\]
+            \[\Delta H = \Delta U + \Delta n_g RT = -2010.0 + (-3.72) = -2013.72\text{ kJ mol}^{-1}\]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="example-card">
+        <h3>3. Applying Hess's Law to Calculate Standard Enthalpy of Formation</h3>
+        <p><strong>Problem:</strong> Using the following assumed standard combustion enthalpies at \(298\text{ K}\): \(\Delta_c H^\circ[\mathrm{C(graphite)}] = -393.5\text{ kJ mol}^{-1}\), \(\Delta_c H^\circ[\mathrm{H_2(g)}] = -285.8\text{ kJ mol}^{-1}\), and \(\Delta_c H^\circ[\mathrm{C_2H_6(g)}] = -1560.0\text{ kJ mol}^{-1}\), find \(\Delta_f H^\circ\) of ethane, \(\mathrm{C_2H_6(g)}\).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>Target equation: \(2\mathrm{C(graphite)} + 3\mathrm{H_2(g)} \rightarrow \mathrm{C_2H_6(g)}\)</p>
+          <p>Combining \(2 \times (\text{combustion of C}) + 3 \times (\text{combustion of H}_2) - 1 \times (\text{combustion of C}_2\text{H}_6)\):</p>
+          \[\Delta_f H^\circ[\mathrm{C_2H_6(g)}] = 2(-393.5) + 3(-285.8) - (-1560.0) = -787.0 - 857.4 + 1560.0 = -84.4\text{ kJ mol}^{-1}\]
+        </div>
+        <hr style="border:0; border-top:1px dashed #CBD5E1; margin:16px 0;" />
+        <div lang="bn">
+          <h3>৩. হেস-এর সূত্র প্রয়োগ করে প্রমাণ গঠন এনথ্যালপি নির্ণয়</h3>
+          <p><strong>সমস্যা:</strong> \(298\text{ K}\) উষ্ণতায় প্রদত্ত (ধৃত) প্রমাণ দহন এনথ্যালপিগুলো ব্যবহার করে ইথেন, \(\mathrm{C_2H_6(g)}\)-এর \(\Delta_f H^\circ\) নির্ণয় করো: \(\Delta_c H^\circ[\mathrm{C(graphite)}] = -393.5\text{ kJ mol}^{-1}\), \(\Delta_c H^\circ[\mathrm{H_2(g)}] = -285.8\text{ kJ mol}^{-1}\) এবং \(\Delta_c H^\circ[\mathrm{C_2H_6(g)}] = -1560.0\text{ kJ mol}^{-1}\)।</p>
+          <div class="solution-box">
+            <p><strong>সমাধান:</strong></p>
+            <p>লক্ষ্য সমীকরণ: \(2\mathrm{C(graphite)} + 3\mathrm{H_2(g)} \rightarrow \mathrm{C_2H_6(g)}\)</p>
+            <p>\(2 \times (\text{C-এর দহন}) + 3 \times (\text{H}_2\text{-এর দহন}) - 1 \times (\text{C}_2\text{H}_6\text{-এর দহন})\) করে পাই:</p>
+            \[\Delta_f H^\circ[\mathrm{C_2H_6(g)}] = 2(-393.5) + 3(-285.8) - (-1560.0) = -787.0 - 857.4 + 1560.0 = -84.4\text{ kJ mol}^{-1}\]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="example-card">
+        <h3>4. Estimating Reaction Enthalpy from Mean Bond Enthalpies</h3>
+        <p><strong>Problem:</strong> Estimate \(\Delta_r H^\circ\) for the gas-phase hydrogenation \(\mathrm{C_2H_4(g) + H_2(g) \rightarrow C_2H_6(g)}\) using these assumed mean bond enthalpies: \(\mathrm{C=C} = 612\text{ kJ mol}^{-1}\), \(\mathrm{C-C} = 348\text{ kJ mol}^{-1}\), \(\mathrm{C-H} = 414\text{ kJ mol}^{-1}\), and \(\mathrm{H-H} = 436\text{ kJ mol}^{-1}\).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>Total bonds broken (reactants): \(1(\mathrm{C=C}) + 4(\mathrm{C-H}) + 1(\mathrm{H-H}) = 612 + 4(414) + 436 = 2704\text{ kJ mol}^{-1}\).</p>
+          <p>Total bonds formed (products): \(1(\mathrm{C-C}) + 6(\mathrm{C-H}) = 348 + 6(414) = 2832\text{ kJ mol}^{-1}\).</p>
+          \[\Delta_r H^\circ = \sum BE_{\mathrm{reactants}} - \sum BE_{\mathrm{products}} = 2704 - 2832 = -128\text{ kJ mol}^{-1}\]
+        </div>
+        <hr style="border:0; border-top:1px dashed #CBD5E1; margin:16px 0;" />
+        <div lang="bn">
+          <h3>৪. গড় বন্ধন এনথ্যালপি থেকে বিক্রিয়া এনথ্যালপি নির্ণয়</h3>
+          <p><strong>সমস্যা:</strong> প্রদত্ত (ধৃত) গড় বন্ধন এনথ্যালপিগুলো ব্যবহার করে \(\mathrm{C_2H_4(g) + H_2(g) \rightarrow C_2H_6(g)}\) গ্যাসীয় হাইড্রোজেনেশন বিক্রিয়ার \(\Delta_r H^\circ\) নির্ণয় করো: \(\mathrm{C=C} = 612\text{ kJ mol}^{-1}\), \(\mathrm{C-C} = 348\text{ kJ mol}^{-1}\), \(\mathrm{C-H} = 414\text{ kJ mol}^{-1}\) এবং \(\mathrm{H-H} = 436\text{ kJ mol}^{-1}\)।</p>
+          <div class="solution-box">
+            <p><strong>সমাধান:</strong></p>
+            <p>ভাঙা মোট বন্ধন (বিক্রিয়ক): \(1(\mathrm{C=C}) + 4(\mathrm{C-H}) + 1(\mathrm{H-H}) = 612 + 4(414) + 436 = 2704\text{ kJ mol}^{-1}\)।</p>
+            <p>গঠিত মোট বন্ধন (উৎপাদ): \(1(\mathrm{C-C}) + 6(\mathrm{C-H}) = 348 + 6(414) = 2832\text{ kJ mol}^{-1}\)।</p>
+            \[\Delta_r H^\circ = \sum BE_{\mathrm{বিক্রিয়ক}} - \sum BE_{\mathrm{উৎপাদ}} = 2704 - 2832 = -128\text{ kJ mol}^{-1}\]
+          </div>
+        </div>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="example-card">
+        <h3>5. Determining Spontaneity Temperature &amp; Equilibrium Constant</h3>
+        <p><strong>Problem:</strong> A hypothetical reaction has \(\Delta_r H^\circ = +60.0\text{ kJ mol}^{-1}\) and \(\Delta_r S^\circ = +150.0\text{ J K}^{-1}\text{ mol}^{-1}\) (assumed constant with temperature). (a) Above what temperature does it become spontaneous? (b) Calculate \(\Delta_r G^\circ\) and \(\log_{10} K\) at \(500\text{ K}\). (\(R = 8.314\text{ J K}^{-1}\text{ mol}^{-1}\)).</p>
+        <div class="solution-box">
+          <p><strong>Solution:</strong></p>
+          <p>(a) Spontaneity requires \(\Delta_r G^\circ = \Delta_r H^\circ - T\Delta_r S^\circ < 0 \implies T > \frac{\Delta_r H^\circ}{\Delta_r S^\circ} = \frac{60000\text{ J mol}^{-1}}{150.0\text{ J K}^{-1}\text{ mol}^{-1}} = 400\text{ K}\).</p>
+          <p>(b) At \(500\text{ K}\): \(\Delta_r G^\circ = 60000 - (500 \times 150.0) = -15000\text{ J mol}^{-1} = -15.0\text{ kJ mol}^{-1}\).</p>
+          \[\log_{10} K = \frac{-\Delta_r G^\circ}{2.303\,RT} = \frac{15000}{2.303 \times 8.314 \times 500} = \frac{15000}{9573.6} \approx 1.57\]
+        </div>
+        <hr style="border:0; border-top:1px dashed #CBD5E1; margin:16px 0;" />
+        <div lang="bn">
+          <h3>৫. স্বতঃস্ফূর্ততার উষ্ণতা ও সাম্যধ্রুবক নির্ণয়</h3>
+          <p><strong>সমস্যা:</strong> একটি কাল্পনিক বিক্রিয়ার \(\Delta_r H^\circ = +60.0\text{ kJ mol}^{-1}\) এবং \(\Delta_r S^\circ = +150.0\text{ J K}^{-1}\text{ mol}^{-1}\) (উষ্ণতার সাথে ধ্রুবক ধরা হলো)। (ক) কোন উষ্ণতার ওপরে বিক্রিয়াটি স্বতঃস্ফূর্ত হবে? (খ) \(500\text{ K}\) উষ্ণতায় \(\Delta_r G^\circ\) এবং \(\log_{10} K\) নির্ণয় করো। (\(R = 8.314\text{ J K}^{-1}\text{ mol}^{-1}\))।</p>
+          <div class="solution-box">
+            <p><strong>সমাধান:</strong></p>
+            <p>(ক) স্বতঃস্ফূর্ততার জন্য \(\Delta_r G^\circ = \Delta_r H^\circ - T\Delta_r S^\circ < 0 \implies T > \frac{\Delta_r H^\circ}{\Delta_r S^\circ} = \frac{60000\text{ J mol}^{-1}}{150.0\text{ J K}^{-1}\text{ mol}^{-1}} = 400\text{ K}\)।</p>
+            <p>(খ) \(500\text{ K}\) উষ্ণতায়: \(\Delta_r G^\circ = 60000 - (500 \times 150.0) = -15000\text{ J mol}^{-1} = -15.0\text{ kJ mol}^{-1}\)।</p>
+            \[\log_{10} K = \frac{-\Delta_r G^\circ}{2.303\,RT} = \frac{15000}{2.303 \times 8.314 \times 500} = \frac{15000}{9573.6} \approx 1.57\]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. NEET UG PRACTICE QUESTIONS -->
+    <section>
+      <h2>NEET UG Practice Questions / NEET UG অনুশীলনী প্রশ্ন</h2>
+
+      <!-- Question 1 -->
+      <div class="question-card">
+        <p><strong>Practice Question 1 (Single-Correct MCQ):</strong> A gas absorbs \(450\text{ J}\) of heat and expands against a constant external pressure of \(2.0\text{ atm}\) from \(1.5\text{ L}\) to \(3.5\text{ L}\). Taking \(1\text{ L}\cdot\text{atm} = 101.3\text{ J}\), what is the change in internal energy (\(\Delta U\)) of the gas?</p>
+        <ul class="options-list">
+          <li>(A) \(+855.2\text{ J}\)</li>
+          <li>(B) \(+44.8\text{ J}\)</li>
+          <li>(C) \(-44.8\text{ J}\)</li>
+          <li>(D) \(-855.2\text{ J}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (B) \(+44.8\text{ J}\)</p>
+          <p><strong>Worked Solution:</strong> Heat absorbed: \(q = +450\text{ J}\). Expansion work against constant pressure: \(w = -P_{\mathrm{ex}}\Delta V = -2.0\text{ atm} \times (3.5 - 1.5)\text{ L} = -4.0\text{ L}\cdot\text{atm} = -4.0 \times 101.3\text{ J} = -405.2\text{ J}\). Using \(\Delta U = q + w = +450 + (-405.2) = +44.8\text{ J}\).</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ১ (একক-সঠিক বহুনির্বাচনি):</strong> একটি গ্যাস \(450\text{ J}\) তাপ শোষণ করে এবং \(2.0\text{ atm}\) স্থির বাহ্যিক চাপের বিরুদ্ধে \(1.5\text{ L}\) থেকে \(3.5\text{ L}\) আয়তনে প্রসারিত হয়। \(1\text{ L}\cdot\text{atm} = 101.3\text{ J}\) ধরে গ্যাসটির অভ্যন্তরীণ শক্তির পরিবর্তন (\(\Delta U\)) নির্ণয় করো।</p>
+          <ul class="options-list">
+            <li>(A) \(+855.2\text{ J}\)</li>
+            <li>(B) \(+44.8\text{ J}\)</li>
+            <li>(C) \(-44.8\text{ J}\)</li>
+            <li>(D) \(-855.2\text{ J}\)</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (B) \(+44.8\text{ J}\)</p>
+            <p><strong>সমাধান:</strong> শোষিত তাপ: \(q = +450\text{ J}\)। স্থির চাপে প্রসারণ কার্য: \(w = -P_{\mathrm{ex}}\Delta V = -2.0\text{ atm} \times (3.5 - 1.5)\text{ L} = -4.0\text{ L}\cdot\text{atm} = -4.0 \times 101.3\text{ J} = -405.2\text{ J}\)। প্রথম সূত্র অনুযায়ী \(\Delta U = q + w = +450 + (-405.2) = +44.8\text{ J}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question-card">
+        <p><strong>Practice Question 2 (Single-Correct MCQ):</strong> Which of the following sets consists exclusively of intensive thermodynamic properties?</p>
+        <ul class="options-list">
+          <li>(A) Temperature, density, molar enthalpy</li>
+          <li>(B) Volume, internal energy, heat capacity</li>
+          <li>(C) Mass, pressure, entropy</li>
+          <li>(D) Enthalpy, density, temperature</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (A) Temperature, density, molar enthalpy</p>
+          <p><strong>Worked Solution:</strong> Intensive properties are independent of system size. Temperature, density (mass/volume), and molar enthalpy (enthalpy/mole) do not change when a system is divided into smaller parts. Volume, internal energy, heat capacity, mass, entropy, and enthalpy are extensive properties.</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ২ (একক-সঠিক বহুনির্বাচনি):</strong> নিচের কোন গুচ্ছটিতে কেবলমাত্র তীব্রতাগত (intensive) তাপগতিীয় ধর্ম রয়েছে?</p>
+          <ul class="options-list">
+            <li>(A) উষ্ণতা, ঘনত্ব, মোলার এনথ্যালপি</li>
+            <li>(B) আয়তন, অভ্যন্তরীণ শক্তি, তাপগ্রাহিতা</li>
+            <li>(C) ভর, চাপ, এনট্রপি</li>
+            <li>(D) এনথ্যালপি, ঘনত্ব, উষ্ণতা</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (A) উষ্ণতা, ঘনত্ব, মোলার এনথ্যালপি</p>
+            <p><strong>সমাধান:</strong> তীব্রতাগত ধর্ম সিস্টেমের পরিমাণের ওপর নির্ভর করে না। উষ্ণতা, ঘনত্ব (ভর/আয়তন) এবং মোলার এনথ্যালপি (এনথ্যালপি/মোল) সিস্টেমকে ভাগ করলেও অপরিবর্তিত থাকে। অন্যদিকে আয়তন, অভ্যন্তরীণ শক্তি, তাপগ্রাহিতা, ভর, এনট্রপি ও এনথ্যালপি হলো পরিমাণগত (extensive) ধর্ম।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question-card">
+        <p><strong>Practice Question 3 (Single-Correct MCQ):</strong> For which of the following reactions at \(298\text{ K}\) is \(\Delta H < \Delta U\)?</p>
+        <ul class="options-list">
+          <li>(A) \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\)</li>
+          <li>(B) \(\mathrm{PCl_5(g) \rightarrow PCl_3(g) + Cl_2(g)}\)</li>
+          <li>(C) \(\mathrm{H_2(g) + I_2(g) \rightarrow 2HI(g)}\)</li>
+          <li>(D) \(\mathrm{CaCO_3(s) \rightarrow CaO(s) + CO_2(g)}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (A) \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\)</p>
+          <p><strong>Worked Solution:</strong> Since \(\Delta H = \Delta U + \Delta n_g RT\), \(\Delta H < \Delta U\) holds whenever \(\Delta n_g < 0\). For \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\), \(\Delta n_g = 2 - (1 + 3) = -2 < 0\). The other options have \(\Delta n_g = +1, 0,\) and \(+1\) respectively.</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ৩ (একক-সঠিক বহুনির্বাচনি):</strong> \(298\text{ K}\) উষ্ণতায় নিচের কোন বিক্রিয়াটির ক্ষেত্রে \(\Delta H < \Delta U\) হবে?</p>
+          <ul class="options-list">
+            <li>(A) \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\)</li>
+            <li>(B) \(\mathrm{PCl_5(g) \rightarrow PCl_3(g) + Cl_2(g)}\)</li>
+            <li>(C) \(\mathrm{H_2(g) + I_2(g) \rightarrow 2HI(g)}\)</li>
+            <li>(D) \(\mathrm{CaCO_3(s) \rightarrow CaO(s) + CO_2(g)}\)</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (A) \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\)</p>
+            <p><strong>সমাধান:</strong> যেহেতু \(\Delta H = \Delta U + \Delta n_g RT\), তাই \(\Delta n_g < 0\) হলে \(\Delta H < \Delta U\) হয়। \(\mathrm{N_2(g) + 3H_2(g) \rightarrow 2NH_3(g)}\) বিক্রিয়ার জন্য \(\Delta n_g = 2 - (1 + 3) = -2 < 0\)। বাকি বিক্রিয়াগুলোতে \(\Delta n_g\) যথাক্রমে \(+1, 0\) এবং \(+1\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question-card">
+        <p><strong>Practice Question 4 (Single-Correct MCQ):</strong> When \(0.50\text{ mol}\) of a solid fuel is completely burnt in a bomb calorimeter of heat capacity \(15.0\text{ kJ K}^{-1}\), the temperature rises from \(298.0\text{ K}\) to \(302.0\text{ K}\). What is the molar internal energy change (\(\Delta U\)) of combustion?</p>
+        <ul class="options-list">
+          <li>(A) \(-60.0\text{ kJ mol}^{-1}\)</li>
+          <li>(B) \(-120.0\text{ kJ mol}^{-1}\)</li>
+          <li>(C) \(+120.0\text{ kJ mol}^{-1}\)</li>
+          <li>(D) \(-30.0\text{ kJ mol}^{-1}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (B) \(-120.0\text{ kJ mol}^{-1}\)</p>
+          <p><strong>Worked Solution:</strong> Heat absorbed by the calorimeter \(= C_{\mathrm{cal}}\Delta T = 15.0\text{ kJ K}^{-1} \times (302.0 - 298.0)\text{ K} = 60.0\text{ kJ}\). Thus, for \(0.50\text{ mol}\) of fuel, \(q_v = \Delta U = -60.0\text{ kJ}\). Per mole of fuel: \(\Delta U = \frac{-60.0}{0.50} = -120.0\text{ kJ mol}^{-1}\).</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ৪ (একক-সঠিক বহুনির্বাচনি):</strong> \(15.0\text{ kJ K}^{-1}\) তাপগ্রাহিতা বিশিষ্ট একটি বম্ব ক্যালোরিমিটারে \(0.50\text{ mol}\) একটি কঠিন জ্বালানি সম্পূর্ণভাবে দহন করলে উষ্ণতা \(298.0\text{ K}\) থেকে \(302.0\text{ K}\)-এ বৃদ্ধি পায়। দহনের মোলার অভ্যন্তরীণ শক্তির পরিবর্তন (\(\Delta U\)) কত?</p>
+          <ul class="options-list">
+            <li>(A) \(-60.0\text{ kJ mol}^{-1}\)</li>
+            <li>(B) \(-120.0\text{ kJ mol}^{-1}\)</li>
+            <li>(C) \(+120.0\text{ kJ mol}^{-1}\)</li>
+            <li>(D) \(-30.0\text{ kJ mol}^{-1}\)</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (B) \(-120.0\text{ kJ mol}^{-1}\)</p>
+            <p><strong>সমাধান:</strong> ক্যালোরিমিটার দ্বারা শোষিত তাপ \(= C_{\mathrm{cal}}\Delta T = 15.0\text{ kJ K}^{-1} \times (302.0 - 298.0)\text{ K} = 60.0\text{ kJ}\)। অর্থাৎ \(0.50\text{ mol}\) জ্বালানির জন্য \(q_v = \Delta U = -60.0\text{ kJ}\)। সুতরাং, প্রতি মোল জ্বালানির জন্য \(\Delta U = \frac{-60.0}{0.50} = -120.0\text{ kJ mol}^{-1}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question-card">
+        <p><strong>Practice Question 5 (Single-Correct MCQ):</strong> Given the following hypothetical thermochemical data:<br />
+        (i) \(2\mathrm{A(s)} + \frac{3}{2}\mathrm{O_2(g)} \rightarrow \mathrm{A_2O_3(s)}; \quad \Delta_r H^\circ = -800\text{ kJ mol}^{-1}\)<br />
+        (ii) \(\mathrm{B(s)} + \frac{1}{2}\mathrm{O_2(g)} \rightarrow \mathrm{BO(s)}; \quad \Delta_r H^\circ = -300\text{ kJ mol}^{-1}\)<br />
+        What is \(\Delta_r H^\circ\) for the reaction \(\mathrm{A_2O_3(s) + 3B(s) \rightarrow 2A(s) + 3BO(s)}\)?</p>
+        <ul class="options-list">
+          <li>(A) \(-1700\text{ kJ mol}^{-1}\)</li>
+          <li>(B) \(+100\text{ kJ mol}^{-1}\)</li>
+          <li>(C) \(-100\text{ kJ mol}^{-1}\)</li>
+          <li>(D) \(-500\text{ kJ mol}^{-1}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (C) \(-100\text{ kJ mol}^{-1}\)</p>
+          <p><strong>Worked Solution:</strong> Multiply equation (ii) by 3 and reverse equation (i):<br />
+          \(3 \times (-300) + (+800) = -900 + 800 = -100\text{ kJ mol}^{-1}\).</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ৫ (একক-সঠিক বহুনির্বাচনি):</strong> নিচের কাল্পনিক তাপরাসায়নিক তথ্যগুলো দেওয়া আছে:<br />
+          (i) \(2\mathrm{A(s)} + \frac{3}{2}\mathrm{O_2(g)} \rightarrow \mathrm{A_2O_3(s)}; \quad \Delta_r H^\circ = -800\text{ kJ mol}^{-1}\)<br />
+          (ii) \(\mathrm{B(s)} + \frac{1}{2}\mathrm{O_2(g)} \rightarrow \mathrm{BO(s)}; \quad \Delta_r H^\circ = -300\text{ kJ mol}^{-1}\)<br />
+          তাহলে \(\mathrm{A_2O_3(s) + 3B(s) \rightarrow 2A(s) + 3BO(s)}\) বিক্রিয়ার \(\Delta_r H^\circ\) কত?</p>
+          <ul class="options-list">
+            <li>(A) \(-1700\text{ kJ mol}^{-1}\)</li>
+            <li>(B) \(+100\text{ kJ mol}^{-1}\)</li>
+            <li>(C) \(-100\text{ kJ mol}^{-1}\)</li>
+            <li>(D) \(-500\text{ kJ mol}^{-1}\)</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (C) \(-100\text{ kJ mol}^{-1}\)</p>
+            <p><strong>সমাধান:</strong> সমীকরণ (ii)-কে ৩ দিয়ে গুণ করে এবং সমীকরণ (i)-কে উল্টে যোগ করলে পাই:<br />
+            \(3 \times (-300) + (+800) = -900 + 800 = -100\text{ kJ mol}^{-1}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question-card">
+        <p><strong>Practice Question 6 (Single-Correct MCQ):</strong> Assume \(2.0\text{ mol}\) of a liquid vaporizes at its normal boiling point of \(350\text{ K}\) with \(\Delta_{\mathrm{vap}}H^\circ = +35.0\text{ kJ mol}^{-1}\). What is the entropy change of the surroundings (\(\Delta S_{\mathrm{surr}}\))?</p>
+        <ul class="options-list">
+          <li>(A) \(+200\text{ J K}^{-1}\)</li>
+          <li>(B) \(-200\text{ J K}^{-1}\)</li>
+          <li>(C) \(-100\text{ J K}^{-1}\)</li>
+          <li>(D) \(+100\text{ J K}^{-1}\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (B) \(-200\text{ J K}^{-1}\)</p>
+          <p><strong>Worked Solution:</strong> Heat absorbed by the system: \(\Delta H_{\mathrm{sys}} = 2.0\text{ mol} \times 35.0\text{ kJ mol}^{-1} = +70.0\text{ kJ} = +70000\text{ J}\). Therefore, \(\Delta S_{\mathrm{surr}} = -\frac{\Delta H_{\mathrm{sys}}}{T} = -\frac{70000}{350} = -200\text{ J K}^{-1}\).</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ৬ (একক-সঠিক বহুনির্বাচনি):</strong> ধরি, \(2.0\text{ mol}\) একটি তরল তার স্বাভাবিক স্ফুটনাঙ্ক \(350\text{ K}\)-এ বাষ্পীভূত হয় এবং \(\Delta_{\mathrm{vap}}H^\circ = +35.0\text{ kJ mol}^{-1}\)। পরিবেশের এনট্রপির পরিবর্তন (\(\Delta S_{\mathrm{surr}}\)) কত?</p>
+          <ul class="options-list">
+            <li>(A) \(+200\text{ J K}^{-1}\)</li>
+            <li>(B) \(-200\text{ J K}^{-1}\)</li>
+            <li>(C) \(-100\text{ J K}^{-1}\)</li>
+            <li>(D) \(+100\text{ J K}^{-1}\)</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (B) \(-200\text{ J K}^{-1}\)</p>
+            <p><strong>সমাধান:</strong> সিস্টেম দ্বারা শোষিত তাপ: \(\Delta H_{\mathrm{sys}} = 2.0\text{ mol} \times 35.0\text{ kJ mol}^{-1} = +70.0\text{ kJ} = +70000\text{ J}\)। অতএব, \(\Delta S_{\mathrm{surr}} = -\frac{\Delta H_{\mathrm{sys}}}{T} = -\frac{70000}{350} = -200\text{ J K}^{-1}\)।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question-card">
+        <p><strong>Practice Question 7 (Assertion-Reason):</strong><br />
+        <strong>Assertion (A):</strong> An endothermic reaction with a positive entropy change can become spontaneous at high temperatures.<br />
+        <strong>Reason (R):</strong> In \(\Delta G = \Delta H - T\Delta S\), when \(\Delta H > 0\) and \(\Delta S > 0\), a sufficiently high temperature makes \(T\Delta S > \Delta H\), giving \(\Delta G < 0\).</p>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+          <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+          <li>(C) (A) is true, but (R) is false.</li>
+          <li>(D) (A) is false, but (R) is true.</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</p>
+          <p><strong>Worked Solution:</strong> When \(\Delta H > 0\) and \(\Delta S > 0\), the \(-T\Delta S\) term is negative and dominates at high \(T\) (\(T > \Delta H/\Delta S\)), making \(\Delta G < 0\) and the reaction spontaneous.</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ৭ (বিবৃতি-কারণ):</strong><br />
+          <strong>বিবৃতি (A):</strong> ধনাত্মক এনট্রপি পরিবর্তনযুক্ত একটি তাপগ্রাহী বিক্রিয়া উচ্চ উষ্ণতায় স্বতঃস্ফূর্ত হতে পারে।<br />
+          <strong>কারণ (R):</strong> \(\Delta G = \Delta H - T\Delta S\) সমীকরণে \(\Delta H > 0\) এবং \(\Delta S > 0\) হলে, যথেষ্ট উচ্চ উষ্ণতায় \(T\Delta S > \Delta H\) হয়, যার ফলে \(\Delta G < 0\) হয়।</p>
+          <ul class="options-list">
+            <li>(A) (A) এবং (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা।</li>
+            <li>(B) (A) এবং (R) উভয়ই সত্য, কিন্তু (R) হলো (A)-এর সঠিক ব্যাখ্যা নয়।</li>
+            <li>(C) (A) সত্য, কিন্তু (R) মিথ্যা।</li>
+            <li>(D) (A) মিথ্যা, কিন্তু (R) সত্য।</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (A) (A) এবং (R) উভয়ই সত্য এবং (R) হলো (A)-এর সঠিক ব্যাখ্যা।</p>
+            <p><strong>সমাধান:</strong> \(\Delta H > 0\) এবং \(\Delta S > 0\) হলে, উচ্চ উষ্ণতায় (\(T > \Delta H/\Delta S\)) \(-T\Delta S\) পদটি প্রভাবশালী হয় এবং \(\Delta G < 0\) হওয়ায় বিক্রিয়াটি স্বতঃস্ফূর্ত হয়।</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question-card">
+        <p><strong>Practice Question 8 (Single-Correct MCQ):</strong> If \(\Delta_r G^\circ = -11.49\text{ kJ mol}^{-1}\) for a reaction at \(300\text{ K}\), what is the approximate value of its equilibrium constant \(K\)? (Take \(2.303\,R = 19.15\text{ J K}^{-1}\text{ mol}^{-1}\)).</p>
+        <ul class="options-list">
+          <li>(A) \(10\)</li>
+          <li>(B) \(100\)</li>
+          <li>(C) \(10^{-2}\)</li>
+          <li>(D) \(2.0\)</li>
+        </ul>
+        <div class="solution-box">
+          <p><strong>Answer:</strong> (B) \(100\)</p>
+          <p><strong>Worked Solution:</strong> \(\log_{10} K = \frac{-\Delta_r G^\circ}{2.303\,RT} = \frac{11490\text{ J mol}^{-1}}{19.15\text{ J K}^{-1}\text{ mol}^{-1} \times 300\text{ K}} = \frac{11490}{5745} = 2.0 \implies K = 10^{2} = 100\).</p>
+        </div>
+        <hr />
+        <div lang="bn">
+          <p><strong>অনুশীলনী প্রশ্ন ৮ (একক-সঠিক বহুনির্বাচনি):</strong> \(300\text{ K}\) উষ্ণতায় কোনো বিক্রিয়ার \(\Delta_r G^\circ = -11.49\text{ kJ mol}^{-1}\) হলে সাম্যধ্রুবক \(K\)-এর আসন্ন মান কত? (\(2.303\,R = 19.15\text{ J K}^{-1}\text{ mol}^{-1}\) ধরো)।</p>
+          <ul class="options-list">
+            <li>(A) \(10\)</li>
+            <li>(B) \(100\)</li>
+            <li>(C) \(10^{-2}\)</li>
+            <li>(D) \(2.0\)</li>
+          </ul>
+          <div class="solution-box">
+            <p><strong>সঠিক উত্তর:</strong> (B) \(100\)</p>
+            <p><strong>সমাধান:</strong> \(\log_{10} K = \frac{-\Delta_r G^\circ}{2.303\,RT} = \frac{11490\text{ J mol}^{-1}}{19.15\text{ J K}^{-1}\text{ mol}^{-1} \times 300\text{ K}} = \frac{11490}{5745} = 2.0 \implies K = 10^{2} = 100\)।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. COMMON PITFALLS AND REVISION CHECKLIST -->
+    <section>
+      <h2>8. Common Pitfalls &amp; Revision Checklist / সাধারণ ভুল ও পুনরালোচনা তালিকা</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <div class="callout-warn">
+          <p><strong>Watch Out for These NEET UG Traps:</strong></p>
+          <ul>
+            <li><strong>Physics vs. Chemistry Sign Convention for Work:</strong> In chemistry (IUPAC), expansion work done <em>by</em> the system is <strong>negative</strong> (\(w = -P_{\mathrm{ex}}\Delta V\)). Do not mix this up with the physics convention (\(\Delta U = Q - W\)).</li>
+            <li><strong>Unit Mismatch in \(\Delta H = \Delta U + \Delta n_g RT\) and \(\Delta G = \Delta H - T\Delta S\):</strong> \(\Delta H\) and \(\Delta U\) are usually in \(\mathrm{kJ\,mol^{-1}}\), whereas \(R\) and \(\Delta S\) are in \(\mathrm{J\,K^{-1}\,mol^{-1}}\). Always convert to the same energy unit before adding or subtracting!</li>
+            <li><strong>Counting Solids/Liquids in \(\Delta n_g\):</strong> Only gaseous species contribute to \(\Delta n_g\).</li>
+            <li><strong>Bond Enthalpy Formula Direction:</strong> Unlike formation enthalpies (\(\text{Products} - \text{Reactants}\)), bond enthalpy calculations use \(\text{Reactants} - \text{Products}\).</li>
+          </ul>
+        </div>
+        <p><strong>Quick Revision Checklist:</strong></p>
+        <ul>
+          <li>Can you distinguish state vs. path functions and extensive vs. intensive properties?</li>
+          <li>Do you remember \(w_{\mathrm{rev}} = -2.303\,nRT\log_{10}(V_f/V_i)\) and \(w_{\mathrm{free}} = 0\)?</li>
+          <li>Can you apply \(\Delta S_{\mathrm{total}} > 0\), \(\Delta G < 0\), and \(\Delta_r G^\circ = -2.303\,RT\log_{10} K\)?</li>
+        </ul>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <div class="callout-warn">
+          <p><strong>NEET UG-তে এই সাধারণ ভুলগুলো এড়িয়ে চলো:</strong></p>
+          <ul>
+            <li><strong>কার্যের চিহ্ন-রীতি (পদার্থবিদ্যা বনাম রসায়ন):</strong> রসায়নে (IUPAC) সিস্টেম <em>দ্বারা</em> কৃত প্রসারণ কার্য <strong>ঋণাত্মক</strong> (\(w = -P_{\mathrm{ex}}\Delta V\))। পদার্থবিদ্যার রীতির (\(\Delta U = Q - W\)) সাথে এটি গুলিয়ে ফেলবে না।</li>
+            <li><strong>\(\Delta H = \Delta U + \Delta n_g RT\) ও \(\Delta G = \Delta H - T\Delta S\)-এ এককের অসামঞ্জস্য:</strong> \(\Delta H\) ও \(\Delta U\) সাধারণত \(\mathrm{kJ\,mol^{-1}}\)-এ থাকে, কিন্তু \(R\) ও \(\Delta S\) থাকে \(\mathrm{J\,K^{-1}\,mol^{-1}}\)-এ। যোগ বা বিয়োগের আগে সর্বদা একই এককে রূপান্তর করে নাও।</li>
+            <li><strong>\(\Delta n_g\) গণনায় কঠিন/তরল ধরা:</strong> শুধুমাত্র গ্যাসীয় পদার্থের মোল-সংখ্যা \(\Delta n_g\)-তে বিবেচিত হয়।</li>
+            <li><strong>বন্ধন এনথ্যালপি সূত্রের ক্রম:</strong> গঠন এনথ্যালপির (\(\text{উৎপাদ} - \text{বিক্রিয়ক}\)) বিপরীতে, বন্ধন এনথ্যালপি গণনায় \(\text{বিক্রিয়ক} - \text{উৎপাদ}\) ব্যবহৃত হয়।</li>
+          </ul>
+        </div>
+        <p><strong>দ্রুত পুনরালোচনা তালিকা:</strong></p>
+        <ul>
+          <li>অবস্থা-অপেক্ষক বনাম পথ-অপেক্ষক এবং পরিমাণগত বনাম তীব্রতাগত ধর্ম চিনতে পারছো কি?</li>
+          <li>\(w_{\mathrm{rev}} = -2.303\,nRT\log_{10}(V_f/V_i)\) এবং \(w_{\mathrm{free}} = 0\) সূত্র দুটি মনে আছে কি?</li>
+          <li>\(\Delta S_{\mathrm{total}} > 0\), \(\Delta G < 0\) এবং \(\Delta_r G^\circ = -2.303\,RT\log_{10} K\) সঠিকভাবে প্রয়োগ করতে পারছো কি?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 12. CONCISE FINAL RECAP -->
+    <section>
+      <h2>9. Concise Final Recap / সংক্ষিপ্ত সারসংক্ষেপ</h2>
+
+      <div class="en-block">
+        <span class="lang-tag en">English</span>
+        <p>Thermodynamics connects energy conservation (\(\Delta U = q + w\)), constant-pressure heat exchange (\(\Delta H = \Delta U + \Delta n_g RT\)), and reaction direction (\(\Delta S_{\mathrm{total}} > 0\) and \(\Delta G = \Delta H - T\Delta S < 0\)). Mastering IUPAC sign conventions, unit consistency (\(\mathrm{J}\) vs. \(\mathrm{kJ}\)), Hess's Law, and the \(\Delta_r G^\circ = -2.303\,RT\log_{10} K\) link gives you a complete toolkit for NEET UG thermodynamics problems.</p>
+      </div>
+
+      <div class="bn-block" lang="bn">
+        <span class="lang-tag bn">বাংলা (Bengali)</span>
+        <p>তাপগতিবিদ্যা শক্তির নিত্যতা (\(\Delta U = q + w\)), স্থির-চাপ তাপ বিনিময় (\(\Delta H = \Delta U + \Delta n_g RT\)) এবং বিক্রিয়ার অভিমুখ (\(\Delta S_{\mathrm{total}} > 0\) ও \(\Delta G = \Delta H - T\Delta S < 0\))-কে একসূত্রে গাঁথে। IUPAC চিহ্ন-রীতি, এককের সামঞ্জস্য (\(\mathrm{J}\) বনাম \(\mathrm{kJ}\)), হেস-এর সূত্র এবং \(\Delta_r G^\circ = -2.303\,RT\log_{10} K\) সম্পর্ক আয়ত্ত করলে NEET UG-এর তাপগতিবিদ্যার যেকোনো প্রশ্ন সহজেই সমাধান করা সম্ভব।</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electromagnetic Induction — NEET UG Bilingual Tutorial (English &amp; Bengali)</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'svg']
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --ink: #1E293B;
+    --muted: #475569;
+    --primary: #2563EB;
+    --teal: #0D9488;
+    --surface: #F8FAFC;
+    --white: #FFFFFF;
+    --border: #CBD5E1;
+    --accent-bg: #EFF6FF;
+    --teal-bg: #F0FDFA;
+    --warn-bg: #FFFBEB;
+    --warn-border: #D97706;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Noto Sans Bengali', 'Hind Siliguri', 'SolaimanLipi', 'Vrinda', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15.5px;
+    line-height: 1.72;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 20px 40px;
+  }
+
+  header.hero {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-top: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 26px;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: var(--accent-bg);
+    color: var(--primary);
+    border: 1px solid #BFDBFE;
+  }
+
+  .badge.teal {
+    background: var(--teal-bg);
+    color: var(--teal);
+    border-color: #99F6E4;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin: 6px 0 10px;
+    color: var(--ink);
+  }
+
+  h2 {
+    font-size: 1.38rem;
+    line-height: 1.35;
+    margin: 30px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--primary);
+    color: var(--ink);
+  }
+
+  h3 {
+    font-size: 1.14rem;
+    line-height: 1.4;
+    margin: 20px 0 8px;
+    color: var(--primary);
+  }
+
+  h4 {
+    font-size: 1.02rem;
+    line-height: 1.4;
+    margin: 14px 0 6px;
+    color: var(--teal);
+  }
+
+  p {
+    margin: 0 0 12px;
+  }
+
+  ul, ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  .lang-block {
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--white);
+  }
+
+  .lang-block.en {
+    border-left: 4px solid var(--primary);
+  }
+
+  .lang-block.bn {
+    border-left: 4px solid var(--teal);
+    background: #FCFFFE;
+  }
+
+  .lang-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .lang-tag.en {
+    background: var(--accent-bg);
+    color: var(--primary);
+  }
+
+  .lang-tag.bn {
+    background: var(--teal-bg);
+    color: var(--teal);
+  }
+
+  .formula-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    max-width: 100%;
+  }
+
+  .callout {
+    background: var(--warn-bg);
+    border: 1px solid #FDE68A;
+    border-left: 4px solid var(--warn-border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 14px 0;
+  }
+
+  .svg-wrap {
+    width: 100%;
+    max-width: 640px;
+    margin: 16px auto;
+    padding: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+    break-inside: avoid;
+  }
+
+  .svg-caption {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.93rem;
+    table-layout: fixed;
+  }
+
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  th {
+    background: var(--surface);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .example-card, .question-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 18px 0;
+    background: var(--white);
+    break-inside: avoid;
+  }
+
+  .example-card {
+    border-top: 4px solid var(--teal);
+  }
+
+  .question-card {
+    border-top: 4px solid var(--primary);
+  }
+
+  .q-options {
+    list-style-type: none;
+    padding-left: 4px;
+    margin: 10px 0 12px;
+  }
+
+  .q-options li {
+    padding: 4px 0;
+  }
+
+  .solution-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-top: 10px;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1.5px dashed var(--border);
+    margin: 16px 0;
+  }
+
+  mjx-container {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+
+  @media print {
+    html, body {
+      font-size: 11pt;
+      line-height: 1.55;
+      background: #FFFFFF;
+      color: #000000;
+    }
+    .container {
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    header.hero, .lang-block, .formula-box, .callout, .svg-wrap, .example-card, .question-card, .solution-box {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    h2, h3, h4 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    table {
+      break-inside: avoid;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+<div class="container">
+
+<header class="hero">
+  <div class="badge-row">
+    <span class="badge">NEET UG Physics</span>
+    <span class="badge teal">Bilingual: English &amp; বাংলা</span>
+  </div>
+  <h1>Electromagnetic Induction<br><span lang="bn">তড়িৎচুম্বকীয় আবেশ</span></h1>
+  <p><strong>Exam Scope:</strong> Complete conceptual, mathematical, and problem-solving guide aligned with the NEET UG Physics syllabus.</p>
+  <p lang="bn"><strong>পরীক্ষার পাঠ্যক্রম:</strong> NEET UG পদার্থবিদ্যা পাঠ্যক্রম অনুসারে সম্পূর্ণ ধারণাগত, গাণিতিক এবং সমস্যা-সমাধানমূলক টিউটোরিয়াল।</p>
+</header>
+
+<!-- SECTION 1: LEARNING OBJECTIVES -->
+<section>
+  <h2>1. Learning Objectives and Chapter Overview</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <p>In earlier studies of electromagnetism, steady electric currents were shown to generate magnetic fields. Electromagnetic induction explores the converse phenomenon: how changing magnetic environments generate electromotive force (emf) and electric currents. This principle underpins electric generators, transformers, and induction-based technologies.</p>
+    <h4>What You Will Master</h4>
+    <ul>
+      <li>Defining and calculating <strong>magnetic flux</strong> (\(\Phi_B\)) through planar and curved surfaces.</li>
+      <li>Applying <strong>Faraday's laws of electromagnetic induction</strong> to find induced emf and current.</li>
+      <li>Determining induced current polarity using <strong>Lenz's law</strong> and linking it to conservation of energy.</li>
+      <li>Calculating <strong>motional emf</strong> in translating rods and rotating conductors.</li>
+      <li>Evaluating <strong>self-inductance (\(L\))</strong>, <strong>mutual inductance (\(M\))</strong>, and stored magnetic energy.</li>
+      <li>Understanding the working principle and instantaneous output of an <strong>AC generator</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>১. শিখন উদ্দেশ্য ও অধ্যায়ের সংক্ষিপ্ত বিবরণ</h2>
+    <p>তড়িৎচুম্বকত্বের পূর্ববর্তী আলোচনায় দেখা গেছে যে প্রবাহী তড়িৎ চৌম্বক ক্ষেত্র সৃষ্টি করে। তড়িৎচুম্বকীয় আবেশ এর বিপরীত ঘটনাটি ব্যাখ্যা করে—অর্থাৎ কীভাবে পরিবর্তনশীল চৌম্বক পরিবেশ তড়িচ্চালক বল (emf) এবং তড়িৎপ্রবাহ উৎপন্ন করে। এই নীতিই আধুনিক তড়িৎ জেনারেটর ও ট্রান্সফরমারের ভিত্তি।</p>
+    <h4>এই অধ্যায়ে যা যা শিখবে</h4>
+    <ul>
+      <li>সমতল ও বক্রতলের মধ্য দিয়ে <strong>চৌম্বক ফ্লাক্স (\(\Phi_B\))</strong>-এর সংজ্ঞা ও হিসাব।</li>
+      <li>আবিষ্ট তড়িচ্চালক বল ও প্রবাহ নির্ণয়ে <strong>ফ্যারাডের তড়িৎচুম্বকীয় আবেশ সূত্রের</strong> প্রয়োগ।</li>
+      <li><strong>লেঞ্জের সূত্রের</strong> সাহায্যে আবিষ্ট প্রবাহের অভিমুখ নির্ণয় এবং শক্তির সংরক্ষণ নীতির সাথে এর সম্পর্ক।</li>
+      <li>চলমান পরিবাহী দণ্ড ও ঘূর্ণায়মান পরিবাহীতে <strong>গতিজনিত তড়িচ্চালক বল (Motional EMF)</strong> গণনা।</li>
+      <li><strong>স্ব-আবেশাঙ্ক (\(L\))</strong>, <strong>পারস্পরিক আবেশাঙ্ক (\(M\))</strong> এবং সঞ্চিত চৌম্বক শক্তি নির্ণয়।</li>
+      <li><strong>পরিবর্তী প্রবাহ (AC) জেনারেটরের</strong> কার্যনীতি ও তাৎক্ষণিক তড়িচ্চালক বলের সমীকরণ।</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2: MAGNETIC FLUX -->
+<section>
+  <h2>2. Magnetic Flux</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <p>Magnetic flux (\(\Phi_B\)) measures the total magnetic field passing normally through a given surface area. For a flat surface of area \(A\) placed in a uniform magnetic field \(\mathbf{B}\), we represent the surface by an area vector \(\mathbf{A}\) directed perpendicular (normal) to the plane.</p>
+    <div class="formula-box">
+      \[ \Phi_B = \mathbf{B} \cdot \mathbf{A} = B A \cos\theta \]
+    </div>
+    <p>Here, \(\theta\) is the angle between the magnetic field vector \(\mathbf{B}\) and the area vector \(\mathbf{A}\). Note carefully that if the angle between \(\mathbf{B}\) and the <em>plane</em> of the coil is \(\alpha\), then \(\theta = 90^\circ - \alpha\).</p>
+    <ul>
+      <li><strong>Non-uniform field or curved surface:</strong> Divide the surface into infinitesimal area elements \(\mathrm{d}\mathbf{A}_i\) and sum the dot products: \(\Phi_B = \sum \mathbf{B}_i \cdot \mathrm{d}\mathbf{A}_i = \int \mathbf{B} \cdot \mathrm{d}\mathbf{A}\).</li>
+      <li><strong>Nature and Units:</strong> Magnetic flux is a <strong>scalar</strong> quantity. Its SI unit is the <strong>weber (Wb)</strong>, where \(1\,\mathrm{Wb} = 1\,\mathrm{T\cdot m^2}\). Its dimensional formula is \([\mathrm{M L^2 T^{-2} A^{-1}}]\).</li>
+    </ul>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 520 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Magnetic flux through a tilted plane area">
+        <defs>
+          <marker id="arrowBlue1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+          </marker>
+          <marker id="arrowTeal1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#0D9488"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="520" height="210" fill="#F8FAFC"/>
+        <!-- Magnetic field lines -->
+        <line x1="40" y1="55" x2="460" y2="55" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue1)"/>
+        <line x1="40" y1="105" x2="460" y2="105" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue1)"/>
+        <line x1="40" y1="155" x2="460" y2="155" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue1)"/>
+        <!-- Tilted plane -->
+        <polygon points="180,175 245,35 305,35 240,175" fill="#DBEAFE" fill-opacity="0.55" stroke="#1E293B" stroke-width="2"/>
+        <!-- Area vector -->
+        <line x1="242" y1="105" x2="345" y2="55" stroke="#0D9488" stroke-width="2.5" marker-end="url(#arrowTeal1)"/>
+        <!-- Angle arc -->
+        <path d="M 290,105 A 48,48 0 0,0 283,85" fill="none" stroke="#1E293B" stroke-width="1.8"/>
+        <!-- Labels -->
+        <text x="468" y="60" font-family="sans-serif" font-size="15" font-weight="bold" fill="#2563EB">B</text>
+        <text x="354" y="55" font-family="sans-serif" font-size="15" font-weight="bold" fill="#0D9488">A (Normal)</text>
+        <text x="298" y="96" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">θ</text>
+        <text x="155" y="195" font-family="sans-serif" font-size="13" fill="#1E293B">Plane of area A</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 1: Magnetic field B passing through a plane surface of area vector A at angle θ.</div>
+    </div>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>২. চৌম্বক ফ্লাক্স (Magnetic Flux)</h2>
+    <p>কোনো তলের ক্ষেত্রফলের মধ্য দিয়ে লম্বভাবে অতিক্রান্ত মোট চৌম্বক বলরেখার পরিমাপকে চৌম্বক ফ্লাক্স (\(\Phi_B\)) বলে। সুষম চৌম্বক ক্ষেত্র \(\mathbf{B}\)-তে স্থাপিত \(A\) ক্ষেত্রফলের একটি সমতলের ক্ষেত্র-ভেক্টর \(\mathbf{A}\) তলটির অভিলম্ব বরাবর ক্রিয়া করে।</p>
+    <div class="formula-box">
+      \[ \Phi_B = \mathbf{B} \cdot \mathbf{A} = B A \cos\theta \]
+    </div>
+    <p>এখানে \(\theta\) হলো চৌম্বক ক্ষেত্র \(\mathbf{B}\) এবং ক্ষেত্র-ভেক্টর \(\mathbf{A}\)-এর মধ্যবর্তী কোণ। মনে রাখা জরুরি যে \(\mathbf{B}\) যদি কুণ্ডলীর <em>তলের</em> সাথে \(\alpha\) কোণ করে, তবে \(\theta = 90^\circ - \alpha\) হবে।</p>
+    <ul>
+      <li><strong>অসুষম ক্ষেত্র বা বক্রতলের ক্ষেত্রে:</strong> সম্পূর্ণ তলকে ক্ষুদ্র ক্ষেত্র-উপাংশ \(\mathrm{d}\mathbf{A}_i\)-তে ভাগ করে সমষ্টি নেওয়া হয়: \(\Phi_B = \sum \mathbf{B}_i \cdot \mathrm{d}\mathbf{A}_i = \int \mathbf{B} \cdot \mathrm{d}\mathbf{A}\)।</li>
+      <li><strong>প্রকৃতি ও একক:</strong> চৌম্বক ফ্লাক্স একটি <strong>স্কেলার</strong> রাশি। এর SI একক <strong>ওয়েবার (Wb)</strong>, যেখানে \(1\,\mathrm{Wb} = 1\,\mathrm{T\cdot m^2}\)। মাত্রীয় সংকেত \([\mathrm{M L^2 T^{-2} A^{-1}}]\)।</li>
+    </ul>
+    <div class="svg-wrap">
+      <svg viewBox="0 0 520 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="চৌম্বক ফ্লাক্সের চিত্র">
+        <defs>
+          <marker id="arrowBlue1bn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+          </marker>
+          <marker id="arrowTeal1bn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#0D9488"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="520" height="210" fill="#F8FAFC"/>
+        <line x1="40" y1="55" x2="460" y2="55" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue1bn)"/>
+        <line x1="40" y1="105" x2="460" y2="105" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue1bn)"/>
+        <line x1="40" y1="155" x2="460" y2="155" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowBlue1bn)"/>
+        <polygon points="180,175 245,35 305,35 240,175" fill="#DBEAFE" fill-opacity="0.55" stroke="#1E293B" stroke-width="2"/>
+        <line x1="242" y1="105" x2="345" y2="55" stroke="#0D9488" stroke-width="2.5" marker-end="url(#arrowTeal1bn)"/>
+        <path d="M 290,105 A 48,48 0 0,0 283,85" fill="none" stroke="#1E293B" stroke-width="1.8"/>
+        <text x="468" y="60" font-family="sans-serif" font-size="15" font-weight="bold" fill="#2563EB">B</text>
+        <text x="354" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0D9488">A (অভিলম্ব)</text>
+        <text x="298" y="96" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">θ</text>
+        <text x="155" y="195" font-family="sans-serif" font-size="13" fill="#1E293B">A ক্ষেত্রফলের তল</text>
+      </svg>
+      <div class="svg-caption">টিউটোরিয়াল চিত্র ১: A ক্ষেত্র-ভেক্টরের সাথে θ কোণে অতিক্রান্ত চৌম্বক ক্ষেত্র B।</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: FARADAY'S & LENZ'S LAWS -->
+<section>
+  <h2>3. Faraday's Laws and Lenz's Law</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <h3>Experimental Foundations</h3>
+    <p>Classic experiments by Michael Faraday and Joseph Henry demonstrated that an electric current is induced in a closed coil only when the magnetic flux linked with it changes over time. This flux change can be produced by:</p>
+    <ul>
+      <li>Relative motion between a bar magnet and a coil (faster motion gives larger deflection; reversing motion reverses current).</li>
+      <li>Relative motion between a primary current-carrying coil and a secondary coil.</li>
+      <li>Changing the current in a stationary primary coil (for example, when closing or opening a switch), which alters the magnetic field through an adjacent stationary secondary coil. Inserting a soft-iron core dramatically amplifies this effect.</li>
+    </ul>
+
+    <h3>Faraday's Law of Electromagnetic Induction</h3>
+    <p>The magnitude of the induced emf in a circuit equals the time rate of change of magnetic flux through the circuit. For a closely wound coil of \(N\) turns, each turn experiences the same flux \(\Phi_B\):</p>
+    <div class="formula-box">
+      \[ \varepsilon = -N \frac{\mathrm{d}\Phi_B}{\mathrm{d}t} \]
+    </div>
+    <p>If the circuit is closed and has total resistance \(R\), the induced current and induced charge flowing in time \(\Delta t\) are:</p>
+    <div class="formula-box">
+      \[ I = \frac{|\varepsilon|}{R} = \frac{N}{R} \left|\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}\right|, \qquad \Delta q = \int I\,\mathrm{d}t = \frac{N |\Delta \Phi_B|}{R} \]
+    </div>
+    <p>Notice a crucial NEET UG insight: <strong>induced charge \(\Delta q\) depends only on the net change in flux and resistance, and is independent of the time taken!</strong></p>
+
+    <h3>Lenz's Law and Conservation of Energy</h3>
+    <p>The negative sign in Faraday's equation represents <strong>Lenz's law</strong>: <em>the polarity of induced emf is always such that it tends to produce a current that opposes the change in magnetic flux that produced it.</em></p>
+    <ul>
+      <li>If the North pole of a magnet approaches a coil, the face of the coil toward the magnet develops <strong>North polarity</strong> (anticlockwise current when viewed from the magnet side) to repel the approaching magnet.</li>
+      <li>If the North pole is pulled away, the coil face develops <strong>South polarity</strong> (clockwise current) to attract and oppose the receding magnet.</li>
+      <li><strong>Energy Conservation Link:</strong> Because the induced current opposes the motion, an external agent must do mechanical work to push or pull the magnet. This mechanical work is converted into electrical energy and dissipated as Joule heat (\(I^2 R t\)) in the loop. Without this opposition, a magnet would accelerate endlessly, violating energy conservation.</li>
+    </ul>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 540 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lenz's law illustration with bar magnet approaching a loop">
+        <defs>
+          <marker id="arrowDark" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#1E293B"/>
+          </marker>
+          <marker id="arrowTeal2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#0D9488"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="540" height="190" fill="#F8FAFC"/>
+        <!-- Magnet -->
+        <rect x="55" y="72" width="130" height="44" rx="4" fill="#DBEAFE" stroke="#1E293B" stroke-width="2"/>
+        <line x1="120" y1="72" x2="120" y2="116" stroke="#1E293B" stroke-width="1.5"/>
+        <text x="82" y="100" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">S</text>
+        <text x="148" y="100" font-family="sans-serif" font-size="16" font-weight="bold" fill="#2563EB">N</text>
+        <!-- Motion arrow -->
+        <line x1="195" y1="94" x2="255" y2="94" stroke="#1E293B" stroke-width="2.5" marker-end="url(#arrowDark)"/>
+        <text x="200" y="82" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Motion (v)</text>
+        <!-- Coil Loop -->
+        <ellipse cx="360" cy="94" rx="34" ry="64" fill="none" stroke="#0D9488" stroke-width="3"/>
+        <path d="M 340,42 A 34,64 0 0,0 330,72" fill="none" stroke="#0D9488" stroke-width="3" marker-end="url(#arrowTeal2)"/>
+        <text x="348" y="100" font-family="sans-serif" font-size="15" font-weight="bold" fill="#0D9488">N-face</text>
+        <text x="408" y="88" font-family="sans-serif" font-size="13" fill="#1E293B">Opposes approach</text>
+        <text x="408" y="106" font-family="sans-serif" font-size="13" fill="#1E293B">(Repulsive force)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 2: Approaching N-pole induces a current creating an opposing N-pole on the near face of the loop.</div>
+    </div>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>৩. ফ্যারাডের সূত্র ও লেঞ্জের সূত্র</h2>
+    <h3>পরীক্ষামূলক ভিত্তি</h3>
+    <p>মাইকেল ফ্যারাডে এবং জোসেফ হেনরির পরীক্ষাগুলো প্রমাণ করে যে কোনো বদ্ধ কুণ্ডলীর সাথে জড়িত চৌম্বক ফ্লাক্স সময়ের সাথে পরিবর্তিত হলেই কেবল কুণ্ডলীতে তড়িৎপ্রবাহ আবিষ্ট হয়। ফ্লাক্স পরিবর্তন ঘটানো যায়:</p>
+    <ul>
+      <li>একটি দণ্ডচুম্বক ও কুণ্ডলীর মধ্যে আপেক্ষিক গতির মাধ্যমে (বেগ বেশি হলে বিক্ষেপ বেশি হয়; গতির দিক উল্টালে প্রবাহের দিক উল্টে যায়)।</li>
+      <li>প্রবাহী প্রাথমিক কুণ্ডলী এবং গৌণ কুণ্ডলীর মধ্যে আপেক্ষিক গতির মাধ্যমে।</li>
+      <li>স্থির প্রাথমিক কুণ্ডলীতে তড়িৎপ্রবাহ পরিবর্তন করে (যেমন সুইচ অন বা অফ করার মুহূর্তে), যার ফলে পাশের স্থির গৌণ কুণ্ডলীর ফ্লাক্স পরিবর্তিত হয়। কুণ্ডলীর অক্ষে কাঁচা লোহার মজ্জা প্রবেশ করালে এই প্রভাব বহুগুণ বেড়ে যায়।</li>
+    </ul>
+
+    <h3>ফ্যারাডের তড়িৎচুম্বকীয় আবেশ সূত্র</h3>
+    <p>কোনো বর্তনীতে আবিষ্ট তড়িচ্চালক বলের মান বর্তনীর সাথে জড়িত চৌম্বক ফ্লাক্সের পরিবর্তনের হারের সমান। \(N\) পাকবিশিষ্ট একটি ঘনভাবে পেঁচানো কুণ্ডলীর প্রতিটি পাকের সাথে \(\Phi_B\) ফ্লাক্স জড়িত থাকলে:</p>
+    <div class="formula-box">
+      \[ \varepsilon = -N \frac{\mathrm{d}\Phi_B}{\mathrm{d}t} \]
+    </div>
+    <p>যদি বর্তনীটি বদ্ধ হয় এবং এর মোট রোধ \(R\) হয়, তবে আবিষ্ট প্রবাহ ও \(\Delta t\) সময়ে প্রবাহিত মোট আধান:</p>
+    <div class="formula-box">
+      \[ I = \frac{|\varepsilon|}{R} = \frac{N}{R} \left|\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}\right|, \qquad \Delta q = \int I\,\mathrm{d}t = \frac{N |\Delta \Phi_B|}{R} \]
+    </div>
+    <p>NEET UG-এর জন্য গুরুত্বপূর্ণ তথ্য: <strong>আবিষ্ট আধান \(\Delta q\) কেবল ফ্লাক্সের মোট পরিবর্তন ও রোধের ওপর নির্ভর করে; এটি ফ্লাক্স পরিবর্তনের সময়ের ওপর নির্ভর করে না।</strong></p>
+
+    <h3>লেঞ্জের সূত্র ও শক্তির সংরক্ষণ</h3>
+    <p>ফ্যারাডের সমীকরণের ঋণাত্মক চিহ্নটি <strong>লেঞ্জের সূত্র</strong> নির্দেশ করে: <em>আবিষ্ট তড়িচ্চালক বলের অভিমুখ সর্বদা এমন হয় যে এটি যে কারণে উৎপন্ন হয়, অর্থাৎ চৌম্বক ফ্লাক্সের পরিবর্তনকে বাধা দেয়।</em></p>
+    <ul>
+      <li>চুম্বকের উত্তর মেরু কুণ্ডলীর দিকে এগিয়ে এলে কুণ্ডলীর সম্মুখতলে <strong>উত্তর মেরুত্ব</strong> সৃষ্টি হয় (চুম্বকের দিক থেকে দেখলে ঘড়ির কাঁটার বিপরীত দিকে প্রবাহ) যা চুম্বকটিকে বিকর্ষণ করে।</li>
+      <li>উত্তর মেরু দূরে সরে গেলে কুণ্ডলীর সম্মুখতলে <strong>দক্ষিণ মেরুত্ব</strong> সৃষ্টি হয় (ঘড়ির কাঁটার দিকে প্রবাহ) যা চুম্বকটিকে আকর্ষণ করে গতির বিরোধিতা করে।</li>
+      <li><strong>শক্তির সংরক্ষণ নীতি:</strong> এই বাধার বিরুদ্ধে চুম্বককে সরাতে বাহ্যিক যান্ত্রিক কার্য করতে হয়। সেই যান্ত্রিক শক্তিই তড়িৎ শক্তিতে রূপান্তরিত হয়ে কুণ্ডলীতে জুল তাপ (\(I^2 R t\)) হিসেবে ব্যয় হয়।</li>
+    </ul>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 540 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="লেঞ্জের সূত্রের চিত্র">
+        <defs>
+          <marker id="arrowDarkbn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#1E293B"/>
+          </marker>
+          <marker id="arrowTeal2bn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#0D9488"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="540" height="190" fill="#F8FAFC"/>
+        <rect x="55" y="72" width="130" height="44" rx="4" fill="#DBEAFE" stroke="#1E293B" stroke-width="2"/>
+        <line x1="120" y1="72" x2="120" y2="116" stroke="#1E293B" stroke-width="1.5"/>
+        <text x="82" y="100" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1E293B">S</text>
+        <text x="148" y="100" font-family="sans-serif" font-size="16" font-weight="bold" fill="#2563EB">N</text>
+        <line x1="195" y1="94" x2="255" y2="94" stroke="#1E293B" stroke-width="2.5" marker-end="url(#arrowDarkbn)"/>
+        <text x="200" y="82" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">গতি (v)</text>
+        <ellipse cx="360" cy="94" rx="34" ry="64" fill="none" stroke="#0D9488" stroke-width="3"/>
+        <path d="M 340,42 A 34,64 0 0,0 330,72" fill="none" stroke="#0D9488" stroke-width="3" marker-end="url(#arrowTeal2bn)"/>
+        <text x="344" y="100" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0D9488">N-মেরু</text>
+        <text x="408" y="88" font-family="sans-serif" font-size="13" fill="#1E293B">আগমনে বাধা দেয়</text>
+        <text x="408" y="106" font-family="sans-serif" font-size="13" fill="#1E293B">(বিকর্ষণ বল)</text>
+      </svg>
+      <div class="svg-caption">টিউটোরিয়াল চিত্র ২: আগত উত্তর মেরুকে বাধা দিতে কুণ্ডলীর সম্মুখতলে উত্তর মেরুত্ব আবিষ্ট হয়।</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: MOTIONAL EMF -->
+<section>
+  <h2>4. Motional Electromotive Force and Induced Electric Fields</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <h3>Straight Conductor Moving in a Uniform Magnetic Field</h3>
+    <p>Consider a conducting rod of length \(l\) sliding with constant velocity \(v\) on frictionless U-shaped metallic rails placed perpendicular to a uniform magnetic field \(\mathbf{B}\). At any instant, if the rod is at distance \(x\) from the closed end, the enclosed flux is \(\Phi_B = B l x\). As the rod moves inward (\(\mathrm{d}x/\mathrm{d}t = -v\)), the induced motional emf is:</p>
+    <div class="formula-box">
+      \[ \varepsilon = -\frac{\mathrm{d}\Phi_B}{\mathrm{d}t} = B l v \]
+    </div>
+    <p><strong>Lorentz Force Viewpoint:</strong> Every free charge \(q\) in the moving rod experiences a magnetic Lorentz force \(q(\mathbf{v} \times \mathbf{B})\) along the length of the rod. The work done per unit charge across length \(l\) is \(W/q = B l v\). In general, if \(\mathbf{B}\), \(\mathbf{v}\), and the rod length vector \(\mathbf{l}\) are oriented arbitrarily, \(\varepsilon = (\mathbf{v} \times \mathbf{B}) \cdot \mathbf{l}\).</p>
+
+    <h3>Rotating Conducting Rod in a Magnetic Field</h3>
+    <p>When a metallic rod of length \(R\) rotates with angular velocity \(\omega\) about one hinged end in a plane perpendicular to a uniform magnetic field \(B\), different elements \(\mathrm{d}r\) move at speeds \(v = \omega r\). Integrating \(\mathrm{d}\varepsilon = B (\omega r)\,\mathrm{d}r\) from \(r = 0\) to \(r = R\) gives:</p>
+    <div class="formula-box">
+      \[ \varepsilon = \frac{1}{2} B \omega R^2 = \pi B \nu R^2 \]
+    </div>
+    <p>If a wheel has \(N\) metallic spokes connecting the axle to a conducting rim, all \(N\) spokes are electrically in <strong>parallel</strong>; therefore, the emf between axle and rim remains \(\frac{1}{2} B \omega R^2\), independent of \(N\).</p>
+
+    <h3>Stationary Conductor in a Time-Varying Field</h3>
+    <p>When a conductor is stationary (\(\mathbf{v} = 0\)) and the magnetic field varies with time, the magnetic Lorentz force \(q(\mathbf{v} \times \mathbf{B})\) is zero. Yet an emf is induced because a <strong>time-varying magnetic field generates a non-conservative electric field \(\mathbf{E}\)</strong>, exerting force \(\mathbf{F} = q\mathbf{E}\) on the stationary charges.</p>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 520 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Motional EMF in a sliding rod">
+        <defs>
+          <marker id="arrowBlue2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+          </marker>
+          <marker id="arrowTeal3" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#0D9488"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="520" height="200" fill="#F8FAFC"/>
+        <!-- Magnetic field crosses (into page) -->
+        <text x="60" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="140" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="220" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="300" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="380" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="60" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="140" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="220" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="300" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="380" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <!-- U-shaped rails -->
+        <polyline points="420,60 90,60 90,145 420,145" fill="none" stroke="#1E293B" stroke-width="3"/>
+        <!-- Sliding rod -->
+        <rect x="295" y="48" width="10" height="108" rx="2" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <!-- Velocity arrow -->
+        <line x1="285" y1="102" x2="225" y2="102" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue2)"/>
+        <!-- Current arrow -->
+        <line x1="160" y1="60" x2="210" y2="60" stroke="#0D9488" stroke-width="2.5" marker-end="url(#arrowTeal3)"/>
+        <!-- Labels -->
+        <text x="242" y="94" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2563EB">v</text>
+        <text x="178" y="50" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0D9488">I</text>
+        <text x="72" y="106" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">l</text>
+        <text x="430" y="45" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">B (into page)</text>
+        <text x="180" y="165" font-family="sans-serif" font-size="13" fill="#1E293B">x</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 3: Sliding conducting rod of length l moving at speed v on rails in a perpendicular magnetic field B.</div>
+    </div>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>৪. গতিজনিত তড়িচ্চালক বল ও আবিষ্ট তড়িৎ ক্ষেত্র</h2>
+    <h3>সুষম চৌম্বক ক্ষেত্রে চলমান সরল পরিবাহী দণ্ড</h3>
+    <p>ধরা যাক \(l\) দৈর্ঘ্যের একটি পরিবাহী দণ্ড সুষম চৌম্বক ক্ষেত্র \(\mathbf{B}\)-এর সাথে লম্বভাবে রাখা ঘর্ষণহীন U-আকৃতির ধাতব রেলের ওপর \(v\) সমবেগে চলছে। কোনো মুহূর্তে বদ্ধ প্রান্ত থেকে দণ্ডটির দূরত্ব \(x\) হলে আবদ্ধ ফ্লাক্স \(\Phi_B = B l x\)। দণ্ডটি ভেতরের দিকে চললে (\(\mathrm{d}x/\mathrm{d}t = -v\)), আবিষ্ট গতিজনিত তড়িচ্চালক বল হয়:</p>
+    <div class="formula-box">
+      \[ \varepsilon = -\frac{\mathrm{d}\Phi_B}{\mathrm{d}t} = B l v \]
+    </div>
+    <p><strong>লরেন্টজ বলের ব্যাখ্যা:</strong> চলমান দণ্ডের প্রতিটি মুক্ত আধান \(q\) দণ্ডের দৈর্ঘ্য বরাবর \(q(\mathbf{v} \times \mathbf{B})\) চৌম্বক বল অনুভব করে। \(l\) দৈর্ঘ্য জুড়ে একক আধানে কৃত কার্য \(W/q = B l v\)। সাধারণ ক্ষেত্রে, \(\varepsilon = (\mathbf{v} \times \mathbf{B}) \cdot \mathbf{l}\)।</p>
+
+    <h3>চৌম্বক ক্ষেত্রে ঘূর্ণায়মান পরিবাহী দণ্ড</h3>
+    <p>\(R\) দৈর্ঘ্যের একটি ধাতব দণ্ড সুষম চৌম্বক ক্ষেত্র \(B\)-এর লম্ব তলে এক প্রান্তকে কেন্দ্র করে \(\omega\) কৌণিক বেগে ঘুরলে, \(\mathrm{d}r\) অংশের রৈখিক বেগ হয় \(v = \omega r\)। \(r = 0\) থেকে \(r = R\) পর্যন্ত সমাকলন করলে পাওয়া যায়:</p>
+    <div class="formula-box">
+      \[ \varepsilon = \frac{1}{2} B \omega R^2 = \pi B \nu R^2 \]
+    </div>
+    <p>একটি চাকার অক্ষ ও পরিধির মধ্যে \(N\)-টি ধাতব স্পোক যুক্ত থাকলে, সব স্পোক <strong>সমান্তরাল সমবায়ে</strong> থাকে; তাই আবিষ্ট emf স্পোকের সংখ্যা \(N\)-এর ওপর নির্ভর করে না।</p>
+
+    <h3>পরিবর্তনশীল চৌম্বক ক্ষেত্রে স্থির পরিবাহী</h3>
+    <p>পরিবাহী স্থির থাকলে (\(\mathbf{v} = 0\)) চৌম্বক লরেন্টজ বল শূন্য হয়। তবুও তড়িচ্চালক বল আবিষ্ট হয় কারণ <strong>সময়ের সাথে পরিবর্তনশীল চৌম্বক ক্ষেত্র একটি অসংরক্ষণশীল তড়িৎ ক্ষেত্র \(\mathbf{E}\) সৃষ্টি করে</strong>, যা স্থির আধানের ওপর \(\mathbf{F} = q\mathbf{E}\) বল প্রয়োগ করে।</p>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 520 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="গতিজনিত তড়িচ্চালক বলের চিত্র">
+        <defs>
+          <marker id="arrowBlue2bn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#2563EB"/>
+          </marker>
+          <marker id="arrowTeal3bn" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#0D9488"/>
+          </marker>
+        </defs>
+        <rect x="0" y="0" width="520" height="200" fill="#F8FAFC"/>
+        <text x="60" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="140" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="220" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="300" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="380" y="45" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="60" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="140" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="220" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="300" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <text x="380" y="175" font-family="sans-serif" font-size="14" fill="#2563EB">×</text>
+        <polyline points="420,60 90,60 90,145 420,145" fill="none" stroke="#1E293B" stroke-width="3"/>
+        <rect x="295" y="48" width="10" height="108" rx="2" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="285" y1="102" x2="225" y2="102" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrowBlue2bn)"/>
+        <line x1="160" y1="60" x2="210" y2="60" stroke="#0D9488" stroke-width="2.5" marker-end="url(#arrowTeal3bn)"/>
+        <text x="242" y="94" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2563EB">v</text>
+        <text x="178" y="50" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0D9488">I</text>
+        <text x="72" y="106" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">l</text>
+        <text x="415" y="45" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">B (পৃষ্ঠার ভেতরে)</text>
+        <text x="180" y="165" font-family="sans-serif" font-size="13" fill="#1E293B">x</text>
+      </svg>
+      <div class="svg-caption">টিউটোরিয়াল চিত্র ৩: লম্ব চৌম্বক ক্ষেত্র B-তে রেলের ওপর v বেগে চলমান l দৈর্ঘ্যের পরিবাহী দণ্ড।</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: INDUCTANCE & ENERGY -->
+<section>
+  <h2>5. Self-Inductance, Mutual Inductance, and Magnetic Energy</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <p><strong>Inductance</strong> is a scalar property that depends purely on the geometry of the coil(s) and the magnetic permeability of the medium—much like capacitance depends on geometry and permittivity. Its SI unit is the <strong>henry (H)</strong>, and its dimensions are \([\mathrm{M L^2 T^{-2} A^{-2}}]\).</p>
+
+    <h3>Mutual Inductance (\(M\))</h3>
+    <p>When a changing current \(I_2\) in coil 2 alters the magnetic flux linked with a nearby coil 1 of \(N_1\) turns, the flux linkage is \(N_1 \Phi_1 = M_{12} I_2\), and the induced emf in coil 1 is:</p>
+    <div class="formula-box">
+      \[ \varepsilon_1 = -M_{12} \frac{\mathrm{d}I_2}{\mathrm{d}t}, \qquad \text{with the reciprocity relation } M_{12} = M_{21} = M \]
+    </div>
+    <ul>
+      <li><strong>Two long coaxial solenoids</strong> of length \(l\), inner radius \(r_1\) (turn density \(n_1\)) and outer radius \(r_2\) (turn density \(n_2\)), filled with a medium of relative permeability \(\mu_r\):
+        \[ M = \mu_r \mu_0 n_1 n_2 \pi r_1^2 l \]
+      </li>
+      <li><strong>Two concentric coplanar circular coils</strong> of radii \(r_1\) and \(r_2\) (\(r_1 \ll r_2\)) in air:
+        \[ M = \frac{\mu_0 \pi r_1^2}{2 r_2} \]
+      </li>
+    </ul>
+
+    <h3>Self-Inductance (\(L\)) and Magnetic Energy</h3>
+    <p>When the current \(I\) in an isolated coil changes, it induces a <strong>back emf</strong> in the same coil that opposes the change in current. Thus, \(L\) acts as <em>electrical inertia</em> (analogous to mass \(m\) in mechanics):</p>
+    <div class="formula-box">
+      \[ N\Phi_B = L I, \qquad \varepsilon = -L \frac{\mathrm{d}I}{\mathrm{d}t} \]
+    </div>
+    <p>For a long solenoid of cross-sectional area \(A\), length \(l\), and \(n\) turns per unit length with a core of relative permeability \(\mu_r\):</p>
+    <div class="formula-box">
+      \[ L = \mu_r \mu_0 n^2 A l = \frac{\mu_r \mu_0 N^2 A}{l} \]
+    </div>
+    <p>Work done against the back emf to establish a steady current \(I\) is stored as <strong>magnetic potential energy</strong> \(U_B\). In terms of the magnetic field \(B = \mu_0 n I\), the <strong>magnetic energy density</strong> (energy per unit volume) \(u_B\) is:</p>
+    <div class="formula-box">
+      \[ U_B = \frac{1}{2} L I^2, \qquad u_B = \frac{U_B}{Al} = \frac{B^2}{2\mu_0} \]
+    </div>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>৫. স্ব-আবেশাঙ্ক, পারস্পরিক আবেশাঙ্ক এবং চৌম্বক শক্তি</h2>
+    <p><strong>আবেশাঙ্ক (Inductance)</strong> একটি স্কেলার রাশি যা কেবল কুণ্ডলীর জ্যামিতিক গঠন এবং মাধ্যমের চৌম্বক ভেদ্যতার ওপর নির্ভর করে। এর SI একক <strong>হেনরি (H)</strong> এবং মাত্রীয় সংকেত \([\mathrm{M L^2 T^{-2} A^{-2}}]\)।</p>
+
+    <h3>পারস্পরিক আবেশাঙ্ক (\(M\))</h3>
+    <p>২ নং কুণ্ডলীতে প্রবাহ \(I_2\) পরিবর্তিত হলে নিকটবর্তী \(N_1\) পাকের ১ নং কুণ্ডলীতে ফ্লাক্স গ্রন্থন হয় \(N_1 \Phi_1 = M_{12} I_2\) এবং ১ নং কুণ্ডলীতে আবিষ্ট emf:</p>
+    <div class="formula-box">
+      \[ \varepsilon_1 = -M_{12} \frac{\mathrm{d}I_2}{\mathrm{d}t}, \qquad \text{যেখানে } M_{12} = M_{21} = M \]
+    </div>
+    <ul>
+      <li><strong>দুটি দীর্ঘ সমাক্ষীয় সলিনয়েডের ক্ষেত্রে</strong> (দৈর্ঘ্য \(l\), অন্তঃব্যাসার্ধ \(r_1\) ও পাক-ঘনত্ব \(n_1\), বহিঃব্যাসার্ধ \(r_2\) ও পাক-ঘনত্ব \(n_2\), এবং মাধ্যমের আপেক্ষিক ভেদ্যতা \(\mu_r\)):
+        \[ M = \mu_r \mu_0 n_1 n_2 \pi r_1^2 l \]
+      </li>
+      <li><strong>বায়ু মাধ্যমে দুটি সমকেন্দ্রিক সমতলীয় বৃত্তাকার কুণ্ডলীর ক্ষেত্রে</strong> (\(r_1 \ll r_2\)):
+        \[ M = \frac{\mu_0 \pi r_1^2}{2 r_2} \]
+      </li>
+    </ul>
+
+    <h3>স্ব-আবেশাঙ্ক (\(L\)) এবং চৌম্বক শক্তি</h3>
+    <p>কোনো একটি কুণ্ডলীর নিজস্ব প্রবাহ \(I\) পরিবর্তিত হলে কুণ্ডলীতেই একটি <strong>বিপরীতমুখী তড়িচ্চালক বল (Back EMF)</strong> আবিষ্ট হয় যা প্রবাহের পরিবর্তনের বিরোধিতা করে। তাই \(L\) <em>তড়িৎ জড়তা</em> হিসেবে কাজ করে (যন্ত্রবিজ্ঞানে ভর \(m\)-এর অনুরূপ):</p>
+    <div class="formula-box">
+      \[ N\Phi_B = L I, \qquad \varepsilon = -L \frac{\mathrm{d}I}{\mathrm{d}t} \]
+    </div>
+    <p>\(A\) প্রস্থচ্ছেদ, \(l\) দৈর্ঘ্য, একক দৈর্ঘ্যে \(n\) পাক এবং \(\mu_r\) আপেক্ষিক ভেদ্যতার মজ্জাযুক্ত একটি দীর্ঘ সলিনয়েডের স্ব-আবেশাঙ্ক:</p>
+    <div class="formula-box">
+      \[ L = \mu_r \mu_0 n^2 A l = \frac{\mu_r \mu_0 N^2 A}{l} \]
+    </div>
+    <p>\(I\) প্রবাহ প্রতিষ্ঠা করতে বিপরীতমুখী emf-এর বিরুদ্ধে কৃত কার্য <strong>চৌম্বক স্থিতিশক্তি</strong> \(U_B\) হিসেবে সঞ্চিত হয়। সলিনয়েডের চৌম্বক ক্ষেত্র \(B = \mu_0 n I\) ব্যবহার করে <strong>একক আয়তনে চৌম্বক শক্তি (শক্তি ঘনত্ব)</strong> \(u_B\) পাওয়া যায়:</p>
+    <div class="formula-box">
+      \[ U_B = \frac{1}{2} L I^2, \qquad u_B = \frac{U_B}{Al} = \frac{B^2}{2\mu_0} \]
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: AC GENERATOR -->
+<section>
+  <h2>6. Alternating Current (AC) Generator</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <p>An AC generator converts mechanical energy into electrical energy by rotating a coil (armature) of \(N\) turns and area \(A\) at constant angular speed \(\omega = 2\pi\nu\) in a uniform magnetic field \(B\) perpendicular to the axis of rotation. Slip rings and carbon brushes connect the rotating coil to the external circuit.</p>
+    <p>If \(\theta = 0^\circ\) at \(t = 0\), then at time \(t\) the angle between \(\mathbf{B}\) and \(\mathbf{A}\) is \(\theta = \omega t\), giving \(\Phi_B = B A \cos(\omega t)\). Applying Faraday's law:</p>
+    <div class="formula-box">
+      \[ \varepsilon = -N \frac{\mathrm{d}}{\mathrm{d}t}(B A \cos\omega t) = N B A \omega \sin(\omega t) = \varepsilon_0 \sin(2\pi\nu t) \]
+    </div>
+    <ul>
+      <li><strong>Peak EMF:</strong> \(\varepsilon_0 = N B A \omega = 2\pi \nu N B A\).</li>
+      <li><strong>Key Phase Positions:</strong> When the coil plane is perpendicular to \(\mathbf{B}\) (\(\theta = 0^\circ, 180^\circ\)), magnetic flux is maximum (\(\pm BA\)) but induced emf is <strong>zero</strong>. When the coil plane is parallel to \(\mathbf{B}\) (\(\theta = 90^\circ, 270^\circ\)), flux is zero but its rate of change—and hence the induced emf—is <strong>maximum</strong> (\(\pm \varepsilon_0\)).</li>
+    </ul>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 540 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sinusoidal alternating emf waveform">
+        <rect x="0" y="0" width="540" height="190" fill="#F8FAFC"/>
+        <!-- Axes -->
+        <line x1="50" y1="95" x2="500" y2="95" stroke="#1E293B" stroke-width="1.8"/>
+        <line x1="65" y1="22" x2="65" y2="168" stroke="#1E293B" stroke-width="1.8"/>
+        <!-- Sine wave -->
+        <path d="M 65,95 C 100,25 135,25 170,95 C 205,165 240,165 275,95 C 310,25 345,25 380,95 C 415,165 450,165 485,95" fill="none" stroke="#2563EB" stroke-width="3"/>
+        <!-- Dashed peak lines -->
+        <line x1="65" y1="42" x2="170" y2="42" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,4"/>
+        <line x1="65" y1="148" x2="275" y2="148" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,4"/>
+        <!-- Labels -->
+        <text x="20" y="46" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">+ε₀</text>
+        <text x="20" y="152" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">−ε₀</text>
+        <text x="48" y="98" font-family="sans-serif" font-size="13" fill="#1E293B">0</text>
+        <text x="110" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">90°</text>
+        <text x="162" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">180°</text>
+        <text x="215" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">270°</text>
+        <text x="268" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">360°</text>
+        <text x="488" y="112" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">ωt</text>
+        <text x="72" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Induced EMF (ε)</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 4: Variation of instantaneous induced emf ε with rotation angle ωt in an AC generator.</div>
+    </div>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>৬. পরিবর্তী প্রবাহ (AC) জেনারেটর</h2>
+    <p>AC জেনারেটর যান্ত্রিক শক্তিকে তড়িৎ শক্তিতে রূপান্তরিত করে। এতে \(N\) পাক ও \(A\) ক্ষেত্রফলের একটি কুণ্ডলী (আর্মেচার) সুষম চৌম্বক ক্ষেত্র \(B\)-এর সাথে লম্ব অক্ষের চারদিকে \(\omega = 2\pi\nu\) ধ্রুব কৌণিক বেগে ঘোরে। স্লিপ রিং ও কার্বন ব্রাশের মাধ্যমে কুণ্ডলীটি বহিঃবর্তনীর সাথে যুক্ত থাকে।</p>
+    <p>\(t = 0\) সময়ে \(\theta = 0^\circ\) হলে \(t\) সময়ে \(\mathbf{B}\) ও \(\mathbf{A}\)-এর মধ্যবর্তী কোণ \(\theta = \omega t\) এবং ফ্লাক্স \(\Phi_B = B A \cos(\omega t)\)। ফ্যারাডের সূত্রানুসারে:</p>
+    <div class="formula-box">
+      \[ \varepsilon = -N \frac{\mathrm{d}}{\mathrm{d}t}(B A \cos\omega t) = N B A \omega \sin(\omega t) = \varepsilon_0 \sin(2\pi\nu t) \]
+    </div>
+    <ul>
+      <li><strong>শীর্ষ তড়িচ্চালক বল:</strong> \(\varepsilon_0 = N B A \omega = 2\pi \nu N B A\)।</li>
+      <li><strong>গুরুত্বপূর্ণ দশা অবস্থান:</strong> কুণ্ডলীর তল চৌম্বক ক্ষেত্রের সাথে লম্ব হলে (\(\theta = 0^\circ, 180^\circ\)) ফ্লাক্স সর্বাধিক (\(\pm BA\)) কিন্তু আবিষ্ট emf <strong>শূন্য</strong> হয়। কুণ্ডলীর তল ক্ষেত্রের সমান্তরাল হলে (\(\theta = 90^\circ, 270^\circ\)) ফ্লাক্স শূন্য কিন্তু পরিবর্তনের হার সর্বাধিক হওয়ায় emf <strong>সর্বাধিক</strong> (\(\pm \varepsilon_0\)) হয়।</li>
+    </ul>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 540 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="পরিবর্তী তড়িচ্চালক বলের তরঙ্গচিত্র">
+        <rect x="0" y="0" width="540" height="190" fill="#F8FAFC"/>
+        <line x1="50" y1="95" x2="500" y2="95" stroke="#1E293B" stroke-width="1.8"/>
+        <line x1="65" y1="22" x2="65" y2="168" stroke="#1E293B" stroke-width="1.8"/>
+        <path d="M 65,95 C 100,25 135,25 170,95 C 205,165 240,165 275,95 C 310,25 345,25 380,95 C 415,165 450,165 485,95" fill="none" stroke="#2563EB" stroke-width="3"/>
+        <line x1="65" y1="42" x2="170" y2="42" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,4"/>
+        <line x1="65" y1="148" x2="275" y2="148" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,4"/>
+        <text x="20" y="46" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">+ε₀</text>
+        <text x="20" y="152" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">−ε₀</text>
+        <text x="48" y="98" font-family="sans-serif" font-size="13" fill="#1E293B">0</text>
+        <text x="110" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">90°</text>
+        <text x="162" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">180°</text>
+        <text x="215" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">270°</text>
+        <text x="268" y="112" font-family="sans-serif" font-size="12" fill="#1E293B">360°</text>
+        <text x="488" y="112" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">ωt</text>
+        <text x="72" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">আবিষ্ট EMF (ε)</text>
+      </svg>
+      <div class="svg-caption">টিউটোরিয়াল চিত্র ৪: AC জেনারেটরে ঘূর্ণন কোণ ωt-এর সাথে তাৎক্ষণিক আবিষ্ট তড়িচ্চালক বল ε-এর পরিবর্তন।</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: SUMMARY TABLE -->
+<section>
+  <h2>7. Key Quantities, Units, and Dimensions</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <table>
+      <thead>
+        <tr>
+          <th>Quantity</th>
+          <th>SI Unit</th>
+          <th>Dimensions</th>
+          <th>Key Formula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Magnetic Flux (\(\Phi_B\))</td>
+          <td>Wb (\(\mathrm{T\cdot m^2}\))</td>
+          <td>\([\mathrm{M L^2 T^{-2} A^{-1}}]\)</td>
+          <td>\(\Phi_B = B A \cos\theta\)</td>
+        </tr>
+        <tr>
+          <td>Induced EMF (\(\varepsilon\))</td>
+          <td>V (volt)</td>
+          <td>\([\mathrm{M L^2 T^{-3} A^{-1}}]\)</td>
+          <td>\(\varepsilon = -N \frac{\mathrm{d}\Phi_B}{\mathrm{d}t}\)</td>
+        </tr>
+        <tr>
+          <td>Self-Inductance (\(L\))</td>
+          <td>H (henry)</td>
+          <td>\([\mathrm{M L^2 T^{-2} A^{-2}}]\)</td>
+          <td>\(L = \mu_r \mu_0 n^2 A l\)</td>
+        </tr>
+        <tr>
+          <td>Mutual Inductance (\(M\))</td>
+          <td>H (henry)</td>
+          <td>\([\mathrm{M L^2 T^{-2} A^{-2}}]\)</td>
+          <td>\(M = \mu_r \mu_0 n_1 n_2 \pi r_1^2 l\)</td>
+        </tr>
+        <tr>
+          <td>Magnetic Energy Density (\(u_B\))</td>
+          <td>\(\mathrm{J\,m^{-3}}\)</td>
+          <td>\([\mathrm{M L^{-1} T^{-2}}]\)</td>
+          <td>\(u_B = \frac{B^2}{2\mu_0}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>৭. গুরুত্বপূর্ণ রাশি, একক ও মাত্রা</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ভৌত রাশি</th>
+          <th>SI একক</th>
+          <th>মাত্রা</th>
+          <th>মূল সমীকরণ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>চৌম্বক ফ্লাক্স (\(\Phi_B\))</td>
+          <td>Wb (\(\mathrm{T\cdot m^2}\))</td>
+          <td>\([\mathrm{M L^2 T^{-2} A^{-1}}]\)</td>
+          <td>\(\Phi_B = B A \cos\theta\)</td>
+        </tr>
+        <tr>
+          <td>আবিষ্ট EMF (\(\varepsilon\))</td>
+          <td>V (ভোল্ট)</td>
+          <td>\([\mathrm{M L^2 T^{-3} A^{-1}}]\)</td>
+          <td>\(\varepsilon = -N \frac{\mathrm{d}\Phi_B}{\mathrm{d}t}\)</td>
+        </tr>
+        <tr>
+          <td>স্ব-আবেশাঙ্ক (\(L\))</td>
+          <td>H (হেনরি)</td>
+          <td>\([\mathrm{M L^2 T^{-2} A^{-2}}]\)</td>
+          <td>\(L = \mu_r \mu_0 n^2 A l\)</td>
+        </tr>
+        <tr>
+          <td>পারস্পরিক আবেশাঙ্ক (\(M\))</td>
+          <td>H (হেনরি)</td>
+          <td>\([\mathrm{M L^2 T^{-2} A^{-2}}]\)</td>
+          <td>\(M = \mu_r \mu_0 n_1 n_2 \pi r_1^2 l\)</td>
+        </tr>
+        <tr>
+          <td>চৌম্বক শক্তি ঘনত্ব (\(u_B\))</td>
+          <td>\(\mathrm{J\,m^{-3}}\)</td>
+          <td>\([\mathrm{M L^{-1} T^{-2}}]\)</td>
+          <td>\(u_B = \frac{B^2}{2\mu_0}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 8: WORKED EXAMPLES -->
+<section>
+  <h2>Worked Examples</h2>
+
+  <!-- Example 1 -->
+  <div class="example-card">
+    <h3>Example 1: Applying Faraday's Law to a Rotating Square Coil</h3>
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Problem (Assumed Values):</strong> A square coil of \(N = 250\) turns, side \(10\,\mathrm{cm}\) (area \(A = 0.01\,\mathrm{m}^2\)), and total resistance \(R = 5\,\Omega\) is placed with its plane perpendicular to a uniform magnetic field \(B = 0.4\,\mathrm{T}\). The coil is rotated through \(180^\circ\) about an axis in its plane in \(\Delta t = 0.2\,\mathrm{s}\). Find the magnitudes of the average induced emf and average induced current.</p>
+      <div class="solution-box">
+        <p><strong>Solution:</strong></p>
+        <p>Initial magnetic flux per turn (\(\theta_1 = 0^\circ\)): \(\Phi_1 = B A \cos 0^\circ = 0.4 \times 0.01 \times 1 = 4 \times 10^{-3}\,\mathrm{Wb}\).</p>
+        <p>Final magnetic flux per turn (\(\theta_2 = 180^\circ\)): \(\Phi_2 = B A \cos 180^\circ = -4 \times 10^{-3}\,\mathrm{Wb}\).</p>
+        <p>Magnitude of flux change: \(|\Delta \Phi_B| = |\Phi_2 - \Phi_1| = 8 \times 10^{-3}\,\mathrm{Wb}\).</p>
+        <p>Average induced emf: \(\varepsilon_{\text{avg}} = N \frac{|\Delta \Phi_B|}{\Delta t} = 250 \times \frac{8 \times 10^{-3}}{0.2} = 10\,\mathrm{V}\).</p>
+        <p>Average induced current: \(I_{\text{avg}} = \frac{\varepsilon_{\text{avg}}}{R} = \frac{10}{5} = 2\,\mathrm{A}\).</p>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <h4>উদাহরণ ১: ঘূর্ণায়মান বর্গাকার কুণ্ডলীতে ফ্যারাডের সূত্রের প্রয়োগ</h4>
+      <p><strong>সমস্যা (কল্পিত মান):</strong> \(N = 250\) পাক, \(10\,\mathrm{cm}\) বাহুবিশিষ্ট (ক্ষেত্রফল \(A = 0.01\,\mathrm{m}^2\)) এবং \(R = 5\,\Omega\) রোধের একটি বর্গাকার কুণ্ডলীর তল \(B = 0.4\,\mathrm{T}\) সুষম চৌম্বক ক্ষেত্রের সাথে লম্বভাবে রাখা আছে। কুণ্ডলীটিকে তার তলস্থ একটি অক্ষের সাপেক্ষে \(\Delta t = 0.2\,\mathrm{s}\) সময়ে \(180^\circ\) ঘোরানো হলো। গড় আবিষ্ট তড়িচ্চালক বল ও গড় আবিষ্ট প্রবাহের মান নির্ণয় করো।</p>
+      <div class="solution-box">
+        <p><strong>সমাধান:</strong></p>
+        <p>প্রাথমিক ফ্লাক্স (\(\theta_1 = 0^\circ\)): \(\Phi_1 = B A \cos 0^\circ = 0.4 \times 0.01 \times 1 = 4 \times 10^{-3}\,\mathrm{Wb}\)।</p>
+        <p>অন্তিম ফ্লাক্স (\(\theta_2 = 180^\circ\)): \(\Phi_2 = B A \cos 180^\circ = -4 \times 10^{-3}\,\mathrm{Wb}\)।</p>
+        <p>ফ্লাক্সের পরিবর্তনের মান: \(|\Delta \Phi_B| = |\Phi_2 - \Phi_1| = 8 \times 10^{-3}\,\mathrm{Wb}\)।</p>
+        <p>গড় আবিষ্ট emf: \(\varepsilon_{\text{avg}} = N \frac{|\Delta \Phi_B|}{\Delta t} = 250 \times \frac{8 \times 10^{-3}}{0.2} = 10\,\mathrm{V}\)।</p>
+        <p>গড় আবিষ্ট প্রবাহ: \(I_{\text{avg}} = \frac{\varepsilon_{\text{avg}}}{R} = \frac{10}{5} = 2\,\mathrm{A}\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 2 -->
+  <div class="example-card">
+    <h3>Example 2: Determining Induced Current Direction Using Lenz's Law</h3>
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Problem:</strong> A closed rectangular wire loop moves at a constant speed \(v\) across a bounded region of uniform magnetic field \(\mathbf{B}\) directed perpendicularly into the page. Determine the direction of the induced current (a) while entering the field, (b) while completely inside the field, and (c) while leaving the field.</p>
+      <div class="solution-box">
+        <p><strong>Solution:</strong></p>
+        <ul>
+          <li><strong>(a) Entering the field:</strong> The inward magnetic flux increases. To oppose this increase, the induced current produces an outward magnetic field, so the current flows <strong>anticlockwise</strong>.</li>
+          <li><strong>(b) Completely inside the field:</strong> The enclosed area and magnetic field are constant (\(\mathrm{d}\Phi_B/\mathrm{d}t = 0\)), so the induced current is <strong>zero</strong>.</li>
+          <li><strong>(c) Leaving the field:</strong> The inward magnetic flux decreases. To oppose this decrease, the induced current produces an inward magnetic field, so the current flows <strong>clockwise</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <h4>উদাহরণ ২: লেঞ্জের সূত্রের সাহায্যে আবিষ্ট প্রবাহের দিক নির্ণয়</h4>
+      <p><strong>সমস্যা:</strong> একটি বদ্ধ আয়তাকার তারের কুণ্ডলী \(v\) সমবেগে পৃষ্ঠার ভেতরের দিকে ক্রিয়াশীল একটি সীমাবদ্ধ সুষম চৌম্বক ক্ষেত্র \(\mathbf{B}\)-এর অঞ্চল অতিক্রম করছে। আবিষ্ট প্রবাহের দিক নির্ণয় করো যখন কুণ্ডলীটি (ক) ক্ষেত্রে প্রবেশ করছে, (খ) সম্পূর্ণভাবে ক্ষেত্রের ভেতরে আছে, এবং (গ) ক্ষেত্র থেকে বেরিয়ে যাচ্ছে।</p>
+      <div class="solution-box">
+        <p><strong>সমাধান:</strong></p>
+        <ul>
+          <li><strong>(ক) ক্ষেত্রে প্রবেশের সময়:</strong> ভেতরের দিকে ফ্লাক্স বৃদ্ধি পাচ্ছে। এই বৃদ্ধিকে বাধা দিতে আবিষ্ট প্রবাহ বাইরের দিকে চৌম্বক ক্ষেত্র তৈরি করবে; তাই প্রবাহ <strong>ঘড়ির কাঁটার বিপরীত দিকে</strong> চলবে।</li>
+          <li><strong>(খ) সম্পূর্ণ ক্ষেত্রের ভেতরে:</strong> আবদ্ধ ফ্লাক্স ধ্রুব থাকে (\(\mathrm{d}\Phi_B/\mathrm{d}t = 0\)), তাই আবিষ্ট প্রবাহ <strong>শূন্য</strong>।</li>
+          <li><strong>(গ) ক্ষেত্র থেকে বেরোনোর সময়:</strong> ভেতরের দিকে ফ্লাক্স হ্রাস পাচ্ছে। এই হ্রাসকে বাধা দিতে আবিষ্ট প্রবাহ ভেতরের দিকেই চৌম্বক ক্ষেত্র তৈরি করবে; তাই প্রবাহ <strong>ঘড়ির কাঁটার দিকে</strong> চলবে।</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 3 -->
+  <div class="example-card">
+    <h3>Example 3: Calculating Motional EMF in a Rotating Spoke Wheel</h3>
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Problem (Assumed Values):</strong> A bicycle wheel with 12 metallic spokes, each of length \(R = 0.4\,\mathrm{m}\), rotates at \(300\,\mathrm{rpm}\) in a plane perpendicular to a uniform magnetic field \(B = 0.5\,\mathrm{T}\). Calculate the induced emf between the axle and the metallic rim.</p>
+      <div class="solution-box">
+        <p><strong>Solution:</strong></p>
+        <p>Frequency of rotation: \(\nu = \frac{300}{60} = 5\,\mathrm{Hz}\).</p>
+        <p>Angular speed: \(\omega = 2\pi\nu = 2\pi \times 5 = 10\pi\,\mathrm{rad\,s^{-1}}\).</p>
+        <p>Because all 12 spokes are connected in parallel between the axle and rim, the net emf equals that of a single spoke:</p>
+        <p>\[ \varepsilon = \frac{1}{2} B \omega R^2 = \frac{1}{2} \times 0.5 \times 10\pi \times (0.4)^2 = 0.4\pi\,\mathrm{V} \approx 1.26\,\mathrm{V} \]</p>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <h4>উদাহরণ ৩: ঘূর্ণায়মান স্পোকযুক্ত চাকায় গতিজনিত তড়িচ্চালক বল নির্ণয়</h4>
+      <p><strong>সমস্যা (কল্পিত মান):</strong> ১২টি ধাতব স্পোকযুক্ত একটি সাইকেলের চাকার প্রতিটি স্পোকের দৈর্ঘ্য \(R = 0.4\,\mathrm{m}\)। চাকাটি \(B = 0.5\,\mathrm{T}\) সুষম চৌম্বক ক্ষেত্রের লম্ব তলে \(300\,\mathrm{rpm}\) বেগে ঘুরছে। অক্ষ ও ধাতব পরিধির মধ্যে আবিষ্ট তড়িচ্চালক বল কত?</p>
+      <div class="solution-box">
+        <p><strong>সমাধান:</strong></p>
+        <p>ঘূর্ণন কম্পাঙ্ক: \(\nu = \frac{300}{60} = 5\,\mathrm{Hz}\)।</p>
+        <p>কৌণিক বেগ: \(\omega = 2\pi\nu = 2\pi \times 5 = 10\pi\,\mathrm{rad\,s^{-1}}\)।</p>
+        <p>১২টি স্পোকই অক্ষ ও পরিধির মধ্যে সমান্তরাল সমবায়ে যুক্ত থাকায় মোট emf একটি স্পোকের সমান হবে:</p>
+        <p>\[ \varepsilon = \frac{1}{2} B \omega R^2 = \frac{1}{2} \times 0.5 \times 10\pi \times (0.4)^2 = 0.4\pi\,\mathrm{V} \approx 1.26\,\mathrm{V} \]</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 4 -->
+  <div class="example-card">
+    <h3>Example 4: Evaluating Mutual Inductance and Magnetic Energy Density</h3>
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Problem (Assumed Values):</strong> (a) Two concentric coplanar circular coils in air have radii \(r_1 = 2\,\mathrm{cm}\) (\(N_1 = 10\) turns) and \(r_2 = 40\,\mathrm{cm}\) (\(N_2 = 1\) turn). Find their mutual inductance. (b) Calculate the magnetic energy density in a region where \(B = 0.2\,\mathrm{T}\).</p>
+      <div class="solution-box">
+        <p><strong>Solution:</strong></p>
+        <p><strong>(a)</strong> Since \(r_1 \ll r_2\), the field at the center of the outer coil due to current \(I_2\) is \(B_2 = \frac{\mu_0 I_2}{2 r_2}\), which is nearly uniform over the inner coil. Flux linkage \(N_1 \Phi_1 = N_1 (\pi r_1^2) B_2 = M I_2\), so:</p>
+        <p>\[ M = \frac{N_1 \mu_0 \pi r_1^2}{2 r_2} = \frac{10 \times 4\pi \times 10^{-7} \times \pi \times (0.02)^2}{2 \times 0.40} = 2\pi^2 \times 10^{-9}\,\mathrm{H} \approx 1.97 \times 10^{-8}\,\mathrm{H} \]</p>
+        <p><strong>(b)</strong> Magnetic energy density:</p>
+        <p>\[ u_B = \frac{B^2}{2\mu_0} = \frac{(0.2)^2}{2 \times 4\pi \times 10^{-7}} = \frac{5 \times 10^4}{\pi}\,\mathrm{J\,m^{-3}} \approx 1.59 \times 10^4\,\mathrm{J\,m^{-3}} \]</p>
+      </div>
+    </div>
+
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <h4>উদাহরণ ৪: পারস্পরিক আবেশাঙ্ক এবং চৌম্বক শক্তি ঘনত্ব নির্ণয়</h4>
+      <p><strong>সমস্যা (কল্পিত মান):</strong> (ক) বায়ু মাধ্যমে দুটি সমকেন্দ্রিক সমতলীয় বৃত্তাকার কুণ্ডলীর ব্যাসার্ধ যথাক্রমে \(r_1 = 2\,\mathrm{cm}\) (\(N_1 = 10\) পাক) এবং \(r_2 = 40\,\mathrm{cm}\) (\(N_2 = 1\) পাক)। এদের পারস্পরিক আবেশাঙ্ক নির্ণয় করো। (খ) \(B = 0.2\,\mathrm{T}\) চৌম্বক ক্ষেত্রে শক্তি ঘনত্ব কত?</p>
+      <div class="solution-box">
+        <p><strong>সমাধান:</strong></p>
+        <p><strong>(ক)</strong> যেহেতু \(r_1 \ll r_2\), বাইরের কুণ্ডলীতে \(I_2\) প্রবাহের জন্য কেন্দ্রে চৌম্বক ক্ষেত্র \(B_2 = \frac{\mu_0 I_2}{2 r_2}\) ভেতরের কুণ্ডলীর ক্ষেত্রফলে প্রায় সুষম। ফ্লাক্স গ্রন্থন \(N_1 \Phi_1 = N_1 (\pi r_1^2) B_2 = M I_2\), অতএব:</p>
+        <p>\[ M = \frac{N_1 \mu_0 \pi r_1^2}{2 r_2} = \frac{10 \times 4\pi \times 10^{-7} \times \pi \times (0.02)^2}{2 \times 0.40} = 2\pi^2 \times 10^{-9}\,\mathrm{H} \approx 1.97 \times 10^{-8}\,\mathrm{H} \]</p>
+        <p><strong>(খ)</strong> চৌম্বক শক্তি ঘনত্ব:</p>
+        <p>\[ u_B = \frac{B^2}{2\mu_0} = \frac{(0.2)^2}{2 \times 4\pi \times 10^{-7}} = \frac{5 \times 10^4}{\pi}\,\mathrm{J\,m^{-3}} \approx 1.59 \times 10^4\,\mathrm{J\,m^{-3}} \]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: NEET UG PRACTICE QUESTIONS -->
+<section>
+  <h2>8. NEET UG Practice Questions</h2>
+  <p><em>Note: All questions below are original practice questions designed for NEET UG preparation.</em></p>
+  <p lang="bn"><em>দ্রষ্টব্য: নিচের সমস্ত প্রশ্ন NEET UG পরীক্ষার প্রস্তুতির জন্য তৈরি মৌলিক অনুশীলন প্রশ্ন।</em></p>
+
+  <!-- Question 1 -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 1:</strong> A coil of \(100\) turns and cross-sectional area \(5 \times 10^{-3}\,\mathrm{m}^2\) is placed with its plane perpendicular to a uniform magnetic field of \(0.6\,\mathrm{T}\). The magnetic field is reduced uniformly to \(0.2\,\mathrm{T}\) in \(0.1\,\mathrm{s}\). If the total resistance of the coil circuit is \(4\,\Omega\), the magnitude of the induced current is:</p>
+      <ul class="q-options">
+        <li>(A) \(0.25\,\mathrm{A}\)</li>
+        <li>(B) \(0.50\,\mathrm{A}\)</li>
+        <li>(C) \(1.00\,\mathrm{A}\)</li>
+        <li>(D) \(2.00\,\mathrm{A}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (B) \(0.50\,\mathrm{A}\)</p>
+        <p><strong>Worked Solution:</strong> Change in flux per turn is \(\Delta \Phi_B = (B_1 - B_2) A \cos 0^\circ = (0.6 - 0.2) \times 5 \times 10^{-3} = 2 \times 10^{-3}\,\mathrm{Wb}\). Magnitude of induced emf: \(\varepsilon = N \frac{\Delta \Phi_B}{\Delta t} = 100 \times \frac{2 \times 10^{-3}}{0.1} = 2\,\mathrm{V}\). Induced current: \(I = \frac{\varepsilon}{R} = \frac{2}{4} = 0.50\,\mathrm{A}\).</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ১:</strong> \(100\) পাক এবং \(5 \times 10^{-3}\,\mathrm{m}^2\) ক্ষেত্রফলবিশিষ্ট একটি কুণ্ডলীর তল \(0.6\,\mathrm{T}\) সুষম চৌম্বক ক্ষেত্রের সাথে লম্বভাবে রাখা আছে। চৌম্বক ক্ষেত্রটিকে \(0.1\,\mathrm{s}\) সময়ে সুষমভাবে কমিয়ে \(0.2\,\mathrm{T}\) করা হলো। কুণ্ডলী বর্তনীর মোট রোধ \(4\,\Omega\) হলে আবিষ্ট তড়িৎপ্রবাহের মান কত?</p>
+      <ul class="q-options">
+        <li>(A) \(0.25\,\mathrm{A}\)</li>
+        <li>(B) \(0.50\,\mathrm{A}\)</li>
+        <li>(C) \(1.00\,\mathrm{A}\)</li>
+        <li>(D) \(2.00\,\mathrm{A}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (B) \(0.50\,\mathrm{A}\)</p>
+        <p><strong>সমাধান:</strong> প্রতিটি পাকের ফ্লাক্স পরিবর্তন \(\Delta \Phi_B = (B_1 - B_2) A \cos 0^\circ = (0.6 - 0.2) \times 5 \times 10^{-3} = 2 \times 10^{-3}\,\mathrm{Wb}\)। আবিষ্ট তড়িচ্চালক বল \(\varepsilon = N \frac{\Delta \Phi_B}{\Delta t} = 100 \times \frac{2 \times 10^{-3}}{0.1} = 2\,\mathrm{V}\)। আবিষ্ট প্রবাহ \(I = \frac{\varepsilon}{R} = \frac{2}{4} = 0.50\,\mathrm{A}\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 2:</strong> A bar magnet is dropped vertically with its North pole pointing downward along the axis of a horizontal, closed copper ring. As the magnet approaches the ring from above, the direction of the induced current as viewed from above and the acceleration \(a\) of the magnet are:</p>
+      <ul class="q-options">
+        <li>(A) Clockwise, \(a = g\)</li>
+        <li>(B) Anticlockwise, \(a &lt; g\)</li>
+        <li>(C) Anticlockwise, \(a &gt; g\)</li>
+        <li>(D) Clockwise, \(a &lt; g\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (B) Anticlockwise, \(a &lt; g\)</p>
+        <p><strong>Worked Solution:</strong> By Lenz's law, the upper face of the ring opposes the approaching North pole by developing North polarity. Viewed from above, North polarity corresponds to an <strong>anticlockwise</strong> current. Because of magnetic repulsion, an upward magnetic force \(F_{\text{mag}}\) acts on the magnet, making the net downward acceleration \(a = g - \frac{F_{\text{mag}}}{m} &lt; g\).</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ২:</strong> একটি দণ্ডচুম্বককে তার উত্তর মেরু নিচের দিকে রেখে একটি অনুভূমিক বদ্ধ তামার আংটির অক্ষ বরাবর ওপর থেকে ফেলা হলো। চুম্বকটি আংটির দিকে নামতে থাকলে ওপর থেকে দেখলে আবিষ্ট প্রবাহের দিক এবং চুম্বকটির ত্বরণ \(a\) হবে:</p>
+      <ul class="q-options">
+        <li>(A) ঘড়ির কাঁটার দিকে, \(a = g\)</li>
+        <li>(B) ঘড়ির কাঁটার বিপরীত দিকে, \(a &lt; g\)</li>
+        <li>(C) ঘড়ির কাঁটার বিপরীত দিকে, \(a &gt; g\)</li>
+        <li>(D) ঘড়ির কাঁটার দিকে, \(a &lt; g\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (B) ঘড়ির কাঁটার বিপরীত দিকে, \(a &lt; g\)</p>
+        <p><strong>সমাধান:</strong> লেঞ্জের সূত্রানুসারে, আগত উত্তর মেরুকে বাধা দিতে আংটির ওপরের তলে উত্তর মেরুত্ব সৃষ্টি হয়। ওপর থেকে দেখলে উত্তর মেরুত্বের জন্য প্রবাহ <strong>ঘড়ির কাঁটার বিপরীত দিকে</strong> হয়। বিকর্ষণ বল \(F_{\text{mag}}\) ওপরের দিকে ক্রিয়া করায় নিচের দিকে লব্ধি ত্বরণ \(a = g - \frac{F_{\text{mag}}}{m} &lt; g\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 3:</strong> A horizontal straight conducting wire of length \(2.5\,\mathrm{m}\) aligned along the east–west direction falls freely under gravity. At an instant when its downward speed is \(8\,\mathrm{m\,s^{-1}}\), the horizontal component of Earth's magnetic field at that location is \(3.0 \times 10^{-5}\,\mathrm{T}\) (directed south to north). The magnitude of the motional emf induced across the wire is:</p>
+      <ul class="q-options">
+        <li>(A) \(0.3\,\mathrm{mV}\)</li>
+        <li>(B) \(0.6\,\mathrm{mV}\)</li>
+        <li>(C) \(1.2\,\mathrm{mV}\)</li>
+        <li>(D) \(6.0\,\mathrm{mV}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (B) \(0.6\,\mathrm{mV}\)</p>
+        <p><strong>Worked Solution:</strong> The wire length (east–west), velocity (vertical), and horizontal magnetic field (south–north) are mutually perpendicular. Thus, \(\varepsilon = B_H l v = 3.0 \times 10^{-5} \times 2.5 \times 8 = 6.0 \times 10^{-4}\,\mathrm{V} = 0.6\,\mathrm{mV}\).</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ৩:</strong> পূর্ব–পশ্চিম বরাবর রাখা \(2.5\,\mathrm{m}\) দীর্ঘ একটি অনুভূমিক পরিবাহী তার অভিকর্ষের অধীনে মুক্তভাবে নিচে পড়ছে। যে মুহূর্তে তারটির বেগ \(8\,\mathrm{m\,s^{-1}}\), সেই স্থানে ভূ-চৌম্বক ক্ষেত্রের অনুভূমিক উপাংশ \(3.0 \times 10^{-5}\,\mathrm{T}\) (দক্ষিণ থেকে উত্তরে)। তারটির দুই প্রান্তে আবিষ্ট গতিজনিত তড়িচ্চালক বলের মান কত?</p>
+      <ul class="q-options">
+        <li>(A) \(0.3\,\mathrm{mV}\)</li>
+        <li>(B) \(0.6\,\mathrm{mV}\)</li>
+        <li>(C) \(1.2\,\mathrm{mV}\)</li>
+        <li>(D) \(6.0\,\mathrm{mV}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (B) \(0.6\,\mathrm{mV}\)</p>
+        <p><strong>সমাধান:</strong> তারের দৈর্ঘ্য (পূর্ব–পশ্চিম), বেগ (উল্লম্ব) এবং চৌম্বক ক্ষেত্রের অনুভূমিক উপাংশ (দক্ষিণ–উত্তর) পরস্পর লম্ব। তাই \(\varepsilon = B_H l v = 3.0 \times 10^{-5} \times 2.5 \times 8 = 6.0 \times 10^{-4}\,\mathrm{V} = 0.6\,\mathrm{mV}\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 4:</strong> The current in a coil of self-inductance \(L = 40\,\mathrm{mH}\) increases steadily from \(2\,\mathrm{A}\) to \(7\,\mathrm{A}\) in \(0.05\,\mathrm{s}\). The magnitude of the self-induced back emf and the magnetic energy stored in the coil at \(I = 7\,\mathrm{A}\) are respectively:</p>
+      <ul class="q-options">
+        <li>(A) \(4\,\mathrm{V},\; 0.98\,\mathrm{J}\)</li>
+        <li>(B) \(2\,\mathrm{V},\; 0.98\,\mathrm{J}\)</li>
+        <li>(C) \(4\,\mathrm{V},\; 1.96\,\mathrm{J}\)</li>
+        <li>(D) \(8\,\mathrm{V},\; 0.49\,\mathrm{J}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (A) \(4\,\mathrm{V},\; 0.98\,\mathrm{J}\)</p>
+        <p><strong>Worked Solution:</strong> Magnitude of back emf: \(|\varepsilon| = L \frac{\Delta I}{\Delta t} = (40 \times 10^{-3}) \times \frac{7 - 2}{0.05} = 0.04 \times 100 = 4\,\mathrm{V}\). Stored magnetic energy at \(I = 7\,\mathrm{A}\): \(U_B = \frac{1}{2} L I^2 = \frac{1}{2} \times (40 \times 10^{-3}) \times 7^2 = 0.02 \times 49 = 0.98\,\mathrm{J}\).</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ৪:</strong> \(L = 40\,\mathrm{mH}\) স্ব-আবেশাঙ্কের একটি কুণ্ডলীতে তড়িৎপ্রবাহ \(0.05\,\mathrm{s}\) সময়ে সুষমভাবে \(2\,\mathrm{A}\) থেকে বেড়ে \(7\,\mathrm{A}\) হলো। স্ব-আবিষ্ট বিপরীতমুখী তড়িচ্চালক বলের মান এবং \(I = 7\,\mathrm{A}\) প্রবাহে সঞ্চিত চৌম্বক শক্তি যথাক্রমে:</p>
+      <ul class="q-options">
+        <li>(A) \(4\,\mathrm{V},\; 0.98\,\mathrm{J}\)</li>
+        <li>(B) \(2\,\mathrm{V},\; 0.98\,\mathrm{J}\)</li>
+        <li>(C) \(4\,\mathrm{V},\; 1.96\,\mathrm{J}\)</li>
+        <li>(D) \(8\,\mathrm{V},\; 0.49\,\mathrm{J}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (A) \(4\,\mathrm{V},\; 0.98\,\mathrm{J}\)</p>
+        <p><strong>সমাধান:</strong> বিপরীতমুখী emf: \(|\varepsilon| = L \frac{\Delta I}{\Delta t} = (40 \times 10^{-3}) \times \frac{7 - 2}{0.05} = 0.04 \times 100 = 4\,\mathrm{V}\)। \(I = 7\,\mathrm{A}\)-এ সঞ্চিত শক্তি: \(U_B = \frac{1}{2} L I^2 = \frac{1}{2} \times (40 \times 10^{-3}) \times 7^2 = 0.02 \times 49 = 0.98\,\mathrm{J}\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 5:</strong> Two long coaxial solenoids of the same length \(l\) have radii \(r_1\) and \(r_2\) (\(r_1 &lt; r_2\)) and turn densities \(n_1\) and \(n_2\) respectively. If the number of turns per unit length of both solenoids is doubled while keeping their lengths and radii unchanged, the mutual inductance \(M\) between them becomes:</p>
+      <ul class="q-options">
+        <li>(A) \(2M\)</li>
+        <li>(B) \(4M\)</li>
+        <li>(C) \(8M\)</li>
+        <li>(D) \(M/2\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (B) \(4M\)</p>
+        <p><strong>Worked Solution:</strong> For two long coaxial solenoids, \(M = \mu_0 n_1 n_2 \pi r_1^2 l\). When both \(n_1\) and \(n_2\) are doubled (\(n_1' = 2n_1,\; n_2' = 2n_2\)), the new mutual inductance is \(M' = \mu_0 (2n_1)(2n_2) \pi r_1^2 l = 4M\).</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ৫:</strong> \(l\) দৈর্ঘ্যের দুটি দীর্ঘ সমাক্ষীয় সলিনয়েডের ব্যাসার্ধ যথাক্রমে \(r_1\) ও \(r_2\) (\(r_1 &lt; r_2\)) এবং প্রতি একক দৈর্ঘ্যে পাকসংখ্যা \(n_1\) ও \(n_2\)। দৈর্ঘ্য ও ব্যাসার্ধ অপরিবর্তিত রেখে উভয় সলিনয়েডের একক দৈর্ঘ্যে পাকসংখ্যা দ্বিগুণ করলে তাদের পারস্পরিক আবেশাঙ্ক \(M\) হবে:</p>
+      <ul class="q-options">
+        <li>(A) \(2M\)</li>
+        <li>(B) \(4M\)</li>
+        <li>(C) \(8M\)</li>
+        <li>(D) \(M/2\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (B) \(4M\)</p>
+        <p><strong>সমাধান:</strong> দুটি দীর্ঘ সমাক্ষীয় সলিনয়েডের ক্ষেত্রে \(M = \mu_0 n_1 n_2 \pi r_1^2 l\)। \(n_1\) ও \(n_2\) উভয়ই দ্বিগুণ করলে (\(n_1' = 2n_1,\; n_2' = 2n_2\)), নতুন পারস্পরিক আবেশাঙ্ক \(M' = \mu_0 (2n_1)(2n_2) \pi r_1^2 l = 4M\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 6:</strong> An AC generator has a rectangular armature coil of \(50\) turns and area \(0.04\,\mathrm{m}^2\) rotating at a frequency of \(\frac{50}{\pi}\,\mathrm{Hz}\) in a uniform magnetic field of \(0.2\,\mathrm{T}\) perpendicular to the axis of rotation. The peak (maximum) emf generated is:</p>
+      <ul class="q-options">
+        <li>(A) \(20\,\mathrm{V}\)</li>
+        <li>(B) \(40\,\mathrm{V}\)</li>
+        <li>(C) \(80\,\mathrm{V}\)</li>
+        <li>(D) \(40\pi\,\mathrm{V}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (B) \(40\,\mathrm{V}\)</p>
+        <p><strong>Worked Solution:</strong> Angular frequency \(\omega = 2\pi \nu = 2\pi \left(\frac{50}{\pi}\right) = 100\,\mathrm{rad\,s^{-1}}\). Peak emf: \(\varepsilon_0 = N B A \omega = 50 \times 0.2 \times 0.04 \times 100 = 40\,\mathrm{V}\).</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ৬:</strong> একটি AC জেনারেটরের আয়তাকার আর্মেচার কুণ্ডলীতে \(50\)টি পাক আছে এবং এর ক্ষেত্রফল \(0.04\,\mathrm{m}^2\)। কুণ্ডলীটি \(0.2\,\mathrm{T}\) সুষম চৌম্বক ক্ষেত্রের লম্ব অক্ষের চারদিকে \(\frac{50}{\pi}\,\mathrm{Hz}\) কম্পাঙ্কে ঘুরলে উৎপন্ন শীর্ষ (সর্বাধিক) তড়িচ্চালক বল কত হবে?</p>
+      <ul class="q-options">
+        <li>(A) \(20\,\mathrm{V}\)</li>
+        <li>(B) \(40\,\mathrm{V}\)</li>
+        <li>(C) \(80\,\mathrm{V}\)</li>
+        <li>(D) \(40\pi\,\mathrm{V}\)</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (B) \(40\,\mathrm{V}\)</p>
+        <p><strong>সমাধান:</strong> কৌণিক কম্পাঙ্ক \(\omega = 2\pi \nu = 2\pi \left(\frac{50}{\pi}\right) = 100\,\mathrm{rad\,s^{-1}}\)। শীর্ষ তড়িচ্চালক বল \(\varepsilon_0 = N B A \omega = 50 \times 0.2 \times 0.04 \times 100 = 40\,\mathrm{V}\)।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 7 (Assertion-Reason) -->
+  <div class="question-card">
+    <div class="lang-block en">
+      <span class="lang-tag en">English</span>
+      <p><strong>Practice Question 7 (Assertion–Reason):</strong></p>
+      <p><strong>Assertion (A):</strong> An emf can be induced in a stationary closed conducting loop when placed in a time-varying magnetic field.<br>
+      <strong>Reason (R):</strong> A time-varying magnetic field generates a non-conservative electric field that exerts a force on the free charges in the stationary conductor.</p>
+      <ul class="q-options">
+        <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+        <li>(B) Both A and R are true, but R is NOT the correct explanation of A.</li>
+        <li>(C) A is true, but R is false.</li>
+        <li>(D) A is false, but R is true.</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>Answer:</strong> (A) Both A and R are true, and R is the correct explanation of A.</p>
+        <p><strong>Worked Solution:</strong> For a stationary conductor, \(\mathbf{v} = 0\), so the magnetic Lorentz force \(q(\mathbf{v} \times \mathbf{B})\) vanishes. The induced emf arises solely from the non-conservative electric field \(\mathbf{E}\) produced by the time-varying magnetic field, which exerts force \(q\mathbf{E}\) on the free charges.</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="lang-block bn" lang="bn">
+      <span class="lang-tag bn">বাংলা</span>
+      <p><strong>অনুশীলন প্রশ্ন ৭ (বিবৃতি–কারণ):</strong></p>
+      <p><strong>বিবৃতি (A):</strong> সময়ের সাথে পরিবর্তনশীল চৌম্বক ক্ষেত্রে রাখা একটি স্থির বদ্ধ পরিবাহী কুণ্ডলীতে তড়িচ্চালক বল আবিষ্ট হতে পারে।<br>
+      <strong>কারণ (R):</strong> পরিবর্তনশীল চৌম্বক ক্ষেত্র একটি অসংরক্ষণশীল তড়িৎ ক্ষেত্র সৃষ্টি করে যা স্থির পরিবাহীর মুক্ত আধানের ওপর বল প্রয়োগ করে।</p>
+      <ul class="q-options">
+        <li>(A) A ও R উভয়ই সত্য এবং R হলো A-এর সঠিক ব্যাখ্যা।</li>
+        <li>(B) A ও R উভয়ই সত্য কিন্তু R, A-এর সঠিক ব্যাখ্যা নয়।</li>
+        <li>(C) A সত্য কিন্তু R মিথ্যা।</li>
+        <li>(D) A মিথ্যা কিন্তু R সত্য।</li>
+      </ul>
+      <div class="solution-box">
+        <p><strong>উত্তর:</strong> (A) A ও R উভয়ই সত্য এবং R হলো A-এর সঠিক ব্যাখ্যা।</p>
+        <p><strong>সমাধান:</strong> পরিবাহী স্থির থাকায় \(\mathbf{v} = 0\), ফলে চৌম্বক লরেন্টজ বল শূন্য হয়। এক্ষেত্রে পরিবর্তনশীল চৌম্বক ক্ষেত্র দ্বারা সৃষ্ট অসংরক্ষণশীল তড়িৎ ক্ষেত্র \(\mathbf{E}\) মুক্ত আধানের ওপর \(q\mathbf{E}\) বল প্রয়োগ করে তড়িচ্চালক বল সৃষ্টি করে।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: COMMON PITFALLS & REVISION CHECKLIST -->
+<section>
+  <h2>9. Common Pitfalls and Revision Checklist</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <div class="callout">
+      <strong>Watch Out for These Common Exam Traps:</strong>
+      <ul>
+        <li><strong>Angle Error in Flux:</strong> Always measure \(\theta\) between \(\mathbf{B}\) and the <em>normal</em> (area vector \(\mathbf{A}\)), not the plane of the coil.</li>
+        <li><strong>Electric Flux vs. Magnetic Flux:</strong> Changing an <em>electric</em> field through a stationary loop does not induce current by Faraday's law of magnetic induction.</li>
+        <li><strong>Spokes in Parallel:</strong> Adding more spokes to a rotating wheel does not multiply the emf between the axle and rim; it stays \(\frac{1}{2} B \omega R^2\).</li>
+        <li><strong>Induced Charge Independence:</strong> \(\Delta q = N|\Delta \Phi_B|/R\) does not depend on how fast or slow the flux changes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>৯. সাধারণ ভুল ও পুনরালোচনা তালিকা</h2>
+    <div class="callout">
+      <strong>পরীক্ষায় যে ভুলগুলো এড়িয়ে চলবে:</strong>
+      <ul>
+        <li><strong>ফ্লাক্সের কোণের ভুল:</strong> \(\theta\) সর্বদা \(\mathbf{B}\) এবং তলের <em>অভিলম্বের</em> (\(\mathbf{A}\)) মধ্যবর্তী কোণ, কুণ্ডলীর তলের সাথে কোণ নয়।</li>
+        <li><strong>তড়িৎ ফ্লাক্স বনাম চৌম্বক ফ্লাক্স:</strong> কেবল চৌম্বক ফ্লাক্সের পরিবর্তনই কুণ্ডলীতে তড়িচ্চালক বল আবিষ্ট করে, স্থির তড়িৎ ফ্লাক্সের পরিবর্তন নয়।</li>
+        <li><strong>সমান্তরাল স্পোক:</strong> চাকার স্পোকের সংখ্যা বাড়ালে অক্ষ ও পরিধির মধ্যবর্তী বিভব পার্থক্য বাড়ে না; তা \(\frac{1}{2} B \omega R^2\)-ই থাকে।</li>
+        <li><strong>আবিষ্ট আধানের সময়-নিরপেক্ষতা:</strong> \(\Delta q = N|\Delta \Phi_B|/R\) ফ্লাক্স পরিবর্তনের সময়ের ওপর নির্ভর করে না।</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: FINAL RECAP -->
+<section>
+  <h2>10. Concise Final Recap</h2>
+  <div class="lang-block en">
+    <span class="lang-tag en">English</span>
+    <p>Electromagnetic induction occurs whenever magnetic flux (\(\Phi_B = B A \cos\theta\)) changes through a circuit. Faraday's law quantifies the induced emf (\(\varepsilon = -N\,\mathrm{d}\Phi_B/\mathrm{d}t\)), while Lenz's law ensures energy conservation by opposing the flux change. Moving conductors generate motional emf (\(\varepsilon = Blv\) or \(\frac{1}{2} B\omega R^2\)), coils exhibit self and mutual inductance (\(L, M\)) storing magnetic energy density \(u_B = B^2/(2\mu_0)\), and rotating coils in uniform fields produce sinusoidal AC emf (\(\varepsilon = NBA\omega\sin\omega t\)).</p>
+  </div>
+
+  <div class="lang-block bn" lang="bn">
+    <span class="lang-tag bn">বাংলা</span>
+    <h2>১০. সংক্ষিপ্ত চূড়ান্ত সারসংক্ষেপ</h2>
+    <p>কোনো বর্তনীর সাথে জড়িত চৌম্বক ফ্লাক্স (\(\Phi_B = B A \cos\theta\)) পরিবর্তিত হলেই তড়িৎচুম্বকীয় আবেশ ঘটে। ফ্যারাডের সূত্র আবিষ্ট তড়িচ্চালক বলের মান (\(\varepsilon = -N\,\mathrm{d}\Phi_B/\mathrm{d}t\)) দেয় এবং লেঞ্জের সূত্র ফ্লাক্স পরিবর্তনের বিরোধিতা করে শক্তির সংরক্ষণ নিশ্চিত করে। চলমান পরিবাহীতে গতিজনিত emf (\(\varepsilon = Blv\) বা \(\frac{1}{2} B\omega R^2\)) সৃষ্টি হয়, কুণ্ডলীর স্ব-আবেশাঙ্ক ও পারস্পরিক আবেশাঙ্ক (\(L, M\)) চৌম্বক শক্তি ঘনত্ব \(u_B = B^2/(2\mu_0)\) সঞ্চয় করে এবং সুষম ক্ষেত্রে ঘূর্ণায়মান কুণ্ডলী সাইনুসয়েডাল AC তড়িচ্চালক বল (\(\varepsilon = NBA\omega\sin\omega t\)) উৎপন্ন করে।</p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Units, Significant Figures, and Dimensional Analysis — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --ink-muted: #475569;
+      --primary: #2563EB;
+      --primary-soft: #EFF6FF;
+      --teal: #0D9488;
+      --teal-soft: #F0FDFA;
+      --bg: #FFFFFF;
+      --surface: #F8FAFC;
+      --border: #CBD5E1;
+      --warn-bg: #FFFBEB;
+      --warn-border: #D97706;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--bg);
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      line-height: 1.25;
+      margin: 0 0 8px 0;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 1rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 6px;
+      margin: 32px 0 14px 0;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.35;
+      color: var(--ink);
+      margin: 22px 0 10px 0;
+    }
+
+    h4 {
+      font-size: 1.02rem;
+      line-height: 1.35;
+      color: var(--teal);
+      margin: 16px 0 8px 0;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+    }
+
+    .card-teal {
+      background-color: var(--teal-soft);
+      border-color: var(--border);
+      border-left: 4px solid var(--teal);
+    }
+
+    .card-warn {
+      background-color: var(--warn-bg);
+      border-color: #FDE68A;
+      border-left: 4px solid var(--warn-border);
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 22px 0;
+      font-size: 0.94rem;
+      table-layout: fixed;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--primary-soft);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: var(--surface);
+    }
+
+    .figure-block {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      margin: 20px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .figure-block svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .figure-caption {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .example-block {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+    }
+
+    .example-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin: 0 0 8px 0;
+    }
+
+    .question-card {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+    }
+
+    .q-header {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 4px 0;
+    }
+
+    .solution-box {
+      background-color: var(--surface);
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 0.96rem;
+    }
+
+    .answer-tag {
+      display: inline-block;
+      background-color: var(--teal-soft);
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    footer.doc-footer {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 16mm;
+      }
+
+      body {
+        padding: 0;
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: #000000;
+        background-color: #FFFFFF;
+      }
+
+      .container {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      h2, h3, h4 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .card, .example-block, .question-card, .figure-block, .formula-box, tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    <header class="doc-header">
+      <div class="exam-badge">NEET UG Physics • Foundation &amp; Mechanics</div>
+      <h1>Units, Significant Figures, and Dimensional Analysis</h1>
+      <p class="subtitle">A complete, exam-focused study guide covering the International System of Units, measurement precision, and dimensional problem-solving.</p>
+    </header>
+
+    <main>
+      <section id="learning-objectives">
+        <h2>Learning Objectives and Overview</h2>
+        <div class="card">
+          <p>Quantitative physics begins with reliable measurement. Every physical quantity must be expressed as a numerical magnitude paired with a standardized unit, reported to a precision that reflects the measuring instrument. For NEET UG, this topic typically contributes 1 to 2 direct questions testing unit conversions, dimensional formulae, significant-figure arithmetic, or error estimation.</p>
+          <ul>
+            <li>Distinguish between base (fundamental) units and derived units within the International System of Units (SI).</li>
+            <li>Define dimensionless supplementary quantities: plane angle (radian) and solid angle (steradian).</li>
+            <li>Determine the number of significant figures in any measurement and apply rounding rules to addition, subtraction, multiplication, and division.</li>
+            <li>Write dimensional formulae and equations for mechanical and physical quantities.</li>
+            <li>Apply the principle of dimensional homogeneity to verify equations, convert units across systems, and deduce physical relationships, while recognizing the limitations of dimensional analysis.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="si-system">
+        <h2>1. Physical Quantities and the International System of Units</h2>
+        <p>Measuring a physical quantity means comparing it against a universally accepted reference standard called a <strong>unit</strong>. The complete description of any measurement takes the form:</p>
+        <div class="formula-box">
+          \[\text{Physical Quantity} = \text{Numerical Value } (n) \times \text{Unit } (u)\]
+        </div>
+        <p>Because physical laws link quantities together, only a small set of independent <strong>base (fundamental) quantities</strong> need to be defined directly. All other quantities—such as force, energy, pressure, and electric potential—are <strong>derived quantities</strong> whose units are algebraic combinations of the base units.</p>
+
+        <h3>1.1 Historical Systems vs. the SI Framework</h3>
+        <p>Earlier scientific work relied on regional systems, each using different base standards for length, mass, and time:</p>
+        <ul>
+          <li><strong>CGS System:</strong> centimetre (cm), gram (g), second (s).</li>
+          <li><strong>FPS (British) System:</strong> foot (ft), pound (lb), second (s).</li>
+          <li><strong>MKS System:</strong> metre (m), kilogram (kg), second (s).</li>
+        </ul>
+        <p>Today, the globally accepted standard is the <strong>International System of Units (SI)</strong>, maintained by the International Bureau of Weights and Measures (BIPM) and updated in 2018 so that all seven base units are anchored to exact, invariant fundamental constants of nature.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 24%;">Base Quantity</th>
+              <th style="width: 18%;">SI Unit</th>
+              <th style="width: 12%;">Symbol</th>
+              <th style="width: 46%;">Defining Fundamental Constant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Length</td>
+              <td>metre</td>
+              <td>m</td>
+              <td>Speed of light in vacuum, \(c = 299\,792\,458\,\mathrm{m\,s^{-1}}\)</td>
+            </tr>
+            <tr>
+              <td>Mass</td>
+              <td>kilogram</td>
+              <td>kg</td>
+              <td>Planck constant, \(h = 6.62607015 \times 10^{-34}\,\mathrm{J\,s}\)</td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td>second</td>
+              <td>s</td>
+              <td>Caesium-133 hyperfine transition frequency, \(\Delta\nu_{\mathrm{Cs}} = 9\,192\,631\,770\,\mathrm{Hz}\)</td>
+            </tr>
+            <tr>
+              <td>Electric current</td>
+              <td>ampere</td>
+              <td>A</td>
+              <td>Elementary charge, \(e = 1.602176634 \times 10^{-19}\,\mathrm{C}\)</td>
+            </tr>
+            <tr>
+              <td>Thermodynamic temperature</td>
+              <td>kelvin</td>
+              <td>K</td>
+              <td>Boltzmann constant, \(k = 1.380649 \times 10^{-23}\,\mathrm{J\,K^{-1}}\)</td>
+            </tr>
+            <tr>
+              <td>Amount of substance</td>
+              <td>mole</td>
+              <td>mol</td>
+              <td>Avogadro constant, \(N_{\mathrm{A}} = 6.02214076 \times 10^{23}\,\mathrm{mol^{-1}}\)</td>
+            </tr>
+            <tr>
+              <td>Luminous intensity</td>
+              <td>candela</td>
+              <td>cd</td>
+              <td>Luminous efficacy at \(540 \times 10^{12}\,\mathrm{Hz}\), \(K_{\mathrm{cd}} = 683\,\mathrm{lm\,W^{-1}}\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>1.2 Plane Angle and Solid Angle</h3>
+        <p>In addition to the seven base units, SI defines two dimensionless derived units for geometry:</p>
+        <ul>
+          <li><strong>Plane Angle (\(\mathrm{d}\theta\)):</strong> Defined as the ratio of the circular arc length \(\mathrm{d}s\) to the radius \(r\). Its SI unit is the <strong>radian</strong> (symbol: \(\mathrm{rad}\)). A full circle subtends \(2\pi\,\mathrm{rad} = 360°\).</li>
+          <li><strong>Solid Angle (\(\mathrm{d}\Omega\)):</strong> Defined as the ratio of the intercepted spherical surface area \(\mathrm{d}A\) to the square of the sphere's radius \(r^2\). Its SI unit is the <strong>steradian</strong> (symbol: \(\mathrm{sr}\)). A complete sphere subtends \(4\pi\,\mathrm{sr}\) at its centre.</li>
+        </ul>
+        <p>Both radian and steradian are <strong>dimensionless</strong> because they represent ratios of lengths (\([\mathrm{L}/\mathrm{L}]\)) and areas (\([\mathrm{L}^2/\mathrm{L}^2]\)), respectively, yet they carry named units to distinguish angular measurements from pure numbers.</p>
+
+        <div class="figure-block">
+          <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plane angle in radians and solid angle in steradians">
+            <rect x="2" y="2" width="676" height="226" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+            <!-- Left Panel: Plane Angle -->
+            <text x="170" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Plane Angle (radian)</text>
+            <line x1="60" y1="165" x2="255" y2="165" stroke="#1E293B" stroke-width="2"/>
+            <line x1="60" y1="165" x2="230" y2="70" stroke="#1E293B" stroke-width="2"/>
+            <path d="M 255 165 A 195 195 0 0 0 230 70" fill="none" stroke="#2563EB" stroke-width="3"/>
+            <path d="M 110 165 A 50 50 0 0 0 104 141" fill="none" stroke="#0D9488" stroke-width="2.2"/>
+            <circle cx="60" cy="165" r="3.5" fill="#1E293B"/>
+            <text x="45" y="170" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">O</text>
+            <text x="145" y="108" font-family="sans-serif" font-size="13" fill="#1E293B">r</text>
+            <text x="155" y="182" font-family="sans-serif" font-size="13" fill="#1E293B">r</text>
+            <text x="118" y="153" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">dθ</text>
+            <text x="256" y="118" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">ds</text>
+            <text x="170" y="208" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">dθ = ds / r  (unit: rad)</text>
+
+            <!-- Divider -->
+            <line x1="340" y1="20" x2="340" y2="210" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+            <!-- Right Panel: Solid Angle -->
+            <text x="510" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Solid Angle (steradian)</text>
+            <circle cx="395" cy="130" r="3.5" fill="#1E293B"/>
+            <text x="380" y="135" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">O</text>
+            <!-- Cone lines -->
+            <line x1="395" y1="130" x2="575" y2="68" stroke="#1E293B" stroke-width="2"/>
+            <line x1="395" y1="130" x2="575" y2="188" stroke="#1E293B" stroke-width="2"/>
+            <!-- Spherical cap patch -->
+            <ellipse cx="575" cy="128" rx="22" ry="60" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+            <path d="M 455 109 A 64 64 0 0 1 455 150" fill="none" stroke="#0D9488" stroke-width="2.2"/>
+            <text x="464" y="134" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">dΩ</text>
+            <text x="485" y="88" font-family="sans-serif" font-size="13" fill="#1E293B">r</text>
+            <text x="610" y="132" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">dA</text>
+            <text x="510" y="208" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">dΩ = dA / r²  (unit: sr)</text>
+          </svg>
+          <div class="figure-caption"><strong>Tutorial Diagram 1:</strong> Comparison between plane angle \(\mathrm{d}\theta\) measured in radians and solid angle \(\mathrm{d}\Omega\) measured in steradians.</div>
+        </div>
+
+        <h3>1.3 Common Non-SI Units Retained for General Use</h3>
+        <p>In laboratory and competitive-exam problems, several non-SI units appear frequently. Converting them cleanly into SI units before substituting into formulas prevents powers-of-ten errors.</p>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 30%;">Unit Name</th>
+              <th style="width: 15%;">Symbol</th>
+              <th style="width: 55%;">Exact or Standard SI Equivalent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ångström</td>
+              <td>Å</td>
+              <td>\(1\,\mathrm{Å} = 10^{-10}\,\mathrm{m}\)</td>
+            </tr>
+            <tr>
+              <td>litre</td>
+              <td>L</td>
+              <td>\(1\,\mathrm{L} = 1\,\mathrm{dm^3} = 10^{-3}\,\mathrm{m^3}\)</td>
+            </tr>
+            <tr>
+              <td>tonne</td>
+              <td>t</td>
+              <td>\(1\,\mathrm{t} = 10^3\,\mathrm{kg}\)</td>
+            </tr>
+            <tr>
+              <td>bar</td>
+              <td>bar</td>
+              <td>\(1\,\mathrm{bar} = 10^5\,\mathrm{Pa}\)</td>
+            </tr>
+            <tr>
+              <td>standard atmosphere</td>
+              <td>atm</td>
+              <td>\(1\,\mathrm{atm} = 1.01325 \times 10^5\,\mathrm{Pa}\)</td>
+            </tr>
+            <tr>
+              <td>degree (angle)</td>
+              <td>°</td>
+              <td>\(1° = (\pi / 180)\,\mathrm{rad}\)</td>
+            </tr>
+            <tr>
+              <td>year</td>
+              <td>y</td>
+              <td>\(1\,\mathrm{y} = 365.25\,\mathrm{d} \approx 3.156 \times 10^7\,\mathrm{s}\)</td>
+            </tr>
+            <tr>
+              <td>barn (nuclear area)</td>
+              <td>b</td>
+              <td>\(1\,\mathrm{b} = 10^{-28}\,\mathrm{m^2}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="significant-figures">
+        <h2>2. Significant Figures, Rounding, and Measurement Precision</h2>
+        <p>Every physical measurement carries an inherent uncertainty limited by the least count of the measuring instrument. The digits in a reported measurement that are known reliably, plus the <strong>first uncertain digit</strong>, are called <strong>significant figures</strong> (or significant digits). Writing extra digits beyond the uncertain digit is scientifically misleading because it implies false precision.</p>
+
+        <div class="card card-teal">
+          <strong>Key Principle:</strong> Changing the unit of a measurement never changes its number of significant figures. For instance, \(4.700\,\mathrm{m} = 470.0\,\mathrm{cm} = 4.700 \times 10^3\,\mathrm{mm} = 0.004700\,\mathrm{km}\) all have exactly <strong>4 significant figures</strong>.
+        </div>
+
+        <h3>2.1 Rules for Counting Significant Figures</h3>
+        <ol>
+          <li><strong>All non-zero digits</strong> are significant (e.g., \(287.5\) has 4 significant figures).</li>
+          <li><strong>Trapped zeros</strong> between two non-zero digits are always significant, regardless of the decimal point (e.g., \(6.032\) has 4 significant figures).</li>
+          <li><strong>Leading zeros</strong> to the left of the first non-zero digit in a number less than 1 are <em>not</em> significant; they merely locate the decimal point (e.g., \(0.002308\) has 4 significant figures: \(2, 3, 0, 8\)).</li>
+          <li><strong>Trailing zeros with a decimal point</strong> are significant because they indicate instrument precision (e.g., \(0.06900\) and \(3.500\) each have 4 significant figures).</li>
+          <li><strong>Trailing zeros without a decimal point</strong> are ambiguous and are treated as <em>not</em> significant unless written in scientific notation (e.g., \(123000\,\mathrm{mm}\) has 3 significant figures, whereas \(1.230 \times 10^5\,\mathrm{mm}\) has 4).</li>
+          <li><strong>Exact numbers</strong> appearing in definitions or geometric formulas—such as \(2\) in \(d = 2r\) or \(2\pi\) in \(T = 2\pi\sqrt{L/g}\)—have <strong>infinite</strong> significant figures and never limit the precision of a calculated result.</li>
+        </ol>
+
+        <h3>2.2 Scientific Notation and Order of Magnitude</h3>
+        <p>To eliminate ambiguity with trailing zeros, express measurements in scientific notation as \(a \times 10^b\), where \(1 \le a &lt; 10\) and \(b\) is an integer. Every digit written in the coefficient \(a\) is significant, and the power \(10^b\) does not affect the count of significant figures.</p>
+        <p>For quick estimation, the <strong>order of magnitude</strong> of a quantity is the exponent \(b\) when \(a\) is rounded to \(1\) (if \(a \le 5\)) or \(10\) (if \(5 &lt; a \le 10\)). For example, Earth's diameter (\(1.28 \times 10^7\,\mathrm{m}\)) has an order of magnitude of \(7\), while a hydrogen atom's diameter (\(1.06 \times 10^{-10}\,\mathrm{m}\)) has an order of magnitude of \(-10\).</p>
+
+        <h3>2.3 Arithmetic Rules and Rounding Off</h3>
+        <p>A calculated result cannot be more precise than the least precise input measurement:</p>
+        <ul>
+          <li><strong>Addition and Subtraction:</strong> Retain as many <em>decimal places</em> in the final result as there are in the measurement with the <strong>fewest decimal places</strong>. (Example: \(436.32\,\mathrm{g} + 227.2\,\mathrm{g} + 0.301\,\mathrm{g} = 663.821\,\mathrm{g} \rightarrow 663.8\,\mathrm{g}\).)</li>
+          <li><strong>Multiplication and Division:</strong> Retain as many <em>significant figures</em> in the final result as there are in the measurement with the <strong>fewest significant figures</strong>. (Example: \(4.237\,\mathrm{g} / 2.51\,\mathrm{cm^3} = 1.6880\dots\,\mathrm{g\,cm^{-3}} \rightarrow 1.69\,\mathrm{g\,cm^{-3}}\).)</li>
+        </ul>
+
+        <p><strong>Rounding-Off Convention:</strong> When dropping an insignificant digit:</p>
+        <ul>
+          <li>If the digit to be dropped is greater than \(5\), increase the preceding digit by \(1\).</li>
+          <li>If the digit to be dropped is less than \(5\), leave the preceding digit unchanged.</li>
+          <li>If the digit to be dropped is exactly \(5\) (followed only by zeros or nothing): leave the preceding digit unchanged if it is <strong>even</strong>, and raise it by \(1\) if it is <strong>odd</strong>. (Example: \(2.745 \rightarrow 2.74\), whereas \(2.735 \rightarrow 2.74\).)</li>
+        </ul>
+        <p><em>Guard-Digit Rule:</em> In multi-step calculations, always retain one extra significant digit during intermediate steps and round off only at the very end to avoid cumulative rounding drift.</p>
+
+        <h3>2.4 Uncertainty in Arithmetic Combinations</h3>
+        <p>If a quantity \(X = A \times B\) or \(X = A / B\) is computed from measured values \(A \pm \Delta A\) and \(B \pm \Delta B\), the maximum fractional (or percentage) errors add:</p>
+        <div class="formula-box">
+          \[\frac{\Delta X}{X} = \frac{\Delta A}{A} + \frac{\Delta B}{B}\]
+        </div>
+        <p>For sums or differences \(Z = A \pm B\), the absolute uncertainties add: \(\Delta Z = \Delta A + \Delta B\). Notice also that subtracting two nearly equal numbers sharply reduces the number of significant figures and increases the relative error.</p>
+      </section>
+
+      <section id="dimensional-analysis">
+        <h2>3. Dimensions, Dimensional Formulae, and Dimensional Analysis</h2>
+        <p>The <strong>dimensions</strong> of a physical quantity are the powers (exponents) to which the seven base quantities are raised to represent that quantity. Square brackets \([\,\cdot\,]\) denote "the dimensions of" a quantity. The seven fundamental dimensions are:</p>
+        <div class="formula-box">
+          \[[\mathrm{L}] \text{ (length)},\quad [\mathrm{M}] \text{ (mass)},\quad [\mathrm{T}] \text{ (time)},\quad [\mathrm{A}] \text{ (current)},\quad [\mathrm{K}] \text{ (temperature)},\quad [\mathrm{mol}] \text{ (amount)},\quad [\mathrm{cd}] \text{ (luminous intensity)}\]
+        </div>
+        <p>An expression showing which base dimensions enter a quantity and with what powers is its <strong>dimensional formula</strong> (e.g., \([\mathrm{M^1 L^1 T^{-2}}]\) for force). Setting the bracketed quantity equal to its dimensional formula gives its <strong>dimensional equation</strong>, such as \([F] = [\mathrm{M L T^{-2}}]\).</p>
+
+        <h3>3.1 High-Yield Dimensional Formulae for NEET UG</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 34%;">Physical Quantity</th>
+              <th style="width: 34%;">Defining Relation</th>
+              <th style="width: 32%;">Dimensional Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Velocity / Speed</td>
+              <td>\(\text{Displacement} / \text{Time}\)</td>
+              <td>\([\mathrm{M^0 L^1 T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Acceleration</td>
+              <td>\(\text{Velocity} / \text{Time}\)</td>
+              <td>\([\mathrm{M^0 L^1 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Force</td>
+              <td>\(\text{Mass} \times \text{Acceleration}\)</td>
+              <td>\([\mathrm{M^1 L^1 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Work / Energy / Torque</td>
+              <td>\(\text{Force} \times \text{Distance}\)</td>
+              <td>\([\mathrm{M^1 L^2 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Power</td>
+              <td>\(\text{Work} / \text{Time}\)</td>
+              <td>\([\mathrm{M^1 L^2 T^{-3}}]\)</td>
+            </tr>
+            <tr>
+              <td>Pressure / Stress / Young's Modulus</td>
+              <td>\(\text{Force} / \text{Area}\)</td>
+              <td>\([\mathrm{M^1 L^{-1} T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Linear Momentum / Impulse</td>
+              <td>\(\text{Mass} \times \text{Velocity}\)</td>
+              <td>\([\mathrm{M^1 L^1 T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Universal Gravitational Constant (\(G\))</td>
+              <td>\(F r^2 / (m_1 m_2)\)</td>
+              <td>\([\mathrm{M^{-1} L^3 T^{-2}}]\)</td>
+            </tr>
+            <tr>
+              <td>Planck's Constant (\(h\)) / Angular Momentum</td>
+              <td>\(E / \nu\) or \(m v r\)</td>
+              <td>\([\mathrm{M^1 L^2 T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Coefficient of Viscosity (\(\eta\))</td>
+              <td>\(F / (A \, \mathrm{d}v/\mathrm{d}x)\)</td>
+              <td>\([\mathrm{M^1 L^{-1} T^{-1}}]\)</td>
+            </tr>
+            <tr>
+              <td>Surface Tension (\(S\))</td>
+              <td>\(\text{Force} / \text{Length}\)</td>
+              <td>\([\mathrm{M^1 L^0 T^{-2}}]\)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3.2 Principle of Homogeneity of Dimensions</h3>
+        <p><strong>Principle of Homogeneity:</strong> Two physical quantities can be added, subtracted, or equated <em>only</em> if they possess identical dimensions. Furthermore, the arguments of trigonometric (\(\sin\theta\)), logarithmic (\(\ln x\)), and exponential (\(e^x\)) functions must always be dimensionless (\([\mathrm{M^0 L^0 T^0}]\)).</p>
+        <p>If an equation fails the dimensional homogeneity test, it is <strong>definitely wrong</strong>. However, passing the test does <em>not</em> guarantee the equation is physically exact, because dimensionless numerical factors (such as \(\frac{1}{2}\) or \(2\pi\)) cannot be detected by dimensions.</p>
+
+        <div class="figure-block">
+          <svg viewBox="0 0 680 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dimensional analysis workflow for checking equations and deducing relations">
+            <rect x="2" y="2" width="676" height="186" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+            <text x="340" y="26" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Dimensional Consistency Test Workflow</text>
+
+            <!-- Box 1 -->
+            <rect x="22" y="48" width="140" height="58" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8"/>
+            <text x="92" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">1. Decompose</text>
+            <text x="92" y="90" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">Write dimensions of</text>
+            <text x="92" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">every term</text>
+
+            <!-- Arrow 1 -->
+            <line x1="162" y1="77" x2="196" y2="77" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="196,72 206,77 196,82" fill="#1E293B"/>
+
+            <!-- Box 2 -->
+            <rect x="206" y="48" width="150" height="58" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8"/>
+            <text x="281" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">2. Check Arguments</text>
+            <text x="281" y="90" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">sin, log, exp inputs</text>
+            <text x="281" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">must be [M⁰ L⁰ T⁰]</text>
+
+            <!-- Arrow 2 -->
+            <line x1="356" y1="77" x2="390" y2="77" stroke="#1E293B" stroke-width="2"/>
+            <polygon points="390,72 400,77 390,82" fill="#1E293B"/>
+
+            <!-- Box 3 -->
+            <rect x="400" y="48" width="145" height="58" rx="6" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.8"/>
+            <text x="472" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">3. Compare Terms</text>
+            <text x="472" y="90" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">All added/equated</text>
+            <text x="472" y="102" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#475569">terms identical?</text>
+
+            <!-- Outcomes -->
+            <line x1="545" y1="65" x2="578" y2="55" stroke="#0D9488" stroke-width="2"/>
+            <rect x="578" y="38" width="84" height="34" rx="5" fill="#F0FDFA" stroke="#0D9488" stroke-width="1.5"/>
+            <text x="620" y="53" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#0D9488">YES: Valid</text>
+            <text x="620" y="66" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">(up to k)</text>
+
+            <line x1="545" y1="90" x2="578" y2="105" stroke="#D97706" stroke-width="2"/>
+            <rect x="578" y="90" width="84" height="34" rx="5" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5"/>
+            <text x="620" y="105" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#D97706">NO: Wrong</text>
+            <text x="620" y="118" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#475569">Definitely false</text>
+
+            <text x="340" y="160" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">Note: Passing dimensional consistency is necessary, but not sufficient, for physical correctness.</text>
+          </svg>
+          <div class="figure-caption"><strong>Tutorial Diagram 2:</strong> Step-by-step logic for testing dimensional homogeneity of any candidate physics formula.</div>
+        </div>
+
+        <h3>3.3 Applications and Limitations of Dimensional Analysis</h3>
+        <p><strong>Three Core Applications:</strong></p>
+        <ol>
+          <li><strong>Checking Dimensional Consistency:</strong> Verifying that every term on both sides of a derived formula shares the same dimensional formula.</li>
+          <li><strong>Deducing Relations Among Quantities:</strong> If a quantity \(Q\) depends as a product on up to three independent variables (in mechanics, where \([\mathrm{M}], [\mathrm{L}], [\mathrm{T}]\) give three equations), write \(Q = k A^x B^y C^z\) and equate exponents of \([\mathrm{M}], [\mathrm{L}], [\mathrm{T}]\) on both sides.</li>
+          <li><strong>Unit Conversion Between Systems:</strong> Since \(Q = n_1 u_1 = n_2 u_2\), if \([Q] = [\mathrm{M}^a \mathrm{L}^b \mathrm{T}^c]\), then:
+            <div class="formula-box">
+              \[n_2 = n_1 \left(\frac{M_1}{M_2}\right)^a \left(\frac{L_1}{L_2}\right)^b \left(\frac{T_1}{T_2}\right)^c\]
+            </div>
+          </li>
+        </ol>
+
+        <p><strong>Key Limitations:</strong></p>
+        <ul>
+          <li>Cannot determine dimensionless proportionality constants (such as \(2\pi\), \(\frac{1}{2}\), or \(6\pi\)).</li>
+          <li>Fails when an equation involves sums/differences of terms (e.g., \(s = ut + \frac{1}{2}at^2\)) or trigonometric, exponential, and logarithmic functions.</li>
+          <li>Cannot distinguish between distinct physical quantities that share the same dimensions (e.g., work and torque both have \([\mathrm{M L^2 T^{-2}}]\)).</li>
+          <li>Cannot uniquely solve for exponents if a quantity depends on more than three independent variables in mechanics.</li>
+        </ul>
+      </section>
+
+      <section id="worked-examples">
+        <h2>Worked Examples</h2>
+
+        <div class="example-block">
+          <div class="example-title">Example 1: Applying Significant Figure Rules to Density Calculations</div>
+          <p><strong>Problem (Assumed Measurements):</strong> A student measures the mass of a solid metal block as \(18.42\,\mathrm{g}\) and its volume by water displacement as \(3.2\,\mathrm{cm^3}\). Report the density of the metal to the appropriate number of significant figures, and estimate its percentage uncertainty assuming least-count uncertainties of \(\pm 0.01\,\mathrm{g}\) and \(\pm 0.1\,\mathrm{cm^3}\).</p>
+          <p><strong>Solution:</strong></p>
+          <p>The mass \(m = 18.42\,\mathrm{g}\) has <strong>4 significant figures</strong>, and the volume \(V = 3.2\,\mathrm{cm^3}\) has <strong>2 significant figures</strong>. For division, the final answer must retain the smaller count, i.e., <strong>2 significant figures</strong>.</p>
+          \[\rho = \frac{m}{V} = \frac{18.42\,\mathrm{g}}{3.2\,\mathrm{cm^3}} = 5.75625\,\mathrm{g\,cm^{-3}}\]
+          <p>Rounding \(5.75625\) to 2 significant figures gives \(\rho = 5.8\,\mathrm{g\,cm^{-3}}\).</p>
+          <p>For the maximum percentage uncertainty:</p>
+          \[\frac{\Delta \rho}{\rho} \times 100\% = \left(\frac{0.01}{18.42} + \frac{0.1}{3.2}\right) \times 100\% \approx (0.054\% + 3.125\%) \approx 3.2\%\]
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 2: Checking Dimensional Homogeneity of a Non-Standard Equation</div>
+          <p><strong>Problem (Assumed Relation):</strong> A particle's velocity \(v\) at time \(t\) is modeled by the hypothetical equation \(v = A t + \frac{B}{C + t^2}\), where \(A\), \(B\), and \(C\) are constants. Find the dimensional formulae of \(A\), \(B\), and \(C\).</p>
+          <p><strong>Solution:</strong></p>
+          <p>By the principle of dimensional homogeneity, every added term must have the same dimensions as velocity \([v] = [\mathrm{L T^{-1}}]\), and inside the denominator \(C + t^2\), \(C\) must have the same dimensions as \(t^2\):</p>
+          <ul>
+            <li>\([C] = [t^2] = [\mathrm{T^2}]\)</li>
+            <li>\([A t] = [v] \implies [A] = \dfrac{[\mathrm{L T^{-1}}]}{[\mathrm{T}]} = [\mathrm{L T^{-2}}]\)</li>
+            <li>\(\left[\dfrac{B}{C + t^2}\right] = [v] \implies \dfrac{[B]}{[\mathrm{T^2}]} = [\mathrm{L T^{-1}}] \implies [B] = [\mathrm{L T^{1}}]\)</li>
+          </ul>
+          <p>Thus, \([A] = [\mathrm{M^0 L^1 T^{-2}}]\), \([B] = [\mathrm{M^0 L^1 T^1}]\), and \([C] = [\mathrm{M^0 L^0 T^2}]\).</p>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 3: Converting Units Across Systems Using Dimensional Analysis</div>
+          <p><strong>Problem (Assumed Unit System):</strong> Suppose a new system of units is defined where the unit of mass is \(5\,\mathrm{kg}\), the unit of length is \(2\,\mathrm{m}\), and the unit of time is \(10\,\mathrm{s}\). Find the numerical value of \(100\,\mathrm{J}\) of energy in this new system.</p>
+          <p><strong>Solution:</strong></p>
+          <p>The dimensional formula of energy is \([E] = [\mathrm{M^1 L^2 T^{-2}}]\), so \(a = 1\), \(b = 2\), \(c = -2\).</p>
+          <p>In SI units: \(n_1 = 100\), \(M_1 = 1\,\mathrm{kg}\), \(L_1 = 1\,\mathrm{m}\), \(T_1 = 1\,\mathrm{s}\). In the new system: \(M_2 = 5\,\mathrm{kg}\), \(L_2 = 2\,\mathrm{m}\), \(T_2 = 10\,\mathrm{s}\).</p>
+          \[n_2 = n_1 \left(\frac{M_1}{M_2}\right)^1 \left(\frac{L_1}{L_2}\right)^2 \left(\frac{T_1}{T_2}\right)^{-2} = 100 \left(\frac{1}{5}\right)^1 \left(\frac{1}{2}\right)^2 \left(\frac{1}{10}\right)^{-2}\]
+          \[n_2 = 100 \times \frac{1}{5} \times \frac{1}{4} \times 100 = 500\]
+          <p>Therefore, \(100\,\mathrm{J} = 500\,\text{new energy units}\).</p>
+        </div>
+
+        <div class="example-block">
+          <div class="example-title">Example 4: Deducing a Physical Relation via Dimensional Analysis</div>
+          <p><strong>Problem (Assumed Model):</strong> The viscous drag force \(F\) acting on a small sphere moving slowly through a fluid depends on the fluid's coefficient of viscosity \(\eta\), the sphere's radius \(r\), and its speed \(v\). Deduce the form of the relation using dimensional analysis.</p>
+          <p><strong>Solution:</strong></p>
+          <p>Assume \(F = k\,\eta^x r^y v^z\), where \(k\) is a dimensionless constant. Substituting the dimensions \([F] = [\mathrm{M L T^{-2}}]\), \([\eta] = [\mathrm{M L^{-1} T^{-1}}]\), \([r] = [\mathrm{L}]\), and \([v] = [\mathrm{L T^{-1}}]\):</p>
+          \[[\mathrm{M^1 L^1 T^{-2}}] = [\mathrm{M L^{-1} T^{-1}}]^x [\mathrm{L}]^y [\mathrm{L T^{-1}}]^z = [\mathrm{M}^x \mathrm{L}^{-x + y + z} \mathrm{T}^{-x - z}]\]
+          <p>Equating exponents on both sides:</p>
+          <ul>
+            <li>For \(\mathrm{M}\): \(x = 1\)</li>
+            <li>For \(\mathrm{T}\): \(-x - z = -2 \implies -1 - z = -2 \implies z = 1\)</li>
+            <li>For \(\mathrm{L}\): \(-x + y + z = 1 \implies -1 + y + 1 = 1 \implies y = 1\)</li>
+          </ul>
+          <p>Hence, \(F = k\,\eta r v\) (experimentally, \(k = 6\pi\), giving Stokes' law \(F = 6\pi\eta r v\)).</p>
+        </div>
+      </section>
+
+      <section id="practice-questions">
+        <h2>NEET UG Practice Questions</h2>
+        <p>These practice questions are modeled on the NEET UG single-correct multiple-choice format (including statement and assertion-reason styles). Attempt all questions before checking the solutions.</p>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 1</div>
+          <p>Which of the following pairs of physical quantities does <strong>not</strong> have the same dimensional formula?</p>
+          <ul class="options-list">
+            <li>(A) Work and Torque</li>
+            <li>(B) Angular momentum and Planck's constant</li>
+            <li>(C) Surface tension and Spring constant</li>
+            <li>(D) Impulse and Pressure</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (D)</span>
+            <p><strong>Solution:</strong> Work and torque both have dimensions \([\mathrm{M L^2 T^{-2}}]\). Angular momentum (\(mvr\)) and Planck's constant (\(E/\nu\)) both have \([\mathrm{M L^2 T^{-1}}]\). Surface tension (\(F/l\)) and spring constant (\(F/x\)) both have \([\mathrm{M T^{-2}}]\). However, impulse (\(F \Delta t\)) has dimensions \([\mathrm{M L T^{-1}}]\), whereas pressure (\(F/A\)) has dimensions \([\mathrm{M L^{-1} T^{-2}}]\).</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 2</div>
+          <p>The number of significant figures in the measurements \(0.00450\,\mathrm{m}\) and \(4.500 \times 10^3\,\mathrm{kg}\) are, respectively:</p>
+          <ul class="options-list">
+            <li>(A) 2 and 3</li>
+            <li>(B) 3 and 4</li>
+            <li>(C) 5 and 4</li>
+            <li>(D) 3 and 2</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (B)</span>
+            <p><strong>Solution:</strong> In \(0.00450\,\mathrm{m}\), the three leading zeros are not significant, while the trailing zero after \(5\) (with a decimal point) is significant, giving <strong>3</strong> significant figures (\(4, 5, 0\)). In \(4.500 \times 10^3\,\mathrm{kg}\), all digits in the scientific-notation coefficient \(4.500\) are significant, giving <strong>4</strong> significant figures.</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 3</div>
+          <p>If force \(F\), acceleration \(a\), and time \(T\) are chosen as the fundamental physical quantities, what is the dimensional formula of energy?</p>
+          <ul class="options-list">
+            <li>(A) \([F a T^2]\)</li>
+            <li>(B) \([F a T^{-2}]\)</li>
+            <li>(C) \([F a^2 T]\)</li>
+            <li>(D) \([F^2 a T]\)</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (A)</span>
+            <p><strong>Solution:</strong> Energy has the dimensions of \(\text{Force} \times \text{Distance}\). Since distance covered under constant acceleration scales as \(a T^2\) (dimensions \([\mathrm{L T^{-2}}][\mathrm{T^2}] = [\mathrm{L}]\)), we have \([\text{Energy}] = [F] \times [L] = [F a T^2]\).</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 4</div>
+          <p>Three lengths are measured as \(12.42\,\mathrm{cm}\), \(3.1\,\mathrm{cm}\), and \(0.285\,\mathrm{cm}\). Their sum, reported to the correct number of significant figures, is:</p>
+          <ul class="options-list">
+            <li>(A) \(15.805\,\mathrm{cm}\)</li>
+            <li>(B) \(15.81\,\mathrm{cm}\)</li>
+            <li>(C) \(15.8\,\mathrm{cm}\)</li>
+            <li>(D) \(16\,\mathrm{cm}\)</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (C)</span>
+            <p><strong>Solution:</strong> Adding the values gives \(12.42 + 3.1 + 0.285 = 15.805\,\mathrm{cm}\). In addition, the result must be rounded to the least number of decimal places among the inputs. Since \(3.1\,\mathrm{cm}\) has only 1 decimal place, the sum rounds to \(15.8\,\mathrm{cm}\).</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 5</div>
+          <p>In a damped oscillator equation \(x(t) = A e^{-\alpha t} \sin(\omega t + \phi)\), where \(x\) is displacement and \(t\) is time, the dimensions of \(\alpha / \omega\) are:</p>
+          <ul class="options-list">
+            <li>(A) \([\mathrm{M^0 L^0 T^0}]\)</li>
+            <li>(B) \([\mathrm{M^0 L^0 T^{-1}}]\)</li>
+            <li>(C) \([\mathrm{M^0 L^1 T^0}]\)</li>
+            <li>(D) \([\mathrm{M^0 L^0 T^{-2}}]\)</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (A)</span>
+            <p><strong>Solution:</strong> The arguments of both the exponential function (\(\alpha t\)) and the sine function (\(\omega t + \phi\)) must be dimensionless. Therefore, \([\alpha] = [\mathrm{T^{-1}}]\) and \([\omega] = [\mathrm{T^{-1}}]\). Their ratio \(\alpha / \omega\) is dimensionless: \([\mathrm{M^0 L^0 T^0}]\).</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 6</div>
+          <p>A physical quantity \(P\) is related to four observables \(a, b, c,\) and \(d\) as \(P = \dfrac{a^3 b^2}{\sqrt{c}\,d}\). The percentage errors of measurement in \(a, b, c,\) and \(d\) are \(1\%\), \(3\%\), \(4\%\), and \(2\%\), respectively. What is the maximum percentage error in \(P\)?</p>
+          <ul class="options-list">
+            <li>(A) \(10\%\)</li>
+            <li>(B) \(12\%\)</li>
+            <li>(C) \(13\%\)</li>
+            <li>(D) \(15\%\)</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (C)</span>
+            <p><strong>Solution:</strong> Using the error propagation rule for powers and products/quotients:</p>
+            \[\frac{\Delta P}{P}\times 100\% = 3\left(\frac{\Delta a}{a}\right) + 2\left(\frac{\Delta b}{b}\right) + \frac{1}{2}\left(\frac{\Delta c}{c}\right) + 1\left(\frac{\Delta d}{d}\right)\]
+            \[= 3(1\%) + 2(3\%) + \frac{1}{2}(4\%) + 1(2\%) = 3\% + 6\% + 2\% + 2\% = 13\%\]
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 7</div>
+          <p><strong>Statement I:</strong> A dimensionally consistent equation is always physically correct.<br>
+          <strong>Statement II:</strong> A dimensionally inconsistent equation is always physically incorrect.</p>
+          <p>In light of the above statements, choose the most appropriate answer:</p>
+          <ul class="options-list">
+            <li>(A) Both Statement I and Statement II are correct.</li>
+            <li>(B) Both Statement I and Statement II are incorrect.</li>
+            <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+            <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (D)</span>
+            <p><strong>Solution:</strong> Dimensional consistency cannot verify dimensionless numerical constants (for example, \(K = \frac{1}{5}mv^2\) is dimensionally consistent with kinetic energy but physically wrong), so Statement I is incorrect. Conversely, any violation of dimensional homogeneity guarantees the equation is invalid, so Statement II is correct.</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 8</div>
+          <p>The value of \(6.0\,\mathrm{g\,cm^{-3}}\) expressed in SI units (\(\mathrm{kg\,m^{-3}}\)) is:</p>
+          <ul class="options-list">
+            <li>(A) \(6.0 \times 10^2\,\mathrm{kg\,m^{-3}}\)</li>
+            <li>(B) \(6.0 \times 10^3\,\mathrm{kg\,m^{-3}}\)</li>
+            <li>(C) \(6.0 \times 10^{-3}\,\mathrm{kg\,m^{-3}}\)</li>
+            <li>(D) \(6.0 \times 10^4\,\mathrm{kg\,m^{-3}}\)</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (B)</span>
+            <p><strong>Solution:</strong> Since \(1\,\mathrm{g} = 10^{-3}\,\mathrm{kg}\) and \(1\,\mathrm{cm} = 10^{-2}\,\mathrm{m}\), we have \(1\,\mathrm{cm^{-3}} = (10^{-2}\,\mathrm{m})^{-3} = 10^6\,\mathrm{m^{-3}}\). Therefore:</p>
+            \[6.0\,\mathrm{g\,cm^{-3}} = 6.0 \times 10^{-3}\,\mathrm{kg} \times 10^6\,\mathrm{m^{-3}} = 6.0 \times 10^3\,\mathrm{kg\,m^{-3}}\]
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 9</div>
+          <p><strong>Assertion (A):</strong> Plane angle (\(\mathrm{rad}\)) and solid angle (\(\mathrm{sr}\)) have units, yet they are dimensionless quantities.<br>
+          <strong>Reason (R):</strong> Both plane angle and solid angle are defined as ratios of two quantities having identical dimensions.</p>
+          <ul class="options-list">
+            <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+            <li>(B) Both (A) and (R) are true, but (R) is not the correct explanation of (A).</li>
+            <li>(C) (A) is true, but (R) is false.</li>
+            <li>(D) (A) is false, but (R) is true.</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (A)</span>
+            <p><strong>Solution:</strong> Plane angle is \(\mathrm{d}s / r\) (ratio of lengths, \([\mathrm{L}/\mathrm{L}] = [\mathrm{M^0 L^0 T^0}]\)) and solid angle is \(\mathrm{d}A / r^2\) (ratio of areas, \([\mathrm{L^2}/\mathrm{L^2}] = [\mathrm{M^0 L^0 T^0}]\)). Thus both are dimensionless while retaining the named SI units radian and steradian.</p>
+          </div>
+        </article>
+
+        <article class="question-card">
+          <div class="q-header">Practice Question 10</div>
+          <p>The mass of a rectangular plate is \(4.20\,\mathrm{kg}\), its length is \(2.10\,\mathrm{m}\), and its width is \(0.50\,\mathrm{m}\). What is its areal mass density (mass per unit area) rounded to the correct number of significant figures?</p>
+          <ul class="options-list">
+            <li>(A) \(4.00\,\mathrm{kg\,m^{-2}}\)</li>
+            <li>(B) \(4.0\,\mathrm{kg\,m^{-2}}\)</li>
+            <li>(C) \(4\,\mathrm{kg\,m^{-2}}\)</li>
+            <li>(D) \(4.000\,\mathrm{kg\,m^{-2}}\)</li>
+          </ul>
+          <div class="solution-box">
+            <span class="answer-tag">Answer: (B)</span>
+            <p><strong>Solution:</strong> Area \(A = 2.10\,\mathrm{m} \times 0.50\,\mathrm{m} = 1.05\,\mathrm{m^2}\). Areal mass density \(\sigma = \dfrac{4.20\,\mathrm{kg}}{1.05\,\mathrm{m^2}} = 4\,\mathrm{kg\,m^{-2}}\). Since the least precise measurement (\(0.50\,\mathrm{m}\)) has <strong>2 significant figures</strong>, the result must be reported with 2 significant figures as \(4.0\,\mathrm{kg\,m^{-2}}\).</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="pitfalls-checklist">
+        <h2>Common Pitfalls and Revision Checklist</h2>
+        <div class="card card-warn">
+          <ul>
+            <li><strong>Mixing up addition and multiplication rules:</strong> Use <em>fewest decimal places</em> for addition/subtraction, and <em>fewest significant figures</em> for multiplication/division.</li>
+            <li><strong>Dropping trailing zeros after a decimal:</strong> In \(0.0450\,\mathrm{m}\), the leading zeros do not count, but the trailing zero <em>does</em> count (3 significant figures).</li>
+            <li><strong>Premature rounding:</strong> Always keep at least one extra guard digit during intermediate steps; round only the final answer.</li>
+            <li><strong>Assuming dimensionless means unitless:</strong> Radian and steradian have no dimensions (\([\mathrm{M^0 L^0 T^0}]\)), yet they have specific SI units.</li>
+            <li><strong>Forgetting unit conversions inside non-SI data:</strong> Always convert \(\mathrm{Å}\), \(\mathrm{L}\), \(\mathrm{cm}\), \(\mathrm{g}\), or \(\mathrm{bar}\) into base SI units before applying formulas.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="final-recap">
+        <h2>Concise Final Recap</h2>
+        <div class="card">
+          <p>Every physical measurement combines a numerical value and a unit; changing the unit scales the number inversely without altering the significant figures. The seven SI base units anchor all derived units, while radian and steradian serve as dimensionless angular units. Significant figures communicate instrument precision, governed by decimal-place rules in addition/subtraction and significant-digit rules in multiplication/division. Finally, dimensional analysis—grounded in the principle of homogeneity—provides a fast, reliable check on equations, unit conversions, and power-law relationships, provided its inability to fix dimensionless constants is kept in mind.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="doc-footer">
+      NEET UG Physics Tutorial • Units, Significant Figures, and Dimensional Analysis
+    </footer>
+  </div>
+</body>
+</html>

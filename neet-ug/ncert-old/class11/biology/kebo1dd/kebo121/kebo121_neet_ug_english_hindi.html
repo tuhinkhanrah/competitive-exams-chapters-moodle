@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neural Control and Coordination — NEET UG Bilingual Tutorial (English &amp; Hindi)</title>
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'svg']
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #1E293B;
+    background-color: #FFFFFF;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", "Kohinoor Devanagari", "Mangal", Arial, sans-serif;
+  }
+  body {
+    margin: 0 auto;
+    padding: 20px 18px;
+    max-width: 920px;
+    background-color: #FFFFFF;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  h1, h2, h3, h4 {
+    color: #0F172A;
+    line-height: 1.3;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+  }
+  h1 {
+    font-size: 1.85rem;
+    border-bottom: 3px solid #2563EB;
+    padding-bottom: 8px;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.4rem;
+    color: #1E3A8A;
+    border-left: 5px solid #2563EB;
+    padding-left: 10px;
+    background-color: #F8FAFC;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  h3 {
+    font-size: 1.15rem;
+    color: #0F766E;
+  }
+  p {
+    margin: 0.6em 0 0.9em 0;
+  }
+  ul, ol {
+    margin: 0.5em 0 1em 0;
+    padding-left: 1.4em;
+  }
+  li {
+    margin-bottom: 0.4em;
+  }
+  .lang-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .badge-en {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+    border: 1px solid #93C5FD;
+  }
+  .badge-hi {
+    background-color: #CCFBF1;
+    color: #115E59;
+    border: 1px solid #5EEAD4;
+  }
+  .exam-banner {
+    background-color: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-left: 5px solid #0D9488;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+  }
+  .lang-block {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid #E2E8F0;
+    background-color: #FFFFFF;
+  }
+  .lang-block-hi {
+    background-color: #FAFCFC;
+    border-color: #CCFBF1;
+  }
+  .info-box {
+    background-color: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-left: 4px solid #2563EB;
+    padding: 10px 14px;
+    margin: 12px 0;
+    border-radius: 4px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .formula-box {
+    background-color: #F1F5F9;
+    border: 1px solid #94A3B8;
+    padding: 10px 14px;
+    margin: 12px 0;
+    border-radius: 4px;
+    text-align: center;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.94rem;
+    table-layout: fixed;
+  }
+  th, td {
+    border: 1px solid #CBD5E1;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  th {
+    background-color: #E2E8F0;
+    color: #0F172A;
+    font-weight: 700;
+  }
+  tr:nth-child(even) td {
+    background-color: #F8FAFC;
+  }
+  .svg-wrap {
+    margin: 14px auto;
+    padding: 10px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    background-color: #F8FAFC;
+    max-width: 100%;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .svg-caption {
+    font-size: 0.88rem;
+    color: #475569;
+    text-align: center;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .example-card, .question-card {
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    background-color: #FFFFFF;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .example-card {
+    border-left: 5px solid #0D9488;
+  }
+  .question-card {
+    border-left: 5px solid #2563EB;
+  }
+  .q-options {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 10px 0;
+  }
+  .q-options li {
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 4px;
+  }
+  .solution-box {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background-color: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 4px;
+  }
+  hr {
+    border: 0;
+    border-top: 1px dashed #94A3B8;
+    margin: 14px 0;
+  }
+  @media print {
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+    body {
+      padding: 0;
+      max-width: 100%;
+      font-size: 10.5pt;
+    }
+    h2, h3 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    .example-card, .question-card, .svg-wrap, .info-box, .formula-box, table {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .lang-block {
+      border-color: #CBD5E1;
+    }
+  }
+
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+
+<header>
+  <h1>Neural Control and Coordination</h1>
+  <div class="exam-banner">
+    <span class="lang-badge badge-en">English • NEET UG Biology</span>
+    <p><strong>Exam Standard:</strong> NEET UG (Single-Correct MCQs, Assertion–Reason, Statement Analysis, and Column Matching). All physiological mechanisms, anatomical layers, and receptor pathways are aligned to core medical entrance requirements.</p>
+  </div>
+
+  <h1 lang="hi">तंत्रिकीय नियंत्रण एवं समन्वय</h1>
+  <div class="exam-banner" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी • नीट यूजी जीव विज्ञान</span>
+    <p><strong>परीक्षा स्तर:</strong> नीट यूजी (एकल-सही बहुविकल्पीय प्रश्न, अभिकथन–कारण, कथन विश्लेषण एवं स्तंभ मिलान)। सभी कार्यिकी तंत्र, शारीरिक परतें और संवेदी पथ चिकित्सा प्रवेश परीक्षा के अनुरूप हैं।</p>
+  </div>
+</header>
+
+<section>
+  <h2>1. Learning Objectives and Overview</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <p>Homeostasis in multicellular organisms depends on continuous communication among organ systems. During vigorous physical activity, skeletal muscles demand more oxygen and energy, prompting faster breathing, elevated heart rate, and increased blood flow; once activity ceases, these organs gradually return to baseline. Two systems orchestrate this synchronisation: the <strong>neural system</strong>, which delivers rapid point-to-point electrical signalling, and the <strong>endocrine system</strong>, which provides slower chemical integration via hormones.</p>
+    <p>After studying this tutorial, you will be able to:</p>
+    <ul>
+      <li>Classify divisions of the human neural system and trace afferent versus efferent pathways.</li>
+      <li>Explain the ionic basis of resting potential, action potential propagation, and synaptic transmission.</li>
+      <li>Identify the major anatomical regions of the human brain, cranial meninges, and spinal reflex arcs.</li>
+      <li>Describe the structural layers and transduction mechanisms of the human eye, ear, nose, and tongue.</li>
+    </ul>
+  </div>
+
+  <h2>1. अधिगम उद्देश्य एवं अवलोकन</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <p>बहुकोशिकीय जीवों में समस्थापन (homeostasis) अंग तंत्रों के बीच निरंतर संवाद पर निर्भर करता है। तीव्र शारीरिक व्यायाम के दौरान कंकाल पेशियों को अधिक ऑक्सीजन और ऊर्जा की आवश्यकता होती है, जिससे श्वसन दर, हृदय स्पंदन और रक्त प्रवाह बढ़ जाता है; व्यायाम रुकने पर ये अंग धीरे-धीरे सामान्य अवस्था में लौट आते हैं। इस समन्वय को दो तंत्र संचालित करते हैं: <strong>तंत्रिका तंत्र</strong>, जो तीव्र बिंदु-से-बिंदु विद्युतीय संकेत प्रदान करता है, और <strong>अंतःस्रावी तंत्र</strong>, जो हॉर्मोन के माध्यम से रासायनिक एकीकरण करता है।</p>
+    <p>इस ट्यूटोरियल के अध्ययन के बाद आप निम्न में सक्षम होंगे:</p>
+    <ul>
+      <li>मानव तंत्रिका तंत्र के विभागों का वर्गीकरण करना तथा अभिवाही व अपवाही पथों को समझना।</li>
+      <li>विश्राम विभव, क्रिया विभव संचरण और सिनेप्टिक संचरण के आयनिक आधार की व्याख्या करना।</li>
+      <li>मानव मस्तिष्क के प्रमुख भागों, कपाल मेनिन्जेस और मेरुरज्जु प्रतिवर्ती चाप की पहचान करना।</li>
+      <li>मानव नेत्र, कर्ण, नाक और जीभ की संरचनात्मक परतों तथा संवेदी रूपांतरण की क्रियाविधि का वर्णन करना।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>2. Organization of the Neural System</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <p>Across the animal kingdom, neural complexity scales with body plan:</p>
+    <ul>
+      <li><strong>Lower invertebrates (e.g., <em>Hydra</em>):</strong> Possess a simple diffuse network of neurons without a central brain.</li>
+      <li><strong>Insects:</strong> Exhibit a better-organized system featuring a brain coupled with segmented ganglia and neural tissues.</li>
+      <li><strong>Vertebrates:</strong> Possess the most highly developed and centralized neural architecture.</li>
+    </ul>
+
+    <h3>Divisions of the Human Neural System</h3>
+    <p>The human neural system is partitioned into the <strong>Central Neural System (CNS)</strong> and the <strong>Peripheral Neural System (PNS)</strong>:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Division / Subdivision</th>
+          <th>Components</th>
+          <th>Primary Functional Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Central Neural System (CNS)</strong></td>
+          <td>Brain and Spinal Cord</td>
+          <td>Principal site of information processing, integration, and command control.</td>
+        </tr>
+        <tr>
+          <td><strong>PNS: Afferent Fibres</strong></td>
+          <td>Sensory nerve fibres</td>
+          <td>Transmit impulses from peripheral tissues and organs toward the CNS.</td>
+        </tr>
+        <tr>
+          <td><strong>PNS: Efferent Fibres</strong></td>
+          <td>Motor/regulatory nerve fibres</td>
+          <td>Transmit regulatory impulses from the CNS to peripheral effectors.</td>
+        </tr>
+        <tr>
+          <td><strong>Somatic Neural System</strong></td>
+          <td>Voluntary motor pathways</td>
+          <td>Relays impulses from the CNS to skeletal muscles.</td>
+        </tr>
+        <tr>
+          <td><strong>Autonomic Neural System (ANS)</strong></td>
+          <td>Sympathetic &amp; Parasympathetic divisions</td>
+          <td>Transmits impulses from the CNS to involuntary organs and smooth muscles.</td>
+        </tr>
+        <tr>
+          <td><strong>Visceral Nervous System</strong></td>
+          <td>Nerves, fibres, ganglia, and plexuses</td>
+          <td>Part of the PNS carrying two-way impulses between the CNS and internal viscera.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2. तंत्रिका तंत्र का संगठन</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <p>प्राणी जगत में तंत्रिकीय जटिलता शरीर की संरचना के साथ बढ़ती है:</p>
+    <ul>
+      <li><strong>निम्न अकशेरुकी (जैसे, <em>हाइड्रा</em>):</strong> इनमें बिना किसी केंद्रीय मस्तिष्क के न्यूरॉन्स का एक सरल जाल पाया जाता है।</li>
+      <li><strong>कीट:</strong> इनमें अधिक सुव्यवस्थित तंत्र होता है, जिसमें मस्तिष्क के साथ अनेक गुच्छिकाएँ (ganglia) और तंत्रिका ऊतक होते हैं।</li>
+      <li><strong>कशेरुकी:</strong> इनमें सर्वाधिक विकसित एवं केंद्रीकृत तंत्रिका तंत्र पाया जाता है।</li>
+    </ul>
+
+    <h3>मानव तंत्रिका तंत्र के विभाग</h3>
+    <p>मानव तंत्रिका तंत्र को <strong>केंद्रीय तंत्रिका तंत्र (CNS)</strong> और <strong>परिधीय तंत्रिका तंत्र (PNS)</strong> में विभाजित किया जाता है:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>विभाग / उप-विभाग</th>
+          <th>मुख्य घटक</th>
+          <th>प्रमुख कार्यात्मक भूमिका</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>केंद्रीय तंत्रिका तंत्र (CNS)</strong></td>
+          <td>मस्तिष्क और मेरुरज्जु</td>
+          <td>सूचना प्रसंस्करण, एकीकरण और नियंत्रण का मुख्य केंद्र।</td>
+        </tr>
+        <tr>
+          <td><strong>PNS: अभिवाही तंतु (Afferent)</strong></td>
+          <td>संवेदी तंत्रिका तंतु</td>
+          <td>ऊतकों व अंगों से आवेगों को CNS तक पहुँचाना।</td>
+        </tr>
+        <tr>
+          <td><strong>PNS: अपवाही तंतु (Efferent)</strong></td>
+          <td>प्रेरक/नियामक तंतु</td>
+          <td>CNS से नियामक आवेगों को परिधीय अंगों तक ले जाना।</td>
+        </tr>
+        <tr>
+          <td><strong>कायिक तंत्रिका तंत्र (Somatic)</strong></td>
+          <td>ऐच्छिक प्रेरक पथ</td>
+          <td>CNS से कंकाल पेशियों तक आवेगों का संचरण करना।</td>
+        </tr>
+        <tr>
+          <td><strong>स्वायत्त तंत्रिका तंत्र (ANS)</strong></td>
+          <td>अनुकंपी एवं परानुकंपी तंत्र</td>
+          <td>CNS से अनैच्छिक अंगों और चिकनी पेशियों तक आवेग भेजना।</td>
+        </tr>
+        <tr>
+          <td><strong>अंतरंग तंत्रिका तंत्र (Visceral)</strong></td>
+          <td>तंत्रिकाएँ, तंतु, गुच्छिकाएँ एवं जालक</td>
+          <td>PNS का वह भाग जो CNS और आंतरिक अंगों (viscera) के बीच द्वि-दिशात्मक आवेग ले जाता है।</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>3. Neuron: Structure, Types, and Impulse Physiology</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <p>A <strong>neuron</strong> is the structural and functional unit of the neural system, specialized to detect, receive, and conduct stimuli. It comprises three major regions:</p>
+    <ul>
+      <li><strong>Cell Body (Soma):</strong> Contains cytoplasm, typical organelles, and basophilic granular bodies called <strong>Nissl's granules</strong> (involved in protein synthesis).</li>
+      <li><strong>Dendrites:</strong> Short, repeatedly branching processes projecting from the cell body that also contain Nissl's granules; they conduct impulses <em>toward</em> the cell body.</li>
+      <li><strong>Axon:</strong> A single long fibre lacking Nissl's granules that conducts impulses <em>away</em> from the cell body toward a synapse or neuromuscular junction. Its distal end branches into axon terminals ending in bulb-like <strong>synaptic knobs</strong> packed with neurotransmitter-filled <strong>synaptic vesicles</strong>.</li>
+    </ul>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Structure of a myelinated multipolar neuron">
+        <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="6"/>
+        <!-- Dendrites -->
+        <path d="M95,115 L55,75 M55,75 L35,60 M55,75 L60,48 M95,115 L45,115 M45,115 L22,102 M45,115 L22,128 M95,115 L55,155 M55,155 L35,172 M55,155 L60,182" stroke="#1E293B" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Cell Body -->
+        <polygon points="85,90 125,75 155,102 155,128 125,155 85,140" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+        <!-- Nucleus -->
+        <circle cx="118" cy="115" r="16" fill="#1E293B"/>
+        <circle cx="122" cy="111" r="4" fill="#94A3B8"/>
+        <!-- Nissl's granules -->
+        <circle cx="98" cy="100" r="2" fill="#0D9488"/>
+        <circle cx="102" cy="130" r="2" fill="#0D9488"/>
+        <circle cx="138" cy="96" r="2" fill="#0D9488"/>
+        <circle cx="140" cy="133" r="2" fill="#0D9488"/>
+        <!-- Axon shaft -->
+        <line x1="155" y1="115" x2="540" y2="115" stroke="#2563EB" stroke-width="6"/>
+        <!-- Myelin sheaths (Schwann cells) -->
+        <rect x="180" y="99" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="217" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <rect x="275" y="99" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="312" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <rect x="370" y="99" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="407" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <rect x="465" y="99" width="60" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="495" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <!-- Axon terminals and synaptic knobs -->
+        <path d="M540,115 L595,75 M540,115 L605,115 M540,115 L595,155" stroke="#2563EB" stroke-width="3" fill="none"/>
+        <circle cx="600" cy="72" r="7" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <circle cx="612" cy="115" r="7" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <circle cx="600" cy="158" r="7" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <!-- Labels and Leader lines -->
+        <text x="15" y="34" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Dendrites</text>
+        <line x1="48" y1="38" x2="55" y2="56" stroke="#475569" stroke-width="1.2"/>
+        <text x="90" y="28" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Cell body</text>
+        <line x1="118" y1="33" x2="118" y2="75" stroke="#475569" stroke-width="1.2"/>
+        <text x="80" y="205" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Nucleus</text>
+        <line x1="105" y1="192" x2="115" y2="132" stroke="#475569" stroke-width="1.2"/>
+        <text x="178" y="65" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Schwann cell</text>
+        <line x1="217" y1="70" x2="217" y2="98" stroke="#475569" stroke-width="1.2"/>
+        <text x="275" y="175" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Myelin sheath</text>
+        <line x1="312" y1="160" x2="312" y2="132" stroke="#475569" stroke-width="1.2"/>
+        <text x="330" y="45" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Node of Ranvier</text>
+        <line x1="360" y1="50" x2="360" y2="112" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="175" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Axon</text>
+        <line x1="468" y1="160" x2="455" y2="118" stroke="#475569" stroke-width="1.2"/>
+        <text x="565" y="42" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Synaptic knob</text>
+        <line x1="600" y1="47" x2="600" y2="63" stroke="#475569" stroke-width="1.2"/>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 1: Structural components of a myelinated multipolar neuron.</div>
+    </div>
+
+    <h3>Classification of Neurons and Axons</h3>
+    <ul>
+      <li><strong>Structural types (by processes):</strong> <em>Multipolar</em> (one axon, two or more dendrites; e.g., cerebral cortex), <em>Bipolar</em> (one axon, one dendrite; e.g., retina of eye), and <em>Unipolar</em> (cell body with one axon only; typically in embryonic stage).</li>
+      <li><strong>Myelination:</strong> <em>Myelinated axons</em> are wrapped by Schwann cells forming an insulating myelin sheath interrupted at <strong>nodes of Ranvier</strong> (found in spinal and cranial nerves). <em>Non-myelinated axons</em> are enclosed by Schwann cells without forming a myelin sheath (common in autonomic and somatic neural systems).</li>
+    </ul>
+
+    <h3>Generation and Conduction of a Nerve Impulse</h3>
+    <p>Neurons are excitable because their axonal membrane maintains an electrical potential difference:</p>
+    <ol>
+      <li><strong>Resting (Polarised) State:</strong> The resting membrane is far more permeable to \(\mathrm{K}^+\) than to \(\mathrm{Na}^+\) and impermeable to negatively charged axoplasmic proteins. Thus, axoplasm has high \([\mathrm{K}^+]\) and low \([\mathrm{Na}^+]\), whereas extracellular fluid has high \([\mathrm{Na}^+]\) and low \([\mathrm{K}^+]\). The active <strong>sodium–potassium pump</strong> maintains these gradients by exporting \(3\,\mathrm{Na}^+\) for every \(2\,\mathrm{K}^+\) imported. Consequently, the outer surface is positively charged and the inner surface is negatively charged (resting potential).</li>
+      <li><strong>Depolarisation (Action Potential):</strong> A threshold stimulus at a point makes the membrane freely permeable to \(\mathrm{Na}^+\). Rapid \(\mathrm{Na}^+\) influx reverses local polarity—outside becomes negative, inside becomes positive—creating an <strong>action potential</strong> (nerve impulse).</li>
+      <li><strong>Propagation:</strong> Between the depolarised site and the adjacent polarised site ahead, local current flows <em>inwardly</em> from the active site to the resting site, and <em>outwardly</em> from the resting site back to the active site, triggering depolarisation sequentially along the axon.</li>
+      <li><strong>Repolarisation:</strong> Elevated \(\mathrm{Na}^+\) permeability is fleeting; \(\mathrm{K}^+\) permeability rises immediately, allowing \(\mathrm{K}^+\) efflux to restore the resting potential within a fraction of a second.</li>
+    </ol>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 185" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Action potential propagation along an axon">
+        <rect x="0" y="0" width="680" height="185" fill="#F8FAFC" rx="6"/>
+        <!-- Axon membrane -->
+        <rect x="40" y="55" width="600" height="75" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+        <!-- Depolarized zone A -->
+        <rect x="40" y="55" width="180" height="75" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+        <!-- Charges in Zone A (Reversed) -->
+        <text x="65" y="47" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">-  -  -  -  -</text>
+        <text x="65" y="75" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">+  +  +  +  +</text>
+        <text x="65" y="120" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">+  +  +  +  +</text>
+        <text x="65" y="146" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">-  -  -  -  -</text>
+        <!-- Charges in Zone B (Polarized) -->
+        <text x="255" y="47" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">+  +  +  +  +  +  +  +  +  +  +  +</text>
+        <text x="255" y="75" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">-  -  -  -  -  -  -  -  -  -  -  -</text>
+        <text x="255" y="120" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">-  -  -  -  -  -  -  -  -  -  -  -</text>
+        <text x="255" y="146" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">+  +  +  +  +  +  +  +  +  +  +  +</text>
+        <!-- Na+ influx arrow -->
+        <line x1="125" y1="26" x2="125" y2="62" stroke="#1E293B" stroke-width="2"/>
+        <polygon points="125,65 120,56 130,56" fill="#1E293B"/>
+        <text x="88" y="20" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Na⁺ influx (Site A)</text>
+        <!-- Local current arrows -->
+        <line x1="195" y1="92" x2="265" y2="92" stroke="#2563EB" stroke-width="2.5"/>
+        <polygon points="270,92 260,87 260,97" fill="#2563EB"/>
+        <line x1="270" y1="30" x2="200" y2="30" stroke="#0D9488" stroke-width="2"/>
+        <polygon points="195,30 205,25 205,35" fill="#0D9488"/>
+        <text x="340" y="22" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">Outer current: B → A</text>
+        <text x="340" y="96" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">Inner current: A → B (Site B)</text>
+        <text x="235" y="170" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Direction of impulse propagation →</text>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 2: Local current loop propagating depolarisation from active Site A to resting Site B.</div>
+    </div>
+
+    <h3>Synaptic Transmission</h3>
+    <p>Impulses pass from a pre-synaptic neuron to a post-synaptic neuron across a <strong>synapse</strong>:</p>
+    <ul>
+      <li><strong>Electrical Synapses:</strong> Pre- and post-synaptic membranes lie in very close proximity, allowing direct ionic current flow. Transmission is faster than at chemical synapses and resembles conduction along a single axon, though electrical synapses are rare in humans.</li>
+      <li><strong>Chemical Synapses:</strong> Separated by a fluid-filled <strong>synaptic cleft</strong>. Arrival of an action potential at the axon terminal causes synaptic vesicles to fuse with the pre-synaptic membrane and release <strong>neurotransmitters</strong> into the cleft. Binding of neurotransmitters to specific post-synaptic receptors opens ion channels, generating either an excitatory or an inhibitory post-synaptic potential.</li>
+    </ul>
+  </div>
+
+  <h2>3. न्यूरॉन: संरचना, प्रकार और आवेग कार्यिकी</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <p><strong>न्यूरॉन (तंत्रिका कोशिका)</strong> तंत्रिका तंत्र की संरचनात्मक और कार्यात्मक इकाई है, जो उद्दीपनों को ग्रहण करने और संचरित करने के लिए विशिष्ट होती है। इसके तीन मुख्य भाग होते हैं:</p>
+    <ul>
+      <li><strong>कोशिका काय (Cell Body):</strong> इसमें कोशिकाद्रव्य, सामान्य कोशिकांग और <strong>निस्ल के कण (Nissl's granules)</strong> नामक कणिकाएँ होती हैं जो प्रोटीन संश्लेषण में सहायक हैं।</li>
+      <li><strong>द्रुमाश्म (Dendrites):</strong> कोशिका काय से निकलने वाले छोटे, शाखित प्रवर्ध जिनमें निस्ल के कण पाए जाते हैं; ये आवेगों को कोशिका काय की <em>ओर</em> लाते हैं।</li>
+      <li><strong>तंत्रिकाक्ष (Axon):</strong> एक लंबा तंतु जिसमें निस्ल के कण नहीं होते; यह आवेगों को कोशिका काय से <em>दूर</em> सिनेप्स या तंत्रिका-पेशी संधि तक ले जाता है। इसके दूरस्थ सिरे शाखित होकर घुंडी जैसी संरचना बनाते हैं जिन्हें <strong>सिनेप्टिक घुंडी (synaptic knob)</strong> कहते हैं; इनमें न्यूरोट्रांसमीटर से भरी <strong>सिनेप्टिक पुटिकाएँ</strong> होती हैं।</li>
+    </ul>
+
+    <div class="svg-wrap" lang="hi">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="माइलिन आच्छदित बहुध्रुवीय न्यूरॉन की संरचना">
+        <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="6"/>
+        <path d="M95,115 L55,75 M55,75 L35,60 M55,75 L60,48 M95,115 L45,115 M45,115 L22,102 M45,115 L22,128 M95,115 L55,155 M55,155 L35,172 M55,155 L60,182" stroke="#1E293B" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <polygon points="85,90 125,75 155,102 155,128 125,155 85,140" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+        <circle cx="118" cy="115" r="16" fill="#1E293B"/>
+        <circle cx="122" cy="111" r="4" fill="#94A3B8"/>
+        <circle cx="98" cy="100" r="2" fill="#0D9488"/>
+        <circle cx="102" cy="130" r="2" fill="#0D9488"/>
+        <circle cx="138" cy="96" r="2" fill="#0D9488"/>
+        <circle cx="140" cy="133" r="2" fill="#0D9488"/>
+        <line x1="155" y1="115" x2="540" y2="115" stroke="#2563EB" stroke-width="6"/>
+        <rect x="180" y="99" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="217" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <rect x="275" y="99" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="312" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <rect x="370" y="99" width="75" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="407" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <rect x="465" y="99" width="60" height="32" rx="10" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <ellipse cx="495" cy="105" rx="7" ry="3.5" fill="#1E293B"/>
+        <path d="M540,115 L595,75 M540,115 L605,115 M540,115 L595,155" stroke="#2563EB" stroke-width="3" fill="none"/>
+        <circle cx="600" cy="72" r="7" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <circle cx="612" cy="115" r="7" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <circle cx="600" cy="158" r="7" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <text x="15" y="34" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">द्रुमाश्म</text>
+        <line x1="48" y1="38" x2="55" y2="56" stroke="#475569" stroke-width="1.2"/>
+        <text x="90" y="28" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">कोशिका काय</text>
+        <line x1="118" y1="33" x2="118" y2="75" stroke="#475569" stroke-width="1.2"/>
+        <text x="85" y="205" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">केंद्रक</text>
+        <line x1="105" y1="192" x2="115" y2="132" stroke="#475569" stroke-width="1.2"/>
+        <text x="178" y="65" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">श्वान कोशिका</text>
+        <line x1="217" y1="70" x2="217" y2="98" stroke="#475569" stroke-width="1.2"/>
+        <text x="275" y="175" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">माइलिन आच्छद</text>
+        <line x1="312" y1="160" x2="312" y2="132" stroke="#475569" stroke-width="1.2"/>
+        <text x="330" y="45" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">रैनवियर की पर्वसंधि</text>
+        <line x1="360" y1="50" x2="360" y2="112" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="175" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">तंत्रिकाक्ष</text>
+        <line x1="468" y1="160" x2="455" y2="118" stroke="#475569" stroke-width="1.2"/>
+        <text x="555" y="42" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">सिनेप्टिक घुंडी</text>
+        <line x1="600" y1="47" x2="600" y2="63" stroke="#475569" stroke-width="1.2"/>
+      </svg>
+      <div class="svg-caption">ट्यूटोरियल आरेख 1: माइलिन आच्छदित बहुध्रुवीय न्यूरॉन के संरचनात्मक घटक।</div>
+    </div>
+
+    <h3>न्यूरॉन एवं तंत्रिकाक्ष का वर्गीकरण</h3>
+    <ul>
+      <li><strong>प्रवर्धों के आधार पर प्रकार:</strong> <em>बहुध्रुवीय (Multipolar)</em> (एक तंत्रिकाक्ष, दो या अधिक द्रुमाश्म; जैसे, प्रमस्तिष्क वल्कुट), <em>द्विध्रुवीय (Bipolar)</em> (एक तंत्रिकाक्ष, एक द्रुमाश्म; जैसे, नेत्र का रेटिना), और <em>एकध्रुवीय (Unipolar)</em> (केवल एक तंत्रिकाक्ष; सामान्यतः भ्रूणीय अवस्था में)।</li>
+      <li><strong>माइलिन आच्छद:</strong> <em>माइलिन आच्छदित तंतु</em> श्वान कोशिकाओं से घिरे होते हैं जो <strong>रैनवियर की पर्वसंधियों</strong> पर विच्छिन्न रहते हैं (मेरुरज्जु व कपाल तंत्रिकाओं में)। <em>माइलिनहीन तंतु</em> श्वान कोशिका से घिरे होने पर भी माइलिन आच्छद नहीं बनाते (स्वायत्त एवं कायिक तंत्रिका तंत्र में सामान्य)।</li>
+    </ul>
+
+    <h3>तंत्रिका आवेग की उत्पत्ति एवं संचरण</h3>
+    <p>न्यूरॉन उत्तेजनशील कोशिकाएँ हैं क्योंकि इनकी झिल्ली ध्रुवीकृत अवस्था में रहती है:</p>
+    <ol>
+      <li><strong>विश्राम (ध्रुवीकृत) अवस्था:</strong> विश्राम झिल्ली \(\mathrm{K}^+\) के लिए अधिक पारगम्य तथा \(\mathrm{Na}^+\) और ऋणावेशित प्रोटीन के लिए लगभग अपारगम्य होती है। अतः एक्सोप्लाज्म में \(\mathrm{K}^+\) की सांद्रता अधिक और \(\mathrm{Na}^+\) की कम होती है, जबकि बाहरी द्रव में इसके विपरीत होता है। सक्रिय <strong>सोडियम–पोटैशियम पंप</strong> \(3\,\mathrm{Na}^+\) को बाहर और \(2\,\mathrm{K}^+\) को अंदर भेजकर यह प्रवणता बनाए रखता है। इससे बाहरी सतह धनावेशित और भीतरी सतह ऋणावेशित रहती है (विश्राम विभव)।</li>
+      <li><strong>विध्रुवण (क्रिया विभव):</strong> उद्दीपन मिलने पर उस स्थान की झिल्ली \(\mathrm{Na}^+\) के लिए मुक्त रूप से पारगम्य हो जाती है। तीव्र \(\mathrm{Na}^+\) अंतर्वाह से ध्रुवणता उलट जाती है—बाहर ऋण और अंदर धन आवेश आ जाता है—जिसे <strong>क्रिया विभव</strong> (तंत्रिका आवेग) कहते हैं।</li>
+      <li><strong>संचरण:</strong> विध्रुवित स्थल और आगे के ध्रुवीकृत स्थल के बीच भीतर की ओर सक्रिय से विश्राम स्थल तक तथा बाहर की ओर विश्राम से सक्रिय स्थल तक स्थानीय विद्युत धारा प्रवाहित होती है, जिससे आवेग आगे बढ़ता है।</li>
+      <li><strong>पुनर्ध्रुवण:</strong> \(\mathrm{Na}^+\) पारगम्यता क्षणिक होती है; तुरंत \(\mathrm{K}^+\) पारगम्यता बढ़ जाती है और \(\mathrm{K}^+\) बहिर्वाह से सेकंड के अंश में विश्राम विभव पुनः स्थापित हो जाता है।</li>
+    </ol>
+
+    <div class="svg-wrap" lang="hi">
+      <svg viewBox="0 0 680 185" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="तंत्रिकाक्ष पर क्रिया विभव का संचरण">
+        <rect x="0" y="0" width="680" height="185" fill="#F8FAFC" rx="6"/>
+        <rect x="40" y="55" width="600" height="75" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5"/>
+        <rect x="40" y="55" width="180" height="75" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+        <text x="65" y="47" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">-  -  -  -  -</text>
+        <text x="65" y="75" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">+  +  +  +  +</text>
+        <text x="65" y="120" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">+  +  +  +  +</text>
+        <text x="65" y="146" font-family="sans-serif" font-size="14" font-weight="700" fill="#2563EB">-  -  -  -  -</text>
+        <text x="255" y="47" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">+  +  +  +  +  +  +  +  +  +  +  +</text>
+        <text x="255" y="75" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">-  -  -  -  -  -  -  -  -  -  -  -</text>
+        <text x="255" y="120" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">-  -  -  -  -  -  -  -  -  -  -  -</text>
+        <text x="255" y="146" font-family="sans-serif" font-size="14" font-weight="700" fill="#0D9488">+  +  +  +  +  +  +  +  +  +  +  +</text>
+        <line x1="125" y1="26" x2="125" y2="62" stroke="#1E293B" stroke-width="2"/>
+        <polygon points="125,65 120,56 130,56" fill="#1E293B"/>
+        <text x="72" y="20" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Na⁺ अंतर्वाह (स्थल A)</text>
+        <line x1="195" y1="92" x2="265" y2="92" stroke="#2563EB" stroke-width="2.5"/>
+        <polygon points="270,92 260,87 260,97" fill="#2563EB"/>
+        <line x1="270" y1="30" x2="200" y2="30" stroke="#0D9488" stroke-width="2"/>
+        <polygon points="195,30 205,25 205,35" fill="#0D9488"/>
+        <text x="340" y="22" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">बाह्य धारा: B → A</text>
+        <text x="340" y="96" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">आंतरिक धारा: A → B (स्थल B)</text>
+        <text x="235" y="170" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">आवेग संचरण की दिशा →</text>
+      </svg>
+      <div class="svg-caption">ट्यूटोरियल आरेख 2: सक्रिय स्थल A से विश्राम स्थल B की ओर विध्रुवण का संचरण।</div>
+    </div>
+
+    <h3>सिनेप्टिक संचरण (Synaptic Transmission)</h3>
+    <p>एक न्यूरॉन से दूसरे न्यूरॉन तक आवेग का संचरण <strong>सिनेप्स</strong> के माध्यम से होता है:</p>
+    <ul>
+      <li><strong>विद्युतीय सिनेप्स:</strong> पूर्व- और पश्च-सिनेप्टिक झिल्लियाँ अत्यंत निकट होती हैं, जिससे विद्युत धारा सीधे प्रवाहित होती है। यह रासायनिक सिनेप्स की तुलना में सदैव तीव्र होता है, परंतु मानव शरीर में दुर्लभ है।</li>
+      <li><strong>रासायनिक सिनेप्स:</strong> दोनों झिल्लियों के बीच तरल से भरा <strong>सिनेप्टिक अवकाश (synaptic cleft)</strong> होता है। क्रिया विभव पहुँचने पर सिनेप्टिक पुटिकाएँ पूर्व-सिनेप्टिक झिल्ली से जुड़कर <strong>न्यूरोट्रांसमीटर</strong> मुक्त करती हैं। ये पश्च-सिनेप्टिक झिल्ली के विशिष्ट ग्राहियों से बंधकर आयन चैनल खोलते हैं, जिससे उत्तेजक या संदमक नया विभव उत्पन्न होता है।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>4. Central Neural System and Reflex Action</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <p>The <strong>brain</strong> is the body's command and control organ, protected by the skull and three <strong>cranial meninges</strong> from outside to inside: outer <strong>dura mater</strong>, thin middle <strong>arachnoid</strong>, and inner <strong>pia mater</strong> (in direct contact with brain tissue).</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Major Region</th>
+          <th>Key Structures</th>
+          <th>Core Functions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Forebrain</strong></td>
+          <td>Cerebrum, Thalamus, Hypothalamus</td>
+          <td>
+            <strong>Cerebrum:</strong> Two hemispheres linked by <em>corpus callosum</em>; outer <em>grey matter</em> (cortex) has motor, sensory, and <em>association areas</em> (memory, communication, intersensory integration); inner <em>white matter</em> (myelinated tracts).<br>
+            <strong>Thalamus:</strong> Coordinating centre for sensory and motor signalling.<br>
+            <strong>Hypothalamus:</strong> Controls body temperature, hunger, thirst; neurosecretory cells secrete hypothalamic hormones.<br>
+            <strong>Limbic System:</strong> Inner cerebral parts + amygdala + hippocampus; regulates emotions, motivation, sexual behaviour, and olfaction (with hypothalamus).
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Midbrain</strong></td>
+          <td>Cerebral aqueduct, Corpora quadrigemina</td>
+          <td>Located between thalamus/hypothalamus and pons; <em>corpora quadrigemina</em> (four dorsal swellings) integrate visual, tactile, and auditory inputs.</td>
+        </tr>
+        <tr>
+          <td><strong>Hindbrain</strong></td>
+          <td>Pons, Cerebellum, Medulla oblongata</td>
+          <td>
+            <strong>Pons:</strong> Fibre tracts interconnecting brain regions.<br>
+            <strong>Cerebellum:</strong> Convoluted surface for extra neurons; integrates equilibrium/auditory inputs for posture and balance.<br>
+            <strong>Medulla:</strong> Connects to spinal cord; controls respiration, cardiovascular reflexes, and gastric secretions.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="info-box">
+      <strong>High-Yield NEET Fact:</strong> The <strong>brain stem</strong> comprises three regions: <strong>midbrain + pons + medulla oblongata</strong>. It forms the vital connection between the brain and spinal cord.
+    </div>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic sagittal organization of the human brain">
+        <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="6"/>
+        <!-- Cerebrum outer arc -->
+        <path d="M180,145 C165,80 220,30 330,30 C445,30 495,85 480,145 C450,145 425,135 400,130 C390,95 270,95 255,140 Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+        <!-- Corpus callosum -->
+        <path d="M250,112 C265,82 385,82 405,112 C380,104 275,104 250,112 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8"/>
+        <!-- Thalamus & Hypothalamus -->
+        <ellipse cx="325" cy="126" rx="34" ry="16" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <path d="M298,136 L325,155 L340,140 Z" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <!-- Midbrain -->
+        <rect x="335" y="142" width="28" height="20" rx="4" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5"/>
+        <!-- Pons -->
+        <ellipse cx="342" cy="175" rx="22" ry="14" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.8"/>
+        <!-- Medulla & Spinal cord -->
+        <path d="M338,189 L358,189 L355,222 L340,222 Z" fill="#CBD5E1" stroke="#1E293B" stroke-width="1.8"/>
+        <!-- Cerebellum -->
+        <ellipse cx="408" cy="166" rx="40" ry="26" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <path d="M380,166 L435,166 M390,152 L425,178 M390,178 L425,152" stroke="#0D9488" stroke-width="1.2"/>
+        <!-- Labels -->
+        <text x="60" y="55" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Cerebrum</text>
+        <line x1="122" y1="51" x2="210" y2="62" stroke="#475569" stroke-width="1.2"/>
+        <text x="515" y="55" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Corpus callosum</text>
+        <line x1="510" y1="55" x2="365" y2="92" stroke="#475569" stroke-width="1.2"/>
+        <text x="55" y="125" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Thalamus</text>
+        <line x1="115" y1="121" x2="291" y2="126" stroke="#475569" stroke-width="1.2"/>
+        <text x="55" y="160" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Hypothalamus</text>
+        <line x1="142" y1="156" x2="310" y2="148" stroke="#475569" stroke-width="1.2"/>
+        <text x="515" y="125" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Midbrain</text>
+        <line x1="510" y1="125" x2="363" y2="150" stroke="#475569" stroke-width="1.2"/>
+        <text x="515" y="165" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Cerebellum</text>
+        <line x1="510" y1="165" x2="448" y2="166" stroke="#475569" stroke-width="1.2"/>
+        <text x="195" y="185" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Pons</text>
+        <line x1="230" y1="181" x2="320" y2="175" stroke="#475569" stroke-width="1.2"/>
+        <text x="175" y="210" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Medulla</text>
+        <line x1="226" y1="206" x2="338" y2="202" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="215" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Spinal cord</text>
+        <line x1="450" y1="212" x2="356" y2="215" stroke="#475569" stroke-width="1.2"/>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 3: Sagittal schematic of the human brain highlighting forebrain, midbrain, and hindbrain regions.</div>
+    </div>
+
+    <h3>Reflex Action and Reflex Arc</h3>
+    <p>A <strong>reflex action</strong> is an involuntary, rapid response to peripheral stimulation without conscious effort, requiring CNS involvement. The minimum <strong>reflex arc</strong> consists of: <strong>Receptor</strong> (e.g., muscle spindle in knee-jerk reflex) → <strong>Afferent neuron</strong> (entering spinal cord via <em>dorsal nerve root</em>) → <strong>CNS (Spinal cord / Interneuron)</strong> → <strong>Efferent (motor) neuron</strong> → <strong>Effector</strong> (motor endplate on muscle).</p>
+  </div>
+
+  <h2>4. केंद्रीय तंत्रिका तंत्र एवं प्रतिवर्ती क्रिया</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <p><strong>मस्तिष्क</strong> शरीर का केंद्रीय नियंत्रण एवं आदेश अंग है, जो खोपड़ी और बाहर से अंदर की ओर तीन <strong>कपाल मेनिन्जेस (cranial meninges)</strong> द्वारा सुरक्षित रहता है: बाहरी <strong>ड्यूरा मेटर</strong>, पतली मध्य <strong>अरैक्नॉइड</strong>, और भीतरी <strong>पाया मेटर</strong> (जो मस्तिष्क ऊतक के संपर्क में रहती है)।</p>
+    <table>
+      <thead>
+        <tr>
+          <th>प्रमुख भाग</th>
+          <th>मुख्य संरचनाएँ</th>
+          <th>प्रमुख कार्य</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>अग्रमस्तिष्क (Forebrain)</strong></td>
+          <td>प्रमस्तिष्क, थैलेमस, हाइपोथैलेमस</td>
+          <td>
+            <strong>प्रमस्तिष्क:</strong> दो गोलार्ध जो <em>कॉर्पस कैलोसम</em> से जुड़े होते हैं; बाहरी <em>धूसर द्रव्य</em> (वल्कुट) में प्रेरक, संवेदी एवं <em>सहचारी क्षेत्र</em> (स्मृति, संवाद, अंतर-संवेदी संयोजन); भीतरी <em>श्वेत द्रव्य</em> (माइलिन आच्छदित तंतु)।<br>
+            <strong>थैलेमस:</strong> संवेदी एवं प्रेरक संकेतों का प्रमुख समन्वय केंद्र।<br>
+            <strong>हाइपोथैलेमस:</strong> शरीर तापमान, भूख व प्यास का नियंत्रण; तंत्रिका-स्रावी कोशिकाएँ हॉर्मोन स्रावित करती हैं।<br>
+            <strong>लिम्बिक तंत्र:</strong> आंतरिक प्रमस्तिष्क + एमिग्डाला + हिप्पोकैम्पस; भावनाओं, प्रेरणा, लैंगिक व्यवहार व घ्राण का नियमन।
+          </td>
+        </tr>
+        <tr>
+          <td><strong>मध्यमस्तिष्क (Midbrain)</strong></td>
+          <td>प्रमस्तिष्क कुल्या (Cerebral aqueduct), कॉर्पोरा क्वाड्रीजेमिना</td>
+          <td>थैलेमस/हाइपोथैलेमस और पॉन्स के बीच स्थित; चार पृष्ठीय पिंड (<em>कॉर्पोरा क्वाड्रीजेमिना</em>) दृश्य, स्पर्श व श्रवण आवेगों को एकीकृत करते हैं।</td>
+        </tr>
+        <tr>
+          <td><strong>पश्चमस्तिष्क (Hindbrain)</strong></td>
+          <td>पॉन्स, अनुमस्तिष्क, मेडुला ऑब्लांगेटा</td>
+          <td>
+            <strong>पॉन्स:</strong> मस्तिष्क के विभिन्न भागों को जोड़ने वाले तंतु पथ।<br>
+            <strong>अनुमस्तिष्क (Cerebellum):</strong> अत्यधिक वलित सतह; अर्धवृत्ताकार नलिकाओं से प्राप्त सूचनाओं द्वारा संतुलन व मुद्रा का नियंत्रण।<br>
+            <strong>मेडुला:</strong> मेरुरज्जु से जुड़ा होता है; श्वसन, हृदय-संवहनी प्रतिवर्त और जठर स्राव का नियंत्रण।
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="info-box" lang="hi">
+      <strong>नीट हेतु महत्वपूर्ण तथ्य:</strong> <strong>मस्तिष्क स्तंभ (Brain stem)</strong> तीन भागों से बनता है: <strong>मध्यमस्तिष्क + पॉन्स + मेडुला ऑब्लांगेटा</strong>। यह मस्तिष्क और मेरुरज्जु के बीच संपर्क बनाता है।
+    </div>
+
+    <div class="svg-wrap" lang="hi">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="मानव मस्तिष्क का अनुदैर्ध्य आरेख">
+        <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="6"/>
+        <path d="M180,145 C165,80 220,30 330,30 C445,30 495,85 480,145 C450,145 425,135 400,130 C390,95 270,95 255,140 Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+        <path d="M250,112 C265,82 385,82 405,112 C380,104 275,104 250,112 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.8"/>
+        <ellipse cx="325" cy="126" rx="34" ry="16" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <path d="M298,136 L325,155 L340,140 Z" fill="#0D9488" stroke="#1E293B" stroke-width="1.5"/>
+        <rect x="335" y="142" width="28" height="20" rx="4" fill="#93C5FD" stroke="#1E293B" stroke-width="1.5"/>
+        <ellipse cx="342" cy="175" rx="22" ry="14" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.8"/>
+        <path d="M338,189 L358,189 L355,222 L340,222 Z" fill="#CBD5E1" stroke="#1E293B" stroke-width="1.8"/>
+        <ellipse cx="408" cy="166" rx="40" ry="26" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+        <path d="M380,166 L435,166 M390,152 L425,178 M390,178 L425,152" stroke="#0D9488" stroke-width="1.2"/>
+        <text x="60" y="55" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">प्रमस्तिष्क</text>
+        <line x1="122" y1="51" x2="210" y2="62" stroke="#475569" stroke-width="1.2"/>
+        <text x="515" y="55" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">कॉर्पस कैलोसम</text>
+        <line x1="510" y1="55" x2="365" y2="92" stroke="#475569" stroke-width="1.2"/>
+        <text x="55" y="125" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">थैलेमस</text>
+        <line x1="115" y1="121" x2="291" y2="126" stroke="#475569" stroke-width="1.2"/>
+        <text x="55" y="160" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">हाइपोथैलेमस</text>
+        <line x1="142" y1="156" x2="310" y2="148" stroke="#475569" stroke-width="1.2"/>
+        <text x="515" y="125" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">मध्यमस्तिष्क</text>
+        <line x1="510" y1="125" x2="363" y2="150" stroke="#475569" stroke-width="1.2"/>
+        <text x="515" y="165" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">अनुमस्तिष्क</text>
+        <line x1="510" y1="165" x2="448" y2="166" stroke="#475569" stroke-width="1.2"/>
+        <text x="195" y="185" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">पॉन्स</text>
+        <line x1="230" y1="181" x2="320" y2="175" stroke="#475569" stroke-width="1.2"/>
+        <text x="175" y="210" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">मेडुला</text>
+        <line x1="226" y1="206" x2="338" y2="202" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="215" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">मेरुरज्जु</text>
+        <line x1="450" y1="212" x2="356" y2="215" stroke="#475569" stroke-width="1.2"/>
+      </svg>
+      <div class="svg-caption">ट्यूटोरियल आरेख 3: मानव मस्तिष्क का अनुदैर्ध्य आरेख (अग्र, मध्य एवं पश्चमस्तिष्क)।</div>
+    </div>
+
+    <h3>प्रतिवर्ती क्रिया एवं प्रतिवर्ती चाप</h3>
+    <p><strong>प्रतिवर्ती क्रिया</strong> परिधीय उद्दीपन के प्रति बिना किसी सचेत प्रयास के होने वाली तीव्र, अनैच्छिक प्रतिक्रिया है, जिसमें CNS की भागीदारी आवश्यक होती है। एक न्यूनतम <strong>प्रतिवर्ती चाप</strong> का क्रम होता है: <strong>ग्राही</strong> (जैसे, जानु-प्रतिक्षेप में पेशी तर्कू) → <strong>अभिवाही न्यूरॉन</strong> (<em>पृष्ठ तंत्रिका मूल</em> द्वारा मेरुरज्जु में प्रवेश) → <strong>CNS (मेरुरज्जु / अंतरा-न्यूरॉन)</strong> → <strong>अपवाही (प्रेरक) न्यूरॉन</strong> → <strong>प्रभावक</strong> (पेशी पर प्रेरक अंत्य-पट्टिका)।</p>
+  </div>
+</section>
+
+<section>
+  <h2>5. Sensory Reception and Processing</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <h3>Chemical Senses: Nose and Tongue</h3>
+    <p>The nose detects dissolved odours via mucus-coated <strong>olfactory receptors</strong> in the three-celled olfactory epithelium; neurons project directly into paired <strong>olfactory bulbs</strong> (extensions of the limbic system). The tongue detects dissolved chemicals via <strong>gustatory receptors</strong> housed in <strong>taste buds</strong>.</p>
+
+    <h3>The Human Eye</h3>
+    <p>Located in skull sockets called <strong>orbits</strong>, the eyeball wall has three concentric layers:</p>
+    <ul>
+      <li><strong>Sclera (Outer):</strong> Dense connective tissue; its transparent anterior portion is the <strong>cornea</strong>.</li>
+      <li><strong>Choroid (Middle):</strong> Vascular, bluish layer; thickens anteriorly into the <strong>ciliary body</strong>, which continues as the pigmented, opaque <strong>iris</strong> surrounding the <strong>pupil</strong> (whose diameter is regulated by iris muscles). Ligaments from the ciliary body hold the crystalline <strong>lens</strong>.</li>
+      <li><strong>Retina (Inner):</strong> Three neural layers from inside to outside—<strong>ganglion cells → bipolar cells → photoreceptor cells</strong> (rods and cones).</li>
+    </ul>
+
+    <div class="svg-wrap">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic cross-section of the human eye">
+        <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="6"/>
+        <!-- Eyeball outer (Sclera) + Cornea bulge -->
+        <path d="M235,55 A88,88 0 1,1 235,175 C195,155 195,75 235,55 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="3"/>
+        <!-- Choroid -->
+        <path d="M242,64 A78,78 0 1,1 242,166" fill="none" stroke="#2563EB" stroke-width="4"/>
+        <!-- Retina -->
+        <path d="M248,72 A70,70 0 1,1 248,158" fill="none" stroke="#0D9488" stroke-width="4"/>
+        <!-- Optic nerve exit (Blind spot) -->
+        <rect x="380" y="128" width="55" height="16" fill="#DBEAFE" stroke="#1E293B" stroke-width="2"/>
+        <!-- Fovea pit -->
+        <circle cx="388" cy="108" r="4" fill="#1E293B"/>
+        <!-- Lens -->
+        <ellipse cx="242" cy="115" rx="14" ry="34" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+        <!-- Iris -->
+        <line x1="226" y1="70" x2="226" y2="92" stroke="#1E293B" stroke-width="5"/>
+        <line x1="226" y1="138" x2="226" y2="160" stroke="#1E293B" stroke-width="5"/>
+        <!-- Labels -->
+        <text x="65" y="65" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Cornea</text>
+        <line x1="112" y1="62" x2="205" y2="90" stroke="#475569" stroke-width="1.2"/>
+        <text x="65" y="110" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Aqueous chamber</text>
+        <line x1="172" y1="107" x2="215" y2="110" stroke="#475569" stroke-width="1.2"/>
+        <text x="65" y="150" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Iris &amp; Pupil</text>
+        <line x1="138" y1="147" x2="222" y2="147" stroke="#475569" stroke-width="1.2"/>
+        <text x="65" y="188" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Lens</text>
+        <line x1="100" y1="184" x2="235" y2="145" stroke="#475569" stroke-width="1.2"/>
+        <text x="275" y="25" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Vitreous chamber</text>
+        <line x1="320" y1="30" x2="320" y2="95" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="75" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Sclera / Choroid / Retina</text>
+        <line x1="450" y1="72" x2="375" y2="75" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="110" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Fovea (cones only)</text>
+        <line x1="450" y1="107" x2="394" y2="108" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="142" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Blind spot &amp; Optic nerve</text>
+        <line x1="450" y1="138" x2="435" y2="136" stroke="#475569" stroke-width="1.2"/>
+      </svg>
+      <div class="svg-caption">Tutorial Diagram 4: Structural layers, chambers, and retinal landmarks of the human eye.</div>
+    </div>
+
+    <p><strong>Rods</strong> contain <em>rhodopsin</em> (visual purple, a Vitamin A derivative) and mediate twilight (<strong>scotopic</strong>) vision. <strong>Cones</strong> (three types: red, green, blue) mediate daylight (<strong>photopic</strong>) and colour vision; equal stimulation produces white light sensation. The <strong>blind spot</strong> lacks photoreceptors where the optic nerve exits. Lateral to it lies the yellowish <em>macula lutea</em> with its central pit, the <strong>fovea</strong>—densely packed exclusively with cones for maximum visual acuity. The <strong>aqueous chamber</strong> (cornea–lens) holds watery aqueous humor; the <strong>vitreous chamber</strong> (lens–retina) holds gel-like vitreous humor.</p>
+    <p><strong>Mechanism of Vision:</strong> Photopigments consist of <strong>opsin</strong> (protein) and <strong>retinal</strong> (Vitamin A aldehyde). Light dissociates retinal from opsin, altering opsin structure and membrane permeability, generating potentials in photoreceptors → bipolar cells → ganglion cells → optic nerve → <strong>visual cortex</strong>.</p>
+
+    <h3>The Human Ear</h3>
+    <ul>
+      <li><strong>Outer Ear:</strong> <em>Pinna</em> + <em>external auditory meatus</em> leading to the <em>tympanic membrane</em> (ear drum).</li>
+      <li><strong>Middle Ear:</strong> Three ossicles—<strong>malleus</strong> (attached to tympanic membrane), <strong>incus</strong>, and <strong>stapes</strong> (attached to <em>oval window</em>)—amplifying sound transmission. The <strong>Eustachian tube</strong> links the middle ear to the pharynx to equalise pressure across the ear drum.</li>
+      <li><strong>Inner Ear (Labyrinth):</strong> Bony labyrinth (filled with <em>perilymph</em>) encloses the membranous labyrinth (filled with <em>endolymph</em>). Its coiled <strong>cochlea</strong> is divided by <em>Reissner's</em> and <em>basilar membranes</em> into upper <em>scala vestibuli</em> (ends at oval window), middle <em>scala media</em> (endolymph), and lower <em>scala tympani</em> (ends at round window). On the basilar membrane sits the <strong>Organ of Corti</strong> containing auditory <strong>hair cells</strong> with apical stereocilia beneath an elastic <strong>tectorial membrane</strong>.</li>
+      <li><strong>Vestibular Apparatus:</strong> Located above the cochlea for balance and posture; includes three mutually perpendicular <strong>semicircular canals</strong> (swollen bases called <em>ampullae</em> contain <strong>crista ampullaris</strong>) and the <strong>otolith</strong> organ (saccule and utricle containing <strong>macula</strong>).</li>
+    </ul>
+    <p><strong>Mechanism of Hearing:</strong> Sound vibrates the ear drum → ossicles → oval window → cochlear lymph waves → basilar membrane ripples → hair cells bend against the tectorial membrane → afferent impulses travel via auditory nerves to the <strong>auditory cortex</strong>.</p>
+  </div>
+
+  <h2>5. संवेदी अभिग्रहण एवं प्रसंस्करण</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <h3>रासायनिक संवेदनाएँ: नाक और जीभ</h3>
+    <p>नाक घुलित गंध को तीन-कोशिकीय घ्राण उपकला में स्थित श्लेष्मा-आवृत <strong>घ्राण ग्राहियों</strong> द्वारा ग्रहण करती है; इनके न्यूरॉन सीधे <strong>घ्राण बल्ब (olfactory bulbs)</strong> (लिम्बिक तंत्र के विस्तार) में जाते हैं। जीभ <strong>स्वाद कलिकाओं</strong> में स्थित <strong>स्वाद ग्राहियों</strong> द्वारा घुलित रसायनों का पता लगाती है।</p>
+
+    <h3>मानव नेत्र</h3>
+    <p>खोपड़ी की <strong>नेत्र कोटरों (orbits)</strong> में स्थित नेत्र गोलक की भित्ति में तीन परतें होती हैं:</p>
+    <ul>
+      <li><strong>श्वेतपटल (Sclera - बाहरी):</strong> सघन संयोजी ऊतक; इसका पारदर्शी अग्र भाग <strong>कॉर्निया</strong> कहलाता है।</li>
+      <li><strong>रक्तक पटल (Choroid - मध्य):</strong> संवाहनीय नीली परत; आगे मोटी होकर <strong>पक्ष्माभ काय (ciliary body)</strong> बनाती है, जो आगे बढ़कर <strong>परितारिका (iris)</strong> बनाती है। परितारिका से घिरा छिद्र <strong>पुतली (pupil)</strong> है। पक्ष्माभ काय के स्नायु क्रिस्टलीय <strong>लेंस</strong> को थामे रखते हैं।</li>
+      <li><strong>दृष्टिपटल (Retina - भीतरी):</strong> अंदर से बाहर तीन तंत्रिकीय परतें—<strong>गैंग्लियन कोशिकाएँ → द्विध्रुवी कोशिकाएँ → प्रकाशग्राही कोशिकाएँ</strong> (शलाकाएँ एवं शंकु)।</li>
+    </ul>
+
+    <div class="svg-wrap" lang="hi">
+      <svg viewBox="0 0 680 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="मानव नेत्र का अनुप्रस्थ आरेख">
+        <rect x="0" y="0" width="680" height="230" fill="#F8FAFC" rx="6"/>
+        <path d="M235,55 A88,88 0 1,1 235,175 C195,155 195,75 235,55 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="3"/>
+        <path d="M242,64 A78,78 0 1,1 242,166" fill="none" stroke="#2563EB" stroke-width="4"/>
+        <path d="M248,72 A70,70 0 1,1 248,158" fill="none" stroke="#0D9488" stroke-width="4"/>
+        <rect x="380" y="128" width="55" height="16" fill="#DBEAFE" stroke="#1E293B" stroke-width="2"/>
+        <circle cx="388" cy="108" r="4" fill="#1E293B"/>
+        <ellipse cx="242" cy="115" rx="14" ry="34" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+        <line x1="226" y1="70" x2="226" y2="92" stroke="#1E293B" stroke-width="5"/>
+        <line x1="226" y1="138" x2="226" y2="160" stroke="#1E293B" stroke-width="5"/>
+        <text x="65" y="65" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">कॉर्निया</text>
+        <line x1="112" y1="62" x2="205" y2="90" stroke="#475569" stroke-width="1.2"/>
+        <text x="65" y="110" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">जलीय कक्ष</text>
+        <line x1="145" y1="107" x2="215" y2="110" stroke="#475569" stroke-width="1.2"/>
+        <text x="65" y="150" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">परितारिका एवं पुतली</text>
+        <line x1="175" y1="147" x2="222" y2="147" stroke="#475569" stroke-width="1.2"/>
+        <text x="65" y="188" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">लेंस</text>
+        <line x1="100" y1="184" x2="235" y2="145" stroke="#475569" stroke-width="1.2"/>
+        <text x="275" y="25" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">काचाभ कक्ष</text>
+        <line x1="320" y1="30" x2="320" y2="95" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="75" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">श्वेतपटल / रक्तक / रेटिना</text>
+        <line x1="450" y1="72" x2="375" y2="75" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="110" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">फोविया (केवल शंकु)</text>
+        <line x1="450" y1="107" x2="394" y2="108" stroke="#475569" stroke-width="1.2"/>
+        <text x="455" y="142" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">अंध बिंदु एवं दृक तंत्रिका</text>
+        <line x1="450" y1="138" x2="435" y2="136" stroke="#475569" stroke-width="1.2"/>
+      </svg>
+      <div class="svg-caption">ट्यूटोरियल आरेख 4: मानव नेत्र की परतें, कक्ष और दृष्टिपटल के प्रमुख भाग।</div>
+    </div>
+
+    <p><strong>शलाकाओं (Rods)</strong> में <em>रोडोप्सिन</em> (विटामिन A व्युत्पन्न) होता है जो मंद प्रकाश (<strong>स्कोटोपिंक</strong>) दृष्टि प्रदान करता है। <strong>शंकु (Cones)</strong> (लाल, हरे, नीले तीन प्रकार) दिन के प्रकाश (<strong>फोटोपिक</strong>) और रंग दृष्टि के लिए उत्तरदायी हैं; समान उत्तेजन से श्वेत प्रकाश का आभास होता है। जहाँ दृक तंत्रिका बाहर निकलती है वहाँ प्रकाशग्राही नहीं होते, इसे <strong>अंध बिंदु (blind spot)</strong> कहते हैं। इसके पार्श्व में पीत बिंदु (<em>मैक्यूला ल्यूटिया</em>) के मध्य गड्ढे को <strong>फोविया (fovea)</strong> कहते हैं जहाँ केवल शंकु सघनता से होते हैं और दृष्टि तीक्ष्णता सर्वाधिक होती है।</p>
+    <p><strong>दृष्टि की क्रियाविधि:</strong> प्रकाश-वर्णक <strong>ऑप्सिन</strong> (प्रोटीन) और <strong>रेटिनल</strong> (विटामिन A ऐल्डिहाइड) से बने होते हैं। प्रकाश से रेटिनल और ऑप्सिन अलग हो जाते हैं, जिससे झिल्ली पारगम्यता बदलती है और आवेग प्रकाशग्राही → द्विध्रुवी → गैंग्लियन → दृक तंत्रिका → <strong>दृष्टि वल्कुट</strong> तक पहुँचता है।</p>
+
+    <h3>मानव कर्ण</h3>
+    <ul>
+      <li><strong>बाह्य कर्ण:</strong> <em>कर्ण पल्लव</em> और <em>बाह्य श्रवण कुहर</em> जो <em>कर्ण पटह</em> (ear drum) तक जाता है।</li>
+      <li><strong>मध्य कर्ण:</strong> तीन अस्थियाँ—<strong>मैलियस</strong>, <strong>इंकस</strong> और <strong>स्टेपीज</strong> (<em>अंडाकार गवाक्ष</em> से जुड़ी)—ध्वनि संचरण की दक्षता बढ़ाती हैं। <strong>यूस्टेशियन नलिका</strong> मध्य कर्ण को ग्रसनी से जोड़कर कर्ण पटह के दोनों ओर दाब समान रखती है।</li>
+      <li><strong>आंतरिक कर्ण (लैबरिंथ):</strong> अस्थिल लैबरिंथ (<em>पेरिलिम्फ</em> से भरा) के भीतर कलामय लैबरिंथ (<em>एंडोलिम्फ</em> से भरा) होता है। इसके कुंडलित <strong>कर्णावर्त (cochlea)</strong> को <em>रीस्नर</em> व <em>बेसिलर झिल्लियाँ</em> तीन कक्षों में बाँटती हैं: स्केला वेस्टिबुली, स्केला मीडिया (एंडोलिम्फ) और स्केला टिम्पैनी। बेसिलर झिल्ली पर स्थित <strong>कॉर्टाइ अंग (Organ of Corti)</strong> में <strong>रोम कोशिकाएँ</strong> होती हैं, जिनके ऊपर <strong>टेक्टोरियल झिल्ली</strong> होती है।</li>
+      <li><strong>प्रघाण तंत्र (Vestibular Apparatus):</strong> संतुलन व मुद्रा हेतु कर्णावर्त के ऊपर स्थित; इसमें परस्पर समकोण पर तीन <strong>अर्धवृत्ताकार नलिकाएँ</strong> (आधार पर <em>एम्पुला</em> में <strong>क्रिस्टा एम्पुलेरिस</strong>) और <strong>ऑटोलिथ</strong> अंग (सैक्यूल व यूट्रिकल जिनमें <strong>मैक्यूला</strong> होता है) शामिल हैं।</li>
+    </ul>
+    <p><strong>श्रवण की क्रियाविधि:</strong> ध्वनि तरंगों से कर्ण पटह → कर्ण अस्थियाँ → अंडाकार गवाक्ष → कर्णावर्त द्रव में तरंगें → बेसिलर झिल्ली में कंपन → रोम कोशिकाओं का टेक्टोरियल झिल्ली से मुड़ना → श्रवण तंत्रिका द्वारा <strong>श्रवण वल्कुट</strong> में विश्लेषण।</p>
+  </div>
+</section>
+
+<section>
+  <h2>6. Worked Examples</h2>
+
+  <div class="example-card">
+    <span class="lang-badge badge-en">English</span>
+    <h3>Worked Example 1: Ion Flux Stoichiometry of the Sodium–Potassium Pump</h3>
+    <p><strong>Scenario (Assumed Values):</strong> Suppose a resting axonal segment maintains its concentration gradient by completing \(150\) catalytic cycles of the \(\mathrm{Na}^+/\mathrm{K}^+\) ATPase pump in one second. Calculate the net number of positive charges exported from the axoplasm during this interval.</p>
+    <p><strong>Reasoning &amp; Solution:</strong> Each catalytic cycle of the sodium–potassium pump actively transports \(3\,\mathrm{Na}^+\) ions outward and \(2\,\mathrm{K}^+\) ions inward. Therefore, the net charge exported per cycle is:</p>
+    <div class="formula-box">
+      \[ \text{Net positive charge exported per cycle} = 3 - 2 = +1\,\text{elementary charge} \]
+    </div>
+    <p>For \(150\) cycles (assumed value), the total net positive charge exported is \(150 \times (+1) = +150\) elementary charges. This electrogenic \(3:2\) stoichiometry contributes directly to keeping the inner surface negative relative to the outer surface at rest.</p>
+  </div>
+
+  <div class="example-card lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <h3>हल किया गया उदाहरण 1: सोडियम–पोटैशियम पंप की आयन प्रवाह रससमीकरणमिति</h3>
+    <p><strong>परिदृश्य (कल्पित मान):</strong> मान लीजिए किसी विश्राम अवस्था वाले तंत्रिकाक्ष खंड में \(\mathrm{Na}^+/\mathrm{K}^+\) पंप एक सेकंड में \(150\) उत्प्रेरक चक्र पूरे करता है। इस अवधि में एक्सोप्लाज्म से बाहर भेजे गए शुद्ध धनावेशों की संख्या की गणना कीजिए।</p>
+    <p><strong>तर्क एवं हल:</strong> सोडियम–पोटैशियम पंप प्रत्येक चक्र में \(3\,\mathrm{Na}^+\) आयन बाहर और \(2\,\mathrm{K}^+\) आयन भीतर भेजता है। अतः प्रति चक्र बाहर जाने वाला शुद्ध धनावेश:</p>
+    <div class="formula-box">
+      \[ 3 - 2 = +1 \]
+    </div>
+    <p>\(150\) चक्रों (कल्पित मान) के लिए कुल शुद्ध धनावेश \(= 150 \times (+1) = +150\) मूल आवेश होगा। यही \(3:2\) अनुपात विश्राम अवस्था में झिल्ली की भीतरी सतह को ऋणावेशित बनाए रखने में सहायक होता है।</p>
+  </div>
+
+  <div class="example-card">
+    <span class="lang-badge badge-en">English</span>
+    <h3>Worked Example 2: Tracing a Monosynaptic Stretch Reflex Pathway</h3>
+    <p><strong>Scenario:</strong> A clinician taps the patellar tendon just below a patient's kneecap, causing sudden extension of the lower leg. Trace the exact anatomical sequence of neural structures involved.</p>
+    <p><strong>Reasoning &amp; Solution:</strong></p>
+    <ol>
+      <li><strong>Stimulus &amp; Receptor:</strong> Stretching of the quadriceps tendon stimulates the <em>muscle spindle</em> (sensory receptor).</li>
+      <li><strong>Afferent Pathway:</strong> The sensory neuron conducts the impulse into the spinal cord (CNS) via the <em>dorsal root</em> (passing through the dorsal root ganglion).</li>
+      <li><strong>Integration:</strong> Within the spinal cord grey matter, the afferent neuron synapses directly (or via an interneuron) with a motor neuron.</li>
+      <li><strong>Efferent Pathway &amp; Effector:</strong> The motor (efferent) neuron exits to stimulate the <em>motor endplate</em> of the effector skeletal muscle, producing the involuntary knee-jerk response.</li>
+    </ol>
+  </div>
+
+  <div class="example-card lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <h3>हल किया गया उदाहरण 2: जानु-प्रतिक्षेप (Knee-Jerk) प्रतिवर्ती पथ का अनुसरण</h3>
+    <p><strong>परिदृश्य:</strong> एक चिकित्सक रोगी के घुटने के ठीक नीचे पटेला कंडरा पर हल्का आघात करता है, जिससे निचला पैर अचानक आगे की ओर झटकता है। इसमें शामिल तंत्रिकीय संरचनाओं का सटीक क्रम बताइए।</p>
+    <p><strong>तर्क एवं हल:</strong></p>
+    <ol>
+      <li><strong>उद्दीपन एवं ग्राही:</strong> कंडरा में खिंचाव से <em>पेशी तर्कू</em> (संवेदी ग्राही) उद्दीपित होता है।</li>
+      <li><strong>अभिवाही पथ:</strong> संवेदी न्यूरॉन <em>पृष्ठ मूल</em> (dorsal root) से होकर मेरुरज्जु (CNS) में प्रवेश करता है।</li>
+      <li><strong>एकीकरण:</strong> मेरुरज्जु के धूसर द्रव्य में अभिवाही न्यूरॉन सीधे (या अंतरा-न्यूरॉन के माध्यम से) प्रेरक न्यूरॉन के साथ सिनेप्स बनाता है।</li>
+      <li><strong>अपवाही पथ एवं प्रभावक:</strong> अपवाही (प्रेरक) न्यूरॉन कंकाल पेशी की <em>प्रेरक अंत्य-पट्टिका</em> को संकेत भेजता है, जिससे अनैच्छिक जानु-प्रतिक्षेप उत्पन्न होता है।</li>
+    </ol>
+  </div>
+
+  <div class="example-card">
+    <span class="lang-badge badge-en">English</span>
+    <h3>Worked Example 3: Distinguishing Retinal Regions Under Varying Illumination</h3>
+    <p><strong>Scenario:</strong> A student steps from bright midday sunlight into a dimly lit cinema hall and initially struggles to see seats, then gradually adapts. Explain which photoreceptors and retinal landmarks dominate before and after adaptation.</p>
+    <p><strong>Reasoning &amp; Solution:</strong></p>
+    <ul>
+      <li><strong>Bright Sunlight (Photopic Vision):</strong> High-acuity daylight and colour vision rely on <strong>cones</strong>, which are densely packed exclusively in the <strong>fovea</strong>.</li>
+      <li><strong>Dimly Lit Hall (Scotopic Vision):</strong> After brief dark adaptation, <strong>rods</strong> take over using <em>rhodopsin</em> (containing a Vitamin A derivative) to detect low-intensity light, though without colour discrimination.</li>
+    </ul>
+  </div>
+
+  <div class="example-card lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <h3>हल किया गया उदाहरण 3: भिन्न प्रकाश तीव्रता में दृष्टिपटल के भागों की भूमिका</h3>
+    <p><strong>परिदृश्य:</strong> एक विद्यार्थी तेज धूप से कम रोशनी वाले सिनेमा हॉल में प्रवेश करता है और प्रारंभ में सीटें देखने में कठिनाई महसूस करता है, परंतु कुछ समय बाद स्पष्ट देखने लगता है। अनुकूलन से पहले और बाद में प्रभावी प्रकाशग्राहियों की व्याख्या कीजिए।</p>
+    <p><strong>तर्क एवं हल:</strong></p>
+    <ul>
+      <li><strong>तेज धूप (फोटोपिक दृष्टि):</strong> दिन के प्रकाश में रंग और तीक्ष्ण दृष्टि <strong>शंकुओं (cones)</strong> पर निर्भर करती है, जो <strong>फोविया</strong> में सघनता से उपस्थित होते हैं।</li>
+      <li><strong>कम रोशनी (स्कोटोपिंक दृष्टि):</strong> अंधेरे में अनुकूलन के बाद <strong>शलाकाएँ (rods)</strong> अपने <em>रोडोप्सिन</em> वर्णक की सहायता से मंद प्रकाश को ग्रहण करती हैं, यद्यपि इसमें रंगों का भेद नहीं होता।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>7. NEET UG Practice Questions</h2>
+  <p><em>Note: The following are original practice questions designed for NEET UG preparation.</em></p>
+
+  <!-- Question 1 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 1 (Single-Correct MCQ)</span>
+    <p>Which statement accurately distinguishes unmyelinated nerve fibres from myelinated nerve fibres in the human peripheral neural system?</p>
+    <ul class="q-options">
+      <li>(a) Unmyelinated fibres lack Schwann cells altogether, whereas myelinated fibres possess them.</li>
+      <li>(b) Unmyelinated fibres are enclosed by Schwann cells that do not form a myelin sheath around the axon.</li>
+      <li>(c) Unmyelinated fibres are restricted exclusively to cranial nerves and spinal nerves.</li>
+      <li>(d) Unmyelinated fibres possess prominent nodes of Ranvier between adjacent Schwann cells.</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (b)</p>
+      <p><strong>Explanation:</strong> In the PNS, both myelinated and unmyelinated axons are associated with Schwann cells. However, in unmyelinated fibres (common in autonomic and somatic systems), the Schwann cell encloses the axon without wrapping it in a myelin sheath. Myelinated fibres with nodes of Ranvier occur in spinal and cranial nerves.</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 1 (एकल-सही बहुविकल्पीय)</span>
+    <p lang="hi">मानव परिधीय तंत्रिका तंत्र में माइलिनहीन और माइलिन आच्छदित तंत्रिका तंतुओं के बीच सही अंतर कौन-सा कथन दर्शाता है?</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) माइलिनहीन तंतुओं में श्वान कोशिकाएँ बिल्कुल नहीं होतीं, जबकि माइलिन आच्छदित तंतुओं में होती हैं।</li>
+      <li>(b) माइलिनहीन तंतु श्वान कोशिकाओं से घिरे होते हैं, परंतु वे तंत्रिकाक्ष के चारों ओर माइलिन आच्छद नहीं बनातीं।</li>
+      <li>(c) माइलिनहीन तंतु केवल कपाल और मेरु तंत्रिकाओं तक सीमित होते हैं।</li>
+      <li>(d) माइलिनहीन तंतुओं में दो श्वान कोशिकाओं के बीच स्पष्ट रैनवियर की पर्वसंधियाँ होती हैं।</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (b)</p>
+      <p><strong>व्याख्या:</strong> माइलिनहीन तंत्रिका तंतु भी श्वान कोशिका से घिरे होते हैं, किंतु यह कोशिका तंत्रिकाक्ष पर माइलिन आच्छद का निर्माण नहीं करती। ये तंतु स्वायत्त और कायिक तंत्रिका तंत्र में सामान्यतः पाए जाते हैं, जबकि माइलिन आच्छदित तंतु (रैनवियर की पर्वसंधियों सहित) मेरु और कपाल तंत्रिकाओं में मिलते हैं।</p>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 2 (Assertion–Reason)</span>
+    <p><strong>Assertion (A):</strong> At a chemical synapse, impulse transmission is slower than at an electrical synapse.<br>
+    <strong>Reason (R):</strong> At a chemical synapse, neurotransmitters must diffuse across a fluid-filled synaptic cleft and bind to post-synaptic receptors to open ion channels.</p>
+    <ul class="q-options">
+      <li>(a) Both (A) and (R) are true and (R) is the correct explanation of (A).</li>
+      <li>(b) Both (A) and (R) are true but (R) is not the correct explanation of (A).</li>
+      <li>(c) (A) is true but (R) is false.</li>
+      <li>(d) (A) is false but (R) is true.</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (a)</p>
+      <p><strong>Explanation:</strong> Electrical synapses allow direct current flow across closely apposed membranes, making them faster. Chemical synapses involve vesicle fusion, neurotransmitter release across the synaptic cleft, and receptor-mediated ion channel opening, which introduces a synaptic delay.</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 2 (अभिकथन–कारण)</span>
+    <p lang="hi"><strong>अभिकथन (A):</strong> रासायनिक सिनेप्स पर आवेग का संचरण विद्युतीय सिनेप्स की तुलना में धीमा होता है।<br>
+    <strong>कारण (R):</strong> रासायनिक सिनेप्स में न्यूरोट्रांसमीटर को तरल से भरे सिनेप्टिक अवकाश को पार करके पश्च-सिनेप्टिक ग्राहियों से बंधना पड़ता है ताकि आयन चैनल खुल सकें।</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) (A) और (R) दोनों सत्य हैं तथा (R), (A) की सही व्याख्या है।</li>
+      <li>(b) (A) और (R) दोनों सत्य हैं परंतु (R), (A) की सही व्याख्या नहीं है।</li>
+      <li>(c) (A) सत्य है परंतु (R) असत्य है।</li>
+      <li>(d) (A) असत्य है परंतु (R) सत्य है।</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (a)</p>
+      <p><strong>व्याख्या:</strong> विद्युतीय सिनेप्स में झिल्लियाँ अत्यंत निकट होने से विद्युत धारा सीधे प्रवाहित होती है। रासायनिक सिनेप्स में पुटिका संलयन, न्यूरोट्रांसमीटर का अवकाश में विसरण और ग्राही-बंधन की प्रक्रिया के कारण संचरण अपेक्षाकृत धीमा होता है।</p>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 3 (Statement Analysis)</span>
+    <p>Consider the following two statements regarding the human brain:<br>
+    <strong>Statement I:</strong> The association areas of the cerebral cortex are neither clearly sensory nor motor in function, and handle memory and communication.<br>
+    <strong>Statement II:</strong> The brain stem consists of the cerebrum, pons, and medulla oblongata.</p>
+    <ul class="q-options">
+      <li>(a) Both Statement I and Statement II are correct.</li>
+      <li>(b) Both Statement I and Statement II are incorrect.</li>
+      <li>(c) Statement I is correct but Statement II is incorrect.</li>
+      <li>(d) Statement I is incorrect but Statement II is correct.</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (c)</p>
+      <p><strong>Explanation:</strong> Statement I is correct: association areas perform complex functions such as intersensory associations, memory, and communication. Statement II is incorrect because the brain stem is formed by the <strong>midbrain</strong>, pons, and medulla oblongata—not the cerebrum.</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 3 (कथन विश्लेषण)</span>
+    <p lang="hi">मानव मस्तिष्क के संदर्भ में निम्नलिखित दो कथनों पर विचार कीजिए:<br>
+    <strong>कथन I:</strong> प्रमस्तिष्क वल्कुट के सहचारी क्षेत्र न तो स्पष्ट रूप से संवेदी होते हैं और न ही प्रेरक, तथा ये स्मृति और संवाद का कार्य करते हैं।<br>
+    <strong>कथन II:</strong> मस्तिष्क स्तंभ (brain stem) प्रमस्तिष्क, पॉन्स और मेडुला ऑब्लांगेटा से मिलकर बनता है।</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) कथन I और कथन II दोनों सही हैं।</li>
+      <li>(b) कथन I और कथन II दोनों गलत हैं।</li>
+      <li>(c) कथन I सही है परंतु कथन II गलत है।</li>
+      <li>(d) कथन I गलत है परंतु कथन II सही है।</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (c)</p>
+      <p><strong>व्याख्या:</strong> कथन I सही है क्योंकि सहचारी क्षेत्र अंतर-संवेदी संयोजन, स्मृति और संवाद जैसे जटिल कार्य करते हैं। कथन II गलत है क्योंकि मस्तिष्क स्तंभ <strong>मध्यमस्तिष्क</strong>, पॉन्स और मेडुला ऑब्लांगेटा से बनता है, प्रमस्तिष्क से नहीं।</p>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 4 (Column Matching)</span>
+    <p>Match the brain structures in Column I with their primary functions in Column II:</p>
+    <table>
+      <thead>
+        <tr><th>Column I</th><th>Column II</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A. Hypothalamus</td><td>1. Connects left and right cerebral hemispheres</td></tr>
+        <tr><td>B. Medulla oblongata</td><td>2. Thermoregulation and urge for eating/drinking</td></tr>
+        <tr><td>C. Corpus callosum</td><td>3. Visual, tactile, and auditory input integration</td></tr>
+        <tr><td>D. Corpora quadrigemina</td><td>4. Control of respiration and gastric secretions</td></tr>
+      </tbody>
+    </table>
+    <ul class="q-options">
+      <li>(a) A-2, B-4, C-1, D-3</li>
+      <li>(b) A-4, B-2, C-1, D-3</li>
+      <li>(c) A-2, B-1, C-4, D-3</li>
+      <li>(d) A-3, B-4, C-1, D-2</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (a)</p>
+      <p><strong>Explanation:</strong> Hypothalamus regulates body temperature, hunger, and thirst (A-2). Medulla controls respiration, cardiovascular reflexes, and gastric secretions (B-4). Corpus callosum bridges the two cerebral hemispheres (C-1). Corpora quadrigemina in the midbrain integrate visual, tactile, and auditory inputs (D-3).</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 4 (स्तंभ मिलान)</span>
+    <p lang="hi">स्तंभ I में दी गई मस्तिष्क संरचनाओं का स्तंभ II में दिए गए उनके प्रमुख कार्यों से मिलान कीजिए:</p>
+    <table lang="hi">
+      <thead>
+        <tr><th>स्तंभ I</th><th>स्तंभ II</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A. हाइपोथैलेमस</td><td>1. बाएँ और दाएँ प्रमस्तिष्क गोलार्धों को जोड़ना</td></tr>
+        <tr><td>B. मेडुला ऑब्लांगेटा</td><td>2. ताप-नियमन तथा खाने-पीने की इच्छा</td></tr>
+        <tr><td>C. कॉर्पस कैलोसम</td><td>3. दृश्य, स्पर्श एवं श्रवण आवेगों का एकीकरण</td></tr>
+        <tr><td>D. कॉर्पोरा क्वाड्रीजेमिना</td><td>4. श्वसन एवं जठर स्राव का नियंत्रण</td></tr>
+      </tbody>
+    </table>
+    <ul class="q-options" lang="hi">
+      <li>(a) A-2, B-4, C-1, D-3</li>
+      <li>(b) A-4, B-2, C-1, D-3</li>
+      <li>(c) A-2, B-1, C-4, D-3</li>
+      <li>(d) A-3, B-4, C-1, D-2</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (a)</p>
+      <p><strong>व्याख्या:</strong> हाइपोथैलेमस शरीर तापमान व भूख-प्यास नियंत्रित करता है (A-2)। मेडुला श्वसन, हृदय-संवहनी प्रतिवर्त व जठर स्राव को नियंत्रित करता है (B-4)। कॉर्पस कैलोसम दोनों प्रमस्तिष्क गोलार्धों को जोड़ता है (C-1)। कॉर्पोरा क्वाड्रीजेमिना दृश्य, स्पर्श व श्रवण संकेतों को एकीकृत करता है (D-3)।</p>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 5 (Single-Correct MCQ)</span>
+    <p>During repolarisation of an excited axonal membrane, restoration of the resting potential occurs primarily due to:</p>
+    <ul class="q-options">
+      <li>(a) Rapid influx of \(\mathrm{Na}^+\) into the axoplasm</li>
+      <li>(b) Rapid efflux of \(\mathrm{K}^+\) out of the axonal membrane</li>
+      <li>(c) Diffusion of negatively charged proteins out of the axon</li>
+      <li>(d) Sudden closure of all \(\mathrm{K}^+\) channels</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (b)</p>
+      <p><strong>Explanation:</strong> The stimulus-induced rise in \(\mathrm{Na}^+\) permeability is very brief and is rapidly followed by a rise in \(\mathrm{K}^+\) permeability. Outward diffusion of \(\mathrm{K}^+\) restores the negative interior and positive exterior (resting potential).</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 5 (एकल-सही बहुविकल्पीय)</span>
+    <p lang="hi">उत्तेजित तंत्रिकाक्ष झिल्ली के पुनर्ध्रुवण (repolarisation) के दौरान विश्राम विभव की पुनः स्थापना मुख्यतः किसके कारण होती है?</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) एक्सोप्लाज्म में \(\mathrm{Na}^+\) के तीव्र अंतर्वाह के कारण</li>
+      <li>(b) झिल्ली से \(\mathrm{K}^+\) के तीव्र बहिर्वाह के कारण</li>
+      <li>(c) तंत्रिकाक्ष से ऋणावेशित प्रोटीन के बाहर विसरण के कारण</li>
+      <li>(d) सभी \(\mathrm{K}^+\) चैनलों के अचानक बंद होने के कारण</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (b)</p>
+      <p><strong>व्याख्या:</strong> उद्दीपन से उत्पन्न \(\mathrm{Na}^+\) पारगम्यता अत्यंत क्षणिक होती है, जिसके तुरंत बाद \(\mathrm{K}^+\) की पारगम्यता बढ़ जाती है। \(\mathrm{K}^+\) के बाहर विसरित होने से विश्राम विभव पुनः स्थापित हो जाता है।</p>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 6 (Single-Correct MCQ)</span>
+    <p>In the human eye, which sequence correctly represents the arrangement of retinal neural layers from the vitreous chamber (inside) toward the choroid (outside)?</p>
+    <ul class="q-options">
+      <li>(a) Photoreceptor cells → Bipolar cells → Ganglion cells</li>
+      <li>(b) Bipolar cells → Photoreceptor cells → Ganglion cells</li>
+      <li>(c) Ganglion cells → Bipolar cells → Photoreceptor cells</li>
+      <li>(d) Ganglion cells → Photoreceptor cells → Bipolar cells</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (c)</p>
+      <p><strong>Explanation:</strong> The retina contains three neural cell layers arranged from inside (vitreous side) to outside (choroid side) as: Ganglion cells → Bipolar cells → Photoreceptor cells (rods and cones).</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 6 (एकल-सही बहुविकल्पीय)</span>
+    <p lang="hi">मानव नेत्र के दृष्टिपटल (रेटिना) में काचाभ कक्ष (भीतर) से रक्तक पटल (बाहर) की ओर तंत्रिकीय कोशिका परतों का सही क्रम क्या है?</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) प्रकाशग्राही कोशिकाएँ → द्विध्रुवी कोशिकाएँ → गैंग्लियन कोशिकाएँ</li>
+      <li>(b) द्विध्रुवी कोशिकाएँ → प्रकाशग्राही कोशिकाएँ → गैंग्लियन कोशिकाएँ</li>
+      <li>(c) गैंग्लियन कोशिकाएँ → द्विध्रुवी कोशिकाएँ → प्रकाशग्राही कोशिकाएँ</li>
+      <li>(d) गैंग्लियन कोशिकाएँ → प्रकाशग्राही कोशिकाएँ → द्विध्रुवी कोशिकाएँ</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (c)</p>
+      <p><strong>व्याख्या:</strong> रेटिना में अंदर से बाहर की ओर तीन तंत्रिकीय परतें क्रमशः गैंग्लियन कोशिकाएँ, द्विध्रुवी कोशिकाएँ और प्रकाशग्राही कोशिकाएँ (शलाकाएँ व शंकु) होती हैं।</p>
+    </div>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 7 (Single-Correct MCQ)</span>
+    <p>Which fluid-filled cochlear compartment houses the Organ of Corti on its basilar membrane?</p>
+    <ul class="q-options">
+      <li>(a) Scala vestibuli, filled with perilymph</li>
+      <li>(b) Scala media, filled with endolymph</li>
+      <li>(c) Scala tympani, filled with perilymph</li>
+      <li>(d) Scala vestibuli, filled with endolymph</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (b)</p>
+      <p><strong>Explanation:</strong> Reissner's membrane and the basilar membrane divide the cochlea into an upper scala vestibuli (perilymph), a middle <strong>scala media</strong> (filled with <strong>endolymph</strong>), and a lower scala tympani (perilymph). The Organ of Corti rests on the basilar membrane inside the scala media.</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 7 (एकल-सही बहुविकल्पीय)</span>
+    <p lang="hi">कर्णावर्त (cochlea) के किस द्रव-भरे कक्ष में बेसिलर झिल्ली पर कॉर्टाइ अंग (Organ of Corti) स्थित होता है?</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) पेरिलिम्फ से भरा स्केला वेस्टिबुली</li>
+      <li>(b) एंडोलिम्फ से भरा स्केला मीडिया</li>
+      <li>(c) पेरिलिम्फ से भरा स्केला टिम्पैनी</li>
+      <li>(d) एंडोलिम्फ से भरा स्केला वेस्टिबुली</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (b)</p>
+      <p><strong>व्याख्या:</strong> रीस्नर झिल्ली और बेसिलर झिल्ली कर्णावर्त को तीन भागों में बाँटती हैं; मध्य भाग <strong>स्केला मीडिया</strong> <strong>एंडोलिम्फ</strong> से भरा होता है और इसी में बेसिलर झिल्ली पर कॉर्टाइ अंग स्थित होता है।</p>
+    </div>
+  </div>
+
+  <!-- Question 8 -->
+  <div class="question-card">
+    <span class="lang-badge badge-en">English • Practice Question 8 (Single-Correct MCQ)</span>
+    <p>Which specific receptor pair within the vestibular apparatus is directly responsible for maintaining body balance and posture?</p>
+    <ul class="q-options">
+      <li>(a) Organ of Corti and tectorial membrane</li>
+      <li>(b) Crista ampullaris and macula</li>
+      <li>(c) Eustachian tube and tympanic membrane</li>
+      <li>(d) Oval window and round window</li>
+    </ul>
+    <div class="solution-box">
+      <p><strong>Answer:</strong> (b)</p>
+      <p><strong>Explanation:</strong> The vestibular apparatus comprises three semicircular canals (whose ampullae contain the <strong>crista ampullaris</strong>) and the otolith organ (saccule and utricle containing the <strong>macula</strong>). Both crista and macula act as balance and posture receptors.</p>
+    </div>
+    <hr/>
+    <span class="lang-badge badge-hi" lang="hi">हिन्दी • अभ्यास प्रश्न 8 (एकल-सही बहुविकल्पीय)</span>
+    <p lang="hi">प्रघाण तंत्र (vestibular apparatus) के भीतर कौन-सा विशिष्ट ग्राही युग्म शरीर के संतुलन और मुद्रा को बनाए रखने के लिए प्रत्यक्ष रूप से उत्तरदायी है?</p>
+    <ul class="q-options" lang="hi">
+      <li>(a) कॉर्टाइ अंग और टेक्टोरियल झिल्ली</li>
+      <li>(b) क्रिस्टा एम्पुलेरिस और मैक्यूला</li>
+      <li>(c) यूस्टेशियन नलिका और कर्ण पटह</li>
+      <li>(d) अंडाकार गवाक्ष और गोल गवाक्ष</li>
+    </ul>
+    <div class="solution-box" lang="hi">
+      <p><strong>उत्तर:</strong> (b)</p>
+      <p><strong>व्याख्या:</strong> प्रघाण तंत्र में तीन अर्धवृत्ताकार नलिकाओं के एम्पुला में स्थित <strong>क्रिस्टा एम्पुलेरिस</strong> तथा सैक्यूल व यूट्रिकल में स्थित <strong>मैक्यूला</strong> शरीर के संतुलन एवं मुद्रा के विशिष्ट ग्राही हैं।</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>8. Common Pitfalls and Revision Checklist</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <ul>
+      <li><strong>Pitfall 1 — Confusing Brain Stem Components:</strong> Remember that the brain stem includes <em>midbrain + pons + medulla</em>, NOT the cerebellum or cerebrum.</li>
+      <li><strong>Pitfall 2 — Reversing Retinal Cell Order:</strong> Light passes through ganglion and bipolar cells before hitting photoreceptors; from inside to outside, the order is <em>ganglion → bipolar → photoreceptors</em>.</li>
+      <li><strong>Pitfall 3 — Unmyelinated ≠ No Schwann Cells:</strong> Unmyelinated PNS axons still have Schwann cells; they simply lack a wrapped myelin sheath.</li>
+      <li><strong>Pitfall 4 — Fovea vs. Blind Spot:</strong> The <em>fovea</em> has cones only (highest acuity); the <em>blind spot</em> has zero photoreceptors.</li>
+    </ul>
+  </div>
+
+  <h2>8. सामान्य त्रुटियाँ एवं पुनरीक्षण जांच-सूची</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <ul>
+      <li><strong>त्रुटि 1 — मस्तिष्क स्तंभ के घटक:</strong> मस्तिष्क स्तंभ में केवल <em>मध्यमस्तिष्क + पॉन्स + मेडुला</em> आते हैं, अनुमस्तिष्क या प्रमस्तिष्क नहीं।</li>
+      <li><strong>त्रुटि 2 — रेटिना की परतों का क्रम:</strong> अंदर से बाहर की ओर सही क्रम <em>गैंग्लियन → द्विध्रुवी → प्रकाशग्राही</em> है।</li>
+      <li><strong>त्रुटि 3 — माइलिनहीन तंतु:</strong> इनमें श्वान कोशिकाएँ होती हैं, बस वे माइलिन आच्छद नहीं बनातीं।</li>
+      <li><strong>त्रुटि 4 — फोविया बनाम अंध बिंदु:</strong> <em>फोविया</em> में केवल शंकु होते हैं (अधिकतम तीक्ष्णता); <em>अंध बिंदु</em> में कोई प्रकाशग्राही नहीं होता।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>9. Concise Final Recap</h2>
+  <div class="lang-block">
+    <span class="lang-badge badge-en">English</span>
+    <p>Neural coordination integrates rapid electrical signalling across excitable neurons with chemical neurotransmission at synapses. The CNS (brain and spinal cord) processes sensory inputs from peripheral receptors (olfactory, gustatory, visual photoreceptors, and cochlear/vestibular hair cells) and executes both voluntary somatic commands and involuntary autonomic or spinal reflex responses to preserve homeostasis.</p>
+  </div>
+
+  <h2>9. संक्षिप्त अंतिम पुनरावृत्ति</h2>
+  <div class="lang-block lang-block-hi" lang="hi">
+    <span class="lang-badge badge-hi">हिन्दी</span>
+    <p>तंत्रिकीय समन्वय उत्तेजनशील न्यूरॉन्स पर तीव्र विद्युतीय आवेग संचरण को सिनेप्स पर रासायनिक संचरण के साथ एकीकृत करता है। केंद्रीय तंत्रिका तंत्र (मस्तिष्क एवं मेरुरज्जु) परिधीय ग्राहियों (घ्राण, स्वाद, नेत्र के शलाका-शंकु और कर्ण की रोम कोशिकाएँ) से प्राप्त संवेदनाओं का विश्लेषण कर समस्थापन बनाए रखने हेतु ऐच्छिक कायिक तथा अनैच्छिक स्वायत्त एवं प्रतिवर्ती क्रियाओं का संचालन करता है।</p>
+  </div>
+</section>
+
+</body>
+</html>

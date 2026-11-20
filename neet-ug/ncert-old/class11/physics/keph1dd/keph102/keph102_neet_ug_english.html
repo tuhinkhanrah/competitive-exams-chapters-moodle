@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion in a Straight Line — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'svg']
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --primary-soft: #EFF6FF;
+      --teal: #0D9488;
+      --teal-soft: #F0FDFA;
+      --surface: #F8FAFC;
+      --white: #FFFFFF;
+      --border: #CBD5E1;
+      --warn-bg: #FFFBEB;
+      --warn-border: #D97706;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 20px 48px 20px;
+    }
+
+    /* Header */
+    .doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      color: var(--ink);
+      margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 1.45rem;
+      line-height: 1.3;
+      color: var(--ink);
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin: 34px 0 14px 0;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      line-height: 1.35;
+      color: var(--primary);
+      margin: 22px 0 10px 0;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 14px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 16px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Callout & Formula Boxes */
+    .box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+      break-inside: avoid;
+    }
+
+    .box-primary {
+      background-color: var(--primary-soft);
+      border-color: #93C5FD;
+      border-left: 4px solid var(--primary);
+    }
+
+    .box-teal {
+      background-color: var(--teal-soft);
+      border-color: #99F6E4;
+      border-left: 4px solid var(--teal);
+    }
+
+    .box-warn {
+      background-color: var(--warn-bg);
+      border-color: #FCD34D;
+      border-left: 4px solid var(--warn-border);
+    }
+
+    .box-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 8px 0;
+      color: var(--ink);
+    }
+
+    .formula-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 0.94rem;
+      break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--surface);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #FAFCFF;
+    }
+
+    /* SVG Figures */
+    .figure-box {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      margin: 20px 0;
+      max-width: 100%;
+      break-inside: avoid;
+    }
+
+    .figure-box svg {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .figure-caption {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Worked Examples */
+    .example-card {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--teal);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+      break-inside: avoid;
+    }
+
+    .example-card h3 {
+      color: var(--teal);
+      margin-top: 0;
+    }
+
+    .assumption-tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Practice Questions */
+    .question-card {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 20px 0;
+      max-width: 100%;
+      break-inside: avoid;
+    }
+
+    .question-header {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 14px 0;
+    }
+
+    .options-list li {
+      padding: 5px 8px;
+      margin-bottom: 4px;
+      background-color: var(--surface);
+      border-radius: 4px;
+    }
+
+    .solution-block {
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .answer-line {
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    /* MathJax responsiveness */
+    mjx-container {
+      max-width: 100%;
+      white-space: normal;
+    }
+
+    /* Print Styles */
+    @page {
+      size: A4;
+      margin: 16mm;
+    }
+
+    @media print {
+      html, body {
+        font-size: 11pt;
+        line-height: 1.5;
+        background: #FFFFFF;
+        color: #000000;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      .box, .example-card, .question-card, .figure-box, .formula-card, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .exam-badge {
+        border-color: #1E293B;
+        color: #1E293B;
+        background-color: #F8FAFC;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+
+    <header class="doc-header">
+      <div class="exam-badge">NEET UG Physics &bull; Mechanics</div>
+      <h1>Motion in a Straight Line</h1>
+      <p class="subtitle">A Complete Conceptual, Graphical, and Calculus-Based Guide to One-Dimensional Kinematics</p>
+    </header>
+
+    <section id="overview">
+      <h2>Learning Objectives and Overview</h2>
+      <p>
+        Kinematics describes how objects move—tracking their position, velocity, and acceleration over time—without investigating the forces that cause the motion. When an object travels along a single straight path, its motion is called <strong>rectilinear motion</strong> (or one-dimensional motion). Mastering this topic is essential for NEET UG because it builds the sign-convention, graphical, and calculus tools used throughout mechanics.
+      </p>
+      <div class="box box-primary">
+        <div class="box-title">After studying this tutorial, you will be able to:</div>
+        <ul>
+          <li>Apply the point-object approximation and choose consistent coordinate axes and sign conventions.</li>
+          <li>Distinguish between path length (distance) and displacement, and between average speed and average velocity.</li>
+          <li>Compute instantaneous velocity and instantaneous acceleration using limits, derivatives, and graph slopes.</li>
+          <li>Interpret position-time (\(x\text{-}t\)), velocity-time (\(v\text{-}t\)), and acceleration-time (\(a\text{-}t\)) graphs accurately.</li>
+          <li>Derive and apply the kinematic equations for uniform acceleration, free fall, stopping distance, and 1D relative velocity.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="frame-displacement">
+      <h2>Reference Frames, Path Length, and Displacement</h2>
+      <h3>The Point-Object Approximation</h3>
+      <p>
+        In rectilinear kinematics, a moving body is often treated as a <strong>point object</strong>. This idealization is valid whenever the physical dimensions of the object are negligible compared with the total distance it covers during the time interval of interest. For instance, an express train travelling \(300\,\mathrm{km}\) between two cities can be treated as a point mass, whereas a spinning cricket ball bouncing sharply off a pitch cannot, because its rotation and size directly affect the motion.
+      </p>
+
+      <h3>Coordinate Axis and Sign Convention</h3>
+      <p>
+        To specify position along a straight line, we select a fixed reference point called the <strong>origin</strong> (\(x = 0\)) and define one direction along the line as positive (for example, to the right or vertically upward) and the opposite direction as negative. Every vector-like quantity in 1D—position, displacement, velocity, and acceleration—carries a \(+\) or \(-\) sign indicating its direction along this chosen axis.
+      </p>
+
+      <h3>Path Length vs. Displacement</h3>
+      <p>
+        <strong>Path length</strong> (commonly called distance) is the total length of the actual trajectory traversed by the object during a time interval. It is a scalar quantity, depends on the path taken, and can never be negative or decrease with time.
+      </p>
+      <p>
+        <strong>Displacement</strong> is the change in position from the initial coordinate \(x_1\) to the final coordinate \(x_2\):
+      </p>
+      <div class="formula-card">
+        \[\Delta x = x_2 - x_1\]
+      </div>
+      <p>
+        In one dimension, displacement depends only on the endpoints, not the path between them. Its magnitude is always less than or equal to the path length:
+      </p>
+      <div class="formula-card">
+        \[\text{Path length} \ge |\Delta x|\]
+      </div>
+      <p>
+        Equality holds if and only if the object moves in a single, unchanging direction without reversing course.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Path Length (Distance)</th>
+            <th>Displacement (\(\Delta x\))</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nature</td>
+            <td>Scalar (magnitude only)</td>
+            <td>1D Vector (magnitude and sign)</td>
+          </tr>
+          <tr>
+            <td>Possible values</td>
+            <td>Always positive or zero; monotonically non-decreasing</td>
+            <td>Positive, negative, or zero</td>
+          </tr>
+          <tr>
+            <td>Path dependence</td>
+            <td>Depends on the entire path followed</td>
+            <td>Depends only on initial and final positions</td>
+          </tr>
+          <tr>
+            <td>SI unit &amp; dimensions</td>
+            <td>Metre (\(\mathrm{m}\)), \([\mathrm{L}]\)</td>
+            <td>Metre (\(\mathrm{m}\)), \([\mathrm{L}]\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="velocity-speed">
+      <h2>Average and Instantaneous Velocity and Speed</h2>
+      <p>
+        Over a finite time interval \(\Delta t = t_2 - t_1\), we define two average rates:
+      </p>
+      <div class="formula-card">
+        \[\bar{v} = \frac{\Delta x}{\Delta t} = \frac{x_2 - x_1}{t_2 - t_1} \qquad \text{and} \qquad \text{Average speed} = \frac{\text{Total path length}}{\Delta t}\]
+      </div>
+      <p>
+        Because \(\text{Path length} \ge |\Delta x|\), it follows that \(\text{Average speed} \ge |\bar{v}|\). If an object walks to a market and returns home, its net displacement is zero, so its average velocity is zero—even though its average speed is positive.
+      </p>
+
+      <h3>Instantaneous Velocity and Speed</h3>
+      <p>
+        Average velocity smooths out variations over \(\Delta t\). To know how fast and in which direction an object moves at a specific instant \(t\), we shrink \(\Delta t\) toward zero. The <strong>instantaneous velocity</strong> \(v\) is the limiting value of the average velocity:
+      </p>
+      <div class="formula-card">
+        \[v = \lim_{\Delta t \to 0} \frac{\Delta x}{\Delta t} = \frac{dx}{dt}\]
+      </div>
+      <p>
+        Geometrically, \(\frac{\Delta x}{\Delta t}\) is the slope of the secant line connecting two points on the \(x\text{-}t\) curve. As \(\Delta t \to 0\), the secant rotates into the <strong>tangent line</strong> at that instant. Thus, instantaneous velocity at time \(t\) equals the slope of the \(x\text{-}t\) graph at \(t\).
+      </p>
+      <p>
+        <strong>Instantaneous speed</strong> is simply the magnitude of instantaneous velocity, \(|v|\). Unlike average quantities, instantaneous speed at any instant is <em>always</em> equal to the magnitude of instantaneous velocity because over an infinitesimally small interval \(dt\), the object cannot reverse direction.
+      </p>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 640 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Position-time graph illustrating secant lines approaching a tangent line at time t0">
+          <!-- Background -->
+          <rect x="0" y="0" width="640" height="280" fill="#FFFFFF"/>
+          <!-- Axes -->
+          <line x1="70" y1="240" x2="590" y2="240" stroke="#1E293B" stroke-width="2"/>
+          <line x1="70" y1="240" x2="70" y2="25" stroke="#1E293B" stroke-width="2"/>
+          <!-- Arrowheads -->
+          <polygon points="590,240 580,235 580,245" fill="#1E293B"/>
+          <polygon points="70,25 65,35 75,35" fill="#1E293B"/>
+          <!-- Axis labels -->
+          <text x="598" y="245" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1E293B">t (s)</text>
+          <text x="38" y="34" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1E293B">x (m)</text>
+          <!-- Curve x(t) -->
+          <path d="M 90 225 Q 260 215 530 45" fill="none" stroke="#2563EB" stroke-width="3"/>
+          <!-- Secant Line P1-P2 -->
+          <line x1="160" y1="210" x2="480" y2="79" stroke="#64748B" stroke-width="1.8" stroke-dasharray="6,4"/>
+          <!-- Tangent Line at P -->
+          <line x1="205" y1="218" x2="455" y2="82" stroke="#0D9488" stroke-width="2.5"/>
+          <!-- Dashed guides for P -->
+          <line x1="330" y1="150" x2="330" y2="240" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="4,4"/>
+          <line x1="70" y1="150" x2="330" y2="150" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="4,4"/>
+          <!-- Points -->
+          <circle cx="160" cy="210" r="4.5" fill="#64748B"/>
+          <circle cx="480" cy="79" r="4.5" fill="#64748B"/>
+          <circle cx="330" cy="150" r="5.5" fill="#0D9488"/>
+          <!-- Point Labels -->
+          <text x="145" y="198" font-family="sans-serif" font-size="13" font-weight="bold" fill="#475569">P₁</text>
+          <text x="488" y="83" font-family="sans-serif" font-size="13" font-weight="bold" fill="#475569">P₂</text>
+          <text x="338" y="166" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0D9488">P (t₀)</text>
+          <text x="323" y="258" font-family="sans-serif" font-size="13" fill="#1E293B">t₀</text>
+          <!-- Legend -->
+          <rect x="95" y="38" width="235" height="62" rx="4" fill="#F8FAFC" stroke="#CBD5E1"/>
+          <line x1="108" y1="56" x2="138" y2="56" stroke="#64748B" stroke-width="2" stroke-dasharray="5,3"/>
+          <text x="146" y="60" font-family="sans-serif" font-size="12" fill="#1E293B">Secant slope = average v</text>
+          <line x1="108" y1="80" x2="138" y2="80" stroke="#0D9488" stroke-width="2.5"/>
+          <text x="146" y="84" font-family="sans-serif" font-size="12" fill="#1E293B">Tangent slope = instantaneous v</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 1:</strong> As the time interval around \(t_0\) shrinks (\(\Delta t \to 0\)), the secant \(P_1 P_2\) converges to the tangent at \(P\), whose slope gives the instantaneous velocity \(dx/dt\).
+        </div>
+      </div>
+    </section>
+
+    <section id="acceleration">
+      <h2>Acceleration and the Physics of Speeding Up or Slowing Down</h2>
+      <p>
+        Galileo demonstrated that for freely falling bodies, velocity changes uniformly with <em>time</em> rather than with distance. Accordingly, <strong>acceleration</strong> is defined as the time rate of change of velocity, with SI unit \(\mathrm{m\,s^{-2}}\) and dimensions \([\mathrm{L T^{-2}}]\).
+      </p>
+      <div class="formula-card">
+        \[\bar{a} = \frac{v_2 - v_1}{t_2 - t_1} = \frac{\Delta v}{\Delta t} \qquad \text{and} \qquad a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t} = \frac{dv}{dt} = \frac{d^2 x}{dt^2}\]
+      </div>
+      <p>
+        Using the chain rule, acceleration can also be expressed directly in terms of position \(x\):
+      </p>
+      <div class="formula-card">
+        \[a = \frac{dv}{dt} = \frac{dv}{dx} \cdot \frac{dx}{dt} = v \frac{dv}{dx}\]
+      </div>
+      <p>
+        This form (\(a = v\,\frac{dv}{dx}\)) is particularly powerful in NEET UG problems where velocity is given as a function of position rather than time.
+      </p>
+
+      <div class="box box-warn">
+        <div class="box-title">Crucial Concept: Negative Acceleration Does Not Always Mean Slowing Down!</div>
+        <p style="margin-bottom: 0;">
+          Whether an object speeds up or slows down depends on the <strong>relative signs</strong> of velocity \(v\) and acceleration \(a\), not on the sign of \(a\) alone:
+        </p>
+        <ul style="margin-top: 8px; margin-bottom: 0;">
+          <li><strong>Speeding up (\(v \cdot a > 0\)):</strong> \(v\) and \(a\) have the <em>same</em> sign (both positive, or both negative). For example, a ball falling downward (with upward chosen as \(+\)) has \(v &lt; 0\) and \(a = -g &lt; 0\), so its speed increases.</li>
+          <li><strong>Slowing down / Retardation (\(v \cdot a &lt; 0\)):</strong> \(v\) and \(a\) have <em>opposite</em> signs. A ball thrown upward has \(v &gt; 0\) and \(a = -g &lt; 0\), so it slows down.</li>
+          <li><strong>Momentary rest with non-zero acceleration:</strong> At the peak of a vertical throw, \(v = 0\) instantaneously, yet \(a = -g \ne 0\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="graphical-analysis">
+      <h2>Graphical Analysis of Rectilinear Motion</h2>
+      <p>
+        Reading and interpreting motion graphs is one of the highest-yield skills for NEET UG. The physical meaning of slopes and areas connects \(x\text{-}t\), \(v\text{-}t\), and \(a\text{-}t\) plots seamlessly:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Graph Type</th>
+            <th>Slope of Curve</th>
+            <th>Area Under Curve (between \(t_1\) and \(t_2\))</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(x\text{-}t\) (Position vs. Time)</td>
+            <td>Instantaneous velocity (\(v = dx/dt\))</td>
+            <td>No direct standard kinematic meaning</td>
+          </tr>
+          <tr>
+            <td>\(v\text{-}t\) (Velocity vs. Time)</td>
+            <td>Instantaneous acceleration (\(a = dv/dt\))</td>
+            <td>Signed area = Displacement (\(\Delta x\)); Total unsigned area = Distance</td>
+          </tr>
+          <tr>
+            <td>\(a\text{-}t\) (Acceleration vs. Time)</td>
+            <td>Rate of change of acceleration (jerk)</td>
+            <td>Change in velocity (\(\Delta v = v_2 - v_1\))</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Curvature of \(x\text{-}t\) Graphs</h3>
+      <p>
+        For constant acceleration, \(x(t)\) is a quadratic function of \(t\), so the \(x\text{-}t\) graph is a parabola:
+      </p>
+      <ul>
+        <li><strong>Concave upward (\(a &gt; 0\)):</strong> The slope increases with time.</li>
+        <li><strong>Concave downward (\(a &lt; 0\)):</strong> The slope decreases with time.</li>
+        <li><strong>Straight line (\(a = 0\)):</strong> Constant slope, representing uniform velocity.</li>
+      </ul>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 660 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three position-time graphs showing positive, negative, and zero acceleration, and a velocity-time graph showing area under the curve">
+          <rect x="0" y="0" width="660" height="240" fill="#FFFFFF"/>
+
+          <!-- Panel 1: x-t positive a -->
+          <text x="85" y="22" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">a &gt; 0 (Concave Up)</text>
+          <line x1="25" y1="190" x2="150" y2="190" stroke="#1E293B" stroke-width="1.6"/>
+          <line x1="25" y1="190" x2="25" y2="40" stroke="#1E293B" stroke-width="1.6"/>
+          <path d="M 35 120 Q 85 200 140 60" fill="none" stroke="#2563EB" stroke-width="2.6"/>
+          <text x="152" y="194" font-family="sans-serif" font-size="12" fill="#1E293B">t</text>
+          <text x="14" y="45" font-family="sans-serif" font-size="12" fill="#1E293B">x</text>
+
+          <!-- Panel 2: x-t negative a -->
+          <text x="250" y="22" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">a &lt; 0 (Concave Down)</text>
+          <line x1="190" y1="190" x2="315" y2="190" stroke="#1E293B" stroke-width="1.6"/>
+          <line x1="190" y1="190" x2="190" y2="40" stroke="#1E293B" stroke-width="1.6"/>
+          <path d="M 200 165 Q 250 40 305 165" fill="none" stroke="#2563EB" stroke-width="2.6"/>
+          <text x="317" y="194" font-family="sans-serif" font-size="12" fill="#1E293B">t</text>
+          <text x="179" y="45" font-family="sans-serif" font-size="12" fill="#1E293B">x</text>
+
+          <!-- Panel 3: x-t zero a -->
+          <text x="410" y="22" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" text-anchor="middle">a = 0 (Uniform v)</text>
+          <line x1="350" y1="190" x2="470" y2="190" stroke="#1E293B" stroke-width="1.6"/>
+          <line x1="350" y1="190" x2="350" y2="40" stroke="#1E293B" stroke-width="1.6"/>
+          <line x1="360" y1="170" x2="460" y2="65" stroke="#2563EB" stroke-width="2.6"/>
+          <text x="472" y="194" font-family="sans-serif" font-size="12" fill="#1E293B">t</text>
+          <text x="339" y="45" font-family="sans-serif" font-size="12" fill="#1E293B">x</text>
+
+          <!-- Panel 4: v-t Area = Displacement -->
+          <text x="570" y="22" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488" text-anchor="middle">Area = Displacement</text>
+          <polygon points="510,190 510,130 625,65 625,190" fill="#CCFBF1" stroke="none"/>
+          <rect x="510" y="130" width="115" height="60" fill="#E2E8F0" opacity="0.65"/>
+          <line x1="510" y1="190" x2="640" y2="190" stroke="#1E293B" stroke-width="1.6"/>
+          <line x1="510" y1="190" x2="510" y2="40" stroke="#1E293B" stroke-width="1.6"/>
+          <line x1="510" y1="130" x2="625" y2="65" stroke="#0D9488" stroke-width="2.6"/>
+          <line x1="625" y1="65" x2="625" y2="190" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <line x1="510" y1="130" x2="625" y2="130" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <text x="492" y="134" font-family="sans-serif" font-size="12" fill="#1E293B">v₀</text>
+          <text x="496" y="69" font-family="sans-serif" font-size="12" fill="#1E293B">v</text>
+          <text x="642" y="194" font-family="sans-serif" font-size="12" fill="#1E293B">t</text>
+          <text x="498" y="45" font-family="sans-serif" font-size="12" fill="#1E293B">v</text>
+          <text x="568" y="166" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">v₀t</text>
+          <text x="588" y="114" font-family="sans-serif" font-size="11" fill="#0D9488" text-anchor="middle">½(v-v₀)t</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 2:</strong> Concavity of \(x\text{-}t\) graphs indicates the sign of acceleration, while the trapezoidal area under a linear \(v\text{-}t\) graph gives the displacement \(x - x_0 = v_0 t + \frac{1}{2}at^2\).
+        </div>
+      </div>
+
+      <h3>Spotting Physically Impossible 1D Graphs</h3>
+      <p>
+        In exam questions asking which graph is impossible, check these four physical rules:
+      </p>
+      <ol>
+        <li>A particle cannot occupy two different positions or have two different velocities at the <em>same</em> instant (vertical line test fails; e.g., closed loops or S-curves folding back in time).</li>
+        <li><strong>Speed</strong> and <strong>total path length</strong> can never be negative.</li>
+        <li><strong>Total path length</strong> can never decrease as time increases.</li>
+        <li>In realistic motion, velocity and acceleration do not jump instantaneously (vertical lines on \(x\text{-}t\) or \(v\text{-}t\) graphs imply infinite velocity or infinite acceleration).</li>
+      </ol>
+    </section>
+
+    <section id="kinematic-equations">
+      <h2>Kinematic Equations for Uniformly Accelerated Motion</h2>
+      <p>
+        When acceleration \(a\) is <strong>constant</strong> in both magnitude and direction, integrating \(a = dv/dt\) and \(v = dx/dt\) from \(t = 0\) (where \(x = x_0\) and \(v = v_0\)) to time \(t\) yields the three fundamental kinematic equations:
+      </p>
+      <div class="box box-teal">
+        <div class="box-title">Core Kinematic Equations (Valid ONLY for Constant Acceleration \(a\))</div>
+        \[v = v_0 + at\]
+        \[x - x_0 = v_0 t + \frac{1}{2}at^2\]
+        \[v^2 = v_0^2 + 2a(x - x_0)\]
+        <p style="margin-top: 8px; margin-bottom: 0;">
+          <strong>Additional high-yield results for constant \(a\):</strong>
+          <br>
+          1. Average velocity: \(\bar{v} = \dfrac{v_0 + v}{2}\), so \(x - x_0 = \left(\dfrac{v_0 + v}{2}\right)t\).
+          <br>
+          2. Displacement during the \(n^{\text{th}}\) second: \(S_n = v_0 + \dfrac{a}{2}(2n - 1)\).
+        </p>
+      </div>
+
+      <h3>Key Applications of Constant Acceleration</h3>
+      <ul>
+        <li>
+          <strong>Free Fall Under Gravity:</strong> Neglecting air resistance near Earth's surface, every object falls with a constant downward acceleration \(g \approx 9.8\,\mathrm{m\,s^{-2}}\) (often taken as \(10\,\mathrm{m\,s^{-2}}\) in numerical problems). Choosing upward as \(+y\), we set \(a = -g\).
+        </li>
+        <li>
+          <strong>Galileo's Law of Odd Numbers:</strong> A body released from rest (\(v_0 = 0\)) under uniform acceleration covers distances in successive equal time intervals \(\tau\) in the ratio:
+          \[1 : 3 : 5 : 7 : 9 : \dots\]
+          This follows directly from \(y_n \propto n^2\), so \(\Delta y_n = y_n - y_{n-1} \propto (2n - 1)\).
+        </li>
+        <li>
+          <strong>Stopping Distance of Vehicles:</strong> If a vehicle moving at \(v_0\) brakes with constant deceleration \(-a\) (where \(a &gt; 0\) is the magnitude of deceleration) until \(v = 0\), the braking distance is:
+          \[d_s = \frac{v_0^2}{2a} \implies d_s \propto v_0^2\]
+          Doubling the initial speed quadruples the braking distance!
+        </li>
+        <li>
+          <strong>Reaction Time:</strong> During the driver's reaction time \(t_r\) before the brakes engage, the vehicle continues at constant speed \(v_0\), covering a reaction distance \(d_r = v_0 t_r\). In a ruler-drop experiment where a ruler falls freely from rest through distance \(d\), the reaction time is \(t_r = \sqrt{\frac{2d}{g}}\).
+        </li>
+      </ul>
+    </section>
+
+    <section id="relative-velocity">
+      <h2>Relative Velocity in One Dimension</h2>
+      <p>
+        Motion is always observed relative to a reference frame. If object \(A\) has velocity \(v_A\) and object \(B\) has velocity \(v_B\) along the same straight line (measured with respect to the ground), then the <strong>velocity of \(A\) relative to \(B\)</strong> is:
+      </p>
+      <div class="formula-card">
+        \[v_{AB} = v_A - v_B\]
+      </div>
+      <p>
+        Similarly, the velocity of \(B\) relative to \(A\) is \(v_{BA} = v_B - v_A = -v_{AB}\). When using this formula, always substitute \(v_A\) and \(v_B\) with their proper signs!
+      </p>
+      <ul>
+        <li><strong>Same direction:</strong> \(v_A\) and \(v_B\) have the same sign, so \(|v_{AB}| = |v_A - v_B|\) (the slower relative speed of overtaking).</li>
+        <li><strong>Opposite directions:</strong> \(v_A\) and \(v_B\) have opposite signs, so \(|v_{AB}| = |v_A| + |v_B|\) (the faster relative speed of approach or separation).</li>
+        <li><strong>Relative acceleration:</strong> \(a_{AB} = a_A - a_B\). Thus, for two objects in free fall, \(a_{AB} = (-g) - (-g) = 0\)—their relative velocity remains constant!</li>
+      </ul>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 640 160" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One-dimensional track showing two objects A and B moving with velocities vA and vB">
+          <rect x="0" y="0" width="640" height="160" fill="#FFFFFF"/>
+          <!-- Road / Axis -->
+          <line x1="40" y1="115" x2="600" y2="115" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="600,115 590,110 590,120" fill="#1E293B"/>
+          <text x="606" y="120" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">+x</text>
+
+          <!-- Object A -->
+          <rect x="110" y="83" width="54" height="30" rx="4" fill="#2563EB"/>
+          <text x="137" y="103" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">A</text>
+          <!-- Velocity arrow A -->
+          <line x1="164" y1="65" x2="255" y2="65" stroke="#2563EB" stroke-width="2.5"/>
+          <polygon points="255,65 245,60 245,70" fill="#2563EB"/>
+          <text x="210" y="55" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB" text-anchor="middle">vA = +15 m/s</text>
+
+          <!-- Object B -->
+          <rect x="420" y="83" width="54" height="30" rx="4" fill="#0D9488"/>
+          <text x="447" y="103" font-family="sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">B</text>
+          <!-- Velocity arrow B (opposite) -->
+          <line x1="420" y1="65" x2="340" y2="65" stroke="#0D9488" stroke-width="2.5"/>
+          <polygon points="340,65 350,60 350,70" fill="#0D9488"/>
+          <text x="380" y="55" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488" text-anchor="middle">vB = -10 m/s</text>
+
+          <!-- Relative note -->
+          <text x="320" y="146" font-family="sans-serif" font-size="13" fill="#475569" text-anchor="middle">Relative velocity of A with respect to B: vAB = vA - vB = +25 m/s</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 3:</strong> Using a consistent \(+x\) axis, opposite velocities carry opposite signs, making the relative approach speed \(|v_A - v_B| = 25\,\mathrm{m\,s^{-1}}\).
+        </div>
+      </div>
+    </section>
+
+    <section id="worked-examples">
+      <h2>Worked Examples</h2>
+
+      <div class="example-card">
+        <h3>Example 1: Calculating Instantaneous and Average Velocity from a Position Function</h3>
+        <span class="assumption-tag">Assumed Parameters: \(x(t) = 3.0 + 2.0t^2\) (\(x\) in \(\mathrm{m}\), \(t\) in \(\mathrm{s}\))</span>
+        <p>
+          <strong>Problem:</strong> The position of a particle moving along the \(x\)-axis is given by \(x(t) = 3.0 + 2.0t^2\). Find (a) its instantaneous velocity at \(t = 0\,\mathrm{s}\) and \(t = 3.0\,\mathrm{s}\), and (b) its average velocity between \(t = 1.0\,\mathrm{s}\) and \(t = 4.0\,\mathrm{s}\).
+        </p>
+        <p>
+          <strong>Solution:</strong><br>
+          (a) Differentiating \(x(t)\) with respect to \(t\):
+          \[v(t) = \frac{dx}{dt} = \frac{d}{dt}(3.0 + 2.0t^2) = 4.0t\,\mathrm{m\,s^{-1}}\]
+          At \(t = 0\,\mathrm{s}\): \(v(0) = 0\,\mathrm{m\,s^{-1}}\).<br>
+          At \(t = 3.0\,\mathrm{s}\): \(v(3.0) = 4.0 \times 3.0 = 12.0\,\mathrm{m\,s^{-1}}\).
+        </p>
+        <p style="margin-bottom: 0;">
+          (b) Computing positions at the interval endpoints:<br>
+          \(x(1.0) = 3.0 + 2.0(1.0)^2 = 5.0\,\mathrm{m}\), and \(x(4.0) = 3.0 + 2.0(4.0)^2 = 35.0\,\mathrm{m}\).
+          \[\bar{v} = \frac{x(4.0) - x(1.0)}{4.0 - 1.0} = \frac{35.0 - 5.0}{3.0} = 10.0\,\mathrm{m\,s^{-1}}\]
+        </p>
+      </div>
+
+      <div class="example-card">
+        <h3>Example 2: Analyzing Vertical Projection from an Elevated Tower</h3>
+        <span class="assumption-tag">Assumed Parameters: \(v_0 = +15\,\mathrm{m\,s^{-1}}\), \(h = 50\,\mathrm{m}\), \(g = 10\,\mathrm{m\,s^{-2}}\)</span>
+        <p>
+          <strong>Problem:</strong> A stone is thrown vertically upward at \(15\,\mathrm{m\,s^{-1}}\) from the edge of a \(50\,\mathrm{m}\) tall cliff. Taking upward as the \(+y\) direction and the ground as \(y = 0\), find (a) the maximum height reached above the cliff, and (b) the total time taken to reach the ground.
+        </p>
+        <p>
+          <strong>Solution:</strong><br>
+          Here \(y_0 = +50\,\mathrm{m}\), \(v_0 = +15\,\mathrm{m\,s^{-1}}\), and \(a = -g = -10\,\mathrm{m\,s^{-2}}\).<br>
+          (a) At the highest point, \(v = 0\). Using \(v^2 = v_0^2 + 2a(y - y_0)\):
+          \[0 = (15)^2 + 2(-10)\Delta y \implies \Delta y = \frac{225}{20} = 11.25\,\mathrm{m}\]
+          The stone rises \(11.25\,\mathrm{m}\) above the cliff (to \(61.25\,\mathrm{m}\) above the ground).
+        </p>
+        <p style="margin-bottom: 0;">
+          (b) Using the single-step position equation \(y = y_0 + v_0 t + \frac{1}{2}at^2\) with final position \(y = 0\):
+          \[0 = 50 + 15t - 5t^2 \implies t^2 - 3t - 10 = 0 \implies (t - 5)(t + 2) = 0\]
+          Rejecting the negative root \(t = -2\,\mathrm{s}\), the stone hits the ground at \(t = 5.0\,\mathrm{s}\).
+        </p>
+      </div>
+
+      <div class="example-card">
+        <h3>Example 3: Evaluating Total Stopping Distance with Reaction Time</h3>
+        <span class="assumption-tag">Assumed Parameters: \(v_0 = 72\,\mathrm{km\,h^{-1}}\), \(t_r = 0.30\,\mathrm{s}\), \(a = -5.0\,\mathrm{m\,s^{-2}}\)</span>
+        <p>
+          <strong>Problem:</strong> A car travels at \(72\,\mathrm{km\,h^{-1}}\) on a straight road. The driver spots an obstacle and takes \(0.30\,\mathrm{s}\) to apply the brakes, which produce a uniform deceleration of \(5.0\,\mathrm{m\,s^{-2}}\). Find the total distance travelled before the car stops.
+        </p>
+        <p style="margin-bottom: 0;">
+          <strong>Solution:</strong><br>
+          First convert speed to SI units: \(v_0 = 72 \times \frac{5}{18} = 20\,\mathrm{m\,s^{-1}}\).<br>
+          During the reaction time, the car moves at constant speed:
+          \[d_r = v_0 t_r = 20 \times 0.30 = 6.0\,\mathrm{m}\]
+          During braking, the car decelerates to rest (\(v = 0\)):
+          \[d_b = \frac{v_0^2}{2|a|} = \frac{20^2}{2 \times 5.0} = \frac{400}{10} = 40.0\,\mathrm{m}\]
+          Total stopping distance: \(d_{\text{total}} = d_r + d_b = 6.0 + 40.0 = 46.0\,\mathrm{m}\).
+        </p>
+      </div>
+
+      <div class="example-card">
+        <h3>Example 4: Applying Calculus to Non-Uniform Acceleration</h3>
+        <span class="assumption-tag">Assumed Parameters: \(a(t) = 6t - 2\) (in \(\mathrm{m\,s^{-2}}\)), starting from rest at \(x = 0\)</span>
+        <p>
+          <strong>Problem:</strong> A particle starts from rest at the origin at \(t = 0\) and moves along the \(x\)-axis with acceleration \(a(t) = 6t - 2\) (where \(t\) is in seconds). Find its velocity and position at \(t = 2.0\,\mathrm{s}\).
+        </p>
+        <p style="margin-bottom: 0;">
+          <strong>Solution:</strong><br>
+          Since acceleration varies with time, constant-acceleration equations cannot be used. Integrating \(dv = a\,dt\):
+          \[v(t) - 0 = \int_0^t (6t - 2)\,dt = 3t^2 - 2t\]
+          At \(t = 2.0\,\mathrm{s}\): \(v(2.0) = 3(2.0)^2 - 2(2.0) = 12 - 4 = 8.0\,\mathrm{m\,s^{-1}}\).<br>
+          Integrating \(dx = v\,dt\) from \(x(0) = 0\):
+          \[x(t) - 0 = \int_0^t (3t^2 - 2t)\,dt = t^3 - t^2\]
+          At \(t = 2.0\,\mathrm{s}\): \(x(2.0) = (2.0)^3 - (2.0)^2 = 8 - 4 = 4.0\,\mathrm{m}\).
+        </p>
+      </div>
+
+      <div class="example-card">
+        <h3>Example 5: Solving One-Dimensional Crossing Using Relative Velocity</h3>
+        <span class="assumption-tag">Assumed Parameters: \(L_A = 120\,\mathrm{m}\), \(v_A = 54\,\mathrm{km\,h^{-1}}\), \(L_B = 80\,\mathrm{m}\), \(v_B = 36\,\mathrm{km\,h^{-1}}\)</span>
+        <p>
+          <strong>Problem:</strong> Train A (\(120\,\mathrm{m}\) long) travels north at \(54\,\mathrm{km\,h^{-1}}\), and Train B (\(80\,\mathrm{m}\) long) travels south on a parallel track at \(36\,\mathrm{km\,h^{-1}}\). How long does it take for the two trains to completely cross each other?
+        </p>
+        <p style="margin-bottom: 0;">
+          <strong>Solution:</strong><br>
+          Convert speeds to \(\mathrm{m\,s^{-1}}\) and choose north as positive:<br>
+          \(v_A = +54 \times \frac{5}{18} = +15\,\mathrm{m\,s^{-1}}\), and \(v_B = -36 \times \frac{5}{18} = -10\,\mathrm{m\,s^{-1}}\).<br>
+          Relative velocity of A with respect to B:
+          \[v_{AB} = v_A - v_B = 15 - (-10) = 25\,\mathrm{m\,s^{-1}}\]
+          Total relative distance to clear completely: \(L_A + L_B = 120 + 80 = 200\,\mathrm{m}\).<br>
+          Time to cross: \(t = \frac{200}{25} = 8.0\,\mathrm{s}\).
+        </p>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>NEET UG Practice Questions</h2>
+      <p>
+        Attempt each practice question under exam conditions before checking the answer and worked solution.
+      </p>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 1</div>
+        <p>
+          A cyclist rides \(120\,\mathrm{m}\) due east along a straight road, then immediately turns around and rides \(40\,\mathrm{m}\) due west. If the entire journey takes \(20\,\mathrm{s}\), what are the cyclist's average speed and magnitude of average velocity, respectively?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(8\,\mathrm{m\,s^{-1}}\) and \(4\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(B) \(4\,\mathrm{m\,s^{-1}}\) and \(8\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(C) \(8\,\mathrm{m\,s^{-1}}\) and \(8\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(D) \(6\,\mathrm{m\,s^{-1}}\) and \(4\,\mathrm{m\,s^{-1}}\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (A)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Total path length \(= 120 + 40 = 160\,\mathrm{m}\), so average speed \(= \frac{160}{20} = 8\,\mathrm{m\,s^{-1}}\). Net displacement \(= 120 - 40 = 80\,\mathrm{m}\) east, so magnitude of average velocity \(= \frac{80}{20} = 4\,\mathrm{m\,s^{-1}}\).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 2</div>
+        <p>
+          The position of a particle moving along the \(x\)-axis varies with time as \(x = 18t - 3t^2\), where \(x\) is in metres and \(t\) is in seconds. What is the total distance travelled by the particle during the first \(5\,\mathrm{s}\)?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(15\,\mathrm{m}\)</li>
+          <li>(B) \(27\,\mathrm{m}\)</li>
+          <li>(C) \(39\,\mathrm{m}\)</li>
+          <li>(D) \(42\,\mathrm{m}\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Instantaneous velocity \(v = \frac{dx}{dt} = 18 - 6t\). Setting \(v = 0\) gives the turning point at \(t = 3\,\mathrm{s}\). Now evaluate positions: \(x(0) = 0\,\mathrm{m}\), \(x(3) = 18(3) - 3(9) = 27\,\mathrm{m}\), and \(x(5) = 18(5) - 3(25) = 15\,\mathrm{m}\). Distance from \(t = 0\) to \(3\,\mathrm{s}\) is \(27\,\mathrm{m}\), and from \(t = 3\) to \(5\,\mathrm{s}\) is \(|15 - 27| = 12\,\mathrm{m}\). Total distance \(= 27 + 12 = 39\,\mathrm{m}\).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 3</div>
+        <p>
+          Read the following two statements carefully and choose the correct option:<br>
+          <strong>Statement I:</strong> A particle moving in the negative \(x\)-direction with negative acceleration is speeding up.<br>
+          <strong>Statement II:</strong> At the highest point of a ball thrown vertically upward, both its velocity and acceleration are zero.
+        </p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are true</li>
+          <li>(B) Both Statement I and Statement II are false</li>
+          <li>(C) Statement I is true, but Statement II is false</li>
+          <li>(D) Statement I is false, but Statement II is true</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> When \(v &lt; 0\) and \(a &lt; 0\), acceleration points in the same direction as velocity, so the speed increases (Statement I is true). At the highest point of a vertical throw, \(v = 0\) instantaneously, but gravitational acceleration \(a = g\) downward remains non-zero (Statement II is false).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 4</div>
+        <p>
+          A particle starts from rest at \(t = 0\). Its velocity increases uniformly to \(12\,\mathrm{m\,s^{-1}}\) in \(4\,\mathrm{s}\), stays constant at \(12\,\mathrm{m\,s^{-1}}\) for the next \(4\,\mathrm{s}\), then decreases uniformly to \(0\) at \(t = 10\,\mathrm{s}\), and continues with the same slope to \(-12\,\mathrm{m\,s^{-1}}\) at \(t = 12\,\mathrm{s}\). What is the ratio of the magnitude of net displacement to the total distance travelled in \(12\,\mathrm{s}\)?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(1 : 2\)</li>
+          <li>(B) \(2 : 3\)</li>
+          <li>(C) \(3 : 4\)</li>
+          <li>(D) \(4 : 5\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Compute the areas under the \(v\text{-}t\) graph:<br>
+            \(0\text{–}4\,\mathrm{s}\): \(+\frac{1}{2}(4)(12) = +24\,\mathrm{m}\).<br>
+            \(4\text{–}8\,\mathrm{s}\): \(+(4)(12) = +48\,\mathrm{m}\).<br>
+            \(8\text{–}10\,\mathrm{s}\): \(+\frac{1}{2}(2)(12) = +12\,\mathrm{m}\).<br>
+            \(10\text{–}12\,\mathrm{s}\): \(-\frac{1}{2}(2)(12) = -12\,\mathrm{m}\).<br>
+            Net displacement \(= 24 + 48 + 12 - 12 = 72\,\mathrm{m}\). Total distance \(= 24 + 48 + 12 + 12 = 96\,\mathrm{m}\). Ratio \(= \frac{72}{96} = 3 : 4\).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 5</div>
+        <p>
+          Water drops fall at regular time intervals from a tap located \(9.0\,\mathrm{m}\) above the floor. At the instant the fourth drop is about to detach from the tap, the first drop strikes the floor. What is the height of the second drop above the floor at that instant?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(2.0\,\mathrm{m}\)</li>
+          <li>(B) \(4.0\,\mathrm{m}\)</li>
+          <li>(C) \(5.0\,\mathrm{m}\)</li>
+          <li>(D) \(8.0\,\mathrm{m}\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Let \(\tau\) be the interval between successive drops. When the 4th drop is at the tap, the 1st drop has fallen for \(3\tau\), and the 2nd drop has fallen for \(2\tau\). Since distance fallen from rest satisfies \(h \propto t^2\):
+            \[\frac{h_2}{h_1} = \frac{(2\tau)^2}{(3\tau)^2} = \frac{4}{9} \implies h_2 = \frac{4}{9} \times 9.0\,\mathrm{m} = 4.0\,\mathrm{m}\]
+            Thus, the height of the second drop above the floor is \(9.0 - 4.0 = 5.0\,\mathrm{m}\).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 6</div>
+        <p>
+          A car moving at \(40\,\mathrm{km\,h^{-1}}\) can be stopped by applying brakes after travelling at least \(2.0\,\mathrm{m}\). If the same car moves at \(120\,\mathrm{km\,h^{-1}}\) and experiences the same braking deceleration, what is the minimum stopping distance?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(6.0\,\mathrm{m}\)</li>
+          <li>(B) \(12.0\,\mathrm{m}\)</li>
+          <li>(C) \(18.0\,\mathrm{m}\)</li>
+          <li>(D) \(24.0\,\mathrm{m}\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Stopping distance is \(d_s = \frac{v_0^2}{2a}\), so \(d_s \propto v_0^2\) for constant deceleration. Here, the initial speed increases by a factor of \(\frac{120}{40} = 3\). Therefore, \(d_s\) increases by \(3^2 = 9\) times: \(d_s = 9 \times 2.0\,\mathrm{m} = 18.0\,\mathrm{m}\).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 7</div>
+        <p>
+          The velocity of a particle moving along a straight line depends on its position \(x\) according to \(v = \sqrt{16 + 6x}\) (in SI units). What is the acceleration of the particle?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(1.5\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(B) \(3.0\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(C) \(6.0\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(D) \(16\,\mathrm{m\,s^{-2}}\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (B)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Squaring both sides gives \(v^2 = 16 + 6x\). Differentiating with respect to \(x\):
+            \[2v\frac{dv}{dx} = 6 \implies a = v\frac{dv}{dx} = 3.0\,\mathrm{m\,s^{-2}}\]
+            (Alternatively, compare \(v^2 = 16 + 6x\) directly with \(v^2 = v_0^2 + 2ax\), giving \(2a = 6 \implies a = 3.0\,\mathrm{m\,s^{-2}}\).)
+          </p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-header">Practice Question 8</div>
+        <p>
+          Car P moves along a straight highway at a constant speed of \(5\,\mathrm{m\,s^{-1}}\). When Car P is \(24\,\mathrm{m}\) ahead of Car Q, Car Q starts from rest and accelerates uniformly at \(2\,\mathrm{m\,s^{-2}}\) in the same direction. How long does Car Q take to catch up with Car P?
+        </p>
+        <ul class="options-list">
+          <li>(A) \(4\,\mathrm{s}\)</li>
+          <li>(B) \(6\,\mathrm{s}\)</li>
+          <li>(C) \(8\,\mathrm{s}\)</li>
+          <li>(D) \(12\,\mathrm{s}\)</li>
+        </ul>
+        <div class="solution-block">
+          <div class="answer-line">Answer: (C)</div>
+          <p style="margin-bottom: 0;">
+            <strong>Solution:</strong> Take Car Q's starting point as \(x = 0\) at \(t = 0\). Then \(x_P(t) = 24 + 5t\) and \(x_Q(t) = \frac{1}{2}(2)t^2 = t^2\). Setting \(x_Q = x_P\):
+            \[t^2 = 24 + 5t \implies t^2 - 5t - 24 = 0 \implies (t - 8)(t + 3) = 0\]
+            Since \(t &gt; 0\), Car Q catches up with Car P in \(t = 8\,\mathrm{s}\).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls-checklist">
+      <h2>Common Pitfalls and Revision Checklist</h2>
+      <div class="box box-warn">
+        <div class="box-title">Frequent NEET UG Traps to Avoid</div>
+        <ul style="margin-bottom: 0;">
+          <li><strong>Distance vs. Displacement:</strong> Always check if \(v = dx/dt\) changes sign inside the given time interval before computing total distance.</li>
+          <li><strong>Constant-Acceleration Assumption:</strong> Never apply \(v = v_0 + at\) or \(v^2 = v_0^2 + 2a\Delta x\) when acceleration depends on \(t\) or \(x\); use integration instead.</li>
+          <li><strong>Unit Conversions:</strong> Always convert \(\mathrm{km\,h^{-1}}\) to \(\mathrm{m\,s^{-1}}\) by multiplying by \(\frac{5}{18}\) before substituting into equations with seconds or metres.</li>
+          <li><strong>Sign Consistency:</strong> Fix one positive direction at the start of every problem and assign signs to \(x\), \(v\), and \(a\) consistently throughout.</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <div class="box-title">Quick Revision Checklist</div>
+        <ul style="margin-bottom: 0;">
+          <li>\(v = dx/dt\) = slope of \(x\text{-}t\) graph; \(a = dv/dt = v\,dv/dx\) = slope of \(v\text{-}t\) graph.</li>
+          <li>Displacement = signed area under \(v\text{-}t\) curve; \(\Delta v\) = signed area under \(a\text{-}t\) curve.</li>
+          <li>For free fall from rest: \(h \propto t^2\) and successive equal-time distances follow \(1 : 3 : 5 : 7 \dots\)</li>
+          <li>Braking distance \(d_s = v_0^2 / (2a)\); relative velocity \(v_{AB} = v_A - v_B\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="final-recap">
+      <h2>Concise Final Recap</h2>
+      <p>
+        One-dimensional kinematics reduces straight-line motion to algebraic and calculus relationships among position \(x(t)\), velocity \(v(t) = dx/dt\), and acceleration \(a(t) = dv/dt\). When acceleration is constant, the three kinematic equations and graphical area/slope rules solve virtually every projectile-like 1D fall, stopping-distance, and relative-motion problem—provided signs are assigned consistently from a clearly chosen origin.
+      </p>
+    </section>
+
+  </div>
+</body>
+</html>

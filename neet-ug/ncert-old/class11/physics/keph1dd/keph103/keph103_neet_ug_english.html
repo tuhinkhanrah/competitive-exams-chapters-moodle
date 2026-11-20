@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion in a Plane — NEET UG Physics Tutorial</title>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: #1E293B;
+      background-color: #F8FAFC;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 20px 48px 20px;
+      background-color: #FFFFFF;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid #2563EB;
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      color: #0F172A;
+      margin: 0 0 8px 0;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      line-height: 1.3;
+      color: #0F172A;
+      border-left: 4px solid #2563EB;
+      padding-left: 12px;
+      margin: 34px 0 14px 0;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      line-height: 1.35;
+      color: #1E293B;
+      margin: 24px 0 10px 0;
+    }
+
+    p {
+      margin: 0 0 12px 0;
+    }
+
+    ul, ol {
+      margin: 0 0 14px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .card-accent {
+      background-color: #F0FDFA;
+      border: 1px solid #99F6E4;
+      border-left: 4px solid #0D9488;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .card-warn {
+      background-color: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-left: 4px solid #D97706;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .formula-box {
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-left: 4px solid #2563EB;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .diagram-block {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 14px;
+      margin: 18px 0;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .diagram-block svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 560px;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 8px;
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 22px 0;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      border: 1px solid #CBD5E1;
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: #EFF6FF;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .example-card {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-top: 3px solid #0D9488;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #0F766E;
+      margin: 0 0 8px 0;
+    }
+
+    .question-card {
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-stem {
+      font-weight: 600;
+      color: #0F172A;
+      margin-bottom: 10px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0 0 12px 0;
+    }
+
+    .options-list li {
+      padding: 4px 0 4px 8px;
+      margin-bottom: 4px;
+    }
+
+    .solution-box {
+      background-color: #F8FAFC;
+      border-top: 1px dashed #94A3B8;
+      padding: 10px 12px 4px 12px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    .answer-tag {
+      display: inline-block;
+      background-color: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm;
+    }
+
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 11pt;
+      }
+      .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      h2 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .card, .card-accent, .card-warn, .formula-box, .diagram-block, .example-card, .question-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      table {
+        font-size: 9.5pt;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    <header class="doc-header">
+      <div class="exam-badge">NEET UG Physics • Class XI Mechanics</div>
+      <h1>Motion in a Plane: Vectors, Projectile Motion &amp; Uniform Circular Motion</h1>
+      <p class="subtitle">A complete conceptual and problem-solving guide to two-dimensional kinematics.</p>
+    </header>
+
+    <section id="learning-objectives">
+      <h2>Learning Objectives &amp; Chapter Overview</h2>
+      <p>Motion along a straight line requires only positive and negative signs to specify direction. However, real-world trajectories—such as a cricket ball flying through the air, a boat crossing a flowing river, or a vehicle rounding a curved track—occur in two or three dimensions. Describing such motion requires the mathematical language of <strong>vectors</strong>.</p>
+      <div class="card-accent">
+        <strong>By completing this tutorial, you will be able to:</strong>
+        <ul>
+          <li>Distinguish between scalar and vector quantities and apply vector algebra rules accurately.</li>
+          <li>Add, subtract, and resolve vectors both graphically (triangle and parallelogram laws) and analytically (orthogonal components).</li>
+          <li>Express position, displacement, velocity, and acceleration in two-dimensional unit-vector notation.</li>
+          <li>Analyze planar motion with constant acceleration by decomposing it into independent perpendicular one-dimensional motions.</li>
+          <li>Derive and apply the trajectory equation, time of flight, maximum height, and horizontal range of a projectile.</li>
+          <li>Determine linear speed, angular speed, and centripetal acceleration in uniform circular motion, and avoid common conceptual traps.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="scalars-and-vectors">
+      <h2>Scalars and Vectors</h2>
+      <p>Every measurable physical quantity in mechanics falls into one of two foundational categories based on whether direction is required for its complete specification.</p>
+      <ul>
+        <li><strong>Scalar Quantity:</strong> A physical quantity completely specified by a single numerical value (magnitude) and an appropriate unit. Scalars have no associated direction and combine according to ordinary arithmetic. Examples include mass, distance, speed, time, density, temperature, work, energy, and electric current.</li>
+        <li><strong>Vector Quantity:</strong> A physical quantity that possesses both magnitude and direction, and strictly obeys the triangle law (or equivalently, the parallelogram law) of vector addition. Examples include displacement, velocity, acceleration, force, impulse, and linear momentum.</li>
+      </ul>
+      <p>In print, a vector is denoted by a boldface symbol such as \(\mathbf{A}\) or \(\mathbf{v}\), while its magnitude (a non-negative scalar) is written as \(|\mathbf{A}| = A\) or \(|\mathbf{v}| = v\). In handwritten work, an arrow is placed above the letter, such as \(\vec{A}\).</p>
+
+      <h3>Equality, Scaling, and Special Vectors</h3>
+      <ul>
+        <li><strong>Equality of Vectors:</strong> Two free vectors \(\mathbf{A}\) and \(\mathbf{B}\) are equal (\(\mathbf{A} = \mathbf{B}\)) if and only if they have identical magnitudes and identical directions. Shifting a free vector parallel to itself leaves it unchanged.</li>
+        <li><strong>Multiplication by a Real Number:</strong> Multiplying \(\mathbf{A}\) by a positive real number \(\lambda\) scales its magnitude to \(\lambda A\) without altering its direction. Multiplying by a negative number \(-\lambda\) (\(\lambda &gt; 0\)) scales the magnitude to \(\lambda A\) and reverses the direction by \(180^\circ\). If the scalar carries physical dimensions (for example, multiplying constant velocity \(\mathbf{v}\) by time \(t\)), the resulting vector carries the product of their dimensions (displacement).</li>
+        <li><strong>Null (Zero) Vector:</strong> Represented by \(\mathbf{0}\), a null vector has zero magnitude (\(|\mathbf{0}| = 0\)) and an undefined direction. It arises when two equal and opposite vectors are added (\(\mathbf{A} + (-\mathbf{A}) = \mathbf{0}\)) or when a body returns to its starting point (zero net displacement). Key properties: \(\mathbf{A} + \mathbf{0} = \mathbf{A}\), \(\lambda \mathbf{0} = \mathbf{0}\), and \(0\mathbf{A} = \mathbf{0}\).</li>
+        <li><strong>Unit Vector:</strong> A dimensionless vector of magnitude \(1\) used purely to specify direction. Any non-zero vector \(\mathbf{A}\) can be written as \(\mathbf{A} = A\hat{\mathbf{n}}\), where \(\hat{\mathbf{n}} = \mathbf{A}/A\) is the unit vector along \(\mathbf{A}\). Along the mutually perpendicular \(x\)-, \(y\)-, and \(z\)-axes of a right-handed Cartesian system, unit vectors are denoted by \(\hat{\mathbf{i}}\), \(\hat{\mathbf{j}}\), and \(\hat{\mathbf{k}}\), respectively, with \(|\hat{\mathbf{i}}| = |\hat{\mathbf{j}}| = |\hat{\mathbf{k}}| = 1\).</li>
+      </ul>
+    </section>
+
+    <section id="vector-algebra">
+      <h2>Vector Addition, Subtraction, and Resolution</h2>
+      <h3>Graphical Methods: Triangle and Parallelogram Laws</h3>
+      <p>To add two vectors \(\mathbf{A}\) and \(\mathbf{B}\) graphically using the <strong>triangle (head-to-tail) method</strong>, place the tail of \(\mathbf{B}\) at the head of \(\mathbf{A}\); the resultant \(\mathbf{R} = \mathbf{A} + \mathbf{B}\) runs from the tail of \(\mathbf{A}\) to the head of \(\mathbf{B}\). Equivalently, in the <strong>parallelogram method</strong>, join the tails of \(\mathbf{A}\) and \(\mathbf{B}\) at a common origin and complete the parallelogram; the diagonal passing through that common origin represents \(\mathbf{R}\).</p>
+      <p>Vector addition is both <strong>commutative</strong> (\(\mathbf{A} + \mathbf{B} = \mathbf{B} + \mathbf{A}\)) and <strong>associative</strong> (\((\mathbf{A} + \mathbf{B}) + \mathbf{C} = \mathbf{A} + (\mathbf{B} + \mathbf{C})\)).</p>
+      <p><strong>Vector Subtraction:</strong> Subtracting \(\mathbf{B}\) from \(\mathbf{A}\) is defined as adding the reversed vector \(-\mathbf{B}\) to \(\mathbf{A}\):</p>
+      <div class="formula-box">
+        \[
+          \mathbf{A} - \mathbf{B} = \mathbf{A} + (-\mathbf{B})
+        \]
+      </div>
+
+      <div class="diagram-block">
+        <svg viewBox="0 0 560 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parallelogram law of vector addition and rectangular resolution">
+          <defs>
+            <marker id="arr-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E293B"/>
+            </marker>
+            <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563EB"/>
+            </marker>
+            <marker id="arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#0D9488"/>
+            </marker>
+          </defs>
+          <!-- Left Panel: Parallelogram Law -->
+          <text x="135" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">(a) Parallelogram Law</text>
+          <line x1="40" y1="185" x2="180" y2="185" stroke="#1E293B" stroke-width="2.2" marker-end="url(#arr-dark)"/>
+          <line x1="40" y1="185" x2="90" y2="75" stroke="#1E293B" stroke-width="2.2" marker-end="url(#arr-dark)"/>
+          <line x1="90" y1="75" x2="230" y2="75" stroke="#64748B" stroke-width="1.4" stroke-dasharray="5,4"/>
+          <line x1="180" y1="185" x2="230" y2="75" stroke="#64748B" stroke-width="1.4" stroke-dasharray="5,4"/>
+          <line x1="40" y1="185" x2="226" y2="78" stroke="#2563EB" stroke-width="2.6" marker-end="url(#arr-blue)"/>
+          <!-- Angle arcs -->
+          <path d="M 72 185 A 32 32 0 0 0 53 156" fill="none" stroke="#0D9488" stroke-width="1.5"/>
+          <path d="M 86 185 A 46 46 0 0 0 80 162" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="30" y="198" font-family="sans-serif" font-size="12" fill="#1E293B">O</text>
+          <text x="115" y="203" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">A</text>
+          <text x="48" y="125" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">B</text>
+          <text x="148" y="118" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">R = A + B</text>
+          <text x="64" y="158" font-family="sans-serif" font-size="12" fill="#0D9488">θ</text>
+          <text x="92" y="176" font-family="sans-serif" font-size="12" fill="#2563EB">α</text>
+
+          <!-- Divider -->
+          <line x1="280" y1="20" x2="280" y2="210" stroke="#CBD5E1" stroke-width="1.2"/>
+
+          <!-- Right Panel: Rectangular Resolution -->
+          <text x="420" y="22" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">(b) Rectangular Resolution</text>
+          <line x1="330" y1="185" x2="520" y2="185" stroke="#475569" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+          <line x1="330" y1="185" x2="330" y2="45" stroke="#475569" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+          <line x1="330" y1="185" x2="475" y2="75" stroke="#2563EB" stroke-width="2.6" marker-end="url(#arr-blue)"/>
+          <line x1="330" y1="185" x2="475" y2="185" stroke="#0D9488" stroke-width="2.4" marker-end="url(#arr-teal)"/>
+          <line x1="330" y1="185" x2="330" y2="75" stroke="#0D9488" stroke-width="2.4" marker-end="url(#arr-teal)"/>
+          <line x1="475" y1="75" x2="475" y2="185" stroke="#64748B" stroke-width="1.4" stroke-dasharray="4,4"/>
+          <line x1="330" y1="75" x2="475" y2="75" stroke="#64748B" stroke-width="1.4" stroke-dasharray="4,4"/>
+          <path d="M 368 185 A 38 38 0 0 0 360 162" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+          <text x="526" y="189" font-family="sans-serif" font-size="12" fill="#1E293B">x</text>
+          <text x="326" y="38" font-family="sans-serif" font-size="12" fill="#1E293B">y</text>
+          <text x="318" y="198" font-family="sans-serif" font-size="12" fill="#1E293B">O</text>
+          <text x="415" y="118" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">A</text>
+          <text x="405" y="203" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Aₓ = A cos θ</text>
+          <text x="292" y="130" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">Aᵧ</text>
+          <text x="373" y="175" font-family="sans-serif" font-size="12" fill="#1E293B">θ</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 1:</strong> (a) Parallelogram law showing resultant \(\mathbf{R} = \mathbf{A} + \mathbf{B}\) at angle \(\alpha\) to \(\mathbf{A}\). (b) Resolving a vector \(\mathbf{A}\) into orthogonal scalar components \(A_x\) and \(A_y\).</div>
+      </div>
+
+      <h3>Analytical Method: Magnitude and Direction of Resultant</h3>
+      <p>For two vectors \(\mathbf{A}\) and \(\mathbf{B}\) inclined at an angle \(\theta\) (\(0^\circ \le \theta \le 180^\circ\)), applying the law of cosines and right-triangle geometry gives the magnitude \(R\) of \(\mathbf{R} = \mathbf{A} + \mathbf{B}\) and the angle \(\alpha\) that \(\mathbf{R}\) makes with \(\mathbf{A}\):</p>
+      <div class="formula-box">
+        \[
+          R = \sqrt{A^2 + B^2 + 2AB\cos\theta}, \qquad \tan\alpha = \frac{B\sin\theta}{A + B\cos\theta}
+        \]
+      </div>
+      <p>For the difference \(\mathbf{D} = \mathbf{A} - \mathbf{B}\), replace \(\theta\) with \(180^\circ - \theta\), yielding \(D = \sqrt{A^2 + B^2 - 2AB\cos\theta}\).</p>
+      <p><strong>Triangle Inequalities:</strong> For any two vectors \(\mathbf{a}\) and \(\mathbf{b}\), the resultant magnitude is bounded between their difference and sum:</p>
+      <div class="formula-box">
+        \[
+          \bigl|\,|\mathbf{a}| - |\mathbf{b}|\,\bigr| \le |\mathbf{a} \pm \mathbf{b}| \le |\mathbf{a}| + |\mathbf{b}|
+        \]
+      </div>
+
+      <h3>Rectangular Resolution in 2D and 3D</h3>
+      <p>Any vector \(\mathbf{A}\) in the \(x\)-\(y\) plane making an angle \(\theta\) with the positive \(x\)-axis can be expressed as \(\mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}}\), where \(A_x = A\cos\theta\) and \(A_y = A\sin\theta\). Conversely, given components \(A_x\) and \(A_y\):</p>
+      <div class="formula-box">
+        \[
+          A = \sqrt{A_x^2 + A_y^2}, \qquad \tan\theta = \frac{A_y}{A_x}
+        \]
+      </div>
+      <p>In three dimensions, \(\mathbf{A} = A_x\hat{\mathbf{i}} + A_y\hat{\mathbf{j}} + A_z\hat{\mathbf{k}}\) with \(A = \sqrt{A_x^2 + A_y^2 + A_z^2}\). Adding or subtracting vectors analytically reduces to adding or subtracting corresponding components: if \(\mathbf{R} = \mathbf{A} + \mathbf{B}\), then \(R_x = A_x + B_x\), \(R_y = A_y + B_y\), and \(R_z = A_z + B_z\).</p>
+    </section>
+
+    <section id="planar-kinematics">
+      <h2>Kinematics in a Plane</h2>
+      <h3>Position, Displacement, Velocity, and Acceleration</h3>
+      <p>Choose an origin \(O\) in the \(x\)-\(y\) plane. At time \(t\), a particle at coordinates \((x, y)\) has position vector \(\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}}\). If it moves to \((x', y')\) at time \(t'\), its displacement vector is:</p>
+      <div class="formula-box">
+        \[
+          \Delta\mathbf{r} = \mathbf{r}' - \mathbf{r} = \Delta x\,\hat{\mathbf{i}} + \Delta y\,\hat{\mathbf{j}}
+        \]
+      </div>
+      <p>The displacement depends solely on the initial and final endpoints, whereas path length depends on the actual curve traversed. Consequently, \(\text{path length} \ge |\Delta\mathbf{r}|\), with equality holding only when the particle moves in a fixed straight direction without reversing.</p>
+      <ul>
+        <li><strong>Average Velocity:</strong> \(\bar{\mathbf{v}} = \frac{\Delta\mathbf{r}}{\Delta t} = \frac{\Delta x}{\Delta t}\hat{\mathbf{i}} + \frac{\Delta y}{\Delta t}\hat{\mathbf{j}}\), directed along \(\Delta\mathbf{r}\).</li>
+        <li><strong>Instantaneous Velocity:</strong> Taking the limit as \(\Delta t \to 0\) gives \(\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = v_x\hat{\mathbf{i}} + v_y\hat{\mathbf{j}}\), where \(v_x = \frac{\mathrm{d}x}{\mathrm{d}t}\) and \(v_y = \frac{\mathrm{d}y}{\mathrm{d}t}\). Its magnitude is \(v = \sqrt{v_x^2 + v_y^2}\), and its direction is <strong>always tangent to the path</strong> at that instant.</li>
+        <li><strong>Average and Instantaneous Acceleration:</strong> \(\bar{\mathbf{a}} = \frac{\Delta\mathbf{v}}{\Delta t}\) and \(\mathbf{a} = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}\), where \(a_x = \frac{\mathrm{d}v_x}{\mathrm{d}t} = \frac{\mathrm{d}^2 x}{\mathrm{d}t^2}\) and \(a_y = \frac{\mathrm{d}v_y}{\mathrm{d}t} = \frac{\mathrm{d}^2 y}{\mathrm{d}t^2}\).</li>
+      </ul>
+      <p>Unlike one-dimensional motion, where velocity and acceleration are strictly collinear (\(0^\circ\) or \(180^\circ\) apart), in two or three dimensions \(\mathbf{v}\) and \(\mathbf{a}\) can make <strong>any angle between \(0^\circ\) and \(180^\circ\)</strong>.</p>
+
+      <h3>Motion in a Plane with Constant Acceleration</h3>
+      <p>When acceleration \(\mathbf{a}\) is constant in both magnitude and direction, the kinematic equations mirror those of one dimension in vector form:</p>
+      <div class="formula-box">
+        \[
+          \mathbf{v} = \mathbf{v}_0 + \mathbf{a}t, \qquad \mathbf{r} = \mathbf{r}_0 + \mathbf{v}_0 t + \frac{1}{2}\mathbf{a}t^2
+        \]
+      </div>
+      <p>Writing these in component form reveals a powerful principle: <strong>two-dimensional motion with constant acceleration is equivalent to two independent, simultaneous one-dimensional motions along perpendicular \(x\)- and \(y\)-axes</strong>:</p>
+      <div class="formula-box">
+        \[
+          x = x_0 + v_{0x}t + \frac{1}{2}a_x t^2, \qquad v_x = v_{0x} + a_x t
+        \]
+        \[
+          y = y_0 + v_{0y}t + \frac{1}{2}a_y t^2, \qquad v_y = v_{0y} + a_y t
+        \]
+      </div>
+
+      <h3>Relative Velocity in Two Dimensions</h3>
+      <p>If objects 1 and 2 have velocities \(\mathbf{v}_1\) and \(\mathbf{v}_2\) measured relative to a common reference frame (such as the ground), the velocity of object 1 relative to object 2 is \(\mathbf{v}_{12} = \mathbf{v}_1 - \mathbf{v}_2\). Conversely, if an object moves with velocity \(\mathbf{v}_{\text{obj,med}}\) relative to a moving medium (such as a boat in a river or an aircraft in wind) whose velocity is \(\mathbf{v}_{\text{med}}\), the resultant velocity relative to the ground is \(\mathbf{v} = \mathbf{v}_{\text{obj,med}} + \mathbf{v}_{\text{med}}\).</p>
+    </section>
+
+    <section id="projectile-motion">
+      <h2>Projectile Motion</h2>
+      <p>An object launched into flight and moving solely under the influence of gravity (neglecting air resistance) is called a <strong>projectile</strong>. Choosing the launch point as the origin \((0, 0)\), the positive \(x\)-axis horizontally forward, and the positive \(y\)-axis vertically upward, the acceleration components are \(a_x = 0\) and \(a_y = -g\).</p>
+      <p>If the projectile is launched with initial speed \(v_0\) at an angle \(\theta_0\) above the horizontal, its initial velocity components are \(v_{0x} = v_0\cos\theta_0\) and \(v_{0y} = v_0\sin\theta_0\). Because \(a_x = 0\), the horizontal velocity remains constant throughout flight (\(v_x = v_0\cos\theta_0\)), while the vertical motion behaves like free fall under gravity (\(v_y = v_0\sin\theta_0 - gt\)).</p>
+
+      <div class="diagram-block">
+        <svg viewBox="0 0 560 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parabolic trajectory of an oblique projectile">
+          <defs>
+            <marker id="p-arr-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E293B"/>
+            </marker>
+            <marker id="p-arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563EB"/>
+            </marker>
+            <marker id="p-arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#0D9488"/>
+            </marker>
+          </defs>
+          <!-- Axes -->
+          <line x1="45" y1="205" x2="520" y2="205" stroke="#475569" stroke-width="1.6" marker-end="url(#p-arr-dark)"/>
+          <line x1="60" y1="220" x2="60" y2="25" stroke="#475569" stroke-width="1.6" marker-end="url(#p-arr-dark)"/>
+          <text x="526" y="209" font-family="sans-serif" font-size="12" fill="#1E293B">x</text>
+          <text x="56" y="18" font-family="sans-serif" font-size="12" fill="#1E293B">y</text>
+          <text x="46" y="218" font-family="sans-serif" font-size="12" fill="#1E293B">O</text>
+
+          <!-- Parabolic Path: start (60,205), peak (265,65), end (470,205) -->
+          <path d="M 60 205 Q 265 -75 470 205" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+
+          <!-- Launch velocity vector -->
+          <line x1="60" y1="205" x2="128" y2="115" stroke="#1E293B" stroke-width="2.2" marker-end="url(#p-arr-dark)"/>
+          <path d="M 96 205 A 36 36 0 0 0 82 176" fill="none" stroke="#0D9488" stroke-width="1.6"/>
+          <text x="100" y="193" font-family="sans-serif" font-size="12" fill="#0D9488">θ₀</text>
+          <text x="108" y="110" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">v₀</text>
+
+          <!-- Peak velocity and H -->
+          <line x1="265" y1="65" x2="265" y2="205" stroke="#64748B" stroke-width="1.3" stroke-dasharray="5,4"/>
+          <line x1="265" y1="65" x2="330" y2="65" stroke="#0D9488" stroke-width="2.2" marker-end="url(#p-arr-teal)"/>
+          <circle cx="265" cy="65" r="3.5" fill="#2563EB"/>
+          <text x="265" y="47" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1E293B">Peak: vᵧ = 0, v = v₀ cos θ₀</text>
+          <text x="273" y="140" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">H</text>
+
+          <!-- Acceleration downward -->
+          <line x1="415" y1="55" x2="415" y2="100" stroke="#1E293B" stroke-width="2" marker-end="url(#p-arr-dark)"/>
+          <text x="424" y="82" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">a = -g ĵ</text>
+
+          <!-- Landing velocity -->
+          <line x1="470" y1="205" x2="505" y2="235" stroke="#1E293B" stroke-width="1.8" marker-end="url(#p-arr-dark)"/>
+          <text x="478" y="238" font-family="sans-serif" font-size="12" fill="#1E293B">v</text>
+
+          <!-- Range bracket -->
+          <line x1="60" y1="224" x2="470" y2="224" stroke="#0D9488" stroke-width="1.5"/>
+          <line x1="60" y1="219" x2="60" y2="229" stroke="#0D9488" stroke-width="1.5"/>
+          <line x1="470" y1="219" x2="470" y2="229" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="265" y="241" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">Range R</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 2:</strong> Parabolic path of a projectile launched at angle \(\theta_0\) with speed \(v_0\). At maximum height \(H\), vertical velocity \(v_y = 0\) and velocity is purely horizontal.</div>
+      </div>
+
+      <h3>Key Projectile Equations (Level Ground Launch)</h3>
+      <ul>
+        <li><strong>Position at time \(t\):</strong> \(x = (v_0\cos\theta_0)t\) and \(y = (v_0\sin\theta_0)t - \frac{1}{2}gt^2\).</li>
+        <li><strong>Equation of Trajectory:</strong> Eliminating \(t\) gives a parabola:
+          <div class="formula-box">
+            \[
+              y = (\tan\theta_0)x - \frac{g}{2v_0^2\cos^2\theta_0}x^2
+            \]
+          </div>
+        </li>
+        <li><strong>Time to Maximum Height (\(t_m\)) and Time of Flight (\(T_f\)):</strong> Setting \(v_y = 0\) gives \(t_m = \frac{v_0\sin\theta_0}{g}\). By symmetry of the parabola over level ground, \(T_f = 2t_m = \frac{2v_0\sin\theta_0}{g}\).</li>
+        <li><strong>Maximum Height (\(H\)):</strong>
+          <div class="formula-box">
+            \[
+              H = \frac{v_0^2\sin^2\theta_0}{2g}
+            \]
+          </div>
+        </li>
+        <li><strong>Horizontal Range (\(R\)):</strong> The horizontal distance covered during \(T_f\) is:
+          <div class="formula-box">
+            \[
+              R = \frac{v_0^2\sin 2\theta_0}{g}
+            \]
+          </div>
+        </li>
+      </ul>
+
+      <div class="card-accent">
+        <strong>High-Yield NEET UG Insights for Projectiles:</strong>
+        <ul>
+          <li><strong>Maximum Range:</strong> For a fixed launch speed \(v_0\), \(R\) is maximum when \(\sin 2\theta_0 = 1\), i.e., at \(\theta_0 = 45^\circ\), giving \(R_{\max} = \frac{v_0^2}{g}\).</li>
+          <li><strong>Complementary Angles:</strong> Angles \((45^\circ + \alpha)\) and \((45^\circ - \alpha)\)—or any two angles summing to \(90^\circ\)—produce the exact same horizontal range for a given \(v_0\), because \(\sin(180^\circ - 2\theta_0) = \sin 2\theta_0\).</li>
+          <li><strong>At the Highest Point:</strong> Speed is minimum (\(v_{\min} = v_0\cos\theta_0 \ne 0\)), and the velocity vector is perpendicular to the acceleration vector (\(\mathbf{v} \perp \mathbf{g}\)).</li>
+          <li><strong>Range–Height Relation:</strong> \(\frac{R}{H} = \frac{4}{\tan\theta_0}\), or \(R\tan\theta_0 = 4H\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="uniform-circular-motion">
+      <h2>Uniform Circular Motion (UCM)</h2>
+      <p>When an object travels along a circular path of radius \(R\) at a <strong>constant speed</strong> \(v\), its motion is called <strong>uniform circular motion</strong>. Even though speed is constant, the direction of velocity changes continuously, meaning the velocity vector \(\mathbf{v}\) is changing—so the object is continuously accelerating.</p>
+      <p>As the time interval \(\Delta t \to 0\), the change in velocity \(\Delta \mathbf{v}\) becomes perpendicular to \(\mathbf{v}\) and points directly towards the center of the circle. This inward acceleration is called <strong>centripetal acceleration</strong> (\(a_c\)):</p>
+      <div class="formula-box">
+        \[
+          a_c = \frac{v^2}{R} = \omega^2 R = 4\pi^2 \nu^2 R
+        \]
+      </div>
+      <p>Here, \(\omega = \frac{\Delta\theta}{\Delta t}\) is the <strong>angular speed</strong> (in \(\mathrm{rad\,s^{-1}}\)), related to linear speed by \(v = \omega R\). If \(T\) is the time period for one revolution and \(\nu = 1/T\) is the frequency, then \(\omega = \frac{2\pi}{T} = 2\pi\nu\) and \(v = \frac{2\pi R}{T} = 2\pi R\nu\).</p>
+
+      <div class="diagram-block">
+        <svg viewBox="0 0 360 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uniform circular motion showing tangential velocity and inward centripetal acceleration">
+          <defs>
+            <marker id="u-arr-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E293B"/>
+            </marker>
+            <marker id="u-arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563EB"/>
+            </marker>
+            <marker id="u-arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#0D9488"/>
+            </marker>
+          </defs>
+          <circle cx="160" cy="115" r="78" fill="none" stroke="#2563EB" stroke-width="2.2"/>
+          <circle cx="160" cy="115" r="3.5" fill="#1E293B"/>
+          <text x="145" y="112" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">C</text>
+
+          <!-- Point P at (215, 170) approx on circle: 160+78*cos(45)=215.15, 115+78*sin(45)=170.15 -->
+          <line x1="160" y1="115" x2="213" y2="168" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <text x="193" y="138" font-family="sans-serif" font-size="12" fill="#475569">R</text>
+
+          <!-- Centripetal acceleration inward from P towards C -->
+          <line x1="215" y1="170" x2="178" y2="133" stroke="#0D9488" stroke-width="2.6" marker-end="url(#u-arr-teal)"/>
+          <text x="163" y="156" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">a_c</text>
+
+          <!-- Tangential velocity at P (perpendicular to (1,1) -> (1,-1)) -->
+          <line x1="215" y1="170" x2="262" y2="123" stroke="#1E293B" stroke-width="2.4" marker-end="url(#u-arr-dark)"/>
+          <circle cx="215" cy="170" r="3.5" fill="#1E293B"/>
+          <text x="217" y="185" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">P</text>
+          <text x="266" y="122" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">v (tangent)</text>
+
+          <!-- Sense of rotation indicator -->
+          <path d="M 122 32 A 92 92 0 0 0 84 62" fill="none" stroke="#2563EB" stroke-width="1.6" marker-end="url(#u-arr-blue)"/>
+          <text x="72" y="42" font-family="sans-serif" font-size="12" fill="#2563EB">ω</text>
+        </svg>
+        <div class="diagram-caption"><strong>Tutorial Diagram 3:</strong> In uniform circular motion, instantaneous velocity \(\mathbf{v}\) is always tangent to the circle and perpendicular to centripetal acceleration \(\mathbf{a}_c\), which points towards center \(C\).</div>
+      </div>
+
+      <div class="card-warn">
+        <strong>Crucial Distinctions in Circular Motion:</strong>
+        <ul>
+          <li>In UCM, the <strong>magnitude</strong> of \(\mathbf{a}_c\) is constant, but its <strong>direction</strong> changes continuously. Therefore, \(\mathbf{a}_c\) is <strong>not a constant vector</strong>.</li>
+          <li>Because \(\mathbf{a}_c\) is not a constant vector, constant-acceleration kinematic equations (\(\mathbf{v} = \mathbf{v}_0 + \mathbf{a}t\)) <strong>cannot</strong> be applied to UCM.</li>
+          <li>If speed varies along a circular path (non-uniform circular motion), there is also a tangential acceleration \(a_t = \frac{\mathrm{d}v}{\mathrm{d}t}\), so the net acceleration is not directed purely towards the center.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="summary-table">
+      <h2>Essential Formulas &amp; Dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Physical Quantity</th>
+            <th>Key Expression</th>
+            <th>SI Unit &amp; Dimensions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Position &amp; Displacement</td>
+            <td>\(\mathbf{r} = x\hat{\mathbf{i}} + y\hat{\mathbf{j}}\), \(\Delta\mathbf{r} = \mathbf{r}' - \mathbf{r}\)</td>
+            <td>\(\mathrm{m}\), \([\mathrm{L}]\)</td>
+          </tr>
+          <tr>
+            <td>Instantaneous Velocity</td>
+            <td>\(\mathbf{v} = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = v_x\hat{\mathbf{i}} + v_y\hat{\mathbf{j}}\)</td>
+            <td>\(\mathrm{m\,s^{-1}}\), \([\mathrm{LT^{-1}}]\)</td>
+          </tr>
+          <tr>
+            <td>Instantaneous Acceleration</td>
+            <td>\(\mathbf{a} = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}\)</td>
+            <td>\(\mathrm{m\,s^{-2}}\), \([\mathrm{LT^{-2}}]\)</td>
+          </tr>
+          <tr>
+            <td>Projectile Time of Flight</td>
+            <td>\(T_f = \frac{2v_0\sin\theta_0}{g}\)</td>
+            <td>\(\mathrm{s}\), \([\mathrm{T}]\)</td>
+          </tr>
+          <tr>
+            <td>Projectile Max Height</td>
+            <td>\(H = \frac{v_0^2\sin^2\theta_0}{2g}\)</td>
+            <td>\(\mathrm{m}\), \([\mathrm{L}]\)</td>
+          </tr>
+          <tr>
+            <td>Projectile Horizontal Range</td>
+            <td>\(R = \frac{v_0^2\sin 2\theta_0}{g}\)</td>
+            <td>\(\mathrm{m}\), \([\mathrm{L}]\)</td>
+          </tr>
+          <tr>
+            <td>Angular Speed</td>
+            <td>\(\omega = \frac{\Delta\theta}{\Delta t} = \frac{v}{R} = 2\pi\nu\)</td>
+            <td>\(\mathrm{rad\,s^{-1}}\), \([\mathrm{T^{-1}}]\)</td>
+          </tr>
+          <tr>
+            <td>Centripetal Acceleration</td>
+            <td>\(a_c = \frac{v^2}{R} = \omega^2 R = 4\pi^2\nu^2 R\)</td>
+            <td>\(\mathrm{m\,s^{-2}}\), \([\mathrm{LT^{-2}}]\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="worked-examples">
+      <h2>Worked Examples</h2>
+
+      <div class="example-card">
+        <div class="example-title">Example 1: Resultant of Two Non-Perpendicular Forces</div>
+        <p><strong>Problem (Assumed Values):</strong> Two tugboats pull a barge with horizontal forces of magnitudes \(F_1 = 12\,\mathrm{N}\) and \(F_2 = 16\,\mathrm{N}\) inclined at an angle of \(60^\circ\) to each other. Calculate the magnitude of the resultant force and the angle it makes with \(\mathbf{F}_1\).</p>
+        <p><strong>Solution:</strong> Using the analytical formula for vector addition with \(\theta = 60^\circ\):</p>
+        <p>\[
+          R = \sqrt{F_1^2 + F_2^2 + 2F_1F_2\cos 60^\circ} = \sqrt{12^2 + 16^2 + 2(12)(16)(0.5)} = \sqrt{144 + 256 + 192} = \sqrt{592} \approx 24.33\,\mathrm{N}
+        \]</p>
+        <p>The angle \(\alpha\) with \(\mathbf{F}_1\) is given by:</p>
+        <p>\[
+          \tan\alpha = \frac{F_2\sin 60^\circ}{F_1 + F_2\cos 60^\circ} = \frac{16 \times (\sqrt{3}/2)}{12 + 16 \times 0.5} = \frac{8\sqrt{3}}{20} = \frac{2\sqrt{3}}{5} \approx 0.693 \implies \alpha \approx 34.7^\circ
+        \]</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 2: Rain and Wind Relative Velocity</div>
+        <p><strong>Problem (Assumed Values):</strong> Raindrops fall vertically downward at a steady speed of \(v_r = 8\,\mathrm{m\,s^{-1}}\). A horizontal wind starts blowing from west to east at \(v_w = 6\,\mathrm{m\,s^{-1}}\). At what angle to the vertical should a stationary pedestrian tilt an umbrella to stay dry?</p>
+        <p><strong>Solution:</strong> The resultant velocity of the rain relative to the ground is \(\mathbf{v} = \mathbf{v}_r + \mathbf{v}_w\). Since \(\mathbf{v}_r\) (downward) and \(\mathbf{v}_w\) (eastward) are perpendicular, the magnitude is:</p>
+        <p>\[
+          v = \sqrt{v_r^2 + v_w^2} = \sqrt{8^2 + 6^2} = 10\,\mathrm{m\,s^{-1}}
+        \]</p>
+        <p>The angle \(\theta\) made with the vertical satisfies:</p>
+        <p>\[
+          \tan\theta = \frac{v_w}{v_r} = \frac{6}{8} = 0.75 \implies \theta \approx 36.9^\circ
+        \]</p>
+        <p>Because the rain strikes from the west while moving eastward, the pedestrian must tilt the umbrella at \(36.9^\circ\) with the vertical towards the <strong>west</strong>.</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 3: Two-Dimensional Motion with Constant Acceleration</div>
+        <p><strong>Problem (Assumed Values):</strong> A particle leaves the origin at \(t = 0\) with an initial velocity \(\mathbf{v}_0 = 4\hat{\mathbf{i}}\,\mathrm{m\,s^{-1}}\) and moves in the \(x\)-\(y\) plane under a constant acceleration \(\mathbf{a} = (2\hat{\mathbf{i}} + 3\hat{\mathbf{j}})\,\mathrm{m\,s^{-2}}\). Find (a) the \(y\)-coordinate when \(x = 21\,\mathrm{m}\), and (b) the particle's speed at that instant.</p>
+        <p><strong>Solution:</strong> Since \(\mathbf{r}_0 = \mathbf{0}\), the position components are:</p>
+        <p>\[
+          x(t) = 4t + \frac{1}{2}(2)t^2 = 4t + t^2, \qquad y(t) = 0 + \frac{1}{2}(3)t^2 = 1.5t^2
+        \]</p>
+        <p>(a) Setting \(x(t) = 21\,\mathrm{m}\) gives \(t^2 + 4t - 21 = 0 \implies (t + 7)(t - 3) = 0\). Taking \(t &gt; 0\), we get \(t = 3\,\mathrm{s}\). Substituting \(t = 3\,\mathrm{s}\) into \(y(t)\):</p>
+        <p>\[
+          y = 1.5(3)^2 = 13.5\,\mathrm{m}
+        \]</p>
+        <p>(b) Velocity at time \(t\) is \(\mathbf{v}(t) = \mathbf{v}_0 + \mathbf{a}t = (4 + 2t)\hat{\mathbf{i}} + 3t\hat{\mathbf{j}}\). At \(t = 3\,\mathrm{s}\), \(\mathbf{v} = 10\hat{\mathbf{i}} + 9\hat{\mathbf{j}}\,\mathrm{m\,s^{-1}}\), so the speed is:</p>
+        <p>\[
+          v = \sqrt{10^2 + 9^2} = \sqrt{181} \approx 13.45\,\mathrm{m\,s^{-1}}
+        \]</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 4: Horizontal Projection from an Elevated Cliff</div>
+        <p><strong>Problem (Assumed Values):</strong> A rescue drone flying horizontally at \(25\,\mathrm{m\,s^{-1}}\) at a height of \(80\,\mathrm{m}\) above flat ground releases a supply packet. Neglecting air resistance and taking \(g = 10\,\mathrm{m\,s^{-2}}\), find the time of fall, horizontal distance covered, and impact speed.</p>
+        <p><strong>Solution:</strong> Choosing the release point as the origin with \(v_{0x} = 25\,\mathrm{m\,s^{-1}}\), \(v_{0y} = 0\), and \(a_y = -10\,\mathrm{m\,s^{-2}}\):</p>
+        <p>Vertical displacement at impact is \(y = -80\,\mathrm{m}\), so:</p>
+        <p>\[
+          -80 = -\frac{1}{2}(10)t^2 \implies t^2 = 16 \implies t = 4\,\mathrm{s}
+        \]</p>
+        <p>Horizontal distance covered: \(x = v_{0x}t = 25 \times 4 = 100\,\mathrm{m}\).</p>
+        <p>At \(t = 4\,\mathrm{s}\), \(v_x = 25\,\mathrm{m\,s^{-1}}\) and \(v_y = 0 - 10(4) = -40\,\mathrm{m\,s^{-1}}\). Impact speed is:</p>
+        <p>\[
+          v = \sqrt{25^2 + (-40)^2} = \sqrt{625 + 1600} = \sqrt{2225} \approx 47.17\,\mathrm{m\,s^{-1}}
+        \]</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 5: Oblique Projectile Range and Maximum Height</div>
+        <p><strong>Problem (Assumed Values):</strong> A football is kicked at \(v_0 = 20\,\mathrm{m\,s^{-1}}\) at an elevation of \(30^\circ\) above level ground. Taking \(g = 10\,\mathrm{m\,s^{-2}}\), calculate its maximum height, time of flight, and horizontal range.</p>
+        <p><strong>Solution:</strong></p>
+        <p>\[
+          H = \frac{(v_0\sin 30^\circ)^2}{2g} = \frac{(20 \times 0.5)^2}{2 \times 10} = \frac{100}{20} = 5\,\mathrm{m}
+        \]</p>
+        <p>\[
+          T_f = \frac{2v_0\sin 30^\circ}{g} = \frac{2 \times 20 \times 0.5}{10} = 2\,\mathrm{s}
+        \]</p>
+        <p>\[
+          R = \frac{v_0^2\sin 60^\circ}{g} = \frac{400 \times (\sqrt{3}/2)}{10} = 20\sqrt{3} \approx 34.64\,\mathrm{m}
+        \]</p>
+      </div>
+
+      <div class="example-card">
+        <div class="example-title">Example 6: Centripetal Acceleration in Uniform Circular Motion</div>
+        <p><strong>Problem (Assumed Values):</strong> A small stone tied to a \(0.5\,\mathrm{m}\) string is whirled in a horizontal circle at a steady rate of \(120\) revolutions per minute. Find its angular speed, linear speed, and centripetal acceleration.</p>
+        <p><strong>Solution:</strong> Frequency \(\nu = \frac{120}{60} = 2\,\mathrm{Hz}\). Thus:</p>
+        <p>\[
+          \omega = 2\pi\nu = 2\pi(2) = 4\pi\,\mathrm{rad\,s^{-1}} \approx 12.57\,\mathrm{rad\,s^{-1}}
+        \]</p>
+        <p>\[
+          v = \omega R = (4\pi)(0.5) = 2\pi\,\mathrm{m\,s^{-1}} \approx 6.28\,\mathrm{m\,s^{-1}}
+        \]</p>
+        <p>\[
+          a_c = \omega^2 R = (4\pi)^2(0.5) = 8\pi^2\,\mathrm{m\,s^{-2}} \approx 78.96\,\mathrm{m\,s^{-2}}
+        \]</p>
+        <p>The acceleration vector is directed radially inward towards the center of the circle at every instant.</p>
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>NEET UG Practice Questions</h2>
+      <p>Each practice question below is designed in the single-correct MCQ format of NEET UG. Attempt each problem before checking its worked solution.</p>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 1: Which of the following sets of three concurrent forces CANNOT produce a zero resultant (equilibrium)?</div>
+        <ul class="options-list">
+          <li>(A) \(4\,\mathrm{N},\ 6\,\mathrm{N},\ 8\,\mathrm{N}\)</li>
+          <li>(B) \(5\,\mathrm{N},\ 5\,\mathrm{N},\ 10\,\mathrm{N}\)</li>
+          <li>(C) \(3\,\mathrm{N},\ 5\,\mathrm{N},\ 9\,\mathrm{N}\)</li>
+          <li>(D) \(7\,\mathrm{N},\ 10\,\mathrm{N},\ 12\,\mathrm{N}\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (C)</div>
+          <p><strong>Solution:</strong> By the triangle inequality, three vectors can sum to \(\mathbf{0}\) only if the sum of the two smaller magnitudes is greater than or equal to the largest magnitude. For set (C), \(3 + 5 = 8 &lt; 9\), so they cannot form a closed triangle and their resultant can never be zero.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 2: A cyclist rides along a semicircular track of radius \(140\,\mathrm{m}\) from one end of a diameter to the opposite end in \(20\,\mathrm{s}\). Taking \(\pi = 22/7\), what is the ratio of the cyclist's average speed to the magnitude of average velocity?</div>
+        <ul class="options-list">
+          <li>(A) \(11 : 7\)</li>
+          <li>(B) \(7 : 11\)</li>
+          <li>(C) \(22 : 7\)</li>
+          <li>(D) \(1 : 1\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (A)</div>
+          <p><strong>Solution:</strong> Path length \(= \pi R = \frac{22}{7} \times 140 = 440\,\mathrm{m}\), while displacement magnitude \(= 2R = 280\,\mathrm{m}\). Since the time interval \(20\,\mathrm{s}\) is identical for both, the ratio is \(\frac{440}{280} = \frac{11}{7}\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 3: A particle moves due east at \(15\,\mathrm{m\,s^{-1}}\) and then turns smoothly to move due north at \(15\,\mathrm{m\,s^{-1}}\) over a time interval of \(3\,\mathrm{s}\). What is its average acceleration during this interval?</div>
+        <ul class="options-list">
+          <li>(A) \(5\sqrt{2}\,\mathrm{m\,s^{-2}}\) towards north-east</li>
+          <li>(B) \(5\sqrt{2}\,\mathrm{m\,s^{-2}}\) towards north-west</li>
+          <li>(C) \(10\,\mathrm{m\,s^{-2}}\) towards north-west</li>
+          <li>(D) \(5\,\mathrm{m\,s^{-2}}\) towards south-west</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (B)</div>
+          <p><strong>Solution:</strong> Let east be \(+\hat{\mathbf{i}}\) and north be \(+\hat{\mathbf{j}}\). Then \(\mathbf{v}_i = 15\hat{\mathbf{i}}\) and \(\mathbf{v}_f = 15\hat{\mathbf{j}}\). The change in velocity is \(\Delta\mathbf{v} = \mathbf{v}_f - \mathbf{v}_i = -15\hat{\mathbf{i}} + 15\hat{\mathbf{j}}\), which points north-west with magnitude \(15\sqrt{2}\,\mathrm{m\,s^{-1}}\). Dividing by \(\Delta t = 3\,\mathrm{s}\) gives \(|\bar{\mathbf{a}}| = 5\sqrt{2}\,\mathrm{m\,s^{-2}}\) towards north-west.</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 4: Given \(\mathbf{A} = 3\hat{\mathbf{i}} + 4\hat{\mathbf{j}}\) and \(\mathbf{B} = 7\hat{\mathbf{i}} + 24\hat{\mathbf{j}}\), find a vector that has the same magnitude as \(\mathbf{B}\) and is parallel to \(\mathbf{A}\).</div>
+        <ul class="options-list">
+          <li>(A) \(15\hat{\mathbf{i}} + 20\hat{\mathbf{j}}\)</li>
+          <li>(B) \(20\hat{\mathbf{i}} + 15\hat{\mathbf{j}}\)</li>
+          <li>(C) \(7\hat{\mathbf{i}} + 24\hat{\mathbf{j}}\)</li>
+          <li>(D) \(12\hat{\mathbf{i}} + 16\hat{\mathbf{j}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (A)</div>
+          <p><strong>Solution:</strong> \(|\mathbf{A}| = \sqrt{3^2 + 4^2} = 5\), so \(\hat{\mathbf{A}} = \frac{3\hat{\mathbf{i}} + 4\hat{\mathbf{j}}}{5}\). Also, \(|\mathbf{B}| = \sqrt{7^2 + 24^2} = \sqrt{625} = 25\). The required vector is \(|\mathbf{B}|\hat{\mathbf{A}} = 25\left(\frac{3\hat{\mathbf{i}} + 4\hat{\mathbf{j}}}{5}\right) = 15\hat{\mathbf{i}} + 20\hat{\mathbf{j}}\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 5: The position vector of a particle is \(\mathbf{r}(t) = 4t^2\hat{\mathbf{i}} + (3t^2 - 2t)\hat{\mathbf{j}}\,\mathrm{m}\), where \(t\) is in seconds. What is the magnitude of its acceleration at \(t = 2\,\mathrm{s}\)?</div>
+        <ul class="options-list">
+          <li>(A) \(10\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(B) \(14\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(C) \(20\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(D) \(5\,\mathrm{m\,s^{-2}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (A)</div>
+          <p><strong>Solution:</strong> Differentiating twice with respect to \(t\): \(\mathbf{v}(t) = \frac{\mathrm{d}\mathbf{r}}{\mathrm{d}t} = 8t\hat{\mathbf{i}} + (6t - 2)\hat{\mathbf{j}}\,\mathrm{m\,s^{-1}}\), and \(\mathbf{a}(t) = \frac{\mathrm{d}\mathbf{v}}{\mathrm{d}t} = 8\hat{\mathbf{i}} + 6\hat{\mathbf{j}}\,\mathrm{m\,s^{-2}}\). The acceleration is constant with magnitude \(a = \sqrt{8^2 + 6^2} = 10\,\mathrm{m\,s^{-2}}\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 6: A projectile is launched from level ground such that its horizontal range is \(4\sqrt{3}\) times its maximum height. What is the angle of projection with the horizontal?</div>
+        <ul class="options-list">
+          <li>(A) \(30^\circ\)</li>
+          <li>(B) \(45^\circ\)</li>
+          <li>(C) \(60^\circ\)</li>
+          <li>(D) \(75^\circ\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (A)</div>
+          <p><strong>Solution:</strong> Using the identity \(\frac{R}{H} = \frac{4}{\tan\theta_0}\), we have \(\frac{4}{\tan\theta_0} = 4\sqrt{3} \implies \tan\theta_0 = \frac{1}{\sqrt{3}} \implies \theta_0 = 30^\circ\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 7: A ball is projected with an initial speed of \(20\,\mathrm{m\,s^{-1}}\) at an angle of \(60^\circ\) above the horizontal. Neglecting air resistance, what is its speed at the highest point of its trajectory?</div>
+        <ul class="options-list">
+          <li>(A) \(0\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(B) \(10\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(C) \(10\sqrt{3}\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(D) \(20\,\mathrm{m\,s^{-1}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (B)</div>
+          <p><strong>Solution:</strong> At the highest point, \(v_y = 0\), while the horizontal component remains \(v_x = v_0\cos 60^\circ = 20 \times \frac{1}{2} = 10\,\mathrm{m\,s^{-1}}\). Thus the speed at the peak is \(10\,\mathrm{m\,s^{-1}}\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 8: Two projectiles A and B are launched from level ground with identical initial speeds \(v_0\) at angles \(35^\circ\) and \(55^\circ\) above the horizontal, respectively. Neglecting air resistance, which physical quantity is identical for both?</div>
+        <ul class="options-list">
+          <li>(A) Maximum height reached</li>
+          <li>(B) Total time of flight</li>
+          <li>(C) Horizontal range</li>
+          <li>(D) Vertical component of initial velocity</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (C)</div>
+          <p><strong>Solution:</strong> Since \(35^\circ + 55^\circ = 90^\circ\), the launch angles are complementary, giving \(\sin(2 \times 35^\circ) = \sin 70^\circ = \sin 110^\circ = \sin(2 \times 55^\circ)\). Therefore, both projectiles achieve the same horizontal range \(R = \frac{v_0^2\sin 2\theta_0}{g}\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 9: A car travels around a flat circular track of radius \(50\,\mathrm{m}\) at a constant speed of \(72\,\mathrm{km\,h^{-1}}\). What is the magnitude of its centripetal acceleration?</div>
+        <ul class="options-list">
+          <li>(A) \(4\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(B) \(8\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(C) \(10\,\mathrm{m\,s^{-2}}\)</li>
+          <li>(D) \(103.7\,\mathrm{m\,s^{-2}}\)</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (B)</div>
+          <p><strong>Solution:</strong> Convert speed to SI units: \(v = 72 \times \frac{5}{18} = 20\,\mathrm{m\,s^{-1}}\). Then \(a_c = \frac{v^2}{R} = \frac{20^2}{50} = \frac{400}{50} = 8\,\mathrm{m\,s^{-2}}\).</p>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-stem">Practice Question 10: Consider the following two statements regarding Uniform Circular Motion (UCM):<br>
+        <strong>Statement I:</strong> The centripetal acceleration vector of a particle in UCM is a constant vector because both speed and radius remain constant.<br>
+        <strong>Statement II:</strong> The acceleration vector of a particle in UCM averaged over one complete revolution is a null vector.<br>
+        Choose the correct option:</div>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct.</li>
+          <li>(B) Statement I is correct, but Statement II is incorrect.</li>
+          <li>(C) Statement I is incorrect, but Statement II is correct.</li>
+          <li>(D) Both Statement I and Statement II are incorrect.</li>
+        </ul>
+        <div class="solution-box">
+          <div class="answer-tag">Answer: (C)</div>
+          <p><strong>Solution:</strong> Statement I is incorrect because, although \(a_c = v^2/R\) has constant magnitude, its direction continuously changes (always pointing towards the center), so \(\mathbf{a}_c\) is not a constant vector. Statement II is correct because over one full cycle the initial and final velocities are identical (\(\Delta\mathbf{v} = \mathbf{0}\)), making \(\bar{\mathbf{a}} = \mathbf{0}\).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pitfalls-and-checklist">
+      <h2>Common Pitfalls &amp; Revision Checklist</h2>
+      <div class="card-warn">
+        <strong>Frequent NEET UG Mistakes to Avoid:</strong>
+        <ul>
+          <li><strong>Components vs. Component Vectors:</strong> \(A_x\) and \(A_y\) are scalar numbers (which can be negative), whereas \(A_x\hat{\mathbf{i}}\) and \(A_y\hat{\mathbf{j}}\) are vectors.</li>
+          <li><strong>Zero Speed at Projectile Peak:</strong> Only the vertical velocity \(v_y\) vanishes at maximum height; the total speed is \(v_0\cos\theta_0\) (non-zero for \(\theta_0 &lt; 90^\circ\)).</li>
+          <li><strong>Applying 1D Kinematic Formulas to UCM:</strong> Never use \(\mathbf{v} = \mathbf{v}_0 + \mathbf{a}t\) for circular motion, because \(\mathbf{a}_c\) is not constant in direction.</li>
+          <li><strong>Unit Conversions:</strong> Always convert \(\mathrm{km\,h^{-1}}\) to \(\mathrm{m\,s^{-1}}\) (multiply by \(\frac{5}{18}\)) and \(\mathrm{rpm}\) to \(\mathrm{Hz}\) (divide by \(60\)) before substituting into \(v^2/R\) or \(\omega^2 R\).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Quick Revision Checklist:</strong>
+        <ul>
+          <li>Can you resolve any vector into \(x\)- and \(y\)-components and reconstruct its magnitude and angle?</li>
+          <li>Do you remember \(R = \sqrt{A^2 + B^2 + 2AB\cos\theta}\) and the triangle inequality limits?</li>
+          <li>Can you treat \(x\)- and \(y\)-motions independently for constant-acceleration problems and projectiles?</li>
+          <li>Do you know \(T_f\), \(H\), \(R\), and \(R/H = 4/\tan\theta_0\) by heart?</li>
+          <li>Can you interconvert \(v = \omega R\), \(\omega = 2\pi\nu\), and \(a_c = v^2/R = \omega^2 R\)?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="final-recap">
+      <h2>Concise Final Recap</h2>
+      <p>Planar motion is governed by vector kinematics: position, displacement, velocity, and acceleration obey vector algebra, and any constant-acceleration trajectory splits cleanly into two independent 1D motions. Projectile motion combines uniform horizontal motion with free-fall vertical motion to trace a parabola, while uniform circular motion demonstrates that changing direction alone produces an inward centripetal acceleration \(v^2/R\) even at constant speed.</p>
+    </section>
+  </div>
+</body>
+</html>

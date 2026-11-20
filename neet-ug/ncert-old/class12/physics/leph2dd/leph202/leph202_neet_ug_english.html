@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wave Optics — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'svg']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <style>
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --teal: #0D9488;
+      --surface: #F8FAFC;
+      --card: #FFFFFF;
+      --border: #CBD5E1;
+      --accent-bg: #EFF6FF;
+      --teal-bg: #F0FDFA;
+      --warn-bg: #FEF3C7;
+      --warn-border: #D97706;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--surface);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header.doc-header {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--primary);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      background-color: var(--accent-bg);
+      color: var(--primary);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge.teal {
+      background-color: var(--teal-bg);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    section {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      font-size: 1.38rem;
+      line-height: 1.3;
+      color: var(--ink);
+      border-bottom: 2px solid var(--primary);
+    }
+
+    h3 {
+      margin: 20px 0 10px;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 12px;
+      overflow-wrap: break-word;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .callout {
+      background-color: var(--accent-bg);
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      margin: 14px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .callout.teal {
+      background-color: var(--teal-bg);
+      border-left-color: var(--teal);
+    }
+
+    .callout.warn {
+      background-color: var(--warn-bg);
+      border-left-color: var(--warn-border);
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .formula-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .diagram-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      margin: 18px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .diagram-card svg {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .diagram-caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.94rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 11px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--accent-bg);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: var(--surface);
+    }
+
+    .example-card, .question-card, .solution-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 14px 0;
+      background-color: var(--surface);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-card h3, .question-card h3 {
+      margin-top: 0;
+      color: var(--teal);
+    }
+
+    .assumption-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      background-color: #E2E8F0;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 10px 0 4px;
+    }
+
+    .options-list li {
+      padding: 4px 0;
+    }
+
+    .answer-badge {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--teal);
+      background-color: var(--teal-bg);
+      border: 1px solid #99F6E4;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+
+    @page {
+      size: A4;
+      margin: 16mm;
+    }
+
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 10.5pt;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      header.doc-header, section {
+        border: 1px solid #94A3B8;
+        box-shadow: none;
+        padding: 14px 16px;
+        margin-bottom: 14px;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .example-card, .question-card, .solution-card, .diagram-card, .callout, .formula-box, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="container">
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">NEET UG Physics</span>
+        <span class="badge teal">Wave Optics</span>
+      </div>
+      <h1>Wave Optics: Huygens' Principle, Interference, Diffraction, and Polarisation</h1>
+      <p class="subtitle">A complete, exam-oriented study guide covering wavefront propagation, Young's double-slit experiment, single-slit diffraction, and Malus' law.</p>
+    </header>
+
+    <section id="overview">
+      <h2>1. Learning Objectives and Conceptual Foundation</h2>
+      <p>Geometrical optics treats light as travelling in straight-line rays, which is an accurate approximation whenever the wavelength of light (around \(0.4\text{ to }0.7\,\mathrm{µm}\) for visible light) is negligible compared to the size of mirrors, lenses, or apertures. When light encounters slits or obstacles of dimensions comparable to its wavelength, its wave nature becomes directly observable.</p>
+      <p>By the end of this tutorial, you will be able to:</p>
+      <ul>
+        <li>Define wavefronts and apply Huygens' geometrical construction to derive the laws of reflection and refraction.</li>
+        <li>Explain why frequency remains invariant across an optical interface while speed and wavelength change.</li>
+        <li>Analyze coherent and incoherent superposition of waves and calculate fringe positions, fringe widths, and intensities in Young's double-slit setup.</li>
+        <li>Determine the angular positions of minima, secondary maxima, and the central maximum width in single-slit diffraction.</li>
+        <li>Apply Malus' law to single and multiple polaroid arrangements and connect polarisation to the transverse nature of electromagnetic waves.</li>
+      </ul>
+
+      <div class="callout teal">
+        <div class="callout-title">Historical Milestone: Corpuscular vs. Wave Model</div>
+        <p style="margin-bottom:0;">The corpuscular model (developed by Descartes and Newton) predicted that light travels faster in a denser medium when bending toward the normal. In contrast, Huygens' wave theory predicted that light slows down in a denser medium (\(v_{\text{denser}} < v_{\text{rarer}}\)). Foucault's 1850 measurement of the speed of light in water confirmed the wave prediction. Later, Maxwell showed that light is a transverse electromagnetic wave capable of propagating through vacuum without a material medium.</p>
+      </div>
+    </section>
+
+    <section id="huygens-principle">
+      <h2>2. Wavefronts and Huygens' Principle</h2>
+      <p>A <strong>wavefront</strong> is defined as the locus of all points in a medium that oscillate in the same phase at a given instant. Because energy propagates outward along the direction of wave travel, <strong>rays are always perpendicular to the wavefront</strong> at every point.</p>
+
+      <h3>Common Wavefront Geometries</h3>
+      <ul>
+        <li><strong>Spherical wavefront:</strong> Produced by an isotropic point source in a uniform medium. All points at a fixed radial distance \(r\) from the source share the same phase.</li>
+        <li><strong>Plane wavefront:</strong> A small portion of a spherical wavefront observed at a very large distance from the source, or light emerging from a convex lens when a point source is placed at its principal focus.</li>
+        <li><strong>Cylindrical wavefront:</strong> Produced by a linear source such as a narrow illuminated slit (the points equidistant from the line axis lie on a cylinder).</li>
+      </ul>
+
+      <h3>Huygens' Geometrical Construction</h3>
+      <p>According to Huygens' principle:</p>
+      <ol>
+        <li>Every point on a given primary wavefront acts as a source of new disturbances called <strong>secondary wavelets</strong>, which spread out in all directions with the speed of the wave in that medium.</li>
+        <li>The new position of the wavefront after a time interval \(\tau\) is given by the forward common tangent surface (envelope) drawn to all secondary spheres of radius \(v\tau\).</li>
+      </ol>
+      <p>Huygens assumed that secondary wavelets have zero amplitude in the backward direction to explain the absence of a backward-travelling wave—a result later justified rigorously by wave theory.</p>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 720 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Spherical wavefront and Huygens secondary wavelets">
+          <rect x="2" y="2" width="716" height="226" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+          <!-- Left panel: Spherical Wavefront -->
+          <text x="175" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Spherical Wavefront (Point Source)</text>
+          <circle cx="175" cy="125" r="5" fill="#2563EB"/>
+          <text x="175" y="144" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">O</text>
+          <circle cx="175" cy="125" r="35" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+          <circle cx="175" cy="125" r="62" fill="none" stroke="#1E293B" stroke-width="1.5"/>
+          <circle cx="175" cy="125" r="88" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+          <!-- Rays -->
+          <line x1="175" y1="125" x2="268" y2="125" stroke="#0D9488" stroke-width="1.5"/>
+          <polygon points="268,125 260,121 260,129" fill="#0D9488"/>
+          <line x1="175" y1="125" x2="238" y2="62" stroke="#0D9488" stroke-width="1.5"/>
+          <polygon points="238,62 230,65 235,70" fill="#0D9488"/>
+          <line x1="175" y1="125" x2="175" y2="35" stroke="#0D9488" stroke-width="1.5"/>
+          <polygon points="175,35 171,43 179,43" fill="#0D9488"/>
+          <text x="276" y="129" font-family="sans-serif" font-size="11" fill="#0D9488">Ray</text>
+
+          <!-- Divider -->
+          <line x1="355" y1="20" x2="355" y2="210" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+          <!-- Right panel: Plane Wavefront & Secondary Wavelets -->
+          <text x="535" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Plane Wavefront Propagation</text>
+          <line x1="440" y1="55" x2="440" y2="185" stroke="#1E293B" stroke-width="2"/>
+          <text x="440" y="205" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">t = 0</text>
+          <line x1="570" y1="55" x2="570" y2="185" stroke="#2563EB" stroke-width="2.2"/>
+          <text x="570" y="205" font-family="sans-serif" font-size="12" fill="#2563EB" text-anchor="middle">t = τ</text>
+
+          <!-- Secondary wavelet arcs -->
+          <path d="M 440 75 A 130 130 0 0 1 570 75" fill="none" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <circle cx="440" cy="85" r="3" fill="#2563EB"/>
+          <path d="M 552 45 A 130 130 0 0 1 570 85 A 130 130 0 0 1 552 125" fill="none" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <circle cx="440" cy="120" r="3" fill="#2563EB"/>
+          <path d="M 552 80 A 130 130 0 0 1 570 120 A 130 130 0 0 1 552 160" fill="none" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <circle cx="440" cy="155" r="3" fill="#2563EB"/>
+          <path d="M 552 115 A 130 130 0 0 1 570 155 A 130 130 0 0 1 552 195" fill="none" stroke="#0D9488" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+          <!-- Rays -->
+          <line x1="440" y1="85" x2="570" y2="85" stroke="#1E293B" stroke-width="1.5"/>
+          <polygon points="570,85 562,81 562,89" fill="#1E293B"/>
+          <line x1="440" y1="120" x2="570" y2="120" stroke="#1E293B" stroke-width="1.5"/>
+          <polygon points="570,120 562,116 562,124" fill="#1E293B"/>
+          <line x1="440" y1="155" x2="570" y2="155" stroke="#1E293B" stroke-width="1.5"/>
+          <polygon points="570,155 562,151 562,159" fill="#1E293B"/>
+
+          <text x="505" y="112" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">vτ</text>
+          <text x="635" y="120" font-family="sans-serif" font-size="11" fill="#0D9488" text-anchor="middle">Forward</text>
+          <text x="635" y="135" font-family="sans-serif" font-size="11" fill="#0D9488" text-anchor="middle">envelope</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 1: Spherical wavefronts from a point source (left) and Huygens' forward envelope construction for a plane wave (right).</div>
+      </div>
+
+      <h3>Behaviour of Plane Wavefronts at Optical Elements</h3>
+      <ul>
+        <li><strong>Thin prism:</strong> The lower portion of the wavefront passes through a greater thickness of glass (where speed is lower) and is delayed more than the upper portion, tilting the emerging plane wavefront toward the base.</li>
+        <li><strong>Convex lens:</strong> The central part of the wavefront traverses the thickest glass and lags behind the edges, transforming the plane wavefront into a converging spherical wavefront that meets at the focus.</li>
+        <li><strong>Concave mirror:</strong> The outer parts of the plane wavefront reflect earlier than the central part, producing a converging spherical wavefront centred at the focal point.</li>
+      </ul>
+      <p>In all image-forming systems, the <strong>total travel time</strong> from an object point to its corresponding image point is identical along every ray.</p>
+    </section>
+
+    <section id="reflection-refraction">
+      <h2>3. Reflection and Refraction via Wave Theory</h2>
+      <p>Consider a plane wavefront \(AB\) incident at angle \(i\) on an interface \(PP'\) separating medium 1 (speed \(v_1\), refractive index \(n_1\)) and medium 2 (speed \(v_2\), refractive index \(n_2\)). In time \(\tau\), the disturbance from \(B\) reaches \(C\) along the first medium (\(BC = v_1\tau\)), while the secondary wavelet from \(A\) expands to radius \(AE = v_2\tau\) in the second medium. The tangent \(CE\) is the refracted wavefront.</p>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 720 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Refraction of a plane wavefront into a denser medium">
+          <rect x="2" y="2" width="716" height="256" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+          <!-- Medium 2 shading -->
+          <rect x="4" y="130" width="712" height="126" fill="#EFF6FF"/>
+          <!-- Interface -->
+          <line x1="40" y1="130" x2="680" y2="130" stroke="#1E293B" stroke-width="2"/>
+          <text x="55" y="122" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">Medium 1 (v₁, n₁)</text>
+          <text x="55" y="148" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">Medium 2 (v₂ &lt; v₁, n₂ &gt; n₁)</text>
+
+          <!-- Normal at A -->
+          <line x1="250" y1="40" x2="250" y2="230" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,4"/>
+
+          <!-- Incident rays -->
+          <line x1="185" y1="35" x2="250" y2="130" stroke="#1E293B" stroke-width="1.8"/>
+          <polygon points="222,89 214,84 220,79" fill="#1E293B"/>
+          <line x1="365" y1="20" x2="440" y2="130" stroke="#1E293B" stroke-width="1.8"/>
+
+          <!-- Incident wavefront AB (perpendicular to rays) -->
+          <line x1="250" y1="130" x2="405" y2="79" stroke="#2563EB" stroke-width="2.2"/>
+          <text x="315" y="96" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB" text-anchor="middle">Incident WF</text>
+
+          <!-- Points A, B, C -->
+          <circle cx="250" cy="130" r="3.5" fill="#1E293B"/>
+          <text x="236" y="144" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">A</text>
+          <circle cx="405" cy="79" r="3.5" fill="#1E293B"/>
+          <text x="415" y="77" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">B</text>
+          <circle cx="440" cy="130" r="3.5" fill="#1E293B"/>
+          <text x="448" y="144" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">C</text>
+
+          <!-- Secondary wavelet arc from A -->
+          <path d="M 218 190 A 65 65 0 0 0 302 182" fill="none" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+          <!-- Refracted ray AE -->
+          <line x1="250" y1="130" x2="275" y2="190" stroke="#1E293B" stroke-width="1.8"/>
+          <circle cx="275" cy="190" r="3.5" fill="#1E293B"/>
+          <text x="275" y="207" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">E</text>
+
+          <!-- Refracted wavefront CE -->
+          <line x1="275" y1="190" x2="440" y2="130" stroke="#0D9488" stroke-width="2.2"/>
+          <text x="385" y="178" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488" text-anchor="middle">Refracted WF</text>
+
+          <!-- Labels for distances and angles -->
+          <text x="434" y="105" font-family="sans-serif" font-size="11" fill="#1E293B">v₁τ</text>
+          <text x="242" y="172" font-family="sans-serif" font-size="11" fill="#1E293B">v₂τ</text>
+          <text x="234" y="88" font-family="sans-serif" font-size="12" fill="#1E293B">i</text>
+          <text x="256" y="170" font-family="sans-serif" font-size="12" fill="#1E293B">r</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 2: Refraction of a plane wavefront from medium 1 into a denser medium 2, yielding Snell's law.</div>
+      </div>
+
+      <p>From the right triangles \(\triangle ABC\) and \(\triangle AEC\):</p>
+      <div class="formula-box">
+        \[
+          \sin i = \frac{BC}{AC} = \frac{v_1\tau}{AC}, \qquad \sin r = \frac{AE}{AC} = \frac{v_2\tau}{AC}
+        \]
+        \[
+          \frac{\sin i}{\sin r} = \frac{v_1}{v_2} = \frac{n_2}{n_1} \implies n_1 \sin i = n_2 \sin r
+        \]
+      </div>
+
+      <h3>Key Physical Consequences for NEET UG</h3>
+      <ul>
+        <li><strong>Frequency invariance:</strong> When light reflects or refracts at an interface, atomic oscillators in the boundary undergo forced oscillations at the incident frequency. Therefore, <strong>frequency \(\nu\) does not change</strong> in reflection or refraction.</li>
+        <li><strong>Speed and wavelength relation:</strong> Since \(\nu = v_1/\lambda_1 = v_2/\lambda_2\), refracting into an optically denser medium (\(n_2 > n_1\)) decreases both speed and wavelength by the same factor: \(\lambda_2 = \lambda_1 (n_1/n_2)\).</li>
+        <li><strong>Critical angle:</strong> When a wave travels from a denser medium (\(n_1\)) to a rarer medium (\(n_2\)), \(r > i\). Total internal reflection occurs for \(i > i_c\), where \(\sin i_c = \frac{n_2}{n_1}\).</li>
+        <li><strong>Reflection:</strong> In the same medium (\(v_1 = v_2\)), triangles \(\triangle EAC\) and \(\triangle BAC\) are congruent, giving \(\angle i = \angle r\). Speed, wavelength, and frequency all remain unchanged upon reflection.</li>
+      </ul>
+    </section>
+
+    <section id="interference">
+      <h2>4. Superposition, Coherence, and Young's Double-Slit Experiment</h2>
+      <p>By the <strong>principle of superposition</strong>, the resultant displacement at any point in a medium is the vector sum of displacements produced by individual waves. For a stable, observable interference pattern on a screen, the two light sources must be <strong>coherent</strong>—meaning they emit waves of the same frequency with a <strong>constant (time-independent) phase difference</strong>.</p>
+      <p>Two independent ordinary lamps (such as two sodium lamps) cannot produce sustained interference fringes because atoms emit light in random bursts with abrupt phase jumps occurring roughly every \(10^{-10}\,\mathrm{s}\). As a result, the phase difference fluctuates rapidly, and the eye observes only the time-averaged sum of individual intensities.</p>
+
+      <h3>Intensity Distribution in Interference</h3>
+      <p>If two coherent waves of intensities \(I_1\) and \(I_2\) arrive at a point with phase difference \(\phi\), the resultant intensity is:</p>
+      <div class="formula-box">
+        \[
+          I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos\phi
+        \]
+      </div>
+      <p>For two identical coherent sources where \(I_1 = I_2 = I_0\):</p>
+      <div class="formula-box">
+        \[
+          I = 4I_0 \cos^2\!\left(\frac{\phi}{2}\right)
+        \]
+      </div>
+      <p>For <strong>incoherent</strong> sources, the time average of \(\cos\phi\) is zero, so \(I_{\text{incoherent}} = I_1 + I_2\) (or \(2I_0\) for equal sources).</p>
+
+      <p>The phase difference \(\phi\) and path difference \(\Delta x = |S_1P - S_2P|\) are connected by:</p>
+      <div class="formula-box">
+        \[
+          \phi = \frac{2\pi}{\lambda}\,\Delta x
+        \]
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Interference Type</th>
+            <th>Path Difference (\(\Delta x\))</th>
+            <th>Phase Difference (\(\phi\))</th>
+            <th>Resultant Intensity (General / Equal \(I_0\))</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Constructive (Bright)</strong></td>
+            <td>\(n\lambda \quad (n = 0, 1, 2, \dots)\)</td>
+            <td>\(2n\pi\)</td>
+            <td>\(I_{\max} = (\sqrt{I_1} + \sqrt{I_2})^2 \quad / \quad 4I_0\)</td>
+          </tr>
+          <tr>
+            <td><strong>Destructive (Dark)</strong></td>
+            <td>\(\left(n + \frac{1}{2}\right)\lambda \quad (n = 0, 1, 2, \dots)\)</td>
+            <td>\((2n + 1)\pi\)</td>
+            <td>\(I_{\min} = (\sqrt{I_1} - \sqrt{I_2})^2 \quad / \quad 0\)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Young's Double-Slit Experiment (YDSE)</h3>
+      <p>Thomas Young achieved coherence by illuminating two closely spaced narrow slits \(S_1\) and \(S_2\) (separation \(d\)) using light from a single primary slit \(S\). Any random phase jump at \(S\) affects both \(S_1\) and \(S_2\) identically, keeping their relative phase locked.</p>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 720 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Young's double-slit interference geometry">
+          <rect x="2" y="2" width="716" height="236" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+          <!-- Primary slit S -->
+          <line x1="70" y1="30" x2="70" y2="114" stroke="#1E293B" stroke-width="3"/>
+          <line x1="70" y1="126" x2="70" y2="210" stroke="#1E293B" stroke-width="3"/>
+          <circle cx="70" cy="120" r="3" fill="#2563EB"/>
+          <text x="52" y="124" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">S</text>
+
+          <!-- Double slit barrier -->
+          <line x1="220" y1="30" x2="220" y2="82" stroke="#1E293B" stroke-width="3"/>
+          <line x1="220" y1="92" x2="220" y2="148" stroke="#1E293B" stroke-width="3"/>
+          <line x1="220" y1="158" x2="220" y2="210" stroke="#1E293B" stroke-width="3"/>
+          <text x="200" y="90" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">S₁</text>
+          <text x="200" y="157" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">S₂</text>
+
+          <!-- Slit separation d -->
+          <line x1="234" y1="87" x2="234" y2="153" stroke="#0D9488" stroke-width="1.5"/>
+          <text x="242" y="124" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">d</text>
+
+          <!-- Rays from S to S1, S2 -->
+          <line x1="70" y1="120" x2="220" y2="87" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <line x1="70" y1="120" x2="220" y2="153" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+          <!-- Central axis -->
+          <line x1="220" y1="120" x2="580" y2="120" stroke="#475569" stroke-width="1.2" stroke-dasharray="5,4"/>
+
+          <!-- Screen -->
+          <line x1="580" y1="25" x2="580" y2="215" stroke="#1E293B" stroke-width="3"/>
+          <text x="580" y="230" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">Screen</text>
+
+          <!-- Rays to P -->
+          <line x1="220" y1="87" x2="580" y2="55" stroke="#2563EB" stroke-width="1.8"/>
+          <line x1="220" y1="153" x2="580" y2="55" stroke="#0D9488" stroke-width="1.8"/>
+          <circle cx="580" cy="55" r="4" fill="#2563EB"/>
+          <text x="592" y="59" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">P</text>
+          <circle cx="580" cy="120" r="3.5" fill="#1E293B"/>
+          <text x="592" y="124" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B">O</text>
+
+          <!-- x label -->
+          <line x1="598" y1="55" x2="598" y2="120" stroke="#2563EB" stroke-width="1.4"/>
+          <text x="608" y="92" font-family="sans-serif" font-size="12" font-weight="700" fill="#2563EB">x</text>
+
+          <!-- D label -->
+          <line x1="220" y1="195" x2="580" y2="195" stroke="#1E293B" stroke-width="1.4"/>
+          <polygon points="220,195 228,191 228,199" fill="#1E293B"/>
+          <polygon points="580,195 572,191 572,199" fill="#1E293B"/>
+          <text x="400" y="188" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">D</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 3: Young's double-slit arrangement with slit separation \(d\) and screen distance \(D \gg d\).</div>
+      </div>
+
+      <p>For \(D \gg d\) and small angles, the path difference at distance \(x\) from the central point \(O\) is \(\Delta x \approx \frac{xd}{D}\).</p>
+      <div class="formula-box">
+        \[
+          x_{\text{bright}} = \frac{n\lambda D}{d} \quad (n = 0, \pm 1, \pm 2, \dots)
+        \]
+        \[
+          x_{\text{dark}} = \left(n + \frac{1}{2}\right)\frac{\lambda D}{d} \quad (n = 0, \pm 1, \pm 2, \dots)
+        \]
+        \[
+          \text{Fringe width: } \beta = \frac{\lambda D}{d}, \qquad \text{Angular fringe width: } \theta_\beta = \frac{\beta}{D} = \frac{\lambda}{d}
+        \]
+      </div>
+      <p>Notice that all bright and dark fringes in YDSE are <strong>equally spaced</strong>. If the entire apparatus is immersed in a liquid of refractive index \(n\), the wavelength becomes \(\lambda' = \lambda/n\), so the fringe width shrinks to \(\beta' = \beta/n\).</p>
+    </section>
+
+    <section id="diffraction">
+      <h2>5. Diffraction at a Single Slit</h2>
+      <p><strong>Diffraction</strong> is the bending or spreading of waves around the edges of an aperture or obstacle into the region of geometrical shadow. While interference typically refers to the superposition of waves from a few discrete sources, diffraction arises from the superposition of secondary wavelets originating from a continuous wavefront across a single aperture.</p>
+      <p>Consider a parallel monochromatic beam of wavelength \(\lambda\) falling normally on a single slit of width \(a\). Treating different parts of the slit as coherent secondary sources, the path difference between waves from the two extreme edges of the slit reaching a screen point at angle \(\theta\) is \(a\sin\theta\).</p>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 720 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Single slit diffraction geometry and intensity curve">
+          <rect x="2" y="2" width="716" height="226" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+          <!-- Left: Single slit geometry -->
+          <line x1="120" y1="30" x2="120" y2="85" stroke="#1E293B" stroke-width="4"/>
+          <line x1="120" y1="145" x2="120" y2="200" stroke="#1E293B" stroke-width="4"/>
+          <text x="104" y="119" font-family="sans-serif" font-size="12" font-weight="700" fill="#0D9488">a</text>
+          <line x1="112" y1="85" x2="112" y2="145" stroke="#0D9488" stroke-width="1.4"/>
+
+          <!-- Incoming plane waves -->
+          <line x1="40" y1="95" x2="95" y2="95" stroke="#2563EB" stroke-width="1.6"/>
+          <polygon points="95,95 87,91 87,99" fill="#2563EB"/>
+          <line x1="40" y1="115" x2="95" y2="115" stroke="#2563EB" stroke-width="1.6"/>
+          <polygon points="95,115 87,111 87,119" fill="#2563EB"/>
+          <line x1="40" y1="135" x2="95" y2="135" stroke="#2563EB" stroke-width="1.6"/>
+          <polygon points="95,135 87,131 87,139" fill="#2563EB"/>
+
+          <!-- Diffracted rays at angle theta -->
+          <line x1="120" y1="85" x2="290" y2="45" stroke="#0D9488" stroke-width="1.5"/>
+          <line x1="120" y1="145" x2="290" y2="105" stroke="#0D9488" stroke-width="1.5"/>
+          <line x1="120" y1="115" x2="310" y2="115" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <line x1="120" y1="85" x2="134" y2="142" stroke="#1E293B" stroke-width="1.4"/>
+          <text x="200" y="109" font-family="sans-serif" font-size="11" fill="#0D9488">θ</text>
+          <text x="155" y="160" font-family="sans-serif" font-size="11" fill="#1E293B">Δx = a sin θ</text>
+
+          <!-- Divider -->
+          <line x1="340" y1="20" x2="340" y2="210" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+          <!-- Right: Intensity distribution -->
+          <text x="530" y="26" font-family="sans-serif" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">Diffraction Intensity Pattern</text>
+          <line x1="370" y1="180" x2="690" y2="180" stroke="#1E293B" stroke-width="1.5"/>
+          <line x1="530" y1="45" x2="530" y2="185" stroke="#475569" stroke-width="1.2" stroke-dasharray="3,3"/>
+
+          <!-- Intensity curve -->
+          <path d="M 380 180 Q 405 168 430 180 Q 450 158 470 180 Q 500 50 530 50 Q 560 50 590 180 Q 610 158 630 180 Q 655 168 680 180" fill="none" stroke="#2563EB" stroke-width="2.4"/>
+
+          <text x="530" y="198" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">0</text>
+          <text x="470" y="198" font-family="sans-serif" font-size="11" fill="#0D9488" text-anchor="middle">-λ/a</text>
+          <text x="590" y="198" font-family="sans-serif" font-size="11" fill="#0D9488" text-anchor="middle">+λ/a</text>
+          <text x="430" y="198" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">-2λ/a</text>
+          <text x="630" y="198" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">+2λ/a</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 4: Single-slit diffraction geometry (left) and intensity profile showing a broad central maximum (right).</div>
+      </div>
+
+      <h3>Positions of Minima, Maxima, and Central Width</h3>
+      <div class="formula-box">
+        \[
+          \text{Minima (zero intensity): } a\sin\theta = n\lambda \implies \theta \approx \frac{n\lambda}{a} \quad (n = \pm 1, \pm 2, \pm 3, \dots)
+        \]
+        \[
+          \text{Secondary maxima: } \theta \approx \left(n + \frac{1}{2}\right)\frac{\lambda}{a} \quad (n = \pm 1, \pm 2, \dots)
+        \]
+        \[
+          \text{Angular width of central maximum} = \frac{2\lambda}{a}, \qquad \text{Linear width} = \frac{2\lambda D}{a}
+        \]
+      </div>
+
+      <p>Both interference and diffraction redistribute light energy without creating or destroying it, strictly obeying the <strong>law of conservation of energy</strong>. Note also that in a real double-slit experiment, the observed pattern is a double-slit interference pattern modulated by the single-slit diffraction envelope of each individual slit.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Young's Double-Slit Interference</th>
+            <th>Single-Slit Diffraction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fringe spacing</strong></td>
+            <td>All bright and dark fringes have equal width (\(\beta = \lambda D/d\)).</td>
+            <td>Central maximum is twice as wide (\(2\lambda D/a\)) as secondary maxima (\(\lambda D/a\)).</td>
+          </tr>
+          <tr>
+            <td><strong>Intensity of maxima</strong></td>
+            <td>All bright fringes have uniform intensity (\(4I_0\)).</td>
+            <td>Central maximum is brightest; secondary maxima become rapidly weaker.</td>
+          </tr>
+          <tr>
+            <td><strong>Condition for minima</strong></td>
+            <td>Path difference \(= (n + \frac{1}{2})\lambda\)</td>
+            <td>Path difference \(a\sin\theta = n\lambda\) (\(n \neq 0\))</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="polarisation">
+      <h2>6. Polarisation and Malus' Law</h2>
+      <p>In a transverse wave, the oscillation is perpendicular to the direction of wave propagation. Light is a transverse electromagnetic wave whose electric field vector \(\vec{E}\) oscillates perpendicular to the direction of travel. <strong>Polarisation</strong> is the phenomenon of restricting these transverse vibrations to a single plane—and because longitudinal waves (such as sound waves in air) oscillate parallel to propagation, <strong>polarisation occurs only for transverse waves</strong>.</p>
+      <ul>
+        <li><strong>Unpolarised light:</strong> Light from ordinary thermal sources (like the Sun or a lamp) has its electric field vector changing direction randomly in the plane perpendicular to propagation.</li>
+        <li><strong>Linearly (plane) polarised light:</strong> The electric field oscillates along a single fixed line perpendicular to the propagation direction.</li>
+        <li><strong>Polaroid and pass-axis:</strong> A polaroid contains aligned long-chain molecules that absorb the electric field component parallel to the chains and transmit only the component perpendicular to them (along the <strong>pass-axis</strong>).</li>
+      </ul>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 720 190" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Polariser and analyser demonstrating Malus' law">
+          <rect x="2" y="2" width="716" height="186" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+          <!-- Propagation axis -->
+          <line x1="40" y1="95" x2="665" y2="95" stroke="#475569" stroke-width="1.5"/>
+          <polygon points="665,95 657,91 657,99" fill="#475569"/>
+
+          <!-- Unpolarised light indicator -->
+          <line x1="85" y1="68" x2="85" y2="122" stroke="#2563EB" stroke-width="1.8"/>
+          <line x1="66" y1="76" x2="104" y2="114" stroke="#2563EB" stroke-width="1.8"/>
+          <line x1="66" y1="114" x2="104" y2="76" stroke="#2563EB" stroke-width="1.8"/>
+          <text x="85" y="148" font-family="sans-serif" font-size="11" font-weight="700" fill="#1E293B" text-anchor="middle">Unpolarised</text>
+          <text x="85" y="162" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">Intensity I_inc</text>
+
+          <!-- Polariser P1 -->
+          <polygon points="210,45 250,30 250,145 210,160" fill="#EFF6FF" stroke="#1E293B" stroke-width="2"/>
+          <line x1="230" y1="50" x2="230" y2="140" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <text x="230" y="176" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">Polariser P₁</text>
+
+          <!-- Polarised beam between P1 and P2 -->
+          <line x1="340" y1="65" x2="340" y2="125" stroke="#2563EB" stroke-width="2.2"/>
+          <polygon points="340,65 336,73 344,73" fill="#2563EB"/>
+          <polygon points="340,125 336,117 344,117" fill="#2563EB"/>
+          <text x="340" y="148" font-family="sans-serif" font-size="11" font-weight="700" fill="#2563EB" text-anchor="middle">I₀ = I_inc / 2</text>
+
+          <!-- Analyser P2 -->
+          <polygon points="450,45 490,30 490,145 450,160" fill="#F0FDFA" stroke="#1E293B" stroke-width="2"/>
+          <line x1="455" y1="60" x2="485" y2="130" stroke="#0D9488" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <text x="470" y="176" font-family="sans-serif" font-size="12" font-weight="700" fill="#1E293B" text-anchor="middle">Analyser P₂ (angle θ)</text>
+
+          <!-- Transmitted beam -->
+          <line x1="575" y1="74" x2="595" y2="116" stroke="#0D9488" stroke-width="2.2"/>
+          <text x="585" y="148" font-family="sans-serif" font-size="11" font-weight="700" fill="#0D9488" text-anchor="middle">I = I₀ cos²θ</text>
+        </svg>
+        <div class="diagram-caption">Tutorial Diagram 5: Transmission of unpolarised light through a polariser and an analyser oriented at angle \(\theta\).</div>
+      </div>
+
+      <h3>Malus' Law</h3>
+      <p>When unpolarised light of intensity \(I_{\text{inc}}\) passes through a single ideal polaroid, its transmitted intensity is halved regardless of the polaroid's orientation: \(I_0 = \frac{I_{\text{inc}}}{2}\). When this linearly polarised light of intensity \(I_0\) passes through a second polaroid (analyser) whose pass-axis is inclined at angle \(\theta\) to the first, only the amplitude component \(E_0 \cos\theta\) is transmitted, giving <strong>Malus' law</strong>:</p>
+      <div class="formula-box">
+        \[
+          I = I_0 \cos^2\theta
+        \]
+      </div>
+      <p>If two polaroids are <strong>crossed</strong> (\(\theta = 90^\circ\)), the transmitted intensity is zero. If a third polaroid is placed between two crossed polaroids at angle \(\theta\) to the first, the emerging intensity becomes \(I = I_0 \cos^2\theta \sin^2\theta = \frac{I_0}{4}\sin^2(2\theta)\), which reaches its maximum value \(\frac{I_0}{4}\) at \(\theta = 45^\circ\).</p>
+    </section>
+
+    <section id="worked-examples">
+      <h2>Worked Examples</h2>
+
+      <div class="example-card">
+        <h3>Example 1: Wavelength and Speed Change During Refraction</h3>
+        <span class="assumption-tag">Assumed hypothetical parameters</span>
+        <p><strong>Problem:</strong> Assume a monochromatic green laser beam of wavelength \(540\,\mathrm{nm}\) in air (\(n_1 \approx 1.0\)) enters a glass block of refractive index \(n_2 = 1.50\). Take the speed of light in air as \(3.0 \times 10^8\,\mathrm{m\,s^{-1}}\). Calculate the frequency, speed, and wavelength of the light inside the glass.</p>
+        <p><strong>Solution:</strong></p>
+        <p>1. <strong>Frequency:</strong> Frequency remains unchanged during refraction:
+          \[
+            \nu = \frac{c}{\lambda_1} = \frac{3.0 \times 10^8\,\mathrm{m\,s^{-1}}}{540 \times 10^{-9}\,\mathrm{m}} \approx 5.56 \times 10^{14}\,\mathrm{Hz}
+          \]
+        </p>
+        <p>2. <strong>Speed in glass:</strong>
+          \[
+            v_2 = \frac{c}{n_2} = \frac{3.0 \times 10^8}{1.50} = 2.0 \times 10^8\,\mathrm{m\,s^{-1}}
+          \]
+        </p>
+        <p>3. <strong>Wavelength in glass:</strong>
+          \[
+            \lambda_2 = \frac{\lambda_1}{n_2} = \frac{540\,\mathrm{nm}}{1.50} = 360\,\mathrm{nm}
+          \]
+        </p>
+      </div>
+
+      <div class="example-card">
+        <h3>Example 2: Intensity at a Given Path Difference in YDSE</h3>
+        <span class="assumption-tag">Assumed hypothetical parameters</span>
+        <p><strong>Problem:</strong> In a Young's double-slit setup using two identical coherent slits and monochromatic light of wavelength \(\lambda\), suppose the maximum intensity on the screen is \(I_{\max} = 80\,\mathrm{W\,m^{-2}}\). Find the intensity at a point where the path difference is \(\Delta x = \frac{\lambda}{6}\).</p>
+        <p><strong>Solution:</strong></p>
+        <p>First, convert the path difference into phase difference:</p>
+        \[
+          \phi = \frac{2\pi}{\lambda}\,\Delta x = \frac{2\pi}{\lambda}\left(\frac{\lambda}{6}\right) = \frac{\pi}{3}
+        \]
+        <p>Since \(I_{\max} = 4I_0 = 80\,\mathrm{W\,m^{-2}}\), using \(I = 4I_0\cos^2(\phi/2)\):</p>
+        \[
+          I = I_{\max} \cos^2\!\left(\frac{\pi}{6}\right) = 80 \times \left(\frac{\sqrt{3}}{2}\right)^2 = 80 \times \frac{3}{4} = 60\,\mathrm{W\,m^{-2}}
+        \]
+      </div>
+
+      <div class="example-card">
+        <h3>Example 3: Fringe Width and Coinciding Fringes for Two Wavelengths</h3>
+        <span class="assumption-tag">Assumed hypothetical parameters</span>
+        <p><strong>Problem:</strong> Assume a double-slit setup has slit separation \(d = 0.50\,\mathrm{mm}\) and screen distance \(D = 1.5\,\mathrm{m}\). It is illuminated simultaneously by two wavelengths \(\lambda_1 = 600\,\mathrm{nm}\) and \(\lambda_2 = 450\,\mathrm{nm}\). Find the least non-zero distance from the central maximum where bright fringes of both wavelengths coincide.</p>
+        <p><strong>Solution:</strong></p>
+        <p>Let the \(n_1\)-th bright fringe of \(\lambda_1\) coincide with the \(n_2\)-th bright fringe of \(\lambda_2\):</p>
+        \[
+          \frac{n_1 \lambda_1 D}{d} = \frac{n_2 \lambda_2 D}{d} \implies \frac{n_1}{n_2} = \frac{\lambda_2}{\lambda_1} = \frac{450}{600} = \frac{3}{4}
+        \]
+        <p>The smallest positive integer solution is \(n_1 = 3\) and \(n_2 = 4\). Thus, the least coinciding distance is:</p>
+        \[
+          x = \frac{3 \times (600 \times 10^{-9}\,\mathrm{m}) \times 1.5\,\mathrm{m}}{0.50 \times 10^{-3}\,\mathrm{m}} = 5.4 \times 10^{-3}\,\mathrm{m} = 5.4\,\mathrm{mm}
+        \]
+      </div>
+
+      <div class="example-card">
+        <h3>Example 4: Central Maximum Width in Single-Slit Diffraction</h3>
+        <span class="assumption-tag">Assumed hypothetical parameters</span>
+        <p><strong>Problem:</strong> Suppose a parallel beam of light of wavelength \(600\,\mathrm{nm}\) falls normally on a single slit of width \(a = 0.30\,\mathrm{mm}\). A screen is placed \(1.2\,\mathrm{m}\) away. Calculate the linear width of the central bright maximum.</p>
+        <p><strong>Solution:</strong></p>
+        <p>The first minima on either side of the central maximum lie at \(\theta = \pm \frac{\lambda}{a}\). The total linear width of the central maximum is:</p>
+        \[
+          W = \frac{2\lambda D}{a} = \frac{2 \times (600 \times 10^{-9}\,\mathrm{m}) \times 1.2\,\mathrm{m}}{0.30 \times 10^{-3}\,\mathrm{m}} = 4.8 \times 10^{-3}\,\mathrm{m} = 4.8\,\mathrm{mm}
+        \]
+      </div>
+
+      <div class="example-card">
+        <h3>Example 5: Three Polaroids with Unpolarised Incident Light</h3>
+        <span class="assumption-tag">Assumed hypothetical parameters</span>
+        <p><strong>Problem:</strong> Assume unpolarised light of intensity \(I_{\text{inc}} = 64\,\mathrm{W\,m^{-2}}\) is incident on polaroid \(P_1\). A second polaroid \(P_2\) has its pass-axis at \(30^\circ\) to \(P_1\), and a third polaroid \(P_3\) is crossed with respect to \(P_1\) (i.e., at \(90^\circ\) to \(P_1\)). Find the intensity emerging from \(P_3\).</p>
+        <p><strong>Solution:</strong></p>
+        <p>1. After \(P_1\): \(I_1 = \frac{I_{\text{inc}}}{2} = \frac{64}{2} = 32\,\mathrm{W\,m^{-2}}\).</p>
+        <p>2. After \(P_2\) (angle \(30^\circ\) with \(P_1\)): \(I_2 = I_1 \cos^2 30^\circ = 32 \times \left(\frac{\sqrt{3}}{2}\right)^2 = 24\,\mathrm{W\,m^{-2}}\).</p>
+        <p>3. Angle between \(P_2\) and \(P_3\) is \(90^\circ - 30^\circ = 60^\circ\). Thus, after \(P_3\):</p>
+        \[
+          I_3 = I_2 \cos^2 60^\circ = 24 \times \left(\frac{1}{2}\right)^2 = 6\,\mathrm{W\,m^{-2}}
+        \]
+      </div>
+    </section>
+
+    <section id="practice-questions">
+      <h2>7. NEET UG Practice Questions</h2>
+
+      <div class="question-card">
+        <h3>Practice Question 1 (Single-Choice MCQ)</h3>
+        <p>A plane wavefront of monochromatic light travels from air into water of refractive index \(4/3\). Which of the following statements is correct regarding the refracted wave inside water?</p>
+        <ul class="options-list">
+          <li>(A) Both frequency and wavelength decrease by a factor of \(4/3\).</li>
+          <li>(B) Frequency remains unchanged, while speed and wavelength decrease by a factor of \(4/3\).</li>
+          <li>(C) Speed increases by a factor of \(4/3\), while frequency remains unchanged.</li>
+          <li>(D) Wavelength remains unchanged, while frequency increases by a factor of \(4/3\).</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 2 (Single-Choice MCQ)</h3>
+        <p>Two coherent monochromatic sources of equal intensity \(I_0\) interfere at a point on a screen. If the path difference at that point is \(\lambda/4\), what is the resultant intensity?</p>
+        <ul class="options-list">
+          <li>(A) \(I_0\)</li>
+          <li>(B) \(2I_0\)</li>
+          <li>(C) \(3I_0\)</li>
+          <li>(D) \(4I_0\)</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 3 (Single-Choice MCQ)</h3>
+        <p>In a Young's double-slit experiment performed in air, the fringe width is \(1.6\,\mathrm{mm}\). If the entire setup is immersed in a transparent liquid of refractive index \(1.6\) without changing any geometrical dimensions, the new fringe width will be:</p>
+        <ul class="options-list">
+          <li>(A) \(2.56\,\mathrm{mm}\)</li>
+          <li>(B) \(1.60\,\mathrm{mm}\)</li>
+          <li>(C) \(1.00\,\mathrm{mm}\)</li>
+          <li>(D) \(0.80\,\mathrm{mm}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 4 (Single-Choice MCQ)</h3>
+        <p>Two coherent waves of intensities \(I\) and \(9I\) interfere on a screen. What is the ratio of the maximum intensity to the minimum intensity in the interference pattern?</p>
+        <ul class="options-list">
+          <li>(A) \(10 : 8\)</li>
+          <li>(B) \(4 : 1\)</li>
+          <li>(C) \(9 : 1\)</li>
+          <li>(D) \(16 : 1\)</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 5 (Single-Choice MCQ)</h3>
+        <p>In a single-slit diffraction experiment, the slit width is \(0.25\,\mathrm{mm}\) and light of wavelength \(500\,\mathrm{nm}\) is incident normally. What is the angular width of the central bright maximum?</p>
+        <ul class="options-list">
+          <li>(A) \(2.0 \times 10^{-3}\,\mathrm{rad}\)</li>
+          <li>(B) \(4.0 \times 10^{-3}\,\mathrm{rad}\)</li>
+          <li>(C) \(1.0 \times 10^{-3}\,\mathrm{rad}\)</li>
+          <li>(D) \(8.0 \times 10^{-3}\,\mathrm{rad}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 6 (Single-Choice MCQ)</h3>
+        <p>In a double-slit setup, the distance between the central bright fringe and the fifth bright fringe is \(1.5\,\mathrm{cm}\) on a screen placed \(1.5\,\mathrm{m}\) away. If the slit separation is \(0.30\,\mathrm{mm}\), the wavelength of light used is:</p>
+        <ul class="options-list">
+          <li>(A) \(450\,\mathrm{nm}\)</li>
+          <li>(B) \(500\,\mathrm{nm}\)</li>
+          <li>(C) \(600\,\mathrm{nm}\)</li>
+          <li>(D) \(750\,\mathrm{nm}\)</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 7 (Assertion–Reason)</h3>
+        <p><strong>Assertion (A):</strong> Sound waves in air exhibit interference and diffraction, but cannot be polarised.</p>
+        <p><strong>Reason (R):</strong> Sound waves in air are longitudinal waves, whereas polarisation is a property exclusive to transverse waves.</p>
+        <ul class="options-list">
+          <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+          <li>(B) Both A and R are true, but R is NOT the correct explanation of A.</li>
+          <li>(C) A is true, but R is false.</li>
+          <li>(D) A is false, but R is true.</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 8 (Statement-Based MCQ)</h3>
+        <p>Read the following two statements carefully:</p>
+        <p><strong>Statement I:</strong> In Young's double-slit experiment, if one of the two identical slits is covered, the intensity at the central maximum drops to one-fourth of its original value.</p>
+        <p><strong>Statement II:</strong> Interference and diffraction redistribute light energy between dark and bright regions without violating conservation of energy.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct.</li>
+          <li>(B) Both Statement I and Statement II are incorrect.</li>
+          <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+          <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+        </ul>
+      </div>
+
+      <div class="question-card">
+        <h3>Practice Question 9 (Single-Choice MCQ)</h3>
+        <p>Unpolarised light of intensity \(I\) passes through two ideal polaroids whose pass-axes are inclined at \(60^\circ\) to each other. The intensity of the light emerging from the second polaroid is:</p>
+        <ul class="options-list">
+          <li>(A) \(\frac{I}{2}\)</li>
+          <li>(B) \(\frac{I}{4}\)</li>
+          <li>(C) \(\frac{I}{8}\)</li>
+          <li>(D) \(\frac{3I}{8}\)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <h2>8. Answer Key and Worked Solutions</h2>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 1: (B)</span>
+        <p><strong>Solution:</strong> Frequency is determined by the source and remains unchanged across any interface. Since \(v = c/n\) and \(\lambda = \lambda_0/n\), both speed and wavelength decrease by the refractive index factor \(4/3\) in water.</p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 2: (B)</span>
+        <p><strong>Solution:</strong> A path difference of \(\Delta x = \lambda/4\) corresponds to a phase difference \(\phi = \frac{2\pi}{\lambda}\left(\frac{\lambda}{4}\right) = \frac{\pi}{2}\). Using \(I = 4I_0\cos^2(\phi/2)\):
+          \[
+            I = 4I_0 \cos^2\!\left(\frac{\pi}{4}\right) = 4I_0 \left(\frac{1}{2}\right) = 2I_0
+          \]
+        </p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 3: (C)</span>
+        <p><strong>Solution:</strong> Fringe width is \(\beta = \frac{\lambda D}{d}\). In a liquid of refractive index \(n = 1.6\), \(\lambda' = \lambda/n\), so:
+          \[
+            \beta' = \frac{\beta}{n} = \frac{1.6\,\mathrm{mm}}{1.6} = 1.00\,\mathrm{mm}
+          \]
+        </p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 4: (B)</span>
+        <p><strong>Solution:</strong> Using \(I_{\max} = (\sqrt{I_1} + \sqrt{I_2})^2\) and \(I_{\min} = (\sqrt{I_1} - \sqrt{I_2})^2\) with \(I_1 = I\) and \(I_2 = 9I\):
+          \[
+            \frac{I_{\max}}{I_{\min}} = \left(\frac{\sqrt{I} + \sqrt{9I}}{\sqrt{I} - \sqrt{9I}}\right)^2 = \left(\frac{1 + 3}{1 - 3}\right)^2 = \left(\frac{4}{-2}\right)^2 = 4 : 1
+          \]
+        </p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 5: (B)</span>
+        <p><strong>Solution:</strong> The full angular width of the central maximum is \(2\theta_1 = \frac{2\lambda}{a}\):
+          \[
+            2\theta_1 = \frac{2 \times 500 \times 10^{-9}\,\mathrm{m}}{0.25 \times 10^{-3}\,\mathrm{m}} = 4.0 \times 10^{-3}\,\mathrm{rad}
+          \]
+        </p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 6: (C)</span>
+        <p><strong>Solution:</strong> For the 5th bright fringe, \(x_5 = \frac{5\lambda D}{d}\). Solving for \(\lambda\):
+          \[
+            \lambda = \frac{x_5 d}{5 D} = \frac{(1.5 \times 10^{-2}\,\mathrm{m}) \times (0.30 \times 10^{-3}\,\mathrm{m})}{5 \times 1.5\,\mathrm{m}} = 6.0 \times 10^{-7}\,\mathrm{m} = 600\,\mathrm{nm}
+          \]
+        </p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 7: (A)</span>
+        <p><strong>Solution:</strong> All waves (longitudinal or transverse) show interference and diffraction, whereas only transverse waves can be polarised because polarisation restricts oscillations perpendicular to the direction of propagation. Thus, both A and R are true, and R correctly explains A.</p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 8: (A)</span>
+        <p><strong>Solution:</strong> When both identical slits are open, the central maximum has intensity \(4I_0\). Covering one slit leaves only a single slit contributing intensity \(I_0 = \frac{1}{4}(4I_0)\), so Statement I is correct. Statement II is also correct because dark fringes shift energy to bright fringes with no net energy loss.</p>
+      </div>
+
+      <div class="solution-card">
+        <span class="answer-badge">Question 9: (C)</span>
+        <p><strong>Solution:</strong> After the first polaroid, unpolarised light of intensity \(I\) becomes polarised with intensity \(I_1 = I/2\). Passing through the second polaroid at \(\theta = 60^\circ\) gives:
+          \[
+            I_2 = I_1 \cos^2 60^\circ = \left(\frac{I}{2}\right)\left(\frac{1}{2}\right)^2 = \frac{I}{8}
+          \]
+        </p>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <h2>9. Common Pitfalls and NEET UG Revision Checklist</h2>
+      <div class="callout warn">
+        <div class="callout-title">Avoid These Frequent Exam Traps</div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Forgetting the factor of \(1/2\) at the first polaroid:</strong> When <em>unpolarised</em> light enters the first polaroid, its intensity becomes \(I_{\text{inc}}/2\) before applying Malus' law at subsequent polaroids.</li>
+          <li><strong>Swapping interference and diffraction conditions:</strong> In YDSE, \(\Delta x = n\lambda\) gives <em>maxima</em>; in single-slit diffraction, \(a\sin\theta = n\lambda\) (\(n \ge 1\)) gives <em>minima</em>.</li>
+          <li><strong>Half-width vs. full width of central maximum:</strong> The first minimum is at \(\theta = \lambda/a\), so the <em>total</em> angular width of the central maximum is \(2\lambda/a\).</li>
+          <li><strong>Changing frequency on refraction:</strong> Frequency \(\nu\) never changes when light enters a denser or rarer medium; only \(v\) and \(\lambda\) scale inversely with \(n\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="recap">
+      <h2>10. Concise Final Recap</h2>
+      <ul>
+        <li><strong>Huygens' Principle:</strong> Every point on a wavefront emits secondary wavelets; the forward envelope at time \(\tau\) gives the new wavefront. Rays are perpendicular to wavefronts.</li>
+        <li><strong>Refraction:</strong> \(n_1\sin i = n_2\sin r\), \(\frac{v_1}{v_2} = \frac{\lambda_1}{\lambda_2} = \frac{n_2}{n_1}\), \(\nu = \text{constant}\).</li>
+        <li><strong>YDSE:</strong> \(\phi = \frac{2\pi}{\lambda}\Delta x\); \(I = 4I_0\cos^2(\phi/2)\) for equal sources; \(\beta = \frac{\lambda D}{d}\).</li>
+        <li><strong>Single-Slit Diffraction:</strong> Minima at \(a\sin\theta = n\lambda\) (\(n = \pm 1, \pm 2, \dots\)); central maximum angular width \(= \frac{2\lambda}{a}\).</li>
+        <li><strong>Polarisation:</strong> Unpolarised light through one polaroid drops to \(\frac{I_{\text{inc}}}{2}\); Malus' law gives \(I = I_0\cos^2\theta\).</li>
+      </ul>
+    </section>
+
+    <footer>
+      NEET UG Physics Study Resource — Wave Optics
+    </footer>
+  </div>
+</body>
+</html>

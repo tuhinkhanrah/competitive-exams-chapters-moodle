@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electromagnetic Induction — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --teal: #0D9488;
+      --bg: #FFFFFF;
+      --surface: #F8FAFC;
+      --border: #CBD5E1;
+      --accent-bg: #EFF6FF;
+      --teal-bg: #F0FDFA;
+      --warn-bg: #FFFBEB;
+      --warn-border: #D97706;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--bg);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .exam-badge {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #FFFFFF;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 4px 0 8px;
+      font-size: 2rem;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--border);
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: var(--primary-dark);
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      max-width: 100%;
+    }
+
+    .callout-law {
+      background-color: var(--accent-bg);
+      border-left: 4px solid var(--primary);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+
+    .callout-intuition {
+      background-color: var(--teal-bg);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+
+    .callout-pitfall {
+      background-color: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .formula-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .figure-box {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 18px 0;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .figure-box svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .figure-caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--surface);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .example-block {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--teal);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+
+    .example-title {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .question-block {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+
+    .q-header {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 4px;
+      margin: 10px 0 12px;
+    }
+
+    .options-list li {
+      margin-bottom: 5px;
+    }
+
+    .solution-box {
+      background-color: var(--surface);
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 0.96rem;
+    }
+
+    .answer-tag {
+      display: inline-block;
+      background-color: var(--teal);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 11pt;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .card, .figure-box, .example-block, .question-block, .callout-law, .callout-intuition, .callout-pitfall, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h2, h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .exam-badge {
+        background-color: #1E293B;
+        color: #FFFFFF;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <main class="container">
+    <header class="doc-header">
+      <div class="exam-badge">NEET UG Physics • Exam-Oriented Tutorial</div>
+      <h1>Electromagnetic Induction</h1>
+      <p class="subtitle">Magnetic Flux, Faraday's &amp; Lenz's Laws, Motional EMF, Inductance, and AC Generation</p>
+    </header>
+
+    <section aria-labelledby="obj-heading">
+      <h2 id="obj-heading">Learning Objectives &amp; Big Picture</h2>
+      <p>
+        Electric currents create magnetic fields—a discovery that raised a profound converse question in the nineteenth century: can magnetic fields generate electric currents? Michael Faraday and Joseph Henry independently proved that a <strong>changing</strong> magnetic environment induces an electromotive force (emf) and, in a closed conducting path, an electric current. This phenomenon, <strong>electromagnetic induction</strong>, powers electric generators, transformers, and induction devices.
+      </p>
+      <div class="card">
+        <div class="callout-title">What You Will Master for NEET UG</div>
+        <ul>
+          <li>Calculating magnetic flux \(\Phi_B\) for planar surfaces, paying close attention to the angle between \(\mathbf{B}\) and the area vector \(\mathbf{A}\).</li>
+          <li>Applying Faraday's law to find the magnitude of induced emf and current for changing \(B\), changing \(A\), or changing orientation \(\theta\).</li>
+          <li>Predicting induced current direction and polarity using Lenz's law and connecting it to energy conservation.</li>
+          <li>Computing motional emf in straight sliding conductors, rotating rods, and spoked wheels.</li>
+          <li>Analyzing self-inductance \(L\), mutual inductance \(M\), stored magnetic energy \(\frac{1}{2}LI^2\), and magnetic energy density.</li>
+          <li>Explaining the working principle, peak emf, and phase of an alternating current (AC) generator.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="flux-heading">
+      <h2 id="flux-heading">1. Magnetic Flux: Quantifying Field Lines Through a Surface</h2>
+      <p>
+        To describe induction mathematically, we first measure how much magnetic field passes through a given surface. Consider a flat surface of area \(A\) placed in a uniform magnetic field \(\mathbf{B}\). The surface is represented by an <strong>area vector</strong> \(\mathbf{A} = A\hat{n}\), whose direction \(\hat{n}\) is perpendicular (normal) to the plane of the surface.
+      </p>
+      <div class="formula-box">
+        \[\Phi_B = \mathbf{B} \cdot \mathbf{A} = B A \cos\theta\]
+      </div>
+      <p>
+        Here, \(\theta\) is the angle between the magnetic field \(\mathbf{B}\) and the <strong>normal</strong> (area vector \(\mathbf{A}\))—not the angle between \(\mathbf{B}\) and the plane of the surface. If the magnetic field varies across a curved or non-uniform surface, we divide the surface into tiny area elements \(\mathrm{d}\mathbf{A}_i\) and sum the dot products: \(\Phi_B = \sum \mathbf{B}_i \cdot \mathrm{d}\mathbf{A}_i\).
+      </p>
+      <ul>
+        <li><strong>Nature &amp; SI Unit:</strong> Magnetic flux is a scalar quantity. Its SI unit is the <strong>weber</strong> (\(\mathrm{Wb}\)), where \(1\,\mathrm{Wb} = 1\,\mathrm{T\cdot m^2}\).</li>
+        <li><strong>Maximum vs. Zero Flux:</strong> When the plane of a loop is perpendicular to \(\mathbf{B}\), \(\theta = 0°\) and \(\Phi_B = BA\) (maximum). When the plane is parallel to \(\mathbf{B}\), \(\theta = 90°\) and \(\Phi_B = 0\).</li>
+      </ul>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 640 230" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Area vector normal to a tilted plane in a uniform magnetic field">
+          <rect x="0" y="0" width="640" height="230" fill="#F8FAFC" rx="6"/>
+          <!-- Uniform B field lines -->
+          <line x1="60" y1="60" x2="540" y2="60" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="540,60 530,55 530,65" fill="#2563EB"/>
+          <line x1="60" y1="115" x2="540" y2="115" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="540,115 530,110 530,120" fill="#2563EB"/>
+          <line x1="60" y1="170" x2="540" y2="170" stroke="#2563EB" stroke-width="2"/>
+          <polygon points="540,170 530,165 530,175" fill="#2563EB"/>
+          <text x="552" y="65" font-family="sans-serif" font-size="16" font-weight="bold" fill="#2563EB">B</text>
+
+          <!-- Tilted planar loop -->
+          <polygon points="240,45 330,30 290,185 200,200" fill="#EFF6FF" fill-opacity="0.7" stroke="#1E293B" stroke-width="2.5"/>
+          <text x="206" y="185" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Area A</text>
+
+          <!-- Center point and normal vector A -->
+          <circle cx="265" cy="115" r="3.5" fill="#1E293B"/>
+          <line x1="265" y1="115" x2="395" y2="75" stroke="#0D9488" stroke-width="3"/>
+          <polygon points="395,75 383,73 387,83" fill="#0D9488"/>
+          <text x="402" y="78" font-family="sans-serif" font-size="16" font-weight="bold" fill="#0D9488">A (normal)</text>
+
+          <!-- Angle arc between B (horizontal) and A -->
+          <path d="M 325 115 A 60 60 0 0 0 321 98" fill="none" stroke="#1E293B" stroke-width="2"/>
+          <text x="334" y="108" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1E293B">θ</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 1:</strong> Magnetic flux depends on \(\cos\theta\), where \(\theta\) is measured between the magnetic field \(\mathbf{B}\) and the normal area vector \(\mathbf{A}\).
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faraday-lenz-heading">
+      <h2 id="faraday-lenz-heading">2. Faraday's Law &amp; Lenz's Law: Cause and Opposition</h2>
+      <p>
+        Experiments with magnets and coils show that a steady magnetic field—no matter how strong—never induces a current in a stationary loop. An emf appears <em>only while the magnetic flux through the circuit is changing</em>. This flux change can be produced by moving a magnet relative to a coil, moving a coil relative to another current-carrying coil, or switching/varying the current in a nearby stationary circuit. Inserting a soft iron core along the coil axis strengthens the magnetic field and amplifies the induced effect.
+      </p>
+
+      <div class="callout-law">
+        <div class="callout-title">Faraday's Law of Electromagnetic Induction</div>
+        <p>
+          The magnitude of the induced emf in a circuit equals the time rate of change of magnetic flux through the circuit. For a single loop and for a closely wound coil of \(N\) identical turns:
+        </p>
+        <div class="formula-box">
+          \[\varepsilon = -\frac{\mathrm{d}\Phi_B}{\mathrm{d}t} \qquad \text{and} \qquad \varepsilon = -N\frac{\mathrm{d}\Phi_B}{\mathrm{d}t}\]
+        </div>
+        <p style="margin-bottom:0;">
+          If the circuit is closed with total resistance \(R\), the induced current is \(I = \dfrac{|\varepsilon|}{R} = \dfrac{N}{R}\left|\dfrac{\mathrm{d}\Phi_B}{\mathrm{d}t}\right|\). Notice that total induced charge \(\Delta q = \dfrac{N|\Delta\Phi_B|}{R}\) depends only on the net change in flux, not on how fast the change occurs.
+        </p>
+      </div>
+
+      <h3>Lenz's Law &amp; Energy Conservation</h3>
+      <p>
+        The minus sign in Faraday's equation encodes <strong>Lenz's law</strong>: <em>the polarity of the induced emf is always such that it tends to drive a current that opposes the change in magnetic flux producing it.</em>
+      </p>
+      <ul>
+        <li><strong>Approaching North Pole:</strong> As a magnet's North pole moves toward a closed loop, inward flux increases. The loop develops a counter-clockwise current (viewed from the magnet's side) so its near face acts as a North pole, repelling the magnet.</li>
+        <li><strong>Receding North Pole:</strong> As the North pole pulls away, flux decreases. The loop reverses its current to clockwise, creating a South pole on the near face to attract the magnet and oppose the decrease.</li>
+        <li><strong>Conservation of Energy:</strong> Because the induced pole always resists the magnet's motion, an external agent must perform mechanical work to push or pull the magnet. That mechanical work is converted into electrical energy and dissipated as Joule heat (\(I^2Rt\)) in the coil.</li>
+      </ul>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 640 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lenz's law illustration showing a North pole approaching a coil and inducing an opposing North face">
+          <rect x="0" y="0" width="640" height="220" fill="#F8FAFC" rx="6"/>
+          <!-- Left panel: Approaching N pole -->
+          <text x="160" y="26" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">N-Pole Approaches (Flux Increases)</text>
+          <rect x="45" y="95" width="90" height="34" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" rx="3"/>
+          <rect x="90" y="95" width="45" height="34" fill="#EFF6FF" stroke="#1E293B" stroke-width="2"/>
+          <text x="67" y="117" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1E293B">S</text>
+          <text x="112" y="117" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#2563EB">N</text>
+          <!-- Motion arrow -->
+          <line x1="145" y1="112" x2="185" y2="112" stroke="#1E293B" stroke-width="2.5"/>
+          <polygon points="185,112 175,107 175,117" fill="#1E293B"/>
+          <text x="165" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">v</text>
+          <!-- Coil loop -->
+          <ellipse cx="245" cy="112" rx="28" ry="58" fill="none" stroke="#0D9488" stroke-width="3"/>
+          <!-- Current direction arrow (CCW viewed from left) -->
+          <polygon points="245,54 235,49 237,59" fill="#0D9488"/>
+          <text x="245" y="192" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">Repels (N-face)</text>
+
+          <!-- Divider -->
+          <line x1="320" y1="20" x2="320" y2="200" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="5,5"/>
+
+          <!-- Right panel: Receding N pole -->
+          <text x="480" y="26" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">N-Pole Recedes (Flux Decreases)</text>
+          <rect x="385" y="95" width="90" height="34" fill="#FFFFFF" stroke="#1E293B" stroke-width="2" rx="3"/>
+          <rect x="430" y="95" width="45" height="34" fill="#EFF6FF" stroke="#1E293B" stroke-width="2"/>
+          <text x="407" y="117" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1E293B">S</text>
+          <text x="452" y="117" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#2563EB">N</text>
+          <!-- Motion arrow -->
+          <line x1="375" y1="112" x2="340" y2="112" stroke="#1E293B" stroke-width="2.5"/>
+          <polygon points="340,112 350,107 350,117" fill="#1E293B"/>
+          <text x="357" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">v</text>
+          <!-- Coil loop -->
+          <ellipse cx="555" cy="112" rx="28" ry="58" fill="none" stroke="#2563EB" stroke-width="3"/>
+          <!-- Current direction arrow (CW viewed from left) -->
+          <polygon points="555,54 565,49 563,59" fill="#2563EB"/>
+          <text x="555" y="192" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Attracts (S-face)</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 2:</strong> Induced current always generates a magnetic pole that opposes the magnet's motion, ensuring mechanical work is required to change the flux.
+        </div>
+      </div>
+
+      <div class="callout-intuition">
+        <div class="callout-title">Open Circuit vs. Closed Circuit</div>
+        <p style="margin-bottom:0;">
+          Even if a loop has a small cut (an open circuit), an emf is still induced across the cut ends whenever magnetic flux changes! No steady current flows because the path is broken, so one end accumulates positive charge and the other negative charge, creating a measurable potential difference.
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="motional-heading">
+      <h2 id="motional-heading">3. Motional EMF: Moving Conductors in Magnetic Fields</h2>
+      <p>
+        Consider a straight conducting rod of length \(l\) sliding at constant speed \(v\) along two parallel, frictionless conducting rails connected at one end, in a uniform magnetic field \(\mathbf{B}\) perpendicular to the plane of the rails. If the rod is at distance \(x\) from the closed end, the enclosed flux is \(\Phi_B = B l x\). As the rod moves inward (\(\mathrm{d}x/\mathrm{d}t = -v\)), the magnitude of the induced emf is:
+      </p>
+      <div class="formula-box">
+        \[\varepsilon = B l v \quad (\text{when } \mathbf{B} \perp \mathbf{v} \perp \mathbf{l})\]
+      </div>
+      <p>
+        More generally, if the velocity makes an angle \(\alpha\) with \(\mathbf{B}\) and the rod is perpendicular to both, \(\varepsilon = B l v \sin\alpha\). Microscopically, free charges \(q\) inside the moving conductor experience the magnetic Lorentz force \(\mathbf{F} = q(\mathbf{v} \times \mathbf{B})\), pushing positive charges toward one end and electrons toward the other. Wait—what if the conductor is <em>stationary</em> and \(\mathbf{B}\) changes with time? Then \(\mathbf{v} = 0\), so the magnetic force is zero; instead, a time-varying magnetic field induces a non-conservative electric field \(\mathbf{E}\) that drives the charges.
+      </p>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 640 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sliding conducting rod on U-shaped rails in a perpendicular magnetic field">
+          <rect x="0" y="0" width="640" height="210" fill="#F8FAFC" rx="6"/>
+          <!-- Magnetic field crosses (into page) -->
+          <g fill="#2563EB" font-family="sans-serif" font-size="14" font-weight="bold">
+            <text x="90" y="45">×</text><text x="170" y="45">×</text><text x="250" y="45">×</text><text x="330" y="45">×</text><text x="410" y="45">×</text><text x="490" y="45">×</text>
+            <text x="90" y="105">×</text><text x="170" y="105">×</text><text x="250" y="105">×</text><text x="330" y="105">×</text><text x="410" y="105">×</text><text x="490" y="105">×</text>
+            <text x="90" y="165">×</text><text x="170" y="165">×</text><text x="250" y="165">×</text><text x="330" y="165">×</text><text x="410" y="165">×</text><text x="490" y="165">×</text>
+          </g>
+          <text x="530" y="45" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2563EB">B (into page)</text>
+
+          <!-- U-shaped rails -->
+          <polyline points="480,60 130,60 130,155 480,155" fill="none" stroke="#1E293B" stroke-width="3"/>
+          <!-- Sliding rod -->
+          <rect x="370" y="48" width="10" height="119" fill="#0D9488" stroke="#1E293B" stroke-width="1.5" rx="2"/>
+          <text x="375" y="40" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0D9488">Rod (l)</text>
+
+          <!-- Velocity arrow -->
+          <line x1="362" y1="108" x2="310" y2="108" stroke="#1E293B" stroke-width="2.5"/>
+          <polygon points="310,108 320,103 320,113" fill="#1E293B"/>
+          <text x="335" y="96" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">v</text>
+
+          <!-- Induced current arrows (CW to oppose decreasing inward flux) -->
+          <polygon points="240,60 250,55 250,65" fill="#0D9488"/>
+          <polygon points="260,155 250,150 250,160" fill="#0D9488"/>
+          <text x="245" y="185" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">Induced current I</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 3:</strong> As the rod slides left with speed \(v\), the loop area shrinks, inducing an emf \(\varepsilon = Blv\) and a clockwise current to oppose the decreasing inward flux.
+        </div>
+      </div>
+
+      <h3>Rotating Rod &amp; Spoked Wheel</h3>
+      <p>
+        When a conducting rod of length \(R\) rotates with angular velocity \(\omega\) about one end in a plane perpendicular to a uniform magnetic field \(B\), different segments move at different linear speeds \(v = \omega r\). Integrating \(\mathrm{d}\varepsilon = B(\omega r)\,\mathrm{d}r\) from \(r = 0\) to \(r = R\) gives:
+      </p>
+      <div class="formula-box">
+        \[\varepsilon = \frac{1}{2} B \omega R^2 = \pi B \nu R^2\]
+      </div>
+      <p>
+        where \(\nu = \omega / (2\pi)\) is the rotation frequency. For a metallic wheel with \(N\) spokes rotating in a perpendicular field, all spokes connect the axle to the rim <strong>in parallel</strong>; therefore, the emf between the axle and the rim remains \(\frac{1}{2}B\omega R^2\), completely independent of the number of spokes!
+      </p>
+    </section>
+
+    <section aria-labelledby="inductance-heading">
+      <h2 id="inductance-heading">4. Mutual Inductance, Self-Inductance &amp; Magnetic Energy</h2>
+      <p>
+        For any rigid coil of \(N\) turns, the total magnetic flux linkage \(N\Phi_B\) is directly proportional to the current \(I\) producing it. The proportionality constant is called <strong>inductance</strong>, a scalar quantity with SI unit <strong>henry</strong> (\(\mathrm{H}\)).
+      </p>
+
+      <h3>Mutual Inductance (\(M\))</h3>
+      <p>
+        When a time-varying current \(I_2\) in coil 2 changes the flux linkage \(N_1\Phi_1 = M_{12}I_2\) in a nearby coil 1, an emf is induced in coil 1:
+      </p>
+      <div class="formula-box">
+        \[\varepsilon_1 = -M\frac{\mathrm{d}I_2}{\mathrm{d}t} \qquad \text{with} \qquad M_{12} = M_{21} = M\]
+      </div>
+      <p>
+        For two long coaxial solenoids of equal length \(l\), with turns per unit length \(n_1, n_2\) and inner cross-sectional radius \(r_1\) (where \(r_1 \le r_2\)), filled with a core of relative permeability \(\mu_r\):
+      </p>
+      <div class="formula-box">
+        \[M = \mu_r \mu_0 n_1 n_2 \pi r_1^2 l\]
+      </div>
+      <p>
+        For two concentric coplanar circular loops of radii \(r_1 \ll r_2\), the mutual inductance is \(M = \dfrac{\mu_0 \pi r_1^2}{2r_2}\).
+      </p>
+
+      <h3>Self-Inductance (\(L\)) &amp; Magnetic Energy</h3>
+      <p>
+        Varying the current in an isolated coil changes its own flux linkage \(N\Phi_B = L I\), inducing a <strong>back emf</strong> that opposes the change in current:
+      </p>
+      <div class="formula-box">
+        \[\varepsilon = -L\frac{\mathrm{d}I}{\mathrm{d}t}\]
+      </div>
+      <p>
+        For a long solenoid of cross-sectional area \(A\), length \(l\), turns per unit length \(n\), and core relative permeability \(\mu_r\), the self-inductance is \(L = \mu_r \mu_0 n^2 A l\). Self-inductance acts as <strong>electrical inertia</strong>—just as mass \(m\) opposes changes in velocity, \(L\) opposes changes in current.
+      </p>
+      <p>
+        Work done against the back emf to establish a steady current \(I\) is stored as magnetic potential energy \(U_B\). Expressing this in terms of the magnetic field \(B = \mu_0 n I\) inside an air-core solenoid yields the general <strong>magnetic energy density</strong> \(u_B\) (energy per unit volume):
+      </p>
+      <div class="formula-box">
+        \[U_B = \frac{1}{2} L I^2 \qquad \text{and} \qquad u_B = \frac{U_B}{Al} = \frac{B^2}{2\mu_0}\]
+      </div>
+    </section>
+
+    <section aria-labelledby="generator-heading">
+      <h2 id="generator-heading">5. Alternating Current (AC) Generator</h2>
+      <p>
+        An AC generator converts mechanical energy into electrical energy by rotating a coil (armature) of \(N\) turns and area \(A\) at a constant angular speed \(\omega = 2\pi\nu\) in a uniform magnetic field \(B\), with the axis of rotation perpendicular to \(\mathbf{B}\). Slip rings and carbon brushes maintain sliding electrical contact with the external circuit.
+      </p>
+      <p>
+        At time \(t\), if the angle between \(\mathbf{B}\) and the area vector \(\mathbf{A}\) is \(\theta = \omega t\), the instantaneous flux is \(\Phi_B = BA\cos(\omega t)\). Differentiating with respect to time gives the sinusoidal induced emf:
+      </p>
+      <div class="formula-box">
+        \[\varepsilon = N B A \omega \sin(\omega t) = \varepsilon_0 \sin(2\pi\nu t) \qquad \text{where} \qquad \varepsilon_0 = N B A \omega\]
+      </div>
+
+      <div class="figure-box">
+        <svg viewBox="0 0 640 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sinusoidal emf waveform of an AC generator over one full rotation">
+          <rect x="0" y="0" width="640" height="210" fill="#F8FAFC" rx="6"/>
+          <!-- Axes -->
+          <line x1="70" y1="105" x2="590" y2="105" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="590,105 580,100 580,110" fill="#1E293B"/>
+          <line x1="70" y1="25" x2="70" y2="185" stroke="#1E293B" stroke-width="2"/>
+          <polygon points="70,25 65,35 75,35" fill="#1E293B"/>
+          <text x="598" y="109" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">θ = ωt</text>
+          <text x="55" y="22" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E293B">ε</text>
+
+          <!-- Peak lines -->
+          <line x1="70" y1="45" x2="560" y2="45" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="70" y1="165" x2="560" y2="165" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="48" y="50" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">+ε₀</text>
+          <text x="48" y="170" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">−ε₀</text>
+
+          <!-- Sine wave: 70 to 550 (period = 480) -->
+          <path d="M 70 105 C 110 105, 145 45, 190 45 C 235 45, 270 105, 310 105 C 350 105, 385 165, 430 165 C 475 165, 510 105, 550 105" fill="none" stroke="#2563EB" stroke-width="3"/>
+
+          <!-- Key angle markers -->
+          <line x1="190" y1="45" x2="190" y2="105" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <line x1="430" y1="165" x2="430" y2="105" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <text x="190" y="124" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">90° (T/4)</text>
+          <text x="310" y="124" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">180° (T/2)</text>
+          <text x="430" y="96" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">270° (3T/4)</text>
+          <text x="550" y="124" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#1E293B">360° (T)</text>
+        </svg>
+        <div class="figure-caption">
+          <strong>Tutorial Diagram 4:</strong> The induced emf reaches its peak magnitude \(\varepsilon_0\) at \(\theta = 90°\) and \(270°\), when the coil's plane is <em>parallel</em> to \(\mathbf{B}\) and flux is zero, because the rate of change of flux is steepest there.
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="ref-table-heading">
+      <h2 id="ref-table-heading">6. Key Quantities, Units &amp; Dimensions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Quantity</th>
+            <th>Symbol</th>
+            <th>SI Unit</th>
+            <th>Dimensions</th>
+            <th>Core Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Magnetic Flux</td>
+            <td>\(\Phi_B\)</td>
+            <td>\(\mathrm{Wb}\) (weber)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-2}\,A^{-1}}]\)</td>
+            <td>\(\Phi_B = BA\cos\theta\)</td>
+          </tr>
+          <tr>
+            <td>Induced EMF</td>
+            <td>\(\varepsilon\)</td>
+            <td>\(\mathrm{V}\) (volt)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-3}\,A^{-1}}]\)</td>
+            <td>\(\varepsilon = -N\,\mathrm{d}\Phi_B/\mathrm{d}t\)</td>
+          </tr>
+          <tr>
+            <td>Self-Inductance</td>
+            <td>\(L\)</td>
+            <td>\(\mathrm{H}\) (henry)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-2}\,A^{-2}}]\)</td>
+            <td>\(\varepsilon = -L\,\mathrm{d}I/\mathrm{d}t\)</td>
+          </tr>
+          <tr>
+            <td>Mutual Inductance</td>
+            <td>\(M\)</td>
+            <td>\(\mathrm{H}\) (henry)</td>
+            <td>\([\mathrm{M\,L^2\,T^{-2}\,A^{-2}}]\)</td>
+            <td>\(\varepsilon_1 = -M\,\mathrm{d}I_2/\mathrm{d}t\)</td>
+          </tr>
+          <tr>
+            <td>Magnetic Energy Density</td>
+            <td>\(u_B\)</td>
+            <td>\(\mathrm{J/m^3}\)</td>
+            <td>\([\mathrm{M\,L^{-1}\,T^{-2}}]\)</td>
+            <td>\(u_B = B^2 / (2\mu_0)\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="examples-heading">
+      <h2 id="examples-heading">Worked Examples</h2>
+
+      <article class="example-block">
+        <h3 class="example-title">Example 1: Applying Faraday's Law to a Time-Varying Field</h3>
+        <p>
+          <strong>Problem (Assumed Values):</strong> A flat circular coil of \(N = 200\) turns, radius \(r = 5.0\,\mathrm{cm}\), and total resistance \(R = 5.0\,\Omega\) is placed in a uniform magnetic field such that the <em>plane</em> of the coil makes an angle of \(30°\) with the field direction. If the magnetic field decreases steadily from \(0.40\,\mathrm{T}\) to \(0.10\,\mathrm{T}\) in \(0.30\,\mathrm{s}\), calculate the magnitude of the induced emf and the induced current.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <ul>
+          <li>First, find the angle \(\theta\) between \(\mathbf{B}\) and the normal area vector \(\mathbf{A}\): \(\theta = 90° - 30° = 60°\).</li>
+          <li>Area of the coil: \(A = \pi r^2 = \pi (0.050\,\mathrm{m})^2 = 2.5\pi \times 10^{-3}\,\mathrm{m^2}\).</li>
+          <li>Magnitude of the rate of change of magnetic field: \(\left|\dfrac{\Delta B}{\Delta t}\right| = \dfrac{0.40 - 0.10}{0.30} = 1.0\,\mathrm{T/s}\).</li>
+          <li>Induced emf magnitude:
+            \[|\varepsilon| = N A \cos 60° \left|\frac{\Delta B}{\Delta t}\right| = 200 \times (2.5\pi \times 10^{-3}) \times 0.5 \times 1.0 = 0.25\pi \approx 0.785\,\mathrm{V}\]
+          </li>
+          <li>Induced current: \(I = \dfrac{|\varepsilon|}{R} = \dfrac{0.785\,\mathrm{V}}{5.0\,\Omega} \approx 0.157\,\mathrm{A} = 157\,\mathrm{mA}\).</li>
+        </ul>
+      </article>
+
+      <article class="example-block">
+        <h3 class="example-title">Example 2: Calculating Motional EMF in a Rotating Conducting Rod</h3>
+        <p>
+          <strong>Problem (Assumed Values):</strong> A straight copper rod of length \(L = 0.80\,\mathrm{m}\) is pivoted at one end and rotates in a horizontal plane at \(300\,\mathrm{rev/min}\) in a uniform vertical magnetic field \(B = 0.25\,\mathrm{T}\). Find the emf induced between the pivot and the free tip.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <ul>
+          <li>Convert rotational speed to angular frequency: \(\nu = \dfrac{300}{60} = 5.0\,\mathrm{Hz}\), so \(\omega = 2\pi\nu = 10\pi\,\mathrm{rad/s}\).</li>
+          <li>Using the rotating-rod formula:
+            \[\varepsilon = \frac{1}{2} B \omega L^2 = \frac{1}{2} \times 0.25 \times 10\pi \times (0.80)^2 = 0.80\pi \approx 2.51\,\mathrm{V}\]
+          </li>
+        </ul>
+      </article>
+
+      <article class="example-block">
+        <h3 class="example-title">Example 3: Determining Mutual Inductance and Induced EMF in Coupled Coils</h3>
+        <p>
+          <strong>Problem (Assumed Values):</strong> A long air-core solenoid of length \(l = 0.50\,\mathrm{m}\) and cross-sectional area \(A = 4.0 \times 10^{-4}\,\mathrm{m^2}\) has \(n_1 = 2000\,\mathrm{turns/m}\). A short secondary coil of \(N_2 = 150\) turns is wound tightly around its central region. Find the mutual inductance \(M\) of the pair, and determine the induced emf in the secondary coil if the primary current rises uniformly from \(0\) to \(4.0\,\mathrm{A}\) in \(0.020\,\mathrm{s}\). (Take \(\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T\cdot m/A}\).)
+        </p>
+        <p><strong>Solution:</strong></p>
+        <ul>
+          <li>Magnetic field inside the long primary solenoid: \(B_1 = \mu_0 n_1 I_1\).</li>
+          <li>Flux linkage with the \(N_2\)-turn secondary coil: \(N_2 \Phi_1 = N_2 B_1 A = (\mu_0 n_1 N_2 A) I_1\), so:
+            \[M = \mu_0 n_1 N_2 A = (4\pi \times 10^{-7}) \times 2000 \times 150 \times (4.0 \times 10^{-4}) = 4.8\pi \times 10^{-5}\,\mathrm{H} \approx 1.51 \times 10^{-4}\,\mathrm{H}\]
+          </li>
+          <li>Magnitude of induced emf in the secondary coil:
+            \[|\varepsilon_2| = M \frac{\Delta I_1}{\Delta t} = (1.51 \times 10^{-4}\,\mathrm{H}) \times \frac{4.0\,\mathrm{A}}{0.020\,\mathrm{s}} \approx 0.0302\,\mathrm{V} = 30.2\,\mathrm{mV}\]
+          </li>
+        </ul>
+      </article>
+
+      <article class="example-block">
+        <h3 class="example-title">Example 4: Peak EMF in an AC Generator</h3>
+        <p>
+          <strong>Problem (Assumed Values):</strong> An armature coil of \(N = 120\) turns and area \(A = 0.050\,\mathrm{m^2}\) rotates at \(600\,\mathrm{rev/min}\) in a uniform magnetic field \(B = 0.20\,\mathrm{T}\). Calculate the peak induced emf \(\varepsilon_0\) and the instantaneous emf at the moment when the plane of the coil is parallel to the magnetic field.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <ul>
+          <li>Frequency \(\nu = \dfrac{600}{60} = 10\,\mathrm{Hz}\), giving \(\omega = 2\pi\nu = 20\pi\,\mathrm{rad/s}\).</li>
+          <li>Peak emf:
+            \[\varepsilon_0 = N B A \omega = 120 \times 0.20 \times 0.050 \times 20\pi = 24\pi \approx 75.4\,\mathrm{V}\]
+          </li>
+          <li>When the plane of the coil is parallel to \(\mathbf{B}\), the normal makes \(\theta = 90°\) with \(\mathbf{B}\). Thus \(\varepsilon = \varepsilon_0 \sin 90° = 75.4\,\mathrm{V}\) (maximum magnitude).</li>
+        </ul>
+      </article>
+    </section>
+
+    <section aria-labelledby="practice-heading">
+      <h2 id="practice-heading">NEET UG Practice Questions</h2>
+      <p><em>Note: The following are original practice questions modeled on the NEET UG examination pattern.</em></p>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 1 (Single-Correct MCQ)</div>
+        <p>A flexible circular conducting loop lies in the plane of the page inside a uniform magnetic field directed perpendicularly into the page. If the loop is stretched radially outward so that its radius increases at a steady rate, what is the direction of the induced current in the loop?</p>
+        <ul class="options-list">
+          <li>(A) Clockwise</li>
+          <li>(B) Counter-clockwise</li>
+          <li>(C) Zero, because the magnetic field is uniform</li>
+          <li>(D) Alternating between clockwise and counter-clockwise</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (B)</span>
+          <p><strong>Explanation:</strong> As the radius increases, the area \(A\) enclosed by the loop increases, so the inward magnetic flux \(\Phi_B = BA\) increases. By Lenz's law, the induced current must oppose this increase by producing an outward magnetic field (pointing out of the page). By the right-hand thumb rule, a counter-clockwise current produces an outward field.</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 2 (Single-Correct MCQ)</div>
+        <p>A 50-turn square coil of side \(20\,\mathrm{cm}\) and total resistance \(4.0\,\Omega\) is held with its plane perpendicular to a uniform magnetic field. If the magnetic field decreases uniformly from \(0.60\,\mathrm{T}\) to \(0.20\,\mathrm{T}\) in \(0.10\,\mathrm{s}\), what is the magnitude of the induced current?</p>
+        <ul class="options-list">
+          <li>(A) \(0.50\,\mathrm{A}\)</li>
+          <li>(B) \(1.0\,\mathrm{A}\)</li>
+          <li>(C) \(2.0\,\mathrm{A}\)</li>
+          <li>(D) \(4.0\,\mathrm{A}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (C)</span>
+          <p><strong>Explanation:</strong> Area \(A = (0.20\,\mathrm{m})^2 = 0.040\,\mathrm{m^2}\). Since the plane is perpendicular to \(\mathbf{B}\), \(\theta = 0°\) and \(\cos\theta = 1\). The induced emf magnitude is:
+            \[|\varepsilon| = N A \left|\frac{\Delta B}{\Delta t}\right| = 50 \times 0.040 \times \frac{0.60 - 0.20}{0.10} = 2.0 \times 4.0 = 8.0\,\mathrm{V}\]
+            Therefore, the induced current is \(I = \dfrac{|\varepsilon|}{R} = \dfrac{8.0\,\mathrm{V}}{4.0\,\Omega} = 2.0\,\mathrm{A}\).
+          </p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 3 (Single-Correct MCQ)</div>
+        <p>A rectangular wire loop of area \(0.25\,\mathrm{m^2}\) is placed in a uniform magnetic field of \(0.80\,\mathrm{T}\) such that the plane of the loop makes an angle of \(30°\) with the magnetic field. What is the magnetic flux through the loop?</p>
+        <ul class="options-list">
+          <li>(A) \(0.10\,\mathrm{Wb}\)</li>
+          <li>(B) \(0.17\,\mathrm{Wb}\)</li>
+          <li>(C) \(0.20\,\mathrm{Wb}\)</li>
+          <li>(D) \(0.40\,\mathrm{Wb}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> The angle between the magnetic field and the <em>normal</em> to the plane is \(\theta = 90° - 30° = 60°\). Thus,
+            \[\Phi_B = B A \cos 60° = 0.80 \times 0.25 \times 0.5 = 0.10\,\mathrm{Wb}\]
+          </p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 4 (Single-Correct MCQ)</div>
+        <p>A bicycle wheel with 12 metallic spokes, each \(0.40\,\mathrm{m}\) long, rotates at \(120\,\mathrm{rev/min}\) in a plane perpendicular to a uniform magnetic field of \(5.0 \times 10^{-5}\,\mathrm{T}\). What is the induced emf between the axle and the rim of the wheel?</p>
+        <ul class="options-list">
+          <li>(A) \(5.03 \times 10^{-5}\,\mathrm{V}\)</li>
+          <li>(B) \(1.01 \times 10^{-4}\,\mathrm{V}\)</li>
+          <li>(C) \(6.03 \times 10^{-4}\,\mathrm{V}\)</li>
+          <li>(D) \(2.51 \times 10^{-5}\,\mathrm{V}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> Frequency \(\nu = \dfrac{120}{60} = 2.0\,\mathrm{Hz}\), so \(\omega = 2\pi\nu = 4\pi\,\mathrm{rad/s}\). All 12 spokes are connected in parallel between the axle and the rim, so the emf equals that across a single rotating spoke:
+            \[\varepsilon = \frac{1}{2} B \omega R^2 = \frac{1}{2} \times (5.0 \times 10^{-5}) \times 4\pi \times (0.40)^2 = 1.6\pi \times 10^{-5}\,\mathrm{V} \approx 5.03 \times 10^{-5}\,\mathrm{V}\]
+          </p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 5 (Single-Correct MCQ)</div>
+        <p>The current in a coil of self-inductance \(0.40\,\mathrm{H}\) increases uniformly from \(1.0\,\mathrm{A}\) to \(5.0\,\mathrm{A}\) in \(0.20\,\mathrm{s}\). What are the magnitude of the induced back emf and the increase in magnetic energy stored in the coil, respectively?</p>
+        <ul class="options-list">
+          <li>(A) \(8.0\,\mathrm{V},\ 4.8\,\mathrm{J}\)</li>
+          <li>(B) \(8.0\,\mathrm{V},\ 5.0\,\mathrm{J}\)</li>
+          <li>(C) \(10.0\,\mathrm{V},\ 4.8\,\mathrm{J}\)</li>
+          <li>(D) \(4.0\,\mathrm{V},\ 3.2\,\mathrm{J}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> Back emf magnitude:
+            \[|\varepsilon| = L \frac{\Delta I}{\Delta t} = 0.40 \times \frac{5.0 - 1.0}{0.20} = 8.0\,\mathrm{V}\]
+            Increase in stored magnetic energy:
+            \[\Delta U_B = \frac{1}{2} L (I_2^2 - I_1^2) = \frac{1}{2} \times 0.40 \times (5.0^2 - 1.0^2) = 0.20 \times 24 = 4.8\,\mathrm{J}\]
+          </p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 6 (Assertion–Reason MCQ)</div>
+        <p><strong>Assertion (A):</strong> Lenz's law is a direct consequence of the law of conservation of energy.<br>
+        <strong>Reason (R):</strong> The induced current always opposes the change in magnetic flux that produces it, requiring external work to sustain the flux change.</p>
+        <ul class="options-list">
+          <li>(A) Both A and R are true, and R is the correct explanation of A.</li>
+          <li>(B) Both A and R are true, but R is NOT the correct explanation of A.</li>
+          <li>(C) A is true, but R is false.</li>
+          <li>(D) A is false, but R is true.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> Because the induced current opposes the flux change (for instance, repelling an approaching magnet), an external agent must perform mechanical work against this opposition. That work supplies the electrical energy dissipated as heat, preventing perpetual motion and upholding energy conservation.</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 7 (Statement-Based MCQ)</div>
+        <p>Consider the following two statements regarding an AC generator:<br>
+        <strong>Statement I:</strong> The magnitude of the induced emf is maximum when the plane of the rotating coil is parallel to the magnetic field.<br>
+        <strong>Statement II:</strong> When the plane of the coil is parallel to the magnetic field, the magnetic flux through the coil is maximum.</p>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are true.</li>
+          <li>(B) Both Statement I and Statement II are false.</li>
+          <li>(C) Statement I is true, but Statement II is false.</li>
+          <li>(D) Statement I is false, but Statement II is true.</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (C)</span>
+          <p><strong>Explanation:</strong> When the plane of the coil is parallel to \(\mathbf{B}\), the normal vector \(\mathbf{A}\) is perpendicular to \(\mathbf{B}\) (\(\theta = 90°\)). Thus, the flux \(\Phi_B = BA\cos 90° = 0\) (so Statement II is false), while the rate of change of flux and the induced emf \(\varepsilon = \varepsilon_0 \sin 90° = \varepsilon_0\) are maximum (so Statement I is true).</p>
+        </div>
+      </div>
+
+      <div class="question-block">
+        <div class="q-header">Practice Question 8 (Single-Correct MCQ)</div>
+        <p>Inside a long air-core solenoid carrying a steady current, the uniform magnetic field is \(0.20\,\mathrm{T}\). Taking \(\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T\cdot m/A}\), what is the magnetic energy stored per unit volume inside the solenoid?</p>
+        <ul class="options-list">
+          <li>(A) \(1.59 \times 10^4\,\mathrm{J/m^3}\)</li>
+          <li>(B) \(3.18 \times 10^4\,\mathrm{J/m^3}\)</li>
+          <li>(C) \(7.96 \times 10^3\,\mathrm{J/m^3}\)</li>
+          <li>(D) \(6.37 \times 10^4\,\mathrm{J/m^3}\)</li>
+        </ul>
+        <div class="solution-box">
+          <span class="answer-tag">Answer: (A)</span>
+          <p><strong>Explanation:</strong> The magnetic energy density is:
+            \[u_B = \frac{B^2}{2\mu_0} = \frac{(0.20)^2}{2 \times 4\pi \times 10^{-7}} = \frac{0.04}{8\pi \times 10^{-7}} = \frac{5.0 \times 10^4}{\pi} \approx 1.59 \times 10^4\,\mathrm{J/m^3}\]
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="pitfalls-heading">
+      <h2 id="pitfalls-heading">Common Pitfalls &amp; Revision Checklist</h2>
+      <div class="callout-pitfall">
+        <div class="callout-title">Frequent NEET UG Traps to Avoid</div>
+        <ul>
+          <li><strong>Angle Confusion:</strong> If a problem states the <em>plane</em> of a coil makes angle \(\alpha\) with \(\mathbf{B}\), always use \(\theta = 90° - \alpha\) in \(\Phi_B = BA\cos\theta\).</li>
+          <li><strong>Multiple Spokes in Parallel:</strong> Adding more spokes to a rotating metallic wheel does <em>not</em> multiply the emf between axle and rim; the emf stays \(\frac{1}{2}B\omega R^2\).</li>
+          <li><strong>Steady Strong Field = Zero EMF:</strong> A stationary loop in a very strong, constant magnetic field has zero induced emf. Only a <em>change</em> in flux induces emf.</li>
+          <li><strong>Peak EMF vs. Peak Flux:</strong> In an AC generator, emf is maximum when flux is zero (\(\theta = 90°\)), and emf is zero when flux is maximum (\(\theta = 0°\)).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="callout-title">Quick Revision Checklist</div>
+        <ul>
+          <li>\(\Phi_B = BA\cos\theta\) (Unit: \(\mathrm{Wb}\))</li>
+          <li>Faraday &amp; Lenz: \(\varepsilon = -N\,\mathrm{d}\Phi_B/\mathrm{d}t\); induced charge \(\Delta q = N|\Delta\Phi_B|/R\)</li>
+          <li>Motional emf: \(\varepsilon = Blv\) (linear rod); \(\varepsilon = \frac{1}{2}B\omega R^2\) (rotating rod/wheel)</li>
+          <li>Inductance: \(L = \mu_r\mu_0 n^2 Al\); \(M = \mu_r\mu_0 n_1 n_2 \pi r_1^2 l\)</li>
+          <li>Magnetic energy: \(U_B = \frac{1}{2}LI^2\) and \(u_B = B^2/(2\mu_0)\)</li>
+          <li>AC Generator: \(\varepsilon = NBA\omega\sin(\omega t)\)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="recap-heading">
+      <h2 id="recap-heading">Concise Final Recap</h2>
+      <p>
+        Electromagnetic induction occurs whenever the magnetic flux \(\Phi_B\) through a circuit changes over time—whether by varying the magnetic field strength, altering the loop area, or rotating the loop. Faraday's law quantifies the induced emf as the rate of flux change, while Lenz's law guarantees that the resulting current opposes the change, preserving conservation of energy. These same principles govern motional emf in moving conductors, self- and mutual inductance in coils, energy storage in magnetic fields, and the sinusoidal output of AC generators.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

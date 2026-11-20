@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetic Theory of Gases — NEET UG Physics Tutorial</title>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1E293B;
+      --muted: #475569;
+      --accent: #2563EB;
+      --teal: #0D9488;
+      --bg-soft: #F8FAFC;
+      --bg-tint: #EFF6FF;
+      --bg-teal: #F0FDFA;
+      --bg-warn: #FFFBEB;
+      --border: #CBD5E1;
+      --warn-border: #D97706;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background-color: #FFFFFF;
+      line-height: 1.65;
+    }
+
+    .page-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    header.doc-header {
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      background-color: var(--bg-tint);
+      color: var(--accent);
+      border: 1px solid #BFDBFE;
+    }
+
+    .badge.teal {
+      background-color: var(--bg-teal);
+      color: var(--teal);
+      border-color: #99F6E4;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 32px 0 12px;
+      padding-bottom: 6px;
+      font-size: 1.38rem;
+      line-height: 1.3;
+      color: var(--ink);
+      border-bottom: 2px solid var(--border);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 1.12rem;
+      line-height: 1.35;
+      color: var(--accent);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 0 0 14px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .card {
+      background-color: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .card.teal {
+      background-color: var(--bg-teal);
+      border-left-color: var(--teal);
+    }
+
+    .card.warn {
+      background-color: var(--bg-warn);
+      border-left-color: var(--warn-border);
+    }
+
+    .card-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .formula-box {
+      background-color: var(--bg-tint);
+      border: 1px solid #BFDBFE;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .formula-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-align: left;
+    }
+
+    figure.diagram-box {
+      margin: 18px 0;
+      padding: 14px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      max-width: 100%;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    figure.diagram-box svg {
+      max-width: 560px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.92rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+      word-wrap: break-word;
+    }
+
+    th {
+      background-color: var(--bg-soft);
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .example-box {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .example-header {
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .question-box {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px 18px;
+      margin: 18px 0;
+      background-color: #FFFFFF;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .question-stem {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .options-list {
+      list-style-type: none;
+      padding-left: 4px;
+      margin: 0 0 12px;
+    }
+
+    .options-list li {
+      margin-bottom: 5px;
+    }
+
+    .solution-block {
+      background-color: var(--bg-soft);
+      border-top: 1px dashed var(--border);
+      padding: 10px 12px;
+      margin-top: 10px;
+      border-radius: 0 0 4px 4px;
+      font-size: 0.95rem;
+    }
+
+    .ans-tag {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 16mm;
+      }
+
+      body {
+        font-size: 10.5pt;
+        line-height: 1.5;
+        color: #000000;
+      }
+
+      .page-wrap {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      .card, .formula-box, .example-box, .question-box, figure.diagram-box, table {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  
+@page {
+  size: A4 portrait;
+  margin: 8mm 10mm 8mm 10mm !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  font-size: 11pt !important;
+  line-height: 1.3 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+section, article, .section-card, .card, .formula-box, .callout {
+  page-break-inside: auto !important;
+  break-inside: auto !important;
+}
+
+.section-card, .card, .banner, .formula-box, .callout {
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+}
+
+.banner {
+  padding: 12px 16px !important;
+  margin-bottom: 12px !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+  margin: 0 0 4px 0 !important;
+}
+
+h2, .section-title, .section-title-bn {
+  font-size: 1.2rem !important;
+  padding-bottom: 4px !important;
+  margin: 8px 0 8px 0 !important;
+}
+
+h3 {
+  font-size: 1.05rem !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+p, li {
+  margin-bottom: 4px !important;
+}
+
+table {
+  font-size: 0.85rem !important;
+}
+
+th, td {
+  padding: 4px 8px !important;
+}
+
+.MathJax_Display, mjx-container[jax="CHTML"][display="true"] {
+  margin: 4px 0 !important;
+}
+
+h1, h2, h3, h4, .section-title, .section-title-bn {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+table, img, svg, iframe, video, canvas, object, embed, pre, code, textarea, math,
+.MathJax, .MathJax_SVG {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+@media print {
+  html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+
+    <style>
+      @media print {
+        body {
+          position: relative;
+        }
+        body::before {
+          content: "BOSONANCE";
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          font-size: clamp(48pt, 12vw, 120pt);
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          color: rgba(0, 0, 0, 0.08);
+          transform: rotate(-45deg);
+          pointer-events: none;
+          z-index: 9999;
+          white-space: nowrap;
+          overflow: hidden;
+          text-transform: uppercase;
+        }
+      }
+    </style>
+    
+
+    <style>
+      @page {
+        margin: 8mm 10mm 16mm 10mm !important;
+        
+        @bottom-center {
+          content: "Medical | JEE | Foundations - bosonance.com";
+          font: 9pt Arial, sans-serif;
+          color: #555;
+          text-align: center;
+          vertical-align: middle;
+        }
+        
+      }
+    </style>
+    </head>
+<body>
+  <div class="page-wrap">
+
+    <header class="doc-header">
+      <div class="badge-row">
+        <span class="badge">NEET UG Physics</span>
+        <span class="badge teal">Thermal Physics &amp; Gases</span>
+      </div>
+      <h1>Kinetic Theory of Gases</h1>
+      <p class="subtitle">A complete conceptual and problem-solving guide connecting molecular motion to macroscopic gas laws, internal energy, specific heats, and mean free path.</p>
+    </header>
+
+    <section aria-labelledby="sec-objectives">
+      <h2 id="sec-objectives">Learning Objectives and Chapter Overview</h2>
+      <p>Kinetic theory bridges the microscopic world of rapidly moving atoms and molecules with macroscopic thermodynamic variables such as pressure, volume, temperature, and specific heat capacity. For NEET UG, this topic tests both direct formula manipulation and conceptual reasoning about molecular speeds, degrees of freedom, and gas mixtures.</p>
+      <div class="card">
+        <div class="card-title">What You Will Master in This Tutorial</div>
+        <ul>
+          <li>How molecular spacing and intermolecular forces distinguish solids, liquids, and gases.</li>
+          <li>The ideal gas equation in molar, molecular, and density forms, along with Boyle's, Charles', and Dalton's laws.</li>
+          <li>Derivation and physical meaning of gas pressure \(P = \frac{1}{3}nm\overline{v^2}\) and the kinetic interpretation of absolute temperature.</li>
+          <li>Calculation of root-mean-square speed \(v_{\mathrm{rms}}\) and its dependence on temperature and molar mass.</li>
+          <li>The law of equipartition of energy and its application to monatomic, diatomic, polyatomic gases, and solids.</li>
+          <li>Mean free path \(l\) and collision frequency in terms of number density, pressure, temperature, and molecular diameter.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-molecular">
+      <h2 id="sec-molecular">Molecular Picture of Matter and Gas Behaviour</h2>
+      <p>All matter is composed of discrete atoms and molecules in continuous thermal motion. An individual atom has a characteristic size of roughly \(1\,\mathrm{Å}\) (\(10^{-10}\,\mathrm{m}\)). The physical state of a substance depends on the balance between thermal kinetic energy and short-range intermolecular forces (attractive at separations of a few ångströms, strongly repulsive when electron clouds overlap).</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>State of Matter</th>
+            <th>Typical Intermolecular Spacing</th>
+            <th>Molecular Motion &amp; Interactions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Solid</strong></td>
+            <td>~2 Å (tightly packed)</td>
+            <td>Atoms vibrate about fixed equilibrium positions; strong intermolecular forces maintain rigidity.</td>
+          </tr>
+          <tr>
+            <td><strong>Liquid</strong></td>
+            <td>~2–3 Å</td>
+            <td>Molecules remain closely packed but can slide past one another, enabling flow.</td>
+          </tr>
+          <tr>
+            <td><strong>Gas</strong></td>
+            <td>Tens of Å (~30–40 Å at STP)</td>
+            <td>Molecules are far apart; interactions are negligible except during brief elastic collisions.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Even when a gas appears macroscopically still, it is in <strong>dynamic equilibrium</strong>: billions of molecules collide every second, exchanging momentum and energy, while macroscopic averages such as pressure and temperature remain steady.</p>
+
+      <h3>Equation of State of an Ideal Gas</h3>
+      <p>An <strong>ideal gas</strong> is a theoretical model in which molecules are treated as point masses with zero volume and no intermolecular forces except during elastic collisions. Real gases approximate ideal behaviour closely at <strong>low pressures</strong> and <strong>high temperatures</strong>, where molecules are widely separated and their kinetic energy far exceeds intermolecular potential energy.</p>
+
+      <div class="formula-box">
+        <span class="formula-label">Equivalent Forms of the Ideal Gas Equation</span>
+        \[
+          PV = \mu R T = N k_{\mathrm{B}} T \qquad \text{and} \qquad P = n k_{\mathrm{B}} T = \frac{\rho R T}{M_0}
+        \]
+      </div>
+
+      <p>Here \(\mu = \frac{M}{M_0} = \frac{N}{N_{\mathrm{A}}}\) is the number of moles, \(N\) is the total number of molecules, \(n = \frac{N}{V}\) is the number density, \(\rho\) is the mass density, \(M_0\) is the molar mass, and \(T\) is the absolute temperature in kelvin (\(\mathrm{K}\)).</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Fundamental Constant / Reference</th>
+            <th>Symbol</th>
+            <th>Standard Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Universal gas constant</td>
+            <td>\(R\)</td>
+            <td>\(8.314\,\mathrm{J\,mol^{-1}\,K^{-1}}\)</td>
+          </tr>
+          <tr>
+            <td>Avogadro number</td>
+            <td>\(N_{\mathrm{A}}\)</td>
+            <td>\(6.02 \times 10^{23}\,\mathrm{mol^{-1}}\)</td>
+          </tr>
+          <tr>
+            <td>Boltzmann constant (\(R / N_{\mathrm{A}}\))</td>
+            <td>\(k_{\mathrm{B}}\)</td>
+            <td>\(1.38 \times 10^{-23}\,\mathrm{J\,K^{-1}}\)</td>
+          </tr>
+          <tr>
+            <td>Molar volume at STP (\(273\,\mathrm{K}\), \(1\,\mathrm{atm}\))</td>
+            <td>\(V_{\mathrm{m}}\)</td>
+            <td>\(22.4\,\mathrm{L} = 22.4 \times 10^{-3}\,\mathrm{m^3}\)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Classical Gas Laws as Special Cases</h3>
+      <ul>
+        <li><strong>Avogadro's Hypothesis:</strong> At identical \(P\), \(V\), and \(T\), equal volumes of all ideal gases contain the same number of molecules (\(N = \frac{PV}{k_{\mathrm{B}}T}\)).</li>
+        <li><strong>Boyle's Law:</strong> For a fixed mass of gas at constant temperature \(T\), \(PV = \text{constant}\), so pressure varies inversely with volume.</li>
+        <li><strong>Charles' Law:</strong> For a fixed mass of gas at constant pressure \(P\), \(\frac{V}{T} = \text{constant}\), so volume is directly proportional to absolute temperature.</li>
+        <li><strong>Dalton's Law of Partial Pressures:</strong> For a mixture of non-reacting ideal gases occupying volume \(V\) at temperature \(T\), the total pressure equals the sum of individual partial pressures:
+          \[
+            P = P_1 + P_2 + \dots = (\mu_1 + \mu_2 + \dots)\frac{RT}{V}
+          \]
+        </li>
+      </ul>
+
+      <figure class="diagram-box">
+        <svg viewBox="0 0 540 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Plot of PV divided by mu T versus pressure P for an ideal gas and a real gas at three temperatures">
+          <rect x="0" y="0" width="540" height="300" fill="#F8FAFC" rx="6" />
+          <!-- Axes -->
+          <line x1="75" y1="250" x2="500" y2="250" stroke="#1E293B" stroke-width="2" />
+          <line x1="75" y1="250" x2="75" y2="30" stroke="#1E293B" stroke-width="2" />
+          <!-- Arrowheads -->
+          <polygon points="500,250 492,246 492,254" fill="#1E293B" />
+          <polygon points="75,30 71,38 79,38" fill="#1E293B" />
+          <!-- Ideal gas horizontal line -->
+          <line x1="75" y1="100" x2="485" y2="100" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="7,5" />
+          <text x="330" y="88" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Ideal Gas (PV / μT = R)</text>
+          <!-- Real gas curves starting at (75, 100) -->
+          <!-- T1 (highest T, shallowest dip) -->
+          <path d="M 75 100 Q 170 135 280 112 T 465 55" fill="none" stroke="#0D9488" stroke-width="2.2" />
+          <text x="200" y="132" font-family="sans-serif" font-size="12" font-weight="bold" fill="#0D9488">T₁</text>
+          <!-- T2 (middle T) -->
+          <path d="M 75 100 Q 165 175 285 135 T 475 50" fill="none" stroke="#1E293B" stroke-width="2.2" />
+          <text x="195" y="168" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">T₂</text>
+          <!-- T3 (lowest T, deepest dip) -->
+          <path d="M 75 100 Q 155 235 285 165 T 480 45" fill="none" stroke="#D97706" stroke-width="2.2" />
+          <text x="185" y="218" font-family="sans-serif" font-size="12" font-weight="bold" fill="#D97706">T₃</text>
+          <!-- Labels -->
+          <text x="260" y="280" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Pressure P →</text>
+          <text x="18" y="145" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B" transform="rotate(-90 18 145)">PV / (μT)</text>
+          <text x="54" y="104" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2563EB">R</text>
+          <text x="64" y="266" font-family="sans-serif" font-size="12" fill="#1E293B">0</text>
+          <text x="340" y="175" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">T₁ &gt; T₂ &gt; T₃</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 1:</strong> Real gases deviate from the ideal gas value \(PV/(\mu T) = R\) at high pressures, but all curves converge to \(R\) as \(P \to 0\). Higher temperatures (\(T_1\)) stay closer to ideal behaviour.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="sec-kinetic">
+      <h2 id="sec-kinetic">Kinetic Theory of Pressure and Temperature</h2>
+      <p>To derive macroscopic pressure from molecular motion, kinetic theory models an ideal gas as \(N\) identical molecules of mass \(m\) inside a container of volume \(V\), moving randomly with negligible intermolecular forces and undergoing purely elastic collisions with each other and the walls.</p>
+
+      <figure class="diagram-box">
+        <svg viewBox="0 0 520 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Elastic collision of a gas molecule with the right wall of a container">
+          <rect x="0" y="0" width="520" height="260" fill="#F8FAFC" rx="6" />
+          <!-- Container Box -->
+          <rect x="90" y="35" width="280" height="190" fill="#FFFFFF" stroke="#1E293B" stroke-width="2.5" />
+          <!-- Right wall highlight -->
+          <line x1="370" y1="35" x2="370" y2="225" stroke="#2563EB" stroke-width="5" />
+          <text x="382" y="130" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Wall (Area A)</text>
+          <!-- Coordinate axes -->
+          <line x1="40" y1="225" x2="40" y2="175" stroke="#475569" stroke-width="1.5" />
+          <polygon points="40,175 37,182 43,182" fill="#475569" />
+          <text x="35" y="168" font-family="sans-serif" font-size="12" fill="#475569">y</text>
+          <line x1="40" y1="225" x2="80" y2="225" stroke="#475569" stroke-width="1.5" />
+          <polygon points="80,225 73,222 73,228" fill="#475569" />
+          <text x="84" y="229" font-family="sans-serif" font-size="12" fill="#475569">x</text>
+          <!-- Molecule incoming path -->
+          <line x1="190" y1="75" x2="366" y2="130" stroke="#0D9488" stroke-width="2.2" />
+          <polygon points="295,108 286,101 289,110" fill="#0D9488" />
+          <circle cx="190" cy="75" r="7" fill="#0D9488" />
+          <text x="130" y="65" font-family="sans-serif" font-size="13" font-weight="bold" fill="#0D9488">Incoming: (vₓ, vᵧ, v_z)</text>
+          <!-- Molecule outgoing path -->
+          <line x1="366" y1="130" x2="190" y2="185" stroke="#D97706" stroke-width="2.2" />
+          <polygon points="265,161 274,163 271,155" fill="#D97706" />
+          <circle cx="190" cy="185" r="7" fill="#D97706" />
+          <text x="120" y="208" font-family="sans-serif" font-size="13" font-weight="bold" fill="#D97706">Rebound: (-vₓ, vᵧ, v_z)</text>
+          <!-- Collision point -->
+          <circle cx="368" cy="130" r="4" fill="#2563EB" />
+          <text x="382" y="152" font-family="sans-serif" font-size="12" fill="#1E293B">Δpₓ = 2mvₓ to wall</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 2:</strong> In an elastic collision with a wall perpendicular to the \(x\)-axis, only the \(x\)-component of velocity reverses, transferring momentum \(2mv_x\) to the wall.</figcaption>
+      </figure>
+
+      <h3>Derivation Summary of Gas Pressure</h3>
+      <p>In a small interval \(\Delta t\), only molecules within a distance \(v_x \Delta t\) of the wall of area \(A\) and moving toward it can strike it. On average, half of the molecules in the volume \(A v_x \Delta t\) move toward the wall, giving \(\frac{1}{2} n A v_x \Delta t\) collisions. Multiplying by the momentum \(2mv_x\) imparted per collision and dividing by \(A \Delta t\) gives the pressure contribution \(n m v_x^2\). Summing over all velocity groups and using isotropy (\(\overline{v_x^2} = \overline{v_y^2} = \overline{v_z^2} = \frac{1}{3}\overline{v^2}\)) yields:</p>
+
+      <div class="formula-box">
+        <span class="formula-label">Kinetic Pressure Formula</span>
+        \[
+          P = \frac{1}{3} n m \overline{v^2} = \frac{1}{3} \rho v_{\mathrm{rms}}^2
+        \]
+      </div>
+
+      <h3>Kinetic Interpretation of Temperature</h3>
+      <p>Multiplying both sides of \(P = \frac{1}{3} n m \overline{v^2}\) by volume \(V\) and noting that \(N = nV\) and total translational kinetic energy \(E = N \left(\frac{1}{2} m \overline{v^2}\right)\):</p>
+      \[
+        PV = \frac{2}{3} E
+      \]
+      <p>Comparing this with \(PV = N k_{\mathrm{B}} T\), we obtain two cornerstone results of kinetic theory:</p>
+      <div class="formula-box">
+        <span class="formula-label">Average Translational Kinetic Energy and RMS Speed</span>
+        \[
+          \frac{E}{N} = \frac{1}{2} m \overline{v^2} = \frac{3}{2} k_{\mathrm{B}} T \qquad \text{and} \qquad v_{\mathrm{rms}} = \sqrt{\overline{v^2}} = \sqrt{\frac{3 k_{\mathrm{B}} T}{m}} = \sqrt{\frac{3 R T}{M_0}} = \sqrt{\frac{3 P}{\rho}}
+        \]
+      </div>
+
+      <div class="card teal">
+        <div class="card-title">Key Physical Insights for NEET UG</div>
+        <ul>
+          <li><strong>Temperature measures average translational kinetic energy:</strong> \(\frac{1}{2}m\overline{v^2} = \frac{3}{2}k_{\mathrm{B}}T\) depends <em>only</em> on absolute temperature \(T\), not on the mass, atomicity, pressure, or volume of the ideal gas.</li>
+          <li><strong>Gas mixtures in thermal equilibrium:</strong> All gases in a mixture at temperature \(T\) have the same average translational kinetic energy per molecule, so lighter molecules move faster: \(v_{\mathrm{rms}} \propto \frac{1}{\sqrt{M_0}}\).</li>
+          <li><strong>Rate of diffusion:</strong> Because lighter molecules have higher rms speeds, gases diffuse at rates inversely proportional to \(\sqrt{M_0}\) (Graham's law of diffusion).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-equipartition">
+      <h2 id="sec-equipartition">Law of Equipartition of Energy and Specific Heats</h2>
+      <p>The number of independent coordinates or velocity components required to specify the configuration and motion of a molecule is called its <strong>degrees of freedom</strong>. Each independent quadratic term in the total energy expression of a molecule represents one energy mode.</p>
+
+      <ul>
+        <li><strong>Translational modes (3):</strong> \(\varepsilon_t = \frac{1}{2}mv_x^2 + \frac{1}{2}mv_y^2 + \frac{1}{2}mv_z^2\) (present in all gases).</li>
+        <li><strong>Rotational modes:</strong> A linear (diatomic) molecule has 2 independent rotational axes perpendicular to the internuclear axis, giving \(\varepsilon_r = \frac{1}{2}I_1\omega_1^2 + \frac{1}{2}I_2\omega_2^2\) (rotation about the bond axis has negligible moment of inertia and is quantum-mechanically frozen). A non-linear polyatomic molecule has 3 rotational degrees of freedom.</li>
+        <li><strong>Vibrational modes:</strong> Each vibrational mode acts like a harmonic oscillator with both kinetic energy \(\frac{1}{2}m\left(\frac{\mathrm{d}y}{\mathrm{d}t}\right)^2\) and potential energy \(\frac{1}{2}ky^2\), contributing <strong>two</strong> quadratic terms.</li>
+      </ul>
+
+      <figure class="diagram-box">
+        <svg viewBox="0 0 500 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two independent rotational axes of a rigid diatomic molecule">
+          <rect x="0" y="0" width="500" height="210" fill="#F8FAFC" rx="6" />
+          <!-- Left: Rotation about vertical axis (1) -->
+          <line x1="130" y1="25" x2="130" y2="185" stroke="#475569" stroke-width="1.8" stroke-dasharray="5,4" />
+          <text x="138" y="38" font-family="sans-serif" font-size="13" font-weight="bold" fill="#475569">Axis 1</text>
+          <ellipse cx="130" cy="105" rx="70" ry="22" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3" />
+          <line x1="72" y1="105" x2="188" y2="105" stroke="#2563EB" stroke-width="4" />
+          <circle cx="72" cy="105" r="12" fill="#0D9488" stroke="#1E293B" stroke-width="1.5" />
+          <circle cx="188" cy="105" r="12" fill="#0D9488" stroke="#1E293B" stroke-width="1.5" />
+          <path d="M 105 55 A 28 12 0 0 1 155 55" fill="none" stroke="#2563EB" stroke-width="2" />
+          <polygon points="155,55 148,50 150,58" fill="#2563EB" />
+          <text x="85" y="198" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Rotation ω₁ (I₁)</text>
+
+          <!-- Right: Rotation about axis (2) into/out of plane (drawn tilted) -->
+          <line x1="295" y1="45" x2="435" y2="165" stroke="#475569" stroke-width="1.8" stroke-dasharray="5,4" />
+          <text x="430" y="178" font-family="sans-serif" font-size="13" font-weight="bold" fill="#475569">Axis 2</text>
+          <ellipse cx="365" cy="105" rx="26" ry="62" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3" transform="rotate(-35 365 105)" />
+          <line x1="330" y1="150" x2="400" y2="60" stroke="#2563EB" stroke-width="4" />
+          <circle cx="330" cy="150" r="12" fill="#0D9488" stroke="#1E293B" stroke-width="1.5" />
+          <circle cx="400" cy="60" r="12" fill="#0D9488" stroke="#1E293B" stroke-width="1.5" />
+          <text x="320" y="198" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1E293B">Rotation ω₂ (I₂)</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 3:</strong> A rigid diatomic molecule has two independent rotational axes perpendicular to the line joining the atoms, giving 2 rotational degrees of freedom.</figcaption>
+      </figure>
+
+      <div class="formula-box">
+        <span class="formula-label">Law of Equipartition of Energy</span>
+        In thermal equilibrium at absolute temperature \(T\), each quadratic energy mode contributes an average energy of \(\frac{1}{2}k_{\mathrm{B}}T\) per molecule. Each vibrational mode contributes \(2 \times \frac{1}{2}k_{\mathrm{B}}T = k_{\mathrm{B}}T\).
+      </div>
+
+      <h3>Molar Specific Heats of Ideal Gases and Solids</h3>
+      <p>For one mole of an ideal gas with internal energy \(U\), the molar specific heat at constant volume is \(C_v = \frac{\mathrm{d}U}{\mathrm{d}T}\). By Mayer's relation, \(C_p - C_v = R\) holds for every ideal gas regardless of atomicity, and the adiabatic index is \(\gamma = \frac{C_p}{C_v}\).</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type of Substance</th>
+            <th>Active Modes (per molecule)</th>
+            <th>\(U\) (per mole)</th>
+            <th>\(C_v\)</th>
+            <th>\(C_p\)</th>
+            <th>\(\gamma = C_p / C_v\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Monatomic gas</strong> (e.g., He, Ne, Ar)</td>
+            <td>3 trans.</td>
+            <td>\(\frac{3}{2}RT\)</td>
+            <td>\(\frac{3}{2}R\)</td>
+            <td>\(\frac{5}{2}R\)</td>
+            <td>\(\frac{5}{3} \approx 1.67\)</td>
+          </tr>
+          <tr>
+            <td><strong>Rigid diatomic gas</strong> (e.g., \(\mathrm{O_2}\), \(\mathrm{N_2}\), \(\mathrm{H_2}\))</td>
+            <td>3 trans. + 2 rot.</td>
+            <td>\(\frac{5}{2}RT\)</td>
+            <td>\(\frac{5}{2}R\)</td>
+            <td>\(\frac{7}{2}R\)</td>
+            <td>\(\frac{7}{5} = 1.40\)</td>
+          </tr>
+          <tr>
+            <td><strong>Non-rigid diatomic gas</strong> (with 1 vib. mode)</td>
+            <td>3 trans. + 2 rot. + 1 vib. (2 terms)</td>
+            <td>\(\frac{7}{2}RT\)</td>
+            <td>\(\frac{7}{2}R\)</td>
+            <td>\(\frac{9}{2}R\)</td>
+            <td>\(\frac{9}{7} \approx 1.29\)</td>
+          </tr>
+          <tr>
+            <td><strong>Polyatomic gas</strong> (\(f\) vib. modes)</td>
+            <td>3 trans. + 3 rot. + \(f\) vib.</td>
+            <td>\((3+f)RT\)</td>
+            <td>\((3+f)R\)</td>
+            <td>\((4+f)R\)</td>
+            <td>\(\frac{4+f}{3+f}\)</td>
+          </tr>
+          <tr>
+            <td><strong>Crystalline solid</strong> (3D oscillator)</td>
+            <td>3 vib. (6 quadratic terms)</td>
+            <td>\(3RT\)</td>
+            <td>\(C \approx 3R\)</td>
+            <td>\(C \approx 3R\)</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>For solids, volume change \(\Delta V\) during heating is negligible, so \(C_p \approx C_v \approx 3R \approx 24.9\,\mathrm{J\,mol^{-1}\,K^{-1}}\) at room temperature (Dulong–Petit law). Light, tightly bound elements such as carbon (diamond) are exceptions at room temperature because their vibrational modes are only partially excited.</p>
+    </section>
+
+    <section aria-labelledby="sec-mfp">
+      <h2 id="sec-mfp">Mean Free Path and Collision Frequency</h2>
+      <p>Although gas molecules travel at hundreds of metres per second, a scent or gas leak takes noticeable time to spread across a room because molecules undergo frequent collisions that deflect their paths. The average distance travelled by a molecule between two successive collisions is called the <strong>mean free path</strong> (\(l\)).</p>
+
+      <figure class="diagram-box">
+        <svg viewBox="0 0 540 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Collision cylinder swept by a moving gas molecule of diameter d">
+          <rect x="0" y="0" width="540" height="220" fill="#F8FAFC" rx="6" />
+          <!-- Cylinder body -->
+          <polygon points="100,60 400,60 400,160 100,160" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="6,4" />
+          <!-- Left and right ellipses -->
+          <ellipse cx="100" cy="110" rx="18" ry="50" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8" />
+          <ellipse cx="400" cy="110" rx="18" ry="50" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="4,3" />
+          <!-- Axis -->
+          <line x1="100" y1="110" x2="400" y2="110" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,4" />
+          <!-- Moving molecule -->
+          <circle cx="100" cy="110" r="24" fill="#0D9488" fill-opacity="0.85" stroke="#1E293B" stroke-width="1.8" />
+          <!-- Target molecule inside cylinder -->
+          <circle cx="275" cy="72" r="24" fill="#CBD5E1" stroke="#1E293B" stroke-width="1.5" />
+          <circle cx="275" cy="72" r="2.5" fill="#1E293B" />
+          <!-- Outside molecule -->
+          <circle cx="330" cy="182" r="20" fill="#E2E8F0" stroke="#64748B" stroke-width="1.2" />
+          <!-- Dimension labels -->
+          <line x1="100" y1="36" x2="400" y2="36" stroke="#1E293B" stroke-width="1.5" />
+          <polygon points="100,36 108,32 108,40" fill="#1E293B" />
+          <polygon points="400,36 392,32 392,40" fill="#1E293B" />
+          <text x="215" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Distance = ⟨v⟩ Δt</text>
+          <!-- Radius d label -->
+          <line x1="435" y1="110" x2="435" y2="60" stroke="#2563EB" stroke-width="1.5" />
+          <polygon points="435,60 431,68 439,68" fill="#2563EB" />
+          <polygon points="435,110 431,102 439,102" fill="#2563EB" />
+          <text x="444" y="90" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2563EB">Radius = d</text>
+          <text x="155" y="192" font-family="sans-serif" font-size="12" fill="#475569">Swept Volume = π d² ⟨v⟩ Δt</text>
+        </svg>
+        <figcaption><strong>Tutorial Diagram 4:</strong> A molecule of diameter \(d\) collides with any molecule whose centre lies within a cylinder of radius \(d\) and length \(\langle v \rangle \Delta t\).</figcaption>
+      </figure>
+
+      <p>Accounting for the relative motion of all molecules introduces a factor of \(\sqrt{2}\), giving the mean free path \(l\) and average collision time \(\tau\):</p>
+      <div class="formula-box">
+        <span class="formula-label">Mean Free Path and Mean Collision Time</span>
+        \[
+          l = \frac{1}{\sqrt{2}\,\pi n d^2} = \frac{k_{\mathrm{B}} T}{\sqrt{2}\,\pi d^2 P} \qquad \text{and} \qquad \tau = \frac{l}{\langle v \rangle} = \frac{1}{\sqrt{2}\,\pi n d^2 \langle v \rangle}
+        \]
+      </div>
+      <p>Notice that \(l\) is inversely proportional to number density \(n\) and molecular cross-section \(\pi d^2\). At constant temperature, reducing the pressure \(P\) increases the mean free path proportionally.</p>
+    </section>
+
+    <section aria-labelledby="sec-examples">
+      <h2 id="sec-examples">Worked Examples</h2>
+
+      <div class="example-box">
+        <div class="example-header">Example 1: Determining Gas Density and Molecular Count from State Variables</div>
+        <p><strong>Problem:</strong> Suppose a rigid laboratory vessel of volume \(16.62\,\mathrm{L}\) holds pure nitrogen gas (\(\mathrm{N_2}\), molar mass \(M_0 = 28\,\mathrm{g\,mol^{-1}}\)) at a pressure of \(2.0 \times 10^5\,\mathrm{Pa}\) and temperature \(300\,\mathrm{K}\). Assuming ideal gas behaviour and taking \(R = 8.31\,\mathrm{J\,mol^{-1}\,K^{-1}}\), find (a) the number of moles, (b) the total number of molecules, and (c) the mass density of the gas.</p>
+        <p><strong>Solution:</strong></p>
+        <p>Convert volume to SI units: \(V = 16.62\,\mathrm{L} = 16.62 \times 10^{-3}\,\mathrm{m^3}\).</p>
+        <p>(a) Using \(PV = \mu RT\):</p>
+        \[
+          \mu = \frac{PV}{RT} = \frac{(2.0 \times 10^5\,\mathrm{Pa})(16.62 \times 10^{-3}\,\mathrm{m^3})}{(8.31\,\mathrm{J\,mol^{-1}\,K^{-1}})(300\,\mathrm{K})} = \frac{3324}{2493} = 1.33\,\mathrm{mol}
+        \]
+        <p>(b) Total number of molecules \(N = \mu N_{\mathrm{A}}\):</p>
+        \[
+          N = 1.33 \times 6.02 \times 10^{23} \approx 8.0 \times 10^{23}\text{ molecules}
+        \]
+        <p>(c) Mass density \(\rho = \frac{P M_0}{RT}\), with \(M_0 = 28 \times 10^{-3}\,\mathrm{kg\,mol^{-1}}\):</p>
+        \[
+          \rho = \frac{(2.0 \times 10^5)(28 \times 10^{-3})}{8.31 \times 300} = \frac{5600}{2493} \approx 2.25\,\mathrm{kg\,m^{-3}}
+        \]
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Example 2: Comparing Root-Mean-Square Speeds in a Binary Gas Mixture</div>
+        <p><strong>Problem:</strong> A thermally insulated cylinder contains a hypothetical mixture of helium (\(\mathrm{He}\), \(M_1 = 4\,\mathrm{g\,mol^{-1}}\)) and oxygen (\(\mathrm{O_2}\), \(M_2 = 32\,\mathrm{g\,mol^{-1}}\)) in thermal equilibrium at \(27\,\mathrm{°C}\). Calculate (a) the ratio of the average translational kinetic energy per molecule of \(\mathrm{He}\) to that of \(\mathrm{O_2}\), and (b) the ratio of their root-mean-square speeds, \(\frac{v_{\mathrm{rms}}(\mathrm{He})}{v_{\mathrm{rms}}(\mathrm{O_2})}\).</p>
+        <p><strong>Solution:</strong></p>
+        <p>(a) Both gases are at the same temperature \(T = 27 + 273 = 300\,\mathrm{K}\). Since the average translational kinetic energy per molecule is \(\frac{3}{2}k_{\mathrm{B}}T\), independent of molecular mass or atomicity:</p>
+        \[
+          \frac{\langle K_{\mathrm{He}} \rangle}{\langle K_{\mathrm{O_2}} \rangle} = 1 : 1
+        \]
+        <p>(b) Using \(v_{\mathrm{rms}} = \sqrt{\frac{3RT}{M_0}}\) at the same temperature \(T\):</p>
+        \[
+          \frac{v_{\mathrm{rms}}(\mathrm{He})}{v_{\mathrm{rms}}(\mathrm{O_2})} = \sqrt{\frac{M_{\mathrm{O_2}}}{M_{\mathrm{He}}}} = \sqrt{\frac{32}{4}} = \sqrt{8} = 2\sqrt{2} \approx 2.83
+        \]
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Example 3: Applying Equipartition of Energy to a Gas Mixture</div>
+        <p><strong>Problem:</strong> Suppose \(2\,\mathrm{mol}\) of a monatomic ideal gas are mixed with \(3\,\mathrm{mol}\) of a rigid diatomic ideal gas without chemical reaction. Determine the effective molar specific heat at constant volume \(C_{v,\text{mix}}\) and the adiabatic index \(\gamma_{\text{mix}}\) of the mixture.</p>
+        <p><strong>Solution:</strong></p>
+        <p>For the monatomic gas, \(C_{v1} = \frac{3}{2}R\); for the rigid diatomic gas, \(C_{v2} = \frac{5}{2}R\). The total internal energy of the mixture is \(U_{\text{mix}} = \mu_1 C_{v1} T + \mu_2 C_{v2} T\), so:</p>
+        \[
+          C_{v,\text{mix}} = \frac{\mu_1 C_{v1} + \mu_2 C_{v2}}{\mu_1 + \mu_2} = \frac{2\left(\frac{3}{2}R\right) + 3\left(\frac{5}{2}R\right)}{2 + 3} = \frac{3R + 7.5R}{5} = \frac{10.5R}{5} = 2.1R = \frac{21}{10}R
+        \]
+        <p>Using Mayer's relation for the ideal gas mixture, \(C_{p,\text{mix}} = C_{v,\text{mix}} + R = \frac{31}{10}R\). Therefore:</p>
+        \[
+          \gamma_{\text{mix}} = \frac{C_{p,\text{mix}}}{C_{v,\text{mix}}} = \frac{31/10}{21/10} = \frac{31}{21} \approx 1.48
+        \]
+      </div>
+
+      <div class="example-box">
+        <div class="example-header">Example 4: Scaling of Mean Free Path with Pressure and Temperature</div>
+        <p><strong>Problem:</strong> An ideal gas has a mean free path \(l_0 = 1.2 \times 10^{-7}\,\mathrm{m}\) at temperature \(T_0 = 300\,\mathrm{K}\) and pressure \(P_0 = 1.0\,\mathrm{atm}\). Assuming the molecular diameter remains constant, what will be the new mean free path if the gas is heated to \(450\,\mathrm{K}\) while its pressure is raised to \(3.0\,\mathrm{atm}\)?</p>
+        <p><strong>Solution:</strong></p>
+        <p>From \(l = \frac{k_{\mathrm{B}}T}{\sqrt{2}\,\pi d^2 P}\), for a given gas (\(d\) constant), \(l \propto \frac{T}{P}\). Thus:</p>
+        \[
+          \frac{l}{l_0} = \left(\frac{T}{T_0}\right)\left(\frac{P_0}{P}\right) = \left(\frac{450}{300}\right)\left(\frac{1.0}{3.0}\right) = \frac{3}{2} \times \frac{1}{3} = \frac{1}{2}
+        \]
+        \[
+          l = \frac{1.2 \times 10^{-7}\,\mathrm{m}}{2} = 6.0 \times 10^{-8}\,\mathrm{m}
+        \]
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-practice">
+      <h2 id="sec-practice">NEET UG Practice Questions</h2>
+      <p>Attempt all questions independently before checking the solutions. Each question is an original practice item designed to match NEET UG difficulty and format.</p>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 1 (Single-Correct MCQ): A sealed container holds an ideal gas at \(27\,\mathrm{°C}\). To double the root-mean-square speed of its molecules, the gas must be heated at constant volume to:</div>
+        <ul class="options-list">
+          <li>(A) \(54\,\mathrm{°C}\)</li>
+          <li>(B) \(327\,\mathrm{°C}\)</li>
+          <li>(C) \(600\,\mathrm{°C}\)</li>
+          <li>(D) \(927\,\mathrm{°C}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (D)</span>
+          <p><strong>Solution:</strong> Initial temperature \(T_1 = 27 + 273 = 300\,\mathrm{K}\). Since \(v_{\mathrm{rms}} \propto \sqrt{T}\), doubling \(v_{\mathrm{rms}}\) requires quadrupling the absolute temperature: \(T_2 = 4 T_1 = 1200\,\mathrm{K}\). In Celsius, \(t_2 = 1200 - 273 = 927\,\mathrm{°C}\).</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 2 (Single-Correct MCQ): Two vessels of equal volume contain hydrogen (\(\mathrm{H_2}\), \(M = 2\,\mathrm{g\,mol^{-1}}\)) and helium (\(\mathrm{He}\), \(M = 4\,\mathrm{g\,mol^{-1}}\)) at the same temperature and pressure. The ratio of the number of molecules of \(\mathrm{H_2}\) to \(\mathrm{He}\) and the ratio of their total internal energies are respectively:</div>
+        <ul class="options-list">
+          <li>(A) \(1:1\) and \(5:3\)</li>
+          <li>(B) \(1:2\) and \(5:3\)</li>
+          <li>(C) \(1:1\) and \(3:5\)</li>
+          <li>(D) \(2:1\) and \(1:1\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (A)</span>
+          <p><strong>Solution:</strong> By Avogadro's hypothesis (\(N = \frac{PV}{k_{\mathrm{B}}T}\)), equal volumes at identical \(P\) and \(T\) contain equal numbers of molecules, so \(N_{\mathrm{H_2}} : N_{\mathrm{He}} = 1 : 1\) (and \(\mu_1 = \mu_2\)). For internal energy, rigid diatomic \(\mathrm{H_2}\) has \(f_1 = 5\) (\(U_1 = \frac{5}{2}\mu RT\)) while monatomic \(\mathrm{He}\) has \(f_2 = 3\) (\(U_2 = \frac{3}{2}\mu RT\)). Hence \(U_1 : U_2 = 5 : 3\).</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 3 (Single-Correct MCQ): The pressure of an ideal gas of density \(\rho = 1.5\,\mathrm{kg\,m^{-3}}\) is \(P = 2.0 \times 10^5\,\mathrm{Pa}\). What is the root-mean-square speed of the gas molecules?</div>
+        <ul class="options-list">
+          <li>(A) \(400\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(B) \(516\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(C) \(632\,\mathrm{m\,s^{-1}}\)</li>
+          <li>(D) \(750\,\mathrm{m\,s^{-1}}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (C)</span>
+          <p><strong>Solution:</strong> Using \(v_{\mathrm{rms}} = \sqrt{\frac{3P}{\rho}}\):</p>
+          \[
+            v_{\mathrm{rms}} = \sqrt{\frac{3 \times 2.0 \times 10^5}{1.5}} = \sqrt{4.0 \times 10^5} = 200\sqrt{10} \approx 200 \times 3.162 \approx 632\,\mathrm{m\,s^{-1}}
+          \]
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 4 (Statement Type): Read the two statements carefully.<br>
+        <strong>Statement I:</strong> At the same temperature, the average translational kinetic energy per molecule of nitrogen is equal to that of argon.<br>
+        <strong>Statement II:</strong> Nitrogen is diatomic whereas argon is monatomic, so nitrogen has a larger total internal energy per mole than argon at the same temperature.</div>
+        <ul class="options-list">
+          <li>(A) Both Statement I and Statement II are correct.</li>
+          <li>(B) Both Statement I and Statement II are incorrect.</li>
+          <li>(C) Statement I is correct, but Statement II is incorrect.</li>
+          <li>(D) Statement I is incorrect, but Statement II is correct.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (A)</span>
+          <p><strong>Solution:</strong> Average translational kinetic energy per molecule is \(\frac{3}{2}k_{\mathrm{B}}T\), which depends only on temperature \(T\); thus Statement I is correct. Total internal energy per mole includes rotational modes: \(\frac{5}{2}RT\) for rigid diatomic \(\mathrm{N_2}\) versus \(\frac{3}{2}RT\) for monatomic \(\mathrm{Ar}\); thus Statement II is also correct.</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 5 (Single-Correct MCQ): A diatomic gas molecule has 3 translational, 2 rotational, and 1 vibrational mode active at high temperature. What is the ratio \(\gamma = \frac{C_p}{C_v}\) for this gas?</div>
+        <ul class="options-list">
+          <li>(A) \(\frac{7}{5}\)</li>
+          <li>(B) \(\frac{9}{7}\)</li>
+          <li>(C) \(\frac{8}{6}\)</li>
+          <li>(D) \(\frac{11}{9}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (B)</span>
+          <p><strong>Solution:</strong> Each vibrational mode contributes 2 quadratic terms (kinetic + potential). Total quadratic terms = \(3 + 2 + 2 = 7\). Thus \(C_v = \frac{7}{2}R\), \(C_p = \frac{7}{2}R + R = \frac{9}{2}R\), and \(\gamma = \frac{9}{7}\).</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 6 (Single-Correct MCQ): A vessel contains a non-reacting mixture of \(16\,\mathrm{g}\) of oxygen (\(\mathrm{O_2}\), \(M_0 = 32\,\mathrm{g\,mol^{-1}}\)) and \(14\,\mathrm{g}\) of nitrogen (\(\mathrm{N_2}\), \(M_0 = 28\,\mathrm{g\,mol^{-1}}\)) at temperature \(T\). If the total pressure of the mixture is \(P\), the partial pressure of oxygen is:</div>
+        <ul class="options-list">
+          <li>(A) \(\frac{P}{4}\)</li>
+          <li>(B) \(\frac{P}{3}\)</li>
+          <li>(C) \(\frac{P}{2}\)</li>
+          <li>(D) \(\frac{2P}{3}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (C)</span>
+          <p><strong>Solution:</strong> Moles of \(\mathrm{O_2}\): \(\mu_1 = \frac{16}{32} = 0.5\,\mathrm{mol}\). Moles of \(\mathrm{N_2}\): \(\mu_2 = \frac{14}{28} = 0.5\,\mathrm{mol}\). By Dalton's law, \(P_1 = \left(\frac{\mu_1}{\mu_1 + \mu_2}\right)P = \left(\frac{0.5}{1.0}\right)P = \frac{P}{2}\).</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 7 (Single-Correct MCQ): An air bubble of volume \(2.0\,\mathrm{cm^3}\) rises from the bottom of a freshwater lake of depth \(30\,\mathrm{m}\) (where temperature is \(7\,\mathrm{°C}\)) to the surface (where atmospheric pressure is \(1.0 \times 10^5\,\mathrm{Pa}\) and temperature is \(27\,\mathrm{°C}\)). Taking \(g = 10\,\mathrm{m\,s^{-2}}\) and water density \(\rho_w = 1000\,\mathrm{kg\,m^{-3}}\), the volume of the bubble just as it reaches the surface is approximately:</div>
+        <ul class="options-list">
+          <li>(A) \(4.3\,\mathrm{cm^3}\)</li>
+          <li>(B) \(6.4\,\mathrm{cm^3}\)</li>
+          <li>(C) \(8.6\,\mathrm{cm^3}\)</li>
+          <li>(D) \(10.2\,\mathrm{cm^3}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (C)</span>
+          <p><strong>Solution:</strong> Pressure at bottom: \(P_1 = P_{\mathrm{atm}} + \rho_w g h = 1.0 \times 10^5 + (1000)(10)(30) = 4.0 \times 10^5\,\mathrm{Pa}\). Temperatures: \(T_1 = 7 + 273 = 280\,\mathrm{K}\), \(T_2 = 27 + 273 = 300\,\mathrm{K}\). Using \(\frac{P_1 V_1}{T_1} = \frac{P_2 V_2}{T_2}\):</p>
+          \[
+            V_2 = V_1 \left(\frac{P_1}{P_2}\right)\left(\frac{T_2}{T_1}\right) = 2.0 \times \frac{4.0 \times 10^5}{1.0 \times 10^5} \times \frac{300}{280} = 8.0 \times \frac{15}{14} \approx 8.57\,\mathrm{cm^3} \approx 8.6\,\mathrm{cm^3}
+          \]
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 8 (Assertion–Reason):<br>
+        <strong>Assertion (A):</strong> In a gas confined in a closed rigid cylinder, the mean free path of the molecules remains unchanged even if the temperature is doubled.<br>
+        <strong>Reason (R):</strong> Mean free path depends on the number density \(n\) and molecular diameter \(d\), both of which remain constant in a rigid closed container.</div>
+        <ul class="options-list">
+          <li>(A) Both (A) and (R) are true, and (R) is the correct explanation of (A).</li>
+          <li>(B) Both (A) and (R) are true, but (R) is NOT the correct explanation of (A).</li>
+          <li>(C) (A) is true, but (R) is false.</li>
+          <li>(D) (A) is false, but (R) is true.</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (A)</span>
+          <p><strong>Solution:</strong> From \(l = \frac{1}{\sqrt{2}\,\pi n d^2}\), \(l\) depends only on \(n = N/V\) and \(d\). In a closed rigid container, \(N\) and \(V\) are fixed, so \(n\) does not change when \(T\) is doubled (pressure doubles proportionally, keeping \(T/P\) constant). Thus both (A) and (R) are true and (R) correctly explains (A).</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 9 (Single-Correct MCQ): According to the law of equipartition of energy, the molar specific heat of a crystalline solid at room temperature (ignoring electronic contributions) is approximately:</div>
+        <ul class="options-list">
+          <li>(A) \(\frac{3}{2}R\)</li>
+          <li>(B) \(\frac{5}{2}R\)</li>
+          <li>(C) \(3R\)</li>
+          <li>(D) \(6R\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (C)</span>
+          <p><strong>Solution:</strong> Each atom in a solid vibrates in 3 dimensions, having 3 vibrational modes (6 quadratic terms). Average energy per atom is \(6 \times \frac{1}{2}k_{\mathrm{B}}T = 3k_{\mathrm{B}}T\). For 1 mole, \(U = 3RT\), giving \(C = \frac{\mathrm{d}U}{\mathrm{d}T} = 3R\).</p>
+        </div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-stem">Practice Question 10 (Single-Correct MCQ): If the diameter of gas molecules were hypothetically halved while keeping number density \(n\) and temperature \(T\) unchanged, the mean free path \(l\) would become:</div>
+        <ul class="options-list">
+          <li>(A) \(4l\)</li>
+          <li>(B) \(2l\)</li>
+          <li>(C) \(\frac{l}{2}\)</li>
+          <li>(D) \(\frac{l}{4}\)</li>
+        </ul>
+        <div class="solution-block">
+          <span class="ans-tag">Correct Answer: (A)</span>
+          <p><strong>Solution:</strong> Since \(l = \frac{1}{\sqrt{2}\,\pi n d^2}\), we have \(l \propto \frac{1}{d^2}\) at constant \(n\). Replacing \(d\) by \(d/2\) increases \(l\) by a factor of \(\frac{1}{(1/2)^2} = 4\).</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-pitfalls">
+      <h2 id="sec-pitfalls">Common Pitfalls and Revision Checklist</h2>
+      <div class="card warn">
+        <div class="card-title">Frequent Mistakes to Avoid in NEET UG</div>
+        <ul>
+          <li><strong>Celsius vs. Kelvin:</strong> Always convert temperatures to kelvin (\(T(\mathrm{K}) = t(\mathrm{°C}) + 273\)) before using \(PV = \mu RT\), \(v_{\mathrm{rms}} \propto \sqrt{T}\), or Charles' law.</li>
+          <li><strong>Counting vibrational degrees of freedom:</strong> Each vibrational mode contributes <strong>2</strong> quadratic terms (kinetic + potential), adding \(k_{\mathrm{B}}T\) per molecule (or \(R\) to \(C_v\)), not \(\frac{1}{2}k_{\mathrm{B}}T\).</li>
+          <li><strong>Mean square vs. square of the mean:</strong> Remember that \(\overline{v^2} \neq (\langle v \rangle)^2\). Specifically, \(v_{\mathrm{rms}} = \sqrt{\overline{v^2}}\) is always greater than the mean speed \(\langle v \rangle\).</li>
+          <li><strong>Gauge pressure vs. absolute pressure:</strong> When a problem states gauge pressure (e.g., in a cylinder or at depth in a lake), add atmospheric pressure (\(1\,\mathrm{atm}\)) to obtain absolute pressure \(P\) before applying the ideal gas law.</li>
+          <li><strong>Mean free path at constant volume vs. constant pressure:</strong> At constant pressure, \(l \propto T\). At constant volume (rigid container), \(n\) is fixed so \(l\) is independent of \(T\).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Quick Revision Checklist</div>
+        <ul>
+          <li>Ideal gas law: \(PV = \mu RT = N k_{\mathrm{B}}T\); density form \(P = \frac{\rho RT}{M_0}\).</li>
+          <li>Pressure &amp; temperature: \(P = \frac{1}{3}nm\overline{v^2} = \frac{1}{3}\rho v_{\mathrm{rms}}^2\); \(PV = \frac{2}{3}E\); \(\frac{E}{N} = \frac{3}{2}k_{\mathrm{B}}T\).</li>
+          <li>RMS speed: \(v_{\mathrm{rms}} = \sqrt{\frac{3RT}{M_0}} = \sqrt{\frac{3k_{\mathrm{B}}T}{m}} = \sqrt{\frac{3P}{\rho}}\).</li>
+          <li>Specific heats: Monatomic \(\gamma = \frac{5}{3}\); rigid diatomic \(\gamma = \frac{7}{5}\); non-rigid diatomic (1 vib.) \(\gamma = \frac{9}{7}\); solid \(C = 3R\).</li>
+          <li>Mean free path: \(l = \frac{1}{\sqrt{2}\,\pi n d^2} = \frac{k_{\mathrm{B}}T}{\sqrt{2}\,\pi d^2 P}\).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-recap">
+      <h2 id="sec-recap">Concise Final Recap</h2>
+      <p>The kinetic theory of gases explains macroscopic gas behaviour from the statistical mechanics of randomly moving molecules undergoing elastic collisions. Pressure arises from molecular momentum transfer to container walls, while absolute temperature directly measures average translational kinetic energy per molecule. Equipartition of energy predicts specific heats across monatomic, diatomic, and polyatomic gases as well as crystalline solids, and the finite size of molecules governs the mean free path and collision frequency.</p>
+    </section>
+
+  </div>
+</body>
+</html>
